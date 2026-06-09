@@ -3,16 +3,36 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { ArrowLeft, Plus, X } from "lucide-react"
 import { useRef, useState } from "react"
-import { TOP_BANKS } from "@/lib/cashback-data"
+import { TOP_BANKS, TOP_MARKETS } from "@/lib/cashback-data"
 import { GalleryScreen } from "@/components/screens/gallery-screen"
+
+const COPY = {
+  bank: {
+    title: "Выберите или введите название банка",
+    subtitle: "Укажите банк, из приложения которого сделан скриншот",
+    placeholder: "Например, Альфа-Банк",
+    addLabel: "Добавить кэшбек банка",
+    options: TOP_BANKS,
+  },
+  market: {
+    title: "Выберите или введите название супермаркета",
+    subtitle: "Укажите супермаркет, из приложения которого сделан скриншот",
+    placeholder: "Например, Пятёрочка",
+    addLabel: "Добавить кэшбек супермаркета",
+    options: TOP_MARKETS,
+  },
+} as const
 
 export function BankSelectScreen({
   onBack,
   onNext,
+  kind = "bank",
 }: {
   onBack: () => void
   onNext: () => void
+  kind?: "bank" | "market"
 }) {
+  const copy = COPY[kind]
   const [banks, setBanks] = useState<string[]>([""])
   // Index of the bank row that is awaiting a name after a screenshot was added.
   // null = gallery picker is closed.
@@ -52,14 +72,14 @@ export function BankSelectScreen({
       className="flex min-h-full flex-col px-6 py-10"
     >
       <h1 className="text-balance text-xl font-bold leading-snug text-slate-900">
-        Выберите или введите название банка
+        {copy.title}
       </h1>
       <p className="mt-2 text-[14px] leading-relaxed text-slate-500">
-        Укажите банк, из приложения которого сделан скриншот
+        {copy.subtitle}
       </p>
 
       <datalist id="bank-list">
-        {TOP_BANKS.map((b) => (
+        {copy.options.map((b) => (
           <option key={b} value={b} />
         ))}
       </datalist>
@@ -73,7 +93,7 @@ export function BankSelectScreen({
               value={bank}
               autoFocus={focusIndexRef.current === i}
               onChange={(e) => updateBank(i, e.target.value)}
-              placeholder="Например, Альфа-Банк"
+              placeholder={copy.placeholder}
               className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-[15px] text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white"
             />
             {banks.length > 1 && (
@@ -94,7 +114,7 @@ export function BankSelectScreen({
         className="mt-3 flex items-center justify-center gap-2 self-start rounded-2xl border border-slate-300 px-4 py-2.5 text-[14px] font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50"
       >
         <Plus className="h-4 w-4" />
-        Добавить кэшбек банка
+        {copy.addLabel}
       </button>
 
       {/* Bottom nav */}
@@ -119,6 +139,7 @@ export function BankSelectScreen({
       <AnimatePresence>
         {pendingBankIndex !== null && (
           <GalleryScreen
+            kind={kind}
             onCancel={() => setPendingBankIndex(null)}
             onAdd={handleScreenshotAdded}
           />

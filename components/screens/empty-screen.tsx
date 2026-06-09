@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { CreditCard, ShoppingBag } from "lucide-react"
 
-export function EmptyScreen({ onUpload }: { onUpload: () => void }) {
+export function EmptyScreen({ onUpload }: { onUpload: (kind: "bank" | "market") => void }) {
   return (
     <motion.div
       key="empty"
@@ -26,14 +26,14 @@ export function EmptyScreen({ onUpload }: { onUpload: () => void }) {
 
       <div className="mt-10 flex w-full flex-col gap-3">
         <button
-          onClick={onUpload}
+          onClick={() => onUpload("bank")}
           className="flex w-full items-center justify-center gap-3 rounded-2xl bg-emerald-600 px-5 py-4 text-[15px] font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700 active:bg-emerald-800"
         >
           <CreditCard className="h-5 w-5" />
           Загрузить скриншоты банка
         </button>
         <button
-          onClick={onUpload}
+          onClick={() => onUpload("market")}
           className="flex w-full items-center justify-center gap-3 rounded-2xl bg-orange-500 px-5 py-4 text-[15px] font-semibold text-white shadow-sm transition-colors hover:bg-orange-600 active:bg-orange-700"
         >
           <ShoppingBag className="h-5 w-5" />

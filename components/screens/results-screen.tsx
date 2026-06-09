@@ -5,6 +5,8 @@ import { RotateCcw } from "lucide-react"
 import {
   BANKS,
   CASHBACK_ROWS,
+  MARKETS,
+  MARKET_CASHBACK_ROWS,
   getCurrentMonthYear,
   getRowTiers,
   type RateTier,
@@ -16,7 +18,16 @@ const TIER_STYLES: Record<RateTier, string> = {
   low: "bg-red-100 text-red-700",
 }
 
-export function ResultsScreen({ onRestart }: { onRestart: () => void }) {
+export function ResultsScreen({
+  onRestart,
+  kind = "bank",
+}: {
+  onRestart: () => void
+  kind?: "bank" | "market"
+}) {
+  const providers = kind === "market" ? MARKETS : BANKS
+  const rows = kind === "market" ? MARKET_CASHBACK_ROWS : CASHBACK_ROWS
+
   return (
     <motion.div
       key="results"
@@ -41,12 +52,12 @@ export function ResultsScreen({ onRestart }: { onRestart: () => void }) {
             Категория
           </div>
           <div className="flex shrink-0 items-center gap-1">
-            {BANKS.map((bank) => (
-              <div key={bank.key} className="flex w-11 justify-center">
+            {providers.map((p) => (
+              <div key={p.key} className="flex w-11 justify-center">
                 <img
-                  src={bank.logo || "/placeholder.svg"}
-                  alt={bank.name}
-                  title={bank.name}
+                  src={p.logo || "/placeholder.svg"}
+                  alt={p.name}
+                  title={p.name}
                   className="h-7 w-7 rounded-lg object-cover"
                 />
               </div>
@@ -55,26 +66,26 @@ export function ResultsScreen({ onRestart }: { onRestart: () => void }) {
         </div>
 
         {/* Rows */}
-        {CASHBACK_ROWS.map((row, idx) => {
+        {rows.map((row, idx) => {
           const tiers = getRowTiers(row.rates)
           return (
             <div
               key={row.category}
               className={`flex items-center px-3 py-3 ${
-                idx !== CASHBACK_ROWS.length - 1 ? "border-b border-slate-100" : ""
+                idx !== rows.length - 1 ? "border-b border-slate-100" : ""
               }`}
             >
               <div className="flex-1 pr-2 text-[13px] font-medium leading-snug text-slate-800">
                 {row.category}
               </div>
               <div className="flex shrink-0 items-center gap-1">
-                {BANKS.map((bank) => {
-                  const rate = row.rates[bank.key]
+                {providers.map((p) => {
+                  const rate = (row.rates as Record<string, number | undefined>)[p.key]
                   return (
-                    <div key={bank.key} className="flex w-11 justify-center">
+                    <div key={p.key} className="flex w-11 justify-center">
                       {rate !== undefined ? (
                         <span
-                          className={`rounded-full px-2 py-1 text-[12px] font-bold ${TIER_STYLES[tiers[bank.key]]}`}
+                          className={`rounded-full px-2 py-1 text-[12px] font-bold ${TIER_STYLES[tiers[p.key]]}`}
                         >
                           {rate}%
                         </span>

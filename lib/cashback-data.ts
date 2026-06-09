@@ -37,6 +37,52 @@ export const TOP_BANKS = [
   "Яндекс Банк",
 ]
 
+/* ----------------------------- Supermarkets ----------------------------- */
+
+export type MarketKey = "pyaterochka" | "magnit" | "lenta"
+
+export interface Market {
+  key: MarketKey
+  name: string
+  logo: string
+}
+
+export const MARKETS: Market[] = [
+  { key: "pyaterochka", name: "Пятёрочка", logo: "/logos/pyaterochka.png" },
+  { key: "magnit", name: "Магнит", logo: "/logos/magnit.png" },
+  { key: "lenta", name: "Лента", logo: "/logos/lenta.png" },
+]
+
+export interface MarketCashbackRow {
+  category: string
+  rates: Partial<Record<MarketKey, number>>
+}
+
+export const MARKET_CASHBACK_ROWS: MarketCashbackRow[] = [
+  { category: "Молоко и сливки", rates: { magnit: 10, lenta: 5 } },
+  { category: "Кисломолочка", rates: { magnit: 10 } },
+  { category: "Йогурты и десерты", rates: { magnit: 10 } },
+  { category: "Твёрдые сыры", rates: { magnit: 10 } },
+  { category: "Мясо и птица", rates: { lenta: 5 } },
+  { category: "Колбасы и купаты", rates: { magnit: 10 } },
+  { category: "Консервы", rates: { lenta: 5 } },
+  { category: "Макароны", rates: { lenta: 5 } },
+  { category: "Готовая кулинария", rates: { pyaterochka: 20 } },
+  { category: "Пиво и сидр", rates: { pyaterochka: 15 } },
+  { category: "Замороженные ягоды", rates: { pyaterochka: 20 } },
+]
+
+export const TOP_MARKETS = [
+  "Пятёрочка",
+  "Магнит",
+  "Лента",
+  "Перекрёсток",
+  "Ашан",
+  "Дикси",
+  "Метро",
+  "ВкусВилл",
+]
+
 export type RateTier = "high" | "mid" | "low"
 
 /**
@@ -44,8 +90,8 @@ export type RateTier = "high" | "mid" | "low"
  * Tiers are computed against the distinct rate values present in the row.
  * Equal values share the highest available tier among them.
  */
-export function getRowTiers(rates: CashbackRow["rates"]): Record<string, RateTier> {
-  const entries = Object.entries(rates) as [BankKey, number][]
+export function getRowTiers(rates: Partial<Record<string, number>>): Record<string, RateTier> {
+  const entries = Object.entries(rates).filter(([, v]) => v !== undefined) as [string, number][]
   const distinct = Array.from(new Set(entries.map(([, v]) => v))).sort((a, b) => b - a)
 
   const valueToTier = new Map<number, RateTier>()

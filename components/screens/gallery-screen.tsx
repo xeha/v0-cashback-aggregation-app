@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { useState } from "react"
 
-const PHOTOS = [
+const BANK_PHOTOS = [
   "/screenshots/alfa-categories.jpeg",
   "/screenshots/cashback-june.jpeg",
   "/screenshots/aliexpress.jpeg",
@@ -15,14 +15,29 @@ const PHOTOS = [
   "/screenshots/cashback-june.jpeg",
 ]
 
+const MARKET_PHOTOS = [
+  "/screenshots/magnit-categories.jpg",
+  "/screenshots/pyaterochka-categories.jpg",
+  "/screenshots/lenta-categories.jpg",
+  "/screenshots/pyaterochka-categories.jpg",
+  "/screenshots/magnit-categories.jpg",
+  "/screenshots/lenta-categories.jpg",
+  "/screenshots/lenta-categories.jpg",
+  "/screenshots/magnit-categories.jpg",
+  "/screenshots/pyaterochka-categories.jpg",
+]
+
 export function GalleryScreen({
   onCancel,
   onAdd,
+  kind = "bank",
 }: {
   onCancel: () => void
   onAdd: () => void
+  kind?: "bank" | "market"
 }) {
   const [selected, setSelected] = useState<number | null>(null)
+  const PHOTOS = kind === "market" ? MARKET_PHOTOS : BANK_PHOTOS
 
   return (
     <motion.div
