@@ -21,23 +21,24 @@ export function EmptyScreen({ onUpload }: { onUpload: (kind: "bank" | "market") 
         У вас нет данных о кэшбеках
       </h1>
       <p className="mt-3 text-pretty text-[15px] leading-relaxed text-slate-500">
-        Загрузите скриншоты из приложения банка или супермаркета, и мы автоматически распознаем ваши категории
+        Мы автоматически распознаем категории трат по вашим скриншотам
       </p>
 
       <div className="mt-10 flex w-full flex-col gap-3">
+        <h2 className="self-start text-[15px] font-semibold text-slate-900">Загрузить</h2>
         <button
           onClick={() => onUpload("bank")}
           className="flex w-full items-center justify-center gap-3 rounded-2xl bg-emerald-600 px-5 py-4 text-[15px] font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700 active:bg-emerald-800"
         >
           <CreditCard className="h-5 w-5" />
-          Загрузить скриншоты банка
+          Из приложения банка
         </button>
         <button
           onClick={() => onUpload("market")}
           className="flex w-full items-center justify-center gap-3 rounded-2xl bg-orange-500 px-5 py-4 text-[15px] font-semibold text-white shadow-sm transition-colors hover:bg-orange-600 active:bg-orange-700"
         >
           <ShoppingBag className="h-5 w-5" />
-          Загрузить скриншоты супермаркета
+          Из супермаркета
         </button>
       </div>
     </motion.div>
