@@ -1,9 +1,10 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { ArrowLeft, Plus, X } from "lucide-react"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { TOP_BANKS } from "@/lib/cashback-data"
+import { GalleryScreen } from "@/components/screens/gallery-screen"
 
 export function BankSelectScreen({
   onBack,
@@ -13,13 +14,26 @@ export function BankSelectScreen({
   onNext: () => void
 }) {
   const [banks, setBanks] = useState<string[]>([""])
+  // Index of the bank row that is awaiting a name after a screenshot was added.
+  // null = gallery picker is closed.
+  const [pendingBankIndex, setPendingBankIndex] = useState<number | null>(null)
+  const focusIndexRef = useRef<number | null>(null)
 
   function updateBank(index: number, value: string) {
     setBanks((prev) => prev.map((b, i) => (i === index ? value : b)))
   }
 
-  function addBank() {
+  // Step 1: open the gallery so the user adds a screenshot first.
+  function startAddBank() {
+    setPendingBankIndex(banks.length)
+  }
+
+  // Step 2: screenshot added — create the new bank row and prompt for its name.
+  function handleScreenshotAdded() {
+    const newIndex = banks.length
     setBanks((prev) => [...prev, ""])
+    setPendingBankIndex(null)
+    focusIndexRef.current = newIndex
   }
 
   function removeBank(index: number) {
@@ -57,6 +71,7 @@ export function BankSelectScreen({
               type="text"
               list="bank-list"
               value={bank}
+              autoFocus={focusIndexRef.current === i}
               onChange={(e) => updateBank(i, e.target.value)}
               placeholder="Например, Альфа-Банк"
               className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-[15px] text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white"
@@ -75,11 +90,11 @@ export function BankSelectScreen({
       </div>
 
       <button
-        onClick={addBank}
+        onClick={startAddBank}
         className="mt-3 flex items-center justify-center gap-2 self-start rounded-2xl border border-slate-300 px-4 py-2.5 text-[14px] font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50"
       >
         <Plus className="h-4 w-4" />
-        Добавить ещё банк
+        Добавить кэшбек банка
       </button>
 
       {/* Bottom nav */}
@@ -99,6 +114,16 @@ export function BankSelectScreen({
           Далее
         </button>
       </div>
+
+      {/* Gallery picker shown when adding another bank's cashback */}
+      <AnimatePresence>
+        {pendingBankIndex !== null && (
+          <GalleryScreen
+            onCancel={() => setPendingBankIndex(null)}
+            onAdd={handleScreenshotAdded}
+          />
+        )}
+      </AnimatePresence>
     </motion.div>
   )
 }
