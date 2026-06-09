@@ -1,0 +1,118 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { RotateCcw } from "lucide-react"
+import {
+  BANKS,
+  CASHBACK_ROWS,
+  getCurrentMonthYear,
+  getRowTiers,
+  type RateTier,
+} from "@/lib/cashback-data"
+
+const TIER_STYLES: Record<RateTier, string> = {
+  high: "bg-green-100 text-green-700",
+  mid: "bg-yellow-100 text-yellow-700",
+  low: "bg-red-100 text-red-700",
+}
+
+export function ResultsScreen({ onRestart }: { onRestart: () => void }) {
+  return (
+    <motion.div
+      key="results"
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -16 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+      className="flex min-h-full flex-col px-5 py-8"
+    >
+      <div className="mb-5">
+        <h1 className="text-2xl font-bold text-slate-900">Ваши кэшбэки</h1>
+        <p className="mt-1 text-[14px] capitalize text-slate-500">
+          {getCurrentMonthYear()}
+        </p>
+      </div>
+
+      {/* Matrix */}
+      <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+        {/* Column headers */}
+        <div className="flex items-center border-b border-slate-200 bg-slate-50 px-3 py-3">
+          <div className="flex-1 text-[12px] font-semibold uppercase tracking-wide text-slate-400">
+            Категория
+          </div>
+          <div className="flex shrink-0 items-center gap-1">
+            {BANKS.map((bank) => (
+              <div key={bank.key} className="flex w-11 justify-center">
+                <img
+                  src={bank.logo || "/placeholder.svg"}
+                  alt={bank.name}
+                  title={bank.name}
+                  className="h-7 w-7 rounded-lg object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Rows */}
+        {CASHBACK_ROWS.map((row, idx) => {
+          const tiers = getRowTiers(row.rates)
+          return (
+            <div
+              key={row.category}
+              className={`flex items-center px-3 py-3 ${
+                idx !== CASHBACK_ROWS.length - 1 ? "border-b border-slate-100" : ""
+              }`}
+            >
+              <div className="flex-1 pr-2 text-[13px] font-medium leading-snug text-slate-800">
+                {row.category}
+              </div>
+              <div className="flex shrink-0 items-center gap-1">
+                {BANKS.map((bank) => {
+                  const rate = row.rates[bank.key]
+                  return (
+                    <div key={bank.key} className="flex w-11 justify-center">
+                      {rate !== undefined ? (
+                        <span
+                          className={`rounded-full px-2 py-1 text-[12px] font-bold ${TIER_STYLES[tiers[bank.key]]}`}
+                        >
+                          {rate}%
+                        </span>
+                      ) : (
+                        <span className="text-[13px] text-slate-300">—</span>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Legend */}
+      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] text-slate-500">
+        <span className="flex items-center gap-1.5">
+          <span className="h-3 w-3 rounded-full bg-green-100 ring-1 ring-green-300" />
+          Лучшая ставка
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="h-3 w-3 rounded-full bg-yellow-100 ring-1 ring-yellow-300" />
+          Средняя
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="h-3 w-3 rounded-full bg-red-100 ring-1 ring-red-300" />
+          Меньшая
+        </span>
+      </div>
+
+      <button
+        onClick={onRestart}
+        className="mt-auto flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-5 py-4 text-[15px] font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700 active:bg-emerald-800"
+      >
+        <RotateCcw className="h-5 w-5" />
+        Загрузить ещё
+      </button>
+    </motion.div>
+  )
+}
