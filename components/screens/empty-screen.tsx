@@ -13,9 +13,11 @@ export function EmptyScreen({ onUpload }: { onUpload: (kind: "bank" | "market") 
       transition={{ duration: 0.35, ease: "easeOut" }}
       className="flex min-h-full flex-col items-center justify-center px-6 py-12 text-center"
     >
-      <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-100">
-        <CreditCard className="h-9 w-9 text-slate-400" strokeWidth={1.75} />
-      </div>
+      <img
+        src="/images/empty-cashback.png"
+        alt="Иллюстрация: руки и категории кэшбэка"
+        className="mb-8 mx-auto h-auto w-[30%] max-w-[30%]"
+      />
 
       <h1 className="text-balance text-2xl font-bold leading-tight text-slate-900">
         У вас нет данных о кэшбеках
