@@ -180,30 +180,28 @@ export function ResultsScreen({
         </span>
       </div>
 
-      {/* iOS-style action sheet */}
-      <div className="mt-auto overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
+      {/* Action buttons */}
+      <div className="mt-auto flex flex-col gap-3 pt-6">
         <button
           onClick={handleSavePng}
-          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-slate-50 active:bg-slate-100"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-yellow-200 px-5 py-4 text-[15px] font-semibold text-slate-900 shadow-sm transition-colors hover:bg-yellow-300 active:bg-yellow-400"
         >
-          <Download className="h-5 w-5 shrink-0 text-slate-700" />
-          <span className="text-[15px] font-medium text-slate-900">Сохранить PNG</span>
+          <Download className="h-5 w-5 shrink-0" />
+          Сохранить PNG
         </button>
-        <div className="h-px bg-slate-100" />
         <button
           onClick={handleShare}
-          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-slate-50 active:bg-slate-100"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-yellow-200 px-5 py-4 text-[15px] font-semibold text-slate-900 shadow-sm transition-colors hover:bg-yellow-300 active:bg-yellow-400"
         >
-          <Share className="h-5 w-5 shrink-0 text-slate-700" />
-          <span className="text-[15px] font-medium text-slate-900">Поделиться</span>
+          <Share className="h-5 w-5 shrink-0" />
+          Поделиться
         </button>
-        <div className="h-px bg-slate-100" />
         <button
           onClick={handleAddWidget}
-          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-slate-50 active:bg-slate-100"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-yellow-200 px-5 py-4 text-[15px] font-semibold text-slate-900 shadow-sm transition-colors hover:bg-yellow-300 active:bg-yellow-400"
         >
-          <LayoutGrid className="h-5 w-5 shrink-0 text-slate-700" />
-          <span className="text-[15px] font-medium text-slate-900">Добавить виджет</span>
+          <LayoutGrid className="h-5 w-5 shrink-0" />
+          Добавить виджет
         </button>
       </div>
     </motion.div>
