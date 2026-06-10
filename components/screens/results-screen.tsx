@@ -180,28 +180,30 @@ export function ResultsScreen({
         </span>
       </div>
 
-      {/* Action buttons */}
-      <div className="mt-auto flex flex-col gap-3 pt-6">
+      {/* iOS-style action sheet */}
+      <div className="mt-auto overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
         <button
           onClick={handleSavePng}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-yellow-200 px-5 py-4 text-[15px] font-semibold text-slate-900 shadow-sm transition-colors hover:bg-yellow-300 active:bg-yellow-400"
+          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-slate-50 active:bg-slate-100"
         >
-          <Download className="h-5 w-5 shrink-0" />
-          Сохранить PNG
+          <Download className="h-5 w-5 shrink-0 text-slate-700" />
+          <span className="text-[15px] font-medium text-slate-900">Сохранить PNG</span>
         </button>
+        <div className="h-px bg-slate-100" />
         <button
           onClick={handleShare}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-yellow-200 px-5 py-4 text-[15px] font-semibold text-slate-900 shadow-sm transition-colors hover:bg-yellow-300 active:bg-yellow-400"
+          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-slate-50 active:bg-slate-100"
         >
-          <Share className="h-5 w-5 shrink-0" />
-          Поделиться
+          <Share className="h-5 w-5 shrink-0 text-slate-700" />
+          <span className="text-[15px] font-medium text-slate-900">Поделиться</span>
         </button>
+        <div className="h-px bg-slate-100" />
         <button
           onClick={handleAddWidget}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-yellow-200 px-5 py-4 text-[15px] font-semibold text-slate-900 shadow-sm transition-colors hover:bg-yellow-300 active:bg-yellow-400"
+          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-slate-50 active:bg-slate-100"
         >
-          <LayoutGrid className="h-5 w-5 shrink-0" />
-          Добавить виджет
+          <LayoutGrid className="h-5 w-5 shrink-0 text-slate-700" />
+          <span className="text-[15px] font-medium text-slate-900">Добавить виджет</span>
         </button>
       </div>
     </motion.div>
