@@ -51,7 +51,11 @@ export function CashbackApp() {
               <ProcessingScreen onDone={() => setCurrentScreen("results")} />
             )}
             {currentScreen === "results" && (
-              <ResultsScreen kind={kind} onRestart={() => setCurrentScreen("empty")} />
+              <ResultsScreen
+                kind={kind}
+                onRestart={() => setCurrentScreen("empty")}
+                onUploadMore={() => setCurrentScreen("gallery")}
+              />
             )}
           </AnimatePresence>
         </div>

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Download, Share, LayoutGrid } from "lucide-react"
+import { Download, Share, LayoutGrid, ImagePlus } from "lucide-react"
 import {
   BANKS,
   CASHBACK_ROWS,
@@ -24,9 +24,11 @@ type Tab = "bank" | "market"
 
 export function ResultsScreen({
   onRestart,
+  onUploadMore,
   kind = "bank",
 }: {
   onRestart: () => void
+  onUploadMore: () => void
   kind?: "bank" | "market"
 }) {
   const [activeTab, setActiveTab] = useState<Tab>(kind === "market" ? "market" : "bank")
@@ -193,6 +195,14 @@ export function ResultsScreen({
         >
           <LayoutGrid className="h-5 w-5 shrink-0 text-slate-700" />
           <span className="text-[15px] font-medium text-slate-900">Добавить виджет</span>
+        </button>
+        <div className="h-px bg-yellow-300" />
+        <button
+          onClick={onUploadMore}
+          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-yellow-300 active:bg-yellow-400"
+        >
+          <ImagePlus className="h-5 w-5 shrink-0 text-slate-700" />
+          <span className="text-[15px] font-medium text-slate-900">Загрузить ещё</span>
         </button>
       </div>
 
