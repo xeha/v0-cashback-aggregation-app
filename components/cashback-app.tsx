@@ -14,6 +14,7 @@ type Kind = "bank" | "market"
 export function CashbackApp() {
   const [currentScreen, setCurrentScreen] = useState<Screen>("empty")
   const [kind, setKind] = useState<Kind>("bank")
+  const [initialShot, setInitialShot] = useState<string>("")
 
   return (
     <main className="flex min-h-dvh items-center justify-center bg-gray-100 sm:py-8">
@@ -32,12 +33,16 @@ export function CashbackApp() {
               <GalleryScreen
                 kind={kind}
                 onCancel={() => setCurrentScreen("empty")}
-                onAdd={() => setCurrentScreen("bank-select")}
+                onAdd={(src) => {
+                  setInitialShot(src)
+                  setCurrentScreen("bank-select")
+                }}
               />
             )}
             {currentScreen === "bank-select" && (
               <BankSelectScreen
                 kind={kind}
+                initialShot={initialShot}
                 onBack={() => setCurrentScreen("gallery")}
                 onNext={() => setCurrentScreen("processing")}
               />

@@ -33,7 +33,7 @@ export function GalleryScreen({
   kind = "bank",
 }: {
   onCancel: () => void
-  onAdd: () => void
+  onAdd: (src: string) => void
   kind?: "bank" | "market"
 }) {
   const [selected, setSelected] = useState<number | null>(null)
@@ -103,7 +103,7 @@ export function GalleryScreen({
           Отмена
         </button>
         <button
-          onClick={onAdd}
+          onClick={() => selected !== null && onAdd(PHOTOS[selected])}
           disabled={selected === null}
           className="rounded-full bg-yellow-200 px-5 py-2 text-[15px] font-semibold text-slate-900 transition-opacity disabled:opacity-30"
         >
