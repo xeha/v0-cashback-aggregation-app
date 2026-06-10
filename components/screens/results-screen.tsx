@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { motion } from "framer-motion"
-import { Download, Share, LayoutGrid, ImagePlus } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Download, Share, LayoutGrid, ImagePlus, Trash2 } from "lucide-react"
 import {
   BANKS,
   CASHBACK_ROWS,
@@ -35,6 +35,7 @@ export function ResultsScreen({
   const [showSave, setShowSave] = useState(false)
   const [showShare, setShowShare] = useState(false)
   const [showWidget, setShowWidget] = useState(false)
+  const [showResetConfirm, setShowResetConfirm] = useState(false)
 
   const providers = activeTab === "market" ? MARKETS : BANKS
   const rows = activeTab === "market" ? MARKET_CASHBACK_ROWS : CASHBACK_ROWS
@@ -206,9 +207,74 @@ export function ResultsScreen({
         </button>
       </div>
 
+      {/* Reset data */}
+      <button
+        onClick={() => setShowResetConfirm(true)}
+        className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl border border-red-200 px-5 py-3.5 text-[15px] font-medium text-red-600 transition-colors hover:bg-red-50 active:bg-red-100"
+      >
+        <Trash2 className="h-4 w-4 shrink-0" />
+        Очистить данные
+      </button>
+
       <SavePngOverlay open={showSave} onClose={() => setShowSave(false)} />
       <ShareSheet open={showShare} onClose={() => setShowShare(false)} />
       <AddWidgetOverlay open={showWidget} onClose={() => setShowWidget(false)} tab={activeTab} />
+
+      {/* Reset confirmation dialog */}
+      <AnimatePresence>
+        {showResetConfirm && (
+          <motion.div
+            className="absolute inset-0 z-50 flex items-center justify-center p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="absolute inset-0 bg-slate-900/40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowResetConfirm(false)}
+            />
+            <motion.div
+              role="alertdialog"
+              aria-modal="true"
+              aria-labelledby="reset-title"
+              aria-describedby="reset-desc"
+              className="relative w-full max-w-sm rounded-3xl bg-white p-6 shadow-xl"
+              initial={{ opacity: 0, scale: 0.92, y: 12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 12 }}
+              transition={{ type: "spring", stiffness: 380, damping: 30 }}
+            >
+              <h2 id="reset-title" className="text-lg font-bold text-slate-900">
+                Очистить все данные?
+              </h2>
+              <p id="reset-desc" className="mt-2 text-[14px] leading-relaxed text-slate-500">
+                Все сохранённые категории кэшбэка будут удалены без возможности восстановления. Вы
+                уверены, что хотите начать заново?
+              </p>
+              <div className="mt-6 flex flex-col gap-2">
+                <button
+                  onClick={() => {
+                    setShowResetConfirm(false)
+                    onRestart()
+                  }}
+                  className="w-full rounded-2xl bg-red-600 px-5 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-red-700 active:bg-red-800"
+                >
+                  Очистить
+                </button>
+                <button
+                  onClick={() => setShowResetConfirm(false)}
+                  className="w-full rounded-2xl bg-slate-100 px-5 py-3.5 text-[15px] font-semibold text-slate-700 transition-colors hover:bg-slate-200 active:bg-slate-300"
+                >
+                  Отмена
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   )
 }
