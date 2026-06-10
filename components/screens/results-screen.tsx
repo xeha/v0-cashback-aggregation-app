@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { RotateCcw } from "lucide-react"
+import { Download, Share, LayoutGrid } from "lucide-react"
 import {
   BANKS,
   CASHBACK_ROWS,
@@ -32,6 +32,33 @@ export function ResultsScreen({
 
   const providers = activeTab === "market" ? MARKETS : BANKS
   const rows = activeTab === "market" ? MARKET_CASHBACK_ROWS : CASHBACK_ROWS
+
+  function handleSavePng() {
+    // Placeholder for PNG export of the cashback table.
+    console.log("[v0] Save PNG action triggered")
+  }
+
+  async function handleShare() {
+    const shareData = {
+      title: "Мои кэшбэки",
+      text: "Смотри мои категории кэшбэка",
+      url: typeof window !== "undefined" ? window.location.href : "",
+    }
+    if (typeof navigator !== "undefined" && navigator.share) {
+      try {
+        await navigator.share(shareData)
+      } catch {
+        // User dismissed the share dialog — no action needed.
+      }
+    } else {
+      console.log("[v0] Web Share API not available")
+    }
+  }
+
+  function handleAddWidget() {
+    // Placeholder for adding a home-screen widget.
+    console.log("[v0] Add widget action triggered")
+  }
 
   return (
     <motion.div
@@ -153,13 +180,32 @@ export function ResultsScreen({
         </span>
       </div>
 
-      <button
-        onClick={onRestart}
-        className="mt-auto flex w-full items-center justify-center gap-2 rounded-2xl bg-yellow-200 px-5 py-4 text-[15px] font-semibold text-slate-900 shadow-sm transition-colors hover:bg-yellow-300 active:bg-yellow-400"
-      >
-        <RotateCcw className="h-5 w-5" />
-        Загрузить ещё
-      </button>
+      {/* iOS-style action sheet */}
+      <div className="mt-auto overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
+        <button
+          onClick={handleSavePng}
+          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-slate-50 active:bg-slate-100"
+        >
+          <Download className="h-5 w-5 shrink-0 text-slate-700" />
+          <span className="text-[15px] font-medium text-slate-900">Сохранить PNG</span>
+        </button>
+        <div className="h-px bg-slate-100" />
+        <button
+          onClick={handleShare}
+          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-slate-50 active:bg-slate-100"
+        >
+          <Share className="h-5 w-5 shrink-0 text-slate-700" />
+          <span className="text-[15px] font-medium text-slate-900">Поделиться</span>
+        </button>
+        <div className="h-px bg-slate-100" />
+        <button
+          onClick={handleAddWidget}
+          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-slate-50 active:bg-slate-100"
+        >
+          <LayoutGrid className="h-5 w-5 shrink-0 text-slate-700" />
+          <span className="text-[15px] font-medium text-slate-900">Добавить виджет</span>
+        </button>
+      </div>
     </motion.div>
   )
 }
