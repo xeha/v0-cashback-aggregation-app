@@ -22,7 +22,7 @@ export function EmptyScreen({ onUpload }: { onUpload: (kind: "bank" | "market") 
         У вас нет данных о кэшбеках
       </h1>
       <p className="mt-3 text-pretty text-[15px] leading-relaxed text-slate-500">
-        Добавьте скриншоты банков и магазинов, а мы создадим единый профиль кэшбэка
+        Просто загрузите скриншоты ваших категорий из банков и магазинов
       </p>
 
       <div className="mt-10 flex w-full flex-col gap-3">
