@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { CreditCard, ShoppingBag } from "lucide-react"
 
 export function EmptyScreen({ onUpload }: { onUpload: (kind: "bank" | "market") => void }) {
   return (
@@ -27,20 +26,12 @@ export function EmptyScreen({ onUpload }: { onUpload: (kind: "bank" | "market") 
       </p>
 
       <div className="mt-10 flex w-full flex-col gap-3">
-        <h2 className="self-start text-[15px] font-semibold text-slate-900">Загрузить</h2>
         <button
           onClick={() => onUpload("bank")}
-          className="flex w-full items-center justify-center gap-3 rounded-2xl bg-emerald-600 px-5 py-4 text-[15px] font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700 active:bg-emerald-800"
+          className="flex w-full flex-col items-center justify-center gap-1 rounded-2xl bg-yellow-300 px-5 py-4 text-slate-900 shadow-sm transition-colors hover:bg-yellow-400 active:bg-yellow-500"
         >
-          <CreditCard className="h-5 w-5" />
-          Из приложения банка
-        </button>
-        <button
-          onClick={() => onUpload("market")}
-          className="flex w-full items-center justify-center gap-3 rounded-2xl bg-orange-500 px-5 py-4 text-[15px] font-semibold text-white shadow-sm transition-colors hover:bg-orange-600 active:bg-orange-700"
-        >
-          <ShoppingBag className="h-5 w-5" />
-          Из супермаркета
+          <span className="text-[15px] font-semibold">Загрузить скриншоты категорий кэшбека</span>
+          <span className="text-[13px] font-medium text-slate-700">Сбер, Т-Банк, Магнит, Пятерочка и другие</span>
         </button>
       </div>
     </motion.div>
