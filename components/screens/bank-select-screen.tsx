@@ -8,10 +8,10 @@ import { GalleryScreen } from "@/components/screens/gallery-screen"
 
 const COPY = {
   bank: {
-    title: "Выберите или введите название банка",
-    subtitle: "Укажите банк, из приложения которого сделан скриншот",
-    placeholder: "Например, Альфа-Банк",
-    addLabel: "Добавить кэшбек банка",
+    title: "Выберите или введите источник кэшбека",
+    subtitle: "Укажите, из какого приложения сделан скриншот с кэшбеком",
+    placeholder: "Например, Сбер или Пятёрочка",
+    addLabel: "Ещё кэшбек",
     options: TOP_BANKS,
   },
   market: {
@@ -27,13 +27,17 @@ export function BankSelectScreen({
   onBack,
   onNext,
   kind = "bank",
+  initialShot = "",
 }: {
   onBack: () => void
   onNext: () => void
   kind?: "bank" | "market"
+  initialShot?: string
 }) {
   const copy = COPY[kind]
   const [banks, setBanks] = useState<string[]>([""])
+  // Screenshot chosen for each bank row (parallel to `banks`). Empty string = none.
+  const [shots, setShots] = useState<string[]>([initialShot])
   // Index of the bank row that is awaiting a name after a screenshot was added.
   // null = gallery picker is closed.
   const [pendingBankIndex, setPendingBankIndex] = useState<number | null>(null)
@@ -49,15 +53,17 @@ export function BankSelectScreen({
   }
 
   // Step 2: screenshot added — create the new bank row and prompt for its name.
-  function handleScreenshotAdded() {
+  function handleScreenshotAdded(src: string) {
     const newIndex = banks.length
     setBanks((prev) => [...prev, ""])
+    setShots((prev) => [...prev, src])
     setPendingBankIndex(null)
     focusIndexRef.current = newIndex
   }
 
   function removeBank(index: number) {
     setBanks((prev) => prev.filter((_, i) => i !== index))
+    setShots((prev) => prev.filter((_, i) => i !== index))
   }
 
   const canProceed = banks.some((b) => b.trim().length > 0)
@@ -87,6 +93,13 @@ export function BankSelectScreen({
       <div className="mt-7 flex flex-col gap-3">
         {banks.map((bank, i) => (
           <div key={i} className="flex items-center gap-2">
+            {shots[i] && (
+              <img
+                src={shots[i] || "/placeholder.svg"}
+                alt={`Скриншот ${bank || i + 1}`}
+                className="h-12 w-12 shrink-0 rounded-xl border border-slate-200 object-cover"
+              />
+            )}
             <input
               type="text"
               list="bank-list"
@@ -129,7 +142,7 @@ export function BankSelectScreen({
         <button
           onClick={onNext}
           disabled={!canProceed}
-          className="rounded-2xl bg-emerald-600 px-7 py-3 text-[15px] font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700 disabled:opacity-30"
+          className="rounded-2xl bg-yellow-200 px-7 py-3 text-[15px] font-semibold text-slate-900 shadow-sm transition-colors hover:bg-yellow-300 disabled:opacity-30"
         >
           Далее
         </button>
