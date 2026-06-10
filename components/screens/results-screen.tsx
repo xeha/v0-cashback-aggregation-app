@@ -210,7 +210,7 @@ export function ResultsScreen({
       {/* Reset data */}
       <button
         onClick={() => setShowResetConfirm(true)}
-        className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl border border-red-200 px-5 py-3.5 text-[15px] font-medium text-red-600 transition-colors hover:bg-red-50 active:bg-red-100"
+        className="mt-3 flex w-full items-center justify-center gap-2 rounded-2xl border border-red-200 px-5 py-3.5 text-[15px] font-medium text-red-600 transition-colors hover:bg-red-50 active:bg-red-100"
       >
         <Trash2 className="h-4 w-4 shrink-0" />
         Очистить данные
