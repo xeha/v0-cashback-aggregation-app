@@ -1,7 +1,8 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
-import { RotateCcw } from "lucide-react"
+import { Download, Share, LayoutGrid, ImagePlus } from "lucide-react"
 import {
   BANKS,
   CASHBACK_ROWS,
@@ -11,6 +12,7 @@ import {
   getRowTiers,
   type RateTier,
 } from "@/lib/cashback-data"
+import { AddWidgetOverlay, SavePngOverlay, ShareSheet } from "./results-overlays"
 
 const TIER_STYLES: Record<RateTier, string> = {
   high: "bg-green-100 text-green-700",
@@ -18,15 +20,36 @@ const TIER_STYLES: Record<RateTier, string> = {
   low: "bg-red-100 text-red-700",
 }
 
+type Tab = "bank" | "market"
+
 export function ResultsScreen({
   onRestart,
+  onUploadMore,
   kind = "bank",
 }: {
   onRestart: () => void
+  onUploadMore: () => void
   kind?: "bank" | "market"
 }) {
-  const providers = kind === "market" ? MARKETS : BANKS
-  const rows = kind === "market" ? MARKET_CASHBACK_ROWS : CASHBACK_ROWS
+  const [activeTab, setActiveTab] = useState<Tab>(kind === "market" ? "market" : "bank")
+  const [showSave, setShowSave] = useState(false)
+  const [showShare, setShowShare] = useState(false)
+  const [showWidget, setShowWidget] = useState(false)
+
+  const providers = activeTab === "market" ? MARKETS : BANKS
+  const rows = activeTab === "market" ? MARKET_CASHBACK_ROWS : CASHBACK_ROWS
+
+  function handleSavePng() {
+    setShowSave(true)
+  }
+
+  function handleShare() {
+    setShowShare(true)
+  }
+
+  function handleAddWidget() {
+    setShowWidget(true)
+  }
 
   return (
     <motion.div
@@ -35,13 +58,44 @@ export function ResultsScreen({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -16 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="flex min-h-full flex-col px-5 py-8"
+      className="relative flex min-h-full flex-col px-5 py-8"
     >
       <div className="mb-5">
         <h1 className="text-2xl font-bold text-slate-900">Ваши кэшбэки</h1>
         <p className="mt-1 text-[14px] capitalize text-slate-500">
           {getCurrentMonthYear()}
         </p>
+      </div>
+
+      {/* Segmented tabs */}
+      <div className="mb-5 flex rounded-2xl bg-slate-100 p-1">
+        {(
+          [
+            { key: "bank", label: "Банки" },
+            { key: "market", label: "Супермаркеты" },
+          ] as { key: Tab; label: string }[]
+        ).map((tab) => {
+          const isActive = activeTab === tab.key
+          return (
+            <button
+              key={tab.key}
+              type="button"
+              onClick={() => setActiveTab(tab.key)}
+              className="relative flex-1 rounded-xl px-4 py-2 text-[14px] font-semibold transition-colors"
+            >
+              {isActive && (
+                <motion.span
+                  layoutId="results-tab-pill"
+                  transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                  className="absolute inset-0 rounded-xl bg-white shadow-sm"
+                />
+              )}
+              <span className={`relative z-10 ${isActive ? "text-slate-900" : "text-slate-500"}`}>
+                {tab.label}
+              </span>
+            </button>
+          )
+        })}
       </div>
 
       {/* Matrix */}
@@ -117,13 +171,44 @@ export function ResultsScreen({
         </span>
       </div>
 
-      <button
-        onClick={onRestart}
-        className="mt-auto flex w-full items-center justify-center gap-2 rounded-2xl bg-yellow-200 px-5 py-4 text-[15px] font-semibold text-slate-900 shadow-sm transition-colors hover:bg-yellow-300 active:bg-yellow-400"
-      >
-        <RotateCcw className="h-5 w-5" />
-        Загрузить ещё
-      </button>
+      {/* iOS-style action sheet */}
+      <div className="mt-auto overflow-hidden rounded-2xl border border-yellow-300 bg-yellow-200 shadow-md">
+        <button
+          onClick={handleSavePng}
+          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-yellow-300 active:bg-yellow-400"
+        >
+          <Download className="h-5 w-5 shrink-0 text-slate-700" />
+          <span className="text-[15px] font-medium text-slate-900">Сохранить PNG</span>
+        </button>
+        <div className="h-px bg-yellow-300" />
+        <button
+          onClick={handleShare}
+          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-yellow-300 active:bg-yellow-400"
+        >
+          <Share className="h-5 w-5 shrink-0 text-slate-700" />
+          <span className="text-[15px] font-medium text-slate-900">Поделиться</span>
+        </button>
+        <div className="h-px bg-yellow-300" />
+        <button
+          onClick={handleAddWidget}
+          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-yellow-300 active:bg-yellow-400"
+        >
+          <LayoutGrid className="h-5 w-5 shrink-0 text-slate-700" />
+          <span className="text-[15px] font-medium text-slate-900">Добавить виджет</span>
+        </button>
+        <div className="h-px bg-yellow-300" />
+        <button
+          onClick={onUploadMore}
+          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-yellow-300 active:bg-yellow-400"
+        >
+          <ImagePlus className="h-5 w-5 shrink-0 text-slate-700" />
+          <span className="text-[15px] font-medium text-slate-900">Загрузить ещё</span>
+        </button>
+      </div>
+
+      <SavePngOverlay open={showSave} onClose={() => setShowSave(false)} />
+      <ShareSheet open={showShare} onClose={() => setShowShare(false)} />
+      <AddWidgetOverlay open={showWidget} onClose={() => setShowWidget(false)} tab={activeTab} />
     </motion.div>
   )
 }
