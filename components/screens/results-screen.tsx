@@ -157,7 +157,7 @@ export function ResultsScreen({
       </div>
 
       {/* Legend */}
-      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] text-slate-500">
+      <div className="mt-4 mb-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] text-slate-500">
         <span className="flex items-center gap-1.5">
           <span className="h-3 w-3 rounded-full bg-green-100 ring-1 ring-green-300" />
           Лучшая ставка
