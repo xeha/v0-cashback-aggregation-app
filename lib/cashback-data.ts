@@ -22,7 +22,7 @@ export const CASHBACK_ROWS: CashbackRow[] = [
   { category: "Кафе, бары, рестораны", rates: { alfa: 5, psb: 7 } },
   { category: "Аптеки", rates: { alfa: 5, yandex: 5 } },
   { category: "Одежда и обувь", rates: { alfa: 5, tbank: 3 } },
-  { category: "Фастфуд", rates: { alfa: 7, yandex: 5, tbank: 5 } },
+  { category: "Фастфуд", rates: { alfa: 7, yandex: 3, tbank: 5 } },
   { category: "Товары для детей", rates: { alfa: 9, yandex: 3, tbank: 3 } },
 ]
 
