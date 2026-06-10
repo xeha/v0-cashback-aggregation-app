@@ -28,7 +28,7 @@ export function EmptyScreen({ onUpload }: { onUpload: (kind: "bank" | "market") 
       <div className="mt-10 flex w-full flex-col gap-3">
         <button
           onClick={() => onUpload("bank")}
-          className="flex w-full flex-col items-center justify-center gap-1 rounded-2xl bg-yellow-300 px-5 py-4 text-slate-900 shadow-sm transition-colors hover:bg-yellow-400 active:bg-yellow-500"
+          className="flex w-full flex-col items-center justify-center gap-1 rounded-2xl bg-yellow-200 px-5 py-4 text-slate-900 shadow-sm transition-colors hover:bg-yellow-300 active:bg-yellow-400"
         >
           <span className="text-[15px] font-semibold">Выбрать скриншоты</span>
           <span className="text-[13px] font-medium text-slate-700">Сбер, Т-Банк, Магнит, Пятерочка и другие</span>
