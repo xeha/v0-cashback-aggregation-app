@@ -30,7 +30,7 @@ export function EmptyScreen({ onUpload }: { onUpload: (kind: "bank" | "market") 
           onClick={() => onUpload("bank")}
           className="flex w-full flex-col items-center justify-center gap-1 rounded-2xl bg-yellow-300 px-5 py-4 text-slate-900 shadow-sm transition-colors hover:bg-yellow-400 active:bg-yellow-500"
         >
-          <span className="text-[15px] font-semibold">Загрузить скриншоты категорий кэшбека</span>
+          <span className="text-[15px] font-semibold">Выбрать скриншоты</span>
           <span className="text-[13px] font-medium text-slate-700">Сбер, Т-Банк, Магнит, Пятерочка и другие</span>
         </button>
       </div>
