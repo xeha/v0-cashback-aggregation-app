@@ -181,26 +181,26 @@ export function ResultsScreen({
       </div>
 
       {/* iOS-style action sheet */}
-      <div className="mt-auto overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
+      <div className="mt-auto overflow-hidden rounded-2xl border border-yellow-300 bg-yellow-200 shadow-md">
         <button
           onClick={handleSavePng}
-          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-slate-50 active:bg-slate-100"
+          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-yellow-300 active:bg-yellow-400"
         >
           <Download className="h-5 w-5 shrink-0 text-slate-700" />
           <span className="text-[15px] font-medium text-slate-900">Сохранить PNG</span>
         </button>
-        <div className="h-px bg-slate-100" />
+        <div className="h-px bg-yellow-300" />
         <button
           onClick={handleShare}
-          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-slate-50 active:bg-slate-100"
+          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-yellow-300 active:bg-yellow-400"
         >
           <Share className="h-5 w-5 shrink-0 text-slate-700" />
           <span className="text-[15px] font-medium text-slate-900">Поделиться</span>
         </button>
-        <div className="h-px bg-slate-100" />
+        <div className="h-px bg-yellow-300" />
         <button
           onClick={handleAddWidget}
-          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-slate-50 active:bg-slate-100"
+          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-yellow-300 active:bg-yellow-400"
         >
           <LayoutGrid className="h-5 w-5 shrink-0 text-slate-700" />
           <span className="text-[15px] font-medium text-slate-900">Добавить виджет</span>
