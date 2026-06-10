@@ -8,7 +8,7 @@ import { GalleryScreen } from "@/components/screens/gallery-screen"
 
 const COPY = {
   bank: {
-    title: "Выберите или введите название банка",
+    title: "Выберите или введите источник кэшбека",
     subtitle: "Укажите банк, из приложения которого сделан скриншот",
     placeholder: "Например, Альфа-Банк",
     addLabel: "Добавить кэшбек банка",
