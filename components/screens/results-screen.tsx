@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { RotateCcw } from "lucide-react"
 import {
@@ -18,6 +19,8 @@ const TIER_STYLES: Record<RateTier, string> = {
   low: "bg-red-100 text-red-700",
 }
 
+type Tab = "bank" | "market"
+
 export function ResultsScreen({
   onRestart,
   kind = "bank",
@@ -25,8 +28,10 @@ export function ResultsScreen({
   onRestart: () => void
   kind?: "bank" | "market"
 }) {
-  const providers = kind === "market" ? MARKETS : BANKS
-  const rows = kind === "market" ? MARKET_CASHBACK_ROWS : CASHBACK_ROWS
+  const [activeTab, setActiveTab] = useState<Tab>(kind === "market" ? "market" : "bank")
+
+  const providers = activeTab === "market" ? MARKETS : BANKS
+  const rows = activeTab === "market" ? MARKET_CASHBACK_ROWS : CASHBACK_ROWS
 
   return (
     <motion.div
@@ -42,6 +47,37 @@ export function ResultsScreen({
         <p className="mt-1 text-[14px] capitalize text-slate-500">
           {getCurrentMonthYear()}
         </p>
+      </div>
+
+      {/* Segmented tabs */}
+      <div className="mb-5 flex rounded-2xl bg-slate-100 p-1">
+        {(
+          [
+            { key: "bank", label: "Банки" },
+            { key: "market", label: "Супермаркеты" },
+          ] as { key: Tab; label: string }[]
+        ).map((tab) => {
+          const isActive = activeTab === tab.key
+          return (
+            <button
+              key={tab.key}
+              type="button"
+              onClick={() => setActiveTab(tab.key)}
+              className="relative flex-1 rounded-xl px-4 py-2 text-[14px] font-semibold transition-colors"
+            >
+              {isActive && (
+                <motion.span
+                  layoutId="results-tab-pill"
+                  transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                  className="absolute inset-0 rounded-xl bg-white shadow-sm"
+                />
+              )}
+              <span className={`relative z-10 ${isActive ? "text-slate-900" : "text-slate-500"}`}>
+                {tab.label}
+              </span>
+            </button>
+          )
+        })}
       </div>
 
       {/* Matrix */}
