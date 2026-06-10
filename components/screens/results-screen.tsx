@@ -119,7 +119,7 @@ export function ResultsScreen({
 
       <button
         onClick={onRestart}
-        className="mt-auto flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-5 py-4 text-[15px] font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700 active:bg-emerald-800"
+        className="mt-auto flex w-full items-center justify-center gap-2 rounded-2xl bg-yellow-200 px-5 py-4 text-[15px] font-semibold text-slate-900 shadow-sm transition-colors hover:bg-yellow-300 active:bg-yellow-400"
       >
         <RotateCcw className="h-5 w-5" />
         Загрузить ещё

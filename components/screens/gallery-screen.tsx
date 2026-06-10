@@ -105,7 +105,7 @@ export function GalleryScreen({
         <button
           onClick={onAdd}
           disabled={selected === null}
-          className="rounded-full bg-blue-500 px-5 py-2 text-[15px] font-semibold text-white transition-opacity disabled:opacity-30"
+          className="rounded-full bg-yellow-200 px-5 py-2 text-[15px] font-semibold text-slate-900 transition-opacity disabled:opacity-30"
         >
           Добавить ({selected === null ? 0 : 1})
         </button>

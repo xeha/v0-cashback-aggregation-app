@@ -129,7 +129,7 @@ export function BankSelectScreen({
         <button
           onClick={onNext}
           disabled={!canProceed}
-          className="rounded-2xl bg-emerald-600 px-7 py-3 text-[15px] font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700 disabled:opacity-30"
+          className="rounded-2xl bg-yellow-200 px-7 py-3 text-[15px] font-semibold text-slate-900 shadow-sm transition-colors hover:bg-yellow-300 disabled:opacity-30"
         >
           Далее
         </button>
