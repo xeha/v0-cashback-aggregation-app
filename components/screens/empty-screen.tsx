@@ -16,7 +16,7 @@ export function EmptyScreen({ onUpload }: { onUpload: (kind: "bank" | "market") 
       <img
         src="/images/empty-cashback.png"
         alt="Иллюстрация: руки и категории кэшбэка"
-        className="mb-8 mx-auto h-auto w-[30%] max-w-[30%]"
+        className="mb-8 mx-auto h-auto w-[30vw] max-w-[120px]"
       />
 
       <h1 className="text-balance text-2xl font-bold leading-tight text-slate-900">
