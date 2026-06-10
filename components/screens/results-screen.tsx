@@ -12,6 +12,7 @@ import {
   getRowTiers,
   type RateTier,
 } from "@/lib/cashback-data"
+import { AddWidgetOverlay, SavePngOverlay, ShareSheet } from "./results-overlays"
 
 const TIER_STYLES: Record<RateTier, string> = {
   high: "bg-green-100 text-green-700",
@@ -29,35 +30,23 @@ export function ResultsScreen({
   kind?: "bank" | "market"
 }) {
   const [activeTab, setActiveTab] = useState<Tab>(kind === "market" ? "market" : "bank")
+  const [showSave, setShowSave] = useState(false)
+  const [showShare, setShowShare] = useState(false)
+  const [showWidget, setShowWidget] = useState(false)
 
   const providers = activeTab === "market" ? MARKETS : BANKS
   const rows = activeTab === "market" ? MARKET_CASHBACK_ROWS : CASHBACK_ROWS
 
   function handleSavePng() {
-    // Placeholder for PNG export of the cashback table.
-    console.log("[v0] Save PNG action triggered")
+    setShowSave(true)
   }
 
-  async function handleShare() {
-    const shareData = {
-      title: "Мои кэшбэки",
-      text: "Смотри мои категории кэшбэка",
-      url: typeof window !== "undefined" ? window.location.href : "",
-    }
-    if (typeof navigator !== "undefined" && navigator.share) {
-      try {
-        await navigator.share(shareData)
-      } catch {
-        // User dismissed the share dialog — no action needed.
-      }
-    } else {
-      console.log("[v0] Web Share API not available")
-    }
+  function handleShare() {
+    setShowShare(true)
   }
 
   function handleAddWidget() {
-    // Placeholder for adding a home-screen widget.
-    console.log("[v0] Add widget action triggered")
+    setShowWidget(true)
   }
 
   return (
@@ -67,7 +56,7 @@ export function ResultsScreen({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -16 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="flex min-h-full flex-col px-5 py-8"
+      className="relative flex min-h-full flex-col px-5 py-8"
     >
       <div className="mb-5">
         <h1 className="text-2xl font-bold text-slate-900">Ваши кэшбэки</h1>
@@ -206,6 +195,10 @@ export function ResultsScreen({
           <span className="text-[15px] font-medium text-slate-900">Добавить виджет</span>
         </button>
       </div>
+
+      <SavePngOverlay open={showSave} onClose={() => setShowSave(false)} />
+      <ShareSheet open={showShare} onClose={() => setShowShare(false)} />
+      <AddWidgetOverlay open={showWidget} onClose={() => setShowWidget(false)} tab={activeTab} />
     </motion.div>
   )
 }
