@@ -5,6 +5,7 @@ import { ArrowLeft, Plus, X } from "lucide-react"
 import { useRef, useState } from "react"
 import { TOP_BANKS, TOP_MARKETS } from "@/lib/cashback-data"
 import { GalleryScreen } from "@/components/screens/gallery-screen"
+import type { Kind, SourceSubmission } from "@/lib/types"
 
 const COPY = {
   bank: {
@@ -30,8 +31,8 @@ export function BankSelectScreen({
   initialShot = "",
 }: {
   onBack: () => void
-  onNext: () => void
-  kind?: "bank" | "market"
+  onNext: (submissions: SourceSubmission[]) => void
+  kind?: Kind
   initialShot?: string
 }) {
   const copy = COPY[kind]
@@ -67,6 +68,18 @@ export function BankSelectScreen({
   }
 
   const canProceed = banks.some((b) => b.trim().length > 0)
+
+  function handleNext() {
+    const nextSubmissions: SourceSubmission[] = banks
+      .map((name, index) => ({
+        providerName: name.trim(),
+        screenshotSrc: shots[index] ?? "",
+        kind,
+      }))
+      .filter((item) => item.providerName.length > 0 && item.screenshotSrc.length > 0)
+
+    onNext(nextSubmissions)
+  }
 
   return (
     <motion.div
@@ -140,7 +153,7 @@ export function BankSelectScreen({
           Вернуться
         </button>
         <button
-          onClick={onNext}
+          onClick={handleNext}
           disabled={!canProceed}
           className="rounded-2xl bg-yellow-200 px-7 py-3 text-[15px] font-semibold text-slate-900 shadow-sm transition-colors hover:bg-yellow-300 disabled:opacity-30"
         >

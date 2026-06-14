@@ -4,14 +4,14 @@
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp"],
       "env": {
-        "npm_config_cache": "/Users/kseniya_agrova/.npm-cursor-cache"
+        "npm_config_cache": ".npm-cache"
       }
     },
     "sqlite-mcp": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sqlite"],
       "env": {
-        "npm_config_cache": "/Users/kseniya_agrova/.npm-cursor-cache"
+        "npm_config_cache": ".npm-cache"
       }
     }
   }

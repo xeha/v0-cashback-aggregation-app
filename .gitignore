@@ -14,3 +14,10 @@ node_modules
 .next/
 .npm-cache/
 .DS_Store
+
+# Python backend
+backend/.venv/
+backend/__pycache__/
+**/__pycache__/
+*.pyc
+backend/.env

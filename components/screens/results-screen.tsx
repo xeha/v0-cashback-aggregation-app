@@ -3,15 +3,8 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Download, Share, LayoutGrid, ImagePlus, Trash2 } from "lucide-react"
-import {
-  BANKS,
-  CASHBACK_ROWS,
-  MARKETS,
-  MARKET_CASHBACK_ROWS,
-  getCurrentMonthYear,
-  getRowTiers,
-  type RateTier,
-} from "@/lib/cashback-data"
+import { getCurrentMonthYear, getRowTiers, type RateTier } from "@/lib/cashback-data"
+import type { CashbackMatrix, Kind, MatrixState } from "@/lib/types"
 import { AddWidgetOverlay, SavePngOverlay, ShareSheet } from "./results-overlays"
 import { UserMenu } from "./user-menu"
 
@@ -23,14 +16,20 @@ const TIER_STYLES: Record<RateTier, string> = {
 
 type Tab = "bank" | "market"
 
+function getActiveMatrix(matrix: MatrixState, tab: Tab): CashbackMatrix | null {
+  return tab === "market" ? matrix.market : matrix.bank
+}
+
 export function ResultsScreen({
   onRestart,
   onUploadMore,
   kind = "bank",
+  matrix,
 }: {
   onRestart: () => void
   onUploadMore: () => void
-  kind?: "bank" | "market"
+  kind?: Kind
+  matrix: MatrixState
 }) {
   const [activeTab, setActiveTab] = useState<Tab>(kind === "market" ? "market" : "bank")
   const [showSave, setShowSave] = useState(false)
@@ -38,8 +37,9 @@ export function ResultsScreen({
   const [showWidget, setShowWidget] = useState(false)
   const [showResetConfirm, setShowResetConfirm] = useState(false)
 
-  const providers = activeTab === "market" ? MARKETS : BANKS
-  const rows = activeTab === "market" ? MARKET_CASHBACK_ROWS : CASHBACK_ROWS
+  const activeMatrix = getActiveMatrix(matrix, activeTab)
+  const providers = activeMatrix?.providers ?? []
+  const rows = activeMatrix?.rows ?? []
 
   function handleSavePng() {
     setShowSave(true)
@@ -72,7 +72,6 @@ export function ResultsScreen({
         <UserMenu onLogout={onRestart} />
       </div>
 
-      {/* Segmented tabs */}
       <div className="mb-5 flex rounded-2xl bg-slate-100 p-1">
         {(
           [
@@ -103,64 +102,69 @@ export function ResultsScreen({
         })}
       </div>
 
-      {/* Matrix */}
-      <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-        {/* Column headers */}
-        <div className="flex items-center border-b border-slate-200 bg-slate-50 px-3 py-3">
-          <div className="flex-1 text-[12px] font-semibold uppercase tracking-wide text-slate-400">
-            Категория
-          </div>
-          <div className="flex shrink-0 items-center gap-1">
-            {providers.map((p) => (
-              <div key={p.key} className="flex w-11 justify-center">
-                <img
-                  src={p.logo || "/placeholder.svg"}
-                  alt={p.name}
-                  title={p.name}
-                  className="h-7 w-7 rounded-lg object-cover"
-                />
-              </div>
-            ))}
-          </div>
+      {rows.length === 0 ? (
+        <div className="rounded-2xl border border-dashed border-slate-200 px-4 py-10 text-center">
+          <p className="text-[15px] font-medium text-slate-700">Нет данных для этой вкладки</p>
+          <p className="mt-2 text-[14px] text-slate-500">
+            Загрузите скриншоты и дождитесь распознавания, чтобы увидеть матрицу.
+          </p>
         </div>
-
-        {/* Rows */}
-        {rows.map((row, idx) => {
-          const tiers = getRowTiers(row.rates)
-          return (
-            <div
-              key={row.category}
-              className={`flex items-center px-3 py-3 ${
-                idx !== rows.length - 1 ? "border-b border-slate-100" : ""
-              }`}
-            >
-              <div className="flex-1 pr-2 text-[13px] font-medium leading-snug text-slate-800">
-                {row.category}
-              </div>
-              <div className="flex shrink-0 items-center gap-1">
-                {providers.map((p) => {
-                  const rate = (row.rates as Record<string, number | undefined>)[p.key]
-                  return (
-                    <div key={p.key} className="flex w-11 justify-center">
-                      {rate !== undefined ? (
-                        <span
-                          className={`rounded-full px-2 py-1 text-[12px] font-bold ${TIER_STYLES[tiers[p.key]]}`}
-                        >
-                          {rate}%
-                        </span>
-                      ) : (
-                        <span className="text-[13px] text-slate-300">—</span>
-                      )}
-                    </div>
-                  )
-                })}
-              </div>
+      ) : (
+        <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+          <div className="flex items-center border-b border-slate-200 bg-slate-50 px-3 py-3">
+            <div className="flex-1 text-[12px] font-semibold uppercase tracking-wide text-slate-400">
+              Категория
             </div>
-          )
-        })}
-      </div>
+            <div className="flex shrink-0 items-center gap-1">
+              {providers.map((p) => (
+                <div key={p.key} className="flex w-11 justify-center">
+                  <img
+                    src={p.logo || "/placeholder.svg"}
+                    alt={p.name}
+                    title={p.name}
+                    className="h-7 w-7 rounded-lg object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
 
-      {/* Legend */}
+          {rows.map((row, idx) => {
+            const tiers = getRowTiers(row.rates)
+            return (
+              <div
+                key={row.category}
+                className={`flex items-center px-3 py-3 ${
+                  idx !== rows.length - 1 ? "border-b border-slate-100" : ""
+                }`}
+              >
+                <div className="flex-1 pr-2 text-[13px] font-medium leading-snug text-slate-800">
+                  {row.category}
+                </div>
+                <div className="flex shrink-0 items-center gap-1">
+                  {providers.map((p) => {
+                    const rate = row.rates[p.key]
+                    return (
+                      <div key={p.key} className="flex w-11 justify-center">
+                        {rate !== undefined ? (
+                          <span
+                            className={`rounded-full px-2 py-1 text-[12px] font-bold ${TIER_STYLES[tiers[p.key]]}`}
+                          >
+                            {rate}%
+                          </span>
+                        ) : (
+                          <span className="text-[13px] text-slate-300">—</span>
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      )}
+
       <div className="mt-4 mb-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] text-slate-500">
         <span className="flex items-center gap-1.5">
           <span className="h-3 w-3 rounded-full bg-green-100 ring-1 ring-green-300" />
@@ -176,7 +180,6 @@ export function ResultsScreen({
         </span>
       </div>
 
-      {/* iOS-style action sheet */}
       <div className="mt-auto overflow-hidden rounded-2xl border border-yellow-300 bg-yellow-200 shadow-md">
         <button
           onClick={handleSavePng}
@@ -211,7 +214,6 @@ export function ResultsScreen({
         </button>
       </div>
 
-      {/* Reset data */}
       <button
         onClick={() => setShowResetConfirm(true)}
         className="mt-3 flex w-full items-center justify-center gap-2 rounded-2xl border border-red-200 px-5 py-3.5 text-[15px] font-medium text-red-600 transition-colors hover:bg-red-50 active:bg-red-100"
@@ -224,7 +226,6 @@ export function ResultsScreen({
       <ShareSheet open={showShare} onClose={() => setShowShare(false)} />
       <AddWidgetOverlay open={showWidget} onClose={() => setShowWidget(false)} tab={activeTab} />
 
-      {/* Reset confirmation dialog */}
       <AnimatePresence>
         {showResetConfirm && (
           <motion.div

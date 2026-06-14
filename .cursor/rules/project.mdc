@@ -1,0 +1,47 @@
+---
+description: Общий контекст проекта — стек, структура, команды, конвенции
+alwaysApply: true
+---
+
+# Cashback Aggregator — Project
+
+## Стек
+
+- **Frontend:** Next.js 16 (App Router), React 19, TypeScript 5.7 — `package.json`
+- **Backend:** FastAPI (Python 3.11), Mistral Vision OCR, sentence-transformers — `backend/`
+- **Стили:** Tailwind CSS v4 (`postcss.config.mjs`, `app/globals.css`)
+- **UI:** Framer Motion, Lucide, shadcn/ui (`components/ui/button.tsx`)
+- **Деплой:** Next.js → Vercel; FastAPI → Railway
+- **БД / auth:** нет (stateless MVP); матрица кэшбэка в React state
+
+## Структура
+
+- `app/` — `page.tsx` → `CashbackApp`, метаданные в `layout.tsx`
+- `components/cashback-app.tsx` — state machine + `submissions` / `matrix`
+- `components/screens/` — экраны; `processing-screen.tsx` вызывает API
+- `lib/api.ts`, `lib/matrix.ts`, `lib/types.ts` — клиент FastAPI и сборка матрицы
+- `lib/cashback-data.ts` — справочник логотипов, autocomplete, `getRowTiers`
+- `backend/main.py` — FastAPI; `routers/ocr.py`, `routers/category.py`
+- `public/screenshots/` — mock-скриншоты для галереи
+
+## Команды
+
+```bash
+# Frontend
+NEXT_PUBLIC_BACKEND_URL=http://localhost:8000 npm run dev
+
+# Backend
+cd backend && pip install -r requirements.txt
+cp env.example .env   # добавить MISTRAL_API_KEY
+uvicorn main:app --reload --port 8000
+```
+
+Сборка: `npm run build` (frontend). Тестов нет. Env: см. `env.example` и `backend/env.example`.
+
+## Конвенции
+
+- Импорты `@/*`; strict TypeScript; UI на русском (`lang="ru"`)
+- Навигация — callback-props; переходы — `AnimatePresence` + `motion.div`
+- Данные пользователя только в памяти; между сессиями не сохраняются
+- API-клиент: `lib/api.ts`; ошибки сети — понятные сообщения на русском
+- Не добавлять PostgreSQL/JWT без явного запроса
