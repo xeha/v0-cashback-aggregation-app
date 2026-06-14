@@ -1,0 +1,13 @@
+---
+description: Cashback aggregator app conventions — Next.js screen state machine, Russian UI, Tailwind v4
+globs: **/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Cashback App Rules
+
+- Main flow lives in `components/cashback-app.tsx` (`empty → gallery → bank-select → processing → results`).
+- Static data: `lib/cashback-data.ts` (`BANKS`, `MARKETS`, `CASHBACK_ROWS`, tiers).
+- Mobile-first; phone shell on `sm:` breakpoints.
+- Russian copy; tier colors: green/yellow/red for cashback rates.
+- Use Framer Motion for screen transitions (`AnimatePresence`, 0.35s).
