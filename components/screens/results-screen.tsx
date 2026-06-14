@@ -13,6 +13,7 @@ import {
   type RateTier,
 } from "@/lib/cashback-data"
 import { AddWidgetOverlay, SavePngOverlay, ShareSheet } from "./results-overlays"
+import { UserMenu } from "./user-menu"
 
 const TIER_STYLES: Record<RateTier, string> = {
   high: "bg-green-100 text-green-700",
@@ -61,11 +62,14 @@ export function ResultsScreen({
       transition={{ duration: 0.35, ease: "easeOut" }}
       className="relative flex min-h-full flex-col px-5 py-8"
     >
-      <div className="mb-5">
-        <h1 className="text-2xl font-bold text-slate-900">Ваши кэшбэки</h1>
-        <p className="mt-1 text-[14px] capitalize text-slate-500">
-          {getCurrentMonthYear()}
-        </p>
+      <div className="mb-5 flex items-start justify-between gap-3">
+        <div>
+          <h1 className="text-2xl font-bold text-slate-900">Ваши кэшбэки</h1>
+          <p className="mt-1 text-[14px] capitalize text-slate-500">
+            {getCurrentMonthYear()}
+          </p>
+        </div>
+        <UserMenu onLogout={onRestart} />
       </div>
 
       {/* Segmented tabs */}

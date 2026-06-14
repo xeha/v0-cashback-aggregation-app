@@ -27,6 +27,11 @@ export function CashbackApp() {
                   setKind(k)
                   setCurrentScreen("gallery")
                 }}
+                onLogout={() => {
+                  setInitialShot("")
+                  setKind("bank")
+                  setCurrentScreen("empty")
+                }}
               />
             )}
             {currentScreen === "gallery" && (
