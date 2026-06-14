@@ -2,11 +2,17 @@
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {
+        "npm_config_cache": "/Users/kseniya_agrova/.npm-cursor-cache"
+      }
     },
     "sqlite-mcp": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-sqlite"]
+      "args": ["-y", "@modelcontextprotocol/server-sqlite"],
+      "env": {
+        "npm_config_cache": "/Users/kseniya_agrova/.npm-cursor-cache"
+      }
     }
   }
 }
