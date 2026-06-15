@@ -93,6 +93,29 @@ assert.equal(
   getProviderComparisonKey("Metro", "market", bankCatalog, marketCatalog, aliases),
   getProviderComparisonKey("Метро", "market", bankCatalog, marketCatalog, aliases),
 )
+
+function isSameProviderIdentity(first, second, bankCatalog, marketCatalog, aliases) {
+  if (first.kind !== second.kind) return false
+  return (
+    getProviderComparisonKey(first.name, first.kind, bankCatalog, marketCatalog, aliases) ===
+    getProviderComparisonKey(second.name, second.kind, bankCatalog, marketCatalog, aliases)
+  )
+}
+
+assert.equal(isSameProviderIdentity(
+  { name: "Metro", kind: "market" },
+  { name: "Метро", kind: "market" },
+  bankCatalog,
+  marketCatalog,
+  aliases,
+), true)
+assert.equal(isSameProviderIdentity(
+  { name: "Сбер", kind: "bank" },
+  { name: "Сбер", kind: "market" },
+  bankCatalog,
+  marketCatalog,
+  aliases,
+), false)
 assert.equal(
   resolveProviderLogo("ВкусВилл", "market", bankCatalog, marketCatalog, aliases),
   "/logos/markets/vkusvill_offline.png",

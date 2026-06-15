@@ -101,6 +101,14 @@ export function providerNamesMatch(a: string, b: string, kind: Kind): boolean {
   return Boolean(keyA && keyB && keyA === keyB)
 }
 
+export function isSameProviderIdentity(
+  first: { name: string; kind: Kind },
+  second: { name: string; kind: Kind },
+): boolean {
+  if (first.kind !== second.kind) return false
+  return providerNamesMatch(first.name, second.name, first.kind)
+}
+
 function findCatalogMatchInCatalog(
   name: string,
   kind: Kind,
