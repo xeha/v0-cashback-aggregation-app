@@ -11,7 +11,7 @@ export interface Bank {
 export const BANKS: Bank[] = [
   { key: "alfa", name: "Альфа-Банк", logo: "/logos/banks/alfa-bank.png" },
   { key: "psb", name: "ПСБ", logo: "/logos/banks/promsvjazbank.png" },
-  { key: "yandex", name: "Яндекс Пей", logo: "/logos/banks/yandex-bank.png" },
+  { key: "yandex", name: "Яндекс Пэй", logo: "/logos/banks/yandex-bank.png" },
   { key: "tbank", name: "Т-Банк", logo: "/logos/banks/t-bank.png" },
 ]
 
@@ -36,7 +36,7 @@ export const TOP_BANKS = [
   "Газпромбанк",
   "Райффайзен",
   "ПСБ",
-  "Яндекс Пей",
+  "Яндекс Пэй",
 ]
 
 /* ----------------------------- Supermarkets ----------------------------- */

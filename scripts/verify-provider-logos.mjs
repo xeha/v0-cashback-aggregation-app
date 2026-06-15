@@ -10,6 +10,7 @@ function normalize(value) {
     .toLowerCase()
     .trim()
     .replace(/ё/g, "е")
+    .replace(/э/g, "е")
     .replace(/[^a-zа-я0-9\s-]+/gi, " ")
     .replace(/\s+/g, " ")
     .trim()
@@ -101,6 +102,14 @@ assert.equal(
 assert.equal(
   resolveProviderLogo("Мой особенный банк", "bank", bankCatalog, marketCatalog, aliases),
   "/placeholder.svg",
+)
+assert.equal(
+  resolveProviderLogo("пэй", "bank", bankCatalog, marketCatalog, aliases),
+  "/logos/banks/yandex-bank.png",
+)
+assert.equal(
+  resolveProviderLogo("Яндекс Банк", "bank", bankCatalog, marketCatalog, aliases),
+  "/logos/banks/yandex-bank.png",
 )
 
 console.log("verify-provider-logos: all assertions passed")

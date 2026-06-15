@@ -73,6 +73,7 @@ export function normalizeProviderName(value: string): string {
     .toLowerCase()
     .trim()
     .replace(/ё/g, "е")
+    .replace(/э/g, "е")
     .replace(/[^a-zа-я0-9\s-]+/gi, " ")
     .replace(/\s+/g, " ")
     .trim()
@@ -105,6 +106,14 @@ export function findCatalogMatch(name: string, kind: Kind): ProviderSuggestion |
   return null
 }
 
+function scoreNameMatch(nameNorm: string, slugNorm: string, normalized: string): number {
+  if (nameNorm.startsWith(normalized)) return 0
+  if (nameNorm.includes(normalized)) return 1
+  if (slugNorm.includes(normalized)) return 2
+  if (normalized.split(" ").every((word) => nameNorm.includes(word))) return 3
+  return -1
+}
+
 export function searchProviderSuggestions(
   query: string,
   kind: Kind,
@@ -114,29 +123,55 @@ export function searchProviderSuggestions(
   if (!normalized) return []
 
   const catalog = getCatalog(kind)
-  const scored = catalog
-    .map((entry) => {
-      const name = entry.names[0]
+  const kindAliases = logoAliases[kind] ?? {}
+  const scored = new Map<string, { entry: LogoEntry; score: number; nameLen: number }>()
+
+  for (const entry of catalog) {
+    const slugNorm = normalizeProviderName(entry.slug)
+    let bestScore = -1
+    let shortestNameLen = Number.POSITIVE_INFINITY
+
+    for (const name of entry.names) {
       const nameNorm = normalizeProviderName(name)
-      const slugNorm = normalizeProviderName(entry.slug)
+      const score = scoreNameMatch(nameNorm, slugNorm, normalized)
+      if (score >= 0) {
+        bestScore = bestScore < 0 ? score : Math.min(bestScore, score)
+        shortestNameLen = Math.min(shortestNameLen, nameNorm.length)
+      }
+    }
 
-      let score = -1
-      if (nameNorm.startsWith(normalized)) score = 0
-      else if (nameNorm.includes(normalized)) score = 1
-      else if (slugNorm.includes(normalized)) score = 2
-      else if (normalized.split(" ").every((word) => nameNorm.includes(word))) score = 3
+    if (bestScore >= 0) {
+      scored.set(entry.slug, { entry, score: bestScore, nameLen: shortestNameLen })
+    }
+  }
 
-      return score >= 0 ? { entry, score, nameLen: nameNorm.length } : null
-    })
-    .filter((item): item is { entry: LogoEntry; score: number; nameLen: number } => item !== null)
+  for (const [aliasKey, slug] of Object.entries(kindAliases)) {
+    const aliasNorm = normalizeProviderName(aliasKey)
+    const score = scoreNameMatch(aliasNorm, aliasNorm, normalized)
+    if (score < 0) continue
 
-  scored.sort((a, b) => a.score - b.score || a.nameLen - b.nameLen || a.entry.names[0].localeCompare(b.entry.names[0], "ru"))
+    const entry = catalog.find((item) => item.slug === slug)
+    if (!entry) continue
 
-  const seen = new Set<string>()
+    const existing = scored.get(slug)
+    if (!existing || score < existing.score) {
+      scored.set(slug, {
+        entry,
+        score,
+        nameLen: Math.min(existing?.nameLen ?? Number.POSITIVE_INFINITY, aliasNorm.length),
+      })
+    }
+  }
+
+  const ranked = [...scored.values()].sort(
+    (a, b) =>
+      a.score - b.score ||
+      a.nameLen - b.nameLen ||
+      a.entry.names[0].localeCompare(b.entry.names[0], "ru"),
+  )
+
   const results: ProviderSuggestion[] = []
-  for (const { entry } of scored) {
-    if (seen.has(entry.slug)) continue
-    seen.add(entry.slug)
+  for (const { entry } of ranked) {
     results.push(toSuggestion(entry))
     if (results.length >= limit) break
   }
