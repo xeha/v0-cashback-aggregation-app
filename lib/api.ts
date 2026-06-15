@@ -82,7 +82,11 @@ export async function processSubmission(
   }
 
   const mapped = await mapCategories(ocr.items, submission.providerName)
-  const provider = createProviderFromSubmission(submission, existingKeys)
+  const provider = createProviderFromSubmission(
+    submission,
+    existingKeys,
+    currentMatrix?.providers ?? [],
+  )
 
   return mergeMappedItems(
     currentMatrix,

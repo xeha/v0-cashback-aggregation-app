@@ -1,4 +1,4 @@
-import { getProviderLogoBySlug, resolveProviderLogo } from "@/lib/provider-logos"
+import { getProviderLogoBySlug, normalizeProviderName, resolveProviderLogo } from "@/lib/provider-logos"
 import type {
   CashbackMatrix,
   Kind,
@@ -54,9 +54,7 @@ export function mergeMappedItems(
   const providers =
     matrix && matrix.kind === kind
       ? [...matrix.providers.filter((p) => p.key !== provider.key), provider]
-      : matrix?.kind === kind
-        ? [...matrix.providers, provider]
-        : [provider]
+      : [provider]
 
   return {
     kind,
@@ -85,18 +83,35 @@ export function mergeSubmissionsIntoMatrix(
   return { bank: bankMatrix, market: marketMatrix }
 }
 
+export function findMatchingProvider(
+  submission: SourceSubmission,
+  providers: MatrixProvider[],
+): MatrixProvider | undefined {
+  const normalizedName = normalizeProviderName(submission.providerName)
+  if (!normalizedName) return undefined
+
+  return providers.find(
+    (provider) => normalizeProviderName(provider.name) === normalizedName,
+  )
+}
+
 export function createProviderFromSubmission(
   submission: SourceSubmission,
   existingKeys: Set<string>,
+  existingProviders: MatrixProvider[] = [],
 ): MatrixProvider {
-  const key = buildProviderKey(submission.providerName, existingKeys)
+  const existing = findMatchingProvider(submission, existingProviders)
+  if (existing) return existing
+
+  const name = submission.providerName.trim()
+  const key = buildProviderKey(name, existingKeys)
   const logo = submission.providerSlug
     ? getProviderLogoBySlug(submission.providerSlug, submission.kind)
-    : resolveProviderLogo(submission.providerName, submission.kind)
+    : resolveProviderLogo(name, submission.kind)
 
   return {
     key,
-    name: submission.providerName.trim(),
+    name,
     logo,
   }
 }

@@ -3,13 +3,18 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { ArrowLeft, Plus, X } from "lucide-react"
 import { useRef, useState } from "react"
+import { DuplicateSourceConfirmDialog } from "@/components/duplicate-source-confirm-dialog"
 import {
   ProviderKindPickerDialog,
   type ProviderKindPickerMode,
 } from "@/components/provider-kind-picker-dialog"
 import { ProviderNameInput } from "@/components/provider-name-input"
+import {
+  ScreenshotReuseConfirmDialog,
+  type ScreenshotReuseConflict,
+} from "@/components/screenshot-reuse-confirm-dialog"
 import { GalleryScreen } from "@/components/screens/gallery-screen"
-import { findCatalogMatches, type ProviderSuggestion } from "@/lib/provider-logos"
+import { findCatalogMatches, normalizeProviderName, type ProviderSuggestion } from "@/lib/provider-logos"
 import type { Kind, SourceSubmission } from "@/lib/types"
 
 const COPY = {
@@ -34,6 +39,74 @@ interface ResolveContext {
   submissionsByIndex: Map<number, SourceSubmission>
 }
 
+interface DuplicateConfirmState {
+  providerNames: string[]
+  submissionsByIndex: Map<number, SourceSubmission>
+}
+
+interface ScreenshotReuseBlockState {
+  conflicts: ScreenshotReuseConflict[]
+  conflictRowIndices: number[]
+}
+
+interface SubmissionRow {
+  rowIndex: number
+  providerName: string
+  screenshotSrc: string
+}
+
+function getScreenshotReuseConflicts(rows: SubmissionRow[]): ScreenshotReuseBlockState {
+  const seenBySrc = new Map<string, { name: string; rowIndex: number }>()
+  const conflicts: ScreenshotReuseConflict[] = []
+  const conflictRowIndices = new Set<number>()
+  const conflictKeys = new Set<string>()
+
+  for (const { rowIndex, providerName, screenshotSrc } of rows) {
+    const name = providerName.trim()
+    if (!screenshotSrc || !name) continue
+
+    const first = seenBySrc.get(screenshotSrc)
+    if (!first) {
+      seenBySrc.set(screenshotSrc, { name, rowIndex })
+      continue
+    }
+
+    if (normalizeProviderName(first.name) === normalizeProviderName(name)) continue
+
+    const key = `${screenshotSrc}:${normalizeProviderName(name)}`
+    if (!conflictKeys.has(key)) {
+      conflictKeys.add(key)
+      conflicts.push({ originalProviderName: first.name, newProviderName: name })
+    }
+
+    conflictRowIndices.add(first.rowIndex)
+    conflictRowIndices.add(rowIndex)
+  }
+
+  return { conflicts, conflictRowIndices: [...conflictRowIndices] }
+}
+
+function getDuplicateProviderNames(providerNames: string[]): string[] {
+  const seen = new Map<string, string>()
+  const duplicates = new Set<string>()
+
+  for (const name of providerNames) {
+    const trimmed = name.trim()
+    if (!trimmed) continue
+
+    const normalized = normalizeProviderName(trimmed)
+    const existing = seen.get(normalized)
+    if (existing) {
+      duplicates.add(existing)
+      continue
+    }
+
+    seen.set(normalized, trimmed)
+  }
+
+  return [...duplicates].sort((a, b) => a.localeCompare(b, "ru"))
+}
+
 export function BankSelectScreen({
   onBack,
   onNext,
@@ -51,7 +124,16 @@ export function BankSelectScreen({
   const [shots, setShots] = useState<string[]>([initialShot])
   const [pendingBankIndex, setPendingBankIndex] = useState<number | null>(null)
   const [resolveContext, setResolveContext] = useState<ResolveContext | null>(null)
+  const [duplicateConfirm, setDuplicateConfirm] = useState<DuplicateConfirmState | null>(null)
+  const [screenshotReuseBlock, setScreenshotReuseBlock] =
+    useState<ScreenshotReuseBlockState | null>(null)
+  const [screenshotReuseDialogOpen, setScreenshotReuseDialogOpen] = useState(false)
   const focusIndexRef = useRef<number | null>(null)
+
+  function clearScreenshotReuseBlock() {
+    setScreenshotReuseBlock(null)
+    setScreenshotReuseDialogOpen(false)
+  }
 
   function updateRow(
     index: number,
@@ -59,6 +141,7 @@ export function BankSelectScreen({
     slug: string | null,
     rowKind: Kind | null,
   ) {
+    clearScreenshotReuseBlock()
     setNames((prev) => prev.map((value, i) => (i === index ? name : value)))
     setCatalogSlugs((prev) => prev.map((value, i) => (i === index ? slug : value)))
     setRowKinds((prev) => prev.map((value, i) => (i === index ? rowKind : value)))
@@ -79,6 +162,7 @@ export function BankSelectScreen({
   }
 
   function removeRow(index: number) {
+    clearScreenshotReuseBlock()
     setNames((prev) => prev.filter((_, i) => i !== index))
     setCatalogSlugs((prev) => prev.filter((_, i) => i !== index))
     setRowKinds((prev) => prev.filter((_, i) => i !== index))
@@ -102,10 +186,55 @@ export function BankSelectScreen({
   }
 
   function finishWithSubmissions(submissionsByIndex: Map<number, SourceSubmission>) {
+    const rows = [...submissionsByIndex.entries()].map(([rowIndex, submission]) => ({
+      rowIndex,
+      providerName: submission.providerName,
+      screenshotSrc: submission.screenshotSrc,
+    }))
+
+    const screenshotBlock = getScreenshotReuseConflicts(rows)
+    if (screenshotBlock.conflicts.length > 0) {
+      setScreenshotReuseBlock(screenshotBlock)
+      setScreenshotReuseDialogOpen(true)
+      return
+    }
+
+    clearScreenshotReuseBlock()
+    proceedToDuplicateNameCheck(submissionsByIndex)
+  }
+
+  function proceedToDuplicateNameCheck(
+    submissionsByIndex: Map<number, SourceSubmission>,
+  ) {
     const ordered = [...submissionsByIndex.entries()]
       .sort(([a], [b]) => a - b)
       .map(([, submission]) => submission)
+
+    const duplicateNames = getDuplicateProviderNames(
+      ordered.map((submission) => submission.providerName),
+    )
+
+    if (duplicateNames.length > 0) {
+      setDuplicateConfirm({ providerNames: duplicateNames, submissionsByIndex })
+      return
+    }
+
     onNext(ordered)
+  }
+
+  function handleDuplicateConfirm() {
+    if (!duplicateConfirm) return
+
+    const ordered = [...duplicateConfirm.submissionsByIndex.entries()]
+      .sort(([a], [b]) => a - b)
+      .map(([, submission]) => submission)
+
+    setDuplicateConfirm(null)
+    onNext(ordered)
+  }
+
+  function handleDuplicateCancel() {
+    setDuplicateConfirm(null)
   }
 
   function handleNext() {
@@ -232,23 +361,37 @@ export function BankSelectScreen({
       </p>
 
       <div className="mt-7 flex flex-col gap-3">
-        {names.map((name, i) => (
+        {names.map((name, i) => {
+          const hasScreenshotConflict =
+            screenshotReuseBlock?.conflictRowIndices.includes(i) ?? false
+
+          return (
           <div key={i} className="flex items-center gap-2">
             {shots[i] && (
               <img
                 src={shots[i] || "/placeholder.svg"}
                 alt={`Скриншот ${name || i + 1}`}
-                className="h-12 w-12 shrink-0 rounded-xl border border-slate-200 object-cover"
+                className={`h-12 w-12 shrink-0 rounded-xl border object-cover ${
+                  hasScreenshotConflict
+                    ? "border-red-300 ring-2 ring-red-200"
+                    : "border-slate-200"
+                }`}
               />
             )}
-            <ProviderNameInput
-              value={name}
-              catalogSlug={catalogSlugs[i] ?? null}
-              catalogKind={rowKinds[i] ?? null}
-              autoFocus={focusIndexRef.current === i}
-              placeholder={COPY.placeholder}
-              onChange={(nextName, slug, rowKind) => updateRow(i, nextName, slug, rowKind)}
-            />
+            <div
+              className={`min-w-0 flex-1 rounded-2xl ${
+                hasScreenshotConflict ? "ring-2 ring-red-200" : ""
+              }`}
+            >
+              <ProviderNameInput
+                value={name}
+                catalogSlug={catalogSlugs[i] ?? null}
+                catalogKind={rowKinds[i] ?? null}
+                autoFocus={focusIndexRef.current === i}
+                placeholder={COPY.placeholder}
+                onChange={(nextName, slug, rowKind) => updateRow(i, nextName, slug, rowKind)}
+              />
+            </div>
             {names.length > 1 && (
               <button
                 onClick={() => removeRow(i)}
@@ -259,7 +402,8 @@ export function BankSelectScreen({
               </button>
             )}
           </div>
-        ))}
+          )
+        })}
       </div>
 
       <button
@@ -306,6 +450,23 @@ export function BankSelectScreen({
           marketMatch={activeTask.marketMatch}
           onSelect={handlePickerSelect}
           onCancel={handlePickerCancel}
+        />
+      )}
+
+      {duplicateConfirm && (
+        <DuplicateSourceConfirmDialog
+          open
+          providerNames={duplicateConfirm.providerNames}
+          onConfirm={handleDuplicateConfirm}
+          onCancel={handleDuplicateCancel}
+        />
+      )}
+
+      {screenshotReuseDialogOpen && screenshotReuseBlock && (
+        <ScreenshotReuseConfirmDialog
+          open
+          conflicts={screenshotReuseBlock.conflicts}
+          onDismiss={() => setScreenshotReuseDialogOpen(false)}
         />
       )}
     </motion.div>

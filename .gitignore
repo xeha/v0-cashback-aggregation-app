@@ -15,6 +15,9 @@ node_modules
 .npm-cache/
 .DS_Store
 
+# Cursor debug session logs (local only)
+.cursor/debug-*.log
+
 # Python backend
 backend/.venv/
 backend/__pycache__/
