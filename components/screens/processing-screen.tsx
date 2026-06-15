@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import type { CashbackMatrix, MatrixState, SourceSubmission } from "@/lib/types"
-import { ApiError, processSubmissionWithKeyTracking } from "@/lib/api"
+import { ApiError, processSubmission } from "@/lib/api"
 
 export function ProcessingScreen({
   submissions,
@@ -49,7 +49,11 @@ export function ProcessingScreen({
           const keys = submission.kind === "market" ? marketKeys : bankKeys
           const current = submission.kind === "market" ? marketMatrix : bankMatrix
 
-          const result = await processSubmissionWithKeyTracking(submission, keys, current)
+          const result = await processSubmission(submission, keys, current)
+          const provider = result.providers.find(
+            (item) => item.name === submission.providerName.trim(),
+          )
+          if (provider) keys.add(provider.key)
 
           if (submission.kind === "market") {
             marketMatrix = result
