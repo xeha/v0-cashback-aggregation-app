@@ -16,9 +16,9 @@ function normalize(value) {
 }
 
 function buildCatalog(entries, basePath) {
-  return entries.map(({ slug, name }) => ({
+  return entries.map(({ slug, name, alsoKnownAs }) => ({
     slug,
-    names: [name],
+    names: [name, ...(alsoKnownAs ?? [])],
     logo: `${basePath}/${slug}.png`,
   }))
 }
@@ -64,7 +64,15 @@ const marketCatalog = markets.map((r) => ({
 
 assert.equal(
   resolveProviderLogo("Сбер", "bank", bankCatalog, marketCatalog, aliases),
-  "/logos/banks/sberbank.png",
+  "/logos/banks/sberbank-rossii.png",
+)
+assert.equal(
+  resolveProviderLogo("ПСБ", "bank", bankCatalog, marketCatalog, aliases),
+  "/logos/banks/promsvjazbank.png",
+)
+assert.equal(
+  resolveProviderLogo("Райффайзен", "bank", bankCatalog, marketCatalog, aliases),
+  "/logos/banks/rajffajzenbank.png",
 )
 assert.equal(
   resolveProviderLogo("Пятёрочка", "market", bankCatalog, marketCatalog, aliases),
@@ -84,7 +92,7 @@ assert.equal(
 )
 assert.equal(
   resolveProviderLogo("Т-Банк", "bank", bankCatalog, marketCatalog, aliases),
-  "/logos/banks/tbank.png",
+  "/logos/banks/t-bank.png",
 )
 assert.equal(
   resolveProviderLogo("Банк", "bank", bankCatalog, marketCatalog, aliases),

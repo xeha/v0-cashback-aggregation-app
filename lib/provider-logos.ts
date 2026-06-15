@@ -20,6 +20,7 @@ export interface ProviderSuggestion {
 interface CatalogRecord {
   slug: string
   name: string
+  alsoKnownAs?: string[]
 }
 
 interface MarketRecord {
@@ -35,9 +36,9 @@ interface LogoAliasesFile {
 const logoAliases = logoAliasesData as LogoAliasesFile
 
 function buildCatalog(entries: CatalogRecord[], basePath: string): LogoEntry[] {
-  return entries.map(({ slug, name }) => ({
+  return entries.map(({ slug, name, alsoKnownAs }) => ({
     slug,
-    names: [name],
+    names: [name, ...(alsoKnownAs ?? [])],
     logo: `${basePath}/${slug}.png`,
   }))
 }

@@ -9,10 +9,10 @@ export interface Bank {
 }
 
 export const BANKS: Bank[] = [
-  { key: "alfa", name: "Альфа-Банк", logo: "/logos/banks/alfabank.png" },
-  { key: "psb", name: "ПСБ", logo: "/logos/banks/psbank.png" },
-  { key: "yandex", name: "Яндекс Банк", logo: "/logos/banks/yandex.png" },
-  { key: "tbank", name: "Т-Банк", logo: "/logos/banks/tbank.png" },
+  { key: "alfa", name: "Альфа-Банк", logo: "/logos/banks/alfa-bank.png" },
+  { key: "psb", name: "ПСБ", logo: "/logos/banks/promsvjazbank.png" },
+  { key: "yandex", name: "Яндекс Пей", logo: "/logos/banks/yandex-bank.png" },
+  { key: "tbank", name: "Т-Банк", logo: "/logos/banks/t-bank.png" },
 ]
 
 export interface CashbackRow {
@@ -31,7 +31,7 @@ export const CASHBACK_ROWS: CashbackRow[] = [
 export const TOP_BANKS = [
   "Сбер",
   "Т-Банк",
-  "Альфа",
+  "Альфа-Банк",
   "ВТБ",
   "Газпромбанк",
   "Райффайзен",
