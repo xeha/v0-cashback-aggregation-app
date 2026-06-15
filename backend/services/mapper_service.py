@@ -7,8 +7,14 @@ from sentence_transformers import SentenceTransformer
 from schemas import CategoryMapRequestItem, MappedItem
 
 TAXONOMY_PATH = Path(__file__).resolve().parent.parent / "data" / "taxonomy.json"
+OVERRIDES_PATH = Path(__file__).resolve().parent.parent / "data" / "category_overrides.json"
 FALLBACK_CATEGORY = "Прочее"
 DEFAULT_THRESHOLD = 0.45
+CONFIDENCE_OVERRIDE = 1.0
+
+
+def _normalize_category_name(name: str) -> str:
+    return " ".join(name.lower().strip().split())
 
 
 class MapperService:
@@ -16,6 +22,7 @@ class MapperService:
         self._model: SentenceTransformer | None = None
         self._taxonomy: list[str] = []
         self._taxonomy_embeddings: np.ndarray | None = None
+        self._overrides: dict[str, str] = {}
         self._threshold = float(
             __import__("os").environ.get("CATEGORY_MAP_THRESHOLD", DEFAULT_THRESHOLD)
         )
@@ -27,6 +34,12 @@ class MapperService:
     def load(self) -> None:
         with TAXONOMY_PATH.open(encoding="utf-8") as f:
             self._taxonomy = json.load(f)
+
+        with OVERRIDES_PATH.open(encoding="utf-8") as f:
+            raw_overrides = json.load(f)
+        self._overrides = {
+            _normalize_category_name(key): value for key, value in raw_overrides.items()
+        }
 
         model_name = __import__("os").environ.get(
             "SENTENCE_TRANSFORMER_MODEL",
@@ -59,6 +72,18 @@ class MapperService:
 
         mapped: list[MappedItem] = []
         for item, query_embedding in zip(items, query_embeddings):
+            override = self._overrides.get(_normalize_category_name(item.raw_category))
+            if override:
+                mapped.append(
+                    MappedItem(
+                        raw_category=item.raw_category,
+                        unified_category=override,
+                        rate=item.rate,
+                        confidence=CONFIDENCE_OVERRIDE,
+                    )
+                )
+                continue
+
             similarities = np.dot(self._taxonomy_embeddings, query_embedding)
             best_idx = int(np.argmax(similarities))
             confidence = float(similarities[best_idx])

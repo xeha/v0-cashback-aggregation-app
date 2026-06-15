@@ -1,0 +1,41 @@
+{
+  "bank": {
+    "сбер": "sberbank",
+    "сбербанк": "sberbank",
+    "т-банк": "tbank",
+    "тинькофф": "tbank",
+    "тбанк": "tbank",
+    "яндекс пей": "yandex",
+    "яндекс банк": "yandex",
+    "псб": "psbank",
+    "втб": "vtb",
+    "альфа": "alfabank",
+    "альфа-банк": "alfabank",
+    "газпромбанк": "gazprombank",
+    "гпб": "gazprombank",
+    "райффайзен": "raiffeisen",
+    "райффайзенбанк": "raiffeisen"
+  },
+  "market": {
+    "пятерочка": "5ka",
+    "пятёрочка": "5ka",
+    "5ka": "5ka",
+    "магнит": "magnit-univer",
+    "лента": "lenta-super",
+    "гипер лента": "lenta-giper",
+    "супер лента": "lenta-super",
+    "метро": "metro-cc",
+    "metro": "metro-cc",
+    "вкусвилл": "vkusvill_offline",
+    "перекресток": "perekrestok",
+    "перекрёсток": "perekrestok",
+    "ашан": "auchan",
+    "дикси": "dixy",
+    "чижик": "chizhik",
+    "глобус": "globus",
+    "fix price": "fix-price",
+    "азбука вкуса": "azbuka_vkusa",
+    "окей": "okmarket-giper",
+    "о'кей": "okmarket-giper"
+  }
+}

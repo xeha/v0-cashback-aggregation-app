@@ -1,4 +1,4 @@
-import { BANKS, MARKETS } from "@/lib/cashback-data"
+import { getProviderLogoBySlug, resolveProviderLogo } from "@/lib/provider-logos"
 import type {
   CashbackMatrix,
   Kind,
@@ -15,22 +15,6 @@ function slugify(name: string): string {
     .replace(/[^a-zа-яё0-9]+/gi, "-")
     .replace(/^-+|-+$/g, "")
     .slice(0, 40) || "provider"
-}
-
-export function resolveProviderLogo(name: string, kind: Kind): string {
-  const catalog = kind === "market" ? MARKETS : BANKS
-  const normalized = name.toLowerCase().trim()
-
-  const match = catalog.find((item) => {
-    const itemName = item.name.toLowerCase()
-    return (
-      normalized.includes(itemName) ||
-      itemName.includes(normalized) ||
-      normalized.includes(item.key)
-    )
-  })
-
-  return match?.logo ?? "/placeholder.svg"
 }
 
 export function buildProviderKey(name: string, existingKeys: Set<string>): string {
@@ -106,9 +90,13 @@ export function createProviderFromSubmission(
   existingKeys: Set<string>,
 ): MatrixProvider {
   const key = buildProviderKey(submission.providerName, existingKeys)
+  const logo = submission.providerSlug
+    ? getProviderLogoBySlug(submission.providerSlug, submission.kind)
+    : resolveProviderLogo(submission.providerName, submission.kind)
+
   return {
     key,
     name: submission.providerName.trim(),
-    logo: resolveProviderLogo(submission.providerName, submission.kind),
+    logo,
   }
 }

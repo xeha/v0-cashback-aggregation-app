@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Download, Share, LayoutGrid, ImagePlus, Trash2 } from "lucide-react"
+import { ProviderLogo } from "@/components/provider-logo"
 import { getCurrentMonthYear, getRowTiers, type RateTier } from "@/lib/cashback-data"
 import type { CashbackMatrix, Kind, MatrixState } from "@/lib/types"
 import { AddWidgetOverlay, SavePngOverlay, ShareSheet } from "./results-overlays"
@@ -118,12 +119,7 @@ export function ResultsScreen({
             <div className="flex shrink-0 items-center gap-1">
               {providers.map((p) => (
                 <div key={p.key} className="flex w-11 justify-center">
-                  <img
-                    src={p.logo || "/placeholder.svg"}
-                    alt={p.name}
-                    title={p.name}
-                    className="h-7 w-7 rounded-lg object-cover"
-                  />
+                  <ProviderLogo name={p.name} logo={p.logo} seed={p.key} />
                 </div>
               ))}
             </div>

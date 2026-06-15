@@ -4,6 +4,8 @@ export interface SourceSubmission {
   providerName: string
   screenshotSrc: string
   kind: Kind
+  /** Set when user picks from catalog or name exactly matches catalog */
+  providerSlug?: string
 }
 
 export interface OcrItem {

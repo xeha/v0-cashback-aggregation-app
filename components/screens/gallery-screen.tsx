@@ -3,41 +3,25 @@
 import { motion } from "framer-motion"
 import { useState } from "react"
 
-const BANK_PHOTOS = [
+const GALLERY_PHOTOS = [
   "/screenshots/alfa-categories.jpeg",
   "/screenshots/cashback-june.jpeg",
   "/screenshots/aliexpress.jpeg",
-  "/screenshots/cashback-june.jpeg",
-  "/screenshots/alfa-categories.jpeg",
-  "/screenshots/aliexpress.jpeg",
-  "/screenshots/aliexpress.jpeg",
-  "/screenshots/alfa-categories.jpeg",
-  "/screenshots/cashback-june.jpeg",
-]
-
-const MARKET_PHOTOS = [
   "/screenshots/magnit-categories.jpg",
   "/screenshots/pyaterochka-categories.jpg",
   "/screenshots/lenta-categories.jpg",
-  "/screenshots/pyaterochka-categories.jpg",
-  "/screenshots/magnit-categories.jpg",
-  "/screenshots/lenta-categories.jpg",
-  "/screenshots/lenta-categories.jpg",
-  "/screenshots/magnit-categories.jpg",
-  "/screenshots/pyaterochka-categories.jpg",
-]
+] as const
 
 export function GalleryScreen({
   onCancel,
   onAdd,
-  kind = "bank",
+  kind: _kind = "bank",
 }: {
   onCancel: () => void
   onAdd: (src: string) => void
   kind?: "bank" | "market"
 }) {
-  const [selected, setSelected] = useState<number | null>(null)
-  const PHOTOS = kind === "market" ? MARKET_PHOTOS : BANK_PHOTOS
+  const [selected, setSelected] = useState<string | null>(null)
 
   return (
     <motion.div
@@ -59,17 +43,17 @@ export function GalleryScreen({
       {/* Grid */}
       <div className="flex-1 overflow-y-auto p-0.5">
         <div className="grid grid-cols-3 gap-0.5">
-          {PHOTOS.map((src, i) => {
-            const isSelected = selected === i
+          {GALLERY_PHOTOS.map((src) => {
+            const isSelected = selected === src
             return (
               <button
-                key={i}
-                onClick={() => setSelected(isSelected ? null : i)}
+                key={src}
+                onClick={() => setSelected(isSelected ? null : src)}
                 className="relative aspect-square overflow-hidden bg-neutral-800"
               >
                 <img
                   src={src || "/placeholder.svg"}
-                  alt={`Скриншот ${i + 1}`}
+                  alt={`Скриншот ${src.split("/").pop()}`}
                   className={`h-full w-full object-cover transition-transform duration-200 ${
                     isSelected ? "scale-95" : "scale-100"
                   }`}
@@ -103,7 +87,7 @@ export function GalleryScreen({
           Отмена
         </button>
         <button
-          onClick={() => selected !== null && onAdd(PHOTOS[selected])}
+          onClick={() => selected !== null && onAdd(selected)}
           disabled={selected === null}
           className="rounded-full bg-yellow-200 px-5 py-2 text-[15px] font-semibold text-slate-900 transition-opacity disabled:opacity-30"
         >

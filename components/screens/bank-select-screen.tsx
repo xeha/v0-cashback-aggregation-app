@@ -3,24 +3,23 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { ArrowLeft, Plus, X } from "lucide-react"
 import { useRef, useState } from "react"
-import { TOP_BANKS, TOP_MARKETS } from "@/lib/cashback-data"
+import { ProviderNameInput } from "@/components/provider-name-input"
 import { GalleryScreen } from "@/components/screens/gallery-screen"
+import { findCatalogMatch } from "@/lib/provider-logos"
 import type { Kind, SourceSubmission } from "@/lib/types"
 
 const COPY = {
   bank: {
     title: "Выберите или введите источник кэшбека",
     subtitle: "Укажите, из какого приложения сделан скриншот с кэшбеком",
-    placeholder: "Например, Сбер или Пятёрочка",
+    placeholder: "Например, Сбер или Т-Банк",
     addLabel: "Ещё кэшбек",
-    options: TOP_BANKS,
   },
   market: {
     title: "Выберите или введите название супермаркета",
     subtitle: "Укажите супермаркет, из приложения которого сделан скриншот",
     placeholder: "Например, Пятёрочка",
     addLabel: "Добавить кэшбек супермаркета",
-    options: TOP_MARKETS,
   },
 } as const
 
@@ -37,26 +36,24 @@ export function BankSelectScreen({
 }) {
   const copy = COPY[kind]
   const [banks, setBanks] = useState<string[]>([""])
-  // Screenshot chosen for each bank row (parallel to `banks`). Empty string = none.
+  const [catalogSlugs, setCatalogSlugs] = useState<(string | null)[]>([null])
   const [shots, setShots] = useState<string[]>([initialShot])
-  // Index of the bank row that is awaiting a name after a screenshot was added.
-  // null = gallery picker is closed.
   const [pendingBankIndex, setPendingBankIndex] = useState<number | null>(null)
   const focusIndexRef = useRef<number | null>(null)
 
-  function updateBank(index: number, value: string) {
-    setBanks((prev) => prev.map((b, i) => (i === index ? value : b)))
+  function updateBank(index: number, name: string, slug: string | null) {
+    setBanks((prev) => prev.map((b, i) => (i === index ? name : b)))
+    setCatalogSlugs((prev) => prev.map((s, i) => (i === index ? slug : s)))
   }
 
-  // Step 1: open the gallery so the user adds a screenshot first.
   function startAddBank() {
     setPendingBankIndex(banks.length)
   }
 
-  // Step 2: screenshot added — create the new bank row and prompt for its name.
   function handleScreenshotAdded(src: string) {
     const newIndex = banks.length
     setBanks((prev) => [...prev, ""])
+    setCatalogSlugs((prev) => [...prev, null])
     setShots((prev) => [...prev, src])
     setPendingBankIndex(null)
     focusIndexRef.current = newIndex
@@ -64,6 +61,7 @@ export function BankSelectScreen({
 
   function removeBank(index: number) {
     setBanks((prev) => prev.filter((_, i) => i !== index))
+    setCatalogSlugs((prev) => prev.filter((_, i) => i !== index))
     setShots((prev) => prev.filter((_, i) => i !== index))
   }
 
@@ -71,11 +69,17 @@ export function BankSelectScreen({
 
   function handleNext() {
     const nextSubmissions: SourceSubmission[] = banks
-      .map((name, index) => ({
-        providerName: name.trim(),
-        screenshotSrc: shots[index] ?? "",
-        kind,
-      }))
+      .map((name, index) => {
+        const trimmed = name.trim()
+        const pickedSlug = catalogSlugs[index]
+        const exactMatch = findCatalogMatch(trimmed, kind)
+        return {
+          providerName: trimmed,
+          screenshotSrc: shots[index] ?? "",
+          kind,
+          providerSlug: pickedSlug ?? exactMatch?.slug,
+        }
+      })
       .filter((item) => item.providerName.length > 0 && item.screenshotSrc.length > 0)
 
     onNext(nextSubmissions)
@@ -97,12 +101,6 @@ export function BankSelectScreen({
         {copy.subtitle}
       </p>
 
-      <datalist id="bank-list">
-        {copy.options.map((b) => (
-          <option key={b} value={b} />
-        ))}
-      </datalist>
-
       <div className="mt-7 flex flex-col gap-3">
         {banks.map((bank, i) => (
           <div key={i} className="flex items-center gap-2">
@@ -113,14 +111,13 @@ export function BankSelectScreen({
                 className="h-12 w-12 shrink-0 rounded-xl border border-slate-200 object-cover"
               />
             )}
-            <input
-              type="text"
-              list="bank-list"
+            <ProviderNameInput
               value={bank}
+              catalogSlug={catalogSlugs[i] ?? null}
+              kind={kind}
               autoFocus={focusIndexRef.current === i}
-              onChange={(e) => updateBank(i, e.target.value)}
               placeholder={copy.placeholder}
-              className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-[15px] text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white"
+              onChange={(name, slug) => updateBank(i, name, slug)}
             />
             {banks.length > 1 && (
               <button
@@ -143,7 +140,6 @@ export function BankSelectScreen({
         {copy.addLabel}
       </button>
 
-      {/* Bottom nav */}
       <div className="mt-auto flex items-center justify-between gap-3 pt-10">
         <button
           onClick={onBack}
@@ -161,7 +157,6 @@ export function BankSelectScreen({
         </button>
       </div>
 
-      {/* Gallery picker shown when adding another bank's cashback */}
       <AnimatePresence>
         {pendingBankIndex !== null && (
           <GalleryScreen
