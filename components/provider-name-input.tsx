@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react"
 import {
-  searchProviderSuggestions,
+  searchAllProviderSuggestions,
   type ProviderSuggestion,
 } from "@/lib/provider-logos"
 import type { Kind } from "@/lib/types"
@@ -10,23 +10,23 @@ import type { Kind } from "@/lib/types"
 export function ProviderNameInput({
   value,
   catalogSlug,
-  kind,
+  catalogKind,
   placeholder,
   autoFocus,
   onChange,
 }: {
   value: string
   catalogSlug: string | null
-  kind: Kind
+  catalogKind: Kind | null
   placeholder: string
   autoFocus?: boolean
-  onChange: (name: string, catalogSlug: string | null) => void
+  onChange: (name: string, catalogSlug: string | null, kind: Kind | null) => void
 }) {
   const listId = useId()
   const rootRef = useRef<HTMLDivElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const suggestions =
-    value.trim().length > 0 ? searchProviderSuggestions(value, kind) : []
+    value.trim().length > 0 ? searchAllProviderSuggestions(value) : []
 
   useEffect(() => {
     function handlePointerDown(event: MouseEvent) {
@@ -39,12 +39,12 @@ export function ProviderNameInput({
   }, [])
 
   function handleInputChange(nextValue: string) {
-    onChange(nextValue, null)
+    onChange(nextValue, null, null)
     setIsOpen(true)
   }
 
   function handleSelect(suggestion: ProviderSuggestion) {
-    onChange(suggestion.name, suggestion.slug)
+    onChange(suggestion.name, suggestion.slug, suggestion.kind)
     setIsOpen(false)
   }
 
@@ -72,9 +72,14 @@ export function ProviderNameInput({
           className="absolute left-0 right-0 top-[calc(100%+4px)] z-20 max-h-52 overflow-y-auto rounded-2xl border border-slate-200 bg-white py-1 shadow-lg"
         >
           {suggestions.map((suggestion) => {
-            const isActive = catalogSlug === suggestion.slug
+            const isActive =
+              catalogSlug === suggestion.slug && catalogKind === suggestion.kind
             return (
-              <li key={suggestion.slug} role="option" aria-selected={isActive}>
+              <li
+                key={`${suggestion.kind}:${suggestion.slug}`}
+                role="option"
+                aria-selected={isActive}
+              >
                 <button
                   type="button"
                   onMouseDown={(e) => e.preventDefault()}

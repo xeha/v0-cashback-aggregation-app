@@ -21,6 +21,12 @@ function getActiveMatrix(matrix: MatrixState, tab: Tab): CashbackMatrix | null {
   return tab === "market" ? matrix.market : matrix.bank
 }
 
+function getDefaultTab(matrix: MatrixState, kind: Kind): Tab {
+  if (matrix.bank) return "bank"
+  if (matrix.market) return "market"
+  return kind === "market" ? "market" : "bank"
+}
+
 export function ResultsScreen({
   onRestart,
   onUploadMore,
@@ -32,7 +38,7 @@ export function ResultsScreen({
   kind?: Kind
   matrix: MatrixState
 }) {
-  const [activeTab, setActiveTab] = useState<Tab>(kind === "market" ? "market" : "bank")
+  const [activeTab, setActiveTab] = useState<Tab>(() => getDefaultTab(matrix, kind))
   const [showSave, setShowSave] = useState(false)
   const [showShare, setShowShare] = useState(false)
   const [showWidget, setShowWidget] = useState(false)

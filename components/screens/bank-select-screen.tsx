@@ -3,25 +3,36 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { ArrowLeft, Plus, X } from "lucide-react"
 import { useRef, useState } from "react"
+import {
+  ProviderKindPickerDialog,
+  type ProviderKindPickerMode,
+} from "@/components/provider-kind-picker-dialog"
 import { ProviderNameInput } from "@/components/provider-name-input"
 import { GalleryScreen } from "@/components/screens/gallery-screen"
-import { findCatalogMatch } from "@/lib/provider-logos"
+import { findCatalogMatches, type ProviderSuggestion } from "@/lib/provider-logos"
 import type { Kind, SourceSubmission } from "@/lib/types"
 
 const COPY = {
-  bank: {
-    title: "Выберите или введите источник кэшбека",
-    subtitle: "Укажите, из какого приложения сделан скриншот с кэшбеком",
-    placeholder: "Например, Сбер или Т-Банк",
-    addLabel: "Ещё кэшбек",
-  },
-  market: {
-    title: "Выберите или введите название супермаркета",
-    subtitle: "Укажите супермаркет, из приложения которого сделан скриншот",
-    placeholder: "Например, Пятёрочка",
-    addLabel: "Добавить кэшбек супермаркета",
-  },
+  title: "Выберите или введите источник кэшбека",
+  subtitle: "Укажите, из какого приложения сделан скриншот — банка или супермаркета",
+  placeholder: "Например, Сбер или Пятёрочка",
+  addLabel: "Ещё кэшбек",
 } as const
+
+interface ResolutionTask {
+  rowIndex: number
+  providerName: string
+  screenshotSrc: string
+  mode: ProviderKindPickerMode
+  bankMatch?: ProviderSuggestion
+  marketMatch?: ProviderSuggestion
+}
+
+interface ResolveContext {
+  tasks: ResolutionTask[]
+  taskIndex: number
+  submissionsByIndex: Map<number, SourceSubmission>
+}
 
 export function BankSelectScreen({
   onBack,
@@ -34,56 +45,175 @@ export function BankSelectScreen({
   kind?: Kind
   initialShot?: string
 }) {
-  const copy = COPY[kind]
-  const [banks, setBanks] = useState<string[]>([""])
+  const [names, setNames] = useState<string[]>([""])
   const [catalogSlugs, setCatalogSlugs] = useState<(string | null)[]>([null])
+  const [rowKinds, setRowKinds] = useState<(Kind | null)[]>([null])
   const [shots, setShots] = useState<string[]>([initialShot])
   const [pendingBankIndex, setPendingBankIndex] = useState<number | null>(null)
+  const [resolveContext, setResolveContext] = useState<ResolveContext | null>(null)
   const focusIndexRef = useRef<number | null>(null)
 
-  function updateBank(index: number, name: string, slug: string | null) {
-    setBanks((prev) => prev.map((b, i) => (i === index ? name : b)))
-    setCatalogSlugs((prev) => prev.map((s, i) => (i === index ? slug : s)))
+  function updateRow(
+    index: number,
+    name: string,
+    slug: string | null,
+    rowKind: Kind | null,
+  ) {
+    setNames((prev) => prev.map((value, i) => (i === index ? name : value)))
+    setCatalogSlugs((prev) => prev.map((value, i) => (i === index ? slug : value)))
+    setRowKinds((prev) => prev.map((value, i) => (i === index ? rowKind : value)))
   }
 
   function startAddBank() {
-    setPendingBankIndex(banks.length)
+    setPendingBankIndex(names.length)
   }
 
   function handleScreenshotAdded(src: string) {
-    const newIndex = banks.length
-    setBanks((prev) => [...prev, ""])
+    const newIndex = names.length
+    setNames((prev) => [...prev, ""])
     setCatalogSlugs((prev) => [...prev, null])
+    setRowKinds((prev) => [...prev, null])
     setShots((prev) => [...prev, src])
     setPendingBankIndex(null)
     focusIndexRef.current = newIndex
   }
 
-  function removeBank(index: number) {
-    setBanks((prev) => prev.filter((_, i) => i !== index))
+  function removeRow(index: number) {
+    setNames((prev) => prev.filter((_, i) => i !== index))
     setCatalogSlugs((prev) => prev.filter((_, i) => i !== index))
+    setRowKinds((prev) => prev.filter((_, i) => i !== index))
     setShots((prev) => prev.filter((_, i) => i !== index))
   }
 
-  const canProceed = banks.some((b) => b.trim().length > 0)
+  const canProceed = names.some((name) => name.trim().length > 0)
+
+  function buildSubmission(
+    rowIndex: number,
+    providerName: string,
+    rowKind: Kind,
+    providerSlug?: string,
+  ): SourceSubmission {
+    return {
+      providerName,
+      screenshotSrc: shots[rowIndex] ?? "",
+      kind: rowKind,
+      providerSlug,
+    }
+  }
+
+  function finishWithSubmissions(submissionsByIndex: Map<number, SourceSubmission>) {
+    const ordered = [...submissionsByIndex.entries()]
+      .sort(([a], [b]) => a - b)
+      .map(([, submission]) => submission)
+    onNext(ordered)
+  }
 
   function handleNext() {
-    const nextSubmissions: SourceSubmission[] = banks
-      .map((name, index) => {
-        const trimmed = name.trim()
-        const pickedSlug = catalogSlugs[index]
-        const exactMatch = findCatalogMatch(trimmed, kind)
-        return {
-          providerName: trimmed,
-          screenshotSrc: shots[index] ?? "",
-          kind,
-          providerSlug: pickedSlug ?? exactMatch?.slug,
-        }
-      })
-      .filter((item) => item.providerName.length > 0 && item.screenshotSrc.length > 0)
+    const submissionsByIndex = new Map<number, SourceSubmission>()
+    const tasks: ResolutionTask[] = []
 
-    onNext(nextSubmissions)
+    names.forEach((name, index) => {
+      const trimmed = name.trim()
+      const screenshotSrc = shots[index] ?? ""
+      if (!trimmed || !screenshotSrc) return
+
+      const pickedKind = rowKinds[index]
+      const pickedSlug = catalogSlugs[index]
+
+      if (pickedKind) {
+        submissionsByIndex.set(
+          index,
+          buildSubmission(
+            index,
+            trimmed,
+            pickedKind,
+            pickedSlug ?? undefined,
+          ),
+        )
+        return
+      }
+
+      const matches = findCatalogMatches(trimmed)
+
+      if (matches.bank && matches.market) {
+        tasks.push({
+          rowIndex: index,
+          providerName: trimmed,
+          screenshotSrc,
+          mode: "ambiguous",
+          bankMatch: matches.bank,
+          marketMatch: matches.market,
+        })
+        return
+      }
+
+      if (matches.bank) {
+        submissionsByIndex.set(
+          index,
+          buildSubmission(index, trimmed, "bank", matches.bank.slug),
+        )
+        return
+      }
+
+      if (matches.market) {
+        submissionsByIndex.set(
+          index,
+          buildSubmission(index, trimmed, "market", matches.market.slug),
+        )
+        return
+      }
+
+      tasks.push({
+        rowIndex: index,
+        providerName: trimmed,
+        screenshotSrc,
+        mode: "unknown",
+      })
+    })
+
+    if (tasks.length === 0) {
+      finishWithSubmissions(submissionsByIndex)
+      return
+    }
+
+    setResolveContext({
+      tasks,
+      taskIndex: 0,
+      submissionsByIndex,
+    })
   }
+
+  function handlePickerSelect(result: { kind: Kind; slug?: string }) {
+    if (!resolveContext) return
+
+    const task = resolveContext.tasks[resolveContext.taskIndex]
+    const nextSubmissions = new Map(resolveContext.submissionsByIndex)
+    nextSubmissions.set(
+      task.rowIndex,
+      buildSubmission(task.rowIndex, task.providerName, result.kind, result.slug),
+    )
+
+    const nextTaskIndex = resolveContext.taskIndex + 1
+    if (nextTaskIndex >= resolveContext.tasks.length) {
+      setResolveContext(null)
+      finishWithSubmissions(nextSubmissions)
+      return
+    }
+
+    setResolveContext({
+      ...resolveContext,
+      taskIndex: nextTaskIndex,
+      submissionsByIndex: nextSubmissions,
+    })
+  }
+
+  function handlePickerCancel() {
+    setResolveContext(null)
+  }
+
+  const activeTask = resolveContext
+    ? resolveContext.tasks[resolveContext.taskIndex]
+    : null
 
   return (
     <motion.div
@@ -92,37 +222,37 @@ export function BankSelectScreen({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -16 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="flex min-h-full flex-col px-6 py-10"
+      className="relative flex min-h-full flex-col px-6 py-10"
     >
       <h1 className="text-balance text-xl font-bold leading-snug text-slate-900">
-        {copy.title}
+        {COPY.title}
       </h1>
       <p className="mt-2 text-[14px] leading-relaxed text-slate-500">
-        {copy.subtitle}
+        {COPY.subtitle}
       </p>
 
       <div className="mt-7 flex flex-col gap-3">
-        {banks.map((bank, i) => (
+        {names.map((name, i) => (
           <div key={i} className="flex items-center gap-2">
             {shots[i] && (
               <img
                 src={shots[i] || "/placeholder.svg"}
-                alt={`Скриншот ${bank || i + 1}`}
+                alt={`Скриншот ${name || i + 1}`}
                 className="h-12 w-12 shrink-0 rounded-xl border border-slate-200 object-cover"
               />
             )}
             <ProviderNameInput
-              value={bank}
+              value={name}
               catalogSlug={catalogSlugs[i] ?? null}
-              kind={kind}
+              catalogKind={rowKinds[i] ?? null}
               autoFocus={focusIndexRef.current === i}
-              placeholder={copy.placeholder}
-              onChange={(name, slug) => updateBank(i, name, slug)}
+              placeholder={COPY.placeholder}
+              onChange={(nextName, slug, rowKind) => updateRow(i, nextName, slug, rowKind)}
             />
-            {banks.length > 1 && (
+            {names.length > 1 && (
               <button
-                onClick={() => removeBank(i)}
-                aria-label="Удалить банк"
+                onClick={() => removeRow(i)}
+                aria-label="Удалить источник"
                 className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600"
               >
                 <X className="h-5 w-5" />
@@ -137,7 +267,7 @@ export function BankSelectScreen({
         className="mt-3 flex items-center justify-center gap-2 self-start rounded-2xl border border-slate-300 px-4 py-2.5 text-[14px] font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50"
       >
         <Plus className="h-4 w-4" />
-        {copy.addLabel}
+        {COPY.addLabel}
       </button>
 
       <div className="mt-auto flex items-center justify-between gap-3 pt-10">
@@ -166,6 +296,18 @@ export function BankSelectScreen({
           />
         )}
       </AnimatePresence>
+
+      {activeTask && (
+        <ProviderKindPickerDialog
+          open
+          mode={activeTask.mode}
+          providerName={activeTask.providerName}
+          bankMatch={activeTask.bankMatch}
+          marketMatch={activeTask.marketMatch}
+          onSelect={handlePickerSelect}
+          onCancel={handlePickerCancel}
+        />
+      )}
     </motion.div>
   )
 }

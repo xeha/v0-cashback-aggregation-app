@@ -15,6 +15,12 @@ export interface ProviderSuggestion {
   slug: string
   name: string
   logo: string
+  kind: Kind
+}
+
+export interface CatalogMatchResult {
+  bank: ProviderSuggestion | null
+  market: ProviderSuggestion | null
 }
 
 interface CatalogRecord {
@@ -60,11 +66,12 @@ function getCatalog(kind: Kind): LogoEntry[] {
   return kind === "market" ? marketCatalog : bankCatalog
 }
 
-function toSuggestion(entry: LogoEntry): ProviderSuggestion {
+function toSuggestion(entry: LogoEntry, kind: Kind): ProviderSuggestion {
   return {
     slug: entry.slug,
     name: entry.names[0],
     logo: entry.logo,
+    kind,
   }
 }
 
@@ -79,8 +86,10 @@ export function normalizeProviderName(value: string): string {
     .trim()
 }
 
-/** Exact catalog match only: alias, canonical name, or slug. */
-export function findCatalogMatch(name: string, kind: Kind): ProviderSuggestion | null {
+function findCatalogMatchInCatalog(
+  name: string,
+  kind: Kind,
+): ProviderSuggestion | null {
   const normalized = normalizeProviderName(name)
   if (!normalized) return null
 
@@ -90,20 +99,32 @@ export function findCatalogMatch(name: string, kind: Kind): ProviderSuggestion |
   const aliasSlug = kindAliases[normalized]
   if (aliasSlug) {
     const aliasHit = catalog.find((entry) => entry.slug === aliasSlug)
-    if (aliasHit) return toSuggestion(aliasHit)
+    if (aliasHit) return toSuggestion(aliasHit, kind)
   }
 
   const exactNameHit = catalog.find((entry) =>
     entry.names.some((entryName) => normalizeProviderName(entryName) === normalized),
   )
-  if (exactNameHit) return toSuggestion(exactNameHit)
+  if (exactNameHit) return toSuggestion(exactNameHit, kind)
 
   const slugHit = catalog.find(
     (entry) => normalizeProviderName(entry.slug) === normalized,
   )
-  if (slugHit) return toSuggestion(slugHit)
+  if (slugHit) return toSuggestion(slugHit, kind)
 
   return null
+}
+
+/** Exact catalog match only: alias, canonical name, or slug. */
+export function findCatalogMatch(name: string, kind: Kind): ProviderSuggestion | null {
+  return findCatalogMatchInCatalog(name, kind)
+}
+
+export function findCatalogMatches(name: string): CatalogMatchResult {
+  return {
+    bank: findCatalogMatchInCatalog(name, "bank"),
+    market: findCatalogMatchInCatalog(name, "market"),
+  }
 }
 
 function scoreNameMatch(nameNorm: string, slugNorm: string, normalized: string): number {
@@ -114,11 +135,10 @@ function scoreNameMatch(nameNorm: string, slugNorm: string, normalized: string):
   return -1
 }
 
-export function searchProviderSuggestions(
+function searchCatalogSuggestions(
   query: string,
   kind: Kind,
-  limit = 8,
-): ProviderSuggestion[] {
+): { entry: LogoEntry; score: number; nameLen: number }[] {
   const normalized = normalizeProviderName(query)
   if (!normalized) return []
 
@@ -163,7 +183,38 @@ export function searchProviderSuggestions(
     }
   }
 
-  const ranked = [...scored.values()].sort(
+  return [...scored.values()].sort(
+    (a, b) =>
+      a.score - b.score ||
+      a.nameLen - b.nameLen ||
+      a.entry.names[0].localeCompare(b.entry.names[0], "ru"),
+  )
+}
+
+export function searchProviderSuggestions(
+  query: string,
+  kind: Kind,
+  limit = 8,
+): ProviderSuggestion[] {
+  return searchCatalogSuggestions(query, kind)
+    .slice(0, limit)
+    .map(({ entry }) => toSuggestion(entry, kind))
+}
+
+export function searchAllProviderSuggestions(
+  query: string,
+  limit = 8,
+): ProviderSuggestion[] {
+  const bankHits = searchCatalogSuggestions(query, "bank").map((hit) => ({
+    ...hit,
+    kind: "bank" as const,
+  }))
+  const marketHits = searchCatalogSuggestions(query, "market").map((hit) => ({
+    ...hit,
+    kind: "market" as const,
+  }))
+
+  const merged = [...bankHits, ...marketHits].sort(
     (a, b) =>
       a.score - b.score ||
       a.nameLen - b.nameLen ||
@@ -171,8 +222,13 @@ export function searchProviderSuggestions(
   )
 
   const results: ProviderSuggestion[] = []
-  for (const { entry } of ranked) {
-    results.push(toSuggestion(entry))
+  const seen = new Set<string>()
+
+  for (const { entry, kind } of merged) {
+    const key = `${kind}:${entry.slug}`
+    if (seen.has(key)) continue
+    seen.add(key)
+    results.push(toSuggestion(entry, kind))
     if (results.length >= limit) break
   }
 
