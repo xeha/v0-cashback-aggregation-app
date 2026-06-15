@@ -92,6 +92,25 @@ export async function processSubmission(
   )
 }
 
+/** Runs OCR + merge and keeps `keys` in sync with the matrix (by provider key, not display name). */
+export async function processSubmissionWithKeyTracking(
+  submission: SourceSubmission,
+  keys: Set<string>,
+  currentMatrix: CashbackMatrix | null,
+): Promise<CashbackMatrix> {
+  currentMatrix?.providers.forEach((provider) => keys.add(provider.key))
+
+  const result = await processSubmission(submission, keys, currentMatrix)
+
+  const newProvider = result.providers.find(
+    (provider) =>
+      !currentMatrix?.providers.some((existing) => existing.key === provider.key),
+  )
+  if (newProvider) keys.add(newProvider.key)
+
+  return result
+}
+
 export async function processAllSubmissions(
   submissions: SourceSubmission[],
 ): Promise<{ bank: CashbackMatrix | null; market: CashbackMatrix | null }> {
@@ -104,13 +123,7 @@ export async function processAllSubmissions(
     const keys = submission.kind === "market" ? marketKeys : bankKeys
     const current = submission.kind === "market" ? marketMatrix : bankMatrix
 
-    current?.providers.forEach((provider) => keys.add(provider.key))
-
-    const result = await processSubmission(submission, keys, current)
-    const newProvider = result.providers.find(
-      (provider) => !current?.providers.some((existing) => existing.key === provider.key),
-    )
-    if (newProvider) keys.add(newProvider.key)
+    const result = await processSubmissionWithKeyTracking(submission, keys, current)
 
     if (submission.kind === "market") {
       marketMatrix = result
