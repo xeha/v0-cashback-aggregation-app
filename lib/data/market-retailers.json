@@ -1,0 +1,494 @@
+[
+  {
+    "slug": "5ka",
+    "name": "Пятёрочка",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/f4a914e52aeb46818d3641b64ba9ed56.png",
+    "logoHash": "f4a914e52aeb46818d3641b64ba9ed56"
+  },
+  {
+    "slug": "magnit-univer",
+    "name": "Магнит",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/86e0538eac8f441c92c8269bd76f8815.png",
+    "logoHash": "86e0538eac8f441c92c8269bd76f8815"
+  },
+  {
+    "slug": "spar",
+    "name": "Spar Cупермаркет",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/408b404fe5e94937a2dd41296f575aec.png",
+    "logoHash": "408b404fe5e94937a2dd41296f575aec"
+  },
+  {
+    "slug": "dixy",
+    "name": "Дикси",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/3bd568a62a1e460583c8928731eaa5c6.png",
+    "logoHash": "3bd568a62a1e460583c8928731eaa5c6"
+  },
+  {
+    "slug": "globus",
+    "name": "Глобус",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/f7882efca51c460597fa117675e9227c.png",
+    "logoHash": "f7882efca51c460597fa117675e9227c"
+  },
+  {
+    "slug": "fix-price",
+    "name": "Fix Price",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/ca56c93f7e294375a18612101fc70245.png",
+    "logoHash": "ca56c93f7e294375a18612101fc70245"
+  },
+  {
+    "slug": "perekrestok",
+    "name": "Перекрёсток",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/f51745fce6e14501b1e37f04c68a168e.png",
+    "logoHash": "f51745fce6e14501b1e37f04c68a168e"
+  },
+  {
+    "slug": "chizhik",
+    "name": "Чижик",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/2478992760ca4d9ca1e88e1415d4d0ea.png",
+    "logoHash": "2478992760ca4d9ca1e88e1415d4d0ea"
+  },
+  {
+    "slug": "okmarket-giper",
+    "name": "О'кей гипермаркет",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/bca8b815589947c6a7e6ca36659b38aa.png",
+    "logoHash": "bca8b815589947c6a7e6ca36659b38aa"
+  },
+  {
+    "slug": "verno",
+    "name": "Верный",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/4c07c287418047c4b2da3d074a1d103d.png",
+    "logoHash": "4c07c287418047c4b2da3d074a1d103d"
+  },
+  {
+    "slug": "lenta-super",
+    "name": "Супер Лента",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/76f3c23dc31645528ad1583f4364d9a1.png",
+    "logoHash": "76f3c23dc31645528ad1583f4364d9a1"
+  },
+  {
+    "slug": "svetofor",
+    "name": "Светофор",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/0a46f4343ccb4008839579dc48ad365e.png",
+    "logoHash": "0a46f4343ccb4008839579dc48ad365e"
+  },
+  {
+    "slug": "lenta-giper",
+    "name": "Гипер Лента",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/400f2781f72b4dd197c4e9d9a69c63dc.png",
+    "logoHash": "400f2781f72b4dd197c4e9d9a69c63dc"
+  },
+  {
+    "slug": "market-da",
+    "name": "Да!",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/8faf608b079547a094ed54c26f4cc9dc.png",
+    "logoHash": "8faf608b079547a094ed54c26f4cc9dc"
+  },
+  {
+    "slug": "miasnitskii_riad",
+    "name": "Мясницкий ряд",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/9c40eff39fd84157ad33d634f0c06c1c.png",
+    "logoHash": "9c40eff39fd84157ad33d634f0c06c1c"
+  },
+  {
+    "slug": "vkusvill_offline",
+    "name": "ВкусВилл",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/5d0a6e2e590444f7918d676c232295e3.png",
+    "logoHash": "5d0a6e2e590444f7918d676c232295e3"
+  },
+  {
+    "slug": "magnit-cosmo",
+    "name": "М.Косметик",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/2b101958612f407480c8eef86c8c0c14.png",
+    "logoHash": "2b101958612f407480c8eef86c8c0c14"
+  },
+  {
+    "slug": "mgnl",
+    "name": "Магнолия",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/b50e40d9889e450db2d0992ff301bef6.png",
+    "logoHash": "b50e40d9889e450db2d0992ff301bef6"
+  },
+  {
+    "slug": "iarche",
+    "name": "Ярче!",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/2a451e41a0864295a58b3547c93631b1.png",
+    "logoHash": "2a451e41a0864295a58b3547c93631b1"
+  },
+  {
+    "slug": "auchan",
+    "name": "Ашан",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/0af992c2bfa74c1ba28904fc4d2f8ff8.png",
+    "logoHash": "0af992c2bfa74c1ba28904fc4d2f8ff8"
+  },
+  {
+    "slug": "r-ulybka",
+    "name": "Улыбка Радуги",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/5f8b8faccd444103ae2d4d80f2349431.png",
+    "logoHash": "5f8b8faccd444103ae2d4d80f2349431"
+  },
+  {
+    "slug": "eshyo",
+    "name": "Ещё",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/99c20030306645c59dce68dda6c2bad4.png",
+    "logoHash": "99c20030306645c59dce68dda6c2bad4"
+  },
+  {
+    "slug": "avoska",
+    "name": "Авоська",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/c6471e07393f40b2b4db38a385a64329.png",
+    "logoHash": "c6471e07393f40b2b4db38a385a64329"
+  },
+  {
+    "slug": "dobryninskij",
+    "name": "Добрынинский",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/5957709bc9574cab8daefc0779abe7d2.png",
+    "logoHash": "5957709bc9574cab8daefc0779abe7d2"
+  },
+  {
+    "slug": "riv-gosh",
+    "name": "Рив Гош",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/99f437fe1b8c40cd835951d0186f88ff.png",
+    "logoHash": "99f437fe1b8c40cd835951d0186f88ff"
+  },
+  {
+    "slug": "gastronombim",
+    "name": "Гастроном БиМ",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/9aa4fd8a9d364e228e55963fc9685744.png",
+    "logoHash": "9aa4fd8a9d364e228e55963fc9685744"
+  },
+  {
+    "slug": "zolotoe-yabloko",
+    "name": "Золотое яблоко",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/85ff9768c3ab413d9179c39eae704ad7.png",
+    "logoHash": "85ff9768c3ab413d9179c39eae704ad7"
+  },
+  {
+    "slug": "podrygka",
+    "name": "Подружка",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/ea972976028e45fd867f5b680089a811.png",
+    "logoHash": "ea972976028e45fd867f5b680089a811"
+  },
+  {
+    "slug": "myfasol",
+    "name": "Фасоль",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/a821fc61403f4c1496849a30474ac9af.png",
+    "logoHash": "a821fc61403f4c1496849a30474ac9af"
+  },
+  {
+    "slug": "yolamarket",
+    "name": "Йола-маркет",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/ec02aee077e04d06b664a20af283dbfc.png",
+    "logoHash": "ec02aee077e04d06b664a20af283dbfc"
+  },
+  {
+    "slug": "detmir",
+    "name": "Детский мир",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/3761dd36b1ea48998fe0957fabf8e70c.png",
+    "logoHash": "3761dd36b1ea48998fe0957fabf8e70c"
+  },
+  {
+    "slug": "kuul-klever-myasnov-otdohni",
+    "name": "КуулКлевер МясновЪ Отдохни",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/01e3a96d5f1a47f0b23302f144307ab3.png",
+    "logoHash": "01e3a96d5f1a47f0b23302f144307ab3"
+  },
+  {
+    "slug": "winelab",
+    "name": "Винлаб",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/f31421ffb31d44caa416142ee77b227d.png",
+    "logoHash": "f31421ffb31d44caa416142ee77b227d"
+  },
+  {
+    "slug": "bristol",
+    "name": "Бристоль",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/6734f717f4534caaa7f1edf5a55baee0.png",
+    "logoHash": "6734f717f4534caaa7f1edf5a55baee0"
+  },
+  {
+    "slug": "azbuka-daily",
+    "name": "Азбука daily",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/75def0a2e49640cd90554e549ca1eebb.png",
+    "logoHash": "75def0a2e49640cd90554e549ca1eebb"
+  },
+  {
+    "slug": "ramenskii_delikates",
+    "name": "Раменский деликатес",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/5bd8aca387704736a8964e79ae5566f6.png",
+    "logoHash": "5bd8aca387704736a8964e79ae5566f6"
+  },
+  {
+    "slug": "metro-cc",
+    "name": "Metro",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/578abfa8f8244d0189252204041a9253.png",
+    "logoHash": "578abfa8f8244d0189252204041a9253"
+  },
+  {
+    "slug": "miratorg",
+    "name": "Мираторг",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/f20df20645a7441f842aab6f209569f4.png",
+    "logoHash": "f20df20645a7441f842aab6f209569f4"
+  },
+  {
+    "slug": "poliarnaia_zvezda",
+    "name": "Полярная звезда",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/1aff34c25eb743d78d684ac513075858.png",
+    "logoHash": "1aff34c25eb743d78d684ac513075858"
+  },
+  {
+    "slug": "agrokompleks",
+    "name": "Агрокомплекс Выселковский",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/2ee7eb73427e4348b2fbd9d9a6dd0c8a.png",
+    "logoHash": "2ee7eb73427e4348b2fbd9d9a6dd0c8a"
+  },
+  {
+    "slug": "vingarazh",
+    "name": "Вингараж",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/5c8fabc4e0e04b40a70e9616764db261.png",
+    "logoHash": "5c8fabc4e0e04b40a70e9616764db261"
+  },
+  {
+    "slug": "avokado",
+    "name": "Авокадо",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/5ec764ed33eb4a7da924fb7d313e44ee.png",
+    "logoHash": "5ec764ed33eb4a7da924fb7d313e44ee"
+  },
+  {
+    "slug": "volgogradskii_miasokombinat",
+    "name": "Волгоградский мясокомбинат",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/f89fd49e68c7438ea4ca37cf3d62fa95.png",
+    "logoHash": "f89fd49e68c7438ea4ca37cf3d62fa95"
+  },
+  {
+    "slug": "amwine",
+    "name": "Ароматный мир",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/2f2311c9f0d74eb3aca62ba9f694414d.png",
+    "logoHash": "2f2311c9f0d74eb3aca62ba9f694414d"
+  },
+  {
+    "slug": "pervym-delom",
+    "name": "Первым делом",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/f9e8cf7fe8514af99089b227befd6833.png",
+    "logoHash": "f9e8cf7fe8514af99089b227befd6833"
+  },
+  {
+    "slug": "magnit-apteka",
+    "name": "Магнит Аптека",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/e7b984af4bb243329770ed36f0802f31.png",
+    "logoHash": "e7b984af4bb243329770ed36f0802f31"
+  },
+  {
+    "slug": "letual",
+    "name": "Лэтуаль",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/6d25d0711cf349dfabf9ee4912eb640a.png",
+    "logoHash": "6d25d0711cf349dfabf9ee4912eb640a"
+  },
+  {
+    "slug": "simplewine",
+    "name": "SimpleWine",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/719be35c596c4ab180a3cdca2f232961.png",
+    "logoHash": "719be35c596c4ab180a3cdca2f232961"
+  },
+  {
+    "slug": "apteka-366",
+    "name": "Аптека 36,6",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/2b52fa743a0c4823b163f2a6cc25ae67.png",
+    "logoHash": "2b52fa743a0c4823b163f2a6cc25ae67"
+  },
+  {
+    "slug": "magazin-postoyannyh-rasprodazh",
+    "name": "Мпр",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/ef781b58d5f5414eb37febeb89acd77f.png",
+    "logoHash": "ef781b58d5f5414eb37febeb89acd77f"
+  },
+  {
+    "slug": "gorzdrav",
+    "name": "Горздрав",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/67177ad68fec4a3f9ef743f166141436.png",
+    "logoHash": "67177ad68fec4a3f9ef743f166141436"
+  },
+  {
+    "slug": "4lapy",
+    "name": "Четыре лапы",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/8c8edec70a024c0fb21f2aed5448bff2.png",
+    "logoHash": "8c8edec70a024c0fb21f2aed5448bff2"
+  },
+  {
+    "slug": "azbuka_vkusa",
+    "name": "Азбука вкуса",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/d3bfd5cd3dcc4ea7a834c630b8e5d200.png",
+    "logoHash": "d3bfd5cd3dcc4ea7a834c630b8e5d200"
+  },
+  {
+    "slug": "bykosmetika",
+    "name": "Белорусская Косметика",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/a3e8fdba3c2b4daa85b947a60d319b5d.png",
+    "logoHash": "a3e8fdba3c2b4daa85b947a60d319b5d"
+  },
+  {
+    "slug": "apteki-dialog",
+    "name": "Диалог",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/200ff80cf80f4b42a88a33b5ed4ccb5d.png",
+    "logoHash": "200ff80cf80f4b42a88a33b5ed4ccb5d"
+  },
+  {
+    "slug": "petshop1",
+    "name": "Петшоп",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/d8ab656e8aec455a8dde2c57532f82e5.png",
+    "logoHash": "d8ab656e8aec455a8dde2c57532f82e5"
+  },
+  {
+    "slug": "td-domovoj",
+    "name": "ТД Домовой",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/d8360983ffec4bd192f9b073353ea870.png",
+    "logoHash": "d8360983ffec4bd192f9b073353ea870"
+  },
+  {
+    "slug": "drinx",
+    "name": "Drinx",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/b4781b2c3e7641cfbf37403491275c7e.png",
+    "logoHash": "b4781b2c3e7641cfbf37403491275c7e"
+  },
+  {
+    "slug": "zoozavr_off",
+    "name": "Зоозавр",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/4448052c9132427eb4a710e28c4c5b78.png",
+    "logoHash": "4448052c9132427eb4a710e28c4c5b78"
+  },
+  {
+    "slug": "zooopttorg",
+    "name": "ЗооОптТорг",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/c22b9deb2ece4eef81a4a718de00a908.png",
+    "logoHash": "c22b9deb2ece4eef81a4a718de00a908"
+  },
+  {
+    "slug": "mir-kubikov",
+    "name": "Мир кубиков",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/4fba8d13f53a46aa8edc778cb22e0af6.png",
+    "logoHash": "4fba8d13f53a46aa8edc778cb22e0af6"
+  },
+  {
+    "slug": "wine-and-whiskey-by-simple",
+    "name": "Wine & Whiskey by Simple",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/42d04220cbae4fe28d402a02f0151d9c.png",
+    "logoHash": "42d04220cbae4fe28d402a02f0151d9c"
+  },
+  {
+    "slug": "krasnyj-drakon",
+    "name": "Красный дракон",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/b472b514d2824c0e82fdadd30953313f.png",
+    "logoHash": "b472b514d2824c0e82fdadd30953313f"
+  },
+  {
+    "slug": "alkostudiya",
+    "name": "Алкостудия",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/1343023358874c238feb6db70fba677e.png",
+    "logoHash": "1343023358874c238feb6db70fba677e"
+  },
+  {
+    "slug": "yaponskie-nozhi-todzhiro",
+    "name": "Японские ножи Тоджиро",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/c8c5b348d37344c3997a262c6ecf9d65.png",
+    "logoHash": "c8c5b348d37344c3997a262c6ecf9d65"
+  },
+  {
+    "slug": "winestate",
+    "name": "WineState",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/eaa4a2cb649b4663a698ad1b9020c833.png",
+    "logoHash": "eaa4a2cb649b4663a698ad1b9020c833"
+  },
+  {
+    "slug": "dinozavrik",
+    "name": "Динозаврик",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/08fec23f8402481baa511b747a83d7cb.png",
+    "logoHash": "08fec23f8402481baa511b747a83d7cb"
+  },
+  {
+    "slug": "vajnstajl",
+    "name": "Winestyle",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/f71d93ae72014c85a0b16876026ac3dc.png",
+    "logoHash": "f71d93ae72014c85a0b16876026ac3dc"
+  },
+  {
+    "slug": "amelia",
+    "name": "Амелиа Гурмэ",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/6573809ff596405abc7a4862135e7958.png",
+    "logoHash": "6573809ff596405abc7a4862135e7958"
+  },
+  {
+    "slug": "zolotaya-balka",
+    "name": "Золотая Балка",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/16ca0e2e0aae4f2cbd29d0fa7a11bb01.png",
+    "logoHash": "16ca0e2e0aae4f2cbd29d0fa7a11bb01"
+  },
+  {
+    "slug": "dekanter",
+    "name": "Декантер",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/f94174450d344d0c95eeedea6f54db3d.png",
+    "logoHash": "f94174450d344d0c95eeedea6f54db3d"
+  },
+  {
+    "slug": "dva-topora",
+    "name": "Два топора",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/511af1229e6640e7ab16f61f8ad8bb0f.png",
+    "logoHash": "511af1229e6640e7ab16f61f8ad8bb0f"
+  },
+  {
+    "slug": "krasnoeibeloe",
+    "name": "Красное&Белое",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/876a449b4fb44099b711f085a47194b3.png",
+    "logoHash": "876a449b4fb44099b711f085a47194b3"
+  },
+  {
+    "slug": "lion-perm",
+    "name": "Лион",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/fe74f1e70d7d42e1971f265efbaca6be.png",
+    "logoHash": "fe74f1e70d7d42e1971f265efbaca6be"
+  },
+  {
+    "slug": "sportmaster",
+    "name": "Спортмастер Онлайн",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/036f3b4235374501a071ce74da16edcc.png",
+    "logoHash": "036f3b4235374501a071ce74da16edcc"
+  },
+  {
+    "slug": "vetna",
+    "name": "Ветна",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/d8f51bcb739941a688856fe2002763dc.png",
+    "logoHash": "d8f51bcb739941a688856fe2002763dc"
+  },
+  {
+    "slug": "alcobrend",
+    "name": "Алкобренд",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/fc3b8685bb3146f390d9657be120b4c9.png",
+    "logoHash": "fc3b8685bb3146f390d9657be120b4c9"
+  },
+  {
+    "slug": "lemurrr",
+    "name": "Ле'Муррр",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/97fce4d4ca71452f81b1faf8bcbccb99.png",
+    "logoHash": "97fce4d4ca71452f81b1faf8bcbccb99"
+  },
+  {
+    "slug": "bethowen",
+    "name": "Бетховен",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/e11ab2cc208b4dc8a71203d93f8cce6e.png",
+    "logoHash": "e11ab2cc208b4dc8a71203d93f8cce6e"
+  },
+  {
+    "slug": "ladoga",
+    "name": "Ladoga Wine",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/cb8e345fb6f74507b2d8f4ae87bdc990.png",
+    "logoHash": "cb8e345fb6f74507b2d8f4ae87bdc990"
+  },
+  {
+    "slug": "milstrim",
+    "name": "Мильстрим",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/6e010a4afc4d47c7baee1d6261921a70.png",
+    "logoHash": "6e010a4afc4d47c7baee1d6261921a70"
+  },
+  {
+    "slug": "grass_1",
+    "name": "Grass",
+    "logoSq": "https://leonardo.edadeal.io/dyn/re/retailers/images/logos/sq/8e5145c01c8a4d6d841315fc0bf93d40.png",
+    "logoHash": "8e5145c01c8a4d6d841315fc0bf93d40"
+  }
+]

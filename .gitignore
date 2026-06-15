@@ -14,3 +14,13 @@ node_modules
 .next/
 .npm-cache/
 .DS_Store
+
+# Cursor debug session logs (local only)
+.cursor/debug-*.log
+
+# Python backend
+backend/.venv/
+backend/__pycache__/
+**/__pycache__/
+*.pyc
+backend/.env

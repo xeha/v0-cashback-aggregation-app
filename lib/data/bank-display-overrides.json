@@ -1,0 +1,42 @@
+{
+  "sberbank-rossii": {
+    "name": "Сбер",
+    "alsoKnownAs": ["Сбербанк"]
+  },
+  "promsvjazbank": {
+    "name": "ПСБ",
+    "alsoKnownAs": ["Банк ПСБ", "Промсвязьбанк"]
+  },
+  "rajffajzenbank": {
+    "name": "Райффайзен",
+    "alsoKnownAs": ["Райффайзенбанк"]
+  },
+  "bank-domrf": {
+    "name": "ДОМ.РФ",
+    "alsoKnownAs": ["Банк ДОМ.РФ"]
+  },
+  "bank-zenit": {
+    "name": "Зенит",
+    "alsoKnownAs": ["Банк ЗЕНИТ"]
+  },
+  "loko-bank": {
+    "name": "Локо",
+    "alsoKnownAs": ["Локо-Банк"]
+  },
+  "tochka": {
+    "name": "Точка",
+    "alsoKnownAs": ["Точка Банк"]
+  },
+  "absoljut-bank": {
+    "name": "Абсолют",
+    "alsoKnownAs": ["Абсолют Банк"]
+  },
+  "ak-bars": {
+    "name": "Ак Барс",
+    "alsoKnownAs": ["Ак Барс Банк"]
+  },
+  "yandex-bank": {
+    "name": "Яндекс Пэй",
+    "alsoKnownAs": ["Яндекс Банк", "Яндекс Пей"]
+  }
+}

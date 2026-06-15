@@ -1,3 +1,5 @@
+import { getMarketAutocompleteNames } from "@/lib/provider-logos"
+
 export type BankKey = "alfa" | "psb" | "yandex" | "tbank"
 
 export interface Bank {
@@ -7,10 +9,10 @@ export interface Bank {
 }
 
 export const BANKS: Bank[] = [
-  { key: "alfa", name: "Альфа-Банк", logo: "/logos/alfabank.png" },
-  { key: "psb", name: "ПСБ", logo: "/logos/psbank.png" },
-  { key: "yandex", name: "Яндекс Банк", logo: "/logos/yandex.png" },
-  { key: "tbank", name: "Т-Банк", logo: "/logos/tbank.png" },
+  { key: "alfa", name: "Альфа-Банк", logo: "/logos/banks/alfa-bank.png" },
+  { key: "psb", name: "ПСБ", logo: "/logos/banks/promsvjazbank.png" },
+  { key: "yandex", name: "Яндекс Пэй", logo: "/logos/banks/yandex-bank.png" },
+  { key: "tbank", name: "Т-Банк", logo: "/logos/banks/t-bank.png" },
 ]
 
 export interface CashbackRow {
@@ -29,12 +31,12 @@ export const CASHBACK_ROWS: CashbackRow[] = [
 export const TOP_BANKS = [
   "Сбер",
   "Т-Банк",
-  "Альфа",
+  "Альфа-Банк",
   "ВТБ",
   "Газпромбанк",
   "Райффайзен",
   "ПСБ",
-  "Яндекс Пей",
+  "Яндекс Пэй",
 ]
 
 /* ----------------------------- Supermarkets ----------------------------- */
@@ -48,9 +50,9 @@ export interface Market {
 }
 
 export const MARKETS: Market[] = [
-  { key: "pyaterochka", name: "Пятёрочка", logo: "/logos/pyaterochka.png" },
-  { key: "magnit", name: "Магнит", logo: "/logos/magnit.png" },
-  { key: "lenta", name: "Лента", logo: "/logos/lenta.png" },
+  { key: "pyaterochka", name: "Пятёрочка", logo: "/logos/markets/5ka.png" },
+  { key: "magnit", name: "Магнит", logo: "/logos/markets/magnit-univer.png" },
+  { key: "lenta", name: "Лента", logo: "/logos/markets/lenta-super.png" },
 ]
 
 export interface MarketCashbackRow {
@@ -72,16 +74,7 @@ export const MARKET_CASHBACK_ROWS: MarketCashbackRow[] = [
   { category: "Замороженные ягоды", rates: { pyaterochka: 20 } },
 ]
 
-export const TOP_MARKETS = [
-  "Пятёрочка",
-  "Магнит",
-  "Лента",
-  "Перекрёсток",
-  "Ашан",
-  "Дикси",
-  "Метро",
-  "ВкусВилл",
-]
+export const TOP_MARKETS = getMarketAutocompleteNames()
 
 export type RateTier = "high" | "mid" | "low"
 

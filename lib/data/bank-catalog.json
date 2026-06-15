@@ -1,0 +1,1134 @@
+[
+  {
+    "slug": "absoljut-bank",
+    "name": "Абсолют",
+    "alsoKnownAs": [
+      "Абсолют Банк"
+    ]
+  },
+  {
+    "slug": "avangard",
+    "name": "Авангард"
+  },
+  {
+    "slug": "avers",
+    "name": "Аверс"
+  },
+  {
+    "slug": "avto-finans-bank",
+    "name": "Авто Финанс Банк"
+  },
+  {
+    "slug": "avtokreditbank",
+    "name": "Автокредитбанк"
+  },
+  {
+    "slug": "avtotorgbank",
+    "name": "Автоторгбанк"
+  },
+  {
+    "slug": "agora",
+    "name": "Агора"
+  },
+  {
+    "slug": "agropromkredit",
+    "name": "Агропромкредит"
+  },
+  {
+    "slug": "agroros",
+    "name": "Агророс"
+  },
+  {
+    "slug": "aziatskotikhookeanskij-bank",
+    "name": "Азиатско-Тихоокеанский Банк"
+  },
+  {
+    "slug": "azija-invest-bank",
+    "name": "Азия-инвест Банк"
+  },
+  {
+    "slug": "ak-bars",
+    "name": "Ак Барс",
+    "alsoKnownAs": [
+      "Ак Барс Банк"
+    ]
+  },
+  {
+    "slug": "akibank",
+    "name": "Акибанк"
+  },
+  {
+    "slug": "akcept",
+    "name": "Акцепт"
+  },
+  {
+    "slug": "aleksandrovskij",
+    "name": "Александровский"
+  },
+  {
+    "slug": "alef-bank",
+    "name": "Алеф-Банк"
+  },
+  {
+    "slug": "almazehrgiehnbank",
+    "name": "Алмазэргиэнбанк"
+  },
+  {
+    "slug": "altajkapitalbank",
+    "name": "Алтайкапиталбанк"
+  },
+  {
+    "slug": "altynbank",
+    "name": "Алтынбанк"
+  },
+  {
+    "slug": "alfa-bank",
+    "name": "Альфа-Банк"
+  },
+  {
+    "slug": "alfa-foreks",
+    "name": "Альфа-Форекс"
+  },
+  {
+    "slug": "aresbank",
+    "name": "Аресбанк"
+  },
+  {
+    "slug": "arzamas",
+    "name": "Арзамас"
+  },
+  {
+    "slug": "bajkalkredobank",
+    "name": "Байкалкредобанк"
+  },
+  {
+    "slug": "balakovo-bank",
+    "name": "Балаково-Банк"
+  },
+  {
+    "slug": "bank-torzhok",
+    "name": "Банк «Торжок»"
+  },
+  {
+    "slug": "bank-zhilishhnogo-finansirovanija",
+    "name": "Банк БЖФ"
+  },
+  {
+    "slug": "vserossijskij-bank-razvitija-regionov",
+    "name": "Банк ВБРР"
+  },
+  {
+    "slug": "bank-globus",
+    "name": "Банк Глобус"
+  },
+  {
+    "slug": "bank-inteza",
+    "name": "Банк Интеза"
+  },
+  {
+    "slug": "bank-kazani",
+    "name": "Банк Казани"
+  },
+  {
+    "slug": "kurgan",
+    "name": "БАНК КУРГАН"
+  },
+  {
+    "slug": "bank-orenburg",
+    "name": "Банк Оренбург"
+  },
+  {
+    "slug": "bank-raund",
+    "name": "Банк Раунд"
+  },
+  {
+    "slug": "bank-rsi",
+    "name": "Банк РСИ"
+  },
+  {
+    "slug": "bank-sgb",
+    "name": "Банк СГБ"
+  },
+  {
+    "slug": "sinara",
+    "name": "Банк Синара"
+  },
+  {
+    "slug": "bank-stavr",
+    "name": "Банк Ставр (Ставропольпромстройбанк)"
+  },
+  {
+    "slug": "uralsib",
+    "name": "Банк Уралсиб"
+  },
+  {
+    "slug": "finservis",
+    "name": "Банк Финсервис"
+  },
+  {
+    "slug": "khlynov",
+    "name": "Банк Хлынов"
+  },
+  {
+    "slug": "bank-chbrr",
+    "name": "Банк ЧБРР"
+  },
+  {
+    "slug": "bbr-bank",
+    "name": "ББР Банк"
+  },
+  {
+    "slug": "belgorodsocbank",
+    "name": "Белгородсоцбанк"
+  },
+  {
+    "slug": "biznes-servis-trast",
+    "name": "Бизнес-Сервис-Траст"
+  },
+  {
+    "slug": "bks-bank",
+    "name": "БКС Банк"
+  },
+  {
+    "slug": "blanc-bank",
+    "name": "Бланк"
+  },
+  {
+    "slug": "bratskij-ankb",
+    "name": "Братский АНКБ"
+  },
+  {
+    "slug": "bank-sankt-peterburg",
+    "name": "БСПБ"
+  },
+  {
+    "slug": "bystrobank",
+    "name": "БыстроБанк"
+  },
+  {
+    "slug": "bank-of-china",
+    "name": "Бэнк оф Чайна"
+  },
+  {
+    "slug": "vajldberriz-bank",
+    "name": "Вайлдберриз Банк"
+  },
+  {
+    "slug": "vakobank",
+    "name": "ВАКОБАНК"
+  },
+  {
+    "slug": "velikie-luki-bank",
+    "name": "Великие Луки банк"
+  },
+  {
+    "slug": "venec",
+    "name": "Венец"
+  },
+  {
+    "slug": "viking",
+    "name": "Викинг"
+  },
+  {
+    "slug": "vladbiznesbank",
+    "name": "Владбизнесбанк"
+  },
+  {
+    "slug": "vneshfinbank",
+    "name": "ВНЕШФИНБАНК"
+  },
+  {
+    "slug": "vologzhanin",
+    "name": "Вологжанин"
+  },
+  {
+    "slug": "vtb",
+    "name": "ВТБ"
+  },
+  {
+    "slug": "renta-bank",
+    "name": "Вэйбанк"
+  },
+  {
+    "slug": "vjatich",
+    "name": "Вятич"
+  },
+  {
+    "slug": "gazprombank",
+    "name": "Газпромбанк"
+  },
+  {
+    "slug": "gaztransbank",
+    "name": "Газтрансбанк"
+  },
+  {
+    "slug": "gazehnergobank",
+    "name": "Газэнергобанк"
+  },
+  {
+    "slug": "genbank",
+    "name": "Генбанк"
+  },
+  {
+    "slug": "gorbank",
+    "name": "Горбанк"
+  },
+  {
+    "slug": "guta-bank",
+    "name": "Гута-Банк"
+  },
+  {
+    "slug": "dalena",
+    "name": "Далена"
+  },
+  {
+    "slug": "dalnevostochnyj-bank",
+    "name": "Дальневосточный Банк"
+  },
+  {
+    "slug": "databank",
+    "name": "Датабанк"
+  },
+  {
+    "slug": "delobank",
+    "name": "Делобанк"
+  },
+  {
+    "slug": "derzhava",
+    "name": "Держава"
+  },
+  {
+    "slug": "dolinsk",
+    "name": "Долинск"
+  },
+  {
+    "slug": "kljukva",
+    "name": "Дом.ру банк"
+  },
+  {
+    "slug": "bank-domrf",
+    "name": "ДОМ.РФ",
+    "alsoKnownAs": [
+      "Банк ДОМ.РФ"
+    ]
+  },
+  {
+    "slug": "don-teksbank",
+    "name": "Дон-Тексбанк"
+  },
+  {
+    "slug": "donkombank",
+    "name": "Донкомбанк"
+  },
+  {
+    "slug": "druzhba",
+    "name": "Дружба"
+  },
+  {
+    "slug": "eatpbank",
+    "name": "ЕАТПБанк"
+  },
+  {
+    "slug": "evroaljans",
+    "name": "Евроальянс"
+  },
+  {
+    "slug": "evrofinans-mosnarbank",
+    "name": "Еврофинанс Моснарбанк"
+  },
+  {
+    "slug": "enisejskij-obedinennyj-bank",
+    "name": "Енисейский объединенный Банк"
+  },
+  {
+    "slug": "ermak",
+    "name": "Ермак"
+  },
+  {
+    "slug": "zhivago-bank",
+    "name": "Живаго Банк"
+  },
+  {
+    "slug": "zareche",
+    "name": "Заречье"
+  },
+  {
+    "slug": "zemkombank",
+    "name": "Земкомбанк"
+  },
+  {
+    "slug": "zemskij-bank",
+    "name": "Земский Банк"
+  },
+  {
+    "slug": "bank-zenit",
+    "name": "Зенит",
+    "alsoKnownAs": [
+      "Банк ЗЕНИТ"
+    ]
+  },
+  {
+    "slug": "ziraat-bank-moskva",
+    "name": "Зираат Банк Москва"
+  },
+  {
+    "slug": "ik-bank",
+    "name": "ИК Банк"
+  },
+  {
+    "slug": "inbank",
+    "name": "Инбанк"
+  },
+  {
+    "slug": "investtorgbank",
+    "name": "Инвестторгбанк"
+  },
+  {
+    "slug": "ingo-bank",
+    "name": "Инго Банк"
+  },
+  {
+    "slug": "interprogressbank",
+    "name": "Интерпрогрессбанк"
+  },
+  {
+    "slug": "it-bank",
+    "name": "ИТ Банк"
+  },
+  {
+    "slug": "iturup",
+    "name": "Итуруп"
+  },
+  {
+    "slug": "ishbank",
+    "name": "Ишбанк"
+  },
+  {
+    "slug": "joshkar-ola",
+    "name": "Йошкар-Ола"
+  },
+  {
+    "slug": "kaluga",
+    "name": "Калуга"
+  },
+  {
+    "slug": "kamkombank",
+    "name": "КАМКОМБАНК"
+  },
+  {
+    "slug": "kapital",
+    "name": "Капитал"
+  },
+  {
+    "slug": "kb-solidarnost",
+    "name": "КБ Солидарность"
+  },
+  {
+    "slug": "ketovskij",
+    "name": "Кетовский"
+  },
+  {
+    "slug": "klassik-ehkonom-bank",
+    "name": "Классик Эконом Банк"
+  },
+  {
+    "slug": "kommercheskij-indo-bank",
+    "name": "Коммерческий Индо Банк"
+  },
+  {
+    "slug": "kommercheskiy-mezhdunarodnyy-profilnyy-bank",
+    "name": "Коммерческий Международный «Профильный Банк»"
+  },
+  {
+    "slug": "kontinental",
+    "name": "Континенталь"
+  },
+  {
+    "slug": "kontur-bank",
+    "name": "Контур.Банк"
+  },
+  {
+    "slug": "kosmos",
+    "name": "Космос"
+  },
+  {
+    "slug": "kostromaselkombank",
+    "name": "Костромаселькомбанк"
+  },
+  {
+    "slug": "koshelev-bank",
+    "name": "Кошелев-Банк"
+  },
+  {
+    "slug": "kredit-evropa-bank",
+    "name": "Кредит Европа Банк (Россия)"
+  },
+  {
+    "slug": "kredit-ural-bank",
+    "name": "Кредит Урал Банк"
+  },
+  {
+    "slug": "kremlevskij",
+    "name": "Кремлевский"
+  },
+  {
+    "slug": "krokus-bank",
+    "name": "Крокус-Банк"
+  },
+  {
+    "slug": "krona-bank",
+    "name": "Крона-Банк"
+  },
+  {
+    "slug": "kuban-kredit",
+    "name": "Кубань Кредит"
+  },
+  {
+    "slug": "kubantorgbank",
+    "name": "Кубаньторгбанк"
+  },
+  {
+    "slug": "kuzbasskhimbank",
+    "name": "Кузбассхимбанк"
+  },
+  {
+    "slug": "kuzneckbiznesbank",
+    "name": "Кузнецкбизнесбанк"
+  },
+  {
+    "slug": "kuzneckij",
+    "name": "Кузнецкий"
+  },
+  {
+    "slug": "lanta-bank",
+    "name": "Ланта-Банк"
+  },
+  {
+    "slug": "levoberezhnyj",
+    "name": "Левобережный"
+  },
+  {
+    "slug": "loko-bank",
+    "name": "Локо",
+    "alsoKnownAs": [
+      "Локо-Банк"
+    ]
+  },
+  {
+    "slug": "maksima",
+    "name": "Максима"
+  },
+  {
+    "slug": "mbrus-bank",
+    "name": "МБ РУС Банк"
+  },
+  {
+    "slug": "mba-moskva",
+    "name": "МБА-Москва"
+  },
+  {
+    "slug": "mvs-bank",
+    "name": "МВС Банк"
+  },
+  {
+    "slug": "mezhdunarodnyj-finansovyj-klub",
+    "name": "Международный финансовый клуб"
+  },
+  {
+    "slug": "metallinvestbank",
+    "name": "Металлинвестбанк"
+  },
+  {
+    "slug": "metkombank",
+    "name": "МЕТКОМБАНК"
+  },
+  {
+    "slug": "mir-biznes-bank",
+    "name": "Мир Бизнес Банк"
+  },
+  {
+    "slug": "mir-privilegij",
+    "name": "Мир привилегий"
+  },
+  {
+    "slug": "modulbank",
+    "name": "Модульбанк"
+  },
+  {
+    "slug": "morskoj-bank",
+    "name": "Морской Банк"
+  },
+  {
+    "slug": "moskva-siti",
+    "name": "Москва-Сити"
+  },
+  {
+    "slug": "moskovskij-kreditnyj-bank",
+    "name": "Московский Кредитный Банк"
+  },
+  {
+    "slug": "moskombank",
+    "name": "Москомбанк"
+  },
+  {
+    "slug": "moskommercbank",
+    "name": "Москоммерцбанк"
+  },
+  {
+    "slug": "mosoblbank",
+    "name": "Мособлбанк"
+  },
+  {
+    "slug": "ms-bank-rus",
+    "name": "МС Банк Рус"
+  },
+  {
+    "slug": "msp-bank",
+    "name": "МСП Банк"
+  },
+  {
+    "slug": "mts-bank",
+    "name": "МТС Банк"
+  },
+  {
+    "slug": "murmanskij-socialnyj-kommercheskij-bank",
+    "name": "Мурманский социальный коммерческий Банк"
+  },
+  {
+    "slug": "nalchik",
+    "name": "Нальчик"
+  },
+  {
+    "slug": "nacinvestprombank",
+    "name": "Нацинвестпромбанк"
+  },
+  {
+    "slug": "nacionalnyj-bank-sberezhenij",
+    "name": "Национальный Банк сбережений"
+  },
+  {
+    "slug": "nacionalnyj-rezervnyj-bank",
+    "name": "Национальный резервный Банк"
+  },
+  {
+    "slug": "nacionalnyj-standart",
+    "name": "Национальный стандарт"
+  },
+  {
+    "slug": "nbd-bank",
+    "name": "НБД-Банк"
+  },
+  {
+    "slug": "ndbank",
+    "name": "НДБанк"
+  },
+  {
+    "slug": "nib",
+    "name": "НИБ"
+  },
+  {
+    "slug": "niko-bank",
+    "name": "НИКО-БАНК"
+  },
+  {
+    "slug": "nk-bank",
+    "name": "НК Банк"
+  },
+  {
+    "slug": "banknovikom",
+    "name": "НОВИКОМ"
+  },
+  {
+    "slug": "novobank",
+    "name": "Новобанк"
+  },
+  {
+    "slug": "novokib",
+    "name": "Новокиб"
+  },
+  {
+    "slug": "novyj-vek",
+    "name": "Новый век"
+  },
+  {
+    "slug": "nokssbank",
+    "name": "НОКССБАНК"
+  },
+  {
+    "slug": "noosfera",
+    "name": "НООСФЕРА"
+  },
+  {
+    "slug": "norvik-bank",
+    "name": "Норвик Банк"
+  },
+  {
+    "slug": "ns-bank",
+    "name": "НС Банк"
+  },
+  {
+    "slug": "obedinennyj-kapital",
+    "name": "Объединенный капитал"
+  },
+  {
+    "slug": "goldman-saks-bank",
+    "name": "Ориджин Банк"
+  },
+  {
+    "slug": "otp-bank",
+    "name": "ОТП Банк"
+  },
+  {
+    "slug": "pervouralskbank",
+    "name": "Первоуральскбанк"
+  },
+  {
+    "slug": "pervyj-dortransbank",
+    "name": "Первый Дортрансбанк"
+  },
+  {
+    "slug": "pervyj-investicionnyj-bank",
+    "name": "Первый Инвестиционный Банк"
+  },
+  {
+    "slug": "pervyj-klientskij-bank",
+    "name": "Первый Клиентский Банк"
+  },
+  {
+    "slug": "peresvet",
+    "name": "Пересвет"
+  },
+  {
+    "slug": "perm",
+    "name": "Пермь"
+  },
+  {
+    "slug": "peterburgskij-socialnyj-kommercheskij-bank",
+    "name": "Петербургский социальный коммерческий Банк"
+  },
+  {
+    "slug": "pojdem",
+    "name": "Пойдём!"
+  },
+  {
+    "slug": "pochtobank",
+    "name": "Почтобанк"
+  },
+  {
+    "slug": "primore",
+    "name": "Приморье"
+  },
+  {
+    "slug": "primsocbank",
+    "name": "Примсоцбанк"
+  },
+  {
+    "slug": "primterkombank",
+    "name": "Примтеркомбанк"
+  },
+  {
+    "slug": "prio-vneshtorgbank",
+    "name": "Прио-Внешторгбанк"
+  },
+  {
+    "slug": "priobe",
+    "name": "Приобье"
+  },
+  {
+    "slug": "probank",
+    "name": "ПроБанк"
+  },
+  {
+    "slug": "promselkhozbank",
+    "name": "Промсельхозбанк"
+  },
+  {
+    "slug": "prosto-bank",
+    "name": "Просто Банк"
+  },
+  {
+    "slug": "promsvjazbank",
+    "name": "ПСБ",
+    "alsoKnownAs": [
+      "Банк ПСБ",
+      "Промсвязьбанк"
+    ]
+  },
+  {
+    "slug": "razvitie-stolica",
+    "name": "Развитие-столица"
+  },
+  {
+    "slug": "rajffajzenbank",
+    "name": "Райффайзен",
+    "alsoKnownAs": [
+      "Райффайзенбанк"
+    ]
+  },
+  {
+    "slug": "rba",
+    "name": "РБА"
+  },
+  {
+    "slug": "realistbank",
+    "name": "Реалист Банк"
+  },
+  {
+    "slug": "renessans-kredit",
+    "name": "Ренессанс Банк"
+  },
+  {
+    "slug": "reso-kredit",
+    "name": "РЕСО Кредит"
+  },
+  {
+    "slug": "roketbank",
+    "name": "Рокетбанк"
+  },
+  {
+    "slug": "rosdorbank",
+    "name": "Росдорбанк"
+  },
+  {
+    "slug": "rosselkhozbank",
+    "name": "Россельхозбанк"
+  },
+  {
+    "slug": "rossijskaja-finansovaja-korporacija",
+    "name": "Российская финансовая корпорация"
+  },
+  {
+    "slug": "rossita-bank",
+    "name": "Россита-Банк"
+  },
+  {
+    "slug": "rossija",
+    "name": "РОССИЯ"
+  },
+  {
+    "slug": "rostfinance",
+    "name": "Ростфинанс"
+  },
+  {
+    "slug": "rosehksimbank",
+    "name": "Росэксимбанк"
+  },
+  {
+    "slug": "rojal-kredit-bank",
+    "name": "Роял Кредит Банк"
+  },
+  {
+    "slug": "rusnarbank",
+    "name": "Руснарбанк"
+  },
+  {
+    "slug": "russkij-bank-sberezhenij",
+    "name": "Русский Банк сбережений"
+  },
+  {
+    "slug": "russkij-standart",
+    "name": "Русский стандарт"
+  },
+  {
+    "slug": "rusregionbank",
+    "name": "Русьрегионбанк"
+  },
+  {
+    "slug": "rusuniversalbank",
+    "name": "Русьуниверсалбанк"
+  },
+  {
+    "slug": "sammit-bank",
+    "name": "Саммит Банк"
+  },
+  {
+    "slug": "sankt-peterburgskij-bank-investicij",
+    "name": "Санкт-Петербургский Банк инвестиций"
+  },
+  {
+    "slug": "saratov",
+    "name": "Саратов"
+  },
+  {
+    "slug": "sberbank-rossii",
+    "name": "Сбер",
+    "alsoKnownAs": [
+      "Сбербанк"
+    ]
+  },
+  {
+    "slug": "svoi-bank",
+    "name": "Свой Банк"
+  },
+  {
+    "slug": "sdm-bank",
+    "name": "СДМ-Банк"
+  },
+  {
+    "slug": "severnyj-narodnyj-bank",
+    "name": "Северный Народный Банк"
+  },
+  {
+    "slug": "severstrojbank",
+    "name": "СеверСтройБанк"
+  },
+  {
+    "slug": "selmashbank",
+    "name": "Сельмашбанк"
+  },
+  {
+    "slug": "servis-rezerv",
+    "name": "Сервис резерв"
+  },
+  {
+    "slug": "sibsocbank",
+    "name": "Сибсоцбанк"
+  },
+  {
+    "slug": "sinko-bank",
+    "name": "СИНКО-БАНК"
+  },
+  {
+    "slug": "siti-invest-bank",
+    "name": "Сити Инвест Банк"
+  },
+  {
+    "slug": "slavija",
+    "name": "Славия"
+  },
+  {
+    "slug": "slavjanbank",
+    "name": "Славянбанк"
+  },
+  {
+    "slug": "smlt-bank",
+    "name": "СМЛТ Банк"
+  },
+  {
+    "slug": "snezhinskij",
+    "name": "Снежинский"
+  },
+  {
+    "slug": "sovkombank",
+    "name": "Совкомбанк"
+  },
+  {
+    "slug": "sokolovskij",
+    "name": "Соколовский"
+  },
+  {
+    "slug": "solid-bank",
+    "name": "Солид Банк"
+  },
+  {
+    "slug": "socium-bank",
+    "name": "Социум-Банк"
+  },
+  {
+    "slug": "spb-bank",
+    "name": "СПБ Банк"
+  },
+  {
+    "slug": "specstrojbank",
+    "name": "Спецстройбанк"
+  },
+  {
+    "slug": "stolichnyj-kredit",
+    "name": "Столичный кредит"
+  },
+  {
+    "slug": "strojlesbank",
+    "name": "СТРОЙЛЕСБАНК"
+  },
+  {
+    "slug": "surgutneftegazbank",
+    "name": "Сургутнефтегазбанк"
+  },
+  {
+    "slug": "t-bank",
+    "name": "Т-Банк"
+  },
+  {
+    "slug": "taganrogbank",
+    "name": "Таганрогбанк"
+  },
+  {
+    "slug": "tambovkreditprombank",
+    "name": "Тамбовкредитпромбанк"
+  },
+  {
+    "slug": "tatsocbank",
+    "name": "Татсоцбанк"
+  },
+  {
+    "slug": "teleport-bank",
+    "name": "ТелеПорт Банк"
+  },
+  {
+    "slug": "tender-bank",
+    "name": "Тендер-Банк"
+  },
+  {
+    "slug": "timer-bank",
+    "name": "Тимер Банк"
+  },
+  {
+    "slug": "tkb-bank",
+    "name": "ТКБ Банк"
+  },
+  {
+    "slug": "tojota-bank",
+    "name": "Тойота Банк"
+  },
+  {
+    "slug": "toljattikhimbank",
+    "name": "Тольяттихимбанк"
+  },
+  {
+    "slug": "tomskpromstrojbank",
+    "name": "Томскпромстройбанк"
+  },
+  {
+    "slug": "tochka",
+    "name": "Точка",
+    "alsoKnownAs": [
+      "Точка Банк"
+    ]
+  },
+  {
+    "slug": "transstrojbank",
+    "name": "Трансстройбанк"
+  },
+  {
+    "slug": "uglemetbank",
+    "name": "Углеметбанк"
+  },
+  {
+    "slug": "unifondbank",
+    "name": "Унифондбанк"
+  },
+  {
+    "slug": "uralprombank",
+    "name": "Уралпромбанк"
+  },
+  {
+    "slug": "uralfinans",
+    "name": "Уралфинанс"
+  },
+  {
+    "slug": "uralskij-bank-rekonstrukcii-i-razvitija",
+    "name": "Уральский Банк реконструкции и развития"
+  },
+  {
+    "slug": "uri-bank",
+    "name": "Ури Банк"
+  },
+  {
+    "slug": "finam",
+    "name": "Финам"
+  },
+  {
+    "slug": "finstar-bank",
+    "name": "ФИНСТАР БАНК"
+  },
+  {
+    "slug": "fora-bank",
+    "name": "Фора-Банк"
+  },
+  {
+    "slug": "forshtadt",
+    "name": "Форштадт"
+  },
+  {
+    "slug": "hice",
+    "name": "Хайс"
+  },
+  {
+    "slug": "khakasskij-municipalnyj-bank",
+    "name": "Хакасский муниципальный банк"
+  },
+  {
+    "slug": "khimik",
+    "name": "Химик"
+  },
+  {
+    "slug": "centr-invest",
+    "name": "Центр-инвест"
+  },
+  {
+    "slug": "centrokredit",
+    "name": "Центрокредит"
+  },
+  {
+    "slug": "cifra-bank",
+    "name": "Цифра банк"
+  },
+  {
+    "slug": "cmrbank",
+    "name": "ЦМРБанк"
+  },
+  {
+    "slug": "chelindbank",
+    "name": "Челиндбанк"
+  },
+  {
+    "slug": "cheljabinvestbank",
+    "name": "Челябинвестбанк"
+  },
+  {
+    "slug": "ehkonombank",
+    "name": "Экономбанк"
+  },
+  {
+    "slug": "ehksi-bank",
+    "name": "Экси-Банк"
+  },
+  {
+    "slug": "expobank",
+    "name": "Экспобанк"
+  },
+  {
+    "slug": "ehlita",
+    "name": "Элита"
+  },
+  {
+    "slug": "ehnergobank",
+    "name": "Энергобанк"
+  },
+  {
+    "slug": "ehnergotransbank",
+    "name": "Энерготрансбанк"
+  },
+  {
+    "slug": "ehs-bi-aj-bank",
+    "name": "Эс-Би-Ай Банк"
+  },
+  {
+    "slug": "jug-investbank",
+    "name": "Юг-Инвестбанк"
+  },
+  {
+    "slug": "junikredit-bank",
+    "name": "ЮниКредит Банк"
+  },
+  {
+    "slug": "bank-junistrim",
+    "name": "Юнистрим"
+  },
+  {
+    "slug": "yandex-bank",
+    "name": "Яндекс Пэй",
+    "alsoKnownAs": [
+      "Яндекс Банк",
+      "Яндекс Пей"
+    ]
+  },
+  {
+    "slug": "jarinterbank",
+    "name": "Яринтербанк"
+  },
+  {
+    "slug": "ozon-bank",
+    "name": "Ozon Банк"
+  }
+]

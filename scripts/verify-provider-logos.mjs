@@ -1,0 +1,148 @@
+import assert from "node:assert/strict"
+import { readFileSync } from "node:fs"
+import { dirname, join } from "node:path"
+import { fileURLToPath } from "node:url"
+
+const root = join(dirname(fileURLToPath(import.meta.url)), "..")
+
+function normalize(value) {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/ё/g, "е")
+    .replace(/э/g, "е")
+    .replace(/[^a-zа-я0-9\s-]+/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+}
+
+function buildCatalog(entries, basePath) {
+  return entries.map(({ slug, name, alsoKnownAs }) => ({
+    slug,
+    names: [name, ...(alsoKnownAs ?? [])],
+    logo: `${basePath}/${slug}.png`,
+  }))
+}
+
+function findCatalogMatch(name, kind, bankCatalog, marketCatalog, aliases) {
+  const normalized = normalize(name)
+  if (!normalized) return null
+
+  const catalog = kind === "market" ? marketCatalog : bankCatalog
+  const kindAliases = aliases[kind] ?? {}
+
+  const aliasSlug = kindAliases[normalized]
+  if (aliasSlug) {
+    const aliasHit = catalog.find((e) => e.slug === aliasSlug)
+    if (aliasHit) return aliasHit
+  }
+
+  const exactNameHit = catalog.find((entry) =>
+    entry.names.some((entryName) => normalize(entryName) === normalized),
+  )
+  if (exactNameHit) return exactNameHit
+
+  const slugHit = catalog.find((e) => normalize(e.slug) === normalized)
+  if (slugHit) return slugHit
+
+  return null
+}
+
+function resolveProviderLogo(name, kind, bankCatalog, marketCatalog, aliases) {
+  return findCatalogMatch(name, kind, bankCatalog, marketCatalog, aliases)?.logo ?? "/placeholder.svg"
+}
+
+const banks = JSON.parse(readFileSync(join(root, "lib/data/bank-catalog.json"), "utf8"))
+const markets = JSON.parse(readFileSync(join(root, "lib/data/market-retailers.json"), "utf8"))
+const aliases = JSON.parse(readFileSync(join(root, "lib/data/logo-aliases.json"), "utf8"))
+
+const bankCatalog = buildCatalog(banks, "/logos/banks")
+const marketCatalog = buildCatalog(markets, "/logos/markets")
+
+assert.equal(
+  resolveProviderLogo("Сбер", "bank", bankCatalog, marketCatalog, aliases),
+  "/logos/banks/sberbank-rossii.png",
+)
+assert.equal(
+  resolveProviderLogo("ПСБ", "bank", bankCatalog, marketCatalog, aliases),
+  "/logos/banks/promsvjazbank.png",
+)
+assert.equal(
+  resolveProviderLogo("Райффайзен", "bank", bankCatalog, marketCatalog, aliases),
+  "/logos/banks/rajffajzenbank.png",
+)
+assert.equal(
+  resolveProviderLogo("Пятёрочка", "market", bankCatalog, marketCatalog, aliases),
+  "/logos/markets/5ka.png",
+)
+function getProviderComparisonKey(name, kind, bankCatalog, marketCatalog, aliases) {
+  const match = findCatalogMatch(name, kind, bankCatalog, marketCatalog, aliases)
+  if (match) return `slug:${match.slug}`
+  return `name:${normalize(name)}`
+}
+
+assert.equal(
+  resolveProviderLogo("Метро", "market", bankCatalog, marketCatalog, aliases),
+  "/logos/markets/metro-cc.png",
+)
+assert.equal(
+  resolveProviderLogo("Metro", "market", bankCatalog, marketCatalog, aliases),
+  "/logos/markets/metro-cc.png",
+)
+assert.equal(
+  getProviderComparisonKey("Metro", "market", bankCatalog, marketCatalog, aliases),
+  getProviderComparisonKey("Метро", "market", bankCatalog, marketCatalog, aliases),
+)
+
+function isSameProviderIdentity(first, second, bankCatalog, marketCatalog, aliases) {
+  if (first.kind !== second.kind) return false
+  return (
+    getProviderComparisonKey(first.name, first.kind, bankCatalog, marketCatalog, aliases) ===
+    getProviderComparisonKey(second.name, second.kind, bankCatalog, marketCatalog, aliases)
+  )
+}
+
+assert.equal(isSameProviderIdentity(
+  { name: "Metro", kind: "market" },
+  { name: "Метро", kind: "market" },
+  bankCatalog,
+  marketCatalog,
+  aliases,
+), true)
+assert.equal(isSameProviderIdentity(
+  { name: "Сбер", kind: "bank" },
+  { name: "Сбер", kind: "market" },
+  bankCatalog,
+  marketCatalog,
+  aliases,
+), false)
+assert.equal(
+  resolveProviderLogo("ВкусВилл", "market", bankCatalog, marketCatalog, aliases),
+  "/logos/markets/vkusvill_offline.png",
+)
+assert.equal(
+  resolveProviderLogo("Неизвестный Магазин XYZ", "market", bankCatalog, marketCatalog, aliases),
+  "/placeholder.svg",
+)
+assert.equal(
+  resolveProviderLogo("Т-Банк", "bank", bankCatalog, marketCatalog, aliases),
+  "/logos/banks/t-bank.png",
+)
+assert.equal(
+  resolveProviderLogo("Банк", "bank", bankCatalog, marketCatalog, aliases),
+  "/placeholder.svg",
+)
+assert.equal(
+  resolveProviderLogo("Мой особенный банк", "bank", bankCatalog, marketCatalog, aliases),
+  "/placeholder.svg",
+)
+assert.equal(
+  resolveProviderLogo("пэй", "bank", bankCatalog, marketCatalog, aliases),
+  "/logos/banks/yandex-bank.png",
+)
+assert.equal(
+  resolveProviderLogo("Яндекс Банк", "bank", bankCatalog, marketCatalog, aliases),
+  "/logos/banks/yandex-bank.png",
+)
+
+console.log("verify-provider-logos: all assertions passed")

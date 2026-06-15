@@ -5,60 +5,62 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-pnpm dev        # start dev server at http://localhost:3000
-pnpm build      # production build
-pnpm lint       # run ESLint
+# Frontend (http://localhost:3000)
+NEXT_PUBLIC_BACKEND_URL=http://localhost:8000 npm run dev
+npm run build
+npm run lint
+
+# Backend (http://localhost:8000)
+cd backend && pip install -r requirements.txt
+cp env.example .env   # set MISTRAL_API_KEY
+uvicorn main:app --reload --port 8000
 ```
 
 There are no tests in this project.
 
 ## Architecture
 
-This is a **mobile-first Next.js 16 app** (TypeScript + Tailwind CSS v4 + Framer Motion) deployed on Vercel. It is a Russian-language cashback aggregator: users upload screenshots of bank/supermarket cashback offers, and the app displays a comparison matrix.
+Mobile-first **Next.js 16** frontend (TypeScript + Tailwind v4 + Framer Motion) on Vercel, plus a **stateless FastAPI** backend on Railway for OCR and category mapping. No database, no auth — user data lives in React state only.
 
 ### Screen state machine
 
-The entire app is a single-page state machine in [components/cashback-app.tsx](components/cashback-app.tsx). `currentScreen` cycles through these states:
+[components/cashback-app.tsx](components/cashback-app.tsx) manages `currentScreen`:
 
 ```
 empty → gallery → bank-select → processing → results
 ```
 
-`kind` (`"bank" | "market"`) is set at the `empty` screen and threaded through all subsequent screens to switch between bank cashback and supermarket loyalty data.
+State held in `CashbackApp`:
+- `submissions` — `{ providerName, screenshotSrc, kind }[]` from bank-select
+- `matrix` — `{ bank: CashbackMatrix | null, market: CashbackMatrix | null }` after OCR
 
-### Screen components
+### OCR pipeline
 
-All screens live in [components/screens/](components/screens/):
+1. `bank-select-screen` passes submissions upward via `onNext(submissions)`
+2. `processing-screen` calls [lib/api.ts](lib/api.ts) for each submission:
+   - `POST /api/ocr/extract` — Mistral Vision (base64 image → raw categories)
+   - `POST /api/category/map` — sentence-transformers → unified taxonomy
+3. [lib/matrix.ts](lib/matrix.ts) merges mapped items into `CashbackMatrix`
+4. `results-screen` renders dynamic `matrix` (not static `CASHBACK_ROWS`)
 
-- **`empty-screen`** — landing with two CTA buttons (bank or market flow), plus `UserMenu`
-- **`gallery-screen`** — mock iOS photo picker (hardcoded screenshot paths in `BANK_PHOTOS`/`MARKET_PHOTOS`); renders as an `absolute inset-0 z-50` overlay when opened inline from `bank-select-screen`
-- **`bank-select-screen`** — user inputs bank/market names; supports multiple entries (each with a paired screenshot); opens `GalleryScreen` as an inline overlay to add more
-- **`processing-screen`** — simulated async step before results
-- **`results-screen`** — cashback matrix with tabs (Banks / Supermarkets), color-coded tiers, and action sheet (save PNG, share, add widget, upload more, reset)
-- **`results-overlays`** — `SavePngOverlay`, `ShareSheet`, `AddWidgetOverlay` (stub overlays)
-- **`user-menu`** — avatar dropdown with logout
+### Backend (`backend/`)
 
-### Data layer
+- [main.py](backend/main.py) — FastAPI app, CORS, `/health`
+- [routers/ocr.py](backend/routers/ocr.py) — `POST /api/ocr/extract`
+- [routers/category.py](backend/routers/category.py) — `POST /api/category/map`
+- [data/taxonomy.json](backend/data/taxonomy.json) — unified Russian categories
+- Env: `MISTRAL_API_KEY`, `ALLOWED_ORIGINS` (see `backend/env.example`)
 
-[lib/cashback-data.ts](lib/cashback-data.ts) is the single source of truth for all static data:
+### Static reference data
 
-- **`BANKS`** / **`MARKETS`** — provider definitions (`key`, `name`, `logo` path)
-- **`CASHBACK_ROWS`** / **`MARKET_CASHBACK_ROWS`** — category → rate mappings (`Partial<Record<BankKey | MarketKey, number>>`)
-- **`TOP_BANKS`** / **`TOP_MARKETS`** — autocomplete suggestion lists
-- **`getRowTiers(rates)`** — computes `"high" | "mid" | "low"` tier per provider within a row (used for green/yellow/red coloring)
-- **`getCurrentMonthYear()`** — returns Russian month name + year
+[lib/cashback-data.ts](lib/cashback-data.ts) — logos, autocomplete lists, `getRowTiers()`, `getCurrentMonthYear()`. Demo rows (`CASHBACK_ROWS`) are no longer used on the results screen.
 
-### UI conventions
+### Deployment
 
-- Tailwind CSS v4 (no `tailwind.config.js`; config is in `postcss.config.mjs`)
-- shadcn/ui is installed (`components.json`) but currently only `components/ui/button.tsx` exists
-- All screen transitions use `<AnimatePresence mode="wait">` with `motion.div` (opacity + y-slide, 0.35s)
-- The phone shell (`sm:h-[844px] sm:max-w-[400px] sm:rounded-[2.5rem]`) wraps everything and only appears on `sm:` breakpoints; full-screen on mobile
-- Color palette: yellow-200 for primary CTAs, slate for text/borders, green/yellow/red for cashback tier badges
+- **Vercel:** set `NEXT_PUBLIC_BACKEND_URL` to Railway URL
+- **Railway:** deploy `backend/Dockerfile`; set `MISTRAL_API_KEY`, `ALLOWED_ORIGINS`
 
-### Planned but not yet implemented
+### Not yet implemented
 
-- OCR pipeline: screenshot → structured `{raw_category, rate}[]` via multimodal LLM or Document AI
-- Category normalization: `raw_category` → unified category from a fixed taxonomy (~20–30 entries in Russian)
-- Backend: Python/FastAPI (to be created separately)
-- The `gallery-screen` currently uses hardcoded mock screenshot paths; real device photo access is not wired up
+- Real device photo upload (gallery uses mock paths in `public/screenshots/`)
+- JWT / PostgreSQL / persistence between sessions
