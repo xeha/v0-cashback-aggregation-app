@@ -14,7 +14,12 @@ import {
   type ScreenshotReuseConflict,
 } from "@/components/screenshot-reuse-confirm-dialog"
 import { GalleryScreen } from "@/components/screens/gallery-screen"
-import { findCatalogMatches, normalizeProviderName, type ProviderSuggestion } from "@/lib/provider-logos"
+import {
+  findCatalogMatches,
+  getProviderComparisonKey,
+  providerNamesMatch,
+  type ProviderSuggestion,
+} from "@/lib/provider-logos"
 import type { Kind, SourceSubmission } from "@/lib/types"
 
 const COPY = {
@@ -53,27 +58,28 @@ interface SubmissionRow {
   rowIndex: number
   providerName: string
   screenshotSrc: string
+  kind: Kind
 }
 
 function getScreenshotReuseConflicts(rows: SubmissionRow[]): ScreenshotReuseBlockState {
-  const seenBySrc = new Map<string, { name: string; rowIndex: number }>()
+  const seenBySrc = new Map<string, { name: string; rowIndex: number; kind: Kind }>()
   const conflicts: ScreenshotReuseConflict[] = []
   const conflictRowIndices = new Set<number>()
   const conflictKeys = new Set<string>()
 
-  for (const { rowIndex, providerName, screenshotSrc } of rows) {
+  for (const { rowIndex, providerName, screenshotSrc, kind } of rows) {
     const name = providerName.trim()
     if (!screenshotSrc || !name) continue
 
     const first = seenBySrc.get(screenshotSrc)
     if (!first) {
-      seenBySrc.set(screenshotSrc, { name, rowIndex })
+      seenBySrc.set(screenshotSrc, { name, rowIndex, kind })
       continue
     }
 
-    if (normalizeProviderName(first.name) === normalizeProviderName(name)) continue
+    if (providerNamesMatch(first.name, name, kind)) continue
 
-    const key = `${screenshotSrc}:${normalizeProviderName(name)}`
+    const key = `${screenshotSrc}:${getProviderComparisonKey(name, kind)}`
     if (!conflictKeys.has(key)) {
       conflictKeys.add(key)
       conflicts.push({ originalProviderName: first.name, newProviderName: name })
@@ -86,22 +92,24 @@ function getScreenshotReuseConflicts(rows: SubmissionRow[]): ScreenshotReuseBloc
   return { conflicts, conflictRowIndices: [...conflictRowIndices] }
 }
 
-function getDuplicateProviderNames(providerNames: string[]): string[] {
+function getDuplicateProviderNames(
+  submissions: Array<{ providerName: string; kind: Kind }>,
+): string[] {
   const seen = new Map<string, string>()
   const duplicates = new Set<string>()
 
-  for (const name of providerNames) {
-    const trimmed = name.trim()
+  for (const { providerName, kind } of submissions) {
+    const trimmed = providerName.trim()
     if (!trimmed) continue
 
-    const normalized = normalizeProviderName(trimmed)
-    const existing = seen.get(normalized)
+    const comparisonKey = getProviderComparisonKey(trimmed, kind)
+    const existing = seen.get(comparisonKey)
     if (existing) {
       duplicates.add(existing)
       continue
     }
 
-    seen.set(normalized, trimmed)
+    seen.set(comparisonKey, trimmed)
   }
 
   return [...duplicates].sort((a, b) => a.localeCompare(b, "ru"))
@@ -190,6 +198,7 @@ export function BankSelectScreen({
       rowIndex,
       providerName: submission.providerName,
       screenshotSrc: submission.screenshotSrc,
+      kind: submission.kind,
     }))
 
     const screenshotBlock = getScreenshotReuseConflicts(rows)
@@ -210,9 +219,7 @@ export function BankSelectScreen({
       .sort(([a], [b]) => a - b)
       .map(([, submission]) => submission)
 
-    const duplicateNames = getDuplicateProviderNames(
-      ordered.map((submission) => submission.providerName),
-    )
+    const duplicateNames = getDuplicateProviderNames(ordered)
 
     if (duplicateNames.length > 0) {
       setDuplicateConfirm({ providerNames: duplicateNames, submissionsByIndex })

@@ -32,6 +32,7 @@ interface CatalogRecord {
 interface MarketRecord {
   slug: string
   name: string
+  alsoKnownAs?: string[]
 }
 
 interface LogoAliasesFile {
@@ -54,12 +55,9 @@ const bankCatalog: LogoEntry[] = buildCatalog(
   "/logos/banks",
 )
 
-const marketCatalog: LogoEntry[] = (marketRetailersData as MarketRecord[]).map(
-  ({ slug, name }) => ({
-    slug,
-    names: [name],
-    logo: `/logos/markets/${slug}.png`,
-  }),
+const marketCatalog: LogoEntry[] = buildCatalog(
+  marketRetailersData as MarketRecord[],
+  "/logos/markets",
 )
 
 function getCatalog(kind: Kind): LogoEntry[] {
@@ -84,6 +82,23 @@ export function normalizeProviderName(value: string): string {
     .replace(/[^a-zа-я0-9\s-]+/gi, " ")
     .replace(/\s+/g, " ")
     .trim()
+}
+
+/** Canonical key for comparing names across Latin/Cyrillic variants via catalog slug. */
+export function getProviderComparisonKey(name: string, kind: Kind): string {
+  const trimmed = name.trim()
+  if (!trimmed) return ""
+
+  const match = findCatalogMatchInCatalog(trimmed, kind)
+  if (match) return `slug:${match.slug}`
+
+  return `name:${normalizeProviderName(trimmed)}`
+}
+
+export function providerNamesMatch(a: string, b: string, kind: Kind): boolean {
+  const keyA = getProviderComparisonKey(a, kind)
+  const keyB = getProviderComparisonKey(b, kind)
+  return Boolean(keyA && keyB && keyA === keyB)
 }
 
 function findCatalogMatchInCatalog(

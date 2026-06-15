@@ -1,4 +1,8 @@
-import { getProviderLogoBySlug, normalizeProviderName, resolveProviderLogo } from "@/lib/provider-logos"
+import {
+  getProviderLogoBySlug,
+  providerNamesMatch,
+  resolveProviderLogo,
+} from "@/lib/provider-logos"
 import type {
   CashbackMatrix,
   Kind,
@@ -87,11 +91,8 @@ export function findMatchingProvider(
   submission: SourceSubmission,
   providers: MatrixProvider[],
 ): MatrixProvider | undefined {
-  const normalizedName = normalizeProviderName(submission.providerName)
-  if (!normalizedName) return undefined
-
-  return providers.find(
-    (provider) => normalizeProviderName(provider.name) === normalizedName,
+  return providers.find((provider) =>
+    providerNamesMatch(submission.providerName, provider.name, submission.kind),
   )
 }
 

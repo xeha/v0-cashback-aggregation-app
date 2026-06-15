@@ -57,11 +57,7 @@ const markets = JSON.parse(readFileSync(join(root, "lib/data/market-retailers.js
 const aliases = JSON.parse(readFileSync(join(root, "lib/data/logo-aliases.json"), "utf8"))
 
 const bankCatalog = buildCatalog(banks, "/logos/banks")
-const marketCatalog = markets.map((r) => ({
-  slug: r.slug,
-  names: [r.name],
-  logo: `/logos/markets/${r.slug}.png`,
-}))
+const marketCatalog = buildCatalog(markets, "/logos/markets")
 
 assert.equal(
   resolveProviderLogo("Сбер", "bank", bankCatalog, marketCatalog, aliases),
@@ -79,9 +75,23 @@ assert.equal(
   resolveProviderLogo("Пятёрочка", "market", bankCatalog, marketCatalog, aliases),
   "/logos/markets/5ka.png",
 )
+function getProviderComparisonKey(name, kind, bankCatalog, marketCatalog, aliases) {
+  const match = findCatalogMatch(name, kind, bankCatalog, marketCatalog, aliases)
+  if (match) return `slug:${match.slug}`
+  return `name:${normalize(name)}`
+}
+
 assert.equal(
   resolveProviderLogo("Метро", "market", bankCatalog, marketCatalog, aliases),
   "/logos/markets/metro-cc.png",
+)
+assert.equal(
+  resolveProviderLogo("Metro", "market", bankCatalog, marketCatalog, aliases),
+  "/logos/markets/metro-cc.png",
+)
+assert.equal(
+  getProviderComparisonKey("Metro", "market", bankCatalog, marketCatalog, aliases),
+  getProviderComparisonKey("Метро", "market", bankCatalog, marketCatalog, aliases),
 )
 assert.equal(
   resolveProviderLogo("ВкусВилл", "market", bankCatalog, marketCatalog, aliases),
