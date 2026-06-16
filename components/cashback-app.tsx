@@ -7,9 +7,18 @@ import { EmptyScreen } from "@/components/screens/empty-screen"
 import { GalleryScreen } from "@/components/screens/gallery-screen"
 import { ProcessingScreen } from "@/components/screens/processing-screen"
 import { ResultsScreen } from "@/components/screens/results-screen"
-import type { Kind, MatrixState, SourceSubmission } from "@/lib/types"
+import {
+  submissionToBankSelectRow,
+  type BankSelectInitialRow,
+} from "@/lib/bank-select-rows"
+import type { Kind, MatrixState, ProcessingSummary, SourceSubmission } from "@/lib/types"
 
 type Screen = "empty" | "gallery" | "bank-select" | "processing" | "results"
+
+const EMPTY_PROCESSING_SUMMARY: ProcessingSummary = {
+  skipped: [],
+  lowConfidence: [],
+}
 
 function resetState() {
   return {
@@ -19,7 +28,42 @@ function resetState() {
     submissions: [] as SourceSubmission[],
     matrix: { bank: null, market: null } as MatrixState,
     processingError: null as string | null,
+    processingSummary: EMPTY_PROCESSING_SUMMARY,
+    bankSelectDraft: [] as SourceSubmission[],
+    savedSubmissions: [] as SourceSubmission[],
+    bankSelectSession: 0,
+    isReplacingScreenshot: false,
   }
+}
+
+function getBankSelectInitialRows({
+  isReplacingScreenshot,
+  initialShot,
+  savedSubmissions,
+  bankSelectDraft,
+}: {
+  isReplacingScreenshot: boolean
+  initialShot: string
+  savedSubmissions: SourceSubmission[]
+  bankSelectDraft: SourceSubmission[]
+}): BankSelectInitialRow[] | undefined {
+  if (isReplacingScreenshot && initialShot) {
+    return [
+      ...savedSubmissions.map(submissionToBankSelectRow),
+      {
+        providerName: "",
+        screenshotSrc: initialShot,
+        kind: null,
+        catalogSlug: null,
+      },
+    ]
+  }
+
+  if (bankSelectDraft.length > 0) {
+    return bankSelectDraft.map(submissionToBankSelectRow)
+  }
+
+  return undefined
 }
 
 export function CashbackApp() {
@@ -29,6 +73,13 @@ export function CashbackApp() {
   const [submissions, setSubmissions] = useState<SourceSubmission[]>([])
   const [matrix, setMatrix] = useState<MatrixState>({ bank: null, market: null })
   const [processingError, setProcessingError] = useState<string | null>(null)
+  const [processingSummary, setProcessingSummary] = useState<ProcessingSummary>(
+    EMPTY_PROCESSING_SUMMARY,
+  )
+  const [bankSelectDraft, setBankSelectDraft] = useState<SourceSubmission[]>([])
+  const [savedSubmissions, setSavedSubmissions] = useState<SourceSubmission[]>([])
+  const [bankSelectSession, setBankSelectSession] = useState(0)
+  const [isReplacingScreenshot, setIsReplacingScreenshot] = useState(false)
 
   function handleRestart() {
     const next = resetState()
@@ -38,7 +89,19 @@ export function CashbackApp() {
     setSubmissions(next.submissions)
     setMatrix(next.matrix)
     setProcessingError(next.processingError)
+    setProcessingSummary(next.processingSummary)
+    setBankSelectDraft(next.bankSelectDraft)
+    setSavedSubmissions(next.savedSubmissions)
+    setBankSelectSession(next.bankSelectSession)
+    setIsReplacingScreenshot(next.isReplacingScreenshot)
   }
+
+  const bankSelectInitialRows = getBankSelectInitialRows({
+    isReplacingScreenshot,
+    initialShot,
+    savedSubmissions,
+    bankSelectDraft,
+  })
 
   return (
     <main className="flex min-h-dvh items-center justify-center bg-gray-100 sm:py-8">
@@ -57,21 +120,53 @@ export function CashbackApp() {
             {currentScreen === "gallery" && (
               <GalleryScreen
                 kind={kind}
-                onCancel={() => setCurrentScreen("empty")}
+                onCancel={() => {
+                  if (isReplacingScreenshot) {
+                    setIsReplacingScreenshot(false)
+                    setCurrentScreen("processing")
+                    return
+                  }
+                  setCurrentScreen("empty")
+                }}
                 onAdd={(src) => {
                   setInitialShot(src)
+                  if (!isReplacingScreenshot) {
+                    setBankSelectDraft([])
+                    setSavedSubmissions([])
+                  }
+                  setBankSelectSession((value) => value + 1)
                   setCurrentScreen("bank-select")
                 }}
               />
             )}
             {currentScreen === "bank-select" && (
               <BankSelectScreen
+                key={`bank-select-${bankSelectSession}`}
                 kind={kind}
                 initialShot={initialShot}
-                onBack={() => setCurrentScreen("gallery")}
+                initialRows={bankSelectInitialRows}
+                lockedRowCount={isReplacingScreenshot ? savedSubmissions.length : 0}
+                onBack={() => {
+                  if (isReplacingScreenshot) {
+                    setIsReplacingScreenshot(false)
+                    setInitialShot("")
+                    setCurrentScreen("processing")
+                    return
+                  }
+                  setCurrentScreen("gallery")
+                }}
                 onNext={(nextSubmissions) => {
-                  setSubmissions(nextSubmissions)
                   setProcessingError(null)
+                  if (isReplacingScreenshot) {
+                    const newSubmissions = nextSubmissions.slice(savedSubmissions.length)
+                    setSubmissions((prev) => [...newSubmissions, ...prev])
+                    setBankSelectDraft([...savedSubmissions, ...newSubmissions])
+                    setIsReplacingScreenshot(false)
+                  } else {
+                    setProcessingSummary(EMPTY_PROCESSING_SUMMARY)
+                    setBankSelectDraft(nextSubmissions)
+                    setSubmissions(nextSubmissions)
+                  }
                   setCurrentScreen("processing")
                 }}
               />
@@ -82,9 +177,29 @@ export function CashbackApp() {
                 existingMatrix={matrix}
                 initialError={processingError}
                 onBack={() => setCurrentScreen("bank-select")}
-                onDone={(nextMatrix) => {
-                  setMatrix(nextMatrix)
+                onOcrFailure={(partialMatrix, failedIndex, partialSummary, processedSubmissions) => {
+                  setMatrix(partialMatrix)
+                  setSavedSubmissions((prev) => [...prev, ...processedSubmissions])
+                  setSubmissions((prev) => prev.slice(failedIndex + 1))
+                  setProcessingSummary((prev) => ({
+                    skipped: prev.skipped,
+                    lowConfidence: [...prev.lowConfidence, ...partialSummary.lowConfidence],
+                  }))
+                }}
+                onReplaceScreenshot={() => {
+                  setInitialShot("")
                   setProcessingError(null)
+                  setIsReplacingScreenshot(true)
+                  setCurrentScreen("gallery")
+                }}
+                onDone={(nextMatrix, summary) => {
+                  setMatrix(nextMatrix)
+                  setProcessingSummary((prev) => ({
+                    skipped: summary.skipped,
+                    lowConfidence: [...prev.lowConfidence, ...summary.lowConfidence],
+                  }))
+                  setProcessingError(null)
+                  setSavedSubmissions([])
                   setCurrentScreen("results")
                 }}
                 onError={(message) => setProcessingError(message)}
@@ -94,6 +209,7 @@ export function CashbackApp() {
               <ResultsScreen
                 kind={kind}
                 matrix={matrix}
+                processingSummary={processingSummary}
                 onRestart={handleRestart}
                 onUploadMore={() => setCurrentScreen("gallery")}
               />

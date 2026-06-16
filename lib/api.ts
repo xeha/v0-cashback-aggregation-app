@@ -4,6 +4,7 @@ import type {
   CashbackMatrix,
   CategoryMapResponse,
   Kind,
+  LowConfidenceItem,
   MappedItem,
   OcrExtractResponse,
   SourceSubmission,
@@ -11,13 +12,73 @@ import type {
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:8000"
 
-class ApiError extends Error {
+/** Below this confidence, show a warning on the results screen. */
+export const LOW_CONFIDENCE_UI_THRESHOLD = 0.55
+
+export class ApiError extends Error {
   status: number
 
   constructor(message: string, status: number) {
     super(message)
     this.status = status
   }
+}
+
+export class OcrEmptyError extends ApiError {
+  constructor() {
+    super("На скриншоте не найдены категории кэшбэка.", 422)
+  }
+}
+
+export class OcrUnreliableError extends ApiError {
+  constructor() {
+    super(
+      "Категории распознаны неуверенно — похоже, это не скриншот кэшбэка. Выберите другое фото.",
+      422,
+    )
+  }
+}
+
+export function isOcrRecognitionFailure(error: unknown): error is ApiError {
+  if (!(error instanceof ApiError)) return false
+  if (error instanceof OcrEmptyError || error instanceof OcrUnreliableError) return true
+  return error.status === 502
+}
+
+function isUnreliableMapping(items: MappedItem[]): boolean {
+  if (items.length === 0) return true
+
+  const confidences = items.map((item) => item.confidence)
+  const average =
+    confidences.reduce((sum, value) => sum + value, 0) / confidences.length
+  const allBelowThreshold = confidences.every(
+    (value) => value < LOW_CONFIDENCE_UI_THRESHOLD,
+  )
+  const mostlyFallback =
+    items.filter((item) => item.unified_category === "Прочее").length /
+      items.length >=
+    0.5
+
+  return allBelowThreshold || average < LOW_CONFIDENCE_UI_THRESHOLD || mostlyFallback
+}
+
+function collectLowConfidenceItems(
+  items: MappedItem[],
+  providerName: string,
+): LowConfidenceItem[] {
+  return items
+    .filter((item) => item.confidence < LOW_CONFIDENCE_UI_THRESHOLD)
+    .map((item) => ({
+      providerName,
+      rawCategory: item.raw_category,
+      unifiedCategory: item.unified_category,
+      confidence: item.confidence,
+    }))
+}
+
+export interface ProcessSubmissionResult {
+  matrix: CashbackMatrix
+  lowConfidenceItems: LowConfidenceItem[]
 }
 
 async function postJson<T>(path: string, body: unknown): Promise<T> {
@@ -73,27 +134,38 @@ export async function processSubmission(
   submission: SourceSubmission,
   existingKeys: Set<string>,
   currentMatrix: CashbackMatrix | null,
-): Promise<CashbackMatrix> {
+): Promise<ProcessSubmissionResult> {
   const { image_base64, mime_type } = await imageSrcToBase64(submission.screenshotSrc)
   const ocr = await extractOcr(image_base64, mime_type)
 
   if (ocr.items.length === 0) {
-    throw new ApiError("На скриншоте не найдены категории кэшбэка.", 422)
+    throw new OcrEmptyError()
   }
 
   const mapped = await mapCategories(ocr.items, submission.providerName)
+  const mappedItems = mapped.items as MappedItem[]
+
+  if (isUnreliableMapping(mappedItems)) {
+    throw new OcrUnreliableError()
+  }
+
   const provider = createProviderFromSubmission(
     submission,
     existingKeys,
     currentMatrix?.providers ?? [],
   )
 
-  return mergeMappedItems(
+  const matrix = mergeMappedItems(
     currentMatrix,
     provider,
-    mapped.items as MappedItem[],
+    mappedItems,
     submission.kind,
   )
+
+  return {
+    matrix,
+    lowConfidenceItems: collectLowConfidenceItems(mappedItems, submission.providerName),
+  }
 }
 
 /** Runs OCR + merge and keeps `keys` in sync with the matrix (by provider key, not display name). */
@@ -101,12 +173,12 @@ export async function processSubmissionWithKeyTracking(
   submission: SourceSubmission,
   keys: Set<string>,
   currentMatrix: CashbackMatrix | null,
-): Promise<CashbackMatrix> {
+): Promise<ProcessSubmissionResult> {
   currentMatrix?.providers.forEach((provider) => keys.add(provider.key))
 
   const result = await processSubmission(submission, keys, currentMatrix)
 
-  const newProvider = result.providers.find(
+  const newProvider = result.matrix.providers.find(
     (provider) =>
       !currentMatrix?.providers.some((existing) => existing.key === provider.key),
   )
@@ -130,13 +202,11 @@ export async function processAllSubmissions(
     const result = await processSubmissionWithKeyTracking(submission, keys, current)
 
     if (submission.kind === "market") {
-      marketMatrix = result
+      marketMatrix = result.matrix
     } else {
-      bankMatrix = result
+      bankMatrix = result.matrix
     }
   }
 
   return { bank: bankMatrix, market: marketMatrix }
 }
-
-export { ApiError }

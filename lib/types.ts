@@ -49,3 +49,20 @@ export interface OcrExtractResponse {
 export interface CategoryMapResponse {
   items: MappedItem[]
 }
+
+export interface SkippedSubmission {
+  providerName: string
+  message: string
+}
+
+export interface LowConfidenceItem {
+  providerName: string
+  rawCategory: string
+  unifiedCategory: string
+  confidence: number
+}
+
+export interface ProcessingSummary {
+  skipped: SkippedSubmission[]
+  lowConfidence: LowConfidenceItem[]
+}

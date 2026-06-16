@@ -1,9 +1,49 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
-import type { CashbackMatrix, MatrixState, SourceSubmission } from "@/lib/types"
-import { ApiError, processSubmissionWithKeyTracking } from "@/lib/api"
+import { useEffect, useRef, useState } from "react"
+import { OcrFailureDialog } from "@/components/ocr-failure-dialog"
+import {
+  ApiError,
+  isOcrRecognitionFailure,
+  processSubmissionWithKeyTracking,
+} from "@/lib/api"
+import type {
+  CashbackMatrix,
+  LowConfidenceItem,
+  MatrixState,
+  ProcessingSummary,
+  SourceSubmission,
+} from "@/lib/types"
+
+interface BatchProgress {
+  index: number
+  bankMatrix: CashbackMatrix | null
+  marketMatrix: CashbackMatrix | null
+  bankKeys: Set<string>
+  marketKeys: Set<string>
+  lowConfidence: LowConfidenceItem[]
+}
+
+interface OcrFailureState {
+  submission: SourceSubmission
+  message: string
+}
+
+function cloneKeySet(keys: Set<string>): Set<string> {
+  return new Set(keys)
+}
+
+function createInitialBatch(existingMatrix: MatrixState): BatchProgress {
+  return {
+    index: 0,
+    bankMatrix: existingMatrix.bank,
+    marketMatrix: existingMatrix.market,
+    bankKeys: new Set(existingMatrix.bank?.providers.map((provider) => provider.key) ?? []),
+    marketKeys: new Set(existingMatrix.market?.providers.map((provider) => provider.key) ?? []),
+    lowConfidence: [],
+  }
+}
 
 export function ProcessingScreen({
   submissions,
@@ -11,77 +51,157 @@ export function ProcessingScreen({
   initialError,
   onDone,
   onBack,
+  onOcrFailure,
+  onReplaceScreenshot,
   onError,
 }: {
   submissions: SourceSubmission[]
   existingMatrix: MatrixState
   initialError: string | null
-  onDone: (matrix: MatrixState) => void
+  onDone: (matrix: MatrixState, summary: ProcessingSummary) => void
   onBack: () => void
+  onOcrFailure: (
+    partialMatrix: MatrixState,
+    failedIndex: number,
+    partialSummary: ProcessingSummary,
+    processedSubmissions: SourceSubmission[],
+  ) => void
+  onReplaceScreenshot: () => void
   onError: (message: string) => void
 }) {
   const [progress, setProgress] = useState(0)
   const [error, setError] = useState<string | null>(initialError)
   const [retryKey, setRetryKey] = useState(0)
+  const [ocrFailure, setOcrFailure] = useState<OcrFailureState | null>(null)
+
+  const runGenerationRef = useRef(0)
+  const waitingForUserRef = useRef(false)
+  const onDoneRef = useRef(onDone)
+  const onErrorRef = useRef(onError)
+  const onOcrFailureRef = useRef(onOcrFailure)
+
+  onDoneRef.current = onDone
+  onErrorRef.current = onError
+  onOcrFailureRef.current = onOcrFailure
 
   useEffect(() => {
+    if (waitingForUserRef.current) return
+
     if (submissions.length === 0) {
       setError("Нет данных для обработки. Вернитесь и выберите скриншоты.")
       return
     }
 
+    const runGeneration = runGenerationRef.current + 1
+    runGenerationRef.current = runGeneration
     let cancelled = false
 
-    async function run() {
-      setError(null)
-      setProgress(0)
+    setError(null)
+    setProgress(0)
+    setOcrFailure(null)
 
-      let bankMatrix: CashbackMatrix | null = existingMatrix.bank
-      let marketMatrix: CashbackMatrix | null = existingMatrix.market
-      const bankKeys = new Set(bankMatrix?.providers.map((provider) => provider.key) ?? [])
-      const marketKeys = new Set(marketMatrix?.providers.map((provider) => provider.key) ?? [])
+    async function runBatch(batch: BatchProgress) {
+      let state = {
+        ...batch,
+        bankKeys: cloneKeySet(batch.bankKeys),
+        marketKeys: cloneKeySet(batch.marketKeys),
+      }
 
-      try {
-        for (let index = 0; index < submissions.length; index += 1) {
-          if (cancelled) return
+      for (let index = state.index; index < submissions.length; index += 1) {
+        if (cancelled || runGenerationRef.current !== runGeneration) return
 
-          const submission = submissions[index]
-          const keys = submission.kind === "market" ? marketKeys : bankKeys
-          const current = submission.kind === "market" ? marketMatrix : bankMatrix
+        const submission = submissions[index]
+        const keys = submission.kind === "market" ? state.marketKeys : state.bankKeys
+        const current = submission.kind === "market" ? state.marketMatrix : state.bankMatrix
 
+        try {
           const result = await processSubmissionWithKeyTracking(submission, keys, current)
 
+          if (cancelled || runGenerationRef.current !== runGeneration) return
+
           if (submission.kind === "market") {
-            marketMatrix = result
+            state = { ...state, marketMatrix: result.matrix }
           } else {
-            bankMatrix = result
+            state = { ...state, bankMatrix: result.matrix }
           }
 
-          setProgress(index + 1)
-        }
+          if (result.lowConfidenceItems.length > 0) {
+            state = {
+              ...state,
+              lowConfidence: [...state.lowConfidence, ...result.lowConfidenceItems],
+            }
+          }
 
-        if (!cancelled) {
-          onDone({ bank: bankMatrix, market: marketMatrix })
+          state = { ...state, index: index + 1 }
+          setProgress(index + 1)
+        } catch (err) {
+          if (cancelled || runGenerationRef.current !== runGeneration) return
+
+          if (isOcrRecognitionFailure(err)) {
+            waitingForUserRef.current = true
+            const message =
+              err instanceof ApiError
+                ? err.message
+                : "Не удалось распознать категории на скриншоте."
+            onOcrFailureRef.current(
+              {
+                bank: state.bankMatrix,
+                market: state.marketMatrix,
+              },
+              index,
+              {
+                skipped: [],
+                lowConfidence: state.lowConfidence,
+              },
+              submissions.slice(0, index),
+            )
+            setOcrFailure({ submission, message })
+            return
+          }
+
+          const message =
+            err instanceof ApiError
+              ? err.message
+              : "Не удалось обработать скриншоты. Попробуйте ещё раз."
+          setError(message)
+          onErrorRef.current(message)
+          return
         }
-      } catch (err) {
-        if (cancelled) return
-        const message =
-          err instanceof ApiError
-            ? err.message
-            : "Не удалось обработать скриншоты. Попробуйте ещё раз."
-        setError(message)
-        onError(message)
       }
+
+      if (cancelled || runGenerationRef.current !== runGeneration || waitingForUserRef.current) {
+        return
+      }
+
+      onDoneRef.current(
+        {
+          bank: state.bankMatrix,
+          market: state.marketMatrix,
+        },
+        {
+          skipped: [],
+          lowConfidence: state.lowConfidence,
+        },
+      )
     }
 
-    run()
+    runBatch(createInitialBatch(existingMatrix))
 
     return () => {
       cancelled = true
     }
-  }, [submissions, existingMatrix, onDone, onError, retryKey])
+  }, [submissions, existingMatrix, retryKey])
+
+  function handleReplaceFromDialog() {
+    if (!ocrFailure) return
+    waitingForUserRef.current = false
+    runGenerationRef.current += 1
+    setOcrFailure(null)
+    onReplaceScreenshot()
+  }
 
   const total = submissions.length
+  const isWaitingForUser = ocrFailure !== null
   const label =
     progress > 0
       ? `Обрабатываем ${progress} из ${total}…`
@@ -94,9 +214,9 @@ export function ProcessingScreen({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="flex min-h-full flex-col items-center justify-center px-6 py-12 text-center"
+      className="relative flex min-h-full flex-col items-center justify-center px-6 py-12 text-center"
     >
-      {!error ? (
+      {!error && !isWaitingForUser ? (
         <>
           <div className="relative flex h-24 w-24 items-center justify-center">
             <motion.span
@@ -114,14 +234,17 @@ export function ProcessingScreen({
           <p className="mt-8 text-[16px] font-semibold text-slate-900">{label}</p>
           <p className="mt-2 text-[14px] text-slate-500">Это может занять до минуты</p>
         </>
-      ) : (
+      ) : !isWaitingForUser ? (
         <div className="flex w-full max-w-sm flex-col items-center gap-4">
           <p className="text-[16px] font-semibold text-slate-900">Ошибка обработки</p>
           <p className="text-[14px] leading-relaxed text-slate-500">{error}</p>
           <div className="flex w-full flex-col gap-2">
             <button
               type="button"
-              onClick={() => setRetryKey((value) => value + 1)}
+              onClick={() => {
+                waitingForUserRef.current = false
+                setRetryKey((value) => value + 1)
+              }}
               className="w-full rounded-2xl bg-yellow-200 px-5 py-3.5 text-[15px] font-semibold text-slate-900 transition-colors hover:bg-yellow-300"
             >
               Повторить
@@ -135,7 +258,14 @@ export function ProcessingScreen({
             </button>
           </div>
         </div>
-      )}
+      ) : null}
+
+      <OcrFailureDialog
+        open={ocrFailure !== null}
+        providerName={ocrFailure?.submission.providerName ?? ""}
+        message={ocrFailure?.message ?? ""}
+        onReplace={handleReplaceFromDialog}
+      />
     </motion.div>
   )
 }

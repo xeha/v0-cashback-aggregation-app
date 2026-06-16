@@ -4,8 +4,9 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Download, Share, LayoutGrid, ImagePlus, Trash2 } from "lucide-react"
 import { ProviderLogo } from "@/components/provider-logo"
+import { ProcessingWarningsBanner } from "@/components/processing-warnings-banner"
 import { getCurrentMonthYear, getRowTiers, type RateTier } from "@/lib/cashback-data"
-import type { CashbackMatrix, Kind, MatrixState } from "@/lib/types"
+import type { CashbackMatrix, Kind, MatrixState, ProcessingSummary } from "@/lib/types"
 import { AddWidgetOverlay, SavePngOverlay, ShareSheet } from "./results-overlays"
 import { UserMenu } from "./user-menu"
 
@@ -32,11 +33,13 @@ export function ResultsScreen({
   onUploadMore,
   kind = "bank",
   matrix,
+  processingSummary = { skipped: [], lowConfidence: [] },
 }: {
   onRestart: () => void
   onUploadMore: () => void
   kind?: Kind
   matrix: MatrixState
+  processingSummary?: ProcessingSummary
 }) {
   const [activeTab, setActiveTab] = useState<Tab>(() => getDefaultTab(matrix, kind))
   const [showSave, setShowSave] = useState(false)
@@ -78,6 +81,8 @@ export function ResultsScreen({
         </div>
         <UserMenu onLogout={onRestart} />
       </div>
+
+      <ProcessingWarningsBanner summary={processingSummary} />
 
       <div className="mb-5 flex rounded-2xl bg-slate-100 p-1">
         {(

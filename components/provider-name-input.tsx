@@ -13,6 +13,7 @@ export function ProviderNameInput({
   catalogKind,
   placeholder,
   autoFocus,
+  disabled = false,
   onChange,
 }: {
   value: string
@@ -20,6 +21,7 @@ export function ProviderNameInput({
   catalogKind: Kind | null
   placeholder: string
   autoFocus?: boolean
+  disabled?: boolean
   onChange: (name: string, catalogSlug: string | null, kind: Kind | null) => void
 }) {
   const listId = useId()
@@ -56,13 +58,19 @@ export function ProviderNameInput({
         type="text"
         value={value}
         autoFocus={autoFocus}
+        disabled={disabled}
+        readOnly={disabled}
         onChange={(e) => handleInputChange(e.target.value)}
-        onFocus={() => setIsOpen(true)}
+        onFocus={() => {
+          if (!disabled) setIsOpen(true)
+        }}
         placeholder={placeholder}
         aria-expanded={showSuggestions}
         aria-controls={showSuggestions ? listId : undefined}
         aria-autocomplete="list"
-        className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-[15px] text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white"
+        className={`w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-[15px] text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white ${
+          disabled ? "cursor-default opacity-70" : ""
+        }`}
       />
 
       {showSuggestions && (

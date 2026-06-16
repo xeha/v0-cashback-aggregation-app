@@ -15,6 +15,10 @@ import {
 } from "@/components/screenshot-reuse-confirm-dialog"
 import { GalleryScreen } from "@/components/screens/gallery-screen"
 import {
+  buildBankSelectRowState,
+  type BankSelectInitialRow,
+} from "@/lib/bank-select-rows"
+import {
   findCatalogMatches,
   getProviderComparisonKey,
   providerNamesMatch,
@@ -120,16 +124,23 @@ export function BankSelectScreen({
   onNext,
   kind = "bank",
   initialShot = "",
+  initialRows,
+  lockedRowCount = 0,
 }: {
   onBack: () => void
   onNext: (submissions: SourceSubmission[]) => void
   kind?: Kind
   initialShot?: string
+  initialRows?: BankSelectInitialRow[]
+  lockedRowCount?: number
 }) {
-  const [names, setNames] = useState<string[]>([""])
-  const [catalogSlugs, setCatalogSlugs] = useState<(string | null)[]>([null])
-  const [rowKinds, setRowKinds] = useState<(Kind | null)[]>([null])
-  const [shots, setShots] = useState<string[]>([initialShot])
+  const rowState = buildBankSelectRowState(initialRows, initialShot)
+  const [names, setNames] = useState<string[]>(rowState.names)
+  const [catalogSlugs, setCatalogSlugs] = useState<(string | null)[]>(rowState.catalogSlugs)
+  const [rowKinds, setRowKinds] = useState<(Kind | null)[]>(rowState.rowKinds)
+  const [shots, setShots] = useState<string[]>(rowState.shots)
+
+
   const [pendingBankIndex, setPendingBankIndex] = useState<number | null>(null)
   const [resolveContext, setResolveContext] = useState<ResolveContext | null>(null)
   const [duplicateConfirm, setDuplicateConfirm] = useState<DuplicateConfirmState | null>(null)
@@ -177,7 +188,10 @@ export function BankSelectScreen({
     setShots((prev) => prev.filter((_, i) => i !== index))
   }
 
-  const canProceed = names.some((name) => name.trim().length > 0)
+  const canProceed = names.some((name, index) => {
+    if (index < lockedRowCount) return false
+    return name.trim().length > 0
+  })
 
   function buildSubmission(
     rowIndex: number,
@@ -371,6 +385,7 @@ export function BankSelectScreen({
         {names.map((name, i) => {
           const hasScreenshotConflict =
             screenshotReuseBlock?.conflictRowIndices.includes(i) ?? false
+          const isLocked = i < lockedRowCount
 
           return (
           <div key={i} className="flex items-center gap-2">
@@ -394,12 +409,13 @@ export function BankSelectScreen({
                 value={name}
                 catalogSlug={catalogSlugs[i] ?? null}
                 catalogKind={rowKinds[i] ?? null}
-                autoFocus={focusIndexRef.current === i}
+                autoFocus={!isLocked && focusIndexRef.current === i}
                 placeholder={COPY.placeholder}
+                disabled={isLocked}
                 onChange={(nextName, slug, rowKind) => updateRow(i, nextName, slug, rowKind)}
               />
             </div>
-            {names.length > 1 && (
+            {names.length > 1 && !isLocked && (
               <button
                 onClick={() => removeRow(i)}
                 aria-label="Удалить источник"
@@ -408,6 +424,7 @@ export function BankSelectScreen({
                 <X className="h-5 w-5" />
               </button>
             )}
+            {isLocked && <div className="h-10 w-10 shrink-0" aria-hidden />}
           </div>
           )
         })}

@@ -10,6 +10,7 @@ const GALLERY_PHOTOS = [
   "/screenshots/magnit-categories.jpg",
   "/screenshots/pyaterochka-categories.jpg",
   "/screenshots/lenta-categories.jpg",
+  "/screenshots/test-not-cashback.jpeg"
 ] as const
 
 export function GalleryScreen({
