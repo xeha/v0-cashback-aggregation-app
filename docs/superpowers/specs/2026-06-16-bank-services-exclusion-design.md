@@ -110,6 +110,8 @@ Ozon Банк:
 
 Удалить или не использовать `"шопинг в городе"` — это сервис Т-Банка, должен отсекаться на OCR, а не маппиться.
 
+> **Update 2026-06-16:** override `"активный отдых"` → «Спорт и фитнес» ошибочен; исправлен на «Развлечения» в [category-mapping-context-design.md](./2026-06-16-category-mapping-context-design.md).
+
 ## Post-filter (страховка, опционально в той же итерации)
 
 Файл `backend/data/bank_service_exclusions.json` — список подстрок для `_filter_bank_services(items) -> items` после OCR. Паттерны из промпта, нормализация как в `mapper_service._normalize_category_name`. Применять только для `kind=bank` (если source передаётся) или всегда для банковских скриншотов.
