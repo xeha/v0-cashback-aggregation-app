@@ -3,10 +3,10 @@ import { createProviderFromSubmission, mergeMappedItems } from "@/lib/matrix"
 import type {
   CashbackMatrix,
   CategoryMapResponse,
-  Kind,
   LowConfidenceItem,
   MappedItem,
   OcrExtractResponse,
+  OcrItem,
   SourceSubmission,
 } from "@/lib/types"
 
@@ -140,6 +140,16 @@ export async function mapCategories(
   })
 }
 
+/** Supermarkets use product-level categories that do not fit the bank taxonomy. */
+function mapMarketItemsFromOcr(items: OcrItem[]): MappedItem[] {
+  return items.map((item) => ({
+    raw_category: item.raw_category,
+    unified_category: item.raw_category,
+    rate: item.rate,
+    confidence: 1,
+  }))
+}
+
 export async function processSubmission(
   submission: SourceSubmission,
   existingKeys: Set<string>,
@@ -152,10 +162,12 @@ export async function processSubmission(
     throw new OcrEmptyError()
   }
 
-  const mapped = await mapCategories(ocr.items, submission.providerName)
-  const mappedItems = mapped.items as MappedItem[]
+  const mappedItems =
+    submission.kind === "market"
+      ? mapMarketItemsFromOcr(ocr.items)
+      : ((await mapCategories(ocr.items, submission.providerName)).items as MappedItem[])
 
-  if (isUnreliableMapping(mappedItems)) {
+  if (submission.kind !== "market" && isUnreliableMapping(mappedItems)) {
     throw new OcrUnreliableError()
   }
 
