@@ -112,9 +112,9 @@ Remove `GalleryScreen` overlay; `startAddBank()` calls `openPicker()` in same cl
 - Modify: `lib/image-utils.ts`
 - Optional dependency: `heic2any`
 
-- [ ] **Step 1: Detect `image/heic` / `.heic` extension**
-- [ ] **Step 2: Convert to JPEG before `data:` URL**
-- [ ] **Step 3: Test with iPhone screenshot**
+- [x] **Step 1: Detect `image/heic` / `.heic` extension**
+- [x] **Step 2: Convert to JPEG before `data:` URL**
+- [ ] **Step 3: Test with iPhone screenshot** (manual on device)
 
 ---
 
@@ -123,27 +123,30 @@ Remove `GalleryScreen` overlay; `startAddBank()` calls `openPicker()` in same cl
 **Files:**
 - Modify: `lib/image-utils.ts`
 
-- [ ] **Step 1: If file > 3 MB, draw to canvas, export JPEG quality 0.85, max 2048px**
-- [ ] **Step 2: Test with large PNG screenshot**
+- [x] **Step 1: If file > 3 MB, draw to canvas, export JPEG quality 0.85, max 2048px**
+- [ ] **Step 2: Test with large PNG screenshot** (manual on device)
 
 ---
 
 ### Task 6: Cross-platform testing (~45 min)
 
-- [ ] Mac Finder pick → full OCR flow
-- [ ] iPhone Safari → gallery pick → OCR
-- [ ] Android Chrome → gallery pick → OCR
-- [ ] bank-select add row
-- [ ] Cancel / pick another file
-- [ ] Wi-Fi backend (`192.168.x.x`)
+- [x] `npm run build` passes
+- [x] `node scripts/verify-image-utils.mjs` — HEIC detection
+- [ ] Mac Finder pick → full OCR flow (manual)
+- [ ] iPhone Safari → gallery pick → OCR (manual)
+- [ ] Android Chrome → gallery pick → OCR (manual)
+- [ ] bank-select add row (manual)
+- [ ] Cancel / pick another file (manual)
+- [ ] Wi-Fi backend (`192.168.x.x`) (manual)
 
 ---
 
 ### Task 7: Cleanup (~20 min)
 
-- [ ] Remove dead gallery navigation paths from `cashback-app.tsx`
-- [ ] Update `CLAUDE.md` — real upload implemented
-- [ ] Update `.cursor/skills/cashback-patterns/SKILL.md` — remove «mock gallery» note
+- [x] Remove dead gallery navigation paths from `cashback-app.tsx` (done in Task 3)
+- [x] Update `CLAUDE.md` — real upload implemented
+- [x] Update `.cursor/skills/cashback-patterns/SKILL.md` — remove «mock gallery» note
+- [x] Update `AGENTS.md`, `.cursor/rules/project.mdc`
 
 ---
 
@@ -154,9 +157,9 @@ Remove `GalleryScreen` overlay; `startAddBank()` calls `openPicker()` in same cl
 | 1. `readImageFile` utility | 30 min | Done |
 | 2. `GalleryScreen` + `ImageFilePicker` | 1 h 30 min | Done |
 | 3. User gesture wiring | 45 min | Done |
-| 4. HEIC | 1 h | Pending |
-| 5. Compression | 45 min | Pending |
-| 6. Testing | 45 min | Pending |
-| 7. Cleanup | 20 min | Pending |
+| 4. HEIC | 1 h | Done (code) |
+| 5. Compression | 45 min | Done (code) |
+| 6. Testing | 45 min | Partial (build + script; device manual) |
+| 7. Cleanup | 20 min | Done |
 | **MVP (1–3, 6–7)** | **~4 h** | |
 | **Full** | **~6 h** | |

@@ -62,5 +62,10 @@ State held in `CashbackApp`:
 
 ### Not yet implemented
 
-- Real device photo upload (gallery uses mock paths in `public/screenshots/`)
 - JWT / PostgreSQL / persistence between sessions
+
+### Device upload
+
+- `components/image-file-picker.tsx` — hidden `<input type="file">`, opens in user gesture
+- `lib/image-utils.ts` — `readImageFile()` (HEIC → JPEG via `heic2any`, compress > 3 MB)
+- `public/screenshots/` — demo assets only (not used in UI)

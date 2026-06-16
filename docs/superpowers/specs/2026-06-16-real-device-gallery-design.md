@@ -20,8 +20,8 @@ Let users pick a real screenshot from the device gallery (or Finder on Mac) inst
 | Main flow | Empty CTA → picker → gallery preview → bank-select |
 | Add row in bank-select | Picker opens on «Ещё кэшбек» click, no gallery overlay |
 | Upload more / replace | Picker opens on button click → bank-select directly |
-| HEIC (iPhone) | Phase 2 — convert or show error (Task 4 in plan) |
-| Compression | Phase 2 — optional resize > 3 MB (Task 5 in plan) |
+| HEIC (iPhone) | Implemented — `heic2any` converts to JPEG in `readImageFile()` |
+| Compression | Implemented — canvas resize when file > 3 MB |
 | PWA | Not required for file picker |
 
 ## File Structure
