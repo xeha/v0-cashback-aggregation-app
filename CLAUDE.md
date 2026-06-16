@@ -49,6 +49,8 @@ State held in `CashbackApp`:
 - [routers/ocr.py](backend/routers/ocr.py) — `POST /api/ocr/extract`
 - [routers/category.py](backend/routers/category.py) — `POST /api/category/map`
 - [data/taxonomy.json](backend/data/taxonomy.json) — unified Russian categories
+- [data/bank_service_exclusions.json](backend/data/bank_service_exclusions.json) + OCR prompt — bank ecosystem services (Тревел, Заправки, etc.) excluded from extraction
+- [data/category_overrides.json](backend/data/category_overrides.json) — synonym mapping for main categories
 - Env: `MISTRAL_API_KEY`, `ALLOWED_ORIGINS` (see `backend/env.example`)
 
 ### Static reference data
