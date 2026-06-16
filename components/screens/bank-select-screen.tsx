@@ -1,6 +1,6 @@
 "use client"
 
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { ArrowLeft, Plus, X } from "lucide-react"
 import { useRef, useState } from "react"
 import { DuplicateSourceConfirmDialog } from "@/components/duplicate-source-confirm-dialog"
@@ -13,7 +13,7 @@ import {
   ScreenshotReuseConfirmDialog,
   type ScreenshotReuseConflict,
 } from "@/components/screenshot-reuse-confirm-dialog"
-import { GalleryScreen } from "@/components/screens/gallery-screen"
+import { ImageFilePicker } from "@/components/image-file-picker"
 import {
   buildBankSelectRowState,
   type BankSelectInitialRow,
@@ -139,7 +139,6 @@ export function BankSelectScreen({
   const [catalogSlugs, setCatalogSlugs] = useState<(string | null)[]>(initial.catalogSlugs)
   const [rowKinds, setRowKinds] = useState<(Kind | null)[]>(initial.rowKinds)
   const [shots, setShots] = useState<string[]>(initial.shots)
-  const [pendingBankIndex, setPendingBankIndex] = useState<number | null>(null)
   const [resolveContext, setResolveContext] = useState<ResolveContext | null>(null)
   const [duplicateConfirm, setDuplicateConfirm] = useState<DuplicateConfirmState | null>(null)
   const [screenshotReuseBlock, setScreenshotReuseBlock] =
@@ -165,17 +164,12 @@ export function BankSelectScreen({
     setRowKinds((prev) => prev.map((value, i) => (i === index ? rowKind : value)))
   }
 
-  function startAddBank() {
-    setPendingBankIndex(names.length)
-  }
-
   function handleScreenshotAdded(src: string) {
     const newIndex = names.length
     setNames((prev) => [...prev, ""])
     setCatalogSlugs((prev) => [...prev, null])
     setRowKinds((prev) => [...prev, null])
     setShots((prev) => [...prev, src])
-    setPendingBankIndex(null)
     focusIndexRef.current = newIndex
   }
 
@@ -366,6 +360,8 @@ export function BankSelectScreen({
     : null
 
   return (
+    <ImageFilePicker onPick={handleScreenshotAdded}>
+      {(openPicker, { isReading, error }) => (
     <motion.div
       key="bank-select"
       initial={{ opacity: 0, y: 16 }}
@@ -435,12 +431,20 @@ export function BankSelectScreen({
       </div>
 
       <button
-        onClick={startAddBank}
-        className="mt-3 flex items-center justify-center gap-2 self-start rounded-2xl border border-slate-300 px-4 py-2.5 text-[14px] font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50"
+        type="button"
+        onClick={openPicker}
+        disabled={isReading}
+        className="mt-3 flex items-center justify-center gap-2 self-start rounded-2xl border border-slate-300 px-4 py-2.5 text-[14px] font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50 disabled:opacity-50"
       >
         <Plus className="h-4 w-4" />
-        {COPY.addLabel}
+        {isReading ? "Загрузка…" : COPY.addLabel}
       </button>
+
+      {error && (
+        <p className="mt-2 text-sm text-red-600" role="alert">
+          {error}
+        </p>
+      )}
 
       <div className="mt-auto flex items-center justify-between gap-3 pt-10">
         <button
@@ -458,16 +462,6 @@ export function BankSelectScreen({
           Далее
         </button>
       </div>
-
-      <AnimatePresence>
-        {pendingBankIndex !== null && (
-          <GalleryScreen
-            kind={kind}
-            onCancel={() => setPendingBankIndex(null)}
-            onAdd={handleScreenshotAdded}
-          />
-        )}
-      </AnimatePresence>
 
       {activeTask && (
         <ProviderKindPickerDialog
@@ -498,5 +492,7 @@ export function BankSelectScreen({
         />
       )}
     </motion.div>
+      )}
+    </ImageFilePicker>
   )
 }

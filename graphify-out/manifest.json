@@ -1,0 +1,247 @@
+{
+  "app/layout.tsx": {
+    "mtime": 1781445919.6103175,
+    "ast_hash": "96a305e01dabf3b22d4cd127e1c6c991",
+    "semantic_hash": "96a305e01dabf3b22d4cd127e1c6c991"
+  },
+  "app/page.tsx": {
+    "mtime": 1781445919.6104133,
+    "ast_hash": "5ad9a027057960e2a9229ad1031840ee",
+    "semantic_hash": "5ad9a027057960e2a9229ad1031840ee"
+  },
+  "backend/data/category_overrides.json": {
+    "mtime": 1781533450.1617117,
+    "ast_hash": "f077497aa02dbd59fca4b0a5660203fe",
+    "semantic_hash": "f077497aa02dbd59fca4b0a5660203fe"
+  },
+  "backend/data/taxonomy.json": {
+    "mtime": 1781533450.1618037,
+    "ast_hash": "dd6d3a30983565e6b9fa2432b3095543",
+    "semantic_hash": "dd6d3a30983565e6b9fa2432b3095543"
+  },
+  "backend/main.py": {
+    "mtime": 1781533450.162016,
+    "ast_hash": "2e15e6792cb0e935cee37722a7238b2a",
+    "semantic_hash": "2e15e6792cb0e935cee37722a7238b2a"
+  },
+  "backend/routers/__init__.py": {
+    "mtime": 1781533450.1621442,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "backend/routers/category.py": {
+    "mtime": 1781533450.162255,
+    "ast_hash": "cd5b2485a31168d88c181fbc4b6a0465",
+    "semantic_hash": "cd5b2485a31168d88c181fbc4b6a0465"
+  },
+  "backend/routers/ocr.py": {
+    "mtime": 1781533450.1625245,
+    "ast_hash": "33fc60149529df0222358914333212c9",
+    "semantic_hash": "33fc60149529df0222358914333212c9"
+  },
+  "backend/schemas.py": {
+    "mtime": 1781533450.1626878,
+    "ast_hash": "db63190b21e84059381008fdbdae0b82",
+    "semantic_hash": "db63190b21e84059381008fdbdae0b82"
+  },
+  "backend/services/__init__.py": {
+    "mtime": 1781533450.1627455,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "backend/services/mapper_service.py": {
+    "mtime": 1781533450.162911,
+    "ast_hash": "c062dcf7e9a4a209588d05cca4f5225d",
+    "semantic_hash": "c062dcf7e9a4a209588d05cca4f5225d"
+  },
+  "backend/services/ocr_service.py": {
+    "mtime": 1781596617.8247297,
+    "ast_hash": "b5167afb1f4c4f70de0108d19ff9ece4",
+    "semantic_hash": "b5167afb1f4c4f70de0108d19ff9ece4"
+  },
+  "components.json": {
+    "mtime": 1781445919.6109166,
+    "ast_hash": "a1691b243ef8732e37a47e5eef18a7e4",
+    "semantic_hash": "a1691b243ef8732e37a47e5eef18a7e4"
+  },
+  "components/cashback-app.tsx": {
+    "mtime": 1781603781.2194924,
+    "ast_hash": "004ad1abb62bace7a3b3470c091242bf",
+    "semantic_hash": "004ad1abb62bace7a3b3470c091242bf"
+  },
+  "components/duplicate-source-confirm-dialog.tsx": {
+    "mtime": 1781533450.1634796,
+    "ast_hash": "b3e5813530e2503630b3d370d18caeb6",
+    "semantic_hash": "b3e5813530e2503630b3d370d18caeb6"
+  },
+  "components/ocr-failure-dialog.tsx": {
+    "mtime": 1781596592.1623821,
+    "ast_hash": "8fe57bc4f68f5758814083449ed7e70b",
+    "semantic_hash": "8fe57bc4f68f5758814083449ed7e70b"
+  },
+  "components/processing-warnings-banner.tsx": {
+    "mtime": 1781596315.7021074,
+    "ast_hash": "d309685b45af3e4af8679fbab2fc7790",
+    "semantic_hash": "d309685b45af3e4af8679fbab2fc7790"
+  },
+  "components/provider-kind-picker-dialog.tsx": {
+    "mtime": 1781533450.1637003,
+    "ast_hash": "a3e5e99948dc3d06e8d7df1e28a40f21",
+    "semantic_hash": "a3e5e99948dc3d06e8d7df1e28a40f21"
+  },
+  "components/provider-logo.tsx": {
+    "mtime": 1781533450.1637971,
+    "ast_hash": "79503a35e7492ea3c9a7aa4ee7ed520d",
+    "semantic_hash": "79503a35e7492ea3c9a7aa4ee7ed520d"
+  },
+  "components/provider-name-input.tsx": {
+    "mtime": 1781597778.8617282,
+    "ast_hash": "4620064eba53fe3954575dada498be6c",
+    "semantic_hash": "4620064eba53fe3954575dada498be6c"
+  },
+  "components/screens/bank-select-screen.tsx": {
+    "mtime": 1781603781.2198818,
+    "ast_hash": "b9bc1117ecc1884c1272c1a6ed01ef3a",
+    "semantic_hash": "b9bc1117ecc1884c1272c1a6ed01ef3a"
+  },
+  "components/screens/empty-screen.tsx": {
+    "mtime": 1781453216.696318,
+    "ast_hash": "fa426b2d3992ad41e8cfa1199e9fc95c",
+    "semantic_hash": "fa426b2d3992ad41e8cfa1199e9fc95c"
+  },
+  "components/screens/gallery-screen.tsx": {
+    "mtime": 1781602430.2060957,
+    "ast_hash": "32d3a661319fe0a074fe1f5e24a77a66",
+    "semantic_hash": "32d3a661319fe0a074fe1f5e24a77a66"
+  },
+  "components/screens/processing-screen.tsx": {
+    "mtime": 1781601569.904784,
+    "ast_hash": "7b3c148b636918628dde255204202cfd",
+    "semantic_hash": "7b3c148b636918628dde255204202cfd"
+  },
+  "components/screens/results-overlays.tsx": {
+    "mtime": 1781445919.6118565,
+    "ast_hash": "8062aae909450f1f017065252e0f748a",
+    "semantic_hash": "8062aae909450f1f017065252e0f748a"
+  },
+  "components/screens/results-screen.tsx": {
+    "mtime": 1781535676.76738,
+    "ast_hash": "5336c309edad5cc9ad8a9df9aac09f0a",
+    "semantic_hash": "5336c309edad5cc9ad8a9df9aac09f0a"
+  },
+  "components/screens/user-menu.tsx": {
+    "mtime": 1781453216.6966968,
+    "ast_hash": "98fa20b441efb98ca9489d9871c8bf44",
+    "semantic_hash": "98fa20b441efb98ca9489d9871c8bf44"
+  },
+  "components/screenshot-reuse-confirm-dialog.tsx": {
+    "mtime": 1781533450.1650953,
+    "ast_hash": "839fd37c090af45e5dde7e079cd6ba7b",
+    "semantic_hash": "839fd37c090af45e5dde7e079cd6ba7b"
+  },
+  "components/ui/button.tsx": {
+    "mtime": 1781445919.6122153,
+    "ast_hash": "63cfaae37f8d5e0fa4451635ccc521b4",
+    "semantic_hash": "63cfaae37f8d5e0fa4451635ccc521b4"
+  },
+  "lib/api.ts": {
+    "mtime": 1781601569.903135,
+    "ast_hash": "76350ccca5c3430deff81d385646772c",
+    "semantic_hash": "76350ccca5c3430deff81d385646772c"
+  },
+  "lib/bank-select-rows.ts": {
+    "mtime": 1781597913.9827318,
+    "ast_hash": "5e062944de5091668cb54f970726ec14",
+    "semantic_hash": "5e062944de5091668cb54f970726ec14"
+  },
+  "lib/cashback-data.ts": {
+    "mtime": 1781533450.166443,
+    "ast_hash": "f5c6f4d118863b14e1abc06389feaacf",
+    "semantic_hash": "f5c6f4d118863b14e1abc06389feaacf"
+  },
+  "lib/data/bank-catalog.json": {
+    "mtime": 1781533450.166692,
+    "ast_hash": "c8c8bb82510db7d2f33a10503a63eead",
+    "semantic_hash": "c8c8bb82510db7d2f33a10503a63eead"
+  },
+  "lib/data/bank-display-overrides.json": {
+    "mtime": 1781533450.166829,
+    "ast_hash": "5c03c65ba1f55159df45fcbcbdddf7ee",
+    "semantic_hash": "5c03c65ba1f55159df45fcbcbdddf7ee"
+  },
+  "lib/data/logo-aliases.json": {
+    "mtime": 1781533450.1669607,
+    "ast_hash": "fcab407dcfc71c30af63d133f0570b63",
+    "semantic_hash": "fcab407dcfc71c30af63d133f0570b63"
+  },
+  "lib/data/market-retailers.json": {
+    "mtime": 1781533450.167092,
+    "ast_hash": "5f8f958014741b01d31a0a99e8e8d61f",
+    "semantic_hash": "5f8f958014741b01d31a0a99e8e8d61f"
+  },
+  "lib/image-utils.ts": {
+    "mtime": 1781533450.1672142,
+    "ast_hash": "142e02da52e8fb395e22aef8b7f88755",
+    "semantic_hash": "142e02da52e8fb395e22aef8b7f88755"
+  },
+  "lib/matrix.ts": {
+    "mtime": 1781533450.1673372,
+    "ast_hash": "7829af4084d83823a4ae698342b99f5a",
+    "semantic_hash": "7829af4084d83823a4ae698342b99f5a"
+  },
+  "lib/provider-logos.ts": {
+    "mtime": 1781533450.1675806,
+    "ast_hash": "10c57906fcd608feddd73ac082dae44b",
+    "semantic_hash": "10c57906fcd608feddd73ac082dae44b"
+  },
+  "lib/types.ts": {
+    "mtime": 1781535591.4210122,
+    "ast_hash": "0cc204c7b6ccd49a84e2c59851324578",
+    "semantic_hash": "0cc204c7b6ccd49a84e2c59851324578"
+  },
+  "lib/utils.ts": {
+    "mtime": 1781445919.6139157,
+    "ast_hash": "9a4cc6f9f3155ffdc1fa7c2c097f6429",
+    "semantic_hash": "9a4cc6f9f3155ffdc1fa7c2c097f6429"
+  },
+  "next-env.d.ts": {
+    "mtime": 1781622133.4341526,
+    "ast_hash": "2a74d3909800ca5467fa83b0ab4a4890",
+    "semantic_hash": "2a74d3909800ca5467fa83b0ab4a4890"
+  },
+  "next.config.mjs": {
+    "mtime": 1781445919.615269,
+    "ast_hash": "e36b6419c008f0a3d55bd789c4fabcf0",
+    "semantic_hash": "e36b6419c008f0a3d55bd789c4fabcf0"
+  },
+  "package.json": {
+    "mtime": 1781445919.6153576,
+    "ast_hash": "94207b3536118e41e87afa19bd6f2a4b",
+    "semantic_hash": "94207b3536118e41e87afa19bd6f2a4b"
+  },
+  "postcss.config.mjs": {
+    "mtime": 1781445919.6158416,
+    "ast_hash": "f82d40129ab70e95110c0470895b366c",
+    "semantic_hash": "f82d40129ab70e95110c0470895b366c"
+  },
+  "scripts/copy-logo-assets.mjs": {
+    "mtime": 1781533450.2528605,
+    "ast_hash": "a0c05f819baf6ef4324fe0021fe76656",
+    "semantic_hash": "a0c05f819baf6ef4324fe0021fe76656"
+  },
+  "scripts/generate-bank-catalog.mjs": {
+    "mtime": 1781533450.2530856,
+    "ast_hash": "3f67badd3325f10d3434df8d1e846631",
+    "semantic_hash": "3f67badd3325f10d3434df8d1e846631"
+  },
+  "scripts/verify-provider-logos.mjs": {
+    "mtime": 1781533450.2535427,
+    "ast_hash": "c42daa8e91834c79ad581fda86d694d6",
+    "semantic_hash": "c42daa8e91834c79ad581fda86d694d6"
+  },
+  "tsconfig.json": {
+    "mtime": 1781445919.6205442,
+    "ast_hash": "4cc2cac899fc2a7d141bca0f8797b9de",
+    "semantic_hash": "4cc2cac899fc2a7d141bca0f8797b9de"
+  }
+}

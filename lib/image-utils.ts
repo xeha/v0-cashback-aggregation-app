@@ -3,6 +3,56 @@ const MIME_BY_EXT: Record<string, string> = {
   jpeg: "image/jpeg",
   png: "image/png",
   webp: "image/webp",
+  gif: "image/gif",
+}
+
+export const MAX_IMAGE_FILE_BYTES = 15 * 1024 * 1024
+
+const ACCEPTED_IMAGE_TYPES = new Set([
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/gif",
+])
+
+export class ImageReadError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "ImageReadError"
+  }
+}
+
+function isAcceptedImage(file: File): boolean {
+  if (ACCEPTED_IMAGE_TYPES.has(file.type)) return true
+
+  const ext = file.name.split(".").pop()?.toLowerCase() ?? ""
+  return ext === "jpg" || ext === "jpeg" || ext === "png" || ext === "webp" || ext === "gif"
+}
+
+export function readImageFile(file: File): Promise<string> {
+  if (!isAcceptedImage(file)) {
+    return Promise.reject(
+      new ImageReadError("Выберите изображение в формате JPEG, PNG или WebP."),
+    )
+  }
+
+  if (file.size > MAX_IMAGE_FILE_BYTES) {
+    return Promise.reject(new ImageReadError("Файл слишком большой. Максимум — 15 МБ."))
+  }
+
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onload = () => {
+      const result = reader.result
+      if (typeof result !== "string") {
+        reject(new ImageReadError("Не удалось прочитать изображение."))
+        return
+      }
+      resolve(result)
+    }
+    reader.onerror = () => reject(new ImageReadError("Ошибка чтения файла."))
+    reader.readAsDataURL(file)
+  })
 }
 
 function guessMimeType(src: string): string {
