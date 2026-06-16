@@ -33,21 +33,24 @@ function resetState() {
     savedSubmissions: [] as SourceSubmission[],
     bankSelectSession: 0,
     isReplacingScreenshot: false,
+    isAddingMore: false,
   }
 }
 
 function getBankSelectInitialRows({
   isReplacingScreenshot,
+  isAddingMore,
   initialShot,
   savedSubmissions,
   bankSelectDraft,
 }: {
   isReplacingScreenshot: boolean
+  isAddingMore: boolean
   initialShot: string
   savedSubmissions: SourceSubmission[]
   bankSelectDraft: SourceSubmission[]
 }): BankSelectInitialRow[] | undefined {
-  if (isReplacingScreenshot && initialShot) {
+  if ((isReplacingScreenshot || isAddingMore) && initialShot) {
     return [
       ...savedSubmissions.map(submissionToBankSelectRow),
       {
@@ -80,6 +83,7 @@ export function CashbackApp() {
   const [savedSubmissions, setSavedSubmissions] = useState<SourceSubmission[]>([])
   const [bankSelectSession, setBankSelectSession] = useState(0)
   const [isReplacingScreenshot, setIsReplacingScreenshot] = useState(false)
+  const [isAddingMore, setIsAddingMore] = useState(false)
 
   function handleRestart() {
     const next = resetState()
@@ -94,14 +98,19 @@ export function CashbackApp() {
     setSavedSubmissions(next.savedSubmissions)
     setBankSelectSession(next.bankSelectSession)
     setIsReplacingScreenshot(next.isReplacingScreenshot)
+    setIsAddingMore(next.isAddingMore)
   }
 
   const bankSelectInitialRows = getBankSelectInitialRows({
     isReplacingScreenshot,
+    isAddingMore,
     initialShot,
     savedSubmissions,
     bankSelectDraft,
   })
+
+  const lockedRowCount =
+    isReplacingScreenshot || isAddingMore ? savedSubmissions.length : 0
 
   return (
     <main className="flex min-h-dvh items-center justify-center bg-gray-100 sm:py-8">
@@ -126,11 +135,17 @@ export function CashbackApp() {
                     setCurrentScreen("processing")
                     return
                   }
+                  if (isAddingMore) {
+                    setIsAddingMore(false)
+                    setSavedSubmissions([])
+                    setCurrentScreen("results")
+                    return
+                  }
                   setCurrentScreen("empty")
                 }}
                 onAdd={(src) => {
                   setInitialShot(src)
-                  if (!isReplacingScreenshot) {
+                  if (!isReplacingScreenshot && !isAddingMore) {
                     setBankSelectDraft([])
                     setSavedSubmissions([])
                   }
@@ -145,12 +160,16 @@ export function CashbackApp() {
                 kind={kind}
                 initialShot={initialShot}
                 initialRows={bankSelectInitialRows}
-                lockedRowCount={isReplacingScreenshot ? savedSubmissions.length : 0}
+                lockedRowCount={lockedRowCount}
                 onBack={() => {
                   if (isReplacingScreenshot) {
                     setIsReplacingScreenshot(false)
                     setInitialShot("")
                     setCurrentScreen("processing")
+                    return
+                  }
+                  if (isAddingMore) {
+                    setCurrentScreen("gallery")
                     return
                   }
                   setCurrentScreen("gallery")
@@ -162,6 +181,11 @@ export function CashbackApp() {
                     setSubmissions((prev) => [...newSubmissions, ...prev])
                     setBankSelectDraft([...savedSubmissions, ...newSubmissions])
                     setIsReplacingScreenshot(false)
+                  } else if (isAddingMore) {
+                    const newSubmissions = nextSubmissions.slice(savedSubmissions.length)
+                    setSubmissions(newSubmissions)
+                    setBankSelectDraft(nextSubmissions)
+                    setIsAddingMore(false)
                   } else {
                     setProcessingSummary(EMPTY_PROCESSING_SUMMARY)
                     setBankSelectDraft(nextSubmissions)
@@ -204,10 +228,13 @@ export function CashbackApp() {
                 onDone={(nextMatrix, summary) => {
                   setMatrix(nextMatrix)
                   setProcessingSummary((prev) => ({
-                    skipped: summary.skipped,
+                    skipped: [...prev.skipped, ...summary.skipped],
                     lowConfidence: [...prev.lowConfidence, ...summary.lowConfidence],
                   }))
                   setProcessingError(null)
+                  setSubmissions((current) =>
+                    bankSelectDraft.length > current.length ? bankSelectDraft : current,
+                  )
                   setSavedSubmissions([])
                   setCurrentScreen("results")
                 }}
@@ -220,7 +247,11 @@ export function CashbackApp() {
                 matrix={matrix}
                 processingSummary={processingSummary}
                 onRestart={handleRestart}
-                onUploadMore={() => setCurrentScreen("gallery")}
+                onUploadMore={() => {
+                  setSavedSubmissions(submissions)
+                  setIsAddingMore(true)
+                  setCurrentScreen("gallery")
+                }}
               />
             )}
           </AnimatePresence>
