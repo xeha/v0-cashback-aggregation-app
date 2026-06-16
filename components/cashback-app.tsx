@@ -186,6 +186,15 @@ export function CashbackApp() {
                     lowConfidence: [...prev.lowConfidence, ...partialSummary.lowConfidence],
                   }))
                 }}
+                onGeneralFailure={(partialMatrix, failedIndex, partialSummary, processedSubmissions) => {
+                  setMatrix(partialMatrix)
+                  setSavedSubmissions((prev) => [...prev, ...processedSubmissions])
+                  setSubmissions((prev) => prev.slice(failedIndex))
+                  setProcessingSummary((prev) => ({
+                    skipped: prev.skipped,
+                    lowConfidence: [...prev.lowConfidence, ...partialSummary.lowConfidence],
+                  }))
+                }}
                 onReplaceScreenshot={() => {
                   setInitialShot("")
                   setProcessingError(null)

@@ -30,6 +30,17 @@ interface OcrFailureState {
   message: string
 }
 
+interface ActiveStep {
+  index: number
+  providerName: string
+}
+
+function getProcessingHint(total: number): string {
+  if (total <= 1) return "Обычно до 30 секунд · при сбое — ошибка через 1 мин"
+  const estimateMinutes = Math.max(1, Math.ceil((total * 30) / 60))
+  return `До ${estimateMinutes} мин · около 30 сек на скриншот · при сбое — ошибка через 1 мин`
+}
+
 function cloneKeySet(keys: Set<string>): Set<string> {
   return new Set(keys)
 }
@@ -52,6 +63,7 @@ export function ProcessingScreen({
   onDone,
   onBack,
   onOcrFailure,
+  onGeneralFailure,
   onReplaceScreenshot,
   onError,
 }: {
@@ -66,10 +78,17 @@ export function ProcessingScreen({
     partialSummary: ProcessingSummary,
     processedSubmissions: SourceSubmission[],
   ) => void
+  onGeneralFailure: (
+    partialMatrix: MatrixState,
+    failedIndex: number,
+    partialSummary: ProcessingSummary,
+    processedSubmissions: SourceSubmission[],
+  ) => void
   onReplaceScreenshot: () => void
   onError: (message: string) => void
 }) {
   const [progress, setProgress] = useState(0)
+  const [activeStep, setActiveStep] = useState<ActiveStep | null>(null)
   const [error, setError] = useState<string | null>(initialError)
   const [retryKey, setRetryKey] = useState(0)
   const [ocrFailure, setOcrFailure] = useState<OcrFailureState | null>(null)
@@ -79,10 +98,12 @@ export function ProcessingScreen({
   const onDoneRef = useRef(onDone)
   const onErrorRef = useRef(onError)
   const onOcrFailureRef = useRef(onOcrFailure)
+  const onGeneralFailureRef = useRef(onGeneralFailure)
 
   onDoneRef.current = onDone
   onErrorRef.current = onError
   onOcrFailureRef.current = onOcrFailure
+  onGeneralFailureRef.current = onGeneralFailure
 
   useEffect(() => {
     if (waitingForUserRef.current) return
@@ -98,6 +119,10 @@ export function ProcessingScreen({
 
     setError(null)
     setProgress(0)
+    setActiveStep({
+      index: 1,
+      providerName: submissions[0]?.providerName ?? "",
+    })
     setOcrFailure(null)
 
     async function runBatch(batch: BatchProgress) {
@@ -113,6 +138,8 @@ export function ProcessingScreen({
         const submission = submissions[index]
         const keys = submission.kind === "market" ? state.marketKeys : state.bankKeys
         const current = submission.kind === "market" ? state.marketMatrix : state.bankMatrix
+
+        setActiveStep({ index: index + 1, providerName: submission.providerName })
 
         try {
           const result = await processSubmissionWithKeyTracking(submission, keys, current)
@@ -163,6 +190,23 @@ export function ProcessingScreen({
             err instanceof ApiError
               ? err.message
               : "Не удалось обработать скриншоты. Попробуйте ещё раз."
+
+          if (index > 0) {
+            waitingForUserRef.current = true
+            onGeneralFailureRef.current(
+              {
+                bank: state.bankMatrix,
+                market: state.marketMatrix,
+              },
+              index,
+              {
+                skipped: [],
+                lowConfidence: state.lowConfidence,
+              },
+              submissions.slice(0, index),
+            )
+          }
+
           setError(message)
           onErrorRef.current(message)
           return
@@ -202,10 +246,13 @@ export function ProcessingScreen({
 
   const total = submissions.length
   const isWaitingForUser = ocrFailure !== null
+  const currentIndex = activeStep?.index ?? 1
   const label =
-    progress > 0
-      ? `Обрабатываем ${progress} из ${total}…`
-      : "Распознавание данных со скриншота..."
+    total > 1
+      ? `Обрабатываем ${currentIndex} из ${total}…`
+      : "Распознавание данных со скриншота…"
+  const providerLabel = activeStep?.providerName ? `«${activeStep.providerName}»` : null
+  const hint = getProcessingHint(total)
 
   return (
     <motion.div
@@ -232,7 +279,15 @@ export function ProcessingScreen({
           </div>
 
           <p className="mt-8 text-[16px] font-semibold text-slate-900">{label}</p>
-          <p className="mt-2 text-[14px] text-slate-500">Это может занять до минуты</p>
+          {providerLabel ? (
+            <p className="mt-1.5 text-[14px] font-medium text-slate-700">{providerLabel}</p>
+          ) : null}
+          <p className="mt-2 text-[14px] text-slate-500">{hint}</p>
+          {total > 1 && progress > 0 ? (
+            <p className="mt-1 text-[13px] text-slate-400">
+              Готово: {progress} из {total}
+            </p>
+          ) : null}
         </>
       ) : !isWaitingForUser ? (
         <div className="flex w-full max-w-sm flex-col items-center gap-4">

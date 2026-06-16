@@ -11,6 +11,7 @@ import type {
 } from "@/lib/types"
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:8000"
+const REQUEST_TIMEOUT_MS = 60_000
 
 /** Below this confidence, show a warning on the results screen. */
 export const LOW_CONFIDENCE_UI_THRESHOLD = 0.55
@@ -81,6 +82,11 @@ export interface ProcessSubmissionResult {
   lowConfidenceItems: LowConfidenceItem[]
 }
 
+function isRequestTimeoutError(error: unknown): boolean {
+  if (!(error instanceof Error)) return false
+  return error.name === "TimeoutError" || error.name === "AbortError"
+}
+
 async function postJson<T>(path: string, body: unknown): Promise<T> {
   let response: Response
   try {
@@ -88,8 +94,12 @@ async function postJson<T>(path: string, body: unknown): Promise<T> {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
     })
-  } catch {
+  } catch (error) {
+    if (isRequestTimeoutError(error)) {
+      throw new ApiError("Сервер не ответил вовремя. Попробуйте ещё раз.", 0)
+    }
     throw new ApiError(
       "Сервер недоступен. Проверьте NEXT_PUBLIC_BACKEND_URL и запущен ли FastAPI.",
       0,
