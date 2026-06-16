@@ -8,11 +8,11 @@ export function EmptyScreen({
   onFilePicked,
   onLogout,
 }: {
-  onFilePicked: (kind: "bank" | "market", src: string) => void
+  onFilePicked: (src: string) => void
   onLogout: () => void
 }) {
   return (
-    <ImageFilePicker onPick={(src) => onFilePicked("bank", src)}>
+    <ImageFilePicker onPick={onFilePicked}>
       {(openPicker, { isReading, error }) => (
         <motion.div
           key="empty"

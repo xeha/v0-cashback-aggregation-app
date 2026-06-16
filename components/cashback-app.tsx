@@ -166,8 +166,7 @@ export function CashbackApp() {
               <AnimatePresence mode="wait">
                 {currentScreen === "empty" && (
                   <EmptyScreen
-                    onFilePicked={(pickedKind, src) => {
-                      setKind(pickedKind)
+                    onFilePicked={(src) => {
                       setInitialShot(src)
                       setGalleryPrefillSrc(src)
                       setCurrentScreen("gallery")
