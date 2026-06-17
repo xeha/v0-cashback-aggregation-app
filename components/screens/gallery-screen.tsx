@@ -2,99 +2,98 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-
-const GALLERY_PHOTOS = [
-  "/screenshots/alfa-categories.jpeg",
-  "/screenshots/cashback-june.jpeg",
-  "/screenshots/aliexpress.jpeg",
-  "/screenshots/magnit-categories.jpg",
-  "/screenshots/pyaterochka-categories.jpg",
-  "/screenshots/lenta-categories.jpg",
-  "/screenshots/test-not-cashback.jpeg"
-] as const
+import { ImageFilePicker } from "@/components/image-file-picker"
 
 export function GalleryScreen({
+  initialSrc = null,
   onCancel,
   onAdd,
   kind: _kind = "bank",
 }: {
+  initialSrc?: string | null
   onCancel: () => void
   onAdd: (src: string) => void
   kind?: "bank" | "market"
 }) {
-  const [selected, setSelected] = useState<string | null>(null)
+  const [selectedSrc, setSelectedSrc] = useState<string | null>(initialSrc)
 
   return (
-    <motion.div
-      key="gallery"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-      className="absolute inset-0 z-50 flex flex-col bg-black"
+    <ImageFilePicker
+      onPick={setSelectedSrc}
+      onDismiss={() => {
+        if (!selectedSrc) onCancel()
+      }}
     >
-      {/* Header */}
-      <div className="flex items-center justify-center border-b border-white/10 px-4 py-3.5">
-        <div className="text-center">
-          <p className="text-[15px] font-semibold text-white">Все фото</p>
-          <p className="text-xs text-white/50">Выберите один скриншот</p>
-        </div>
-      </div>
-
-      {/* Grid */}
-      <div className="flex-1 overflow-y-auto p-0.5">
-        <div className="grid grid-cols-3 gap-0.5">
-          {GALLERY_PHOTOS.map((src) => {
-            const isSelected = selected === src
-            return (
-              <button
-                key={src}
-                onClick={() => setSelected(isSelected ? null : src)}
-                className="relative aspect-square overflow-hidden bg-neutral-800"
-              >
-                <img
-                  src={src || "/placeholder.svg"}
-                  alt={`Скриншот ${src.split("/").pop()}`}
-                  className={`h-full w-full object-cover transition-transform duration-200 ${
-                    isSelected ? "scale-95" : "scale-100"
-                  }`}
-                />
-                <div
-                  className={`absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full border-2 transition-colors ${
-                    isSelected
-                      ? "border-white bg-blue-500"
-                      : "border-white/80 bg-black/20"
-                  }`}
-                >
-                  {isSelected && (
-                    <span className="text-[11px] font-bold text-white">1</span>
-                  )}
-                </div>
-                {isSelected && (
-                  <div className="pointer-events-none absolute inset-0 ring-2 ring-inset ring-blue-500" />
-                )}
-              </button>
-            )
-          })}
-        </div>
-      </div>
-
-      {/* Bottom bar */}
-      <div className="flex items-center justify-between border-t border-white/10 px-4 py-3.5">
-        <button
-          onClick={onCancel}
-          className="text-[15px] font-medium text-white/80 transition-colors hover:text-white"
+      {(openPicker, { isReading, error }) => (
+        <motion.div
+          key="gallery"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="absolute inset-0 z-50 flex flex-col bg-black"
         >
-          Отмена
-        </button>
-        <button
-          onClick={() => selected !== null && onAdd(selected)}
-          disabled={selected === null}
-          className="rounded-full bg-yellow-200 px-5 py-2 text-[15px] font-semibold text-slate-900 transition-opacity disabled:opacity-30"
-        >
-          Добавить ({selected === null ? 0 : 1})
-        </button>
-      </div>
-    </motion.div>
+          <div className="flex items-center justify-center border-b border-white/10 px-4 py-3.5">
+            <div className="text-center">
+              <p className="text-[15px] font-semibold text-white">Выберите скриншот</p>
+              <p className="text-xs text-white/50">
+                {selectedSrc ? "Проверьте фото и нажмите «Добавить»" : "Откройте галерею устройства"}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-1 flex-col items-center justify-center gap-6 px-6">
+            {selectedSrc ? (
+              <img
+                src={selectedSrc}
+                alt="Выбранный скриншот"
+                className="max-h-[50vh] w-full rounded-2xl object-contain"
+              />
+            ) : (
+              <div className="flex h-48 w-full items-center justify-center rounded-2xl border border-dashed border-white/20 bg-white/5">
+                <p className="text-sm text-white/50">Скриншот не выбран</p>
+              </div>
+            )}
+
+            <button
+              type="button"
+              onClick={openPicker}
+              disabled={isReading}
+              className="rounded-full bg-white/10 px-5 py-2.5 text-[15px] font-medium text-white transition-colors hover:bg-white/15 disabled:opacity-50"
+            >
+              {isReading
+                ? "Загрузка…"
+                : selectedSrc
+                  ? "Выбрать другое"
+                  : "Выбрать из галереи"}
+            </button>
+
+            {error && (
+              <p className="text-center text-sm text-red-300" role="alert">
+                {error}
+              </p>
+            )}
+          </div>
+
+          <div className="flex items-center justify-between border-t border-white/10 px-4 py-3.5">
+            <button
+              type="button"
+              onClick={onCancel}
+              className="text-[15px] font-medium text-white/80 transition-colors hover:text-white"
+            >
+              Отмена
+            </button>
+            <button
+              type="button"
+              onClick={() => selectedSrc && onAdd(selectedSrc)}
+              disabled={selectedSrc === null || isReading}
+              className="rounded-full bg-yellow-200 px-5 py-2 text-[15px] font-semibold text-slate-900 transition-opacity disabled:opacity-30"
+            >
+              Добавить
+            </button>
+          </div>
+        </motion.div>
+      )}
+    </ImageFilePicker>
   )
 }

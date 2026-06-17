@@ -22,7 +22,8 @@ alwaysApply: true
 - `lib/api.ts`, `lib/matrix.ts`, `lib/types.ts` — клиент FastAPI и сборка матрицы
 - `lib/cashback-data.ts` — справочник логотипов, autocomplete, `getRowTiers`
 - `backend/main.py` — FastAPI; `routers/ocr.py`, `routers/category.py`
-- `public/screenshots/` — mock-скриншоты для галереи
+- `lib/image-utils.ts` — `readImageFile()` (HEIC, сжатие); `components/image-file-picker.tsx`
+- `public/screenshots/` — демо-ассеты (не используются в UI)
 
 ## Команды
 

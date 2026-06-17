@@ -26,6 +26,11 @@ empty → gallery → bank-select → processing → results
 
 `kind` (`"bank" | "market"`) is set at `empty` and threaded through all screens.
 
+### Device upload
+
+- `ImageFilePicker` opens system gallery via `<input type="file">` in the same user gesture as the CTA
+- `readImageFile()` in `lib/image-utils.ts` — HEIC → JPEG (`heic2any`), compress files > 3 MB
+
 ### Data
 
 `lib/cashback-data.ts` — `BANKS`, `MARKETS`, `CASHBACK_ROWS`, `getRowTiers()`, `getCurrentMonthYear()`.

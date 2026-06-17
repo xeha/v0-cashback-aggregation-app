@@ -20,6 +20,11 @@ def _allowed_origins() -> list[str]:
     return defaults
 
 
+def _local_network_origin_regex() -> str:
+    """Allow phone testing over Wi-Fi (Next.js dev on port 3000)."""
+    return r"http://(192\.168\.\d{1,3}\.\d{1,3}|10\.\d{1,3}\.\d{1,3}\.\d{1,3}):3000"
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     mapper = MapperService()
@@ -33,6 +38,7 @@ app = FastAPI(title="Cashback OCR API", version="1.0.0", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=_allowed_origins(),
+    allow_origin_regex=_local_network_origin_regex(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -3,14 +3,20 @@ import { createProviderFromSubmission, mergeMappedItems } from "@/lib/matrix"
 import type {
   CashbackMatrix,
   CategoryMapResponse,
-  Kind,
   LowConfidenceItem,
   MappedItem,
   OcrExtractResponse,
+  OcrItem,
   SourceSubmission,
 } from "@/lib/types"
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:8000"
+function getBackendUrl(): string {
+  // Dev + browser: same-origin requests via Next.js rewrite (works from phone over Wi‑Fi).
+  if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
+    return ""
+  }
+  return process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:8000"
+}
 const REQUEST_TIMEOUT_MS = 60_000
 
 /** Below this confidence, show a warning on the results screen. */
@@ -90,7 +96,7 @@ function isRequestTimeoutError(error: unknown): boolean {
 async function postJson<T>(path: string, body: unknown): Promise<T> {
   let response: Response
   try {
-    response = await fetch(`${BACKEND_URL}${path}`, {
+    response = await fetch(`${getBackendUrl()}${path}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -140,6 +146,16 @@ export async function mapCategories(
   })
 }
 
+/** Supermarkets use product-level categories that do not fit the bank taxonomy. */
+function mapMarketItemsFromOcr(items: OcrItem[]): MappedItem[] {
+  return items.map((item) => ({
+    raw_category: item.raw_category,
+    unified_category: item.raw_category,
+    rate: item.rate,
+    confidence: 1,
+  }))
+}
+
 export async function processSubmission(
   submission: SourceSubmission,
   existingKeys: Set<string>,
@@ -152,10 +168,12 @@ export async function processSubmission(
     throw new OcrEmptyError()
   }
 
-  const mapped = await mapCategories(ocr.items, submission.providerName)
-  const mappedItems = mapped.items as MappedItem[]
+  const mappedItems =
+    submission.kind === "market"
+      ? mapMarketItemsFromOcr(ocr.items)
+      : ((await mapCategories(ocr.items, submission.providerName)).items as MappedItem[])
 
-  if (isUnreliableMapping(mappedItems)) {
+  if (submission.kind !== "market" && isUnreliableMapping(mappedItems)) {
     throw new OcrUnreliableError()
   }
 

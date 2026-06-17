@@ -1,0 +1,27 @@
+# Assets — не нужны для графа кода
+public/
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.svg
+*.pdf
+
+# Build / deps
+node_modules/
+.next/
+.npm-cache/
+backend/.venv/
+**/__pycache__/
+
+# Docs — семантика требует LLM API key
+*.md
+*.txt
+*.yaml
+*.yml
+docs/
+
+# Tooling / local
+.cursor/
+.vercel/
+.git/
