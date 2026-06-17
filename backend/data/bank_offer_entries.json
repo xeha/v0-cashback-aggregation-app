@@ -1,5 +1,38 @@
 {
+  "alfa-bank": [
+    "альфа-афиша"
+  ],
+  "kredit-evropa-bank": [
+    "покупки в экосистемах"
+  ],
+  "moskovskij-kreditnyj-bank": [
+    "мкб travel"
+  ],
+  "ozon-bank": [
+    "перекрёсток доставка",
+    "tasty coffee",
+    "яндекс лавка"
+  ],
+  "russkij-standart": [
+    "ozon"
+  ],
   "sberbank-rossii": [
-    "самокат"
+    "отелло",
+    "самокат",
+    "ситидрайв",
+    "спасиботрэвел"
+  ],
+  "sovkombank": [
+    "озон"
+  ],
+  "t-bank": [
+    "сберздоровье"
+  ],
+  "yandex-bank": [
+    "adamas",
+    "aliexpress",
+    "азбука вкуса",
+    "яндекс лавка",
+    "яндекс плюс"
   ]
 }
