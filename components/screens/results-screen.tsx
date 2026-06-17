@@ -2,11 +2,16 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Download, Share, LayoutGrid, ImagePlus, Trash2 } from "lucide-react"
+import { ChevronDown, ChevronRight, Download, Share, LayoutGrid, ImagePlus, Trash2 } from "lucide-react"
 import { ProviderLogo } from "@/components/provider-logo"
 import { ProcessingWarningsBanner } from "@/components/processing-warnings-banner"
 import { getCurrentMonthYear, getRowTiers, type RateTier } from "@/lib/cashback-data"
-import type { CashbackMatrix, Kind, MatrixState, ProcessingSummary } from "@/lib/types"
+import { groupMatrixRows, groupHasSubcategories } from "@/lib/matrix"
+import {
+  formatCategoryLabel,
+  labelsEquivalent,
+} from "@/lib/category-label"
+import type { CashbackMatrix, Kind, MatrixProvider, MatrixRow, MatrixState, ProcessingSummary } from "@/lib/types"
 import { AddWidgetOverlay, SavePngOverlay, ShareSheet } from "./results-overlays"
 import { UserMenu } from "./user-menu"
 
@@ -28,12 +33,73 @@ function getDefaultTab(matrix: MatrixState, kind: Kind): Tab {
   return kind === "market" ? "market" : "bank"
 }
 
+function RateBadges({
+  rates,
+  providers,
+}: {
+  rates: Record<string, number>
+  providers: MatrixProvider[]
+}) {
+  const tiers = getRowTiers(rates)
+  return (
+    <div className="flex shrink-0 items-center gap-1">
+      {providers.map((p) => {
+        const rate = rates[p.key]
+        return (
+          <div key={p.key} className="flex w-11 justify-center">
+            {rate !== undefined ? (
+              <span
+                className={`rounded-full px-2 py-1 text-[12px] font-bold ${TIER_STYLES[tiers[p.key]]}`}
+              >
+                {rate}%
+              </span>
+            ) : (
+              <span className="text-[13px] text-slate-300">—</span>
+            )}
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+function MatrixRowContent({
+  row,
+  providers,
+  indented = false,
+}: {
+  row: MatrixRow
+  providers: MatrixProvider[]
+  indented?: boolean
+}) {
+  const showParent =
+    row.parent &&
+    !indented &&
+    !row.isMacro &&
+    !labelsEquivalent(row.category, row.parent)
+  const showBankRaw =
+    row.bankRaw &&
+    !labelsEquivalent(row.bankRaw, row.category) &&
+    !(row.parent && labelsEquivalent(row.bankRaw, row.parent))
+
+  return (
+    <>
+      <div className={`flex-1 pr-2 ${indented ? "pl-6" : ""}`}>
+        <p className="text-[13px] font-medium leading-snug text-slate-800">{row.category}</p>
+        {showParent && <p className="text-[11px] text-slate-400">{formatCategoryLabel(row.parent)}</p>}
+        {showBankRaw && <p className="text-[11px] text-slate-400">{row.bankRaw}</p>}
+      </div>
+      <RateBadges rates={row.rates} providers={providers} />
+    </>
+  )
+}
+
 export function ResultsScreen({
   onRestart,
   onUploadMore,
   kind = "bank",
   matrix,
-  processingSummary = { skipped: [], lowConfidence: [] },
+  processingSummary = { skipped: [], lowConfidence: [], bankOffers: [] },
 }: {
   onRestart: () => void
   onUploadMore: () => void
@@ -46,10 +112,21 @@ export function ResultsScreen({
   const [showShare, setShowShare] = useState(false)
   const [showWidget, setShowWidget] = useState(false)
   const [showResetConfirm, setShowResetConfirm] = useState(false)
+  const [expandedParents, setExpandedParents] = useState<Set<string>>(new Set())
 
   const activeMatrix = getActiveMatrix(matrix, activeTab)
   const providers = activeMatrix?.providers ?? []
   const rows = activeMatrix?.rows ?? []
+  const groups = groupMatrixRows(rows)
+
+  function toggleParent(parent: string) {
+    setExpandedParents((prev) => {
+      const next = new Set(prev)
+      if (next.has(parent)) next.delete(parent)
+      else next.add(parent)
+      return next
+    })
+  }
 
   function handleSavePng() {
     setShowSave(true)
@@ -122,54 +199,105 @@ export function ResultsScreen({
           </p>
         </div>
       ) : (
-        <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-          <div className="flex items-center border-b border-slate-200 bg-slate-50 px-3 py-3">
-            <div className="flex-1 text-[12px] font-semibold uppercase tracking-wide text-slate-400">
-              Категория
-            </div>
-            <div className="flex shrink-0 items-center gap-1">
-              {providers.map((p) => (
-                <div key={p.key} className="flex w-11 justify-center">
-                  <ProviderLogo name={p.name} logo={p.logo} seed={p.key} />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {rows.map((row, idx) => {
-            const tiers = getRowTiers(row.rates)
-            return (
-              <div
-                key={row.category}
-                className={`flex items-center px-3 py-3 ${
-                  idx !== rows.length - 1 ? "border-b border-slate-100" : ""
-                }`}
-              >
-                <div className="flex-1 pr-2 text-[13px] font-medium leading-snug text-slate-800">
-                  {row.category}
-                </div>
-                <div className="flex shrink-0 items-center gap-1">
-                  {providers.map((p) => {
-                    const rate = row.rates[p.key]
-                    return (
-                      <div key={p.key} className="flex w-11 justify-center">
-                        {rate !== undefined ? (
-                          <span
-                            className={`rounded-full px-2 py-1 text-[12px] font-bold ${TIER_STYLES[tiers[p.key]]}`}
-                          >
-                            {rate}%
-                          </span>
-                        ) : (
-                          <span className="text-[13px] text-slate-300">—</span>
-                        )}
-                      </div>
-                    )
-                  })}
-                </div>
+        <>
+          <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+            <div className="flex items-center border-b border-slate-200 bg-slate-50 px-3 py-3">
+              <div className="flex-1 text-[12px] font-semibold uppercase tracking-wide text-slate-400">
+                Категория
               </div>
-            )
-          })}
-        </div>
+              <div className="flex shrink-0 items-center gap-1">
+                {providers.map((p) => (
+                  <div key={p.key} className="flex w-11 justify-center">
+                    <ProviderLogo name={p.name} logo={p.logo} seed={p.key} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {groups.map((group, groupIdx) => {
+              const hasSubcategories = groupHasSubcategories(group)
+              const isExpanded = hasSubcategories && expandedParents.has(group.parent)
+              const isLastGroup = groupIdx === groups.length - 1
+              const displayLabel = hasSubcategories
+                ? formatCategoryLabel(group.parent)
+                : formatCategoryLabel(group.rows[0]?.category ?? group.parent)
+
+              if (!hasSubcategories) {
+                const row = group.rows[0]
+                const showBankRaw =
+                  row?.bankRaw &&
+                  !labelsEquivalent(row.bankRaw, displayLabel) &&
+                  !(row.parent && labelsEquivalent(row.bankRaw, row.parent))
+
+                return (
+                  <div
+                    key={group.parent}
+                    className={`flex items-center px-3 py-3 ${
+                      !isLastGroup ? "border-b border-slate-100" : ""
+                    }`}
+                  >
+                    <div className="flex-1 pr-2">
+                      <p className="text-[13px] font-semibold leading-snug text-slate-800">
+                        {displayLabel}
+                      </p>
+                      {showBankRaw ? (
+                        <p className="text-[11px] text-slate-400">{row.bankRaw}</p>
+                      ) : null}
+                    </div>
+                    <RateBadges rates={group.summaryRates} providers={providers} />
+                  </div>
+                )
+              }
+
+              return (
+                <div
+                  key={group.parent}
+                  className={!isLastGroup && !isExpanded ? "border-b border-slate-100" : ""}
+                >
+                  <button
+                    type="button"
+                    onClick={() => toggleParent(group.parent)}
+                    aria-expanded={isExpanded}
+                    className="flex w-full items-center px-3 py-3 text-left transition-colors hover:bg-slate-50"
+                  >
+                    <div className="flex flex-1 items-center gap-1.5 pr-2">
+                      {isExpanded ? (
+                        <ChevronDown className="h-4 w-4 shrink-0 text-slate-400" />
+                      ) : (
+                        <ChevronRight className="h-4 w-4 shrink-0 text-slate-400" />
+                      )}
+                      <span className="text-[13px] font-semibold leading-snug text-slate-800">
+                        {displayLabel}
+                      </span>
+                    </div>
+                    <RateBadges rates={group.summaryRates} providers={providers} />
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isExpanded && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className="overflow-hidden"
+                      >
+                        {group.rows.map((child) => (
+                          <div
+                            key={child.category}
+                            className="flex items-center border-t border-slate-100 bg-slate-50/50 px-3 py-2.5"
+                          >
+                            <MatrixRowContent row={child} providers={providers} indented />
+                          </div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            })}
+          </div>
+        </>
       )}
 
       <div className="mt-4 mb-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] text-slate-500">

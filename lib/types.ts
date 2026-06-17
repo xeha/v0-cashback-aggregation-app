@@ -16,8 +16,13 @@ export interface OcrItem {
 export interface MappedItem {
   raw_category: string
   unified_category: string
+  unified_subcategory?: string
+  unified_parent?: string
   rate: number
   confidence: number
+  is_macro_category?: boolean
+  /** Bank ecosystem offer (e.g. Sber + Samokat) — excluded from comparison matrix */
+  is_bank_offer?: boolean
 }
 
 export interface MatrixProvider {
@@ -28,7 +33,17 @@ export interface MatrixProvider {
 
 export interface MatrixRow {
   category: string
+  parent?: string
+  bankRaw?: string
+  isMacro?: boolean
   rates: Record<string, number>
+}
+
+export interface MatrixGroup {
+  parent: string
+  summaryRates: Record<string, number>
+  rows: MatrixRow[]
+  isMacroOnly?: boolean
 }
 
 export interface CashbackMatrix {
@@ -62,7 +77,15 @@ export interface LowConfidenceItem {
   confidence: number
 }
 
+export interface BankOfferItem {
+  providerName: string
+  rawCategory: string
+  unifiedCategory: string
+  rate: number
+}
+
 export interface ProcessingSummary {
   skipped: SkippedSubmission[]
   lowConfidence: LowConfidenceItem[]
+  bankOffers: BankOfferItem[]
 }
