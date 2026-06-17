@@ -12,12 +12,12 @@
     },
     "все покупки": {
       "bank_category": "Все покупки",
-      "unified": "Прочее",
+      "unified": "Все покупки",
       "match_level": "category"
     },
     "выбираемые категории": {
       "bank_category": "Аптеки",
-      "unified": "Аптеки",
+      "unified": "Прочее",
       "match_level": "subcategory"
     },
     "детская обувь": {
@@ -52,7 +52,7 @@
     },
     "категория на выбор": {
       "bank_category": "Все покупки",
-      "unified": "Прочее",
+      "unified": "Все покупки",
       "match_level": "subcategory"
     },
     "кинотеатры, театры, выставки": {
@@ -144,7 +144,7 @@
     },
     "выбираемые категории": {
       "bank_category": "Аптеки",
-      "unified": "Аптеки",
+      "unified": "Прочее",
       "match_level": "subcategory"
     },
     "детская обувь": {
@@ -453,7 +453,7 @@
     },
     "книги": {
       "bank_category": "Образование",
-      "unified": "Образование",
+      "unified": "Книги и канцтовары",
       "match_level": "subcategory"
     },
     "концертная площадка": {
@@ -600,7 +600,7 @@
     },
     "все покупки": {
       "bank_category": "Все покупки",
-      "unified": "Прочее",
+      "unified": "Все покупки",
       "match_level": "category"
     },
     "детская обувь": {
@@ -635,7 +635,7 @@
     },
     "категория на выбор": {
       "bank_category": "Все покупки",
-      "unified": "Прочее",
+      "unified": "Все покупки",
       "match_level": "subcategory"
     },
     "кафе": {
@@ -852,7 +852,7 @@
     },
     "прочее (медицина)": {
       "bank_category": "Аптеки и медуслуги",
-      "unified": "Аптеки",
+      "unified": "Медицина",
       "match_level": "subcategory"
     },
     "прочее (обучение)": {
@@ -939,7 +939,7 @@
     },
     "все покупки": {
       "bank_category": "Все покупки",
-      "unified": "Прочее",
+      "unified": "Все покупки",
       "match_level": "category"
     },
     "выставки": {
@@ -954,7 +954,7 @@
     },
     "доставка продуктов": {
       "bank_category": "Яндекс Лавка",
-      "unified": "Покупки в приложении банка",
+      "unified": "Доставка продуктов",
       "match_level": "subcategory"
     },
     "жд билеты": {
@@ -974,7 +974,7 @@
     },
     "категория на выбор": {
       "bank_category": "Все покупки",
-      "unified": "Прочее",
+      "unified": "Все покупки",
       "match_level": "subcategory"
     },
     "кинотеатры": {
@@ -1044,7 +1044,7 @@
     },
     "топливо": {
       "bank_category": "Яндекс Лавка",
-      "unified": "Покупки в приложении банка",
+      "unified": "АЗС и топливо",
       "match_level": "subcategory"
     },
     "транспорт": {
@@ -1076,12 +1076,12 @@
   "rajffajzenbank": {
     "все покупки": {
       "bank_category": "Все покупки",
-      "unified": "Прочее",
+      "unified": "Все покупки",
       "match_level": "category"
     },
     "категория на выбор": {
       "bank_category": "Все покупки",
-      "unified": "Прочее",
+      "unified": "Все покупки",
       "match_level": "subcategory"
     }
   },
@@ -1188,7 +1188,7 @@
     },
     "салоны красоты": {
       "bank_category": "Выпускной",
-      "unified": "Товары для детей",
+      "unified": "Красота и уход",
       "match_level": "subcategory"
     },
     "супермаркеты": {
@@ -1245,7 +1245,7 @@
     },
     "выбираемые категории": {
       "bank_category": "Аптеки",
-      "unified": "Аптеки",
+      "unified": "Прочее",
       "match_level": "subcategory"
     },
     "детская обувь": {
@@ -1260,12 +1260,12 @@
     },
     "доставка готовой еды": {
       "bank_category": "Самокат",
-      "unified": "Покупки в приложении банка",
+      "unified": "Доставка продуктов",
       "match_level": "subcategory"
     },
     "доставка продуктов": {
       "bank_category": "Самокат",
-      "unified": "Покупки в приложении банка",
+      "unified": "Доставка продуктов",
       "match_level": "subcategory"
     },
     "игрушки": {
@@ -1285,12 +1285,12 @@
     },
     "книги": {
       "bank_category": "Хобби и развлечения",
-      "unified": "Развлечения",
+      "unified": "Книги и канцтовары",
       "match_level": "subcategory"
     },
     "косметика": {
       "bank_category": "Самокат",
-      "unified": "Покупки в приложении банка",
+      "unified": "Доставка продуктов",
       "match_level": "subcategory"
     },
     "образование": {
@@ -1365,7 +1365,7 @@
     },
     "самокат": {
       "bank_category": "Самокат",
-      "unified": "Покупки в приложении банка",
+      "unified": "Доставка продуктов",
       "match_level": "category"
     },
     "ситидрайв": {
@@ -1395,12 +1395,12 @@
     },
     "товары для дома": {
       "bank_category": "Самокат",
-      "unified": "Покупки в приложении банка",
+      "unified": "Доставка продуктов",
       "match_level": "subcategory"
     },
     "товары для ухода за собой": {
       "bank_category": "Самокат",
-      "unified": "Покупки в приложении банка",
+      "unified": "Доставка продуктов",
       "match_level": "subcategory"
     },
     "топливо": {
@@ -1425,7 +1425,7 @@
     },
     "услуги доставки": {
       "bank_category": "Самокат",
-      "unified": "Покупки в приложении банка",
+      "unified": "Доставка продуктов",
       "match_level": "subcategory"
     },
     "хобби": {
@@ -1723,7 +1723,7 @@
     },
     "выбираемые категории": {
       "bank_category": "Аптеки",
-      "unified": "Аптеки",
+      "unified": "Прочее",
       "match_level": "subcategory"
     },
     "выставки": {
@@ -1915,7 +1915,7 @@
     },
     "доставка продуктов": {
       "bank_category": "Азбука вкуса",
-      "unified": "Супермаркеты",
+      "unified": "Доставка продуктов",
       "match_level": "subcategory"
     },
     "еда и деливери": {
@@ -1960,7 +1960,7 @@
     },
     "книги": {
       "bank_category": "Яндекс Плюс",
-      "unified": "Покупки в приложении банка",
+      "unified": "Книги и канцтовары",
       "match_level": "subcategory"
     },
     "маркетплейс": {
@@ -2055,7 +2055,7 @@
     },
     "топливо": {
       "bank_category": "Яндекс Лавка",
-      "unified": "Покупки в приложении банка",
+      "unified": "АЗС и топливо",
       "match_level": "subcategory"
     },
     "туры": {

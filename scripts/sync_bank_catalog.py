@@ -43,14 +43,17 @@ def load_bank_aliases() -> dict[str, str]:
 
 
 def resolve_unified(
+    raw: str,
     bank_category: str,
     taxonomy: set[str],
     overrides: dict[str, str],
 ) -> str | None:
+    raw_key = normalize(raw)
+    if raw_key in overrides:
+        return overrides[raw_key]
     if bank_category in taxonomy:
         return bank_category
-    key = normalize(bank_category)
-    return overrides.get(key)
+    return overrides.get(normalize(bank_category))
 
 
 def build_catalog(offers: list[dict], aliases: dict[str, str]) -> dict:
@@ -67,7 +70,7 @@ def build_catalog(offers: list[dict], aliases: dict[str, str]) -> dict:
     def add_entry(slug: str, raw: str, bank_category: str, match_level: str) -> None:
         if not raw:
             return
-        unified = resolve_unified(bank_category, taxonomy, overrides)
+        unified = resolve_unified(raw, bank_category, taxonomy, overrides)
         if unified is None:
             unmapped.add(bank_category)
         catalog.setdefault(slug, {})[raw] = {
