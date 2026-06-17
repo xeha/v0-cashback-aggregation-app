@@ -298,12 +298,6 @@ class MapperService:
             display_subcategory = subcategory
             display_category = subcategory
 
-        print(
-            f"map: raw={item.raw_category!r} bank={bank_slug!r} "
-            f"parent={resolved_parent!r} sub={display_subcategory!r} "
-            f"source={match_source} conf={confidence}"
-        )
-
         return MappedItem(
             raw_category=item.raw_category,
             unified_category=display_category,
