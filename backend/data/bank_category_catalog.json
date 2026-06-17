@@ -2,7 +2,7 @@
   "alfa-bank": {
     "альфа-афиша": {
       "bank_category": "Альфа-Афиша",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "category"
     },
     "аптеки": {
@@ -12,7 +12,7 @@
     },
     "все покупки": {
       "bank_category": "Все покупки",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "category"
     },
     "выбираемые категории": {
@@ -22,27 +22,27 @@
     },
     "детская обувь": {
       "bank_category": "Детский мир",
-      "unified": null,
+      "unified": "Товары для детей",
       "match_level": "subcategory"
     },
     "детская одежда": {
       "bank_category": "Детский мир",
-      "unified": null,
+      "unified": "Товары для детей",
       "match_level": "subcategory"
     },
     "детский мир": {
       "bank_category": "Детский мир",
-      "unified": null,
+      "unified": "Товары для детей",
       "match_level": "category"
     },
     "жд билеты": {
       "bank_category": "на Ж/Д в Тревел",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "игрушки": {
       "bank_category": "Детский мир",
-      "unified": null,
+      "unified": "Товары для детей",
       "match_level": "subcategory"
     },
     "игры": {
@@ -52,37 +52,37 @@
     },
     "категория на выбор": {
       "bank_category": "Все покупки",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "subcategory"
     },
     "кинотеатры, театры, выставки": {
       "bank_category": "Альфа-Афиша",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "книги": {
       "bank_category": "Книги",
-      "unified": null,
+      "unified": "Книги и канцтовары",
       "match_level": "category"
     },
     "концертная площадка": {
       "bank_category": "Альфа-Афиша",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "на ж/д в тревел": {
       "bank_category": "на Ж/Д в Тревел",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "category"
     },
     "продукты": {
       "bank_category": "Продукты",
-      "unified": null,
+      "unified": "Продукты питания",
       "match_level": "category"
     },
     "продукты питания": {
       "bank_category": "Продукты",
-      "unified": null,
+      "unified": "Продукты питания",
       "match_level": "subcategory"
     },
     "прочее (досуг и отдых)": {
@@ -97,22 +97,22 @@
     },
     "спортивное питание": {
       "bank_category": "Спортивные товары",
-      "unified": null,
+      "unified": "Спорт и фитнес",
       "match_level": "subcategory"
     },
     "спортивные товары": {
       "bank_category": "Спортивные товары",
-      "unified": null,
+      "unified": "Спорт и фитнес",
       "match_level": "category"
     },
     "товары для детей": {
       "bank_category": "Детский мир",
-      "unified": null,
+      "unified": "Товары для детей",
       "match_level": "subcategory"
     },
     "товары для спорта": {
       "bank_category": "Спортивные товары",
-      "unified": null,
+      "unified": "Спорт и фитнес",
       "match_level": "subcategory"
     }
   },
@@ -139,7 +139,7 @@
     },
     "аренда авто": {
       "bank_category": "Аренда авто",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "category"
     },
     "выбираемые категории": {
@@ -189,7 +189,7 @@
     },
     "каршеринг и прокат": {
       "bank_category": "Общественный транспорт, такси, каршеринг",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "каршеринг, прокат": {
@@ -199,17 +199,17 @@
     },
     "кафе": {
       "bank_category": "Кафе и рестораны",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "subcategory"
     },
     "кафе и рестораны": {
       "bank_category": "Кафе и рестораны",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "category"
     },
     "книги": {
       "bank_category": "Книги",
-      "unified": null,
+      "unified": "Книги и канцтовары",
       "match_level": "category"
     },
     "маркетплейс": {
@@ -239,12 +239,12 @@
     },
     "общественный транспорт": {
       "bank_category": "Общественный транспорт, такси, каршеринг",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "общественный транспорт, такси, каршеринг": {
       "bank_category": "Общественный транспорт, такси, каршеринг",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "category"
     },
     "одежда": {
@@ -264,17 +264,17 @@
     },
     "прочее (авто)": {
       "bank_category": "Общественный транспорт, такси, каршеринг",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "прочее (услуги)": {
       "bank_category": "Фото и видео",
-      "unified": null,
+      "unified": "Электроника",
       "match_level": "subcategory"
     },
     "рестораны": {
       "bank_category": "Кафе и рестораны",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "subcategory"
     },
     "спортивная обувь": {
@@ -294,7 +294,7 @@
     },
     "такси": {
       "bank_category": "Общественный транспорт, такси, каршеринг",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "товары для дома": {
@@ -319,7 +319,7 @@
     },
     "фото и видео": {
       "bank_category": "Фото и видео",
-      "unified": null,
+      "unified": "Электроника",
       "match_level": "category"
     },
     "часы": {
@@ -329,7 +329,7 @@
     },
     "электроника": {
       "bank_category": "Фото и видео",
-      "unified": null,
+      "unified": "Электроника",
       "match_level": "subcategory"
     },
     "ювелирные украшения": {
@@ -341,24 +341,24 @@
   "kredit-evropa-bank": {
     "покупки в экосистемах": {
       "bank_category": "Покупки в экосистемах",
-      "unified": null,
+      "unified": "Покупки в приложении банка",
       "match_level": "category"
     },
     "прочее (онлайн сервисы и игры)": {
       "bank_category": "Покупки в экосистемах",
-      "unified": null,
+      "unified": "Покупки в приложении банка",
       "match_level": "subcategory"
     },
     "прочее (услуги)": {
       "bank_category": "Покупки в экосистемах",
-      "unified": null,
+      "unified": "Покупки в приложении банка",
       "match_level": "subcategory"
     }
   },
   "moskovskij-kreditnyj-bank": {
     "авиа билеты": {
       "bank_category": "МКБ Travel",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "азс": {
@@ -373,7 +373,7 @@
     },
     "ветеринарные клиники": {
       "bank_category": "Домашние питомцы",
-      "unified": null,
+      "unified": "Животные и зоотовары",
       "match_level": "subcategory"
     },
     "детская обувь": {
@@ -388,17 +388,17 @@
     },
     "детские товары": {
       "bank_category": "Детские товары",
-      "unified": null,
+      "unified": "Товары для детей",
       "match_level": "category"
     },
     "добрынинский": {
       "bank_category": "Добрынинский",
-      "unified": null,
+      "unified": "Супермаркеты",
       "match_level": "category"
     },
     "домашние питомцы": {
       "bank_category": "Домашние питомцы",
-      "unified": null,
+      "unified": "Животные и зоотовары",
       "match_level": "category"
     },
     "доставка готовой еды": {
@@ -408,7 +408,7 @@
     },
     "жд билеты": {
       "bank_category": "МКБ Travel",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "женская обувь": {
@@ -423,7 +423,7 @@
     },
     "игрушки": {
       "bank_category": "Детские товары",
-      "unified": null,
+      "unified": "Товары для детей",
       "match_level": "subcategory"
     },
     "игры": {
@@ -433,17 +433,17 @@
     },
     "каршеринг": {
       "bank_category": "Каршеринг",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "category"
     },
     "каршеринг и прокат": {
       "bank_category": "Каршеринг",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "каршеринг, прокат": {
       "bank_category": "МКБ Travel",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "кинотеатры, театры, выставки": {
@@ -463,12 +463,12 @@
     },
     "корм": {
       "bank_category": "Домашние питомцы",
-      "unified": null,
+      "unified": "Животные и зоотовары",
       "match_level": "subcategory"
     },
     "мкб travel": {
       "bank_category": "МКБ Travel",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "category"
     },
     "мужская обувь": {
@@ -513,12 +513,12 @@
     },
     "отели": {
       "bank_category": "МКБ Travel",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "продукты питания": {
       "bank_category": "Добрынинский",
-      "unified": null,
+      "unified": "Супермаркеты",
       "match_level": "subcategory"
     },
     "прочее (досуг и отдых)": {
@@ -553,17 +553,17 @@
     },
     "такси": {
       "bank_category": "Такси",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "category"
     },
     "товары для детей": {
       "bank_category": "Детские товары",
-      "unified": null,
+      "unified": "Товары для детей",
       "match_level": "subcategory"
     },
     "товары для животных": {
       "bank_category": "Домашние питомцы",
-      "unified": null,
+      "unified": "Животные и зоотовары",
       "match_level": "subcategory"
     },
     "топливо": {
@@ -573,7 +573,7 @@
     },
     "туры": {
       "bank_category": "МКБ Travel",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "фастфуд": {
@@ -600,7 +600,7 @@
     },
     "все покупки": {
       "bank_category": "Все покупки",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "category"
     },
     "детская обувь": {
@@ -635,17 +635,17 @@
     },
     "категория на выбор": {
       "bank_category": "Все покупки",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "subcategory"
     },
     "кафе": {
       "bank_category": "Кафе и рестораны",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "subcategory"
     },
     "кафе и рестораны": {
       "bank_category": "Кафе и рестораны",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "category"
     },
     "отели": {
@@ -655,12 +655,12 @@
     },
     "отели и путешествия": {
       "bank_category": "Отели и путешествия",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "category"
     },
     "прочее (путешествия)": {
       "bank_category": "Отели и путешествия",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "рестораны": {
@@ -680,12 +680,12 @@
     },
     "топливо": {
       "bank_category": "Топливо и АЗС",
-      "unified": null,
+      "unified": "АЗС и топливо",
       "match_level": "subcategory"
     },
     "топливо и азс": {
       "bank_category": "Топливо и АЗС",
-      "unified": null,
+      "unified": "АЗС и топливо",
       "match_level": "category"
     },
     "туры": {
@@ -702,12 +702,12 @@
   "otp-bank": {
     "авиа билеты": {
       "bank_category": "Авиабилеты",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "авиабилеты": {
       "bank_category": "Авиабилеты",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "category"
     },
     "азс": {
@@ -722,17 +722,17 @@
     },
     "аптеки": {
       "bank_category": "Аптеки и медуслуги",
-      "unified": null,
+      "unified": "Аптеки",
       "match_level": "subcategory"
     },
     "аптеки и медуслуги": {
       "bank_category": "Аптеки и медуслуги",
-      "unified": null,
+      "unified": "Аптеки",
       "match_level": "category"
     },
     "выставки": {
       "bank_category": "Искусство",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "детская обувь": {
@@ -747,12 +747,12 @@
     },
     "для ремонта": {
       "bank_category": "Дом, ремонт",
-      "unified": null,
+      "unified": "Дом и ремонт",
       "match_level": "subcategory"
     },
     "дом, ремонт": {
       "bank_category": "Дом, ремонт",
-      "unified": null,
+      "unified": "Дом и ремонт",
       "match_level": "category"
     },
     "женская обувь": {
@@ -767,7 +767,7 @@
     },
     "животные": {
       "bank_category": "Животные",
-      "unified": null,
+      "unified": "Животные и зоотовары",
       "match_level": "category"
     },
     "жкх": {
@@ -777,42 +777,42 @@
     },
     "запчасти": {
       "bank_category": "Запчасти и аксессуары",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "subcategory"
     },
     "запчасти и аксессуары": {
       "bank_category": "Запчасти и аксессуары",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "category"
     },
     "искусство": {
       "bank_category": "Искусство",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "category"
     },
     "каршеринг и прокат": {
       "bank_category": "Такси и каршеринг",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "каршеринг, прокат": {
       "bank_category": "Такси и каршеринг",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "кафе": {
       "bank_category": "Фастфуд и рестораны",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "subcategory"
     },
     "кинотеатры": {
       "bank_category": "Искусство",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "корм": {
       "bank_category": "Животные",
-      "unified": null,
+      "unified": "Животные и зоотовары",
       "match_level": "subcategory"
     },
     "мужская обувь": {
@@ -847,12 +847,12 @@
     },
     "прочее (досуг и отдых)": {
       "bank_category": "Искусство",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "прочее (медицина)": {
       "bank_category": "Аптеки и медуслуги",
-      "unified": null,
+      "unified": "Аптеки",
       "match_level": "subcategory"
     },
     "прочее (обучение)": {
@@ -862,7 +862,7 @@
     },
     "рестораны": {
       "bank_category": "Фастфуд и рестораны",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "subcategory"
     },
     "спортивная обувь": {
@@ -877,22 +877,22 @@
     },
     "такси": {
       "bank_category": "Такси и каршеринг",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "такси и каршеринг": {
       "bank_category": "Такси и каршеринг",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "category"
     },
     "театры": {
       "bank_category": "Искусство",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "товары для дома": {
       "bank_category": "Дом, ремонт",
-      "unified": null,
+      "unified": "Дом и ремонт",
       "match_level": "subcategory"
     },
     "топливо": {
@@ -902,17 +902,17 @@
     },
     "уход за животными": {
       "bank_category": "Животные",
-      "unified": null,
+      "unified": "Животные и зоотовары",
       "match_level": "subcategory"
     },
     "фастфуд": {
       "bank_category": "Фастфуд и рестораны",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "subcategory"
     },
     "фастфуд и рестораны": {
       "bank_category": "Фастфуд и рестораны",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "category"
     },
     "часы": {
@@ -929,7 +929,7 @@
   "ozon-bank": {
     "tasty coffee": {
       "bank_category": "Tasty Coffee",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "category"
     },
     "авиа билеты": {
@@ -939,12 +939,12 @@
     },
     "все покупки": {
       "bank_category": "Все покупки",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "category"
     },
     "выставки": {
       "bank_category": "Искусство",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "доставка готовой еды": {
@@ -964,7 +964,7 @@
     },
     "искусство": {
       "bank_category": "Искусство",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "category"
     },
     "каршеринг, прокат": {
@@ -974,27 +974,27 @@
     },
     "категория на выбор": {
       "bank_category": "Все покупки",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "subcategory"
     },
     "кинотеатры": {
       "bank_category": "Искусство",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "кофе и чай": {
       "bank_category": "Tasty Coffee",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "subcategory"
     },
     "кофейни": {
       "bank_category": "Tasty Coffee",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "subcategory"
     },
     "общественный транспорт": {
       "bank_category": "Транспорт",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "отели": {
@@ -1004,17 +1004,17 @@
     },
     "перекрёсток доставка": {
       "bank_category": "Перекрёсток доставка",
-      "unified": null,
+      "unified": "Супермаркеты",
       "match_level": "category"
     },
     "прочее (авто)": {
       "bank_category": "Транспорт",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "прочее (досуг и отдых)": {
       "bank_category": "Искусство",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "рестораны": {
@@ -1024,17 +1024,17 @@
     },
     "супермаркеты": {
       "bank_category": "Перекрёсток доставка",
-      "unified": null,
+      "unified": "Супермаркеты",
       "match_level": "subcategory"
     },
     "такси": {
       "bank_category": "Такси",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "category"
     },
     "театры": {
       "bank_category": "Искусство",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "товары для детей": {
@@ -1049,7 +1049,7 @@
     },
     "транспорт": {
       "bank_category": "Транспорт",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "category"
     },
     "туры": {
@@ -1076,19 +1076,19 @@
   "rajffajzenbank": {
     "все покупки": {
       "bank_category": "Все покупки",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "category"
     },
     "категория на выбор": {
       "bank_category": "Все покупки",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "subcategory"
     }
   },
   "russkij-standart": {
     "ozon": {
       "bank_category": "OZON",
-      "unified": null,
+      "unified": "Маркетплейсы",
       "match_level": "category"
     },
     "азс": {
@@ -1098,112 +1098,112 @@
     },
     "выпускной": {
       "bank_category": "Выпускной",
-      "unified": null,
+      "unified": "Товары для детей",
       "match_level": "category"
     },
     "городской транспорт": {
       "bank_category": "Городской транспорт",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "category"
     },
     "детская одежда": {
       "bank_category": "Выпускной",
-      "unified": null,
+      "unified": "Товары для детей",
       "match_level": "subcategory"
     },
     "дикси": {
       "bank_category": "Дикси",
-      "unified": null,
+      "unified": "Супермаркеты",
       "match_level": "category"
     },
     "ж/д билеты": {
       "bank_category": "Ж/д билеты",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "category"
     },
     "жд билеты": {
       "bank_category": "Ж/д билеты",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "женская одежда": {
       "bank_category": "Выпускной",
-      "unified": null,
+      "unified": "Товары для детей",
       "match_level": "subcategory"
     },
     "каникулы - детям": {
       "bank_category": "Каникулы - детям",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "category"
     },
     "кафе": {
       "bank_category": "Кафе, рестораны, фастфуд",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "subcategory"
     },
     "кафе, рестораны, фастфуд": {
       "bank_category": "Кафе, рестораны, фастфуд",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "category"
     },
     "кинотеатры, театры, выставки": {
       "bank_category": "Каникулы - детям",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "концертная площадка": {
       "bank_category": "Каникулы - детям",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "маркетплейс": {
       "bank_category": "OZON",
-      "unified": null,
+      "unified": "Маркетплейсы",
       "match_level": "subcategory"
     },
     "маркетплейсы": {
       "bank_category": "OZON",
-      "unified": null,
+      "unified": "Маркетплейсы",
       "match_level": "subcategory"
     },
     "мужская одежда": {
       "bank_category": "Выпускной",
-      "unified": null,
+      "unified": "Товары для детей",
       "match_level": "subcategory"
     },
     "общественный транспорт": {
       "bank_category": "Городской транспорт",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "пицца": {
       "bank_category": "Кафе, рестораны, фастфуд",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "subcategory"
     },
     "рестораны": {
       "bank_category": "Кафе, рестораны, фастфуд",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "subcategory"
     },
     "салоны красоты": {
       "bank_category": "Выпускной",
-      "unified": null,
+      "unified": "Товары для детей",
       "match_level": "subcategory"
     },
     "супермаркеты": {
       "bank_category": "Дикси",
-      "unified": null,
+      "unified": "Супермаркеты",
       "match_level": "subcategory"
     },
     "суши": {
       "bank_category": "Кафе, рестораны, фастфуд",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "subcategory"
     },
     "такси": {
       "bank_category": "Такси",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "category"
     },
     "топливо": {
@@ -1213,19 +1213,19 @@
     },
     "фастфуд": {
       "bank_category": "Кафе, рестораны, фастфуд",
-      "unified": null,
+      "unified": "Кафе, бары, рестораны",
       "match_level": "subcategory"
     }
   },
   "sberbank-rossii": {
     "авиа билеты": {
       "bank_category": "СпасибоТрэвел",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "автомобили": {
       "bank_category": "Ситидрайв",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "азс": {
@@ -1240,7 +1240,7 @@
     },
     "бытовая техника": {
       "bank_category": "Электроника и бытовая техника",
-      "unified": null,
+      "unified": "Электроника",
       "match_level": "subcategory"
     },
     "выбираемые категории": {
@@ -1260,12 +1260,12 @@
     },
     "доставка готовой еды": {
       "bank_category": "Самокат",
-      "unified": null,
+      "unified": "Покупки в приложении банка",
       "match_level": "subcategory"
     },
     "доставка продуктов": {
       "bank_category": "Самокат",
-      "unified": null,
+      "unified": "Покупки в приложении банка",
       "match_level": "subcategory"
     },
     "игрушки": {
@@ -1275,22 +1275,22 @@
     },
     "каршеринг и прокат": {
       "bank_category": "Такси и каршеринг",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "каршеринг, прокат": {
       "bank_category": "Такси и каршеринг",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "книги": {
       "bank_category": "Хобби и развлечения",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "косметика": {
       "bank_category": "Самокат",
-      "unified": null,
+      "unified": "Покупки в приложении банка",
       "match_level": "subcategory"
     },
     "образование": {
@@ -1310,7 +1310,7 @@
     },
     "общественный транспорт": {
       "bank_category": "Транспорт",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "онлайн школы": {
@@ -1320,32 +1320,32 @@
     },
     "отели": {
       "bank_category": "Отелло",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "отелло": {
       "bank_category": "Отелло",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "category"
     },
     "парфюмерия": {
       "bank_category": "Парфюмерия и косметика",
-      "unified": null,
+      "unified": "Красота и уход",
       "match_level": "subcategory"
     },
     "парфюмерия и косметика": {
       "bank_category": "Парфюмерия и косметика",
-      "unified": null,
+      "unified": "Красота и уход",
       "match_level": "category"
     },
     "прочее (авто)": {
       "bank_category": "Транспорт",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "прочее (досуг и отдых)": {
       "bank_category": "Хобби и развлечения",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "прочее (обучение)": {
@@ -1355,37 +1355,37 @@
     },
     "прочее (путешествия)": {
       "bank_category": "СпасибоТрэвел",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "салоны красоты": {
       "bank_category": "Салоны красоты",
-      "unified": null,
+      "unified": "Красота и уход",
       "match_level": "category"
     },
     "самокат": {
       "bank_category": "Самокат",
-      "unified": null,
+      "unified": "Покупки в приложении банка",
       "match_level": "category"
     },
     "ситидрайв": {
       "bank_category": "Ситидрайв",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "category"
     },
     "спасиботрэвел": {
       "bank_category": "СпасибоТрэвел",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "category"
     },
     "такси": {
       "bank_category": "Такси и каршеринг",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "subcategory"
     },
     "такси и каршеринг": {
       "bank_category": "Такси и каршеринг",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "category"
     },
     "товары для детей": {
@@ -1395,12 +1395,12 @@
     },
     "товары для дома": {
       "bank_category": "Самокат",
-      "unified": null,
+      "unified": "Покупки в приложении банка",
       "match_level": "subcategory"
     },
     "товары для ухода за собой": {
       "bank_category": "Самокат",
-      "unified": null,
+      "unified": "Покупки в приложении банка",
       "match_level": "subcategory"
     },
     "топливо": {
@@ -1410,42 +1410,42 @@
     },
     "транспорт": {
       "bank_category": "Транспорт",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "category"
     },
     "туризм": {
       "bank_category": "Отелло",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "туры": {
       "bank_category": "Отелло",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "услуги доставки": {
       "bank_category": "Самокат",
-      "unified": null,
+      "unified": "Покупки в приложении банка",
       "match_level": "subcategory"
     },
     "хобби": {
       "bank_category": "Хобби и развлечения",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "хобби и развлечения": {
       "bank_category": "Хобби и развлечения",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "category"
     },
     "электроника": {
       "bank_category": "Электроника и бытовая техника",
-      "unified": null,
+      "unified": "Электроника",
       "match_level": "subcategory"
     },
     "электроника и бытовая техника": {
       "bank_category": "Электроника и бытовая техника",
-      "unified": null,
+      "unified": "Электроника",
       "match_level": "category"
     }
   },
@@ -1479,7 +1479,7 @@
     },
     "ж/д билеты": {
       "bank_category": "Ж/д билеты",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "category"
     },
     "жд билеты": {
@@ -1489,7 +1489,7 @@
     },
     "животные": {
       "bank_category": "Животные",
-      "unified": null,
+      "unified": "Животные и зоотовары",
       "match_level": "category"
     },
     "игры": {
@@ -1534,7 +1534,7 @@
     },
     "корм": {
       "bank_category": "Животные",
-      "unified": null,
+      "unified": "Животные и зоотовары",
       "match_level": "subcategory"
     },
     "медицина": {
@@ -1569,7 +1569,7 @@
     },
     "отели в т-путешествиях": {
       "bank_category": "Отели в Т-Путешествиях",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "category"
     },
     "прочее (досуг и отдых)": {
@@ -1599,17 +1599,17 @@
     },
     "спортивная обувь": {
       "bank_category": "Спорттовары",
-      "unified": null,
+      "unified": "Спорт и фитнес",
       "match_level": "subcategory"
     },
     "спортивная одежда": {
       "bank_category": "Спорттовары",
-      "unified": null,
+      "unified": "Спорт и фитнес",
       "match_level": "subcategory"
     },
     "спорттовары": {
       "bank_category": "Спорттовары",
-      "unified": null,
+      "unified": "Спорт и фитнес",
       "match_level": "category"
     },
     "супермаркеты": {
@@ -1619,17 +1619,17 @@
     },
     "товары для спорта": {
       "bank_category": "Спорттовары",
-      "unified": null,
+      "unified": "Спорт и фитнес",
       "match_level": "subcategory"
     },
     "топливо": {
       "bank_category": "Топливо в Городе",
-      "unified": null,
+      "unified": "АЗС и топливо",
       "match_level": "subcategory"
     },
     "топливо в городе": {
       "bank_category": "Топливо в Городе",
-      "unified": null,
+      "unified": "АЗС и топливо",
       "match_level": "category"
     },
     "туры": {
@@ -1639,7 +1639,7 @@
     },
     "уход за животными": {
       "bank_category": "Животные",
-      "unified": null,
+      "unified": "Животные и зоотовары",
       "match_level": "subcategory"
     }
   },
@@ -1651,12 +1651,12 @@
     },
     "мегафон": {
       "bank_category": "Мегафон",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "category"
     },
     "мобильная связь": {
       "bank_category": "Мегафон",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "subcategory"
     },
     "онлайн-покупки": {
@@ -1666,39 +1666,39 @@
     },
     "оптика": {
       "bank_category": "Очкарик",
-      "unified": null,
+      "unified": "Медицина",
       "match_level": "subcategory"
     },
     "остальное": {
       "bank_category": "Остальное",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "category"
     },
     "очкарик": {
       "bank_category": "Очкарик",
-      "unified": null,
+      "unified": "Медицина",
       "match_level": "category"
     },
     "прочее (онлайн сервисы и игры)": {
       "bank_category": "Остальное",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "subcategory"
     },
     "электроника": {
       "bank_category": "Мегафон",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "subcategory"
     }
   },
   "vtb": {
     "sela": {
       "bank_category": "SELA",
-      "unified": null,
+      "unified": "Одежда и обувь",
       "match_level": "category"
     },
     "wollmer": {
       "bank_category": "WOLLMER",
-      "unified": null,
+      "unified": "Электроника",
       "match_level": "category"
     },
     "азс": {
@@ -1713,12 +1713,12 @@
     },
     "бытовая техника": {
       "bank_category": "WOLLMER",
-      "unified": null,
+      "unified": "Электроника",
       "match_level": "subcategory"
     },
     "втб путешествия": {
       "bank_category": "ВТБ путешествия",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "category"
     },
     "выбираемые категории": {
@@ -1728,117 +1728,117 @@
     },
     "выставки": {
       "bank_category": "Искусство",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "детская одежда": {
       "bank_category": "SELA",
-      "unified": null,
+      "unified": "Одежда и обувь",
       "match_level": "subcategory"
     },
     "женская одежда": {
       "bank_category": "SELA",
-      "unified": null,
+      "unified": "Одежда и обувь",
       "match_level": "subcategory"
     },
     "здоровье": {
       "bank_category": "Здоровье",
-      "unified": null,
+      "unified": "Медицина",
       "match_level": "category"
     },
     "искусство": {
       "bank_category": "Искусство",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "category"
     },
     "кинотеатры": {
       "bank_category": "Искусство",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "клиники": {
       "bank_category": "Здоровье",
-      "unified": null,
+      "unified": "Медицина",
       "match_level": "subcategory"
     },
     "косметика": {
       "bank_category": "Подружка",
-      "unified": null,
+      "unified": "Красота и уход",
       "match_level": "subcategory"
     },
     "красота": {
       "bank_category": "Красота",
-      "unified": null,
+      "unified": "Красота и уход",
       "match_level": "category"
     },
     "мужская одежда": {
       "bank_category": "SELA",
-      "unified": null,
+      "unified": "Одежда и обувь",
       "match_level": "subcategory"
     },
     "парфюмерия": {
       "bank_category": "Красота",
-      "unified": null,
+      "unified": "Красота и уход",
       "match_level": "subcategory"
     },
     "подружка": {
       "bank_category": "Подружка",
-      "unified": null,
+      "unified": "Красота и уход",
       "match_level": "category"
     },
     "почта россии": {
       "bank_category": "Почта России",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "category"
     },
     "прочее (досуг и отдых)": {
       "bank_category": "Искусство",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "прочее (медицина)": {
       "bank_category": "Здоровье",
-      "unified": null,
+      "unified": "Медицина",
       "match_level": "subcategory"
     },
     "прочее (путешествия)": {
       "bank_category": "ВТБ путешествия",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "салоны красоты": {
       "bank_category": "Красота",
-      "unified": null,
+      "unified": "Красота и уход",
       "match_level": "subcategory"
     },
     "спортивное питание": {
       "bank_category": "Спортивные товары",
-      "unified": null,
+      "unified": "Спорт и фитнес",
       "match_level": "subcategory"
     },
     "спортивные товары": {
       "bank_category": "Спортивные товары",
-      "unified": null,
+      "unified": "Спорт и фитнес",
       "match_level": "category"
     },
     "такси": {
       "bank_category": "Такси",
-      "unified": null,
+      "unified": "Транспорт и такси",
       "match_level": "category"
     },
     "театры": {
       "bank_category": "Искусство",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "subcategory"
     },
     "товары для спорта": {
       "bank_category": "Спортивные товары",
-      "unified": null,
+      "unified": "Спорт и фитнес",
       "match_level": "subcategory"
     },
     "товары для ухода за собой": {
       "bank_category": "Красота",
-      "unified": null,
+      "unified": "Красота и уход",
       "match_level": "subcategory"
     },
     "топливо": {
@@ -1848,29 +1848,29 @@
     },
     "туры": {
       "bank_category": "ВТБ путешествия",
-      "unified": null,
+      "unified": "Путешествия",
       "match_level": "subcategory"
     },
     "услуги доставки": {
       "bank_category": "Почта России",
-      "unified": null,
+      "unified": "Прочее",
       "match_level": "subcategory"
     }
   },
   "yandex-bank": {
     "adamas": {
       "bank_category": "ADAMAS",
-      "unified": null,
+      "unified": "Одежда и обувь",
       "match_level": "category"
     },
     "aliexpress": {
       "bank_category": "AliExpress",
-      "unified": null,
+      "unified": "Маркетплейсы",
       "match_level": "category"
     },
     "tefal": {
       "bank_category": "Tefal",
-      "unified": null,
+      "unified": "Электроника",
       "match_level": "category"
     },
     "авиа билеты": {
@@ -1880,7 +1880,7 @@
     },
     "азбука вкуса": {
       "bank_category": "Азбука вкуса",
-      "unified": null,
+      "unified": "Супермаркеты",
       "match_level": "category"
     },
     "аксессуары": {
@@ -1895,7 +1895,7 @@
     },
     "бытовая техника": {
       "bank_category": "Tefal",
-      "unified": null,
+      "unified": "Электроника",
       "match_level": "subcategory"
     },
     "детская обувь": {
@@ -1910,17 +1910,17 @@
     },
     "доставка готовой еды": {
       "bank_category": "Еда и Деливери",
-      "unified": null,
+      "unified": "Готовая еда",
       "match_level": "subcategory"
     },
     "доставка продуктов": {
       "bank_category": "Азбука вкуса",
-      "unified": null,
+      "unified": "Супермаркеты",
       "match_level": "subcategory"
     },
     "еда и деливери": {
       "bank_category": "Еда и Деливери",
-      "unified": null,
+      "unified": "Готовая еда",
       "match_level": "category"
     },
     "жд билеты": {
@@ -1945,7 +1945,7 @@
     },
     "кафе": {
       "bank_category": "Азбука вкуса",
-      "unified": null,
+      "unified": "Супермаркеты",
       "match_level": "subcategory"
     },
     "кафе, бары и рестораны": {
@@ -1955,7 +1955,7 @@
     },
     "кинопоиск": {
       "bank_category": "Кинопоиск",
-      "unified": null,
+      "unified": "Развлечения",
       "match_level": "category"
     },
     "книги": {
@@ -1965,12 +1965,12 @@
     },
     "маркетплейс": {
       "bank_category": "AliExpress",
-      "unified": null,
+      "unified": "Маркетплейсы",
       "match_level": "subcategory"
     },
     "маркетплейсы": {
       "bank_category": "AliExpress",
-      "unified": null,
+      "unified": "Маркетплейсы",
       "match_level": "subcategory"
     },
     "мужская обувь": {
@@ -2010,12 +2010,12 @@
     },
     "посуда": {
       "bank_category": "Tefal",
-      "unified": null,
+      "unified": "Электроника",
       "match_level": "subcategory"
     },
     "продукты питания": {
       "bank_category": "Азбука вкуса",
-      "unified": null,
+      "unified": "Супермаркеты",
       "match_level": "subcategory"
     },
     "прочее (досуг и отдых)": {
@@ -2075,7 +2075,7 @@
     },
     "ювелирные украшения": {
       "bank_category": "ADAMAS",
-      "unified": null,
+      "unified": "Одежда и обувь",
       "match_level": "subcategory"
     },
     "яндекс лавка": {
