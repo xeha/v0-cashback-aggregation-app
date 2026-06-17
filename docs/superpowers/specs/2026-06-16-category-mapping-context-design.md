@@ -1,5 +1,7 @@
 # Category Mapping & Bank Definitions — Design Spec
 
+> **Note (2026-06-17):** Per-bank маппинг реализуется через [bank-category-catalog-design.md](./2026-06-17-bank-category-catalog-design.md). `bank_category_definitions.json` для описаний остаётся out of scope.
+
 **Date:** 2026-06-16  
 **Status:** Approved  
 **Scope:** Исправить маппинг «Активный отдых»; курируемый справочник расшифровок per-bank на backend. **Без UI** (иконка ⓘ у строки матрицы не реализуется).
