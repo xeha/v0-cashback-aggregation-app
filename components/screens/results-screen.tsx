@@ -223,6 +223,12 @@ export function ResultsScreen({
                 : formatCategoryLabel(group.rows[0]?.category ?? group.parent)
 
               if (!hasSubcategories) {
+                const row = group.rows[0]
+                const showBankRaw =
+                  row?.bankRaw &&
+                  !labelsEquivalent(row.bankRaw, displayLabel) &&
+                  !(row.parent && labelsEquivalent(row.bankRaw, row.parent))
+
                 return (
                   <div
                     key={group.parent}
@@ -234,6 +240,9 @@ export function ResultsScreen({
                       <p className="text-[13px] font-semibold leading-snug text-slate-800">
                         {displayLabel}
                       </p>
+                      {showBankRaw ? (
+                        <p className="text-[11px] text-slate-400">{row.bankRaw}</p>
+                      ) : null}
                     </div>
                     <RateBadges rates={group.summaryRates} providers={providers} />
                   </div>

@@ -50,11 +50,11 @@
     },
     "детский мир": {
       "bank_category": "Детский мир",
-      "unified_subcategory": null,
-      "unified_parent": null,
-      "unified": null,
+      "unified_subcategory": "Для Детей",
+      "unified_parent": "Для Детей",
+      "unified": "Для Детей",
       "match_level": "category",
-      "is_macro": false
+      "is_macro": true
     },
     "жд билеты": {
       "bank_category": "на Ж/Д в Тревел",
@@ -74,11 +74,11 @@
     },
     "игры": {
       "bank_category": "Развлечения",
-      "unified_subcategory": "Прочее (ДОСУГ и ОТДЫХ)",
+      "unified_subcategory": "Досуг И Отдых",
       "unified_parent": "Досуг И Отдых",
-      "unified": "Прочее (ДОСУГ и ОТДЫХ)",
+      "unified": "Досуг И Отдых",
       "match_level": "subcategory",
-      "is_macro": false
+      "is_macro": true
     },
     "категория на выбор": {
       "bank_category": "Все покупки",
@@ -146,11 +146,11 @@
     },
     "развлечения": {
       "bank_category": "Развлечения",
-      "unified_subcategory": "Прочее (ДОСУГ и ОТДЫХ)",
+      "unified_subcategory": "Досуг И Отдых",
       "unified_parent": "Досуг И Отдых",
-      "unified": "Прочее (ДОСУГ и ОТДЫХ)",
+      "unified": "Досуг И Отдых",
       "match_level": "category",
-      "is_macro": false
+      "is_macro": true
     },
     "спортивное питание": {
       "bank_category": "Спортивные товары",
@@ -680,11 +680,11 @@
     },
     "игры": {
       "bank_category": "Развлечения",
-      "unified_subcategory": "Прочее (ДОСУГ и ОТДЫХ)",
+      "unified_subcategory": "Досуг И Отдых",
       "unified_parent": "Досуг И Отдых",
-      "unified": "Прочее (ДОСУГ и ОТДЫХ)",
+      "unified": "Досуг И Отдых",
       "match_level": "subcategory",
-      "is_macro": false
+      "is_macro": true
     },
     "каршеринг": {
       "bank_category": "Каршеринг",
@@ -848,11 +848,11 @@
     },
     "развлечения": {
       "bank_category": "Развлечения",
-      "unified_subcategory": "Прочее (ДОСУГ и ОТДЫХ)",
+      "unified_subcategory": "Досуг И Отдых",
       "unified_parent": "Досуг И Отдых",
-      "unified": "Прочее (ДОСУГ и ОТДЫХ)",
+      "unified": "Досуг И Отдых",
       "match_level": "category",
-      "is_macro": false
+      "is_macro": true
     },
     "рестораны": {
       "bank_category": "Фастфуд",
@@ -2376,11 +2376,11 @@
     },
     "игры": {
       "bank_category": "Развлечения",
-      "unified_subcategory": "Прочее (ДОСУГ и ОТДЫХ)",
+      "unified_subcategory": "Досуг И Отдых",
       "unified_parent": "Досуг И Отдых",
-      "unified": "Прочее (ДОСУГ и ОТДЫХ)",
+      "unified": "Досуг И Отдых",
       "match_level": "subcategory",
-      "is_macro": false
+      "is_macro": true
     },
     "канцтовары": {
       "bank_category": "Книги и канцтовары",
@@ -2528,11 +2528,11 @@
     },
     "развлечения": {
       "bank_category": "Развлечения",
-      "unified_subcategory": "Прочее (ДОСУГ и ОТДЫХ)",
+      "unified_subcategory": "Досуг И Отдых",
       "unified_parent": "Досуг И Отдых",
-      "unified": "Прочее (ДОСУГ и ОТДЫХ)",
+      "unified": "Досуг И Отдых",
       "match_level": "category",
-      "is_macro": false
+      "is_macro": true
     },
     "сберздоровье": {
       "bank_category": "СберЗдоровье",

@@ -12,24 +12,18 @@ sys.path.insert(0, str(BACKEND))
 from schemas import CategoryMapRequestItem  # noqa: E402
 from services.mapper_service import MapperService  # noqa: E402
 
-# source, raw, expected_sub, expected_conf, is_bank_offer, expected_parent
+# source, raw, expected_sub, expected_conf, is_bank_offer, expected_parent, expected_macro, expected_source
 CASES = [
-    ("Сбер", "Аптеки", "Аптеки", 1.0, False, "Медицина И Здоровье"),
-    ("Яндекс Банк", "Яндекс Лавка", "Доставка продуктов", 1.0, True, "Продукты И Напитки"),
-    ("Альфа-Банк", "Активный отдых", "Спорт И Активный Отдых", 1.0, False, "Спорт И Активный Отдых"),
-    ("Альфа-Банк", "Одежда и обувь", "Одежда И Обувь", 1.0, False, "Одежда И Обувь"),
-    ("Альфа-Банк", "Кафе и рестораны", "Кафе И Рестораны", 1.0, False, "Кафе И Рестораны"),
-    ("ОТП Банк", "АЗС", "Топливо", 1.0, False, "Авто"),
-    ("ОТП Банк", "Женская одежда", "Женская одежда", 1.0, False, "Одежда И Обувь"),
-    ("Сбербанк", "Самокат", "Доставка продуктов", 1.0, True, "Продукты И Напитки"),
-    ("Альфа-Банк", "Детский мир", "Детский мир", 1.0, False, "Для Детей"),
-    ("Яндекс Банк", "Яндекс Плюс", "Подписки", 1.0, True, "Онлайн Сервисы И Игры"),
-    ("Т-Банк", "СберЗдоровье", "Прочее (МЕДИЦИНА)", 1.0, True, "Медицина И Здоровье"),
-    ("ОТП Банк", "Прочее (медицина)", "Прочее (МЕДИЦИНА)", 1.0, False, "Медицина И Здоровье"),
-    ("Альфа-Банк", "Все покупки", "Прочее (УСЛУГИ)", 1.0, False, "Услуги"),
-    ("Газпромбанк", "Авиа билеты", "Авиа билеты", 1.0, False, "Путешествия"),
-    ("ОТП Банк", "Каршеринг, прокат", "Такси", 1.0, False, "Транспорт"),
-    ("Газпромбанк", "Каршеринг, прокат", "Супермаркеты", 1.0, False, "Супермаркеты И Маркетплейсы"),
+    ("Сбер", "Аптеки", "Аптеки", 1.0, False, "Медицина И Здоровье", False, "catalog"),
+    ("Яндекс Банк", "Яндекс Лавка", "Доставка продуктов", 1.0, True, "Продукты И Напитки", False, "catalog"),
+    ("Альфа-Банк", "Активный отдых", "Досуг И Отдых", 1.0, False, "Досуг И Отдых", True, "parent"),
+    ("Альфа-Банк", "Кинотеатры, театры, выставки", "Кинотеатры, театры, выставки", 1.0, False, "Досуг И Отдых", False, None),
+    ("Газпромбанк", "Кафе и рестораны", "Кафе И Рестораны", 1.0, False, "Кафе И Рестораны", True, "catalog"),
+    ("Газпромбанк", "АЗС", "Топливо", 1.0, False, "Авто", False, "catalog"),
+    ("ОТП Банк", "АЗС", "Топливо", 1.0, False, "Авто", False, None),
+    ("Сбербанк", "Самокат", "Доставка продуктов", 1.0, True, "Продукты И Напитки", False, "catalog"),
+    ("Альфа-Банк", "Все покупки", "Прочее (УСЛУГИ)", 1.0, False, "Услуги", False, "catalog"),
+    ("Газпромбанк", "Авиа билеты", "Авиа билеты", 1.0, False, "Путешествия", False, "catalog"),
 ]
 
 
@@ -38,34 +32,40 @@ def main() -> int:
     mapper.load()
     failed = 0
     for case in CASES:
-        source_name, raw, expected_sub, expected_conf = case[:4]
-        expected_bank_offer = case[4] if len(case) > 4 else False
-        expected_parent = case[5] if len(case) > 5 else None
+        (
+            source_name,
+            raw,
+            expected_sub,
+            expected_conf,
+            expected_bank_offer,
+            expected_parent,
+            expected_macro,
+            expected_source,
+        ) = case
         items = [CategoryMapRequestItem(raw_category=raw, rate=5.0)]
         result = mapper.map_items(items, source_name)[0]
         ok = (
             result.unified_category == expected_sub
             and result.unified_subcategory == expected_sub
-            and (expected_parent is None or result.unified_parent == expected_parent)
+            and result.unified_parent == expected_parent
             and result.confidence == expected_conf
             and result.is_bank_offer == expected_bank_offer
-            and (
-                expected_parent is None
-                or expected_sub != expected_parent
-                or result.is_macro_category
-            )
+            and result.is_macro_category == expected_macro
+            and (expected_source is None or result.match_source == expected_source)
         )
         status = "PASS" if ok else "FAIL"
         offer_note = " [bank offer]" if result.is_bank_offer else ""
+        macro_note = " [macro]" if result.is_macro_category else ""
         print(
             f"{status}: {source_name!r} + {raw!r} -> "
             f"{result.unified_category!r} / {result.unified_parent!r} "
-            f"({result.confidence}){offer_note}"
+            f"({result.confidence}, {result.match_source}){offer_note}{macro_note}"
         )
         if not ok:
             print(
                 f"       expected {expected_sub!r} / {expected_parent!r} @ {expected_conf}, "
-                f"is_bank_offer={expected_bank_offer}, got parent={result.unified_parent!r}"
+                f"macro={expected_macro}, source={expected_source!r}, "
+                f"got macro={result.is_macro_category}, source={result.match_source!r}"
             )
             failed += 1
 

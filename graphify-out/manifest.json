@@ -35,8 +35,8 @@
     "semantic_hash": "33fc60149529df0222358914333212c9"
   },
   "backend/schemas.py": {
-    "mtime": 1781696447.3521476,
-    "ast_hash": "4a04fec02605f7f79731535438a789d9",
+    "mtime": 1781706546.191189,
+    "ast_hash": "fec7527b844294dba0f985db3da78da6",
     "semantic_hash": ""
   },
   "backend/services/__init__.py": {
@@ -45,8 +45,8 @@
     "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
   },
   "backend/services/mapper_service.py": {
-    "mtime": 1781697752.2234743,
-    "ast_hash": "e2ade3995eb1cb1099a02b16ee23c5ee",
+    "mtime": 1781706595.663285,
+    "ast_hash": "03e13a76f61414c54566caee87408e22",
     "semantic_hash": ""
   },
   "backend/services/ocr_service.py": {
@@ -120,8 +120,8 @@
     "semantic_hash": "8062aae909450f1f017065252e0f748a"
   },
   "components/screens/results-screen.tsx": {
-    "mtime": 1781696531.3526318,
-    "ast_hash": "080617d7df2d2fb7ae7ce09236460b6c",
+    "mtime": 1781707036.9320836,
+    "ast_hash": "5577b63ee87606d73faac2cfde2766db",
     "semantic_hash": ""
   },
   "components/screens/user-menu.tsx": {
@@ -180,8 +180,8 @@
     "semantic_hash": ""
   },
   "lib/matrix.ts": {
-    "mtime": 1781696532.8610716,
-    "ast_hash": "29916946413d8dc204f28453e5acbbc6",
+    "mtime": 1781707036.1617837,
+    "ast_hash": "d399bcfdd823a6dd79e201efb1c07ed8",
     "semantic_hash": ""
   },
   "lib/provider-logos.ts": {
@@ -200,8 +200,8 @@
     "semantic_hash": "9a4cc6f9f3155ffdc1fa7c2c097f6429"
   },
   "next-env.d.ts": {
-    "mtime": 1781685967.1912315,
-    "ast_hash": "d0f8375ae1199dc7acd3977fc33b78b8",
+    "mtime": 1781698766.2372675,
+    "ast_hash": "2a74d3909800ca5467fa83b0ab4a4890",
     "semantic_hash": ""
   },
   "next.config.mjs": {
@@ -245,8 +245,8 @@
     "semantic_hash": ""
   },
   "backend/data/bank_category_catalog.json": {
-    "mtime": 1781696627.783367,
-    "ast_hash": "41ac592d616ffcee2651a11694a27830",
+    "mtime": 1781706740.0163274,
+    "ast_hash": "5fe66665d6984c7d616f117fca7d8524",
     "semantic_hash": ""
   },
   "backend/data/bank_category_unified_overrides.json": {
@@ -270,8 +270,8 @@
     "semantic_hash": ""
   },
   "scripts/sync_bank_catalog.py": {
-    "mtime": 1781696623.1745994,
-    "ast_hash": "95924fe6a7df44f2ebc6c3a44076d1fc",
+    "mtime": 1781706636.7926123,
+    "ast_hash": "43854a1eb511f86719a63e31452e7c7f",
     "semantic_hash": ""
   },
   "scripts/verify-bank-service-filter.mjs": {
@@ -285,8 +285,8 @@
     "semantic_hash": ""
   },
   "scripts/verify_bank_catalog.py": {
-    "mtime": 1781697797.6668494,
-    "ast_hash": "3d4367861629fad85aee4ca53ecd083f",
+    "mtime": 1781706651.3150957,
+    "ast_hash": "e63340bdd357a6ab529bc2f4394cd6d5",
     "semantic_hash": ""
   },
   "backend/data/bank_offer_entries.json": {
@@ -305,8 +305,8 @@
     "semantic_hash": ""
   },
   "backend/data/parent_category_synonyms.json": {
-    "mtime": 1781696586.9586449,
-    "ast_hash": "e05dd339c9fe37899b1bd6b7b1482cdf",
+    "mtime": 1781706540.2601674,
+    "ast_hash": "da4069e39019334e903d75f60d76ed01",
     "semantic_hash": ""
   },
   "backend/data/taxonomy_migration.json": {
@@ -322,6 +322,31 @@
   "scripts/sync_category_hierarchy.py": {
     "mtime": 1781693701.3976367,
     "ast_hash": "f2089830d6258014595f9150635790f2",
+    "semantic_hash": ""
+  },
+  "backend/data/parent_category_disambiguation.json": {
+    "mtime": 1781706488.52576,
+    "ast_hash": "e4548e5dc65ee2bbbca48f0ffeff862e",
+    "semantic_hash": ""
+  },
+  "backend/data/parent_category_enriched.json": {
+    "mtime": 1781706503.3438938,
+    "ast_hash": "de3c45f3879cd10333f6b8e1fe451f20",
+    "semantic_hash": ""
+  },
+  "backend/services/category_classifier_service.py": {
+    "mtime": 1781706545.1415777,
+    "ast_hash": "bbd41d9ea3c94449c81459a2d84cbddb",
+    "semantic_hash": ""
+  },
+  "backend/services/category_embedding.py": {
+    "mtime": 1781706540.2658474,
+    "ast_hash": "cb23c58bb4f7c6f63067dca0e113e77c",
+    "semantic_hash": ""
+  },
+  "scripts/generate_parent_enriched.py": {
+    "mtime": 1781706495.0998428,
+    "ast_hash": "bf458c55fe2a20e0fe8a7b9ad4668777",
     "semantic_hash": ""
   }
 }

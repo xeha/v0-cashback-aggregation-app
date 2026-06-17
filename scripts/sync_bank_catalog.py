@@ -5,14 +5,19 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
+
+import numpy as np
+from sentence_transformers import SentenceTransformer
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_SOURCE = (
     REPO_ROOT.parent / "sync_category_subcategory" / "cashback_offers.json"
 )
 HIERARCHY_PATH = REPO_ROOT / "backend" / "data" / "category_hierarchy.json"
+ENRICHED_PATH = REPO_ROOT / "backend" / "data" / "parent_category_enriched.json"
 MIGRATION_PATH = REPO_ROOT / "backend" / "data" / "taxonomy_migration.json"
 OVERRIDES_PATH = REPO_ROOT / "backend" / "data" / "bank_category_unified_overrides.json"
 ALIASES_PATH = REPO_ROOT / "backend" / "data" / "bank_aliases.json"
@@ -20,6 +25,8 @@ PARENT_SYNONYMS_PATH = REPO_ROOT / "backend" / "data" / "parent_category_synonym
 CATALOG_PATH = REPO_ROOT / "backend" / "data" / "bank_category_catalog.json"
 CATALOG_NAMES_PATH = REPO_ROOT / "lib" / "data" / "bank-catalog.json"
 LOGO_ALIASES_PATH = REPO_ROOT / "lib" / "data" / "logo-aliases.json"
+PARENT_THRESHOLD = float(os.environ.get("CATEGORY_PARENT_THRESHOLD", 0.55))
+LEAF_THRESHOLD = float(os.environ.get("CATEGORY_LEAF_THRESHOLD", 0.60))
 
 
 def normalize(name: str) -> str:
@@ -44,28 +51,54 @@ def load_bank_aliases() -> dict[str, str]:
     return aliases
 
 
-def load_hierarchy() -> tuple[set[str], dict[str, str], dict[str, str], dict[str, str]]:
+def load_hierarchy() -> tuple[
+    list[str],
+    list[str],
+    dict[str, str],
+    dict[str, str],
+    dict[str, str],
+    dict[str, list[int]],
+]:
     hierarchy = json.loads(HIERARCHY_PATH.read_text(encoding="utf-8"))
-    leaves = set(hierarchy["subcategory_names"])
+    subcategory_names = hierarchy["subcategory_names"]
+    parents = [p["name"] for p in hierarchy.get("parents", [])]
     leaf_to_parent = hierarchy["subcategory_to_parent"]
-    normalized_to_leaf = {normalize(name): name for name in leaves}
+    normalized_to_leaf = {normalize(name): name for name in subcategory_names}
     normalized_to_parent = {
         normalize(parent["name"]): parent["name"]
         for parent in hierarchy.get("parents", [])
     }
-    return leaves, leaf_to_parent, normalized_to_leaf, normalized_to_parent
+    parent_to_child_indices: dict[str, list[int]] = {}
+    for idx, leaf in enumerate(subcategory_names):
+        parent = leaf_to_parent.get(normalize(leaf))
+        if parent:
+            parent_to_child_indices.setdefault(parent, []).append(idx)
+    return (
+        subcategory_names,
+        parents,
+        leaf_to_parent,
+        normalized_to_leaf,
+        normalized_to_parent,
+        parent_to_child_indices,
+    )
 
 
-def resolve_cashpack_leaf(
+def resolve_two_stage(
     raw: str,
     bank_category: str,
-    leaves: set[str],
+    *,
     leaf_to_parent: dict[str, str],
     normalized_to_leaf: dict[str, str],
     normalized_to_parent: dict[str, str],
     parent_synonyms: dict[str, str],
     overrides: dict[str, str],
     migration: dict[str, str],
+    parent_names: list[str],
+    parent_embeddings: np.ndarray,
+    subcategory_names: list[str],
+    subcategory_embeddings: np.ndarray,
+    parent_to_child_indices: dict[str, list[int]],
+    model: SentenceTransformer,
 ) -> tuple[str | None, str | None, bool]:
     for candidate in (raw, bank_category):
         if not candidate:
@@ -92,11 +125,37 @@ def resolve_cashpack_leaf(
             leaf = migration[key]
             return leaf, leaf_to_parent.get(normalize(leaf)), False
 
-    return None, None, False
+    query_text = bank_category or raw
+    q = model.encode([query_text], normalize_embeddings=True, show_progress_bar=False)[0]
+
+    p_idx = int(np.argmax(np.dot(parent_embeddings, q)))
+    p_score = float(np.dot(parent_embeddings[p_idx], q))
+    if p_score < PARENT_THRESHOLD:
+        return None, None, False
+
+    parent = parent_names[p_idx]
+    child_indices = parent_to_child_indices.get(parent, [])
+    if child_indices:
+        sub_embs = subcategory_embeddings[child_indices]
+        l_local = int(np.argmax(np.dot(sub_embs, q)))
+        l_score = float(sub_embs[l_local] @ q)
+        if l_score >= LEAF_THRESHOLD:
+            leaf = subcategory_names[child_indices[l_local]]
+            if normalize(raw) == normalize(leaf) or normalize(raw) != normalize(bank_category):
+                return leaf, parent, False
+
+    return parent, parent, True
 
 
 def build_catalog(offers: list[dict], aliases: dict[str, str]) -> dict:
-    leaves, leaf_to_parent, normalized_to_leaf, normalized_to_parent = load_hierarchy()
+    (
+        subcategory_names,
+        parents,
+        leaf_to_parent,
+        normalized_to_leaf,
+        normalized_to_parent,
+        parent_to_child_indices,
+    ) = load_hierarchy()
     overrides = {
         normalize(key): value
         for key, value in json.loads(OVERRIDES_PATH.read_text(encoding="utf-8")).items()
@@ -111,6 +170,25 @@ def build_catalog(offers: list[dict], aliases: dict[str, str]) -> dict:
             normalize(key): value
             for key, value in json.loads(PARENT_SYNONYMS_PATH.read_text(encoding="utf-8")).items()
         }
+
+    enriched = json.loads(ENRICHED_PATH.read_text(encoding="utf-8"))
+    parent_embedding_texts = [enriched[name]["embedding_text"] for name in parents]
+    model_name = os.environ.get(
+        "SENTENCE_TRANSFORMER_MODEL",
+        "paraphrase-multilingual-MiniLM-L12-v2",
+    )
+    model = SentenceTransformer(model_name)
+    parent_embeddings = model.encode(
+        parent_embedding_texts,
+        normalize_embeddings=True,
+        show_progress_bar=False,
+    )
+    subcategory_embeddings = model.encode(
+        subcategory_names,
+        normalize_embeddings=True,
+        show_progress_bar=False,
+    )
+
     catalog: dict[str, dict[str, dict]] = {}
     unmapped: set[str] = set()
     skipped_banks: set[str] = set()
@@ -118,16 +196,21 @@ def build_catalog(offers: list[dict], aliases: dict[str, str]) -> dict:
     def add_entry(slug: str, raw: str, bank_category: str, match_level: str) -> None:
         if not raw:
             return
-        sub, parent, is_macro = resolve_cashpack_leaf(
+        sub, parent, is_macro = resolve_two_stage(
             raw,
             bank_category,
-            leaves,
-            leaf_to_parent,
-            normalized_to_leaf,
-            normalized_to_parent,
-            parent_synonyms,
-            overrides,
-            migration,
+            leaf_to_parent=leaf_to_parent,
+            normalized_to_leaf=normalized_to_leaf,
+            normalized_to_parent=normalized_to_parent,
+            parent_synonyms=parent_synonyms,
+            overrides=overrides,
+            migration=migration,
+            parent_names=parents,
+            parent_embeddings=parent_embeddings,
+            subcategory_names=subcategory_names,
+            subcategory_embeddings=subcategory_embeddings,
+            parent_to_child_indices=parent_to_child_indices,
+            model=model,
         )
         if sub is None:
             unmapped.add(f"{bank_category} / {raw}")
@@ -182,6 +265,10 @@ def main() -> int:
 
     if not HIERARCHY_PATH.is_file():
         print(f"ERROR: run sync_category_hierarchy.py first ({HIERARCHY_PATH})", file=sys.stderr)
+        return 1
+
+    if not ENRICHED_PATH.is_file():
+        print(f"ERROR: run generate_parent_enriched.py first ({ENRICHED_PATH})", file=sys.stderr)
         return 1
 
     offers = json.loads(source_path.read_text(encoding="utf-8")).get("data", [])

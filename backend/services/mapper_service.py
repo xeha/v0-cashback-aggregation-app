@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 from typing import Literal
 
@@ -7,10 +8,13 @@ from sentence_transformers import SentenceTransformer
 
 from schemas import CategoryMapRequestItem, MappedItem
 from services.bank_slug_resolver import load_bank_aliases, resolve_bank_slug
+from services.category_classifier_service import CategoryClassifierService
+from services.category_embedding import best_match, best_match_among, encode_texts
 
 HIERARCHY_PATH = Path(__file__).resolve().parent.parent / "data" / "category_hierarchy.json"
 OVERRIDES_PATH = Path(__file__).resolve().parent.parent / "data" / "category_overrides.json"
 CATALOG_PATH = Path(__file__).resolve().parent.parent / "data" / "bank_category_catalog.json"
+ENRICHED_PATH = Path(__file__).resolve().parent.parent / "data" / "parent_category_enriched.json"
 NAMED_CATEGORIES_PATH = (
     Path(__file__).resolve().parent.parent / "data" / "bank_named_categories.json"
 )
@@ -22,8 +26,22 @@ BANK_OFFER_ENTRIES_PATH = (
 )
 FALLBACK_SUBCATEGORY = "Прочее (УСЛУГИ)"
 FALLBACK_PARENT = "Услуги"
-DEFAULT_THRESHOLD = 0.45
+DEFAULT_PARENT_THRESHOLD = 0.55
+DEFAULT_LEAF_THRESHOLD = 0.60
 CONFIDENCE_OVERRIDE = 1.0
+
+MatchSource = Literal[
+    "catalog",
+    "override",
+    "parent",
+    "named",
+    "leaf_exact",
+    "parent_embedding",
+    "leaf_embedding",
+    "llm_parent",
+    "fallback",
+    "embedding",
+]
 
 
 def _normalize_category_name(name: str) -> str:
@@ -108,18 +126,32 @@ class MapperService:
         self._catalog_consensus: dict[str, dict] = {}
         self._bank_aliases: dict[str, str] = {}
         self._bank_offer_keys: dict[str, set[str]] = {}
-        self._threshold = float(
-            __import__("os").environ.get("CATEGORY_MAP_THRESHOLD", DEFAULT_THRESHOLD)
+        self._parents: list[str] = []
+        self._parent_embeddings: np.ndarray | None = None
+        self._parent_embedding_texts: list[str] = []
+        self._parent_to_child_indices: dict[str, list[int]] = {}
+        self._parent_threshold = float(
+            os.environ.get("CATEGORY_PARENT_THRESHOLD", DEFAULT_PARENT_THRESHOLD)
         )
+        self._leaf_threshold = float(
+            os.environ.get("CATEGORY_LEAF_THRESHOLD", DEFAULT_LEAF_THRESHOLD)
+        )
+        self._classifier: CategoryClassifierService | None = None
+        self._enriched: dict[str, dict] = {}
 
     @property
     def is_loaded(self) -> bool:
-        return self._model is not None and self._subcategory_embeddings is not None
+        return (
+            self._model is not None
+            and self._subcategory_embeddings is not None
+            and self._parent_embeddings is not None
+        )
 
     def load(self) -> None:
         hierarchy = json.loads(HIERARCHY_PATH.read_text(encoding="utf-8"))
         self._subcategories = hierarchy["subcategory_names"]
         self._subcategory_to_parent = hierarchy["subcategory_to_parent"]
+        self._parents = [p["name"] for p in hierarchy.get("parents", [])]
         self._normalized_to_parent = {
             _normalize_category_name(parent["name"]): parent["name"]
             for parent in hierarchy.get("parents", [])
@@ -143,16 +175,26 @@ class MapperService:
         self._bank_aliases = load_bank_aliases()
         self._bank_offer_keys = _load_bank_offer_keys()
 
-        model_name = __import__("os").environ.get(
+        self._enriched = json.loads(ENRICHED_PATH.read_text(encoding="utf-8"))
+        self._parent_embedding_texts = [
+            self._enriched[name]["embedding_text"] for name in self._parents
+        ]
+
+        model_name = os.environ.get(
             "SENTENCE_TRANSFORMER_MODEL",
             "paraphrase-multilingual-MiniLM-L12-v2",
         )
         self._model = SentenceTransformer(model_name)
-        self._subcategory_embeddings = self._model.encode(
-            self._subcategories,
-            normalize_embeddings=True,
-            show_progress_bar=False,
-        )
+        self._subcategory_embeddings = encode_texts(self._model, self._subcategories)
+        self._parent_embeddings = encode_texts(self._model, self._parent_embedding_texts)
+
+        self._parent_to_child_indices = {}
+        for idx, leaf in enumerate(self._subcategories):
+            parent = self._subcategory_to_parent.get(_normalize_category_name(leaf))
+            if parent:
+                self._parent_to_child_indices.setdefault(parent, []).append(idx)
+
+        self._classifier = CategoryClassifierService(self._parents)
 
     def _resolve_parent(self, subcategory: str) -> str:
         return self._subcategory_to_parent.get(
@@ -162,6 +204,49 @@ class MapperService:
 
     def _is_macro_subcategory(self, subcategory: str, parent: str) -> bool:
         return _normalize_category_name(subcategory) == _normalize_category_name(parent)
+
+    def _resolve_exact_leaf(self, normalized: str) -> str | None:
+        for leaf in self._subcategories:
+            if _normalize_category_name(leaf) == normalized:
+                return leaf
+        return None
+
+    def _resolve_exact_parent(self, normalized: str) -> str | None:
+        return self._normalized_to_parent.get(normalized)
+
+    def _match_parent_embedding(self, query_embedding: np.ndarray) -> tuple[str | None, float]:
+        if self._parent_embeddings is None:
+            return None, 0.0
+        idx, score = best_match(query_embedding, self._parent_embeddings)
+        if idx < 0 or score < self._parent_threshold:
+            return None, score
+        return self._parents[idx], score
+
+    def _match_leaf_in_parent(
+        self,
+        query_embedding: np.ndarray,
+        parent: str,
+        normalized: str,
+    ) -> tuple[str | None, float, Literal["leaf_exact", "leaf_embedding"] | None]:
+        if self._subcategory_embeddings is None:
+            return None, 0.0, None
+
+        exact = self._resolve_exact_leaf(normalized)
+        if exact and self._resolve_parent(exact) == parent:
+            return exact, 1.0, "leaf_exact"
+
+        child_indices = self._parent_to_child_indices.get(parent, [])
+        if not child_indices:
+            return None, 0.0, None
+
+        idx, score = best_match_among(
+            query_embedding,
+            self._subcategory_embeddings,
+            child_indices,
+        )
+        if idx < 0 or score < self._leaf_threshold:
+            return None, score, None
+        return self._subcategories[idx], score, "leaf_embedding"
 
     def _lookup_catalog_entry(self, normalized: str, bank_slug: str | None) -> dict | None:
         pairs = self._catalog_by_key.get(normalized)
@@ -198,19 +283,31 @@ class MapperService:
         confidence: float,
         bank_slug: str | None,
         normalized: str,
-        match_source: Literal[
-            "catalog", "override", "parent", "named", "embedding", "fallback"
-        ],
+        match_source: MatchSource,
         *,
         parent: str | None = None,
         is_macro_category: bool = False,
+        source_name: str | None = None,
     ) -> MappedItem:
         resolved_parent = parent or self._resolve_parent(subcategory)
         is_macro = is_macro_category or self._is_macro_subcategory(subcategory, resolved_parent)
+        if is_macro:
+            display_subcategory = resolved_parent
+            display_category = resolved_parent
+        else:
+            display_subcategory = subcategory
+            display_category = subcategory
+
+        print(
+            f"map: raw={item.raw_category!r} bank={bank_slug!r} "
+            f"parent={resolved_parent!r} sub={display_subcategory!r} "
+            f"source={match_source} conf={confidence}"
+        )
+
         return MappedItem(
             raw_category=item.raw_category,
-            unified_category=subcategory,
-            unified_subcategory=subcategory,
+            unified_category=display_category,
+            unified_subcategory=display_subcategory,
             unified_parent=resolved_parent,
             rate=item.rate,
             confidence=confidence,
@@ -219,123 +316,168 @@ class MapperService:
             match_source=match_source,
         )
 
+    def _map_single_item(
+        self,
+        item: CategoryMapRequestItem,
+        bank_slug: str | None,
+        source_name: str | None,
+    ) -> MappedItem:
+        normalized = _normalize_category_name(item.raw_category)
+
+        entry = self._lookup_catalog_entry(normalized, bank_slug)
+        if entry:
+            sub = _catalog_unified(entry)
+            parent = entry.get("unified_parent")
+            signature = _catalog_signature(entry)
+            is_macro = signature[2] if signature else False
+            if sub:
+                return self._mapped_item(
+                    item,
+                    sub,
+                    CONFIDENCE_OVERRIDE,
+                    bank_slug,
+                    normalized,
+                    "catalog",
+                    parent=parent,
+                    is_macro_category=is_macro,
+                    source_name=source_name,
+                )
+
+        named = self._named_categories.get(normalized)
+        if named:
+            parent = named["parent"]
+            return self._mapped_item(
+                item,
+                item.raw_category.strip(),
+                CONFIDENCE_OVERRIDE,
+                bank_slug,
+                normalized,
+                "named",
+                parent=parent,
+                is_macro_category=True,
+                source_name=source_name,
+            )
+
+        parent_macro = self._parent_synonyms.get(normalized) or self._resolve_exact_parent(
+            normalized
+        )
+        if parent_macro:
+            return self._mapped_item(
+                item,
+                parent_macro,
+                CONFIDENCE_OVERRIDE,
+                bank_slug,
+                normalized,
+                "parent",
+                parent=parent_macro,
+                is_macro_category=True,
+                source_name=source_name,
+            )
+
+        override = self._overrides.get(normalized)
+        if override:
+            return self._mapped_item(
+                item,
+                override,
+                CONFIDENCE_OVERRIDE,
+                bank_slug,
+                normalized,
+                "override",
+                source_name=source_name,
+            )
+
+        leaf = self._resolve_exact_leaf(normalized)
+        if leaf:
+            return self._mapped_item(
+                item,
+                leaf,
+                CONFIDENCE_OVERRIDE,
+                bank_slug,
+                normalized,
+                "leaf_exact",
+                source_name=source_name,
+            )
+
+        if self._model is None:
+            raise RuntimeError("Mapper model is not loaded")
+
+        query_embedding = encode_texts(self._model, [item.raw_category])[0]
+
+        parent, parent_score = self._match_parent_embedding(query_embedding)
+        if parent:
+            leaf_in_parent, leaf_score, leaf_source = self._match_leaf_in_parent(
+                query_embedding,
+                parent,
+                normalized,
+            )
+            if leaf_in_parent and leaf_source:
+                return self._mapped_item(
+                    item,
+                    leaf_in_parent,
+                    round(leaf_score, 4),
+                    bank_slug,
+                    normalized,
+                    leaf_source,
+                    parent=parent,
+                    source_name=source_name,
+                )
+            return self._mapped_item(
+                item,
+                parent,
+                round(parent_score, 4),
+                bank_slug,
+                normalized,
+                "parent_embedding",
+                parent=parent,
+                is_macro_category=True,
+                source_name=source_name,
+            )
+
+        if self._classifier:
+            try:
+                llm_parent, llm_conf = self._classifier.classify_parent(
+                    item.raw_category,
+                    source_name,
+                )
+                if llm_parent:
+                    return self._mapped_item(
+                        item,
+                        llm_parent,
+                        round(llm_conf, 4),
+                        bank_slug,
+                        normalized,
+                        "llm_parent",
+                        parent=llm_parent,
+                        is_macro_category=True,
+                        source_name=source_name,
+                    )
+            except Exception as exc:
+                print(f"map: LLM classifier failed for {item.raw_category!r}: {exc}")
+
+        return self._mapped_item(
+            item,
+            FALLBACK_SUBCATEGORY,
+            round(parent_score, 4),
+            bank_slug,
+            normalized,
+            "fallback",
+            parent=FALLBACK_PARENT,
+            source_name=source_name,
+        )
+
     def map_items(
         self,
         items: list[CategoryMapRequestItem],
         source_name: str | None = None,
     ) -> list[MappedItem]:
-        if not self.is_loaded or self._model is None or self._subcategory_embeddings is None:
+        if not self.is_loaded:
             raise RuntimeError("Mapper model is not loaded")
 
         if not items:
             return []
 
-        queries = [item.raw_category for item in items]
-        query_embeddings = self._model.encode(
-            queries,
-            normalize_embeddings=True,
-            show_progress_bar=False,
-        )
-
-        mapped: list[MappedItem] = []
         bank_slug = resolve_bank_slug(source_name, self._bank_aliases)
-        pending: list[tuple[CategoryMapRequestItem, np.ndarray]] = []
-
-        for item, query_embedding in zip(items, query_embeddings):
-            normalized = _normalize_category_name(item.raw_category)
-
-            entry = self._lookup_catalog_entry(normalized, bank_slug)
-            if entry:
-                sub = _catalog_unified(entry)
-                parent = entry.get("unified_parent")
-                signature = _catalog_signature(entry)
-                is_macro = signature[2] if signature else False
-                if sub:
-                    mapped.append(
-                        self._mapped_item(
-                            item,
-                            sub,
-                            CONFIDENCE_OVERRIDE,
-                            bank_slug,
-                            normalized,
-                            "catalog",
-                            parent=parent,
-                            is_macro_category=is_macro,
-                        )
-                    )
-                    continue
-
-            named = self._named_categories.get(normalized)
-            if named:
-                parent = named["parent"]
-                mapped.append(
-                    self._mapped_item(
-                        item,
-                        item.raw_category.strip(),
-                        CONFIDENCE_OVERRIDE,
-                        bank_slug,
-                        normalized,
-                        "named",
-                        parent=parent,
-                        is_macro_category=True,
-                    )
-                )
-                continue
-
-            parent_macro = self._parent_synonyms.get(normalized) or self._normalized_to_parent.get(
-                normalized
-            )
-            if parent_macro:
-                mapped.append(
-                    self._mapped_item(
-                        item,
-                        parent_macro,
-                        CONFIDENCE_OVERRIDE,
-                        bank_slug,
-                        normalized,
-                        "parent",
-                        parent=parent_macro,
-                        is_macro_category=True,
-                    )
-                )
-                continue
-
-            override = self._overrides.get(normalized)
-            if override:
-                mapped.append(
-                    self._mapped_item(
-                        item,
-                        override,
-                        CONFIDENCE_OVERRIDE,
-                        bank_slug,
-                        normalized,
-                        "override",
-                    )
-                )
-                continue
-
-            pending.append((item, query_embedding))
-
-        for item, query_embedding in pending:
-            normalized = _normalize_category_name(item.raw_category)
-            similarities = np.dot(self._subcategory_embeddings, query_embedding)
-            best_idx = int(np.argmax(similarities))
-            confidence = float(similarities[best_idx])
-            if confidence >= self._threshold:
-                subcategory = self._subcategories[best_idx]
-                match_source: Literal["embedding", "fallback"] = "embedding"
-            else:
-                subcategory = FALLBACK_SUBCATEGORY
-                match_source = "fallback"
-            mapped.append(
-                self._mapped_item(
-                    item,
-                    subcategory,
-                    round(confidence, 4),
-                    bank_slug,
-                    normalized,
-                    match_source,
-                )
-            )
-
-        return mapped
+        return [
+            self._map_single_item(item, bank_slug, source_name)
+            for item in items
+        ]
