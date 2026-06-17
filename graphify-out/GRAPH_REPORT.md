@@ -1,16 +1,16 @@
 # Graph Report - v0-cashback-aggregation-app  (2026-06-17)
 
 ## Corpus Check
-- 60 files · ~24,550 words
+- 65 files · ~31,213 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 374 nodes · 633 edges · 23 communities (21 shown, 2 thin omitted)
+- 396 nodes · 694 edges · 24 communities (22 shown, 2 thin omitted)
 - Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c4dca451`
+- Built from commit: `052c9c71`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -26,6 +26,7 @@
 - [[_COMMUNITY_Community 8|Community 8]]
 - [[_COMMUNITY_Community 9|Community 9]]
 - [[_COMMUNITY_Community 10|Community 10]]
+- [[_COMMUNITY_Community 11|Community 11]]
 - [[_COMMUNITY_Community 12|Community 12]]
 - [[_COMMUNITY_Community 13|Community 13]]
 - [[_COMMUNITY_Community 14|Community 14]]
@@ -36,18 +37,20 @@
 - [[_COMMUNITY_Community 22|Community 22]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `compilerOptions` - 16 edges
-2. `MapperService` - 15 edges
+1. `MapperService` - 19 edges
+2. `compilerOptions` - 16 edges
 3. `Kind` - 14 edges
 4. `processSubmission()` - 11 edges
 5. `SourceSubmission` - 10 edges
-6. `readImageFile()` - 8 edges
-7. `createProviderFromSubmission()` - 7 edges
-8. `ProviderSuggestion` - 7 edges
-9. `getProviderComparisonKey()` - 7 edges
-10. `findCatalogMatchInCatalog()` - 7 edges
+6. `_normalize_category_name()` - 8 edges
+7. `readImageFile()` - 8 edges
+8. `createProviderFromSubmission()` - 7 edges
+9. `ProviderSuggestion` - 7 edges
+10. `getProviderComparisonKey()` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `OcrFailureState` --references--> `SourceSubmission`  [EXTRACTED]
+  components/screens/processing-screen.tsx → lib/types.ts
 - `ResolveContext` --references--> `SourceSubmission`  [EXTRACTED]
   components/screens/bank-select-screen.tsx → lib/types.ts
 - `DuplicateConfirmState` --references--> `SourceSubmission`  [EXTRACTED]
@@ -56,29 +59,27 @@
   components/screens/bank-select-screen.tsx → lib/types.ts
 - `getDuplicateProviderNames()` --calls--> `getProviderComparisonKey()`  [EXTRACTED]
   components/screens/bank-select-screen.tsx → lib/provider-logos.ts
-- `OcrFailureState` --references--> `SourceSubmission`  [EXTRACTED]
-  components/screens/processing-screen.tsx → lib/types.ts
 
 ## Import Cycles
 - 1-file cycle: `backend/main.py -> backend/main.py`
 
-## Communities (23 total, 2 thin omitted)
+## Communities (24 total, 2 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.08
-Nodes (42): OcrFailureDialog(), formatLowConfidence(), ProcessingWarningsBanner(), ApiError, collectBankOfferItems(), collectLowConfidenceItems(), extractOcr(), getBackendUrl() (+34 more)
+Cohesion: 0.09
+Nodes (30): OcrFailureDialog(), ApiError, collectBankOfferItems(), collectLowConfidenceItems(), extractOcr(), getBackendUrl(), isOcrRecognitionFailure(), isRequestTimeoutError() (+22 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.08
+Cohesion: 0.09
 Nodes (34): CashbackApp(), EMPTY_PROCESSING_SUMMARY, getBankSelectInitialRows(), PickMode, Screen, DuplicateSourceConfirmDialog(), formatProviderList(), ImageFilePicker() (+26 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.09
-Nodes (34): health(), lifespan(), _local_network_origin_regex(), Allow phone testing over Wi-Fi (Next.js dev on port 3000)., CategoryMapRequest, CategoryMapRequestItem, CategoryMapResponse, HealthResponse (+26 more)
+Cohesion: 0.08
+Nodes (38): health(), lifespan(), _local_network_origin_regex(), Allow phone testing over Wi-Fi (Next.js dev on port 3000)., CategoryMapRequest, CategoryMapRequestItem, CategoryMapResponse, HealthResponse (+30 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.07
-Nodes (37): getPlaceholderAvatarColors(), getProviderInitial(), hashString(), isPlaceholderProviderLogo(), PLACEHOLDER_PALETTE, ProviderLogo(), Bank, BankKey (+29 more)
+Cohesion: 0.06
+Nodes (44): formatLowConfidence(), ProcessingWarningsBanner(), getPlaceholderAvatarColors(), getProviderInitial(), hashString(), isPlaceholderProviderLogo(), PLACEHOLDER_PALETTE, ProviderLogo() (+36 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.06
@@ -105,8 +106,12 @@ Cohesion: 0.25
 Nodes (7): banks, __dirname, entries, outPath, overrides, overridesPath, root
 
 ### Community 10 - "Community 10"
-Cohesion: 0.13
-Nodes (24): bankCatalog, CatalogMatchResult, CatalogRecord, findCatalogMatch(), findCatalogMatches(), findCatalogMatchInCatalog(), getCatalog(), getProviderComparisonKey() (+16 more)
+Cohesion: 0.09
+Nodes (37): formatCategoryLabel(), labelsEquivalent(), normalizeCategoryLabel(), buildProviderKey(), createProviderFromSubmission(), findMatchingProvider(), isMacroOnlyGroup(), mergeMappedItems() (+29 more)
+
+### Community 11 - "Community 11"
+Cohesion: 0.83
+Nodes (3): build_hierarchy(), main(), normalize()
 
 ### Community 12 - "Community 12"
 Cohesion: 0.33
@@ -121,12 +126,12 @@ Cohesion: 0.70
 Nodes (3): cn(), Button(), buttonVariants
 
 ### Community 20 - "Community 20"
-Cohesion: 0.42
+Cohesion: 0.50
 Nodes (8): OcrItem, extract_cashback_items(), filter_bank_services(), _is_bank_service_category(), _load_bank_service_patterns(), _normalize_category_name(), _parse_and_filter_ocr_json(), _parse_ocr_json()
 
 ### Community 21 - "Community 21"
-Cohesion: 0.67
-Nodes (5): build_catalog(), load_bank_aliases(), main(), normalize(), resolve_unified()
+Cohesion: 0.62
+Nodes (6): build_catalog(), load_bank_aliases(), load_hierarchy(), main(), normalize(), resolve_cashpack_leaf()
 
 ### Community 22 - "Community 22"
 Cohesion: 0.40
@@ -141,16 +146,16 @@ Nodes (5): cases, __dirname, isBankService(), normalize(), patterns
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Kind` connect `Community 1` to `Community 0`, `Community 10`, `Community 3`?**
-  _High betweenness centrality (0.027) - this node is a cross-community bridge._
-- **Why does `CashbackMatrix` connect `Community 0` to `Community 3`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+  _High betweenness centrality (0.022) - this node is a cross-community bridge._
+- **Why does `SourceSubmission` connect `Community 1` to `Community 0`, `Community 10`?**
+  _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **Are the 8 inferred relationships involving `MapperService` (e.g. with `CategoryMapRequest` and `CategoryMapResponse`) actually correct?**
   _`MapperService` has 8 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `geistSans`, `geistMono`, `metadata` to the rest of the system?**
   _124 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09246088193456614 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.08421985815602837 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08673469387755102 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.09292929292929293 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08455625436757512 - nodes in this community are weakly interconnected._

@@ -240,7 +240,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routers_ocr",
-      "community": 20,
+      "community": 2,
       "norm_label": "ocr.py"
     },
     {
@@ -357,7 +357,7 @@
       "label": "CategoryMapResponse",
       "file_type": "code",
       "source_file": "backend/schemas.py",
-      "source_location": "L38",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "backend_schemas_categorymapresponse",
       "community": 2,
@@ -367,7 +367,7 @@
       "label": "HealthResponse",
       "file_type": "code",
       "source_file": "backend/schemas.py",
-      "source_location": "L42",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "backend_schemas_healthresponse",
       "community": 2,
@@ -437,7 +437,7 @@
       "label": "_normalize_category_name()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L21",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "services_mapper_service_normalize_category_name",
       "community": 2,
@@ -447,27 +447,67 @@
       "label": "_load_bank_offer_keys()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L25",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "services_mapper_service_load_bank_offer_keys",
       "community": 2,
       "norm_label": "_load_bank_offer_keys()"
     },
     {
+      "label": "_load_named_categories()",
+      "file_type": "code",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "services_mapper_service_load_named_categories",
+      "community": 2,
+      "norm_label": "_load_named_categories()"
+    },
+    {
       "label": "_is_bank_offer()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L35",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "services_mapper_service_is_bank_offer",
       "community": 2,
       "norm_label": "_is_bank_offer()"
     },
     {
+      "label": "_catalog_unified()",
+      "file_type": "code",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "services_mapper_service_catalog_unified",
+      "community": 2,
+      "norm_label": "_catalog_unified()"
+    },
+    {
+      "label": "_catalog_signature()",
+      "file_type": "code",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "services_mapper_service_catalog_signature",
+      "community": 2,
+      "norm_label": "_catalog_signature()"
+    },
+    {
+      "label": "_build_catalog_indexes()",
+      "file_type": "code",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "services_mapper_service_build_catalog_indexes",
+      "community": 2,
+      "norm_label": "_build_catalog_indexes()"
+    },
+    {
       "label": "MapperService",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L41",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice",
       "community": 2,
@@ -477,7 +517,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L42",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_init",
       "community": 2,
@@ -487,7 +527,7 @@
       "label": ".is_loaded()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L55",
+      "source_location": "L116",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_is_loaded",
       "community": 2,
@@ -497,27 +537,57 @@
       "label": ".load()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L58",
+      "source_location": "L119",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_load",
       "community": 2,
       "norm_label": ".load()"
     },
     {
-      "label": ".map_items()",
+      "label": "._resolve_parent()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L84",
+      "source_location": "L157",
       "_origin": "ast",
-      "id": "services_mapper_service_mapperservice_map_items",
+      "id": "services_mapper_service_mapperservice_resolve_parent",
       "community": 2,
-      "norm_label": ".map_items()"
+      "norm_label": "._resolve_parent()"
+    },
+    {
+      "label": "._is_macro_subcategory()",
+      "file_type": "code",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L163",
+      "_origin": "ast",
+      "id": "services_mapper_service_mapperservice_is_macro_subcategory",
+      "community": 2,
+      "norm_label": "._is_macro_subcategory()"
+    },
+    {
+      "label": "._lookup_catalog_entry()",
+      "file_type": "code",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L166",
+      "_origin": "ast",
+      "id": "services_mapper_service_mapperservice_lookup_catalog_entry",
+      "community": 2,
+      "norm_label": "._lookup_catalog_entry()"
+    },
+    {
+      "label": "._mapped_item()",
+      "file_type": "code",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L194",
+      "_origin": "ast",
+      "id": "services_mapper_service_mapperservice_mapped_item",
+      "community": 2,
+      "norm_label": "._mapped_item()"
     },
     {
       "label": "CategoryMapRequestItem",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L84",
+      "source_location": "L194",
       "_origin": "ast",
       "id": "categorymaprequestitem",
       "community": 2,
@@ -527,11 +597,21 @@
       "label": "MappedItem",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L84",
+      "source_location": "L194",
       "_origin": "ast",
       "id": "mappeditem",
       "community": 2,
       "norm_label": "mappeditem"
+    },
+    {
+      "label": ".map_items()",
+      "file_type": "code",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L222",
+      "_origin": "ast",
+      "id": "services_mapper_service_mapperservice_map_items",
+      "community": 2,
+      "norm_label": ".map_items()"
     },
     {
       "label": "ocr_service.py",
@@ -960,7 +1040,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_processing_warnings_banner",
-      "community": 0,
+      "community": 3,
       "norm_label": "processing-warnings-banner.tsx"
     },
     {
@@ -970,7 +1050,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_processing_warnings_banner_formatlowconfidence",
-      "community": 0,
+      "community": 3,
       "norm_label": "formatlowconfidence()"
     },
     {
@@ -980,7 +1060,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "components_processing_warnings_banner_processingwarningsbanner",
-      "community": 0,
+      "community": 3,
       "norm_label": "processingwarningsbanner()"
     },
     {
@@ -1290,7 +1370,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "screens_processing_screen_ocrfailurestate",
-      "community": 1,
+      "community": 0,
       "norm_label": "ocrfailurestate"
     },
     {
@@ -1447,7 +1527,7 @@
       "label": "TIER_STYLES",
       "file_type": "code",
       "source_file": "components/screens/results-screen.tsx",
-      "source_location": "L13",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "screens_results_screen_tier_styles",
       "community": 3,
@@ -1457,7 +1537,7 @@
       "label": "Tab",
       "file_type": "code",
       "source_file": "components/screens/results-screen.tsx",
-      "source_location": "L19",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "screens_results_screen_tab",
       "community": 3,
@@ -1467,7 +1547,7 @@
       "label": "getActiveMatrix()",
       "file_type": "code",
       "source_file": "components/screens/results-screen.tsx",
-      "source_location": "L21",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "screens_results_screen_getactivematrix",
       "community": 3,
@@ -1477,17 +1557,37 @@
       "label": "getDefaultTab()",
       "file_type": "code",
       "source_file": "components/screens/results-screen.tsx",
-      "source_location": "L25",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "screens_results_screen_getdefaulttab",
       "community": 3,
       "norm_label": "getdefaulttab()"
     },
     {
+      "label": "RateBadges()",
+      "file_type": "code",
+      "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "screens_results_screen_ratebadges",
+      "community": 3,
+      "norm_label": "ratebadges()"
+    },
+    {
+      "label": "MatrixRowContent()",
+      "file_type": "code",
+      "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "screens_results_screen_matrixrowcontent",
+      "community": 10,
+      "norm_label": "matrixrowcontent()"
+    },
+    {
       "label": "ResultsScreen()",
       "file_type": "code",
       "source_file": "components/screens/results-screen.tsx",
-      "source_location": "L31",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "screens_results_screen_resultsscreen",
       "community": 3,
@@ -2034,6 +2134,46 @@
       "norm_label": "getcurrentmonthyear()"
     },
     {
+      "label": "category-label.ts",
+      "file_type": "code",
+      "source_file": "lib/category-label.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "lib_category_label",
+      "community": 10,
+      "norm_label": "category-label.ts"
+    },
+    {
+      "label": "normalizeCategoryLabel()",
+      "file_type": "code",
+      "source_file": "lib/category-label.ts",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "lib_category_label_normalizecategorylabel",
+      "community": 10,
+      "norm_label": "normalizecategorylabel()"
+    },
+    {
+      "label": "formatCategoryLabel()",
+      "file_type": "code",
+      "source_file": "lib/category-label.ts",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "lib_category_label_formatcategorylabel",
+      "community": 10,
+      "norm_label": "formatcategorylabel()"
+    },
+    {
+      "label": "labelsEquivalent()",
+      "file_type": "code",
+      "source_file": "lib/category-label.ts",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "lib_category_label_labelsequivalent",
+      "community": 10,
+      "norm_label": "labelsequivalent()"
+    },
+    {
       "label": "image-utils.ts",
       "file_type": "code",
       "source_file": "lib/image-utils.ts",
@@ -2220,67 +2360,87 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_matrix",
-      "community": 0,
+      "community": 10,
       "norm_label": "matrix.ts"
     },
     {
       "label": "slugify()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L15",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "lib_matrix_slugify",
-      "community": 0,
+      "community": 10,
       "norm_label": "slugify()"
     },
     {
       "label": "buildProviderKey()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L24",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "lib_matrix_buildproviderkey",
-      "community": 0,
+      "community": 10,
       "norm_label": "buildproviderkey()"
     },
     {
       "label": "mergeMappedItems()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L35",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "lib_matrix_mergemappeditems",
-      "community": 0,
+      "community": 10,
       "norm_label": "mergemappeditems()"
     },
     {
       "label": "mergeSubmissionsIntoMatrix()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L74",
+      "source_location": "L91",
       "_origin": "ast",
       "id": "lib_matrix_mergesubmissionsintomatrix",
-      "community": 0,
+      "community": 10,
       "norm_label": "mergesubmissionsintomatrix()"
+    },
+    {
+      "label": "isMacroOnlyGroup()",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L109",
+      "_origin": "ast",
+      "id": "lib_matrix_ismacroonlygroup",
+      "community": 10,
+      "norm_label": "ismacroonlygroup()"
+    },
+    {
+      "label": "groupMatrixRows()",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L118",
+      "_origin": "ast",
+      "id": "lib_matrix_groupmatrixrows",
+      "community": 3,
+      "norm_label": "groupmatrixrows()"
     },
     {
       "label": "findMatchingProvider()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L92",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "lib_matrix_findmatchingprovider",
-      "community": 0,
+      "community": 10,
       "norm_label": "findmatchingprovider()"
     },
     {
       "label": "createProviderFromSubmission()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L101",
+      "source_location": "L148",
       "_origin": "ast",
       "id": "lib_matrix_createproviderfromsubmission",
-      "community": 0,
+      "community": 10,
       "norm_label": "createproviderfromsubmission()"
     },
     {
@@ -2560,7 +2720,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_types",
-      "community": 0,
+      "community": 1,
       "norm_label": "types.ts"
     },
     {
@@ -2600,34 +2760,44 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "lib_types_mappeditem",
-      "community": 0,
+      "community": 10,
       "norm_label": "mappeditem"
     },
     {
       "label": "MatrixProvider",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L25",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "lib_types_matrixprovider",
-      "community": 0,
+      "community": 3,
       "norm_label": "matrixprovider"
     },
     {
       "label": "MatrixRow",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L31",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "lib_types_matrixrow",
-      "community": 0,
+      "community": 3,
       "norm_label": "matrixrow"
+    },
+    {
+      "label": "MatrixGroup",
+      "file_type": "code",
+      "source_file": "lib/types.ts",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "lib_types_matrixgroup",
+      "community": 10,
+      "norm_label": "matrixgroup"
     },
     {
       "label": "CashbackMatrix",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L36",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "lib_types_cashbackmatrix",
       "community": 0,
@@ -2637,7 +2807,7 @@
       "label": "MatrixState",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L42",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "lib_types_matrixstate",
       "community": 0,
@@ -2647,7 +2817,7 @@
       "label": "OcrExtractResponse",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L47",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "lib_types_ocrextractresponse",
       "community": 0,
@@ -2657,7 +2827,7 @@
       "label": "CategoryMapResponse",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L51",
+      "source_location": "L64",
       "_origin": "ast",
       "id": "lib_types_categorymapresponse",
       "community": 0,
@@ -2667,17 +2837,17 @@
       "label": "SkippedSubmission",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L55",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "lib_types_skippedsubmission",
-      "community": 0,
+      "community": 1,
       "norm_label": "skippedsubmission"
     },
     {
       "label": "LowConfidenceItem",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L60",
+      "source_location": "L73",
       "_origin": "ast",
       "id": "lib_types_lowconfidenceitem",
       "community": 0,
@@ -2687,7 +2857,7 @@
       "label": "BankOfferItem",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L67",
+      "source_location": "L80",
       "_origin": "ast",
       "id": "lib_types_bankofferitem",
       "community": 0,
@@ -2697,10 +2867,10 @@
       "label": "ProcessingSummary",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L74",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "lib_types_processingsummary",
-      "community": 0,
+      "community": 3,
       "norm_label": "processingsummary"
     },
     {
@@ -3247,7 +3417,7 @@
       "label": "normalize()",
       "file_type": "code",
       "source_file": "scripts/sync_bank_catalog.py",
-      "source_location": "L23",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "scripts_sync_bank_catalog_normalize",
       "community": 21,
@@ -3257,27 +3427,37 @@
       "label": "load_bank_aliases()",
       "file_type": "code",
       "source_file": "scripts/sync_bank_catalog.py",
-      "source_location": "L27",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "scripts_sync_bank_catalog_load_bank_aliases",
       "community": 21,
       "norm_label": "load_bank_aliases()"
     },
     {
-      "label": "resolve_unified()",
+      "label": "load_hierarchy()",
       "file_type": "code",
       "source_file": "scripts/sync_bank_catalog.py",
-      "source_location": "L45",
+      "source_location": "L47",
       "_origin": "ast",
-      "id": "scripts_sync_bank_catalog_resolve_unified",
+      "id": "scripts_sync_bank_catalog_load_hierarchy",
       "community": 21,
-      "norm_label": "resolve_unified()"
+      "norm_label": "load_hierarchy()"
+    },
+    {
+      "label": "resolve_cashpack_leaf()",
+      "file_type": "code",
+      "source_file": "scripts/sync_bank_catalog.py",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "scripts_sync_bank_catalog_resolve_cashpack_leaf",
+      "community": 21,
+      "norm_label": "resolve_cashpack_leaf()"
     },
     {
       "label": "build_catalog()",
       "file_type": "code",
       "source_file": "scripts/sync_bank_catalog.py",
-      "source_location": "L59",
+      "source_location": "L98",
       "_origin": "ast",
       "id": "scripts_sync_bank_catalog_build_catalog",
       "community": 21,
@@ -3287,10 +3467,50 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "scripts/sync_bank_catalog.py",
-      "source_location": "L108",
+      "source_location": "L169",
       "_origin": "ast",
       "id": "scripts_sync_bank_catalog_main",
       "community": 21,
+      "norm_label": "main()"
+    },
+    {
+      "label": "sync_category_hierarchy.py",
+      "file_type": "code",
+      "source_file": "scripts/sync_category_hierarchy.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_sync_category_hierarchy",
+      "community": 11,
+      "norm_label": "sync_category_hierarchy.py"
+    },
+    {
+      "label": "normalize()",
+      "file_type": "code",
+      "source_file": "scripts/sync_category_hierarchy.py",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "scripts_sync_category_hierarchy_normalize",
+      "community": 11,
+      "norm_label": "normalize()"
+    },
+    {
+      "label": "build_hierarchy()",
+      "file_type": "code",
+      "source_file": "scripts/sync_category_hierarchy.py",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "scripts_sync_category_hierarchy_build_hierarchy",
+      "community": 11,
+      "norm_label": "build_hierarchy()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/sync_category_hierarchy.py",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "scripts_sync_category_hierarchy_main",
+      "community": 11,
       "norm_label": "main()"
     },
     {
@@ -3537,7 +3757,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "scripts/verify_bank_catalog.py",
-      "source_location": "L27",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "scripts_verify_bank_catalog_main",
       "community": 2,
@@ -4636,11 +4856,41 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L35",
+      "source_location": "L71",
       "weight": 1.0,
       "source": "services_mapper_service",
-      "target": "services_mapper_service_is_bank_offer",
+      "target": "services_mapper_service_build_catalog_indexes",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "services_mapper_service",
+      "target": "services_mapper_service_catalog_signature",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "services_mapper_service",
+      "target": "services_mapper_service_catalog_unified",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service",
+      "target": "services_mapper_service_is_bank_offer"
     },
     {
       "relation": "contains",
@@ -4648,9 +4898,19 @@
       "source_file": "backend/services/mapper_service.py",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_mapper_service",
-      "target": "services_mapper_service_load_bank_offer_keys",
-      "confidence_score": 1.0
+      "target": "services_mapper_service_load_bank_offer_keys"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service",
+      "target": "services_mapper_service_load_named_categories"
     },
     {
       "relation": "contains",
@@ -4677,11 +4937,44 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L30",
+      "source_location": "L66",
       "weight": 1.0,
-      "source": "services_mapper_service_load_bank_offer_keys",
+      "source": "services_mapper_service_catalog_signature",
       "target": "services_mapper_service_normalize_category_name",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service_load_bank_offer_keys",
+      "target": "services_mapper_service_normalize_category_name"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service_load_named_categories",
+      "target": "services_mapper_service_normalize_category_name"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L121",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service_mapperservice_is_macro_subcategory",
+      "target": "services_mapper_service_normalize_category_name"
     },
     {
       "relation": "calls",
@@ -4710,11 +5003,33 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/mapper_service.py",
+      "source_location": "L116",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service_mapperservice_resolve_parent",
+      "target": "services_mapper_service_normalize_category_name"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_mapper_service_mapperservice_load",
-      "target": "services_mapper_service_load_bank_offer_keys",
-      "confidence_score": 1.0
+      "target": "services_mapper_service_load_bank_offer_keys"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L91",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service_mapperservice_load",
+      "target": "services_mapper_service_load_named_categories"
     },
     {
       "relation": "calls",
@@ -4723,8 +5038,96 @@
       "source_file": "backend/services/mapper_service.py",
       "source_location": "L119",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_mapper_service_mapperservice_map_items",
-      "target": "services_mapper_service_is_bank_offer",
+      "target": "services_mapper_service_is_bank_offer"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L146",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service_mapperservice_mapped_item",
+      "target": "services_mapper_service_is_bank_offer"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "services_mapper_service_catalog_signature",
+      "target": "services_mapper_service_catalog_unified",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L176",
+      "weight": 1.0,
+      "source": "services_mapper_service_mapperservice_lookup_catalog_entry",
+      "target": "services_mapper_service_catalog_unified",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L249",
+      "weight": 1.0,
+      "source": "services_mapper_service_mapperservice_map_items",
+      "target": "services_mapper_service_catalog_unified",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "services_mapper_service_build_catalog_indexes",
+      "target": "services_mapper_service_catalog_signature",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "services_mapper_service_mapperservice_lookup_catalog_entry",
+      "target": "services_mapper_service_catalog_signature",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L251",
+      "weight": 1.0,
+      "source": "services_mapper_service_mapperservice_map_items",
+      "target": "services_mapper_service_catalog_signature",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "services_mapper_service_mapperservice_load",
+      "target": "services_mapper_service_build_catalog_indexes",
       "confidence_score": 1.0
     },
     {
@@ -4762,6 +5165,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/mapper_service.py",
+      "source_location": "L120",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service_mapperservice",
+      "target": "services_mapper_service_mapperservice_is_macro_subcategory"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
       "source_location": "L34",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4772,11 +5185,118 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/mapper_service.py",
+      "source_location": "L166",
+      "weight": 1.0,
+      "source": "services_mapper_service_mapperservice",
+      "target": "services_mapper_service_mapperservice_lookup_catalog_entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
       "source_location": "L55",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "services_mapper_service_mapperservice",
       "target": "services_mapper_service_mapperservice_map_items"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L123",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service_mapperservice",
+      "target": "services_mapper_service_mapperservice_mapped_item"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service_mapperservice",
+      "target": "services_mapper_service_mapperservice_resolve_parent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L137",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service_mapperservice_mapped_item",
+      "target": "services_mapper_service_mapperservice_resolve_parent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L138",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service_mapperservice_mapped_item",
+      "target": "services_mapper_service_mapperservice_is_macro_subcategory"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L247",
+      "weight": 1.0,
+      "source": "services_mapper_service_mapperservice_map_items",
+      "target": "services_mapper_service_mapperservice_lookup_catalog_entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L188",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service_mapperservice_map_items",
+      "target": "services_mapper_service_mapperservice_mapped_item"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L123",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service_mapperservice_mapped_item",
+      "target": "categorymaprequestitem"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L123",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service_mapperservice_mapped_item",
+      "target": "mappeditem"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/verify_bank_catalog.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "scripts_verify_bank_catalog_main",
+      "target": "categorymaprequestitem"
     },
     {
       "relation": "references",
@@ -4799,17 +5319,6 @@
       "confidence_score": 1.0,
       "source": "services_mapper_service_mapperservice_map_items",
       "target": "mappeditem"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/verify_bank_catalog.py",
-      "source_location": "L29",
-      "weight": 1.0,
-      "source": "scripts_verify_bank_catalog_main",
-      "target": "categorymaprequestitem"
     },
     {
       "relation": "contains",
@@ -6596,9 +7105,9 @@
       "source_file": "components/screens/processing-screen.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screens_processing_screen",
-      "target": "lib_types_bankofferitem",
-      "confidence_score": 1.0
+      "target": "lib_types_bankofferitem"
     },
     {
       "relation": "imports",
@@ -6732,9 +7241,9 @@
       "source_file": "components/screens/processing-screen.tsx",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screens_processing_screen_batchprogress",
-      "target": "lib_types_bankofferitem",
-      "confidence_score": 1.0
+      "target": "lib_types_bankofferitem"
     },
     {
       "relation": "references",
@@ -7030,6 +7539,61 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "screens_results_screen",
+      "target": "lib_category_label"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "screens_results_screen",
+      "target": "lib_category_label_formatcategorylabel"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "screens_results_screen",
+      "target": "lib_category_label_labelsequivalent"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "screens_results_screen",
+      "target": "lib_matrix"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "screens_results_screen",
+      "target": "lib_matrix_groupmatrixrows"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/screens/results-screen.tsx",
       "source_location": "L9",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -7057,6 +7621,28 @@
       "confidence_score": 1.0,
       "source": "screens_results_screen",
       "target": "lib_types_kind"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "screens_results_screen",
+      "target": "lib_types_matrixprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "screens_results_screen",
+      "target": "lib_types_matrixrow"
     },
     {
       "relation": "imports",
@@ -7099,6 +7685,26 @@
       "confidence_score": 1.0,
       "source": "screens_results_screen",
       "target": "screens_results_screen_getdefaulttab"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L66",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "screens_results_screen",
+      "target": "screens_results_screen_matrixrowcontent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "screens_results_screen",
+      "target": "screens_results_screen_ratebadges"
     },
     {
       "relation": "contains",
@@ -7169,10 +7775,54 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "screens_results_screen_ratebadges",
+      "target": "lib_cashback_data_getrowtiers"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "screens_results_screen_matrixrowcontent",
+      "target": "lib_category_label_formatcategorylabel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "screens_results_screen_matrixrowcontent",
+      "target": "lib_category_label_labelsequivalent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/screens/results-screen.tsx",
       "source_location": "L79",
       "weight": 1.0,
       "source": "screens_results_screen_resultsscreen",
       "target": "lib_cashback_data_getcurrentmonthyear"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "screens_results_screen_resultsscreen",
+      "target": "lib_matrix_groupmatrixrows"
     },
     {
       "relation": "contains",
@@ -7356,9 +8006,9 @@
       "source_file": "lib/api.ts",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_api",
-      "target": "lib_api_collectbankofferitems",
-      "confidence_score": 1.0
+      "target": "lib_api_collectbankofferitems"
     },
     {
       "relation": "contains",
@@ -7583,9 +8233,9 @@
       "source_file": "lib/api.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_api",
-      "target": "lib_types_bankofferitem",
-      "confidence_score": 1.0
+      "target": "lib_types_bankofferitem"
     },
     {
       "relation": "imports",
@@ -7767,9 +8417,9 @@
       "source_file": "lib/api.ts",
       "source_location": "L216",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_api_processsubmission",
-      "target": "lib_api_collectbankofferitems",
-      "confidence_score": 1.0
+      "target": "lib_api_collectbankofferitems"
     },
     {
       "relation": "references",
@@ -7778,9 +8428,9 @@
       "source_file": "lib/api.ts",
       "source_location": "L108",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_api_processsubmissionresult",
-      "target": "lib_types_bankofferitem",
-      "confidence_score": 1.0
+      "target": "lib_types_bankofferitem"
     },
     {
       "relation": "references",
@@ -8174,6 +8824,102 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "lib/category-label.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_category_label",
+      "target": "lib_category_label_formatcategorylabel"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/category-label.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_category_label",
+      "target": "lib_category_label_labelsequivalent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/category-label.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_category_label",
+      "target": "lib_category_label_normalizecategorylabel"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_category_label"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/category-label.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_category_label_labelsequivalent",
+      "target": "lib_category_label_normalizecategorylabel"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_category_label_formatcategorylabel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/matrix.ts",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "lib_matrix_mergemappeditems",
+      "target": "lib_category_label_formatcategorylabel"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_category_label_labelsequivalent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/matrix.ts",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "lib_matrix_ismacroonlygroup",
+      "target": "lib_category_label_labelsequivalent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "lib/image-utils.ts",
       "source_location": "L14",
       "weight": 1.0,
@@ -8496,6 +9242,26 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/matrix.ts",
+      "source_location": "L118",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_groupmatrixrows"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L109",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_ismacroonlygroup"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
       "source_location": "L35",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -8609,6 +9375,17 @@
       "confidence_score": 1.0,
       "source": "lib_matrix",
       "target": "lib_types_mappeditem"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_types_matrixgroup"
     },
     {
       "relation": "imports",
@@ -9195,9 +9972,9 @@
       "source_file": "lib/types.ts",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_types",
-      "target": "lib_types_bankofferitem",
-      "confidence_score": 1.0
+      "target": "lib_types_bankofferitem"
     },
     {
       "relation": "contains",
@@ -9248,6 +10025,16 @@
       "confidence_score": 1.0,
       "source": "lib_types",
       "target": "lib_types_mappeditem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/types.ts",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_types",
+      "target": "lib_types_matrixgroup"
     },
     {
       "relation": "contains",
@@ -9813,6 +10600,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/sync_bank_catalog.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sync_bank_catalog",
+      "target": "scripts_sync_bank_catalog_load_hierarchy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sync_bank_catalog.py",
       "source_location": "L105",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -9833,11 +10630,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/sync_bank_catalog.py",
-      "source_location": "L45",
+      "source_location": "L59",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "scripts_sync_bank_catalog",
-      "target": "scripts_sync_bank_catalog_resolve_unified"
+      "target": "scripts_sync_bank_catalog_resolve_cashpack_leaf"
     },
     {
       "relation": "calls",
@@ -9866,10 +10663,21 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/sync_bank_catalog.py",
-      "source_location": "L52",
+      "source_location": "L51",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "scripts_sync_bank_catalog_resolve_unified",
+      "source": "scripts_sync_bank_catalog_load_hierarchy",
+      "target": "scripts_sync_bank_catalog_normalize"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sync_bank_catalog.py",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sync_bank_catalog_resolve_cashpack_leaf",
       "target": "scripts_sync_bank_catalog_normalize"
     },
     {
@@ -9888,11 +10696,74 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/sync_bank_catalog.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sync_bank_catalog_build_catalog",
+      "target": "scripts_sync_bank_catalog_load_hierarchy"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sync_bank_catalog.py",
       "source_location": "L121",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "scripts_sync_bank_catalog_main",
       "target": "scripts_sync_bank_catalog_build_catalog"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sync_category_hierarchy.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sync_category_hierarchy",
+      "target": "scripts_sync_category_hierarchy_build_hierarchy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sync_category_hierarchy.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sync_category_hierarchy",
+      "target": "scripts_sync_category_hierarchy_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sync_category_hierarchy.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sync_category_hierarchy",
+      "target": "scripts_sync_category_hierarchy_normalize"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sync_category_hierarchy.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sync_category_hierarchy_build_hierarchy",
+      "target": "scripts_sync_category_hierarchy_normalize"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sync_category_hierarchy.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sync_category_hierarchy_main",
+      "target": "scripts_sync_category_hierarchy_build_hierarchy"
     },
     {
       "relation": "contains",
@@ -10362,5 +11233,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c4dca4514408333919ee1feb8743b0392e61b4a5"
+  "built_at_commit": "052c9c71d9f7f97928faec445fdad1bbeb49f0bd"
 }

@@ -12,9 +12,11 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_SOURCE = (
     REPO_ROOT.parent / "sync_category_subcategory" / "cashback_offers.json"
 )
-TAXONOMY_PATH = REPO_ROOT / "backend" / "data" / "taxonomy.json"
+HIERARCHY_PATH = REPO_ROOT / "backend" / "data" / "category_hierarchy.json"
+MIGRATION_PATH = REPO_ROOT / "backend" / "data" / "taxonomy_migration.json"
 OVERRIDES_PATH = REPO_ROOT / "backend" / "data" / "bank_category_unified_overrides.json"
 ALIASES_PATH = REPO_ROOT / "backend" / "data" / "bank_aliases.json"
+PARENT_SYNONYMS_PATH = REPO_ROOT / "backend" / "data" / "parent_category_synonyms.json"
 CATALOG_PATH = REPO_ROOT / "backend" / "data" / "bank_category_catalog.json"
 CATALOG_NAMES_PATH = REPO_ROOT / "lib" / "data" / "bank-catalog.json"
 LOGO_ALIASES_PATH = REPO_ROOT / "lib" / "data" / "logo-aliases.json"
@@ -42,27 +44,73 @@ def load_bank_aliases() -> dict[str, str]:
     return aliases
 
 
-def resolve_unified(
+def load_hierarchy() -> tuple[set[str], dict[str, str], dict[str, str], dict[str, str]]:
+    hierarchy = json.loads(HIERARCHY_PATH.read_text(encoding="utf-8"))
+    leaves = set(hierarchy["subcategory_names"])
+    leaf_to_parent = hierarchy["subcategory_to_parent"]
+    normalized_to_leaf = {normalize(name): name for name in leaves}
+    normalized_to_parent = {
+        normalize(parent["name"]): parent["name"]
+        for parent in hierarchy.get("parents", [])
+    }
+    return leaves, leaf_to_parent, normalized_to_leaf, normalized_to_parent
+
+
+def resolve_cashpack_leaf(
     raw: str,
     bank_category: str,
-    taxonomy: set[str],
+    leaves: set[str],
+    leaf_to_parent: dict[str, str],
+    normalized_to_leaf: dict[str, str],
+    normalized_to_parent: dict[str, str],
+    parent_synonyms: dict[str, str],
     overrides: dict[str, str],
-) -> str | None:
-    raw_key = normalize(raw)
-    if raw_key in overrides:
-        return overrides[raw_key]
-    if bank_category in taxonomy:
-        return bank_category
-    return overrides.get(normalize(bank_category))
+    migration: dict[str, str],
+) -> tuple[str | None, str | None, bool]:
+    for candidate in (raw, bank_category):
+        if not candidate:
+            continue
+        key = normalize(candidate)
+
+        if key in overrides:
+            leaf = overrides[key]
+            return leaf, leaf_to_parent.get(normalize(leaf)), False
+
+        if key in parent_synonyms:
+            parent = parent_synonyms[key]
+            return parent, parent, True
+
+        if key in normalized_to_parent:
+            parent = normalized_to_parent[key]
+            return parent, parent, True
+
+        if key in normalized_to_leaf:
+            leaf = normalized_to_leaf[key]
+            return leaf, leaf_to_parent.get(key), False
+
+        if key in migration:
+            leaf = migration[key]
+            return leaf, leaf_to_parent.get(normalize(leaf)), False
+
+    return None, None, False
 
 
 def build_catalog(offers: list[dict], aliases: dict[str, str]) -> dict:
-    taxonomy_list = json.loads(TAXONOMY_PATH.read_text(encoding="utf-8"))
-    taxonomy = set(taxonomy_list)
+    leaves, leaf_to_parent, normalized_to_leaf, normalized_to_parent = load_hierarchy()
     overrides = {
         normalize(key): value
         for key, value in json.loads(OVERRIDES_PATH.read_text(encoding="utf-8")).items()
     }
+    migration = {
+        normalize(key): value
+        for key, value in json.loads(MIGRATION_PATH.read_text(encoding="utf-8")).items()
+    }
+    parent_synonyms = {}
+    if PARENT_SYNONYMS_PATH.exists():
+        parent_synonyms = {
+            normalize(key): value
+            for key, value in json.loads(PARENT_SYNONYMS_PATH.read_text(encoding="utf-8")).items()
+        }
     catalog: dict[str, dict[str, dict]] = {}
     unmapped: set[str] = set()
     skipped_banks: set[str] = set()
@@ -70,13 +118,26 @@ def build_catalog(offers: list[dict], aliases: dict[str, str]) -> dict:
     def add_entry(slug: str, raw: str, bank_category: str, match_level: str) -> None:
         if not raw:
             return
-        unified = resolve_unified(raw, bank_category, taxonomy, overrides)
-        if unified is None:
-            unmapped.add(bank_category)
+        sub, parent, is_macro = resolve_cashpack_leaf(
+            raw,
+            bank_category,
+            leaves,
+            leaf_to_parent,
+            normalized_to_leaf,
+            normalized_to_parent,
+            parent_synonyms,
+            overrides,
+            migration,
+        )
+        if sub is None:
+            unmapped.add(f"{bank_category} / {raw}")
         catalog.setdefault(slug, {})[raw] = {
             "bank_category": bank_category,
-            "unified": unified,
+            "unified_subcategory": sub,
+            "unified_parent": parent,
+            "unified": sub,
             "match_level": match_level,
+            "is_macro": is_macro,
         }
 
     for offer in offers:
@@ -95,7 +156,7 @@ def build_catalog(offers: list[dict], aliases: dict[str, str]) -> dict:
     if skipped_banks:
         print("WARN: no slug for banks:", ", ".join(sorted(skipped_banks)), file=sys.stderr)
     if unmapped:
-        print("WARN: unmapped bank categories (add to overrides):", file=sys.stderr)
+        print("WARN: unmapped entries (add to overrides):", file=sys.stderr)
         for name in sorted(unmapped):
             print(f"  - {name}", file=sys.stderr)
 
@@ -117,6 +178,10 @@ def main() -> int:
     source_path = Path(args.source)
     if not source_path.is_file():
         print(f"ERROR: file not found: {source_path}", file=sys.stderr)
+        return 1
+
+    if not HIERARCHY_PATH.is_file():
+        print(f"ERROR: run sync_category_hierarchy.py first ({HIERARCHY_PATH})", file=sys.stderr)
         return 1
 
     offers = json.loads(source_path.read_text(encoding="utf-8")).get("data", [])

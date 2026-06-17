@@ -3,10 +3,15 @@ import {
   providerNamesMatch,
   resolveProviderLogo,
 } from "@/lib/provider-logos"
+import {
+  formatCategoryLabel,
+  labelsEquivalent,
+} from "@/lib/category-label"
 import type {
   CashbackMatrix,
   Kind,
   MappedItem,
+  MatrixGroup,
   MatrixProvider,
   MatrixRow,
   SourceSubmission,
@@ -49,12 +54,24 @@ export function mergeMappedItems(
   for (const item of items) {
     if (item.is_bank_offer) continue
 
-    const existing = rowMap.get(item.unified_category) ?? {
-      category: item.unified_category,
+    const isMacro = item.is_macro_category ?? false
+    const parent = item.unified_parent
+    const subcategory = item.unified_subcategory ?? item.unified_category
+    const displayCategory = isMacro
+      ? formatCategoryLabel(item.raw_category.trim() || subcategory)
+      : subcategory
+    const rowKey = isMacro && parent ? `${parent}::${displayCategory}` : subcategory
+
+    const existing = rowMap.get(rowKey) ?? {
+      category: displayCategory,
+      parent,
+      bankRaw: isMacro ? undefined : item.raw_category,
+      isMacro,
       rates: {},
     }
     existing.rates[provider.key] = item.rate
-    rowMap.set(item.unified_category, existing)
+    if (!existing.parent && parent) existing.parent = parent
+    rowMap.set(rowKey, existing)
   }
 
   const providers =
@@ -87,6 +104,41 @@ export function mergeSubmissionsIntoMatrix(
   }
 
   return { bank: bankMatrix, market: marketMatrix }
+}
+
+export function isMacroOnlyGroup(group: MatrixGroup): boolean {
+  if (group.rows.length !== 1) return false
+  const row = group.rows[0]
+  if (row.isMacro) return true
+  if (row.parent && labelsEquivalent(row.category, row.parent)) return true
+  if (row.parent && row.bankRaw && labelsEquivalent(row.bankRaw, row.parent)) return true
+  return false
+}
+
+/** Parent row is flat; subcategories expand on chevron click. */
+export function groupHasSubcategories(group: MatrixGroup): boolean {
+  return !isMacroOnlyGroup(group)
+}
+
+export function groupMatrixRows(rows: MatrixRow[]): MatrixGroup[] {
+  const byParent = new Map<string, MatrixRow[]>()
+  for (const row of rows) {
+    const parent = row.parent ?? row.category
+    const list = byParent.get(parent) ?? []
+    list.push(row)
+    byParent.set(parent, list)
+  }
+  return Array.from(byParent.entries()).map(([parent, children]) => {
+    const summaryRates: Record<string, number> = {}
+    for (const child of children) {
+      for (const [key, rate] of Object.entries(child.rates)) {
+        summaryRates[key] = Math.max(summaryRates[key] ?? 0, rate)
+      }
+    }
+    const group: MatrixGroup = { parent, summaryRates, rows: children }
+    group.isMacroOnly = isMacroOnlyGroup(group)
+    return group
+  })
 }
 
 export function findMatchingProvider(

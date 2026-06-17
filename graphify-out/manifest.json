@@ -10,13 +10,8 @@
     "semantic_hash": "5ad9a027057960e2a9229ad1031840ee"
   },
   "backend/data/category_overrides.json": {
-    "mtime": 1781688042.9228268,
-    "ast_hash": "fb0091445857f4d98a9d035217688ce2",
-    "semantic_hash": ""
-  },
-  "backend/data/taxonomy.json": {
-    "mtime": 1781688787.5554454,
-    "ast_hash": "4404d2e1b3f6b8fbdd1d1b299b5cfec7",
+    "mtime": 1781696438.408206,
+    "ast_hash": "a7f4e539017565f339bb1f62b936c94d",
     "semantic_hash": ""
   },
   "backend/main.py": {
@@ -40,8 +35,8 @@
     "semantic_hash": "33fc60149529df0222358914333212c9"
   },
   "backend/schemas.py": {
-    "mtime": 1781689374.9254987,
-    "ast_hash": "3f88d4b4c5d431b2fa53fdb10fe0d4ae",
+    "mtime": 1781696447.3521476,
+    "ast_hash": "4a04fec02605f7f79731535438a789d9",
     "semantic_hash": ""
   },
   "backend/services/__init__.py": {
@@ -50,8 +45,8 @@
     "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
   },
   "backend/services/mapper_service.py": {
-    "mtime": 1781689409.374208,
-    "ast_hash": "aec9eee6d0c8640a27e0ef32ebf1de80",
+    "mtime": 1781697752.2234743,
+    "ast_hash": "e2ade3995eb1cb1099a02b16ee23c5ee",
     "semantic_hash": ""
   },
   "backend/services/ocr_service.py": {
@@ -125,8 +120,8 @@
     "semantic_hash": "8062aae909450f1f017065252e0f748a"
   },
   "components/screens/results-screen.tsx": {
-    "mtime": 1781689479.868801,
-    "ast_hash": "3eff98e0c4c4c6e2a4cef44cde8d55dd",
+    "mtime": 1781696531.3526318,
+    "ast_hash": "080617d7df2d2fb7ae7ce09236460b6c",
     "semantic_hash": ""
   },
   "components/screens/user-menu.tsx": {
@@ -185,8 +180,8 @@
     "semantic_hash": ""
   },
   "lib/matrix.ts": {
-    "mtime": 1781689414.907505,
-    "ast_hash": "bef2baab9a5d45dcc3ed7d8726f6acad",
+    "mtime": 1781696532.8610716,
+    "ast_hash": "29916946413d8dc204f28453e5acbbc6",
     "semantic_hash": ""
   },
   "lib/provider-logos.ts": {
@@ -195,8 +190,8 @@
     "semantic_hash": "10c57906fcd608feddd73ac082dae44b"
   },
   "lib/types.ts": {
-    "mtime": 1781689414.4007647,
-    "ast_hash": "1ede6dcc21d19977d8b88085736086ac",
+    "mtime": 1781696509.0020735,
+    "ast_hash": "2a2d43fadab1a93b1a4c5402f600e8ce",
     "semantic_hash": ""
   },
   "lib/utils.ts": {
@@ -250,13 +245,13 @@
     "semantic_hash": ""
   },
   "backend/data/bank_category_catalog.json": {
-    "mtime": 1781688812.7316816,
-    "ast_hash": "7a31a7cce89a32f8f37e59b01400df25",
+    "mtime": 1781696627.783367,
+    "ast_hash": "41ac592d616ffcee2651a11694a27830",
     "semantic_hash": ""
   },
   "backend/data/bank_category_unified_overrides.json": {
-    "mtime": 1781688802.8695045,
-    "ast_hash": "65fff089b3f29ad55b084c9e00ed21d4",
+    "mtime": 1781696441.4092104,
+    "ast_hash": "5ffe5a86747706c19f4108e9c3300aaf",
     "semantic_hash": ""
   },
   "backend/data/bank_service_exclusions.json": {
@@ -275,8 +270,8 @@
     "semantic_hash": ""
   },
   "scripts/sync_bank_catalog.py": {
-    "mtime": 1781688789.152841,
-    "ast_hash": "a1edff5111253d587ca489a501f5c20b",
+    "mtime": 1781696623.1745994,
+    "ast_hash": "95924fe6a7df44f2ebc6c3a44076d1fc",
     "semantic_hash": ""
   },
   "scripts/verify-bank-service-filter.mjs": {
@@ -290,13 +285,43 @@
     "semantic_hash": ""
   },
   "scripts/verify_bank_catalog.py": {
-    "mtime": 1781689491.832832,
-    "ast_hash": "ae2de81228cf96f0131e482c4224d8a6",
+    "mtime": 1781697797.6668494,
+    "ast_hash": "3d4367861629fad85aee4ca53ecd083f",
     "semantic_hash": ""
   },
   "backend/data/bank_offer_entries.json": {
-    "mtime": 1781689374.0079095,
-    "ast_hash": "11e2d87aed7c67d43fdab4240483f2d9",
+    "mtime": 1781689748.9651117,
+    "ast_hash": "b5b54499bd6ddc884f929ad19f8e0570",
+    "semantic_hash": ""
+  },
+  "backend/data/bank_named_categories.json": {
+    "mtime": 1781696436.667661,
+    "ast_hash": "9e3128a37d5362e558c6340163a43b32",
+    "semantic_hash": ""
+  },
+  "backend/data/category_hierarchy.json": {
+    "mtime": 1781693709.1102116,
+    "ast_hash": "3d16965b2a27656767dcdc21bbf511af",
+    "semantic_hash": ""
+  },
+  "backend/data/parent_category_synonyms.json": {
+    "mtime": 1781696586.9586449,
+    "ast_hash": "e05dd339c9fe37899b1bd6b7b1482cdf",
+    "semantic_hash": ""
+  },
+  "backend/data/taxonomy_migration.json": {
+    "mtime": 1781696443.0895557,
+    "ast_hash": "b4337d31b50ea0ab11888ba4fbdc73b2",
+    "semantic_hash": ""
+  },
+  "lib/category-label.ts": {
+    "mtime": 1781696436.2844796,
+    "ast_hash": "f8297919106969ec76d5f7262f9580a7",
+    "semantic_hash": ""
+  },
+  "scripts/sync_category_hierarchy.py": {
+    "mtime": 1781693701.3976367,
+    "ast_hash": "f2089830d6258014595f9150635790f2",
     "semantic_hash": ""
   }
 }

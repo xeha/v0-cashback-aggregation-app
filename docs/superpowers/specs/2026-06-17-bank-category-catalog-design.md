@@ -4,6 +4,8 @@
 **Status:** Approved  
 **Scope:** Снизить ошибки маппинга OCR → unified taxonomy за счёт банк-специфичного справочника категорий, сгенерированного из `cashback_offers.json`. **Без UI.** Embedding остаётся fallback.
 
+> **Follow-up:** целевая taxonomy и UI матрицы — в [cashpack-taxonomy-design.md](./2026-06-17-cashpack-taxonomy-design.md) (дерево CashPack 26+108, аккордеон на results).
+
 ## Контекст
 
 ### Проблема
