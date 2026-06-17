@@ -10,6 +10,9 @@ from services.bank_slug_resolver import load_bank_aliases, resolve_bank_slug
 TAXONOMY_PATH = Path(__file__).resolve().parent.parent / "data" / "taxonomy.json"
 OVERRIDES_PATH = Path(__file__).resolve().parent.parent / "data" / "category_overrides.json"
 CATALOG_PATH = Path(__file__).resolve().parent.parent / "data" / "bank_category_catalog.json"
+BANK_OFFER_ENTRIES_PATH = (
+    Path(__file__).resolve().parent.parent / "data" / "bank_offer_entries.json"
+)
 FALLBACK_CATEGORY = "Прочее"
 DEFAULT_THRESHOLD = 0.45
 CONFIDENCE_OVERRIDE = 1.0
@@ -17,6 +20,22 @@ CONFIDENCE_OVERRIDE = 1.0
 
 def _normalize_category_name(name: str) -> str:
     return " ".join(name.lower().strip().split())
+
+
+def _load_bank_offer_keys() -> dict[str, set[str]]:
+    if not BANK_OFFER_ENTRIES_PATH.is_file():
+        return {}
+    raw = json.loads(BANK_OFFER_ENTRIES_PATH.read_text(encoding="utf-8"))
+    return {
+        slug: {_normalize_category_name(key) for key in keys}
+        for slug, keys in raw.items()
+    }
+
+
+def _is_bank_offer(bank_slug: str | None, normalized_raw: str, offer_keys: dict[str, set[str]]) -> bool:
+    if not bank_slug:
+        return False
+    return normalized_raw in offer_keys.get(bank_slug, set())
 
 
 class MapperService:
@@ -27,6 +46,7 @@ class MapperService:
         self._overrides: dict[str, str] = {}
         self._catalog: dict[str, dict[str, dict]] = {}
         self._bank_aliases: dict[str, str] = {}
+        self._bank_offer_keys: dict[str, set[str]] = {}
         self._threshold = float(
             __import__("os").environ.get("CATEGORY_MAP_THRESHOLD", DEFAULT_THRESHOLD)
         )
@@ -48,6 +68,7 @@ class MapperService:
         with CATALOG_PATH.open(encoding="utf-8") as f:
             self._catalog = json.load(f)
         self._bank_aliases = load_bank_aliases()
+        self._bank_offer_keys = _load_bank_offer_keys()
 
         model_name = __import__("os").environ.get(
             "SENTENCE_TRANSFORMER_MODEL",
@@ -95,6 +116,9 @@ class MapperService:
                             unified_category=unified,
                             rate=item.rate,
                             confidence=CONFIDENCE_OVERRIDE,
+                            is_bank_offer=_is_bank_offer(
+                                bank_slug, normalized, self._bank_offer_keys
+                            ),
                         )
                     )
                     continue
@@ -107,6 +131,9 @@ class MapperService:
                         unified_category=override,
                         rate=item.rate,
                         confidence=CONFIDENCE_OVERRIDE,
+                        is_bank_offer=_is_bank_offer(
+                            bank_slug, normalized, self._bank_offer_keys
+                        ),
                     )
                 )
                 continue
@@ -114,6 +141,7 @@ class MapperService:
             pending.append((item, query_embedding))
 
         for item, query_embedding in pending:
+            normalized = _normalize_category_name(item.raw_category)
             similarities = np.dot(self._taxonomy_embeddings, query_embedding)
             best_idx = int(np.argmax(similarities))
             confidence = float(similarities[best_idx])
@@ -128,6 +156,9 @@ class MapperService:
                     unified_category=unified,
                     rate=item.rate,
                     confidence=round(confidence, 4),
+                    is_bank_offer=_is_bank_offer(
+                        bank_slug, normalized, self._bank_offer_keys
+                    ),
                 )
             )
 

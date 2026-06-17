@@ -33,7 +33,7 @@ export function ResultsScreen({
   onUploadMore,
   kind = "bank",
   matrix,
-  processingSummary = { skipped: [], lowConfidence: [] },
+  processingSummary = { skipped: [], lowConfidence: [], bankOffers: [] },
 }: {
   onRestart: () => void
   onUploadMore: () => void

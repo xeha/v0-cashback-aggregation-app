@@ -18,7 +18,7 @@ CASES = [
     ("Альфа-Банк", "Активный отдых", "Развлечения", 1.0),
     ("ОТП Банк", "АЗС", "АЗС и топливо", 1.0),
     ("ОТП Банк", "Женская одежда", "Одежда и обувь", 1.0),
-    ("Сбербанк", "Самокат", "Доставка продуктов", 1.0),
+    ("Сбербанк", "Самокат", "Доставка продуктов", 1.0, True),
     ("ОТП Банк", "Прочее (медицина)", "Медицина", 1.0),
     ("Альфа-Банк", "Все покупки", "Все покупки", 1.0),
 ]
@@ -28,17 +28,27 @@ def main() -> int:
     mapper = MapperService()
     mapper.load()
     failed = 0
-    for source_name, raw, expected_unified, expected_conf in CASES:
+    for case in CASES:
+        source_name, raw, expected_unified, expected_conf = case[:4]
+        expected_bank_offer = case[4] if len(case) > 4 else False
         items = [CategoryMapRequestItem(raw_category=raw, rate=5.0)]
         result = mapper.map_items(items, source_name)[0]
         ok = (
             result.unified_category == expected_unified
             and result.confidence == expected_conf
+            and result.is_bank_offer == expected_bank_offer
         )
         status = "PASS" if ok else "FAIL"
-        print(f"{status}: {source_name!r} + {raw!r} -> {result.unified_category!r} ({result.confidence})")
+        offer_note = " [bank offer]" if result.is_bank_offer else ""
+        print(
+            f"{status}: {source_name!r} + {raw!r} -> "
+            f"{result.unified_category!r} ({result.confidence}){offer_note}"
+        )
         if not ok:
-            print(f"       expected {expected_unified!r} @ {expected_conf}")
+            print(
+                f"       expected {expected_unified!r} @ {expected_conf}, "
+                f"is_bank_offer={expected_bank_offer}"
+            )
             failed += 1
 
     psb = mapper.map_items(

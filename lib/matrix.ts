@@ -47,6 +47,8 @@ export function mergeMappedItems(
   }
 
   for (const item of items) {
+    if (item.is_bank_offer) continue
+
     const existing = rowMap.get(item.unified_category) ?? {
       category: item.unified_category,
       rates: {},

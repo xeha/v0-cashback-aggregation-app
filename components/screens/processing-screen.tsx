@@ -9,6 +9,7 @@ import {
   processSubmissionWithKeyTracking,
 } from "@/lib/api"
 import type {
+  BankOfferItem,
   CashbackMatrix,
   LowConfidenceItem,
   MatrixState,
@@ -23,6 +24,7 @@ interface BatchProgress {
   bankKeys: Set<string>
   marketKeys: Set<string>
   lowConfidence: LowConfidenceItem[]
+  bankOffers: BankOfferItem[]
 }
 
 interface OcrFailureState {
@@ -53,6 +55,7 @@ function createInitialBatch(existingMatrix: MatrixState): BatchProgress {
     bankKeys: new Set(existingMatrix.bank?.providers.map((provider) => provider.key) ?? []),
     marketKeys: new Set(existingMatrix.market?.providers.map((provider) => provider.key) ?? []),
     lowConfidence: [],
+    bankOffers: [],
   }
 }
 
@@ -159,6 +162,13 @@ export function ProcessingScreen({
             }
           }
 
+          if (result.bankOfferItems.length > 0) {
+            state = {
+              ...state,
+              bankOffers: [...state.bankOffers, ...result.bankOfferItems],
+            }
+          }
+
           state = { ...state, index: index + 1 }
           setProgress(index + 1)
         } catch (err) {
@@ -179,6 +189,7 @@ export function ProcessingScreen({
               {
                 skipped: [],
                 lowConfidence: state.lowConfidence,
+                bankOffers: state.bankOffers,
               },
               submissions.slice(0, index),
             )
@@ -202,6 +213,7 @@ export function ProcessingScreen({
               {
                 skipped: [],
                 lowConfidence: state.lowConfidence,
+                bankOffers: state.bankOffers,
               },
               submissions.slice(0, index),
             )
@@ -225,6 +237,7 @@ export function ProcessingScreen({
         {
           skipped: [],
           lowConfidence: state.lowConfidence,
+          bankOffers: state.bankOffers,
         },
       )
     }

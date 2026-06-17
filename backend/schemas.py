@@ -32,6 +32,7 @@ class MappedItem(BaseModel):
     unified_category: str
     rate: float
     confidence: float
+    is_bank_offer: bool = False
 
 
 class CategoryMapResponse(BaseModel):

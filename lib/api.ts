@@ -1,6 +1,7 @@
 import { imageSrcToBase64 } from "@/lib/image-utils"
 import { createProviderFromSubmission, mergeMappedItems } from "@/lib/matrix"
 import type {
+  BankOfferItem,
   CashbackMatrix,
   CategoryMapResponse,
   LowConfidenceItem,
@@ -53,17 +54,18 @@ export function isOcrRecognitionFailure(error: unknown): error is ApiError {
 }
 
 function isUnreliableMapping(items: MappedItem[]): boolean {
-  if (items.length === 0) return true
+  const comparable = items.filter((item) => !item.is_bank_offer)
+  if (comparable.length === 0) return false
 
-  const confidences = items.map((item) => item.confidence)
+  const confidences = comparable.map((item) => item.confidence)
   const average =
     confidences.reduce((sum, value) => sum + value, 0) / confidences.length
   const allBelowThreshold = confidences.every(
     (value) => value < LOW_CONFIDENCE_UI_THRESHOLD,
   )
   const mostlyFallback =
-    items.filter((item) => item.unified_category === "Прочее").length /
-      items.length >=
+    comparable.filter((item) => item.unified_category === "Прочее").length /
+      comparable.length >=
     0.5
 
   return allBelowThreshold || average < LOW_CONFIDENCE_UI_THRESHOLD || mostlyFallback
@@ -74,7 +76,10 @@ function collectLowConfidenceItems(
   providerName: string,
 ): LowConfidenceItem[] {
   return items
-    .filter((item) => item.confidence < LOW_CONFIDENCE_UI_THRESHOLD)
+    .filter(
+      (item) =>
+        !item.is_bank_offer && item.confidence < LOW_CONFIDENCE_UI_THRESHOLD,
+    )
     .map((item) => ({
       providerName,
       rawCategory: item.raw_category,
@@ -83,9 +88,24 @@ function collectLowConfidenceItems(
     }))
 }
 
+function collectBankOfferItems(
+  items: MappedItem[],
+  providerName: string,
+): BankOfferItem[] {
+  return items
+    .filter((item) => item.is_bank_offer)
+    .map((item) => ({
+      providerName,
+      rawCategory: item.raw_category,
+      unifiedCategory: item.unified_category,
+      rate: item.rate,
+    }))
+}
+
 export interface ProcessSubmissionResult {
   matrix: CashbackMatrix
   lowConfidenceItems: LowConfidenceItem[]
+  bankOfferItems: BankOfferItem[]
 }
 
 function isRequestTimeoutError(error: unknown): boolean {
@@ -193,6 +213,7 @@ export async function processSubmission(
   return {
     matrix,
     lowConfidenceItems: collectLowConfidenceItems(mappedItems, submission.providerName),
+    bankOfferItems: collectBankOfferItems(mappedItems, submission.providerName),
   }
 }
 

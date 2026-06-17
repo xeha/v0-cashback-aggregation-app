@@ -18,6 +18,8 @@ export interface MappedItem {
   unified_category: string
   rate: number
   confidence: number
+  /** Bank ecosystem offer (e.g. Sber + Samokat) — excluded from comparison matrix */
+  is_bank_offer?: boolean
 }
 
 export interface MatrixProvider {
@@ -62,7 +64,15 @@ export interface LowConfidenceItem {
   confidence: number
 }
 
+export interface BankOfferItem {
+  providerName: string
+  rawCategory: string
+  unifiedCategory: string
+  rate: number
+}
+
 export interface ProcessingSummary {
   skipped: SkippedSubmission[]
   lowConfidence: LowConfidenceItem[]
+  bankOffers: BankOfferItem[]
 }

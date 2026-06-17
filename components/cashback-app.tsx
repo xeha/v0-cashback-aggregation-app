@@ -21,6 +21,7 @@ type PickMode = "upload-more" | "replace"
 const EMPTY_PROCESSING_SUMMARY: ProcessingSummary = {
   skipped: [],
   lowConfidence: [],
+  bankOffers: [],
 }
 
 function resetState() {
@@ -256,6 +257,7 @@ export function CashbackApp() {
                       setProcessingSummary((prev) => ({
                         skipped: prev.skipped,
                         lowConfidence: [...prev.lowConfidence, ...partialSummary.lowConfidence],
+                        bankOffers: [...prev.bankOffers, ...partialSummary.bankOffers],
                       }))
                     }}
                     onGeneralFailure={(partialMatrix, failedIndex, partialSummary, processedSubmissions) => {
@@ -265,6 +267,7 @@ export function CashbackApp() {
                       setProcessingSummary((prev) => ({
                         skipped: prev.skipped,
                         lowConfidence: [...prev.lowConfidence, ...partialSummary.lowConfidence],
+                        bankOffers: [...prev.bankOffers, ...partialSummary.bankOffers],
                       }))
                     }}
                     onReplaceScreenshot={() => {
@@ -276,6 +279,7 @@ export function CashbackApp() {
                       setProcessingSummary((prev) => ({
                         skipped: [...prev.skipped, ...summary.skipped],
                         lowConfidence: [...prev.lowConfidence, ...summary.lowConfidence],
+                        bankOffers: [...prev.bankOffers, ...summary.bankOffers],
                       }))
                       setProcessingError(null)
                       setSubmissions((current) =>
