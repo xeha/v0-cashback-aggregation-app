@@ -28,7 +28,20 @@
     "локо": "loko-bank",
     "точка": "tochka",
     "абсолют": "absoljut-bank",
-    "ак барс": "ak-bars"
+    "ак барс": "ak-bars",
+    "отп банк": "otp-bank",
+    "отп": "otp-bank",
+    "озон банк": "ozon-bank",
+    "озон": "ozon-bank",
+    "мтс банк": "mts-bank",
+    "мтс": "mts-bank",
+    "московский кредитный банк": "moskovskij-kreditnyj-bank",
+    "мкб": "moskovskij-kreditnyj-bank",
+    "русский стандарт": "russkij-standart",
+    "совкомбанк": "sovkombank",
+    "совком": "sovkombank",
+    "кредит европа банк": "kredit-evropa-bank",
+    "убрир": "ubrir"
   },
   "market": {
     "пятерочка": "5ka",
