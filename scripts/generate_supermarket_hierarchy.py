@@ -7,9 +7,10 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-TREE_PATH = ROOT / "backend" / "data" / "supermarket_catalog_tree.json"
-HIERARCHY_PATH = ROOT / "backend" / "data" / "supermarket_category_hierarchy.json"
-ENRICHED_PATH = ROOT / "backend" / "data" / "market_parent_enriched.json"
+ARCHIVE_DIR = ROOT / "backend" / "data" / "archive"
+TREE_PATH = ARCHIVE_DIR / "supermarket_catalog_tree.json"
+HIERARCHY_PATH = ARCHIVE_DIR / "supermarket_category_hierarchy.json"
+ENRICHED_PATH = ARCHIVE_DIR / "market_parent_enriched.json"
 
 FALLBACK_L1 = "Прочее"
 FALLBACK_L2 = "Прочее"

@@ -87,7 +87,7 @@
       "label": "_allowed_origins()",
       "file_type": "code",
       "source_file": "backend/main.py",
-      "source_location": "L15",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "backend_main_allowed_origins",
       "community": 20,
@@ -97,7 +97,7 @@
       "label": "_local_network_origin_regex()",
       "file_type": "code",
       "source_file": "backend/main.py",
-      "source_location": "L23",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "backend_main_local_network_origin_regex",
       "community": 20,
@@ -107,7 +107,7 @@
       "label": "lifespan()",
       "file_type": "code",
       "source_file": "backend/main.py",
-      "source_location": "L29",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "backend_main_lifespan",
       "community": 20,
@@ -117,7 +117,7 @@
       "label": "FastAPI",
       "file_type": "code",
       "source_file": "backend/main.py",
-      "source_location": "L29",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "fastapi",
       "community": 20,
@@ -127,7 +127,7 @@
       "label": "health()",
       "file_type": "code",
       "source_file": "backend/main.py",
-      "source_location": "L52",
+      "source_location": "L72",
       "_origin": "ast",
       "id": "backend_main_health",
       "community": 20,
@@ -137,7 +137,7 @@
       "label": "HealthResponse",
       "file_type": "code",
       "source_file": "backend/main.py",
-      "source_location": "L52",
+      "source_location": "L72",
       "_origin": "ast",
       "id": "healthresponse",
       "community": 20,
@@ -147,9 +147,9 @@
       "label": "Allow phone testing over Wi-Fi (Next.js dev on port 3000).",
       "file_type": "rationale",
       "source_file": "backend/main.py",
-      "source_location": "L24",
+      "source_location": "L27",
       "_origin": "ast",
-      "id": "backend_main_rationale_24",
+      "id": "backend_main_rationale_27",
       "community": 20,
       "norm_label": "allow phone testing over wi-fi (next.js dev on port 3000)."
     },
@@ -174,20 +174,20 @@
       "norm_label": "category.py"
     },
     {
-      "label": "_get_mapper()",
+      "label": "_get_bank_mapper()",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L9",
+      "source_location": "L11",
       "_origin": "ast",
-      "id": "routers_category_get_mapper",
+      "id": "routers_category_get_bank_mapper",
       "community": 20,
-      "norm_label": "_get_mapper()"
+      "norm_label": "_get_bank_mapper()"
     },
     {
       "label": "Request",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L9",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "request",
       "community": 20,
@@ -197,17 +197,57 @@
       "label": "MapperService",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L9",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "mapperservice",
       "community": 20,
       "norm_label": "mapperservice"
     },
     {
+      "label": "_get_reference_mapper()",
+      "file_type": "code",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "routers_category_get_reference_mapper",
+      "community": 20,
+      "norm_label": "_get_reference_mapper()"
+    },
+    {
+      "label": "ReferenceMapperService",
+      "file_type": "code",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "referencemapperservice",
+      "community": 20,
+      "norm_label": "referencemapperservice"
+    },
+    {
+      "label": "_get_category_normalizer()",
+      "file_type": "code",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "routers_category_get_category_normalizer",
+      "community": 20,
+      "norm_label": "_get_category_normalizer()"
+    },
+    {
+      "label": "CategoryNormalizerService",
+      "file_type": "code",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "categorynormalizerservice",
+      "community": 20,
+      "norm_label": "categorynormalizerservice"
+    },
+    {
       "label": "category_map()",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L17",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "routers_category_category_map",
       "community": 20,
@@ -217,7 +257,7 @@
       "label": "CategoryMapRequest",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L17",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "categorymaprequest",
       "community": 20,
@@ -227,7 +267,7 @@
       "label": "CategoryMapResponse",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L17",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "categorymapresponse",
       "community": 20,
@@ -240,7 +280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routers_ocr",
-      "community": 20,
+      "community": 11,
       "norm_label": "ocr.py"
     },
     {
@@ -250,7 +290,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "routers_ocr_ocr_extract",
-      "community": 20,
+      "community": 11,
       "norm_label": "ocr_extract()"
     },
     {
@@ -260,7 +300,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "ocrextractrequest",
-      "community": 20,
+      "community": 11,
       "norm_label": "ocrextractrequest"
     },
     {
@@ -270,7 +310,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "ocrextractresponse",
-      "community": 20,
+      "community": 11,
       "norm_label": "ocrextractresponse"
     },
     {
@@ -280,7 +320,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_schemas",
-      "community": 20,
+      "community": 11,
       "norm_label": "schemas.py"
     },
     {
@@ -290,7 +330,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "backend_schemas_ocrextractrequest",
-      "community": 20,
+      "community": 11,
       "norm_label": "ocrextractrequest"
     },
     {
@@ -300,34 +340,34 @@
       "source_location": "",
       "_origin": "ast",
       "id": "basemodel",
-      "community": 20,
+      "community": 11,
       "norm_label": "basemodel"
     },
     {
       "label": "OcrItem",
       "file_type": "code",
       "source_file": "backend/schemas.py",
-      "source_location": "L11",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "backend_schemas_ocritem",
-      "community": 20,
+      "community": 11,
       "norm_label": "ocritem"
     },
     {
       "label": "OcrExtractResponse",
       "file_type": "code",
       "source_file": "backend/schemas.py",
-      "source_location": "L16",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "backend_schemas_ocrextractresponse",
-      "community": 20,
+      "community": 11,
       "norm_label": "ocrextractresponse"
     },
     {
       "label": "CategoryMapRequestItem",
       "file_type": "code",
       "source_file": "backend/schemas.py",
-      "source_location": "L20",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "backend_schemas_categorymaprequestitem",
       "community": 2,
@@ -337,7 +377,7 @@
       "label": "CategoryMapRequest",
       "file_type": "code",
       "source_file": "backend/schemas.py",
-      "source_location": "L25",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "backend_schemas_categorymaprequest",
       "community": 20,
@@ -347,7 +387,7 @@
       "label": "MappedItem",
       "file_type": "code",
       "source_file": "backend/schemas.py",
-      "source_location": "L30",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "backend_schemas_mappeditem",
       "community": 2,
@@ -357,7 +397,7 @@
       "label": "CategoryMapResponse",
       "file_type": "code",
       "source_file": "backend/schemas.py",
-      "source_location": "L53",
+      "source_location": "L75",
       "_origin": "ast",
       "id": "backend_schemas_categorymapresponse",
       "community": 20,
@@ -367,10 +407,10 @@
       "label": "HealthResponse",
       "file_type": "code",
       "source_file": "backend/schemas.py",
-      "source_location": "L57",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "backend_schemas_healthresponse",
-      "community": 20,
+      "community": 11,
       "norm_label": "healthresponse"
     },
     {
@@ -437,7 +477,7 @@
       "label": "CategoryClassifierService",
       "file_type": "code",
       "source_file": "backend/services/category_classifier_service.py",
-      "source_location": "L22",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "services_category_classifier_service_categoryclassifierservice",
       "community": 2,
@@ -447,7 +487,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "backend/services/category_classifier_service.py",
-      "source_location": "L23",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "services_category_classifier_service_categoryclassifierservice_init",
       "community": 2,
@@ -457,7 +497,7 @@
       "label": "._get_client()",
       "file_type": "code",
       "source_file": "backend/services/category_classifier_service.py",
-      "source_location": "L28",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "services_category_classifier_service_categoryclassifierservice_get_client",
       "community": 2,
@@ -467,9 +507,9 @@
       "label": "Mistral",
       "file_type": "code",
       "source_file": "backend/services/category_classifier_service.py",
-      "source_location": "L28",
+      "source_location": "L46",
       "_origin": "ast",
-      "id": "mistral",
+      "id": "backend_services_category_classifier_service_py_mistral",
       "community": 2,
       "norm_label": "mistral"
     },
@@ -477,7 +517,7 @@
       "label": ".classify_parent()",
       "file_type": "code",
       "source_file": "backend/services/category_classifier_service.py",
-      "source_location": "L36",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "services_category_classifier_service_categoryclassifierservice_classify_parent",
       "community": 2,
@@ -542,6 +582,146 @@
       "id": "services_category_embedding_best_match_among",
       "community": 2,
       "norm_label": "best_match_among()"
+    },
+    {
+      "label": "category_normalizer_service.py",
+      "file_type": "code",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "services_category_normalizer_service",
+      "community": 20,
+      "norm_label": "category_normalizer_service.py"
+    },
+    {
+      "label": "_normalize_key()",
+      "file_type": "code",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "services_category_normalizer_service_normalize_key",
+      "community": 20,
+      "norm_label": "_normalize_key()"
+    },
+    {
+      "label": "_token_set_key()",
+      "file_type": "code",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "services_category_normalizer_service_token_set_key",
+      "community": 20,
+      "norm_label": "_token_set_key()"
+    },
+    {
+      "label": "_sanitize_raw()",
+      "file_type": "code",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "services_category_normalizer_service_sanitize_raw",
+      "community": 20,
+      "norm_label": "_sanitize_raw()"
+    },
+    {
+      "label": "_load_json_from_first_existing()",
+      "file_type": "code",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "services_category_normalizer_service_load_json_from_first_existing",
+      "community": 20,
+      "norm_label": "_load_json_from_first_existing()"
+    },
+    {
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "backend_services_category_normalizer_service_py_path",
+      "community": 20,
+      "norm_label": "path"
+    },
+    {
+      "label": "NormalizeResult",
+      "file_type": "code",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "services_category_normalizer_service_normalizeresult",
+      "community": 20,
+      "norm_label": "normalizeresult"
+    },
+    {
+      "label": "CategoryNormalizerService",
+      "file_type": "code",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "services_category_normalizer_service_categorynormalizerservice",
+      "community": 20,
+      "norm_label": "categorynormalizerservice"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "services_category_normalizer_service_categorynormalizerservice_init",
+      "community": 20,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".is_loaded()",
+      "file_type": "code",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "services_category_normalizer_service_categorynormalizerservice_is_loaded",
+      "community": 20,
+      "norm_label": ".is_loaded()"
+    },
+    {
+      "label": ".load()",
+      "file_type": "code",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L78",
+      "_origin": "ast",
+      "id": "services_category_normalizer_service_categorynormalizerservice_load",
+      "community": 20,
+      "norm_label": ".load()"
+    },
+    {
+      "label": ".normalize()",
+      "file_type": "code",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L108",
+      "_origin": "ast",
+      "id": "services_category_normalizer_service_categorynormalizerservice_normalize",
+      "community": 20,
+      "norm_label": ".normalize()"
+    },
+    {
+      "label": "._fuzzy_match()",
+      "file_type": "code",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L165",
+      "_origin": "ast",
+      "id": "services_category_normalizer_service_categorynormalizerservice_fuzzy_match",
+      "community": 20,
+      "norm_label": "._fuzzy_match()"
+    },
+    {
+      "label": "get_category_normalizer()",
+      "file_type": "code",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L189",
+      "_origin": "ast",
+      "id": "services_category_normalizer_service_get_category_normalizer",
+      "community": 20,
+      "norm_label": "get_category_normalizer()"
     },
     {
       "label": "mapper_service.py",
@@ -664,10 +844,20 @@
       "norm_label": ".load()"
     },
     {
+      "label": "SentenceTransformer",
+      "file_type": "code",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L150",
+      "_origin": "ast",
+      "id": "backend_services_mapper_service_py_sentencetransformer",
+      "community": 2,
+      "norm_label": "sentencetransformer"
+    },
+    {
       "label": "._resolve_parent()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L199",
+      "source_location": "L202",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_resolve_parent",
       "community": 2,
@@ -677,7 +867,7 @@
       "label": "._is_macro_subcategory()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L205",
+      "source_location": "L208",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_is_macro_subcategory",
       "community": 2,
@@ -687,7 +877,7 @@
       "label": "._resolve_exact_leaf()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L208",
+      "source_location": "L211",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_resolve_exact_leaf",
       "community": 2,
@@ -697,7 +887,7 @@
       "label": "._resolve_exact_parent()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L214",
+      "source_location": "L217",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_resolve_exact_parent",
       "community": 2,
@@ -707,7 +897,7 @@
       "label": "._match_parent_embedding()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L217",
+      "source_location": "L220",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_match_parent_embedding",
       "community": 2,
@@ -717,7 +907,7 @@
       "label": "ndarray",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L217",
+      "source_location": "L220",
       "_origin": "ast",
       "id": "backend_services_mapper_service_py_ndarray",
       "community": 2,
@@ -727,7 +917,7 @@
       "label": "._match_leaf_in_parent()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L225",
+      "source_location": "L228",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_match_leaf_in_parent",
       "community": 2,
@@ -737,7 +927,7 @@
       "label": "._lookup_catalog_entry()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L251",
+      "source_location": "L254",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_lookup_catalog_entry",
       "community": 2,
@@ -747,7 +937,7 @@
       "label": "._mapped_item()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L279",
+      "source_location": "L282",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_mapped_item",
       "community": 2,
@@ -757,9 +947,9 @@
       "label": "CategoryMapRequestItem",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L279",
+      "source_location": "L282",
       "_origin": "ast",
-      "id": "categorymaprequestitem",
+      "id": "backend_services_mapper_service_py_categorymaprequestitem",
       "community": 2,
       "norm_label": "categorymaprequestitem"
     },
@@ -767,7 +957,7 @@
       "label": "MatchSource",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L279",
+      "source_location": "L282",
       "_origin": "ast",
       "id": "matchsource",
       "community": 2,
@@ -777,9 +967,9 @@
       "label": "MappedItem",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L279",
+      "source_location": "L282",
       "_origin": "ast",
-      "id": "mappeditem",
+      "id": "backend_services_mapper_service_py_mappeditem",
       "community": 2,
       "norm_label": "mappeditem"
     },
@@ -787,7 +977,7 @@
       "label": "._map_single_item()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L319",
+      "source_location": "L316",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_map_single_item",
       "community": 2,
@@ -797,11 +987,51 @@
       "label": ".map_items()",
       "file_type": "code",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L468",
+      "source_location": "L465",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_map_items",
       "community": 2,
       "norm_label": ".map_items()"
+    },
+    {
+      "label": "market_slug_resolver.py",
+      "file_type": "code",
+      "source_file": "backend/services/market_slug_resolver.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "services_market_slug_resolver",
+      "community": 10,
+      "norm_label": "market_slug_resolver.py"
+    },
+    {
+      "label": "_normalize_market_name()",
+      "file_type": "code",
+      "source_file": "backend/services/market_slug_resolver.py",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "services_market_slug_resolver_normalize_market_name",
+      "community": 10,
+      "norm_label": "_normalize_market_name()"
+    },
+    {
+      "label": "load_market_aliases()",
+      "file_type": "code",
+      "source_file": "backend/services/market_slug_resolver.py",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "services_market_slug_resolver_load_market_aliases",
+      "community": 10,
+      "norm_label": "load_market_aliases()"
+    },
+    {
+      "label": "resolve_market_slug()",
+      "file_type": "code",
+      "source_file": "backend/services/market_slug_resolver.py",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "services_market_slug_resolver_resolve_market_slug",
+      "community": 10,
+      "norm_label": "resolve_market_slug()"
     },
     {
       "label": "ocr_service.py",
@@ -810,88 +1040,438 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "services_ocr_service",
-      "community": 20,
+      "community": 11,
       "norm_label": "ocr_service.py"
     },
     {
       "label": "_normalize_category_name()",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L73",
+      "source_location": "L89",
       "_origin": "ast",
       "id": "services_ocr_service_normalize_category_name",
-      "community": 20,
+      "community": 11,
       "norm_label": "_normalize_category_name()"
     },
     {
       "label": "_load_bank_service_patterns()",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L77",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "services_ocr_service_load_bank_service_patterns",
-      "community": 20,
+      "community": 11,
       "norm_label": "_load_bank_service_patterns()"
     },
     {
       "label": "_is_bank_service_category()",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L85",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "services_ocr_service_is_bank_service_category",
-      "community": 20,
+      "community": 11,
       "norm_label": "_is_bank_service_category()"
     },
     {
       "label": "filter_bank_services()",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L92",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "services_ocr_service_filter_bank_services",
-      "community": 20,
+      "community": 11,
       "norm_label": "filter_bank_services()"
     },
     {
       "label": "OcrItem",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L92",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "ocritem",
-      "community": 20,
+      "community": 11,
       "norm_label": "ocritem"
     },
     {
       "label": "_parse_ocr_json()",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L101",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "services_ocr_service_parse_ocr_json",
-      "community": 20,
+      "community": 11,
       "norm_label": "_parse_ocr_json()"
     },
     {
-      "label": "_parse_and_filter_ocr_json()",
+      "label": "_finalize_ocr_items()",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L123",
+      "source_location": "L139",
       "_origin": "ast",
-      "id": "services_ocr_service_parse_and_filter_ocr_json",
-      "community": 20,
-      "norm_label": "_parse_and_filter_ocr_json()"
+      "id": "services_ocr_service_finalize_ocr_items",
+      "community": 11,
+      "norm_label": "_finalize_ocr_items()"
+    },
+    {
+      "label": "_parse_response_content()",
+      "file_type": "code",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L145",
+      "_origin": "ast",
+      "id": "services_ocr_service_parse_response_content",
+      "community": 11,
+      "norm_label": "_parse_response_content()"
     },
     {
       "label": "extract_cashback_items()",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L127",
+      "source_location": "L157",
       "_origin": "ast",
       "id": "services_ocr_service_extract_cashback_items",
-      "community": 20,
+      "community": 11,
       "norm_label": "extract_cashback_items()"
+    },
+    {
+      "label": "reference_hierarchy.py",
+      "file_type": "code",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "services_reference_hierarchy",
+      "community": 28,
+      "norm_label": "reference_hierarchy.py"
+    },
+    {
+      "label": "ReferenceNode",
+      "file_type": "code",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "services_reference_hierarchy_referencenode",
+      "community": 28,
+      "norm_label": "referencenode"
+    },
+    {
+      "label": "ReferenceHierarchy",
+      "file_type": "code",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "services_reference_hierarchy_referencehierarchy",
+      "community": 28,
+      "norm_label": "referencehierarchy"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "services_reference_hierarchy_referencehierarchy_init",
+      "community": 28,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".is_loaded()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "services_reference_hierarchy_referencehierarchy_is_loaded",
+      "community": 28,
+      "norm_label": ".is_loaded()"
+    },
+    {
+      "label": ".fallback_node_id()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "services_reference_hierarchy_referencehierarchy_fallback_node_id",
+      "community": 28,
+      "norm_label": ".fallback_node_id()"
+    },
+    {
+      "label": ".load()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "services_reference_hierarchy_referencehierarchy_load",
+      "community": 28,
+      "norm_label": ".load()"
+    },
+    {
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "backend_services_reference_hierarchy_py_path",
+      "community": 28,
+      "norm_label": "path"
+    },
+    {
+      "label": ".get_node()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L112",
+      "_origin": "ast",
+      "id": "services_reference_hierarchy_referencehierarchy_get_node",
+      "community": 28,
+      "norm_label": ".get_node()"
+    },
+    {
+      "label": ".department_order()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L115",
+      "_origin": "ast",
+      "id": "services_reference_hierarchy_referencehierarchy_department_order",
+      "community": 28,
+      "norm_label": ".department_order()"
+    },
+    {
+      "label": "._insert_node()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L118",
+      "_origin": "ast",
+      "id": "services_reference_hierarchy_referencehierarchy_insert_node",
+      "community": 28,
+      "norm_label": "._insert_node()"
+    },
+    {
+      "label": "resolve_display_node()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L126",
+      "_origin": "ast",
+      "id": "services_reference_hierarchy_resolve_display_node",
+      "community": 28,
+      "norm_label": "resolve_display_node()"
+    },
+    {
+      "label": "reference_mapper_service.py",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service",
+      "community": 20,
+      "norm_label": "reference_mapper_service.py"
+    },
+    {
+      "label": "_normalize_key()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_normalize_key",
+      "community": 20,
+      "norm_label": "_normalize_key()"
+    },
+    {
+      "label": "_is_truthy_env()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_is_truthy_env",
+      "community": 20,
+      "norm_label": "_is_truthy_env()"
+    },
+    {
+      "label": "_parse_batch_size()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_parse_batch_size",
+      "community": 20,
+      "norm_label": "_parse_batch_size()"
+    },
+    {
+      "label": "ClassifyResult",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_classifyresult",
+      "community": 20,
+      "norm_label": "classifyresult"
+    },
+    {
+      "label": "ReferenceMapperService",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_referencemapperservice",
+      "community": 20,
+      "norm_label": "referencemapperservice"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L82",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_referencemapperservice_init",
+      "community": 28,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".is_loaded()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L89",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_referencemapperservice_is_loaded",
+      "community": 20,
+      "norm_label": ".is_loaded()"
+    },
+    {
+      "label": ".load()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_referencemapperservice_load",
+      "community": 20,
+      "norm_label": ".load()"
+    },
+    {
+      "label": ".map_items()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L96",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_referencemapperservice_map_items",
+      "community": 20,
+      "norm_label": ".map_items()"
+    },
+    {
+      "label": "CategoryMapRequestItem",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L96",
+      "_origin": "ast",
+      "id": "backend_services_reference_mapper_service_py_categorymaprequestitem",
+      "community": 2,
+      "norm_label": "categorymaprequestitem"
+    },
+    {
+      "label": "MappedItem",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L96",
+      "_origin": "ast",
+      "id": "backend_services_reference_mapper_service_py_mappeditem",
+      "community": 2,
+      "norm_label": "mappeditem"
+    },
+    {
+      "label": "._fallback_result()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L151",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_referencemapperservice_fallback_result",
+      "community": 20,
+      "norm_label": "._fallback_result()"
+    },
+    {
+      "label": "._resolve_result()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_referencemapperservice_resolve_result",
+      "community": 20,
+      "norm_label": "._resolve_result()"
+    },
+    {
+      "label": "ReferenceMatchSource",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "referencematchsource",
+      "community": 2,
+      "norm_label": "referencematchsource"
+    },
+    {
+      "label": "._build_flat_paths()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L171",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_referencemapperservice_build_flat_paths",
+      "community": 20,
+      "norm_label": "._build_flat_paths()"
+    },
+    {
+      "label": "._get_client()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L191",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_referencemapperservice_get_client",
+      "community": 20,
+      "norm_label": "._get_client()"
+    },
+    {
+      "label": "Mistral",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L191",
+      "_origin": "ast",
+      "id": "backend_services_reference_mapper_service_py_mistral",
+      "community": 2,
+      "norm_label": "mistral"
+    },
+    {
+      "label": "._classify_batch()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L205",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_referencemapperservice_classify_batch",
+      "community": 20,
+      "norm_label": "._classify_batch()"
+    },
+    {
+      "label": "._parse_json()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L250",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_referencemapperservice_parse_json",
+      "community": 20,
+      "norm_label": "._parse_json()"
+    },
+    {
+      "label": "._to_classify_result()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L260",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_referencemapperservice_to_classify_result",
+      "community": 20,
+      "norm_label": "._to_classify_result()"
+    },
+    {
+      "label": "._mapped_item_from_result()",
+      "file_type": "code",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L277",
+      "_origin": "ast",
+      "id": "services_reference_mapper_service_referencemapperservice_mapped_item_from_result",
+      "community": 2,
+      "norm_label": "._mapped_item_from_result()"
     },
     {
       "label": "components.json",
@@ -1180,7 +1760,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_image_file_picker",
-      "community": 5,
+      "community": 1,
       "norm_label": "image-file-picker.tsx"
     },
     {
@@ -1190,7 +1770,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_image_file_picker_imagefilepickerstate",
-      "community": 5,
+      "community": 1,
       "norm_label": "imagefilepickerstate"
     },
     {
@@ -1230,7 +1810,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_processing_warnings_banner",
-      "community": 3,
+      "community": 0,
       "norm_label": "processing-warnings-banner.tsx"
     },
     {
@@ -1240,7 +1820,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_processing_warnings_banner_formatlowconfidence",
-      "community": 3,
+      "community": 0,
       "norm_label": "formatlowconfidence()"
     },
     {
@@ -1250,7 +1830,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "components_processing_warnings_banner_processingwarningsbanner",
-      "community": 3,
+      "community": 0,
       "norm_label": "processingwarningsbanner()"
     },
     {
@@ -1310,7 +1890,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_provider_logo",
-      "community": 24,
+      "community": 27,
       "norm_label": "provider-logo.tsx"
     },
     {
@@ -1320,7 +1900,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "components_provider_logo_placeholder_palette",
-      "community": 24,
+      "community": 27,
       "norm_label": "placeholder_palette"
     },
     {
@@ -1330,7 +1910,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "components_provider_logo_isplaceholderproviderlogo",
-      "community": 24,
+      "community": 27,
       "norm_label": "isplaceholderproviderlogo()"
     },
     {
@@ -1340,7 +1920,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "components_provider_logo_getproviderinitial",
-      "community": 24,
+      "community": 27,
       "norm_label": "getproviderinitial()"
     },
     {
@@ -1350,7 +1930,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "components_provider_logo_hashstring",
-      "community": 24,
+      "community": 27,
       "norm_label": "hashstring()"
     },
     {
@@ -1360,7 +1940,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "components_provider_logo_getplaceholderavatarcolors",
-      "community": 24,
+      "community": 27,
       "norm_label": "getplaceholderavatarcolors()"
     },
     {
@@ -1370,7 +1950,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "components_provider_logo_providerlogo",
-      "community": 24,
+      "community": 27,
       "norm_label": "providerlogo()"
     },
     {
@@ -1470,7 +2050,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "screens_bank_select_screen_getscreenshotreuseconflicts",
-      "community": 10,
+      "community": 32,
       "norm_label": "getscreenshotreuseconflicts()"
     },
     {
@@ -1480,7 +2060,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "screens_bank_select_screen_getduplicateprovidernames",
-      "community": 10,
+      "community": 32,
       "norm_label": "getduplicateprovidernames()"
     },
     {
@@ -1710,7 +2290,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screens_results_screen",
-      "community": 3,
+      "community": 0,
       "norm_label": "results-screen.tsx"
     },
     {
@@ -1720,7 +2300,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "screens_results_screen_tier_styles",
-      "community": 3,
+      "community": 0,
       "norm_label": "tier_styles"
     },
     {
@@ -1730,7 +2310,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "screens_results_screen_tab",
-      "community": 3,
+      "community": 0,
       "norm_label": "tab"
     },
     {
@@ -1740,7 +2320,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "screens_results_screen_getactivematrix",
-      "community": 3,
+      "community": 0,
       "norm_label": "getactivematrix()"
     },
     {
@@ -1750,7 +2330,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "screens_results_screen_getdefaulttab",
-      "community": 3,
+      "community": 0,
       "norm_label": "getdefaulttab()"
     },
     {
@@ -1770,7 +2350,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "screens_results_screen_matrixrowcontent",
-      "community": 10,
+      "community": 0,
       "norm_label": "matrixrowcontent()"
     },
     {
@@ -1780,7 +2360,7 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "screens_results_screen_resultsscreen",
-      "community": 3,
+      "community": 0,
       "norm_label": "resultsscreen()"
     },
     {
@@ -2077,27 +2657,17 @@
       "label": "mapCategories()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L159",
+      "source_location": "L161",
       "_origin": "ast",
       "id": "lib_api_mapcategories",
       "community": 0,
       "norm_label": "mapcategories()"
     },
     {
-      "label": "mapMarketItemsFromOcr()",
-      "file_type": "code",
-      "source_file": "lib/api.ts",
-      "source_location": "L170",
-      "_origin": "ast",
-      "id": "lib_api_mapmarketitemsfromocr",
-      "community": 0,
-      "norm_label": "mapmarketitemsfromocr()"
-    },
-    {
       "label": "processSubmission()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L179",
+      "source_location": "L174",
       "_origin": "ast",
       "id": "lib_api_processsubmission",
       "community": 0,
@@ -2107,7 +2677,7 @@
       "label": "processSubmissionWithKeyTracking()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L221",
+      "source_location": "L218",
       "_origin": "ast",
       "id": "lib_api_processsubmissionwithkeytracking",
       "community": 0,
@@ -2117,7 +2687,7 @@
       "label": "processAllSubmissions()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L239",
+      "source_location": "L236",
       "_origin": "ast",
       "id": "lib_api_processallsubmissions",
       "community": 0,
@@ -2320,7 +2890,7 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "lib_cashback_data_getcurrentmonthyear",
-      "community": 3,
+      "community": 0,
       "norm_label": "getcurrentmonthyear()"
     },
     {
@@ -2330,7 +2900,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_category_label",
-      "community": 10,
+      "community": 0,
       "norm_label": "category-label.ts"
     },
     {
@@ -2340,7 +2910,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "lib_category_label_normalizecategorylabel",
-      "community": 10,
+      "community": 0,
       "norm_label": "normalizecategorylabel()"
     },
     {
@@ -2350,7 +2920,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "lib_category_label_formatcategorylabel",
-      "community": 10,
+      "community": 0,
       "norm_label": "formatcategorylabel()"
     },
     {
@@ -2360,7 +2930,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "lib_category_label_labelsequivalent",
-      "community": 10,
+      "community": 0,
       "norm_label": "labelsequivalent()"
     },
     {
@@ -2550,97 +3120,157 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_matrix",
-      "community": 10,
+      "community": 0,
       "norm_label": "matrix.ts"
     },
     {
       "label": "slugify()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L21",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "lib_matrix_slugify",
-      "community": 10,
+      "community": 0,
       "norm_label": "slugify()"
     },
     {
       "label": "buildProviderKey()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L30",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "lib_matrix_buildproviderkey",
-      "community": 10,
+      "community": 0,
       "norm_label": "buildproviderkey()"
+    },
+    {
+      "label": "resolveBankRowKey()",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "lib_matrix_resolvebankrowkey",
+      "community": 0,
+      "norm_label": "resolvebankrowkey()"
+    },
+    {
+      "label": "rowKeyFromExisting()",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "lib_matrix_rowkeyfromexisting",
+      "community": 0,
+      "norm_label": "rowkeyfromexisting()"
+    },
+    {
+      "label": "resolveBankDisplayLabel()",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "lib_matrix_resolvebankdisplaylabel",
+      "community": 0,
+      "norm_label": "resolvebankdisplaylabel()"
+    },
+    {
+      "label": "getReferenceDepth()",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L78",
+      "_origin": "ast",
+      "id": "lib_matrix_getreferencedepth",
+      "community": 0,
+      "norm_label": "getreferencedepth()"
+    },
+    {
+      "label": "resolveMarketRowKey()",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L85",
+      "_origin": "ast",
+      "id": "lib_matrix_resolvemarketrowkey",
+      "community": 0,
+      "norm_label": "resolvemarketrowkey()"
+    },
+    {
+      "label": "consolidateGroupRows()",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L95",
+      "_origin": "ast",
+      "id": "lib_matrix_consolidategrouprows",
+      "community": 0,
+      "norm_label": "consolidategrouprows()"
     },
     {
       "label": "mergeMappedItems()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L41",
+      "source_location": "L129",
       "_origin": "ast",
       "id": "lib_matrix_mergemappeditems",
-      "community": 10,
+      "community": 0,
       "norm_label": "mergemappeditems()"
     },
     {
       "label": "mergeSubmissionsIntoMatrix()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L98",
+      "source_location": "L255",
       "_origin": "ast",
       "id": "lib_matrix_mergesubmissionsintomatrix",
-      "community": 10,
+      "community": 0,
       "norm_label": "mergesubmissionsintomatrix()"
     },
     {
       "label": "isMacroOnlyGroup()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L116",
+      "source_location": "L273",
       "_origin": "ast",
       "id": "lib_matrix_ismacroonlygroup",
-      "community": 10,
+      "community": 0,
       "norm_label": "ismacroonlygroup()"
     },
     {
       "label": "groupHasSubcategories()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L126",
+      "source_location": "L284",
       "_origin": "ast",
       "id": "lib_matrix_grouphassubcategories",
-      "community": 10,
+      "community": 0,
       "norm_label": "grouphassubcategories()"
     },
     {
       "label": "groupMatrixRows()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L130",
+      "source_location": "L288",
       "_origin": "ast",
       "id": "lib_matrix_groupmatrixrows",
-      "community": 3,
+      "community": 0,
       "norm_label": "groupmatrixrows()"
     },
     {
       "label": "findMatchingProvider()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L151",
+      "source_location": "L387",
       "_origin": "ast",
       "id": "lib_matrix_findmatchingprovider",
-      "community": 10,
+      "community": 32,
       "norm_label": "findmatchingprovider()"
     },
     {
       "label": "createProviderFromSubmission()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L160",
+      "source_location": "L396",
       "_origin": "ast",
       "id": "lib_matrix_createproviderfromsubmission",
-      "community": 10,
+      "community": 32,
       "norm_label": "createproviderfromsubmission()"
     },
     {
@@ -2650,7 +3280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_provider_logos",
-      "community": 10,
+      "community": 32,
       "norm_label": "provider-logos.ts"
     },
     {
@@ -2660,7 +3290,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "lib_provider_logos_logoentry",
-      "community": 10,
+      "community": 32,
       "norm_label": "logoentry"
     },
     {
@@ -2680,7 +3310,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "lib_provider_logos_catalogmatchresult",
-      "community": 10,
+      "community": 32,
       "norm_label": "catalogmatchresult"
     },
     {
@@ -2690,7 +3320,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "lib_provider_logos_catalogrecord",
-      "community": 10,
+      "community": 32,
       "norm_label": "catalogrecord"
     },
     {
@@ -2700,7 +3330,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "lib_provider_logos_marketrecord",
-      "community": 10,
+      "community": 32,
       "norm_label": "marketrecord"
     },
     {
@@ -2710,7 +3340,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "lib_provider_logos_logoaliasesfile",
-      "community": 10,
+      "community": 32,
       "norm_label": "logoaliasesfile"
     },
     {
@@ -2720,7 +3350,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "lib_provider_logos_logoaliases",
-      "community": 10,
+      "community": 32,
       "norm_label": "logoaliases"
     },
     {
@@ -2730,7 +3360,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "lib_provider_logos_buildcatalog",
-      "community": 10,
+      "community": 32,
       "norm_label": "buildcatalog()"
     },
     {
@@ -2740,7 +3370,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "lib_provider_logos_bankcatalog",
-      "community": 10,
+      "community": 32,
       "norm_label": "bankcatalog"
     },
     {
@@ -2750,7 +3380,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "lib_provider_logos_marketcatalog",
-      "community": 10,
+      "community": 32,
       "norm_label": "marketcatalog"
     },
     {
@@ -2760,7 +3390,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "lib_provider_logos_getcatalog",
-      "community": 10,
+      "community": 32,
       "norm_label": "getcatalog()"
     },
     {
@@ -2770,7 +3400,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "lib_provider_logos_tosuggestion",
-      "community": 10,
+      "community": 32,
       "norm_label": "tosuggestion()"
     },
     {
@@ -2780,7 +3410,7 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "lib_provider_logos_normalizeprovidername",
-      "community": 10,
+      "community": 32,
       "norm_label": "normalizeprovidername()"
     },
     {
@@ -2790,7 +3420,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "lib_provider_logos_getprovidercomparisonkey",
-      "community": 10,
+      "community": 32,
       "norm_label": "getprovidercomparisonkey()"
     },
     {
@@ -2800,7 +3430,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "lib_provider_logos_providernamesmatch",
-      "community": 10,
+      "community": 32,
       "norm_label": "providernamesmatch()"
     },
     {
@@ -2810,7 +3440,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "lib_provider_logos_issameprovideridentity",
-      "community": 10,
+      "community": 32,
       "norm_label": "issameprovideridentity()"
     },
     {
@@ -2820,7 +3450,7 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "lib_provider_logos_findcatalogmatchincatalog",
-      "community": 10,
+      "community": 32,
       "norm_label": "findcatalogmatchincatalog()"
     },
     {
@@ -2830,7 +3460,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "lib_provider_logos_findcatalogmatch",
-      "community": 10,
+      "community": 32,
       "norm_label": "findcatalogmatch()"
     },
     {
@@ -2840,7 +3470,7 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "lib_provider_logos_findcatalogmatches",
-      "community": 10,
+      "community": 32,
       "norm_label": "findcatalogmatches()"
     },
     {
@@ -2850,7 +3480,7 @@
       "source_location": "L153",
       "_origin": "ast",
       "id": "lib_provider_logos_scorenamematch",
-      "community": 10,
+      "community": 32,
       "norm_label": "scorenamematch()"
     },
     {
@@ -2860,7 +3490,7 @@
       "source_location": "L161",
       "_origin": "ast",
       "id": "lib_provider_logos_searchcatalogsuggestions",
-      "community": 10,
+      "community": 32,
       "norm_label": "searchcatalogsuggestions()"
     },
     {
@@ -2870,7 +3500,7 @@
       "source_location": "L217",
       "_origin": "ast",
       "id": "lib_provider_logos_searchprovidersuggestions",
-      "community": 10,
+      "community": 32,
       "norm_label": "searchprovidersuggestions()"
     },
     {
@@ -2880,7 +3510,7 @@
       "source_location": "L227",
       "_origin": "ast",
       "id": "lib_provider_logos_searchallprovidersuggestions",
-      "community": 1,
+      "community": 32,
       "norm_label": "searchallprovidersuggestions()"
     },
     {
@@ -2890,7 +3520,7 @@
       "source_location": "L261",
       "_origin": "ast",
       "id": "lib_provider_logos_getproviderlogobyslug",
-      "community": 10,
+      "community": 32,
       "norm_label": "getproviderlogobyslug()"
     },
     {
@@ -2900,7 +3530,7 @@
       "source_location": "L266",
       "_origin": "ast",
       "id": "lib_provider_logos_resolveproviderlogo",
-      "community": 10,
+      "community": 32,
       "norm_label": "resolveproviderlogo()"
     },
     {
@@ -2912,6 +3542,26 @@
       "id": "lib_provider_logos_getmarketautocompletenames",
       "community": 3,
       "norm_label": "getmarketautocompletenames()"
+    },
+    {
+      "label": "reference-hierarchy-order.ts",
+      "file_type": "code",
+      "source_file": "lib/reference-hierarchy-order.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "lib_reference_hierarchy_order",
+      "community": 0,
+      "norm_label": "reference-hierarchy-order.ts"
+    },
+    {
+      "label": "REFERENCE_HIERARCHY_DEPARTMENT_ORDER",
+      "file_type": "code",
+      "source_file": "lib/reference-hierarchy-order.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "lib_reference_hierarchy_order_reference_hierarchy_department_order",
+      "community": 0,
+      "norm_label": "reference_hierarchy_department_order"
     },
     {
       "label": "types.ts",
@@ -2967,7 +3617,7 @@
       "label": "MatrixProvider",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L28",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "lib_types_matrixprovider",
       "community": 0,
@@ -2977,7 +3627,7 @@
       "label": "MatrixRow",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L34",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "lib_types_matrixrow",
       "community": 0,
@@ -2987,7 +3637,7 @@
       "label": "MatrixGroup",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L42",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "lib_types_matrixgroup",
       "community": 0,
@@ -2997,7 +3647,7 @@
       "label": "CashbackMatrix",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L49",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "lib_types_cashbackmatrix",
       "community": 0,
@@ -3007,7 +3657,7 @@
       "label": "MatrixState",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L55",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "lib_types_matrixstate",
       "community": 0,
@@ -3017,7 +3667,7 @@
       "label": "OcrExtractResponse",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L60",
+      "source_location": "L81",
       "_origin": "ast",
       "id": "lib_types_ocrextractresponse",
       "community": 0,
@@ -3027,7 +3677,7 @@
       "label": "CategoryMapResponse",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L64",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "lib_types_categorymapresponse",
       "community": 0,
@@ -3037,7 +3687,7 @@
       "label": "SkippedSubmission",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L68",
+      "source_location": "L89",
       "_origin": "ast",
       "id": "lib_types_skippedsubmission",
       "community": 0,
@@ -3047,7 +3697,7 @@
       "label": "LowConfidenceItem",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L73",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "lib_types_lowconfidenceitem",
       "community": 0,
@@ -3057,7 +3707,7 @@
       "label": "BankOfferItem",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L80",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "lib_types_bankofferitem",
       "community": 0,
@@ -3067,10 +3717,10 @@
       "label": "ProcessingSummary",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L87",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "lib_types_processingsummary",
-      "community": 3,
+      "community": 0,
       "norm_label": "processingsummary"
     },
     {
@@ -3464,6 +4114,206 @@
       "norm_label": "config"
     },
     {
+      "label": "auto_map_market_catalog.py",
+      "file_type": "code",
+      "source_file": "scripts/auto_map_market_catalog.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_auto_map_market_catalog",
+      "community": 2,
+      "norm_label": "auto_map_market_catalog.py"
+    },
+    {
+      "label": "_normalize()",
+      "file_type": "code",
+      "source_file": "scripts/auto_map_market_catalog.py",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "scripts_auto_map_market_catalog_normalize",
+      "community": 2,
+      "norm_label": "_normalize()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/auto_map_market_catalog.py",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "scripts_auto_map_market_catalog_main",
+      "community": 2,
+      "norm_label": "main()"
+    },
+    {
+      "label": "build_category_alias_index.py",
+      "file_type": "code",
+      "source_file": "scripts/build_category_alias_index.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_build_category_alias_index",
+      "community": 24,
+      "norm_label": "build_category_alias_index.py"
+    },
+    {
+      "label": "_normalize_key()",
+      "file_type": "code",
+      "source_file": "scripts/build_category_alias_index.py",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "scripts_build_category_alias_index_normalize_key",
+      "community": 24,
+      "norm_label": "_normalize_key()"
+    },
+    {
+      "label": "_permutations_for_key()",
+      "file_type": "code",
+      "source_file": "scripts/build_category_alias_index.py",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "scripts_build_category_alias_index_permutations_for_key",
+      "community": 24,
+      "norm_label": "_permutations_for_key()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/build_category_alias_index.py",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "scripts_build_category_alias_index_main",
+      "community": 24,
+      "norm_label": "main()"
+    },
+    {
+      "label": "build_reference_hierarchy.py",
+      "file_type": "code",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_build_reference_hierarchy",
+      "community": 29,
+      "norm_label": "build_reference_hierarchy.py"
+    },
+    {
+      "label": "_collapse_spaces()",
+      "file_type": "code",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "scripts_build_reference_hierarchy_collapse_spaces",
+      "community": 29,
+      "norm_label": "_collapse_spaces()"
+    },
+    {
+      "label": "_strip_bullet_text()",
+      "file_type": "code",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "scripts_build_reference_hierarchy_strip_bullet_text",
+      "community": 29,
+      "norm_label": "_strip_bullet_text()"
+    },
+    {
+      "label": "_section_blocks()",
+      "file_type": "code",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "scripts_build_reference_hierarchy_section_blocks",
+      "community": 29,
+      "norm_label": "_section_blocks()"
+    },
+    {
+      "label": "_parse_tree_block()",
+      "file_type": "code",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "scripts_build_reference_hierarchy_parse_tree_block",
+      "community": 29,
+      "norm_label": "_parse_tree_block()"
+    },
+    {
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "any",
+      "community": 29,
+      "norm_label": "any"
+    },
+    {
+      "label": "build_reference_hierarchy()",
+      "file_type": "code",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L98",
+      "_origin": "ast",
+      "id": "scripts_build_reference_hierarchy_build_reference_hierarchy",
+      "community": 29,
+      "norm_label": "build_reference_hierarchy()"
+    },
+    {
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L98",
+      "_origin": "ast",
+      "id": "scripts_build_reference_hierarchy_py_path",
+      "community": 29,
+      "norm_label": "path"
+    },
+    {
+      "label": "validate_hierarchy()",
+      "file_type": "code",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L135",
+      "_origin": "ast",
+      "id": "scripts_build_reference_hierarchy_validate_hierarchy",
+      "community": 29,
+      "norm_label": "validate_hierarchy()"
+    },
+    {
+      "label": "_resolve_markdown_path()",
+      "file_type": "code",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L186",
+      "_origin": "ast",
+      "id": "scripts_build_reference_hierarchy_resolve_markdown_path",
+      "community": 29,
+      "norm_label": "_resolve_markdown_path()"
+    },
+    {
+      "label": "_parse_args()",
+      "file_type": "code",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L192",
+      "_origin": "ast",
+      "id": "scripts_build_reference_hierarchy_parse_args",
+      "community": 29,
+      "norm_label": "_parse_args()"
+    },
+    {
+      "label": "Namespace",
+      "file_type": "code",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L192",
+      "_origin": "ast",
+      "id": "namespace",
+      "community": 29,
+      "norm_label": "namespace"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L205",
+      "_origin": "ast",
+      "id": "scripts_build_reference_hierarchy_main",
+      "community": 29,
+      "norm_label": "main()"
+    },
+    {
       "label": "copy-logo-assets.mjs",
       "file_type": "code",
       "source_file": "scripts/copy-logo-assets.mjs",
@@ -3654,13 +4504,143 @@
       "norm_label": "main()"
     },
     {
+      "label": "generate_supermarket_hierarchy.py",
+      "file_type": "code",
+      "source_file": "scripts/generate_supermarket_hierarchy.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_generate_supermarket_hierarchy",
+      "community": 26,
+      "norm_label": "generate_supermarket_hierarchy.py"
+    },
+    {
+      "label": "_normalize()",
+      "file_type": "code",
+      "source_file": "scripts/generate_supermarket_hierarchy.py",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "scripts_generate_supermarket_hierarchy_normalize",
+      "community": 26,
+      "norm_label": "_normalize()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/generate_supermarket_hierarchy.py",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "scripts_generate_supermarket_hierarchy_main",
+      "community": 26,
+      "norm_label": "main()"
+    },
+    {
+      "label": "scrape_edadeal_categories.py",
+      "file_type": "code",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_scrape_edadeal_categories",
+      "community": 21,
+      "norm_label": "scrape_edadeal_categories.py"
+    },
+    {
+      "label": "_load_json()",
+      "file_type": "code",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "scripts_scrape_edadeal_categories_load_json",
+      "community": 21,
+      "norm_label": "_load_json()"
+    },
+    {
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "scripts_scrape_edadeal_categories_py_path",
+      "community": 21,
+      "norm_label": "path"
+    },
+    {
+      "label": "_save_json()",
+      "file_type": "code",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "scripts_scrape_edadeal_categories_save_json",
+      "community": 21,
+      "norm_label": "_save_json()"
+    },
+    {
+      "label": "_catalog_key()",
+      "file_type": "code",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L72",
+      "_origin": "ast",
+      "id": "scripts_scrape_edadeal_categories_catalog_key",
+      "community": 21,
+      "norm_label": "_catalog_key()"
+    },
+    {
+      "label": "_build_parsed()",
+      "file_type": "code",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L76",
+      "_origin": "ast",
+      "id": "scripts_scrape_edadeal_categories_build_parsed",
+      "community": 21,
+      "norm_label": "_build_parsed()"
+    },
+    {
+      "label": "_create_driver()",
+      "file_type": "code",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L95",
+      "_origin": "ast",
+      "id": "scripts_scrape_edadeal_categories_create_driver",
+      "community": 21,
+      "norm_label": "_create_driver()"
+    },
+    {
+      "label": "Chrome",
+      "file_type": "code",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L95",
+      "_origin": "ast",
+      "id": "chrome",
+      "community": 21,
+      "norm_label": "chrome"
+    },
+    {
+      "label": "_scrape_retailer()",
+      "file_type": "code",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L112",
+      "_origin": "ast",
+      "id": "scripts_scrape_edadeal_categories_scrape_retailer",
+      "community": 21,
+      "norm_label": "_scrape_retailer()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L143",
+      "_origin": "ast",
+      "id": "scripts_scrape_edadeal_categories_main",
+      "community": 21,
+      "norm_label": "main()"
+    },
+    {
       "label": "sync_bank_catalog.py",
       "file_type": "code",
       "source_file": "scripts/sync_bank_catalog.py",
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_sync_bank_catalog",
-      "community": 21,
+      "community": 30,
       "norm_label": "sync_bank_catalog.py"
     },
     {
@@ -3670,7 +4650,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "scripts_sync_bank_catalog_normalize",
-      "community": 21,
+      "community": 30,
       "norm_label": "normalize()"
     },
     {
@@ -3680,7 +4660,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "scripts_sync_bank_catalog_load_bank_aliases",
-      "community": 21,
+      "community": 30,
       "norm_label": "load_bank_aliases()"
     },
     {
@@ -3690,7 +4670,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "scripts_sync_bank_catalog_load_hierarchy",
-      "community": 21,
+      "community": 30,
       "norm_label": "load_hierarchy()"
     },
     {
@@ -3700,7 +4680,7 @@
       "source_location": "L86",
       "_origin": "ast",
       "id": "scripts_sync_bank_catalog_resolve_two_stage",
-      "community": 21,
+      "community": 30,
       "norm_label": "resolve_two_stage()"
     },
     {
@@ -3710,7 +4690,7 @@
       "source_location": "L86",
       "_origin": "ast",
       "id": "scripts_sync_bank_catalog_py_ndarray",
-      "community": 21,
+      "community": 30,
       "norm_label": "ndarray"
     },
     {
@@ -3720,7 +4700,7 @@
       "source_location": "L86",
       "_origin": "ast",
       "id": "scripts_sync_bank_catalog_py_sentencetransformer",
-      "community": 21,
+      "community": 30,
       "norm_label": "sentencetransformer"
     },
     {
@@ -3730,7 +4710,7 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "scripts_sync_bank_catalog_build_catalog",
-      "community": 21,
+      "community": 30,
       "norm_label": "build_catalog()"
     },
     {
@@ -3740,7 +4720,7 @@
       "source_location": "L252",
       "_origin": "ast",
       "id": "scripts_sync_bank_catalog_main",
-      "community": 21,
+      "community": 30,
       "norm_label": "main()"
     },
     {
@@ -3750,7 +4730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_sync_category_hierarchy",
-      "community": 11,
+      "community": 31,
       "norm_label": "sync_category_hierarchy.py"
     },
     {
@@ -3760,7 +4740,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "scripts_sync_category_hierarchy_normalize",
-      "community": 11,
+      "community": 31,
       "norm_label": "normalize()"
     },
     {
@@ -3770,7 +4750,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "scripts_sync_category_hierarchy_build_hierarchy",
-      "community": 11,
+      "community": 31,
       "norm_label": "build_hierarchy()"
     },
     {
@@ -3780,7 +4760,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "scripts_sync_category_hierarchy_main",
-      "community": 11,
+      "community": 31,
       "norm_label": "main()"
     },
     {
@@ -4031,6 +5011,106 @@
       "_origin": "ast",
       "id": "scripts_verify_bank_catalog_main",
       "community": 2,
+      "norm_label": "main()"
+    },
+    {
+      "label": "verify_category_normalizer.py",
+      "file_type": "code",
+      "source_file": "scripts/verify_category_normalizer.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_verify_category_normalizer",
+      "community": 20,
+      "norm_label": "verify_category_normalizer.py"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/verify_category_normalizer.py",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "scripts_verify_category_normalizer_main",
+      "community": 20,
+      "norm_label": "main()"
+    },
+    {
+      "label": "verify_reference_mapper.py",
+      "file_type": "code",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_verify_reference_mapper",
+      "community": 20,
+      "norm_label": "verify_reference_mapper.py"
+    },
+    {
+      "label": "VerifyCase",
+      "file_type": "code",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "scripts_verify_reference_mapper_verifycase",
+      "community": 20,
+      "norm_label": "verifycase"
+    },
+    {
+      "label": "_format_expectations()",
+      "file_type": "code",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L91",
+      "_origin": "ast",
+      "id": "scripts_verify_reference_mapper_format_expectations",
+      "community": 20,
+      "norm_label": "_format_expectations()"
+    },
+    {
+      "label": "_format_actual()",
+      "file_type": "code",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L99",
+      "_origin": "ast",
+      "id": "scripts_verify_reference_mapper_format_actual",
+      "community": 20,
+      "norm_label": "_format_actual()"
+    },
+    {
+      "label": "_load_backend_env()",
+      "file_type": "code",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L109",
+      "_origin": "ast",
+      "id": "scripts_verify_reference_mapper_load_backend_env",
+      "community": 20,
+      "norm_label": "_load_backend_env()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "scripts_verify_reference_mapper_main",
+      "community": 20,
+      "norm_label": "main()"
+    },
+    {
+      "label": "verify_reference_mapper_offline.py",
+      "file_type": "code",
+      "source_file": "scripts/verify_reference_mapper_offline.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_verify_reference_mapper_offline",
+      "community": 28,
+      "norm_label": "verify_reference_mapper_offline.py"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/verify_reference_mapper_offline.py",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "scripts_verify_reference_mapper_offline_main",
+      "community": 28,
       "norm_label": "main()"
     },
     {
@@ -4363,6 +5443,17 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/main.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_main",
+      "target": "services_category_normalizer_service"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
       "source_location": "L10",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4370,14 +5461,36 @@
       "target": "services_mapper_service"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/main.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_main",
+      "target": "services_reference_mapper_service"
+    },
+    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/main.py",
-      "source_location": "L24",
+      "source_location": "L27",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "backend_main_rationale_24",
+      "source": "backend_main_rationale_27",
       "target": "backend_main_local_network_origin_regex"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/main.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "backend_main_lifespan",
+      "target": "backend_services_mapper_service_py_sentencetransformer"
     },
     {
       "relation": "references",
@@ -4396,10 +5509,32 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/main.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "backend_main_lifespan",
+      "target": "services_category_normalizer_service_categorynormalizerservice"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/main.py",
       "source_location": "L25",
       "weight": 1.0,
       "source": "backend_main_lifespan",
       "target": "services_mapper_service_mapperservice"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/main.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "backend_main_lifespan",
+      "target": "services_reference_mapper_service_referencemapperservice"
     },
     {
       "relation": "uses",
@@ -4415,11 +5550,31 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/main.py",
+      "source_location": "L11",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "fastapi",
+      "target": "services_category_normalizer_service_categorynormalizerservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
       "source_location": "L10",
       "weight": 0.8,
       "confidence_score": 0.5,
       "source": "fastapi",
       "target": "services_mapper_service_mapperservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L12",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "fastapi",
+      "target": "services_reference_mapper_service_referencemapperservice"
     },
     {
       "relation": "imports_from",
@@ -4468,11 +5623,31 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/main.py",
+      "source_location": "L11",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "healthresponse",
+      "target": "services_category_normalizer_service_categorynormalizerservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
       "source_location": "L10",
       "weight": 0.8,
       "confidence_score": 0.5,
       "source": "healthresponse",
       "target": "services_mapper_service_mapperservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/main.py",
+      "source_location": "L12",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "healthresponse",
+      "target": "services_reference_mapper_service_referencemapperservice"
     },
     {
       "relation": "contains",
@@ -4488,11 +5663,42 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/routers/category.py",
-      "source_location": "L9",
+      "source_location": "L11",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "routers_category",
-      "target": "routers_category_get_mapper"
+      "target": "routers_category_get_bank_mapper"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routers_category",
+      "target": "routers_category_get_category_normalizer"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routers_category",
+      "target": "routers_category_get_reference_mapper"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routers_category",
+      "target": "services_category_normalizer_service"
     },
     {
       "relation": "imports_from",
@@ -4506,25 +5712,36 @@
       "target": "services_mapper_service"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routers_category",
+      "target": "services_reference_mapper_service"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/routers/category.py",
-      "source_location": "L18",
+      "source_location": "L54",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "routers_category_category_map",
-      "target": "routers_category_get_mapper"
+      "target": "routers_category_get_bank_mapper"
     },
     {
       "relation": "references",
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/routers/category.py",
-      "source_location": "L9",
+      "source_location": "L11",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "routers_category_get_mapper",
+      "source": "routers_category_get_bank_mapper",
       "target": "mapperservice"
     },
     {
@@ -4532,10 +5749,10 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/routers/category.py",
-      "source_location": "L9",
+      "source_location": "L11",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "routers_category_get_mapper",
+      "source": "routers_category_get_bank_mapper",
       "target": "request"
     },
     {
@@ -4566,7 +5783,27 @@
       "weight": 0.8,
       "confidence_score": 0.5,
       "source": "request",
+      "target": "services_category_normalizer_service_categorynormalizerservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L4",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "request",
       "target": "services_mapper_service_mapperservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L6",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "request",
+      "target": "services_reference_mapper_service_referencemapperservice"
     },
     {
       "relation": "references",
@@ -4580,6 +5817,28 @@
       "target": "request"
     },
     {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routers_category_get_category_normalizer",
+      "target": "request"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routers_category_get_reference_mapper",
+      "target": "request"
+    },
+    {
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/routers/category.py",
@@ -4607,7 +5866,171 @@
       "weight": 0.8,
       "confidence_score": 0.5,
       "source": "mapperservice",
+      "target": "services_category_normalizer_service_categorynormalizerservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L4",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "mapperservice",
       "target": "services_mapper_service_mapperservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L6",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "mapperservice",
+      "target": "services_reference_mapper_service_referencemapperservice"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routers_category_category_map",
+      "target": "routers_category_get_reference_mapper"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routers_category_get_reference_mapper",
+      "target": "referencemapperservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L3",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "referencemapperservice",
+      "target": "backend_schemas_categorymaprequest"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L3",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "referencemapperservice",
+      "target": "backend_schemas_categorymapresponse"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L4",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "referencemapperservice",
+      "target": "services_category_normalizer_service_categorynormalizerservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L5",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "referencemapperservice",
+      "target": "services_mapper_service_mapperservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L6",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "referencemapperservice",
+      "target": "services_reference_mapper_service_referencemapperservice"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routers_category_category_map",
+      "target": "routers_category_get_category_normalizer"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routers_category_get_category_normalizer",
+      "target": "categorynormalizerservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L3",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "categorynormalizerservice",
+      "target": "backend_schemas_categorymaprequest"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L3",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "categorynormalizerservice",
+      "target": "backend_schemas_categorymapresponse"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L4",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "categorynormalizerservice",
+      "target": "services_category_normalizer_service_categorynormalizerservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L5",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "categorynormalizerservice",
+      "target": "services_mapper_service_mapperservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L6",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "categorynormalizerservice",
+      "target": "services_reference_mapper_service_referencemapperservice"
     },
     {
       "relation": "references",
@@ -4659,7 +6082,27 @@
       "weight": 0.8,
       "confidence_score": 0.5,
       "source": "categorymaprequest",
+      "target": "services_category_normalizer_service_categorynormalizerservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L4",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "categorymaprequest",
       "target": "services_mapper_service_mapperservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L6",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "categorymaprequest",
+      "target": "services_reference_mapper_service_referencemapperservice"
     },
     {
       "relation": "uses",
@@ -4689,7 +6132,27 @@
       "weight": 0.8,
       "confidence_score": 0.5,
       "source": "categorymapresponse",
+      "target": "services_category_normalizer_service_categorynormalizerservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L4",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "categorymapresponse",
       "target": "services_mapper_service_mapperservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L6",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "categorymapresponse",
+      "target": "services_reference_mapper_service_referencemapperservice"
     },
     {
       "relation": "contains",
@@ -4962,27 +6425,7 @@
       "source_location": "L9",
       "weight": 0.8,
       "confidence_score": 0.5,
-      "source": "backend_services_mapper_service_py_ndarray",
-      "target": "backend_schemas_categorymaprequestitem"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/services/mapper_service.py",
-      "source_location": "L7",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "categorymaprequestitem",
-      "target": "backend_schemas_categorymaprequestitem"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/services/mapper_service.py",
-      "source_location": "L7",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "mappeditem",
+      "source": "backend_services_mapper_service_py_categorymaprequestitem",
       "target": "backend_schemas_categorymaprequestitem"
     },
     {
@@ -4992,7 +6435,87 @@
       "source_location": "L9",
       "weight": 0.8,
       "confidence_score": 0.5,
+      "source": "backend_services_mapper_service_py_mappeditem",
+      "target": "backend_schemas_categorymaprequestitem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "backend_services_mapper_service_py_ndarray",
+      "target": "backend_schemas_categorymaprequestitem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "backend_services_mapper_service_py_sentencetransformer",
+      "target": "backend_schemas_categorymaprequestitem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L10",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "backend_services_reference_mapper_service_py_categorymaprequestitem",
+      "target": "backend_schemas_categorymaprequestitem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L10",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "backend_services_reference_mapper_service_py_mappeditem",
+      "target": "backend_schemas_categorymaprequestitem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L10",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "backend_services_reference_mapper_service_py_mistral",
+      "target": "backend_schemas_categorymaprequestitem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L9",
+      "weight": 0.8,
       "source": "matchsource",
+      "target": "backend_schemas_categorymaprequestitem",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L10",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "referencematchsource",
+      "target": "backend_schemas_categorymaprequestitem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L15",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "scripts_verify_reference_mapper_verifycase",
       "target": "backend_schemas_categorymaprequestitem"
     },
     {
@@ -5008,6 +6531,46 @@
     {
       "relation": "uses",
       "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L10",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "services_reference_mapper_service_classifyresult",
+      "target": "backend_schemas_categorymaprequestitem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L10",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "services_reference_mapper_service_referencemapperservice",
+      "target": "backend_schemas_categorymaprequestitem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "backend_services_mapper_service_py_categorymaprequestitem",
+      "target": "backend_schemas_mappeditem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "backend_services_mapper_service_py_mappeditem",
+      "target": "backend_schemas_mappeditem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
       "source_file": "backend/services/mapper_service.py",
       "source_location": "L9",
       "weight": 0.8,
@@ -5019,20 +6582,40 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L7",
+      "source_location": "L9",
       "weight": 0.8,
       "confidence_score": 0.5,
-      "source": "categorymaprequestitem",
+      "source": "backend_services_mapper_service_py_sentencetransformer",
       "target": "backend_schemas_mappeditem"
     },
     {
       "relation": "uses",
       "confidence": "INFERRED",
-      "source_file": "backend/services/mapper_service.py",
-      "source_location": "L7",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L10",
       "weight": 0.8,
       "confidence_score": 0.5,
-      "source": "mappeditem",
+      "source": "backend_services_reference_mapper_service_py_categorymaprequestitem",
+      "target": "backend_schemas_mappeditem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L10",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "backend_services_reference_mapper_service_py_mappeditem",
+      "target": "backend_schemas_mappeditem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L10",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "backend_services_reference_mapper_service_py_mistral",
       "target": "backend_schemas_mappeditem"
     },
     {
@@ -5041,8 +6624,18 @@
       "source_file": "backend/services/mapper_service.py",
       "source_location": "L9",
       "weight": 0.8,
-      "confidence_score": 0.5,
       "source": "matchsource",
+      "target": "backend_schemas_mappeditem",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L10",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "referencematchsource",
       "target": "backend_schemas_mappeditem"
     },
     {
@@ -5053,6 +6646,26 @@
       "weight": 0.8,
       "confidence_score": 0.5,
       "source": "services_mapper_service_mapperservice",
+      "target": "backend_schemas_mappeditem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L10",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "services_reference_mapper_service_classifyresult",
+      "target": "backend_schemas_mappeditem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L10",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "services_reference_mapper_service_referencemapperservice",
       "target": "backend_schemas_mappeditem"
     },
     {
@@ -5179,6 +6792,26 @@
       "source_location": "L11",
       "weight": 0.8,
       "confidence_score": 0.5,
+      "source": "backend_services_mapper_service_py_categorymaprequestitem",
+      "target": "services_category_classifier_service_categoryclassifierservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L11",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "backend_services_mapper_service_py_mappeditem",
+      "target": "services_category_classifier_service_categoryclassifierservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L11",
+      "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "backend_services_mapper_service_py_ndarray",
       "target": "services_category_classifier_service_categoryclassifierservice"
     },
@@ -5189,7 +6822,7 @@
       "source_location": "L11",
       "weight": 0.8,
       "confidence_score": 0.5,
-      "source": "categorymaprequestitem",
+      "source": "backend_services_mapper_service_py_sentencetransformer",
       "target": "services_category_classifier_service_categoryclassifierservice"
     },
     {
@@ -5198,19 +6831,9 @@
       "source_file": "backend/services/mapper_service.py",
       "source_location": "L11",
       "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "mappeditem",
-      "target": "services_category_classifier_service_categoryclassifierservice"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/services/mapper_service.py",
-      "source_location": "L11",
-      "weight": 0.8,
-      "confidence_score": 0.5,
       "source": "matchsource",
-      "target": "services_category_classifier_service_categoryclassifierservice"
+      "target": "services_category_classifier_service_categoryclassifierservice",
+      "confidence_score": 0.5
     },
     {
       "relation": "method",
@@ -5279,22 +6902,22 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/category_classifier_service.py",
-      "source_location": "L28",
+      "source_location": "L46",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "services_category_classifier_service_categoryclassifierservice_get_client",
-      "target": "mistral"
+      "target": "backend_services_category_classifier_service_py_mistral"
     },
     {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backend/services/ocr_service.py",
-      "source_location": "L132",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/auto_map_market_catalog.py",
+      "source_location": "L14",
       "weight": 1.0,
-      "source": "services_ocr_service_extract_cashback_items",
-      "target": "mistral"
+      "confidence_score": 1.0,
+      "source": "scripts_auto_map_market_catalog",
+      "target": "services_category_embedding"
     },
     {
       "relation": "contains",
@@ -5336,6 +6959,17 @@
       "confidence_score": 1.0,
       "source": "services_mapper_service",
       "target": "services_category_embedding"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/auto_map_market_catalog.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "scripts_auto_map_market_catalog_main",
+      "target": "services_category_embedding_encode_texts"
     },
     {
       "relation": "references",
@@ -5386,6 +7020,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "scripts/auto_map_market_catalog.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "scripts_auto_map_market_catalog_main",
+      "target": "backend_services_category_embedding_py_sentencetransformer"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "backend/services/mapper_service.py",
       "source_location": "L187",
       "weight": 1.0,
@@ -5413,6 +7058,17 @@
       "confidence_score": 1.0,
       "source": "services_category_embedding_best_match_among",
       "target": "backend_services_category_embedding_py_ndarray"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/auto_map_market_catalog.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "scripts_auto_map_market_catalog_main",
+      "target": "services_category_embedding_best_match"
     },
     {
       "relation": "calls",
@@ -5446,6 +7102,323 @@
       "weight": 1.0,
       "source": "services_mapper_service_mapperservice_match_leaf_in_parent",
       "target": "services_category_embedding_best_match_among"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_category_normalizer.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_category_normalizer",
+      "target": "services_category_normalizer_service"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_reference_mapper",
+      "target": "services_category_normalizer_service"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service",
+      "target": "services_category_normalizer_service_categorynormalizerservice"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L173",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service",
+      "target": "services_category_normalizer_service_get_category_normalizer"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "services_category_normalizer_service",
+      "target": "services_category_normalizer_service_load_json_from_first_existing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service",
+      "target": "services_category_normalizer_service_normalize_key"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service",
+      "target": "services_category_normalizer_service_normalizeresult"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service",
+      "target": "services_category_normalizer_service_sanitize_raw"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service",
+      "target": "services_category_normalizer_service_token_set_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_categorynormalizerservice_load",
+      "target": "services_category_normalizer_service_normalize_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_categorynormalizerservice_normalize",
+      "target": "services_category_normalizer_service_normalize_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_sanitize_raw",
+      "target": "services_category_normalizer_service_normalize_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_token_set_key",
+      "target": "services_category_normalizer_service_normalize_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_categorynormalizerservice_load",
+      "target": "services_category_normalizer_service_token_set_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L116",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_categorynormalizerservice_normalize",
+      "target": "services_category_normalizer_service_token_set_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L94",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_categorynormalizerservice_normalize",
+      "target": "services_category_normalizer_service_sanitize_raw"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "services_category_normalizer_service_categorynormalizerservice_load",
+      "target": "services_category_normalizer_service_load_json_from_first_existing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "services_category_normalizer_service_load_json_from_first_existing",
+      "target": "backend_services_category_normalizer_service_py_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_categorynormalizerservice_normalize",
+      "target": "services_category_normalizer_service_normalizeresult"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/verify_category_normalizer.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "scripts_verify_category_normalizer_main",
+      "target": "services_category_normalizer_service_categorynormalizerservice"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "scripts_verify_reference_mapper_main",
+      "target": "services_category_normalizer_service_categorynormalizerservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L16",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "scripts_verify_reference_mapper_verifycase",
+      "target": "services_category_normalizer_service_categorynormalizerservice"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L149",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_categorynormalizerservice",
+      "target": "services_category_normalizer_service_categorynormalizerservice_fuzzy_match"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_categorynormalizerservice",
+      "target": "services_category_normalizer_service_categorynormalizerservice_init"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_categorynormalizerservice",
+      "target": "services_category_normalizer_service_categorynormalizerservice_is_loaded"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_categorynormalizerservice",
+      "target": "services_category_normalizer_service_categorynormalizerservice_load"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_categorynormalizerservice",
+      "target": "services_category_normalizer_service_categorynormalizerservice_normalize"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L173",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_get_category_normalizer",
+      "target": "services_category_normalizer_service_categorynormalizerservice"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L177",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_get_category_normalizer",
+      "target": "services_category_normalizer_service_categorynormalizerservice_load"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_normalizer_service.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_category_normalizer_service_categorynormalizerservice_normalize",
+      "target": "services_category_normalizer_service_categorynormalizerservice_fuzzy_match"
     },
     {
       "relation": "imports_from",
@@ -5922,6 +7895,17 @@
       "target": "services_mapper_service_mapperservice_resolve_parent"
     },
     {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/mapper_service.py",
+      "source_location": "L150",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_mapper_service_mapperservice_load",
+      "target": "backend_services_mapper_service_py_sentencetransformer"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -6080,33 +8064,33 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L123",
+      "source_location": "L282",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "services_mapper_service_mapperservice_mapped_item",
-      "target": "categorymaprequestitem"
+      "target": "backend_services_mapper_service_py_categorymaprequestitem"
     },
     {
       "relation": "references",
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L123",
+      "source_location": "L282",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "services_mapper_service_mapperservice_mapped_item",
-      "target": "mappeditem"
+      "target": "backend_services_mapper_service_py_mappeditem"
     },
     {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L279",
+      "source_location": "L282",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "services_mapper_service_mapperservice_mapped_item",
-      "target": "matchsource"
+      "target": "matchsource",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -6114,54 +8098,54 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/verify_bank_catalog.py",
-      "source_location": "L29",
+      "source_location": "L45",
       "weight": 1.0,
       "source": "scripts_verify_bank_catalog_main",
-      "target": "categorymaprequestitem"
+      "target": "backend_services_mapper_service_py_categorymaprequestitem"
     },
     {
       "relation": "references",
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L55",
+      "source_location": "L465",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "services_mapper_service_mapperservice_map_items",
-      "target": "categorymaprequestitem"
+      "target": "backend_services_mapper_service_py_categorymaprequestitem"
     },
     {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L319",
+      "source_location": "L316",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "services_mapper_service_mapperservice_map_single_item",
-      "target": "categorymaprequestitem"
+      "target": "backend_services_mapper_service_py_categorymaprequestitem"
     },
     {
       "relation": "references",
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L55",
+      "source_location": "L465",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "services_mapper_service_mapperservice_map_items",
-      "target": "mappeditem"
+      "target": "backend_services_mapper_service_py_mappeditem"
     },
     {
       "relation": "references",
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/mapper_service.py",
-      "source_location": "L319",
+      "source_location": "L316",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "services_mapper_service_mapperservice_map_single_item",
-      "target": "mappeditem"
+      "target": "backend_services_mapper_service_py_mappeditem"
     },
     {
       "relation": "calls",
@@ -6173,6 +8157,69 @@
       "confidence_score": 1.0,
       "source": "services_mapper_service_mapperservice_map_items",
       "target": "services_mapper_service_mapperservice_map_single_item"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/market_slug_resolver.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_market_slug_resolver",
+      "target": "services_market_slug_resolver_load_market_aliases"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/market_slug_resolver.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_market_slug_resolver",
+      "target": "services_market_slug_resolver_normalize_market_name"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/market_slug_resolver.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_market_slug_resolver",
+      "target": "services_market_slug_resolver_resolve_market_slug"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/market_slug_resolver.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_market_slug_resolver_load_market_aliases",
+      "target": "services_market_slug_resolver_normalize_market_name"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/market_slug_resolver.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_market_slug_resolver_resolve_market_slug",
+      "target": "services_market_slug_resolver_normalize_market_name"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/market_slug_resolver.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_market_slug_resolver_resolve_market_slug",
+      "target": "services_market_slug_resolver_load_market_aliases"
     },
     {
       "relation": "contains",
@@ -6193,6 +8240,16 @@
       "confidence_score": 1.0,
       "source": "services_ocr_service",
       "target": "services_ocr_service_filter_bank_services"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L139",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_ocr_service",
+      "target": "services_ocr_service_finalize_ocr_items"
     },
     {
       "relation": "contains",
@@ -6228,21 +8285,21 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L123",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_ocr_service",
-      "target": "services_ocr_service_parse_and_filter_ocr_json"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/ocr_service.py",
       "source_location": "L22",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "services_ocr_service",
       "target": "services_ocr_service_parse_ocr_json"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L145",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_ocr_service",
+      "target": "services_ocr_service_parse_response_content"
     },
     {
       "relation": "calls",
@@ -6293,10 +8350,10 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L124",
+      "source_location": "L142",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "services_ocr_service_parse_and_filter_ocr_json",
+      "source": "services_ocr_service_finalize_ocr_items",
       "target": "services_ocr_service_filter_bank_services"
     },
     {
@@ -6315,10 +8372,10 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L123",
+      "source_location": "L139",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "services_ocr_service_parse_and_filter_ocr_json",
+      "source": "services_ocr_service_finalize_ocr_items",
       "target": "ocritem"
     },
     {
@@ -6330,6 +8387,17 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "services_ocr_service_parse_ocr_json",
+      "target": "ocritem"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L145",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_ocr_service_parse_response_content",
       "target": "ocritem"
     },
     {
@@ -6348,10 +8416,10 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L124",
+      "source_location": "L149",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "services_ocr_service_parse_and_filter_ocr_json",
+      "source": "services_ocr_service_parse_response_content",
       "target": "services_ocr_service_parse_ocr_json"
     },
     {
@@ -6359,11 +8427,824 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L157",
+      "source_location": "L149",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_ocr_service_parse_response_content",
+      "target": "services_ocr_service_finalize_ocr_items"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L189",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "services_ocr_service_extract_cashback_items",
-      "target": "services_ocr_service_parse_and_filter_ocr_json"
+      "target": "services_ocr_service_parse_response_content"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_reference_mapper_offline.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_reference_mapper_offline",
+      "target": "services_reference_hierarchy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy",
+      "target": "services_reference_hierarchy_referencehierarchy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy",
+      "target": "services_reference_hierarchy_referencenode"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L126",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy",
+      "target": "services_reference_hierarchy_resolve_display_node"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service",
+      "target": "services_reference_hierarchy"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L112",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy_referencehierarchy_get_node",
+      "target": "services_reference_hierarchy_referencenode"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy_referencehierarchy_insert_node",
+      "target": "services_reference_hierarchy_referencenode"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy_referencehierarchy_load",
+      "target": "services_reference_hierarchy_referencenode"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L126",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy_resolve_display_node",
+      "target": "services_reference_hierarchy_referencenode"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L11",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "backend_services_reference_mapper_service_py_categorymaprequestitem",
+      "target": "services_reference_hierarchy_referencehierarchy"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L11",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "backend_services_reference_mapper_service_py_mappeditem",
+      "target": "services_reference_hierarchy_referencehierarchy"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L11",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "backend_services_reference_mapper_service_py_mistral",
+      "target": "services_reference_hierarchy_referencehierarchy"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L11",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "referencematchsource",
+      "target": "services_reference_hierarchy_referencehierarchy"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/verify_reference_mapper_offline.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "scripts_verify_reference_mapper_offline_main",
+      "target": "services_reference_hierarchy_referencehierarchy"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L115",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy_referencehierarchy",
+      "target": "services_reference_hierarchy_referencehierarchy_department_order"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy_referencehierarchy",
+      "target": "services_reference_hierarchy_referencehierarchy_fallback_node_id"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L112",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy_referencehierarchy",
+      "target": "services_reference_hierarchy_referencehierarchy_get_node"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy_referencehierarchy",
+      "target": "services_reference_hierarchy_referencehierarchy_init"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy_referencehierarchy",
+      "target": "services_reference_hierarchy_referencehierarchy_insert_node"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy_referencehierarchy",
+      "target": "services_reference_hierarchy_referencehierarchy_is_loaded"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy_referencehierarchy",
+      "target": "services_reference_hierarchy_referencehierarchy_load"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L126",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy_resolve_display_node",
+      "target": "services_reference_hierarchy_referencehierarchy"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L11",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "services_reference_mapper_service_classifyresult",
+      "target": "services_reference_hierarchy_referencehierarchy"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L11",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "services_reference_mapper_service_referencemapperservice",
+      "target": "services_reference_hierarchy_referencehierarchy"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_init",
+      "target": "services_reference_hierarchy_referencehierarchy"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy_referencehierarchy_load",
+      "target": "backend_services_reference_hierarchy_py_path"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy_referencehierarchy_load",
+      "target": "services_reference_hierarchy_referencehierarchy_insert_node"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_hierarchy.py",
+      "source_location": "L134",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_hierarchy_resolve_display_node",
+      "target": "services_reference_hierarchy_referencehierarchy_get_node"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/verify_reference_mapper_offline.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "scripts_verify_reference_mapper_offline_main",
+      "target": "services_reference_hierarchy_resolve_display_node"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L285",
+      "weight": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_mapped_item_from_result",
+      "target": "services_reference_hierarchy_resolve_display_node"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_reference_mapper",
+      "target": "services_reference_mapper_service"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service",
+      "target": "services_reference_mapper_service_classifyresult"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service",
+      "target": "services_reference_mapper_service_is_truthy_env"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service",
+      "target": "services_reference_mapper_service_normalize_key"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service",
+      "target": "services_reference_mapper_service_parse_batch_size"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service",
+      "target": "services_reference_mapper_service_referencemapperservice"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L239",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_classify_batch",
+      "target": "services_reference_mapper_service_normalize_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L111",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_map_items",
+      "target": "services_reference_mapper_service_normalize_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L104",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_map_items",
+      "target": "services_reference_mapper_service_is_truthy_env"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L130",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_map_items",
+      "target": "services_reference_mapper_service_parse_batch_size"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L205",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_classify_batch",
+      "target": "services_reference_mapper_service_classifyresult"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L151",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_fallback_result",
+      "target": "services_reference_mapper_service_classifyresult"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L277",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_mapped_item_from_result",
+      "target": "services_reference_mapper_service_classifyresult"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_resolve_result",
+      "target": "services_reference_mapper_service_classifyresult"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L260",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_to_classify_result",
+      "target": "services_reference_mapper_service_classifyresult"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "scripts_verify_reference_mapper_main",
+      "target": "services_reference_mapper_service_referencemapperservice"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "scripts_verify_reference_mapper_verifycase",
+      "target": "services_reference_mapper_service_referencemapperservice"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L171",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice",
+      "target": "services_reference_mapper_service_referencemapperservice_build_flat_paths"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L205",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice",
+      "target": "services_reference_mapper_service_referencemapperservice_classify_batch"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L151",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice",
+      "target": "services_reference_mapper_service_referencemapperservice_fallback_result"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L191",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice",
+      "target": "services_reference_mapper_service_referencemapperservice_get_client"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L82",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice",
+      "target": "services_reference_mapper_service_referencemapperservice_init"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice",
+      "target": "services_reference_mapper_service_referencemapperservice_is_loaded"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice",
+      "target": "services_reference_mapper_service_referencemapperservice_load"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice",
+      "target": "services_reference_mapper_service_referencemapperservice_map_items"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L277",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice",
+      "target": "services_reference_mapper_service_referencemapperservice_mapped_item_from_result"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L250",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice",
+      "target": "services_reference_mapper_service_referencemapperservice_parse_json"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice",
+      "target": "services_reference_mapper_service_referencemapperservice_resolve_result"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L260",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice",
+      "target": "services_reference_mapper_service_referencemapperservice_to_classify_result"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L94",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_load",
+      "target": "services_reference_mapper_service_referencemapperservice_build_flat_paths"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_map_items",
+      "target": "backend_services_reference_mapper_service_py_categorymaprequestitem"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_map_items",
+      "target": "backend_services_reference_mapper_service_py_mappeditem"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L134",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_map_items",
+      "target": "services_reference_mapper_service_referencemapperservice_classify_batch"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L121",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_map_items",
+      "target": "services_reference_mapper_service_referencemapperservice_mapped_item_from_result"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L140",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_map_items",
+      "target": "services_reference_mapper_service_referencemapperservice_resolve_result"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "scripts_verify_reference_mapper_main",
+      "target": "backend_services_reference_mapper_service_py_categorymaprequestitem"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L205",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_classify_batch",
+      "target": "backend_services_reference_mapper_service_py_categorymaprequestitem"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L277",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_mapped_item_from_result",
+      "target": "backend_services_reference_mapper_service_py_categorymaprequestitem"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L277",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_mapped_item_from_result",
+      "target": "backend_services_reference_mapper_service_py_mappeditem"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L162",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_resolve_result",
+      "target": "services_reference_mapper_service_referencemapperservice_fallback_result"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_resolve_result",
+      "target": "referencematchsource"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L277",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_mapped_item_from_result",
+      "target": "referencematchsource"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L221",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_classify_batch",
+      "target": "services_reference_mapper_service_referencemapperservice_get_client"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L191",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_get_client",
+      "target": "backend_services_reference_mapper_service_py_mistral"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L227",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_classify_batch",
+      "target": "services_reference_mapper_service_referencemapperservice_parse_json"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/reference_mapper_service.py",
+      "source_location": "L247",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "services_reference_mapper_service_referencemapperservice_classify_batch",
+      "target": "services_reference_mapper_service_referencemapperservice_to_classify_result"
     },
     {
       "relation": "contains",
@@ -8949,16 +11830,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/api.ts",
-      "source_location": "L150",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "lib_api",
-      "target": "lib_api_mapmarketitemsfromocr"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/api.ts",
       "source_location": "L28",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -9378,17 +12249,6 @@
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "lib/api.ts",
-      "source_location": "L173",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "lib_api_processsubmission",
-      "target": "lib_api_mapmarketitemsfromocr"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/api.ts",
       "source_location": "L148",
@@ -9745,9 +12605,31 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix",
-      "target": "lib_category_label_normalizecategorylabel",
-      "confidence_score": 1.0
+      "target": "lib_category_label_normalizecategorylabel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L84",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix_consolidategrouprows",
+      "target": "lib_category_label_normalizecategorylabel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/matrix.ts",
+      "source_location": "L229",
+      "weight": 1.0,
+      "source": "lib_matrix_groupmatrixrows",
+      "target": "lib_category_label_normalizecategorylabel"
     },
     {
       "relation": "calls",
@@ -9761,6 +12643,39 @@
       "target": "lib_category_label_normalizecategorylabel"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix_resolvebankrowkey",
+      "target": "lib_category_label_normalizecategorylabel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix_resolvemarketrowkey",
+      "target": "lib_category_label_normalizecategorylabel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix_rowkeyfromexisting",
+      "target": "lib_category_label_normalizecategorylabel"
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -9769,6 +12684,17 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "lib_matrix",
+      "target": "lib_category_label_formatcategorylabel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix_consolidategrouprows",
       "target": "lib_category_label_formatcategorylabel"
     },
     {
@@ -9797,6 +12723,17 @@
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix_consolidategrouprows",
+      "target": "lib_category_label_labelsequivalent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/matrix.ts",
       "source_location": "L113",
@@ -9813,6 +12750,17 @@
       "source_location": "L65",
       "weight": 1.0,
       "source": "lib_matrix_mergemappeditems",
+      "target": "lib_category_label_labelsequivalent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix_resolvebankdisplaylabel",
       "target": "lib_category_label_labelsequivalent"
     },
     {
@@ -10120,6 +13068,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/matrix.ts",
+      "source_location": "L74",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_consolidategrouprows"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
       "source_location": "L99",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -10135,6 +13093,16 @@
       "confidence_score": 1.0,
       "source": "lib_matrix",
       "target": "lib_matrix_findmatchingprovider"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L78",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_getreferencedepth"
     },
     {
       "relation": "contains",
@@ -10190,6 +13158,46 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/matrix.ts",
+      "source_location": "L64",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_resolvebankdisplaylabel"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_resolvebankrowkey"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L85",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_resolvemarketrowkey"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_rowkeyfromexisting"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
       "source_location": "L15",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -10239,6 +13247,28 @@
       "confidence_score": 1.0,
       "source": "lib_matrix",
       "target": "lib_provider_logos_resolveproviderlogo"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_reference_hierarchy_order"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_reference_hierarchy_order_reference_hierarchy_department_order"
     },
     {
       "relation": "imports_from",
@@ -10349,6 +13379,72 @@
       "confidence_score": 1.0,
       "source": "lib_matrix_createproviderfromsubmission",
       "target": "lib_matrix_buildproviderkey"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L203",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix_mergemappeditems",
+      "target": "lib_matrix_resolvebankrowkey"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L118",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix_mergemappeditems",
+      "target": "lib_matrix_rowkeyfromexisting"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L194",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix_mergemappeditems",
+      "target": "lib_matrix_resolvebankdisplaylabel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L153",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix_mergemappeditems",
+      "target": "lib_matrix_getreferencedepth"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L87",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix_resolvemarketrowkey",
+      "target": "lib_matrix_getreferencedepth"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L152",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_matrix_mergemappeditems",
+      "target": "lib_matrix_resolvemarketrowkey"
     },
     {
       "relation": "calls",
@@ -10888,6 +13984,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "lib/reference-hierarchy-order.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_reference_hierarchy_order",
+      "target": "lib_reference_hierarchy_order_reference_hierarchy_department_order"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "lib/types.ts",
       "source_location": "L67",
       "weight": 1.0,
@@ -11378,6 +14484,355 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "scripts/auto_map_market_catalog.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_auto_map_market_catalog",
+      "target": "scripts_auto_map_market_catalog_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/auto_map_market_catalog.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_auto_map_market_catalog",
+      "target": "scripts_auto_map_market_catalog_normalize"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/auto_map_market_catalog.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_auto_map_market_catalog_main",
+      "target": "scripts_auto_map_market_catalog_normalize"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_category_alias_index.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_category_alias_index",
+      "target": "scripts_build_category_alias_index_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_category_alias_index.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_category_alias_index",
+      "target": "scripts_build_category_alias_index_normalize_key"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_category_alias_index.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_category_alias_index",
+      "target": "scripts_build_category_alias_index_permutations_for_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_category_alias_index.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_category_alias_index_main",
+      "target": "scripts_build_category_alias_index_normalize_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_category_alias_index.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_category_alias_index_permutations_for_key",
+      "target": "scripts_build_category_alias_index_normalize_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_category_alias_index.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_category_alias_index_main",
+      "target": "scripts_build_category_alias_index_permutations_for_key"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy",
+      "target": "scripts_build_reference_hierarchy_build_reference_hierarchy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy",
+      "target": "scripts_build_reference_hierarchy_collapse_spaces"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L205",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy",
+      "target": "scripts_build_reference_hierarchy_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L192",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy",
+      "target": "scripts_build_reference_hierarchy_parse_args"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy",
+      "target": "scripts_build_reference_hierarchy_parse_tree_block"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L186",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy",
+      "target": "scripts_build_reference_hierarchy_resolve_markdown_path"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy",
+      "target": "scripts_build_reference_hierarchy_section_blocks"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy",
+      "target": "scripts_build_reference_hierarchy_strip_bullet_text"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L135",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy",
+      "target": "scripts_build_reference_hierarchy_validate_hierarchy"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy_strip_bullet_text",
+      "target": "scripts_build_reference_hierarchy_collapse_spaces"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy_parse_tree_block",
+      "target": "scripts_build_reference_hierarchy_strip_bullet_text"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy_build_reference_hierarchy",
+      "target": "scripts_build_reference_hierarchy_section_blocks"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L110",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy_build_reference_hierarchy",
+      "target": "scripts_build_reference_hierarchy_parse_tree_block"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy_parse_tree_block",
+      "target": "any"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy_build_reference_hierarchy",
+      "target": "any"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L135",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy_validate_hierarchy",
+      "target": "any"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy_build_reference_hierarchy",
+      "target": "scripts_build_reference_hierarchy_py_path"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L226",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy_main",
+      "target": "scripts_build_reference_hierarchy_build_reference_hierarchy"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L207",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy_main",
+      "target": "scripts_build_reference_hierarchy_py_path"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L186",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy_resolve_markdown_path",
+      "target": "scripts_build_reference_hierarchy_py_path"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L214",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy_main",
+      "target": "scripts_build_reference_hierarchy_validate_hierarchy"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L221",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy_main",
+      "target": "scripts_build_reference_hierarchy_resolve_markdown_path"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L206",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy_main",
+      "target": "scripts_build_reference_hierarchy_parse_args"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build_reference_hierarchy.py",
+      "source_location": "L192",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_build_reference_hierarchy_parse_args",
+      "target": "namespace"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "scripts/copy-logo-assets.mjs",
       "source_location": "L15",
       "weight": 1.0,
@@ -11567,6 +15022,228 @@
       "confidence_score": 1.0,
       "source": "scripts_generate_parent_enriched_main",
       "target": "scripts_generate_parent_enriched_build_enriched"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/generate_supermarket_hierarchy.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_generate_supermarket_hierarchy",
+      "target": "scripts_generate_supermarket_hierarchy_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/generate_supermarket_hierarchy.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_generate_supermarket_hierarchy",
+      "target": "scripts_generate_supermarket_hierarchy_normalize"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/generate_supermarket_hierarchy.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_generate_supermarket_hierarchy_main",
+      "target": "scripts_generate_supermarket_hierarchy_normalize"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories",
+      "target": "scripts_scrape_edadeal_categories_build_parsed"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L72",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories",
+      "target": "scripts_scrape_edadeal_categories_catalog_key"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories",
+      "target": "scripts_scrape_edadeal_categories_create_driver"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories",
+      "target": "scripts_scrape_edadeal_categories_load_json"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L143",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories",
+      "target": "scripts_scrape_edadeal_categories_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories",
+      "target": "scripts_scrape_edadeal_categories_save_json"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L112",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories",
+      "target": "scripts_scrape_edadeal_categories_scrape_retailer"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories_load_json",
+      "target": "scripts_scrape_edadeal_categories_py_path"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L159",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories_main",
+      "target": "scripts_scrape_edadeal_categories_load_json"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories_save_json",
+      "target": "scripts_scrape_edadeal_categories_py_path"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L180",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories_main",
+      "target": "scripts_scrape_edadeal_categories_save_json"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories_build_parsed",
+      "target": "scripts_scrape_edadeal_categories_catalog_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L179",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories_main",
+      "target": "scripts_scrape_edadeal_categories_catalog_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L177",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories_main",
+      "target": "scripts_scrape_edadeal_categories_build_parsed"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories_create_driver",
+      "target": "chrome"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L185",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories_main",
+      "target": "scripts_scrape_edadeal_categories_create_driver"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L112",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories_scrape_retailer",
+      "target": "chrome"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/scrape_edadeal_categories.py",
+      "source_location": "L196",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_scrape_edadeal_categories_main",
+      "target": "scripts_scrape_edadeal_categories_scrape_retailer"
     },
     {
       "relation": "contains",
@@ -12069,6 +15746,120 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_category_normalizer.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_category_normalizer",
+      "target": "scripts_verify_category_normalizer_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_reference_mapper",
+      "target": "scripts_verify_reference_mapper_format_actual"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L91",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_reference_mapper",
+      "target": "scripts_verify_reference_mapper_format_expectations"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L109",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_reference_mapper",
+      "target": "scripts_verify_reference_mapper_load_backend_env"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L124",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_reference_mapper",
+      "target": "scripts_verify_reference_mapper_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_reference_mapper",
+      "target": "scripts_verify_reference_mapper_verifycase"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L91",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_reference_mapper_format_expectations",
+      "target": "scripts_verify_reference_mapper_verifycase"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L154",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_reference_mapper_main",
+      "target": "scripts_verify_reference_mapper_format_expectations"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L155",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_reference_mapper_main",
+      "target": "scripts_verify_reference_mapper_format_actual"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_reference_mapper.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_reference_mapper_main",
+      "target": "scripts_verify_reference_mapper_load_backend_env"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_reference_mapper_offline.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_reference_mapper_offline",
+      "target": "scripts_verify_reference_mapper_offline_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "tsconfig.json",
       "source_location": "L2",
       "weight": 1.0,
@@ -12258,5 +16049,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "812f02fb90e4f711397153f65f2cf3c4ab367582"
+  "built_at_commit": "460d9c4ce1a3cbea6d96ce50c5748dbf7dc4eabe"
 }

@@ -14,9 +14,10 @@ from sentence_transformers import SentenceTransformer  # noqa: E402
 from services.category_embedding import best_match, encode_texts  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-PARSED_PATH = ROOT / "backend" / "data" / "parsed_market_taxonomies.json"
-HIERARCHY_PATH = ROOT / "backend" / "data" / "supermarket_category_hierarchy.json"
-CATALOG_PATH = ROOT / "backend" / "data" / "market_category_catalog.json"
+ARCHIVE_DIR = ROOT / "backend" / "data" / "archive"
+PARSED_PATH = ARCHIVE_DIR / "parsed_market_taxonomies.json"
+HIERARCHY_PATH = ARCHIVE_DIR / "supermarket_category_hierarchy.json"
+CATALOG_PATH = ARCHIVE_DIR / "market_category_catalog.json"
 REVIEW_THRESHOLD = 0.70
 
 

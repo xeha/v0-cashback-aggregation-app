@@ -8,7 +8,8 @@ from sentence_transformers import SentenceTransformer
 
 from routers import category, ocr
 from schemas import HealthResponse
-from services.market_mapper_service import MarketMapperService
+from services.category_normalizer_service import CategoryNormalizerService
+from services.reference_mapper_service import ReferenceMapperService
 from services.mapper_service import MapperService
 
 load_dotenv()
@@ -38,12 +39,17 @@ async def lifespan(app: FastAPI):
     bank_mapper = MapperService()
     bank_mapper.load(model=shared_model)
 
-    market_mapper = MarketMapperService()
-    market_mapper.load(model=shared_model)
+    reference_mapper = ReferenceMapperService()
+    reference_mapper.load()
+
+    category_normalizer = CategoryNormalizerService()
+    category_normalizer.load()
 
     app.state.mapper = bank_mapper
     app.state.bank_mapper = bank_mapper
-    app.state.market_mapper = market_mapper
+    app.state.reference_mapper = reference_mapper
+    app.state.market_mapper = reference_mapper
+    app.state.category_normalizer = category_normalizer
     yield
 
 
@@ -67,9 +73,9 @@ def health() -> HealthResponse:
     bank_mapper: MapperService | None = getattr(app.state, "bank_mapper", None) or getattr(
         app.state, "mapper", None
     )
-    market_mapper: MarketMapperService | None = getattr(app.state, "market_mapper", None)
+    reference_mapper: ReferenceMapperService | None = getattr(app.state, "reference_mapper", None)
     bank_loaded = bool(bank_mapper and bank_mapper.is_loaded)
-    market_loaded = bool(market_mapper and market_mapper.is_loaded)
+    market_loaded = bool(reference_mapper and reference_mapper.is_loaded)
     return HealthResponse(
         status="ok",
         mapper_loaded=bank_loaded,

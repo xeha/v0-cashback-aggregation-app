@@ -23,7 +23,7 @@ DEFAULT_RETAILERS = Path(
 )
 ALIASES_PATH = ROOT / "backend" / "data" / "edadeal_slug_aliases.json"
 RAW_PATH = ROOT / "backend" / "data" / "edadeal_categories_raw.json"
-PARSED_PATH = ROOT / "backend" / "data" / "parsed_market_taxonomies.json"
+PARSED_PATH = ROOT / "backend" / "data" / "archive" / "parsed_market_taxonomies.json"
 
 DISMISS_AGE_JS = r"""
 const btns = [...document.querySelectorAll('button, a, span, div')];

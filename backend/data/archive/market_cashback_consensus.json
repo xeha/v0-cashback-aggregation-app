@@ -42,6 +42,20 @@
     "is_macro": true
   },
   {
+    "key": "мясо",
+    "market_category": "Мясо",
+    "unified_subcategory": "Мясо",
+    "unified_parent": "Мясо и птица",
+    "is_macro": false
+  },
+  {
+    "key": "птица",
+    "market_category": "Птица",
+    "unified_subcategory": "Птица",
+    "unified_parent": "Мясо и птица",
+    "is_macro": false
+  },
+  {
     "key": "макароны",
     "market_category": "Макароны",
     "unified_subcategory": "Бакалея",

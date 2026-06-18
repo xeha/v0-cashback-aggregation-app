@@ -32,6 +32,15 @@ class CategoryMapRequest(BaseModel):
 
 class MappedItem(BaseModel):
     raw_category: str
+    normalized_raw_category: str | None = None
+    normalize_source: Literal[
+        "sanitize",
+        "alias",
+        "token_set",
+        "fuzzy",
+        "llm",
+        "passthrough",
+    ] | None = None
     unified_category: str
     unified_subcategory: str | None = None
     unified_parent: str | None = None
@@ -47,10 +56,20 @@ class MappedItem(BaseModel):
         "leaf_exact",
         "parent_embedding",
         "leaf_embedding",
+        "coarse_cashback",
         "llm_parent",
         "fallback",
         "embedding",
+        "reference_llm",
+        "reference_cache",
+        "reference_fallback",
     ] | None = None
+    display_label: str | None = None
+    reference_node_id: str | None = None
+    reference_department: str | None = None
+    reference_category: str | None = None
+    reference_subcategory: str | None = None
+    reference_depth: Literal[1, 2, 3] | None = None
 
 
 class CategoryMapResponse(BaseModel):

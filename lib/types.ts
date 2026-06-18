@@ -15,6 +15,14 @@ export interface OcrItem {
 
 export interface MappedItem {
   raw_category: string
+  normalized_raw_category?: string
+  normalize_source?:
+    | "sanitize"
+    | "alias"
+    | "token_set"
+    | "fuzzy"
+    | "llm"
+    | "passthrough"
   unified_category: string
   unified_subcategory?: string
   unified_parent?: string
@@ -23,6 +31,12 @@ export interface MappedItem {
   is_macro_category?: boolean
   /** Bank ecosystem offer (e.g. Sber + Samokat) — excluded from comparison matrix */
   is_bank_offer?: boolean
+  reference_node_id?: string
+  reference_department?: string
+  reference_category?: string
+  reference_subcategory?: string
+  reference_depth?: number
+  display_label?: string
 }
 
 export interface MatrixProvider {
@@ -33,9 +47,16 @@ export interface MatrixProvider {
 
 export interface MatrixRow {
   category: string
+  /** Canonical label for row merge when display differs from comparison key */
+  canonicalCategory?: string
   parent?: string
   bankRaw?: string
   isMacro?: boolean
+  referenceNodeId?: string
+  referenceDepartment?: string
+  referenceCategory?: string
+  referenceSubcategory?: string
+  referenceDepth?: number
   rates: Record<string, number>
 }
 

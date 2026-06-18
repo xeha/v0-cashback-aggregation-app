@@ -36,17 +36,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -622,17 +622,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -1364,17 +1364,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -1853,17 +1853,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "мясные продукты": {
       "market_category": "Мясные продукты",
@@ -2918,6 +2918,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "dixy": {
@@ -2929,17 +2943,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -3320,17 +3334,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -4019,17 +4033,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -4613,17 +4627,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -5186,17 +5200,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -5829,17 +5843,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -6297,17 +6311,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -6681,17 +6695,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -7087,10 +7101,10 @@
   "miasnitskii_riad": {
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "мясные продукты": {
       "market_category": "Мясные продукты",
@@ -7192,6 +7206,13 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "iarche": {
@@ -7203,17 +7224,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -7615,17 +7636,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "мясные продукты": {
       "market_category": "Мясные продукты",
@@ -8013,17 +8034,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -8551,17 +8572,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -9715,6 +9736,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "poliarnaia_zvezda": {
@@ -9848,6 +9883,20 @@
       "market_category": "Замороженные фрукты и ягоды",
       "unified_subcategory": "Замороженные фрукты и ягоды",
       "unified_parent": "Замороженные продукты",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
       "is_macro": false,
       "_consensus": true
     }
@@ -10143,6 +10192,20 @@
       "market_category": "Замороженные фрукты и ягоды",
       "unified_subcategory": "Замороженные фрукты и ягоды",
       "unified_parent": "Замороженные продукты",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
       "is_macro": false,
       "_consensus": true
     }
@@ -10910,15 +10973,29 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "zolotoe-yabloko": {
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "средства для стирки": {
       "market_category": "Средства для стирки",
@@ -11213,6 +11290,13 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "dobryninskij": {
@@ -11224,17 +11308,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -11753,6 +11837,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "myfasol": {
@@ -11874,6 +11972,20 @@
       "market_category": "Замороженные фрукты и ягоды",
       "unified_subcategory": "Замороженные фрукты и ягоды",
       "unified_parent": "Замороженные продукты",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
       "is_macro": false,
       "_consensus": true
     }
@@ -12381,6 +12493,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "azbuka-daily": {
@@ -12392,17 +12518,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -12575,17 +12701,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -13183,17 +13309,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "мясные продукты": {
       "market_category": "Мясные продукты",
@@ -13378,10 +13504,10 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "мясные продукты": {
       "market_category": "Мясные продукты",
@@ -13503,6 +13629,13 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "winelab": {
@@ -13514,10 +13647,10 @@
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "мясные продукты": {
       "market_category": "Мясные продукты",
@@ -13712,15 +13845,22 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "miratorg": {
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "напитки": {
       "market_category": "Напитки",
@@ -13818,6 +13958,13 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "ramenskii_delikates": {
@@ -13829,17 +13976,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -14115,17 +14262,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "мясные продукты": {
       "market_category": "Мясные продукты",
@@ -14553,6 +14700,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "vingarazh": {
@@ -14564,10 +14725,10 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -14860,6 +15021,13 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "avokado": {
@@ -15009,15 +15177,29 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "volgogradskii_miasokombinat": {
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "мясные продукты": {
       "market_category": "Мясные продукты",
@@ -15099,6 +15281,13 @@
       "market_category": "Замороженные фрукты и ягоды",
       "unified_subcategory": "Замороженные фрукты и ягоды",
       "unified_parent": "Замороженные продукты",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
       "is_macro": false,
       "_consensus": true
     }
@@ -15224,6 +15413,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "gastronombim": {
@@ -15235,10 +15438,10 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -15414,6 +15617,13 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "magnit-apteka": {
@@ -15526,6 +15736,20 @@
       "market_category": "Замороженные фрукты и ягоды",
       "unified_subcategory": "Замороженные фрукты и ягоды",
       "unified_parent": "Замороженные продукты",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
       "is_macro": false,
       "_consensus": true
     }
@@ -15975,6 +16199,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "pervym-delom": {
@@ -16128,6 +16366,20 @@
       "market_category": "Замороженные фрукты и ягоды",
       "unified_subcategory": "Замороженные фрукты и ягоды",
       "unified_parent": "Замороженные продукты",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
       "is_macro": false,
       "_consensus": true
     }
@@ -16298,6 +16550,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "apteka-366": {
@@ -16410,6 +16676,20 @@
       "market_category": "Замороженные фрукты и ягоды",
       "unified_subcategory": "Замороженные фрукты и ягоды",
       "unified_parent": "Замороженные продукты",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
       "is_macro": false,
       "_consensus": true
     }
@@ -17152,6 +17432,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "gorzdrav": {
@@ -17294,6 +17588,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "lion-perm": {
@@ -17371,6 +17679,20 @@
       "market_category": "Замороженные фрукты и ягоды",
       "unified_subcategory": "Замороженные фрукты и ягоды",
       "unified_parent": "Замороженные продукты",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
       "is_macro": false,
       "_consensus": true
     }
@@ -17542,6 +17864,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "azbuka_vkusa": {
@@ -17553,17 +17889,17 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "яйцо": {
       "market_category": "Яйцо",
@@ -17893,6 +18229,20 @@
       "market_category": "Замороженные фрукты и ягоды",
       "unified_subcategory": "Замороженные фрукты и ягоды",
       "unified_parent": "Замороженные продукты",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
       "is_macro": false,
       "_consensus": true
     }
@@ -18227,6 +18577,20 @@
       "market_category": "Замороженные фрукты и ягоды",
       "unified_subcategory": "Замороженные фрукты и ягоды",
       "unified_parent": "Замороженные продукты",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
       "is_macro": false,
       "_consensus": true
     }
@@ -18573,6 +18937,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "drinx": {
@@ -18669,6 +19047,20 @@
       "market_category": "Замороженные фрукты и ягоды",
       "unified_subcategory": "Замороженные фрукты и ягоды",
       "unified_parent": "Замороженные продукты",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
       "is_macro": false,
       "_consensus": true
     }
@@ -18911,22 +19303,36 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "petshop1": {
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "мясные продукты": {
       "market_category": "Мясные продукты",
@@ -19422,22 +19828,36 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "mir-kubikov": {
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "птица": {
       "market_category": "Птица",
-      "unified_subcategory": "Утка и другая птица",
+      "unified_subcategory": "Птица",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.905
+      "_consensus": true
     },
     "бакалея": {
       "market_category": "Бакалея",
@@ -19938,6 +20358,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "krasnyj-drakon": {
@@ -19949,10 +20383,10 @@
     },
     "мясо": {
       "market_category": "Мясо",
-      "unified_subcategory": "Говядина",
+      "unified_subcategory": "Мясо",
       "unified_parent": "Мясо и птица",
       "is_macro": false,
-      "_auto_map_score": 0.9363
+      "_consensus": true
     },
     "рыба": {
       "market_category": "Рыба",
@@ -20274,6 +20708,13 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "yaponskie-nozhi-todzhiro": {
@@ -20407,6 +20848,20 @@
       "market_category": "Замороженные фрукты и ягоды",
       "unified_subcategory": "Замороженные фрукты и ягоды",
       "unified_parent": "Замороженные продукты",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
       "is_macro": false,
       "_consensus": true
     }
@@ -20662,6 +21117,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "winestate": {
@@ -20773,6 +21242,20 @@
       "market_category": "Замороженные фрукты и ягоды",
       "unified_subcategory": "Замороженные фрукты и ягоды",
       "unified_parent": "Замороженные продукты",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
       "is_macro": false,
       "_consensus": true
     }
@@ -20958,6 +21441,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "amelia": {
@@ -21133,6 +21630,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "dekanter": {
@@ -21279,6 +21790,20 @@
       "unified_parent": "Замороженные продукты",
       "is_macro": false,
       "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
     }
   },
   "dva-topora": {
@@ -21368,6 +21893,20 @@
       "market_category": "Замороженные фрукты и ягоды",
       "unified_subcategory": "Замороженные фрукты и ягоды",
       "unified_parent": "Замороженные продукты",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "мясо": {
+      "market_category": "Мясо",
+      "unified_subcategory": "Мясо",
+      "unified_parent": "Мясо и птица",
+      "is_macro": false,
+      "_consensus": true
+    },
+    "птица": {
+      "market_category": "Птица",
+      "unified_subcategory": "Птица",
+      "unified_parent": "Мясо и птица",
       "is_macro": false,
       "_consensus": true
     }
