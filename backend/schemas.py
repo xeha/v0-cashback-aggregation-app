@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field
 class OcrExtractRequest(BaseModel):
     image_base64: str = Field(..., min_length=1)
     mime_type: Literal["image/jpeg", "image/png", "image/jpg"] = "image/jpeg"
+    kind: Literal["bank", "market"] = "bank"
 
 
 class OcrItem(BaseModel):
@@ -25,6 +26,8 @@ class CategoryMapRequestItem(BaseModel):
 class CategoryMapRequest(BaseModel):
     items: list[CategoryMapRequestItem]
     source_name: str | None = None
+    kind: Literal["bank", "market"] = "bank"
+    source_slug: str | None = None
 
 
 class MappedItem(BaseModel):
@@ -57,3 +60,5 @@ class CategoryMapResponse(BaseModel):
 class HealthResponse(BaseModel):
     status: str
     mapper_loaded: bool
+    bank_mapper_loaded: bool = False
+    market_mapper_loaded: bool = False

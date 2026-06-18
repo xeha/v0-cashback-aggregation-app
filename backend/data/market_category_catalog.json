@@ -1,0 +1,74 @@
+{
+  "magnit": {
+    "кисломолочка": {
+      "market_category": "Кисломолочка",
+      "unified_subcategory": "Кефир, ряженка, простокваша",
+      "unified_parent": "Молоко, сыр, яйца",
+      "is_macro": false
+    },
+    "йогурты и десерты": {
+      "market_category": "Йогурты и десерты",
+      "unified_subcategory": "Йогурт",
+      "unified_parent": "Молоко, сыр, яйца",
+      "is_macro": false
+    },
+    "твёрдые сыры": {
+      "market_category": "Твёрдые сыры",
+      "unified_subcategory": "Сыр твёрдый",
+      "unified_parent": "Молоко, сыр, яйца",
+      "is_macro": false
+    },
+    "колбасы и купаты": {
+      "market_category": "Колбасы и купаты",
+      "unified_subcategory": "Сосиски и сардельки",
+      "unified_parent": "Колбасные изделия",
+      "is_macro": false
+    }
+  },
+  "lenta": {
+    "молоко и сливки": {
+      "market_category": "Молоко и сливки",
+      "unified_subcategory": "Молоко",
+      "unified_parent": "Молоко, сыр, яйца",
+      "is_macro": false
+    },
+    "мясо и птица": {
+      "market_category": "Мясо и птица",
+      "unified_subcategory": "Мясо и птица",
+      "unified_parent": "Мясо и птица",
+      "is_macro": true
+    },
+    "консервы": {
+      "market_category": "Консервы",
+      "unified_subcategory": "Овощные консервы",
+      "unified_parent": "Консервация",
+      "is_macro": false
+    },
+    "макароны": {
+      "market_category": "Макароны",
+      "unified_subcategory": "Макароны и паста",
+      "unified_parent": "Макароны, крупы, масло, специи",
+      "is_macro": false
+    }
+  },
+  "pyaterochka": {
+    "готовая кулинария": {
+      "market_category": "Готовая кулинария",
+      "unified_subcategory": "Комплексные обеды",
+      "unified_parent": "Готовая еда",
+      "is_macro": false
+    },
+    "пиво и сидр": {
+      "market_category": "Пиво и сидр",
+      "unified_subcategory": "Слабоалкогольные напитки и сидр",
+      "unified_parent": "Алкогольные напитки",
+      "is_macro": false
+    },
+    "замороженные ягоды": {
+      "market_category": "Замороженные ягоды",
+      "unified_subcategory": "Замороженные ягоды и фрукты",
+      "unified_parent": "Замороженные продукты",
+      "is_macro": false
+    }
+  }
+}
