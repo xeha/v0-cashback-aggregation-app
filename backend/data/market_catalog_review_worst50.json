@@ -1,0 +1,352 @@
+[
+  {
+    "market": "lenta",
+    "market_category": "Велоспорт",
+    "unified_subcategory": "Креветки",
+    "unified_parent": "Морепродукты",
+    "score": 0.3798
+  },
+  {
+    "market": "fix-price",
+    "market_category": "Велоспорт",
+    "unified_subcategory": "Креветки",
+    "unified_parent": "Морепродукты",
+    "score": 0.3798
+  },
+  {
+    "market": "okmarket-giper",
+    "market_category": "Велоспорт",
+    "unified_subcategory": "Креветки",
+    "unified_parent": "Морепродукты",
+    "score": 0.3798
+  },
+  {
+    "market": "chizhik",
+    "market_category": "Велоспорт",
+    "unified_subcategory": "Креветки",
+    "unified_parent": "Морепродукты",
+    "score": 0.3798
+  },
+  {
+    "market": "eshyo",
+    "market_category": "Велоспорт",
+    "unified_subcategory": "Креветки",
+    "unified_parent": "Морепродукты",
+    "score": 0.3798
+  },
+  {
+    "market": "magazin-postoyannyh-rasprodazh",
+    "market_category": "Велоспорт",
+    "unified_subcategory": "Креветки",
+    "unified_parent": "Морепродукты",
+    "score": 0.3798
+  },
+  {
+    "market": "magnit",
+    "market_category": "Телефоны",
+    "unified_subcategory": "Батарейки и лампочки",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.3909
+  },
+  {
+    "market": "lenta",
+    "market_category": "Телефоны",
+    "unified_subcategory": "Батарейки и лампочки",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.3909
+  },
+  {
+    "market": "fix-price",
+    "market_category": "Телефоны",
+    "unified_subcategory": "Батарейки и лампочки",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.3909
+  },
+  {
+    "market": "globus",
+    "market_category": "Телефоны",
+    "unified_subcategory": "Батарейки и лампочки",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.3909
+  },
+  {
+    "market": "perekrestok",
+    "market_category": "Телефоны",
+    "unified_subcategory": "Батарейки и лампочки",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.3909
+  },
+  {
+    "market": "okmarket-giper",
+    "market_category": "Телефоны",
+    "unified_subcategory": "Батарейки и лампочки",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.3909
+  },
+  {
+    "market": "chizhik",
+    "market_category": "Телефоны",
+    "unified_subcategory": "Батарейки и лампочки",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.3909
+  },
+  {
+    "market": "avoska",
+    "market_category": "Телефоны",
+    "unified_subcategory": "Батарейки и лампочки",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.3909
+  },
+  {
+    "market": "auchan",
+    "market_category": "Телефоны",
+    "unified_subcategory": "Батарейки и лампочки",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.3909
+  },
+  {
+    "market": "eshyo",
+    "market_category": "Телефоны",
+    "unified_subcategory": "Батарейки и лампочки",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.3909
+  },
+  {
+    "market": "podrygka",
+    "market_category": "Телефоны",
+    "unified_subcategory": "Батарейки и лампочки",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.3909
+  },
+  {
+    "market": "letual",
+    "market_category": "Телефоны",
+    "unified_subcategory": "Батарейки и лампочки",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.3909
+  },
+  {
+    "market": "magazin-postoyannyh-rasprodazh",
+    "market_category": "Телефоны",
+    "unified_subcategory": "Батарейки и лампочки",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.3909
+  },
+  {
+    "market": "mir-kubikov",
+    "market_category": "Телефоны",
+    "unified_subcategory": "Батарейки и лампочки",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.3909
+  },
+  {
+    "market": "magnit",
+    "market_category": "Детский транспорт",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.3914
+  },
+  {
+    "market": "lenta",
+    "market_category": "Детский транспорт",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.3914
+  },
+  {
+    "market": "pyaterochka",
+    "market_category": "Детский транспорт",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.3914
+  },
+  {
+    "market": "fix-price",
+    "market_category": "Детский транспорт",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.3914
+  },
+  {
+    "market": "globus",
+    "market_category": "Детский транспорт",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.3914
+  },
+  {
+    "market": "perekrestok",
+    "market_category": "Детский транспорт",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.3914
+  },
+  {
+    "market": "mir-kubikov",
+    "market_category": "Детский транспорт",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.3914
+  },
+  {
+    "market": "lenta",
+    "market_category": "Зимние виды спорта",
+    "unified_subcategory": "Спортивные напитки",
+    "unified_parent": "Соки, воды, напитки",
+    "score": 0.3978
+  },
+  {
+    "market": "magnit",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "lenta",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "pyaterochka",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "fix-price",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "globus",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "perekrestok",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "okmarket-giper",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "chizhik",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "svetofor",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "vkusvill_offline",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "avoska",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "auchan",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "eshyo",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "podrygka",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "detmir",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "metro-cc",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "letual",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "simplewine",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "magazin-postoyannyh-rasprodazh",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "td-domovoj",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "mir-kubikov",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  },
+  {
+    "market": "wine-and-whiskey-by-simple",
+    "market_category": "Туризм и отдых на природе",
+    "unified_subcategory": "Товары для барбекю и пикника",
+    "unified_parent": "Для дома и дачи",
+    "score": 0.4037
+  }
+]

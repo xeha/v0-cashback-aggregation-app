@@ -1,0 +1,92 @@
+Retailers total: 72, pending: 69
+[1/69] fix-price -> fix-price ... OK L1=19 L2=98
+[2/69] dixy -> dixy ... OK L1=12 L2=46
+[3/69] globus -> globus ... OK L1=16 L2=91
+[4/69] perekrestok -> perekrestok ... OK L1=18 L2=76
+[5/69] okmarket-giper -> okmarket-giper ... OK L1=18 L2=73
+[6/69] chizhik -> chizhik ... OK L1=18 L2=83
+[7/69] svetofor -> svetofor ... OK L1=14 L2=57
+[8/69] lenta-super -> lenta ... OK L1=13 L2=52
+[9/69] verno -> verno ... OK L1=11 L2=45
+[10/69] lenta-giper -> lenta ... OK L1=17 L2=98
+[11/69] vkusvill_offline -> vkusvill_offline ... OK L1=13 L2=49
+[12/69] magnit-cosmo -> magnit ... OK L1=16 L2=49
+[13/69] miasnitskii_riad -> miasnitskii_riad ... OK L1=1 L2=5
+[14/69] iarche -> iarche ... OK L1=14 L2=49
+[15/69] market-da -> market-da ... OK L1=11 L2=47
+[16/69] avoska -> avoska ... OK L1=16 L2=67
+[17/69] auchan -> auchan ... OK L1=19 L2=108
+[18/69] mgnl -> magnit ... OK L1=9 L2=37
+[19/69] r-ulybka -> r-ulybka ... OK L1=16 L2=41
+[20/69] poliarnaia_zvezda -> poliarnaia_zvezda ... OK L1=2 L2=9
+[21/69] riv-gosh -> riv-gosh ... OK L1=11 L2=31
+[22/69] eshyo -> eshyo ... OK L1=18 L2=100
+[23/69] zolotoe-yabloko -> zolotoe-yabloko ... OK L1=13 L2=32
+[24/69] dobryninskij -> dobryninskij ... OK L1=8 L2=24
+[25/69] podrygka -> podrygka ... OK L1=12 L2=32
+[26/69] myfasol -> myfasol ... OK L1=2 L2=7
+[27/69] detmir -> detmir ... OK L1=17 L2=62
+[28/69] azbuka-daily -> azbuka-daily ... OK L1=5 L2=16
+[29/69] metro-cc -> metro-cc ... OK L1=18 L2=77
+[30/69] kuul-klever-myasnov-otdohni -> kuul-klever-myasnov-otdohni ... OK L1=4 L2=18
+[31/69] yolamarket -> yolamarket ... OK L1=1 L2=9
+[32/69] winelab -> winelab ... OK L1=6 L2=20
+[33/69] miratorg -> miratorg ... OK L1=2 L2=4
+[34/69] ramenskii_delikates -> ramenskii_delikates ... OK L1=7 L2=31
+[35/69] agrokompleks -> agrokompleks ... OK L1=2 L2=10
+[36/69] bristol -> bristol ... OK L1=10 L2=34
+[37/69] vingarazh -> vingarazh ... OK L1=11 L2=34
+[38/69] avokado -> avokado ... OK L1=4 L2=11
+[39/69] volgogradskii_miasokombinat -> volgogradskii_miasokombinat ... OK L1=1 L2=2
+[40/69] amwine -> amwine ... OK L1=3 L2=7
+[41/69] gastronombim -> gastronombim ... OK L1=4 L2=17
+[42/69] magnit-apteka -> magnit-apteka ... OK L1=2 L2=5
+[43/69] letual -> letual ... OK L1=16 L2=54
+[44/69] pervym-delom -> pervym-delom ... OK L1=4 L2=12
+[45/69] simplewine -> simplewine ... OK L1=9 L2=13
+[46/69] apteka-366 -> apteka-366 ... OK L1=2 L2=5
+[47/69] magazin-postoyannyh-rasprodazh -> magazin-postoyannyh-rasprodazh ... OK L1=18 L2=96
+[48/69] gorzdrav -> gorzdrav ... OK L1=4 L2=9
+[49/69] lion-perm -> lion-perm ... OK L1=0 L2=0
+[50/69] 4lapy -> 4lapy ... OK L1=6 L2=13
+[51/69] azbuka_vkusa -> azbuka_vkusa ... OK L1=6 L2=17
+[52/69] bykosmetika -> bykosmetika ... OK L1=5 L2=12
+[53/69] apteki-dialog -> apteki-dialog ... OK L1=11 L2=37
+[54/69] td-domovoj -> td-domovoj ... OK L1=13 L2=38
+[55/69] drinx -> drinx ... OK L1=2 L2=3
+[56/69] zoozavr_off -> zoozavr_off ... OK L1=10 L2=23
+[57/69] petshop1 -> petshop1 ... OK L1=15 L2=46
+[58/69] zooopttorg -> zooopttorg ... OK L1=1 L2=5
+[59/69] mir-kubikov -> mir-kubikov ... OK L1=17 L2=48
+[60/69] alkostudiya -> alkostudiya ... FAIL: Message: 
+Stacktrace:
+0   chromedriver                        0x00000001031271e4 cxxbridge1$str$ptr + 3175992
+1   chromedriver                        0x000000010311f2ac cxxbridge1$str$ptr + 3143424
+2   chromedriver                        0x0000000102bcf374 _RNvCs9NA52FrZ4pF_7___rustc35___rust_no_alloc_shim_is_unstable_v2 + 74080
+3   chromedriver                        0x0000000102c17964 _RNvCs9NA52FrZ4pF_7___rustc35___rust_no_alloc_shim_is_unstable_v2 + 370512
+4   chromedriver                        0x0000000102c56f4c _RNvCs9NA52FrZ4pF_7___rustc35___rust_no_alloc_shim_is_unstable_v2 + 630072
+5   chromedriver                        0x0000000102c0d354 _RNvCs9NA52FrZ4pF_7___rustc35___rust_no_alloc_shim_is_unstable_v2 + 328000
+6   chromedriver                        0x00000001030e5370 cxxbridge1$str$ptr + 2906052
+7   chromedriver                        0x00000001030e8af0 cxxbridge1$str$ptr + 2920260
+8   chromedriver                        0x00000001030cc2b0 cxxbridge1$str$ptr + 2803460
+9   chromedriver                        0x00000001030e9384 cxxbridge1$str$ptr + 2922456
+10  chromedriver                        0x00000001030bd7d0 cxxbridge1$str$ptr + 2743332
+11  chromedriver                        0x000000010310e24c cxxbridge1$str$ptr + 3073696
+12  chromedriver                        0x000000010310e3ac cxxbridge1$str$ptr + 3074048
+13  chromedriver                        0x000000010311ef04 cxxbridge1$str$ptr + 3142488
+14  libsystem_pthread.dylib             0x0000000184f39c58 _pthread_start + 136
+15  libsystem_pthread.dylib             0x0000000184f34c1c thread_start + 8
+
+[61/69] wine-and-whiskey-by-simple -> wine-and-whiskey-by-simple ... OK L1=4 L2=5
+[62/69] krasnyj-drakon -> krasnyj-drakon ... OK L1=12 L2=38
+[63/69] yaponskie-nozhi-todzhiro -> yaponskie-nozhi-todzhiro ... OK L1=5 L2=8
+[64/69] dinozavrik -> dinozavrik ... OK L1=11 L2=25
+[65/69] winestate -> winestate ... OK L1=4 L2=5
+[66/69] vajnstajl -> vajnstajl ... OK L1=7 L2=16
+[67/69] amelia -> amelia ... OK L1=4 L2=15
+[68/69] dekanter -> dekanter ... OK L1=6 L2=10
+[69/69] dva-topora -> dva-topora ... OK L1=1 L2=2
+
+Done: ok=68, failed=1
+Raw: /Users/kseniya_agrova/obsidian/VIBECODING_Чуйков/v0-cashback-aggregation-app/backend/data/edadeal_categories_raw.json (72 slugs)
+Parsed: /Users/kseniya_agrova/obsidian/VIBECODING_Чуйков/v0-cashback-aggregation-app/backend/data/parsed_market_taxonomies.json (68 catalog keys, 2356 pairs)

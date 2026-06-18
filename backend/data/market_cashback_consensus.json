@@ -1,0 +1,79 @@
+[
+  {
+    "key": "кисломолочка",
+    "market_category": "Кисломолочка",
+    "unified_subcategory": "Кисломолочные продукты",
+    "unified_parent": "Молоко, сыр, яйца",
+    "is_macro": false
+  },
+  {
+    "key": "молоко и сливки",
+    "market_category": "Молоко и сливки",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "is_macro": false
+  },
+  {
+    "key": "йогурты и десерты",
+    "market_category": "Йогурты и десерты",
+    "unified_subcategory": "Кисломолочные продукты",
+    "unified_parent": "Молоко, сыр, яйца",
+    "is_macro": false
+  },
+  {
+    "key": "твёрдые сыры",
+    "market_category": "Твёрдые сыры",
+    "unified_subcategory": "Сыр твёрдый",
+    "unified_parent": "Молоко, сыр, яйца",
+    "is_macro": false
+  },
+  {
+    "key": "колбасы и купаты",
+    "market_category": "Колбасы и купаты",
+    "unified_subcategory": "Колбасные изделия",
+    "unified_parent": "Колбасные изделия",
+    "is_macro": true
+  },
+  {
+    "key": "мясо и птица",
+    "market_category": "Мясо и птица",
+    "unified_subcategory": "Мясо и птица",
+    "unified_parent": "Мясо и птица",
+    "is_macro": true
+  },
+  {
+    "key": "макароны",
+    "market_category": "Макароны",
+    "unified_subcategory": "Бакалея",
+    "unified_parent": "Макароны, крупы, масло, специи",
+    "is_macro": false
+  },
+  {
+    "key": "готовая кулинария",
+    "market_category": "Готовая кулинария",
+    "unified_subcategory": "Готовая еда",
+    "unified_parent": "Готовая еда",
+    "is_macro": true
+  },
+  {
+    "key": "замороженные ягоды",
+    "market_category": "Замороженные ягоды",
+    "unified_subcategory": "Замороженные фрукты и ягоды",
+    "unified_parent": "Замороженные продукты",
+    "is_macro": false
+  },
+  {
+    "key": "замороженные фрукты и ягоды",
+    "market_category": "Замороженные фрукты и ягоды",
+    "unified_subcategory": "Замороженные фрукты и ягоды",
+    "unified_parent": "Замороженные продукты",
+    "is_macro": false
+  },
+  {
+    "key": "пиво и сидр",
+    "market_category": "Пиво и сидр",
+    "unified_subcategory": "Алкогольные напитки",
+    "unified_parent": "Алкогольные напитки",
+    "is_macro": true
+  }
+]

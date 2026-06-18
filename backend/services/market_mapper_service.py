@@ -7,6 +7,7 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 
 from schemas import CategoryMapRequestItem, MappedItem
+from services.category_classifier_service import CategoryClassifierService
 from services.category_embedding import best_match, best_match_among, encode_texts
 from services.market_slug_resolver import load_market_aliases, resolve_market_slug
 
@@ -32,6 +33,7 @@ MatchSource = Literal[
     "leaf_exact",
     "parent_embedding",
     "leaf_embedding",
+    "llm_parent",
     "fallback",
 ]
 
@@ -93,6 +95,7 @@ class MarketMapperService:
         self._catalog_by_key: dict[str, list[tuple[str, dict]]] = {}
         self._catalog_consensus: dict[str, dict] = {}
         self._market_aliases: dict[str, str] = {}
+        self._classifier: CategoryClassifierService | None = None
         self._parents: list[str] = []
         self._parent_embeddings: np.ndarray | None = None
         self._parent_embedding_texts: list[str] = []
@@ -153,6 +156,8 @@ class MarketMapperService:
             parent = self._subcategory_to_parent.get(_normalize_category_name(leaf))
             if parent:
                 self._parent_to_child_indices.setdefault(parent, []).append(idx)
+
+        self._classifier = CategoryClassifierService(self._parents)
 
     def _resolve_parent(self, subcategory: str) -> str:
         return self._subcategory_to_parent.get(
@@ -269,6 +274,7 @@ class MarketMapperService:
         self,
         item: CategoryMapRequestItem,
         market_slug: str | None,
+        source_name: str | None = None,
     ) -> MappedItem:
         normalized = _normalize_category_name(item.raw_category)
 
@@ -348,6 +354,25 @@ class MarketMapperService:
                 is_macro_category=True,
             )
 
+        if self._classifier:
+            try:
+                llm_parent, llm_conf = self._classifier.classify_parent(
+                    item.raw_category,
+                    source_name,
+                    kind="market",
+                )
+                if llm_parent:
+                    return self._mapped_item(
+                        item,
+                        llm_parent,
+                        round(llm_conf, 4),
+                        "llm_parent",
+                        parent=llm_parent,
+                        is_macro_category=True,
+                    )
+            except Exception as exc:
+                print(f"market map: LLM classifier failed for {item.raw_category!r}: {exc}")
+
         return self._mapped_item(
             item,
             FALLBACK_SUBCATEGORY,
@@ -369,4 +394,7 @@ class MarketMapperService:
             return []
 
         market_slug = resolve_market_slug(source_name, source_slug, self._market_aliases)
-        return [self._map_single_item(item, market_slug) for item in items]
+        return [
+            self._map_single_item(item, market_slug, source_name)
+            for item in items
+        ]

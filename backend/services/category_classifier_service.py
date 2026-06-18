@@ -6,14 +6,32 @@ import re
 
 from mistralai.client import Mistral
 
-CLASSIFIER_PROMPT = """Ты классификатор банковских категорий кэшбэка.
+BANK_CLASSIFIER_PROMPT = """Ты классификатор банковских категорий кэшбэка.
 Выбери ОДНУ родительскую категорию из списка (точное имя).
 
-Банк: {bank_name}
+Банк: {source_name}
 Категория со скриншота: "{raw_category}"
 
 Список родительских категорий:
 {parent_list}
+
+Верни ТОЛЬКО JSON: {{"parent": "<имя из списка>", "confidence": <0.0-1.0>}}
+"""
+
+MARKET_CLASSIFIER_PROMPT = """Ты классификатор категорий кэшбэка супермаркетов.
+Выбери ОДНУ родительскую (L1) товарную категорию из списка (точное имя).
+Учитывай смысл формулировки с экрана банка/приложения, а не навигацию конкретной сети.
+
+Супермаркет: {source_name}
+Категория со скриншота: "{raw_category}"
+
+Список родительских категорий (L1):
+{parent_list}
+
+Примеры:
+- «Кисломолочка» → «Молоко, сыр, яйца»
+- «Майонез и соусы» → «Соусы»
+- «Пиво и сидр» → «Алкогольные напитки»
 
 Верни ТОЛЬКО JSON: {{"parent": "<имя из списка>", "confidence": <0.0-1.0>}}
 """
@@ -33,13 +51,20 @@ class CategoryClassifierService:
             self._client = Mistral(api_key=api_key)
         return self._client
 
-    def classify_parent(self, raw_category: str, bank_name: str | None) -> tuple[str | None, float]:
+    def classify_parent(
+        self,
+        raw_category: str,
+        source_name: str | None,
+        *,
+        kind: str = "bank",
+    ) -> tuple[str | None, float]:
         if os.environ.get("CATEGORY_LLM_FALLBACK", "true").lower() not in {"1", "true", "yes"}:
             return None, 0.0
 
         parent_list = "\n".join(f"- {name}" for name in self._parents)
-        prompt = CLASSIFIER_PROMPT.format(
-            bank_name=bank_name or "неизвестен",
+        template = MARKET_CLASSIFIER_PROMPT if kind == "market" else BANK_CLASSIFIER_PROMPT
+        prompt = template.format(
+            source_name=source_name or "неизвестен",
             raw_category=raw_category,
             parent_list=parent_list,
         )

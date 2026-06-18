@@ -1,0 +1,402 @@
+[
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "fix-price",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "poliarnaia_zvezda",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "eshyo",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "detmir",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "azbuka-daily",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "winelab",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "agrokompleks",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "bristol",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "gastronombim",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "pervym-delom",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "azbuka_vkusa",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "krasnyj-drakon",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "amelia",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "fix-price",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  }
+]
