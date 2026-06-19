@@ -51,6 +51,8 @@ export interface MatrixRow {
   canonicalCategory?: string
   parent?: string
   bankRaw?: string
+  /** OCR label from screenshot; shown when only one market exists in the parent group */
+  marketRaw?: string
   isMacro?: boolean
   referenceNodeId?: string
   referenceDepartment?: string

@@ -6,7 +6,7 @@ import { ChevronDown, ChevronRight, Download, Share, LayoutGrid, ImagePlus, Tras
 import { ProviderLogo } from "@/components/provider-logo"
 import { ProcessingWarningsBanner } from "@/components/processing-warnings-banner"
 import { getCurrentMonthYear, getRowTiers, type RateTier } from "@/lib/cashback-data"
-import { groupMatrixRows, groupHasSubcategories } from "@/lib/matrix"
+import { groupMatrixRows, groupHasSubcategories, countProvidersInGroup, resolveMarketRowCategory } from "@/lib/matrix"
 import {
   formatCategoryLabel,
   labelsEquivalent,
@@ -67,25 +67,28 @@ function MatrixRowContent({
   row,
   providers,
   indented = false,
+  displayCategory,
 }: {
   row: MatrixRow
   providers: MatrixProvider[]
   indented?: boolean
+  displayCategory?: string
 }) {
+  const categoryLabel = displayCategory ?? row.category
   const showParent =
     row.parent &&
     !indented &&
     !row.isMacro &&
-    !labelsEquivalent(row.category, row.parent)
+    !labelsEquivalent(categoryLabel, row.parent)
   const showBankRaw =
     row.bankRaw &&
-    !labelsEquivalent(row.bankRaw, row.category) &&
+    !labelsEquivalent(row.bankRaw, categoryLabel) &&
     !(row.parent && labelsEquivalent(row.bankRaw, row.parent))
 
   return (
     <>
       <div className={`flex-1 pr-2 ${indented ? "pl-6" : ""}`}>
-        <p className="text-[13px] font-medium leading-snug text-slate-800">{row.category}</p>
+        <p className="text-[13px] font-medium leading-snug text-slate-800">{categoryLabel}</p>
         {showParent && <p className="text-[11px] text-slate-400">{formatCategoryLabel(row.parent)}</p>}
         {showBankRaw && <p className="text-[11px] text-slate-400">{row.bankRaw}</p>}
       </div>
@@ -218,15 +221,23 @@ export function ResultsScreen({
               const hasSubcategories = groupHasSubcategories(group)
               const isExpanded = hasSubcategories && expandedParents.has(group.parent)
               const isLastGroup = groupIdx === groups.length - 1
+              const providerCountInGroup = activeTab === "market" ? countProvidersInGroup(group) : 0
+              const resolveRowLabel = (row: MatrixRow) =>
+                activeTab === "market"
+                  ? resolveMarketRowCategory(row, providerCountInGroup)
+                  : row.category
               const displayLabel = hasSubcategories
                 ? formatCategoryLabel(group.parent)
-                : formatCategoryLabel(group.rows[0]?.category ?? group.parent)
+                : formatCategoryLabel(
+                    group.rows[0] ? resolveRowLabel(group.rows[0]) : group.parent,
+                  )
 
               if (!hasSubcategories) {
                 const row = group.rows[0]
+                const rowLabel = row ? resolveRowLabel(row) : displayLabel
                 const showBankRaw =
                   row?.bankRaw &&
-                  !labelsEquivalent(row.bankRaw, displayLabel) &&
+                  !labelsEquivalent(row.bankRaw, rowLabel) &&
                   !(row.parent && labelsEquivalent(row.bankRaw, row.parent))
 
                 return (
@@ -238,7 +249,7 @@ export function ResultsScreen({
                   >
                     <div className="flex-1 pr-2">
                       <p className="text-[13px] font-semibold leading-snug text-slate-800">
-                        {displayLabel}
+                        {rowLabel}
                       </p>
                       {showBankRaw ? (
                         <p className="text-[11px] text-slate-400">{row.bankRaw}</p>
@@ -284,10 +295,15 @@ export function ResultsScreen({
                       >
                         {group.rows.map((child) => (
                           <div
-                            key={child.category}
+                            key={`${child.referenceNodeId ?? child.category}-${child.referenceDepth ?? 0}`}
                             className="flex items-center border-t border-slate-100 bg-slate-50/50 px-3 py-2.5"
                           >
-                            <MatrixRowContent row={child} providers={providers} indented />
+                            <MatrixRowContent
+                              row={child}
+                              providers={providers}
+                              indented
+                              displayCategory={resolveRowLabel(child)}
+                            />
                           </div>
                         ))}
                       </motion.div>
