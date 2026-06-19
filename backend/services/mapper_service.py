@@ -18,7 +18,9 @@ ENRICHED_PATH = Path(__file__).resolve().parent.parent / "data" / "parent_catego
 NAMED_CATEGORIES_PATH = (
     Path(__file__).resolve().parent.parent / "data" / "bank_named_categories.json"
 )
-PARENT_SYNONYMS_PATH = (
+# Bank-only OCR aliases → parent category (category_hierarchy.json).
+# Not used for market mapping (ReferenceMapperService + reference_hierarchy.json).
+BANK_PARENT_SYNONYMS_PATH = (
     Path(__file__).resolve().parent.parent / "data" / "parent_category_synonyms.json"
 )
 BANK_OFFER_ENTRIES_PATH = (
@@ -163,10 +165,12 @@ class MapperService:
             _normalize_category_name(key): value for key, value in raw_overrides.items()
         }
         self._named_categories = _load_named_categories()
-        if PARENT_SYNONYMS_PATH.is_file():
-            raw_synonyms = json.loads(PARENT_SYNONYMS_PATH.read_text(encoding="utf-8"))
+        if BANK_PARENT_SYNONYMS_PATH.is_file():
+            raw_synonyms = json.loads(BANK_PARENT_SYNONYMS_PATH.read_text(encoding="utf-8"))
             self._parent_synonyms = {
-                _normalize_category_name(key): value for key, value in raw_synonyms.items()
+                _normalize_category_name(key): value
+                for key, value in raw_synonyms.items()
+                if not str(key).startswith("_")
             }
 
         with CATALOG_PATH.open(encoding="utf-8") as f:

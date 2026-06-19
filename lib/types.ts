@@ -30,6 +30,8 @@ export interface MappedItem {
   reference_category?: string
   reference_subcategory?: string
   reference_depth?: number
+  split_text?: string
+  reference_path?: { id: string; name: string }[]
   display_label?: string
   match_source?:
     | "catalog"
@@ -39,6 +41,7 @@ export interface MappedItem {
     | "reference_llm"
     | "reference_cache"
     | "reference_fallback"
+    | "reference_split_llm"
 }
 
 export interface MatrixProvider {
@@ -61,6 +64,11 @@ export interface MatrixRow {
   referenceCategory?: string
   referenceSubcategory?: string
   referenceDepth?: number
+  /** "anchor" — строка сравнения (LCA); "item" — отдельный товар */
+  rowKind?: "anchor" | "item"
+  referencePath?: { id: string; name: string }[]
+  /** Диапазон ставок по магазину для строки-якоря */
+  rateRanges?: Record<string, { min: number; max: number }>
   rates: Record<string, number>
 }
 
@@ -75,6 +83,8 @@ export interface CashbackMatrix {
   kind: Kind
   providers: MatrixProvider[]
   rows: MatrixRow[]
+  /** Сырые части market для LCA-группировки (только kind="market") */
+  marketParts?: import("@/lib/market-comparison").ComparisonPart[]
 }
 
 export interface MatrixState {

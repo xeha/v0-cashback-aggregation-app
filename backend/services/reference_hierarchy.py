@@ -3,7 +3,6 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Literal
 
 REFERENCE_HIERARCHY_PATH = (
     Path(__file__).resolve().parent.parent / "data" / "reference_hierarchy.json"
@@ -14,15 +13,21 @@ REFERENCE_HIERARCHY_PATH = (
 class ReferenceNode:
     id: str
     name: str
-    level: Literal[1, 2, 3]
+    examples: tuple[str, ...]
+    parent_id: str | None
     department_id: str
-    category_id: str | None
-    path: tuple[str, ...]
+    path_ids: tuple[str, ...]
+    path_names: tuple[str, ...]
+
+    @property
+    def level(self) -> int:
+        return len(self.path_ids)
 
 
 class ReferenceHierarchy:
     def __init__(self) -> None:
         self._nodes_by_id: dict[str, ReferenceNode] = {}
+        self._name_index: dict[str, str] = {}
         self._department_order: list[str] = []
         self._fallback_node_id = ""
 
@@ -48,57 +53,21 @@ class ReferenceHierarchy:
             raise ValueError("Invalid reference hierarchy: fallback_node_id is required")
 
         nodes_by_id: dict[str, ReferenceNode] = {}
+        name_index: dict[str, str] = {}
         department_names: list[str] = []
 
         for department in departments:
             department_id = str(department["id"])
-            department_name = str(department["name"])
-            department_names.append(department_name)
-
-            self._insert_node(
-                nodes_by_id,
-                ReferenceNode(
-                    id=department_id,
-                    name=department_name,
-                    level=1,
-                    department_id=department_id,
-                    category_id=None,
-                    path=(department_name,),
-                ),
+            department_names.append(str(department["name"]))
+            self._walk(
+                department,
+                parent_id=None,
+                department_id=department_id,
+                path_ids=(),
+                path_names=(),
+                nodes_by_id=nodes_by_id,
+                name_index=name_index,
             )
-
-            categories = department.get("categories", [])
-            for category in categories:
-                category_id = str(category["id"])
-                category_name = str(category["name"])
-
-                self._insert_node(
-                    nodes_by_id,
-                    ReferenceNode(
-                        id=category_id,
-                        name=category_name,
-                        level=2,
-                        department_id=department_id,
-                        category_id=None,
-                        path=(department_name, category_name),
-                    ),
-                )
-
-                subcategories = category.get("subcategories", [])
-                for subcategory in subcategories:
-                    subcategory_id = str(subcategory["id"])
-                    subcategory_name = str(subcategory["name"])
-                    self._insert_node(
-                        nodes_by_id,
-                        ReferenceNode(
-                            id=subcategory_id,
-                            name=subcategory_name,
-                            level=3,
-                            department_id=department_id,
-                            category_id=category_id,
-                            path=(department_name, category_name, subcategory_name),
-                        ),
-                    )
 
         if fallback_node_id not in nodes_by_id:
             raise ValueError(
@@ -106,48 +75,68 @@ class ReferenceHierarchy:
             )
 
         self._nodes_by_id = nodes_by_id
+        self._name_index = name_index
         self._department_order = department_names
         self._fallback_node_id = fallback_node_id
+
+    def _walk(
+        self,
+        raw_node: dict,
+        *,
+        parent_id: str | None,
+        department_id: str,
+        path_ids: tuple[str, ...],
+        path_names: tuple[str, ...],
+        nodes_by_id: dict[str, ReferenceNode],
+        name_index: dict[str, str],
+    ) -> None:
+        node_id = str(raw_node["id"])
+        name = str(raw_node["name"])
+        if node_id in nodes_by_id:
+            raise ValueError(f"Duplicate reference node id: {node_id}")
+        new_path_ids = path_ids + (node_id,)
+        new_path_names = path_names + (name,)
+        examples = tuple(str(e) for e in raw_node.get("examples", []))
+        nodes_by_id[node_id] = ReferenceNode(
+            id=node_id,
+            name=name,
+            examples=examples,
+            parent_id=parent_id,
+            department_id=department_id,
+            path_ids=new_path_ids,
+            path_names=new_path_names,
+        )
+        name_index.setdefault(_normalize(name), node_id)
+        for child in raw_node.get("children", []):
+            self._walk(
+                child,
+                parent_id=node_id,
+                department_id=department_id,
+                path_ids=new_path_ids,
+                path_names=new_path_names,
+                nodes_by_id=nodes_by_id,
+                name_index=name_index,
+            )
 
     def get_node(self, node_id: str) -> ReferenceNode | None:
         return self._nodes_by_id.get(node_id)
 
+    def find_by_name(self, name: str) -> ReferenceNode | None:
+        node_id = self._name_index.get(_normalize(name))
+        return self._nodes_by_id.get(node_id) if node_id else None
+
+    def ancestors_and_self(self, node_id: str) -> list[ReferenceNode]:
+        node = self._nodes_by_id.get(node_id)
+        if node is None:
+            return []
+        return [self._nodes_by_id[pid] for pid in node.path_ids]
+
+    def iter_nodes(self) -> list[ReferenceNode]:
+        return list(self._nodes_by_id.values())
+
     def department_order(self) -> list[str]:
         return list(self._department_order)
 
-    def _insert_node(
-        self, nodes_by_id: dict[str, ReferenceNode], node: ReferenceNode
-    ) -> None:
-        if node.id in nodes_by_id:
-            raise ValueError(f"Duplicate reference node id: {node.id}")
-        nodes_by_id[node.id] = node
 
-
-def resolve_display_node(
-    hierarchy: ReferenceHierarchy, node_id: str, depth: int
-) -> ReferenceNode:
-    if depth not in (1, 2, 3):
-        raise ValueError(f"Unsupported depth: {depth}")
-    if not hierarchy.is_loaded:
-        raise RuntimeError("Reference hierarchy is not loaded")
-
-    node = hierarchy.get_node(node_id)
-    if node is None:
-        fallback = hierarchy.get_node(hierarchy.fallback_node_id)
-        if fallback is None:
-            raise RuntimeError("Fallback node is not available")
-        node = fallback
-
-    if depth == 1:
-        department_node = hierarchy.get_node(node.department_id)
-        if department_node is None:
-            raise RuntimeError(f"Department node {node.department_id!r} not found")
-        return department_node
-
-    if depth == 2 and node.level == 3 and node.category_id:
-        category_node = hierarchy.get_node(node.category_id)
-        if category_node is None:
-            raise RuntimeError(f"Category node {node.category_id!r} not found")
-        return category_node
-
-    return node
+def _normalize(name: str) -> str:
+    return " ".join(name.lower().strip().split())

@@ -35,23 +35,34 @@ function getDefaultTab(matrix: MatrixState, kind: Kind): Tab {
 
 function RateBadges({
   rates,
+  rateRanges,
   providers,
 }: {
   rates: Record<string, number>
+  rateRanges?: MatrixRow["rateRanges"]
   providers: MatrixProvider[]
 }) {
   const tiers = getRowTiers(rates)
   return (
     <div className="flex shrink-0 items-center gap-1">
       {providers.map((p) => {
+        const range = rateRanges?.[p.key]
         const rate = rates[p.key]
+        const label =
+          range !== undefined
+            ? range.min === range.max
+              ? `${range.max}%`
+              : `${range.min}–${range.max}%`
+            : rate !== undefined
+              ? `${rate}%`
+              : undefined
         return (
           <div key={p.key} className="flex w-11 justify-center">
-            {rate !== undefined ? (
+            {label !== undefined ? (
               <span
-                className={`rounded-full px-2 py-1 text-[12px] font-bold ${TIER_STYLES[tiers[p.key]]}`}
+                className={`rounded-full px-2 py-1 text-[12px] font-bold ${TIER_STYLES[tiers[p.key] ?? "mid"]}`}
               >
-                {rate}%
+                {label}
               </span>
             ) : (
               <span className="text-[13px] text-slate-300">—</span>
@@ -89,10 +100,12 @@ function MatrixRowContent({
     <>
       <div className={`flex-1 pr-2 ${indented ? "pl-6" : ""}`}>
         <p className="text-[13px] font-medium leading-snug text-slate-800">{categoryLabel}</p>
-        {showParent && <p className="text-[11px] text-slate-400">{formatCategoryLabel(row.parent)}</p>}
+        {showParent && row.parent ? (
+          <p className="text-[11px] text-slate-400">{formatCategoryLabel(row.parent)}</p>
+        ) : null}
         {showBankRaw && <p className="text-[11px] text-slate-400">{row.bankRaw}</p>}
       </div>
-      <RateBadges rates={row.rates} providers={providers} />
+      <RateBadges rates={row.rates} rateRanges={row.rateRanges} providers={providers} />
     </>
   )
 }
@@ -120,7 +133,10 @@ export function ResultsScreen({
   const activeMatrix = getActiveMatrix(matrix, activeTab)
   const providers = activeMatrix?.providers ?? []
   const rows = activeMatrix?.rows ?? []
-  const groups = groupMatrixRows(rows)
+  const groups = groupMatrixRows(
+    rows,
+    activeTab === "market" ? activeMatrix?.marketParts : undefined,
+  )
 
   function toggleParent(parent: string) {
     setExpandedParents((prev) => {

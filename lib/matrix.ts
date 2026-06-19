@@ -9,6 +9,7 @@ import {
   normalizeCategoryLabel,
 } from "@/lib/category-label"
 import { REFERENCE_HIERARCHY_DEPARTMENT_ORDER } from "@/lib/reference-hierarchy-order"
+import { buildMarketGroups, type ComparisonPart } from "@/lib/market-comparison"
 import type {
   CashbackMatrix,
   Kind,
@@ -50,10 +51,7 @@ function resolveBankRowKey(
   return `leaf::${normalizeCategoryLabel(canonicalLabel)}`
 }
 
-function rowKeyFromExisting(row: MatrixRow, kind: Kind): string {
-  if (kind === "market" && row.referenceNodeId && row.referenceDepth !== undefined) {
-    return marketRowKeyFromExisting(row)
-  }
+function rowKeyFromExisting(row: MatrixRow): string {
   if (row.isMacro && row.parent) {
     return `macro::${normalizeCategoryLabel(row.parent)}`
   }
@@ -73,94 +71,6 @@ function resolveBankDisplayLabel(item: MappedItem, canonical: string, isMacro: b
     return item.unified_category
   }
   return canonical
-}
-
-function getReferenceDepth(item: MappedItem): number {
-  if (typeof item.reference_depth === "number") return item.reference_depth
-  if (item.reference_subcategory) return 3
-  if (item.reference_category) return 2
-  return 1
-}
-
-type MarketComparisonAnchor = {
-  nodeId: string
-  depth: number
-  categoryLabel: string
-  departmentLabel?: string
-}
-
-function parseReferenceNodeId(nodeId: string): {
-  departmentId: string
-  categoryId?: string
-} {
-  const parts = nodeId.split(".")
-  const departmentId = parts[0] ?? nodeId
-  const categoryId = parts.length >= 2 ? `${parts[0]}.${parts[1]}` : undefined
-  return { departmentId, categoryId }
-}
-
-/** Normalize L3 (and mixed-depth) mappings to L2 category for cross-store row merge. */
-function resolveMarketComparisonAnchor(item: MappedItem): MarketComparisonAnchor {
-  const sourceDepth = getReferenceDepth(item)
-  const nodeId = item.reference_node_id?.trim()
-  const departmentLabel = item.reference_department ?? item.unified_parent
-
-  if (!nodeId) {
-    const categoryLabel = formatCategoryLabel(item.display_label ?? item.unified_category)
-    return {
-      nodeId: `unknown::${normalizeCategoryLabel(categoryLabel)}`,
-      depth: sourceDepth,
-      categoryLabel,
-      departmentLabel,
-    }
-  }
-
-  const { departmentId, categoryId } = parseReferenceNodeId(nodeId)
-
-  if (sourceDepth === 1) {
-    return {
-      nodeId: departmentId,
-      depth: 1,
-      categoryLabel: formatCategoryLabel(departmentLabel ?? item.display_label ?? item.unified_category),
-      departmentLabel,
-    }
-  }
-
-  const compareNodeId = categoryId ?? nodeId
-  const categoryLabel = formatCategoryLabel(
-    item.reference_category ?? item.display_label ?? item.unified_category,
-  )
-
-  return {
-    nodeId: compareNodeId,
-    depth: 2,
-    categoryLabel,
-    departmentLabel,
-  }
-}
-
-function marketRowKeyFromAnchor(anchor: MarketComparisonAnchor): string {
-  return `ref::${anchor.nodeId}::${anchor.depth}`
-}
-
-function resolveMarketRowKey(item: MappedItem): string {
-  return marketRowKeyFromAnchor(resolveMarketComparisonAnchor(item))
-}
-
-function marketRowKeyFromExisting(row: MatrixRow): string {
-  return resolveMarketRowKey({
-    raw_category: row.marketRaw ?? row.category,
-    unified_category: row.category,
-    unified_parent: row.referenceDepartment ?? row.parent,
-    reference_node_id: row.referenceNodeId,
-    reference_department: row.referenceDepartment,
-    reference_category: row.referenceCategory,
-    reference_subcategory: row.referenceSubcategory,
-    reference_depth: row.referenceDepth,
-    display_label: row.referenceCategory ?? row.category,
-    rate: 0,
-    confidence: 0,
-  })
 }
 
 function consolidateGroupRows(rows: MatrixRow[]): MatrixRow[] {
@@ -204,10 +114,12 @@ export function mergeMappedItems(
   kind: Kind,
 ): CashbackMatrix {
   const rowMap = new Map<string, MatrixRow>()
+  const collectedMarketParts: ComparisonPart[] =
+    matrix && matrix.kind === kind ? [...(matrix.marketParts ?? [])] : []
 
   if (matrix && matrix.kind === kind) {
     for (const row of matrix.rows) {
-      const key = rowKeyFromExisting(row, kind)
+      const key = rowKeyFromExisting(row)
       rowMap.set(key, {
         ...row,
         rates: { ...row.rates },
@@ -219,56 +131,15 @@ export function mergeMappedItems(
     if (item.is_bank_offer) continue
 
     if (kind === "market") {
-      const anchor = resolveMarketComparisonAnchor(item)
-      const displayLabel = anchor.categoryLabel
-      const rowKey = resolveMarketRowKey(item)
-      const referenceDepartment = anchor.departmentLabel ?? item.unified_parent
-      const raw = item.raw_category.trim()
-      const marketRaw =
-        raw &&
-        !labelsEquivalent(raw, displayLabel) &&
-        !(referenceDepartment && labelsEquivalent(raw, referenceDepartment))
-          ? raw
-          : undefined
-      const existing = rowMap.get(rowKey) ?? {
-        category: displayLabel,
-        parent: referenceDepartment,
-        isMacro: anchor.depth === 1,
-        referenceNodeId: anchor.nodeId,
-        referenceDepartment,
-        referenceCategory: anchor.depth >= 2 ? displayLabel : undefined,
-        referenceSubcategory: undefined,
-        referenceDepth: anchor.depth,
-        rates: {},
-      }
-
-      const hadThisProvider = provider.key in existing.rates
-      const hadOtherProviders = Object.keys(existing.rates).some(
-        (key) => key !== provider.key,
-      )
-      existing.rates[provider.key] = item.rate
-      if (!existing.parent && referenceDepartment) existing.parent = referenceDepartment
-      if (!existing.referenceDepartment && referenceDepartment) {
-        existing.referenceDepartment = referenceDepartment
-      }
-      existing.referenceNodeId = anchor.nodeId
-      existing.referenceDepth = anchor.depth
-      existing.isMacro = anchor.depth === 1
-      existing.category = displayLabel
-      if (anchor.depth >= 2) {
-        existing.referenceCategory = displayLabel
-        existing.referenceSubcategory = undefined
-      } else {
-        existing.referenceCategory = undefined
-        existing.referenceSubcategory = undefined
-      }
-      if (marketRaw && !hadThisProvider) {
-        existing.marketRaw = marketRaw
-      } else if (hadOtherProviders) {
-        existing.marketRaw = undefined
-      }
-
-      rowMap.set(rowKey, existing)
+      const path = (item.reference_path ?? []).map((n) => ({ id: n.id, name: n.name }))
+      if (path.length === 0) continue
+      collectedMarketParts.push({
+        store: provider.key,
+        rate: item.rate,
+        label: formatCategoryLabel(item.split_text ?? item.display_label ?? item.unified_category),
+        nodeId: item.reference_node_id ?? path[path.length - 1].id,
+        path,
+      })
       continue
     }
 
@@ -333,6 +204,7 @@ export function mergeMappedItems(
     rows: Array.from(rowMap.values()).sort((a, b) =>
       a.category.localeCompare(b.category, "ru"),
     ),
+    marketParts: kind === "market" ? collectedMarketParts : undefined,
   }
 }
 
@@ -402,7 +274,71 @@ function visibleMacroChildren(parent: string, macroRows: MatrixRow[]): MatrixRow
   })
 }
 
-export function groupMatrixRows(rows: MatrixRow[]): MatrixGroup[] {
+function formatRange(range: { min: number; max: number }): number {
+  return range.max
+}
+
+function buildMarketGroupsAsMatrix(parts: ComparisonPart[]): MatrixGroup[] {
+  const orderIndex = new Map(
+    REFERENCE_HIERARCHY_DEPARTMENT_ORDER.map((name, index) => [
+      normalizeCategoryLabel(name),
+      index,
+    ]),
+  )
+  const groups = buildMarketGroups(parts).map((group) => {
+    const summaryRates: Record<string, number> = {}
+    const rows: MatrixRow[] = []
+    for (const row of group.rows) {
+      if (row.kind === "anchor") {
+        const rates: Record<string, number> = {}
+        for (const [store, range] of Object.entries(row.rateRanges)) {
+          rates[store] = formatRange(range)
+          summaryRates[store] = Math.max(summaryRates[store] ?? 0, range.max)
+        }
+        rows.push({
+          category: formatCategoryLabel(row.label),
+          parent: group.parent,
+          rowKind: "anchor",
+          referenceDepartment: group.parent,
+          referenceNodeId: row.nodeId,
+          rateRanges: row.rateRanges,
+          rates,
+        })
+      } else {
+        summaryRates[row.store] = Math.max(summaryRates[row.store] ?? 0, row.rate)
+        rows.push({
+          category: formatCategoryLabel(row.label),
+          parent: group.parent,
+          rowKind: "item",
+          referenceDepartment: group.parent,
+          referenceNodeId: row.nodeId,
+          rates: { [row.store]: row.rate },
+        })
+      }
+    }
+    return {
+      parent: group.parent,
+      summaryRates,
+      rows,
+      isMacroOnly: rows.every((r) => r.rowKind === "anchor"),
+    } satisfies MatrixGroup
+  })
+  return groups.sort((a, b) => {
+    const aOrder = orderIndex.get(normalizeCategoryLabel(a.parent)) ?? Number.MAX_SAFE_INTEGER
+    const bOrder = orderIndex.get(normalizeCategoryLabel(b.parent)) ?? Number.MAX_SAFE_INTEGER
+    if (aOrder !== bOrder) return aOrder - bOrder
+    return a.parent.localeCompare(b.parent, "ru")
+  })
+}
+
+export function groupMatrixRows(
+  rows: MatrixRow[],
+  marketParts?: ComparisonPart[],
+): MatrixGroup[] {
+  if (marketParts && marketParts.length > 0) {
+    return buildMarketGroupsAsMatrix(marketParts)
+  }
+
   const hasReferenceHierarchyRows = rows.some(
     (row) => Boolean(row.referenceDepartment) || typeof row.referenceDepth === "number",
   )

@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "backend/main.py": {
-    "mtime": 1781855808.543205,
-    "ast_hash": "dddd1d73301d1e4d1d0242c46c8cafcc",
+    "mtime": 1781867583.9812915,
+    "ast_hash": "ef04736041410b2a83d575145b4259d4",
     "semantic_hash": ""
   },
   "backend/routers/__init__.py": {
@@ -25,8 +25,8 @@
     "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
   },
   "backend/routers/category.py": {
-    "mtime": 1781855806.4676678,
-    "ast_hash": "cad5ba147fe723a440c16e4fe3b25477",
+    "mtime": 1781867586.1939707,
+    "ast_hash": "d5283e1ea69daaa96acf42dc85950a0f",
     "semantic_hash": ""
   },
   "backend/routers/ocr.py": {
@@ -35,8 +35,8 @@
     "semantic_hash": ""
   },
   "backend/schemas.py": {
-    "mtime": 1781855809.5460045,
-    "ast_hash": "290a26c31c5bb86b508a5975ef63a881",
+    "mtime": 1781867540.4882824,
+    "ast_hash": "0210b1904e2206d39b8e6187e02945ee",
     "semantic_hash": ""
   },
   "backend/services/__init__.py": {
@@ -45,8 +45,8 @@
     "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
   },
   "backend/services/mapper_service.py": {
-    "mtime": 1781780850.1510477,
-    "ast_hash": "b0dcc761cffb32b704ea97418a9cecd8",
+    "mtime": 1781861839.4036126,
+    "ast_hash": "d75aeddb027dc43e876b62fdf1b48c2e",
     "semantic_hash": ""
   },
   "backend/services/ocr_service.py": {
@@ -120,8 +120,8 @@
     "semantic_hash": "8062aae909450f1f017065252e0f748a"
   },
   "components/screens/results-screen.tsx": {
-    "mtime": 1781799047.111773,
-    "ast_hash": "b07edd2d2938bed3451f88f9d88c3f77",
+    "mtime": 1781868029.1440756,
+    "ast_hash": "1424e24e170bd8f239c887c01be0031f",
     "semantic_hash": ""
   },
   "components/screens/user-menu.tsx": {
@@ -140,8 +140,8 @@
     "semantic_hash": "63cfaae37f8d5e0fa4451635ccc521b4"
   },
   "lib/api.ts": {
-    "mtime": 1781780918.9675202,
-    "ast_hash": "66c150b430082d2a54814d81e892f98d",
+    "mtime": 1781858912.4446619,
+    "ast_hash": "d7784eb9b3cdaac24aed188a9bb393cb",
     "semantic_hash": ""
   },
   "lib/bank-select-rows.ts": {
@@ -180,8 +180,8 @@
     "semantic_hash": ""
   },
   "lib/matrix.ts": {
-    "mtime": 1781854350.5720727,
-    "ast_hash": "04035dc44df0b3ead487050e16465452",
+    "mtime": 1781867924.8635936,
+    "ast_hash": "d814e1a0ee24a541b3b0b1912ade7e01",
     "semantic_hash": ""
   },
   "lib/provider-logos.ts": {
@@ -190,8 +190,8 @@
     "semantic_hash": "10c57906fcd608feddd73ac082dae44b"
   },
   "lib/types.ts": {
-    "mtime": 1781855810.223611,
-    "ast_hash": "92748928150530db393a907e75fb6ed4",
+    "mtime": 1781867892.2435396,
+    "ast_hash": "c3f5fc0691023d21cf90460fb69e52d8",
     "semantic_hash": ""
   },
   "lib/utils.ts": {
@@ -210,8 +210,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1781685967.192736,
-    "ast_hash": "1e3d41a01f0921feae6fc2ab71a5a832",
+    "mtime": 1781867882.6882768,
+    "ast_hash": "f694ebfad8a9889fa1ec7c5846337de4",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -270,8 +270,8 @@
     "semantic_hash": ""
   },
   "scripts/sync_bank_catalog.py": {
-    "mtime": 1781709804.6407187,
-    "ast_hash": "43854a1eb511f86719a63e31452e7c7f",
+    "mtime": 1781861832.8755832,
+    "ast_hash": "27d77ac2db4c1891f8dd655fe0afecee",
     "semantic_hash": ""
   },
   "scripts/verify-bank-service-filter.mjs": {
@@ -305,8 +305,8 @@
     "semantic_hash": ""
   },
   "backend/data/parent_category_synonyms.json": {
-    "mtime": 1781711087.280526,
-    "ast_hash": "b9171bdbcb7ccb56e7c9ae739a785008",
+    "mtime": 1781861832.886667,
+    "ast_hash": "cddf96462a2d103b408d8091aa97135e",
     "semantic_hash": ""
   },
   "backend/data/taxonomy_migration.json": {
@@ -389,11 +389,6 @@
     "ast_hash": "a0f73ba87de9d49b403b845baad3b214",
     "semantic_hash": ""
   },
-  "backend/data/market_parent_synonyms.json": {
-    "mtime": 1781787493.8726711,
-    "ast_hash": "af8213b203c355d971e5fdbdfc9b2b99",
-    "semantic_hash": ""
-  },
   "backend/services/market_slug_resolver.py": {
     "mtime": 1781780814.719595,
     "ast_hash": "9601e1e28539feebd505c31eb8dae1a6",
@@ -415,28 +410,23 @@
     "semantic_hash": ""
   },
   "backend/data/reference_hierarchy.json": {
-    "mtime": 1781797074.2417977,
-    "ast_hash": "b17f004fbedbec068e1e0df04cf8b847",
+    "mtime": 1781867444.8795123,
+    "ast_hash": "44b7241e8a55093e1e9cc8f5551934e9",
     "semantic_hash": ""
   },
   "backend/services/reference_hierarchy.py": {
-    "mtime": 1781797174.3711393,
-    "ast_hash": "bb3c418e49e9e624765d65ccfee1571f",
+    "mtime": 1781867493.008816,
+    "ast_hash": "e0922846d38b13a52249732ad78a5cb7",
     "semantic_hash": ""
   },
   "scripts/build_reference_hierarchy.py": {
-    "mtime": 1781797069.0778081,
-    "ast_hash": "8436171e7de902a9bd441034e6b1cb51",
+    "mtime": 1781867421.411695,
+    "ast_hash": "4690b2e11ca51a8b29240992127b05b6",
     "semantic_hash": ""
   },
   "scripts/verify_reference_mapper_offline.py": {
     "mtime": 1781797180.413087,
     "ast_hash": "d11cd909e59d312cb745539c84908398",
-    "semantic_hash": ""
-  },
-  "backend/services/reference_mapper_service.py": {
-    "mtime": 1781856333.8943582,
-    "ast_hash": "3ac00f3321616eb14e94adfbfd7525b5",
     "semantic_hash": ""
   },
   "scripts/verify_reference_mapper.py": {
@@ -474,19 +464,74 @@
     "ast_hash": "059d0e11d2e4c061db952e4375d719e5",
     "semantic_hash": ""
   },
-  "backend/services/category_compound_split_service.py": {
-    "mtime": 1781856286.4180894,
-    "ast_hash": "c1fe1f2c1908c16d516591191060ae43",
-    "semantic_hash": ""
-  },
   "backend/services/category_text_utils.py": {
-    "mtime": 1781856259.9587085,
-    "ast_hash": "84abb36c5e3919842ccc93d3c198e182",
+    "mtime": 1781862036.5063708,
+    "ast_hash": "f441dafdfd2c70b256a29d36907594cb",
     "semantic_hash": ""
   },
-  "scripts/verify_compound_split.py": {
-    "mtime": 1781856329.2163982,
-    "ast_hash": "f9355228d65af28519b1a6452048e5f7",
+  "backend/services/market_split_map_service.py": {
+    "mtime": 1781867566.7084506,
+    "ast_hash": "2f306983b249c8513fb2b93855085c53",
+    "semantic_hash": ""
+  },
+  "backend/tests/__init__.py": {
+    "mtime": 1781867321.9563477,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "backend/tests/conftest.py": {
+    "mtime": 1781867322.8833315,
+    "ast_hash": "7b85c469b0334255d01a7a7b3af31694",
+    "semantic_hash": ""
+  },
+  "backend/tests/fixtures/mini_hierarchy.json": {
+    "mtime": 1781867467.6783252,
+    "ast_hash": "6a204f7a7231dafdde62ba55bc360c6c",
+    "semantic_hash": ""
+  },
+  "backend/tests/test_build_reference_hierarchy.py": {
+    "mtime": 1781867372.9922535,
+    "ast_hash": "90b5d93097bf2e736255cd420a689c07",
+    "semantic_hash": ""
+  },
+  "backend/tests/test_market_split_map_service.py": {
+    "mtime": 1781867576.8957293,
+    "ast_hash": "e454a3760f7d64a384606b44987c5218",
+    "semantic_hash": ""
+  },
+  "backend/tests/test_reference_hierarchy.py": {
+    "mtime": 1781867486.455052,
+    "ast_hash": "ffcf0f6f0b87bdbd0af94c1bb770e010",
+    "semantic_hash": ""
+  },
+  "lib/market-comparison.test.ts": {
+    "mtime": 1781867881.6670985,
+    "ast_hash": "d3150df159822b80f5e1a05e65a52ddd",
+    "semantic_hash": ""
+  },
+  "lib/market-comparison.ts": {
+    "mtime": 1781867866.31483,
+    "ast_hash": "9b51eb494225e3e1b94e20eb79a22cc7",
+    "semantic_hash": ""
+  },
+  "scripts/__init__.py": {
+    "mtime": 1781867404.9348664,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "scripts/verify_split_map.py": {
+    "mtime": 1781867594.1974783,
+    "ast_hash": "f2faea9f874ac0c603ef129945481be0",
+    "semantic_hash": ""
+  },
+  "scripts/verify_split_map_offline.py": {
+    "mtime": 1781867588.8180265,
+    "ast_hash": "7e615e87e3185fb2b78092bf6d0f3dff",
+    "semantic_hash": ""
+  },
+  "vitest.config.ts": {
+    "mtime": 1781867855.2246895,
+    "ast_hash": "b65971ec3a5abe23ce1b4b01004cba81",
     "semantic_hash": ""
   }
 }

@@ -1,16 +1,16 @@
 # Graph Report - v0-cashback-aggregation-app  (2026-06-19)
 
 ## Corpus Check
-- 98 files · ~167,252 words
+- 107 files · ~169,031 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 542 nodes · 1064 edges · 31 communities (28 shown, 3 thin omitted)
-- Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 91 edges (avg confidence: 0.51)
+- 571 nodes · 1087 edges · 36 communities (33 shown, 3 thin omitted)
+- Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 83 edges (avg confidence: 0.51)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0c98f04a`
+- Built from commit: `f53805cf`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -38,63 +38,64 @@
 - [[_COMMUNITY_Community 24|Community 24]]
 - [[_COMMUNITY_Community 25|Community 25]]
 - [[_COMMUNITY_Community 26|Community 26]]
+- [[_COMMUNITY_Community 27|Community 27]]
 - [[_COMMUNITY_Community 28|Community 28]]
 - [[_COMMUNITY_Community 29|Community 29]]
 - [[_COMMUNITY_Community 30|Community 30]]
 - [[_COMMUNITY_Community 31|Community 31]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `MapperService` - 27 edges
-2. `ReferenceMapperService` - 27 edges
-3. `CategoryMapRequestItem` - 23 edges
-4. `CategoryCompoundSplitService` - 19 edges
-5. `ReferenceHierarchy` - 17 edges
-6. `compilerOptions` - 16 edges
-7. `MappedItem` - 14 edges
-8. `Kind` - 14 edges
-9. `mergeMappedItems()` - 13 edges
+1. `MarketSplitMapService` - 27 edges
+2. `MapperService` - 26 edges
+3. `ReferenceHierarchy` - 21 edges
+4. `CategoryMapRequestItem` - 20 edges
+5. `compilerOptions` - 16 edges
+6. `MappedItem` - 14 edges
+7. `Kind` - 14 edges
+8. `build_hierarchy()` - 14 edges
+9. `CategoryMapRequestItem` - 13 edges
 10. `CategoryClassifierService` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `VerifyCase` --uses--> `CategoryMapRequestItem`  [INFERRED]
   scripts/verify_reference_mapper.py → backend/schemas.py
-- `main()` --calls--> `sanitize_category()`  [EXTRACTED]
-  scripts/verify_reference_mapper.py → backend/services/category_text_utils.py
-- `main()` --calls--> `MapperService`  [EXTRACTED]
-  scripts/verify_bank_catalog.py → backend/services/mapper_service.py
-- `VerifyCase` --uses--> `ReferenceMapperService`  [INFERRED]
-  scripts/verify_reference_mapper.py → backend/services/reference_mapper_service.py
-- `ResolveContext` --references--> `SourceSubmission`  [EXTRACTED]
-  components/screens/bank-select-screen.tsx → lib/types.ts
+- `main()` --calls--> `ReferenceHierarchy`  [EXTRACTED]
+  scripts/verify_reference_mapper_offline.py → backend/services/reference_hierarchy.py
+- `main()` --calls--> `ReferenceHierarchy`  [EXTRACTED]
+  scripts/verify_split_map_offline.py → backend/services/reference_hierarchy.py
+- `test_departments_parsed_in_order()` --calls--> `build_hierarchy()`  [EXTRACTED]
+  backend/tests/test_build_reference_hierarchy.py → scripts/build_reference_hierarchy.py
+- `test_department_ids_are_sequential()` --calls--> `build_hierarchy()`  [EXTRACTED]
+  backend/tests/test_build_reference_hierarchy.py → scripts/build_reference_hierarchy.py
 
 ## Import Cycles
 - 1-file cycle: `backend/main.py -> backend/main.py`
 
-## Communities (31 total, 3 thin omitted)
+## Communities (36 total, 3 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.06
-Nodes (69): OcrFailureDialog(), formatLowConfidence(), ProcessingWarningsBanner(), ApiError, collectBankOfferItems(), collectLowConfidenceItems(), extractOcr(), getBackendUrl() (+61 more)
+Cohesion: 0.08
+Nodes (36): OcrFailureDialog(), formatLowConfidence(), ProcessingWarningsBanner(), ApiError, collectBankOfferItems(), collectLowConfidenceItems(), extractOcr(), getBackendUrl() (+28 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.05
-Nodes (62): CashbackApp(), EMPTY_PROCESSING_SUMMARY, getBankSelectInitialRows(), PickMode, Screen, DuplicateSourceConfirmDialog(), formatProviderList(), ImageFilePicker() (+54 more)
+Cohesion: 0.06
+Nodes (54): CashbackApp(), EMPTY_PROCESSING_SUMMARY, getBankSelectInitialRows(), PickMode, Screen, DuplicateSourceConfirmDialog(), formatProviderList(), ImageFilePicker() (+46 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.10
-Nodes (24): Mistral, ndarray, SentenceTransformer, CategoryMapRequestItem, MappedItem, ndarray, MatchSource, main() (+16 more)
+Nodes (27): lifespan(), ndarray, SentenceTransformer, CategoryMapRequestItem, MappedItem, MatchSource, ndarray, SentenceTransformer (+19 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.10
-Nodes (23): Bank, BankKey, BANKS, CASHBACK_ROWS, CashbackRow, getRowTiers(), Market, MARKET_CASHBACK_ROWS (+15 more)
+Cohesion: 0.06
+Nodes (39): getPlaceholderAvatarColors(), getProviderInitial(), hashString(), isPlaceholderProviderLogo(), PLACEHOLDER_PALETTE, ProviderLogo(), Bank, BankKey (+31 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.06
-Nodes (30): dependencies, @base-ui/react, class-variance-authority, clsx, framer-motion, heic2any, lucide-react, next (+22 more)
+Nodes (32): dependencies, @base-ui/react, class-variance-authority, clsx, framer-motion, heic2any, lucide-react, next (+24 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.18
-Nodes (16): ACCEPTED_IMAGE_TYPES, compressDataUrl(), convertHeicToJpeg(), fileExtension(), guessMimeType(), HEIC_EXTENSIONS, HEIC_TYPES, ImageReadError (+8 more)
+Cohesion: 0.17
+Nodes (17): ImageFilePickerState, ACCEPTED_IMAGE_TYPES, compressDataUrl(), convertHeicToJpeg(), fileExtension(), guessMimeType(), HEIC_EXTENSIONS, HEIC_TYPES (+9 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.10
@@ -134,7 +135,7 @@ Nodes (3): cn(), Button(), buttonVariants
 
 ### Community 20 - "Community 20"
 Cohesion: 0.08
-Nodes (44): health(), lifespan(), _local_network_origin_regex(), Allow phone testing over Wi-Fi (Next.js dev on port 3000)., CategoryMapRequest, CategoryMapRequestItem, CategoryMapResponse, HealthResponse (+36 more)
+Nodes (45): Any, health(), _local_network_origin_regex(), Allow phone testing over Wi-Fi (Next.js dev on port 3000)., CategoryMapRequest, CategoryMapRequestItem, CategoryMapResponse, HealthResponse (+37 more)
 
 ### Community 21 - "Community 21"
 Cohesion: 0.40
@@ -145,20 +146,24 @@ Cohesion: 0.40
 Nodes (5): cases, __dirname, isBankService(), normalize(), patterns
 
 ### Community 24 - "Community 24"
-Cohesion: 0.48
-Nodes (6): getPlaceholderAvatarColors(), getProviderInitial(), hashString(), isPlaceholderProviderLogo(), PLACEHOLDER_PALETTE, ProviderLogo()
+Cohesion: 0.10
+Nodes (35): formatCategoryLabel(), labelsEquivalent(), normalizeCategoryLabel(), buildMarketGroups(), ComparisonAnchorRow, ComparisonGroup, ComparisonItemRow, ComparisonPart (+27 more)
 
 ### Community 25 - "Community 25"
 Cohesion: 0.70
 Nodes (4): build_enriched(), fallback_leaf_for_parent(), main(), normalize()
 
+### Community 27 - "Community 27"
+Cohesion: 0.35
+Nodes (9): _format_actual(), _format_expectations(), _load_backend_env(), main(), VerifyCase, normalize_key(), sanitize_category(), sanitize_raw() (+1 more)
+
 ### Community 28 - "Community 28"
-Cohesion: 0.10
-Nodes (19): MappedItem, Path, CategoryMapRequestItem, MappedItem, Mistral, ReferenceMatchSource, _format_actual(), _format_expectations() (+11 more)
+Cohesion: 0.11
+Nodes (14): Path, ReferenceHierarchy, main(), main(), _normalize(), ReferenceHierarchy, ReferenceNode, _hierarchy() (+6 more)
 
 ### Community 29 - "Community 29"
-Cohesion: 0.31
-Nodes (12): Any, Namespace, build_reference_hierarchy(), _collapse_spaces(), main(), _parse_args(), _parse_tree_block(), Path (+4 more)
+Cohesion: 0.22
+Nodes (17): build_hierarchy(), _clean_text(), _collect_ids(), _extract_node_label(), _iter_tree_blocks(), _line_depth(), main(), Path (+9 more)
 
 ### Community 30 - "Community 30"
 Cohesion: 0.44
@@ -169,24 +174,24 @@ Cohesion: 0.83
 Nodes (3): build_hierarchy(), main(), normalize()
 
 ## Knowledge Gaps
-- **128 isolated node(s):** `geistSans`, `geistMono`, `metadata`, `Mistral`, `Path` (+123 more)
+- **133 isolated node(s):** `geistSans`, `geistMono`, `metadata`, `Path`, `$schema` (+128 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `MapperService` connect `Community 20` to `Community 2`, `Community 28`?**
+- **Why does `MarketSplitMapService` connect `Community 20` to `Community 2`, `Community 28`?**
   _High betweenness centrality (0.022) - this node is a cross-community bridge._
-- **Why does `ReferenceMapperService` connect `Community 28` to `Community 20`?**
+- **Why does `MapperService` connect `Community 2` to `Community 20`?**
   _High betweenness centrality (0.019) - this node is a cross-community bridge._
-- **Why does `CategoryMapRequestItem` connect `Community 20` to `Community 2`, `Community 28`?**
-  _High betweenness centrality (0.014) - this node is a cross-community bridge._
-- **Are the 11 inferred relationships involving `MapperService` (e.g. with `CategoryCompoundSplitService` and `CategoryMapRequest`) actually correct?**
-  _`MapperService` has 11 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 12 inferred relationships involving `ReferenceMapperService` (e.g. with `CategoryCompoundSplitService` and `CategoryMapRequest`) actually correct?**
-  _`ReferenceMapperService` has 12 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 21 inferred relationships involving `CategoryMapRequestItem` (e.g. with `CategoryMapRequestItem` and `CategoryMapRequestItem`) actually correct?**
-  _`CategoryMapRequestItem` has 21 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 9 inferred relationships involving `CategoryCompoundSplitService` (e.g. with `CategoryCompoundSplitService` and `CategoryMapRequest`) actually correct?**
-  _`CategoryCompoundSplitService` has 9 INFERRED edges - model-reasoned connections that need verification._
+- **Why does `ReferenceHierarchy` connect `Community 28` to `Community 20`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
+- **Are the 11 inferred relationships involving `MarketSplitMapService` (e.g. with `CategoryMapRequest` and `CategoryMapResponse`) actually correct?**
+  _`MarketSplitMapService` has 11 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 10 inferred relationships involving `MapperService` (e.g. with `CategoryMapRequest` and `CategoryMapResponse`) actually correct?**
+  _`MapperService` has 10 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 7 inferred relationships involving `ReferenceHierarchy` (e.g. with `Any` and `CategoryMapRequestItem`) actually correct?**
+  _`ReferenceHierarchy` has 7 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 18 inferred relationships involving `CategoryMapRequestItem` (e.g. with `Any` and `CategoryMapRequestItem`) actually correct?**
+  _`CategoryMapRequestItem` has 18 INFERRED edges - model-reasoned connections that need verification._
