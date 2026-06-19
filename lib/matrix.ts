@@ -242,7 +242,10 @@ export function mergeMappedItems(
         rates: {},
       }
 
-      const hadProviders = Object.keys(existing.rates).length > 0
+      const hadThisProvider = provider.key in existing.rates
+      const hadOtherProviders = Object.keys(existing.rates).some(
+        (key) => key !== provider.key,
+      )
       existing.rates[provider.key] = item.rate
       if (!existing.parent && referenceDepartment) existing.parent = referenceDepartment
       if (!existing.referenceDepartment && referenceDepartment) {
@@ -259,9 +262,9 @@ export function mergeMappedItems(
         existing.referenceCategory = undefined
         existing.referenceSubcategory = undefined
       }
-      if (!hadProviders && marketRaw) {
+      if (marketRaw && !hadThisProvider) {
         existing.marketRaw = marketRaw
-      } else if (hadProviders) {
+      } else if (hadOtherProviders) {
         existing.marketRaw = undefined
       }
 

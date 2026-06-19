@@ -10,6 +10,19 @@ _LEADING_RATE_RE = re.compile(
 )
 _AND_SPLIT_RE = re.compile(r"\s+и\s+", re.IGNORECASE)
 
+# Rule-based split only for known multi-product cashback lines.
+# Generic « и » / comma splitting breaks official category names
+# («мясо и птица», «замороженные фрукты и ягоды», «фрукты, овощи»).
+RULE_COMPOUND_SPLITS: frozenset[str] = frozenset(
+    {
+        "купаты и колбаски",
+        "молоко и сливки",
+        "молоко, сливки",
+        "пиво и сидр",
+        "колбаса и молоко",
+    }
+)
+
 
 def normalize_key(name: str) -> str:
     return " ".join(name.lower().strip().split())
@@ -41,10 +54,13 @@ def sanitize_category(raw: str) -> SanitizedCategory:
 
 
 def split_compound_products(text: str) -> list[str]:
-    """Split a cashback line into separate products by comma or « и »."""
+    """Split a whitelisted multi-product cashback line by comma or « и »."""
     cleaned = text.strip()
     if not cleaned:
         return []
+
+    if normalize_key(cleaned) not in RULE_COMPOUND_SPLITS:
+        return [cleaned]
 
     segments: list[str] = []
     for comma_part in re.split(r",\s*", cleaned):

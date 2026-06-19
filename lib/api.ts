@@ -57,15 +57,21 @@ function isUnreliableMapping(items: MappedItem[]): boolean {
   const comparable = items.filter((item) => !item.is_bank_offer)
   if (comparable.length === 0) return false
 
-  const confidences = comparable.map((item) => item.confidence)
+  // LLM/map fallback is degraded mapping, not a signal that OCR misread the screenshot.
+  const qualityItems = comparable.filter(
+    (item) => item.match_source !== "reference_fallback",
+  )
+  if (qualityItems.length === 0) return false
+
+  const confidences = qualityItems.map((item) => item.confidence)
   const average =
     confidences.reduce((sum, value) => sum + value, 0) / confidences.length
   const allBelowThreshold = confidences.every(
     (value) => value < LOW_CONFIDENCE_UI_THRESHOLD,
   )
   const mostlyFallback =
-    comparable.filter((item) => item.unified_category === "Прочее").length /
-      comparable.length >=
+    qualityItems.filter((item) => item.unified_category === "Прочее").length /
+      qualityItems.length >=
     0.5
 
   return allBelowThreshold || average < LOW_CONFIDENCE_UI_THRESHOLD || mostlyFallback

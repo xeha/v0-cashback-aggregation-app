@@ -31,6 +31,14 @@ export interface MappedItem {
   reference_subcategory?: string
   reference_depth?: number
   display_label?: string
+  match_source?:
+    | "catalog"
+    | "synonym"
+    | "embedding"
+    | "llm"
+    | "reference_llm"
+    | "reference_cache"
+    | "reference_fallback"
 }
 
 export interface MatrixProvider {

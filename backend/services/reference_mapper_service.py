@@ -157,7 +157,7 @@ class ReferenceMapperService:
         return ClassifyResult(
             node_id=self._hierarchy.fallback_node_id,
             depth=2,
-            confidence=0.0,
+            confidence=0.55,
         )
 
     def _resolve_result(

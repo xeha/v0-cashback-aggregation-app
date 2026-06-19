@@ -62,6 +62,8 @@ def category_map(body: CategoryMapRequest, request: Request) -> CategoryMapRespo
         else:
             mapper = _get_bank_mapper(request)
             items = mapper.map_items(body.items, body.source_name)
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(
             status_code=500,
