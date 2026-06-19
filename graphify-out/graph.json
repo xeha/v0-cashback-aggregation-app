@@ -177,7 +177,7 @@
       "label": "_get_bank_mapper()",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L11",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "routers_category_get_bank_mapper",
       "community": 20,
@@ -187,7 +187,7 @@
       "label": "Request",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L11",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "request",
       "community": 20,
@@ -197,7 +197,7 @@
       "label": "MapperService",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L11",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "mapperservice",
       "community": 20,
@@ -207,7 +207,7 @@
       "label": "_get_reference_mapper()",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L20",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "routers_category_get_reference_mapper",
       "community": 20,
@@ -217,37 +217,37 @@
       "label": "ReferenceMapperService",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L20",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "referencemapperservice",
       "community": 20,
       "norm_label": "referencemapperservice"
     },
     {
-      "label": "_get_category_normalizer()",
+      "label": "_get_category_compound_splitter()",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
-      "id": "routers_category_get_category_normalizer",
+      "id": "routers_category_get_category_compound_splitter",
       "community": 20,
-      "norm_label": "_get_category_normalizer()"
+      "norm_label": "_get_category_compound_splitter()"
     },
     {
-      "label": "CategoryNormalizerService",
+      "label": "CategoryCompoundSplitService",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
-      "id": "categorynormalizerservice",
+      "id": "categorycompoundsplitservice",
       "community": 20,
-      "norm_label": "categorynormalizerservice"
+      "norm_label": "categorycompoundsplitservice"
     },
     {
       "label": "category_map()",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L37",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "routers_category_category_map",
       "community": 20,
@@ -257,7 +257,7 @@
       "label": "CategoryMapRequest",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L37",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "categorymaprequest",
       "community": 20,
@@ -267,7 +267,7 @@
       "label": "CategoryMapResponse",
       "file_type": "code",
       "source_file": "backend/routers/category.py",
-      "source_location": "L37",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "categorymapresponse",
       "community": 20,
@@ -280,7 +280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routers_ocr",
-      "community": 11,
+      "community": 20,
       "norm_label": "ocr.py"
     },
     {
@@ -290,7 +290,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "routers_ocr_ocr_extract",
-      "community": 11,
+      "community": 20,
       "norm_label": "ocr_extract()"
     },
     {
@@ -300,7 +300,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "ocrextractrequest",
-      "community": 11,
+      "community": 20,
       "norm_label": "ocrextractrequest"
     },
     {
@@ -310,7 +310,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "ocrextractresponse",
-      "community": 11,
+      "community": 20,
       "norm_label": "ocrextractresponse"
     },
     {
@@ -320,7 +320,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_schemas",
-      "community": 11,
+      "community": 20,
       "norm_label": "schemas.py"
     },
     {
@@ -330,7 +330,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "backend_schemas_ocrextractrequest",
-      "community": 11,
+      "community": 20,
       "norm_label": "ocrextractrequest"
     },
     {
@@ -340,7 +340,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "basemodel",
-      "community": 11,
+      "community": 20,
       "norm_label": "basemodel"
     },
     {
@@ -350,7 +350,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_schemas_ocritem",
-      "community": 11,
+      "community": 20,
       "norm_label": "ocritem"
     },
     {
@@ -360,7 +360,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "backend_schemas_ocrextractresponse",
-      "community": 11,
+      "community": 20,
       "norm_label": "ocrextractresponse"
     },
     {
@@ -370,7 +370,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "backend_schemas_categorymaprequestitem",
-      "community": 2,
+      "community": 20,
       "norm_label": "categorymaprequestitem"
     },
     {
@@ -397,7 +397,7 @@
       "label": "CategoryMapResponse",
       "file_type": "code",
       "source_file": "backend/schemas.py",
-      "source_location": "L75",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "backend_schemas_categorymapresponse",
       "community": 20,
@@ -407,10 +407,10 @@
       "label": "HealthResponse",
       "file_type": "code",
       "source_file": "backend/schemas.py",
-      "source_location": "L79",
+      "source_location": "L72",
       "_origin": "ast",
       "id": "backend_schemas_healthresponse",
-      "community": 11,
+      "community": 20,
       "norm_label": "healthresponse"
     },
     {
@@ -524,6 +524,146 @@
       "norm_label": ".classify_parent()"
     },
     {
+      "label": "category_compound_split_service.py",
+      "file_type": "code",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "services_category_compound_split_service",
+      "community": 20,
+      "norm_label": "category_compound_split_service.py"
+    },
+    {
+      "label": "_is_truthy_env()",
+      "file_type": "code",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "services_category_compound_split_service_is_truthy_env",
+      "community": 20,
+      "norm_label": "_is_truthy_env()"
+    },
+    {
+      "label": "_parse_batch_size()",
+      "file_type": "code",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "services_category_compound_split_service_parse_batch_size",
+      "community": 20,
+      "norm_label": "_parse_batch_size()"
+    },
+    {
+      "label": "_parse_json()",
+      "file_type": "code",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "services_category_compound_split_service_parse_json",
+      "community": 20,
+      "norm_label": "_parse_json()"
+    },
+    {
+      "label": "_coerce_parts()",
+      "file_type": "code",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "services_category_compound_split_service_coerce_parts",
+      "community": 20,
+      "norm_label": "_coerce_parts()"
+    },
+    {
+      "label": "CategoryCompoundSplitService",
+      "file_type": "code",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "services_category_compound_split_service_categorycompoundsplitservice",
+      "community": 20,
+      "norm_label": "categorycompoundsplitservice"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "services_category_compound_split_service_categorycompoundsplitservice_init",
+      "community": 20,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".is_loaded()",
+      "file_type": "code",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L80",
+      "_origin": "ast",
+      "id": "services_category_compound_split_service_categorycompoundsplitservice_is_loaded",
+      "community": 20,
+      "norm_label": ".is_loaded()"
+    },
+    {
+      "label": ".load()",
+      "file_type": "code",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L85",
+      "_origin": "ast",
+      "id": "services_category_compound_split_service_categorycompoundsplitservice_load",
+      "community": 20,
+      "norm_label": ".load()"
+    },
+    {
+      "label": ".expand_compound_items()",
+      "file_type": "code",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "services_category_compound_split_service_categorycompoundsplitservice_expand_compound_items",
+      "community": 20,
+      "norm_label": ".expand_compound_items()"
+    },
+    {
+      "label": "CategoryMapRequestItem",
+      "file_type": "code",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "backend_services_category_compound_split_service_py_categorymaprequestitem",
+      "community": 20,
+      "norm_label": "categorymaprequestitem"
+    },
+    {
+      "label": "._get_client()",
+      "file_type": "code",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L134",
+      "_origin": "ast",
+      "id": "services_category_compound_split_service_categorycompoundsplitservice_get_client",
+      "community": 20,
+      "norm_label": "._get_client()"
+    },
+    {
+      "label": "._split_batch()",
+      "file_type": "code",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L148",
+      "_origin": "ast",
+      "id": "services_category_compound_split_service_categorycompoundsplitservice_split_batch",
+      "community": 20,
+      "norm_label": "._split_batch()"
+    },
+    {
+      "label": "get_category_compound_splitter()",
+      "file_type": "code",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L194",
+      "_origin": "ast",
+      "id": "services_category_compound_split_service_get_category_compound_splitter",
+      "community": 20,
+      "norm_label": "get_category_compound_splitter()"
+    },
+    {
       "label": "category_embedding.py",
       "file_type": "code",
       "source_file": "backend/services/category_embedding.py",
@@ -584,144 +724,54 @@
       "norm_label": "best_match_among()"
     },
     {
-      "label": "category_normalizer_service.py",
+      "label": "category_text_utils.py",
       "file_type": "code",
-      "source_file": "backend/services/category_normalizer_service.py",
+      "source_file": "backend/services/category_text_utils.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "services_category_normalizer_service",
-      "community": 20,
-      "norm_label": "category_normalizer_service.py"
+      "id": "services_category_text_utils",
+      "community": 24,
+      "norm_label": "category_text_utils.py"
     },
     {
-      "label": "_normalize_key()",
+      "label": "normalize_key()",
       "file_type": "code",
-      "source_file": "backend/services/category_normalizer_service.py",
+      "source_file": "backend/services/category_text_utils.py",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "services_category_text_utils_normalize_key",
+      "community": 24,
+      "norm_label": "normalize_key()"
+    },
+    {
+      "label": "sanitize_raw()",
+      "file_type": "code",
+      "source_file": "backend/services/category_text_utils.py",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "services_category_text_utils_sanitize_raw",
+      "community": 24,
+      "norm_label": "sanitize_raw()"
+    },
+    {
+      "label": "SanitizedCategory",
+      "file_type": "code",
+      "source_file": "backend/services/category_text_utils.py",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "services_category_text_utils_sanitizedcategory",
+      "community": 24,
+      "norm_label": "sanitizedcategory"
+    },
+    {
+      "label": "sanitize_category()",
+      "file_type": "code",
+      "source_file": "backend/services/category_text_utils.py",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "services_category_normalizer_service_normalize_key",
-      "community": 20,
-      "norm_label": "_normalize_key()"
-    },
-    {
-      "label": "_token_set_key()",
-      "file_type": "code",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L36",
-      "_origin": "ast",
-      "id": "services_category_normalizer_service_token_set_key",
-      "community": 20,
-      "norm_label": "_token_set_key()"
-    },
-    {
-      "label": "_sanitize_raw()",
-      "file_type": "code",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L41",
-      "_origin": "ast",
-      "id": "services_category_normalizer_service_sanitize_raw",
-      "community": 20,
-      "norm_label": "_sanitize_raw()"
-    },
-    {
-      "label": "_load_json_from_first_existing()",
-      "file_type": "code",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L49",
-      "_origin": "ast",
-      "id": "services_category_normalizer_service_load_json_from_first_existing",
-      "community": 20,
-      "norm_label": "_load_json_from_first_existing()"
-    },
-    {
-      "label": "Path",
-      "file_type": "code",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L49",
-      "_origin": "ast",
-      "id": "backend_services_category_normalizer_service_py_path",
-      "community": 20,
-      "norm_label": "path"
-    },
-    {
-      "label": "NormalizeResult",
-      "file_type": "code",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L57",
-      "_origin": "ast",
-      "id": "services_category_normalizer_service_normalizeresult",
-      "community": 20,
-      "norm_label": "normalizeresult"
-    },
-    {
-      "label": "CategoryNormalizerService",
-      "file_type": "code",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L64",
-      "_origin": "ast",
-      "id": "services_category_normalizer_service_categorynormalizerservice",
-      "community": 20,
-      "norm_label": "categorynormalizerservice"
-    },
-    {
-      "label": ".__init__()",
-      "file_type": "code",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L65",
-      "_origin": "ast",
-      "id": "services_category_normalizer_service_categorynormalizerservice_init",
-      "community": 20,
-      "norm_label": ".__init__()"
-    },
-    {
-      "label": ".is_loaded()",
-      "file_type": "code",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L75",
-      "_origin": "ast",
-      "id": "services_category_normalizer_service_categorynormalizerservice_is_loaded",
-      "community": 20,
-      "norm_label": ".is_loaded()"
-    },
-    {
-      "label": ".load()",
-      "file_type": "code",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L78",
-      "_origin": "ast",
-      "id": "services_category_normalizer_service_categorynormalizerservice_load",
-      "community": 20,
-      "norm_label": ".load()"
-    },
-    {
-      "label": ".normalize()",
-      "file_type": "code",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L108",
-      "_origin": "ast",
-      "id": "services_category_normalizer_service_categorynormalizerservice_normalize",
-      "community": 20,
-      "norm_label": ".normalize()"
-    },
-    {
-      "label": "._fuzzy_match()",
-      "file_type": "code",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L165",
-      "_origin": "ast",
-      "id": "services_category_normalizer_service_categorynormalizerservice_fuzzy_match",
-      "community": 20,
-      "norm_label": "._fuzzy_match()"
-    },
-    {
-      "label": "get_category_normalizer()",
-      "file_type": "code",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L189",
-      "_origin": "ast",
-      "id": "services_category_normalizer_service_get_category_normalizer",
-      "community": 20,
-      "norm_label": "get_category_normalizer()"
+      "id": "services_category_text_utils_sanitize_category",
+      "community": 24,
+      "norm_label": "sanitize_category()"
     },
     {
       "label": "mapper_service.py",
@@ -1360,7 +1410,7 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "backend_services_reference_mapper_service_py_categorymaprequestitem",
-      "community": 2,
+      "community": 20,
       "norm_label": "categorymaprequestitem"
     },
     {
@@ -1370,7 +1420,7 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "backend_services_reference_mapper_service_py_mappeditem",
-      "community": 2,
+      "community": 20,
       "norm_label": "mappeditem"
     },
     {
@@ -1400,7 +1450,7 @@
       "source_location": "L158",
       "_origin": "ast",
       "id": "referencematchsource",
-      "community": 2,
+      "community": 20,
       "norm_label": "referencematchsource"
     },
     {
@@ -1430,7 +1480,7 @@
       "source_location": "L191",
       "_origin": "ast",
       "id": "backend_services_reference_mapper_service_py_mistral",
-      "community": 2,
+      "community": 20,
       "norm_label": "mistral"
     },
     {
@@ -1470,7 +1520,7 @@
       "source_location": "L277",
       "_origin": "ast",
       "id": "services_reference_mapper_service_referencemapperservice_mapped_item_from_result",
-      "community": 2,
+      "community": 20,
       "norm_label": "._mapped_item_from_result()"
     },
     {
@@ -1760,7 +1810,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_image_file_picker",
-      "community": 1,
+      "community": 5,
       "norm_label": "image-file-picker.tsx"
     },
     {
@@ -1770,7 +1820,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_image_file_picker_imagefilepickerstate",
-      "community": 1,
+      "community": 5,
       "norm_label": "imagefilepickerstate"
     },
     {
@@ -1890,7 +1940,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_provider_logo",
-      "community": 27,
+      "community": 3,
       "norm_label": "provider-logo.tsx"
     },
     {
@@ -1900,7 +1950,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "components_provider_logo_placeholder_palette",
-      "community": 27,
+      "community": 3,
       "norm_label": "placeholder_palette"
     },
     {
@@ -1910,7 +1960,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "components_provider_logo_isplaceholderproviderlogo",
-      "community": 27,
+      "community": 3,
       "norm_label": "isplaceholderproviderlogo()"
     },
     {
@@ -1920,7 +1970,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "components_provider_logo_getproviderinitial",
-      "community": 27,
+      "community": 3,
       "norm_label": "getproviderinitial()"
     },
     {
@@ -1930,7 +1980,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "components_provider_logo_hashstring",
-      "community": 27,
+      "community": 3,
       "norm_label": "hashstring()"
     },
     {
@@ -1940,7 +1990,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "components_provider_logo_getplaceholderavatarcolors",
-      "community": 27,
+      "community": 3,
       "norm_label": "getplaceholderavatarcolors()"
     },
     {
@@ -1950,7 +2000,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "components_provider_logo_providerlogo",
-      "community": 27,
+      "community": 3,
       "norm_label": "providerlogo()"
     },
     {
@@ -2050,7 +2100,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "screens_bank_select_screen_getscreenshotreuseconflicts",
-      "community": 32,
+      "community": 1,
       "norm_label": "getscreenshotreuseconflicts()"
     },
     {
@@ -2060,7 +2110,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "screens_bank_select_screen_getduplicateprovidernames",
-      "community": 32,
+      "community": 1,
       "norm_label": "getduplicateprovidernames()"
     },
     {
@@ -2290,7 +2340,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screens_results_screen",
-      "community": 0,
+      "community": 3,
       "norm_label": "results-screen.tsx"
     },
     {
@@ -2300,7 +2350,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "screens_results_screen_tier_styles",
-      "community": 0,
+      "community": 3,
       "norm_label": "tier_styles"
     },
     {
@@ -2310,7 +2360,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "screens_results_screen_tab",
-      "community": 0,
+      "community": 3,
       "norm_label": "tab"
     },
     {
@@ -2320,7 +2370,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "screens_results_screen_getactivematrix",
-      "community": 0,
+      "community": 3,
       "norm_label": "getactivematrix()"
     },
     {
@@ -2330,7 +2380,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "screens_results_screen_getdefaulttab",
-      "community": 0,
+      "community": 3,
       "norm_label": "getdefaulttab()"
     },
     {
@@ -2350,17 +2400,17 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "screens_results_screen_matrixrowcontent",
-      "community": 0,
+      "community": 32,
       "norm_label": "matrixrowcontent()"
     },
     {
       "label": "ResultsScreen()",
       "file_type": "code",
       "source_file": "components/screens/results-screen.tsx",
-      "source_location": "L97",
+      "source_location": "L100",
       "_origin": "ast",
       "id": "screens_results_screen_resultsscreen",
-      "community": 0,
+      "community": 3,
       "norm_label": "resultsscreen()"
     },
     {
@@ -2890,7 +2940,7 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "lib_cashback_data_getcurrentmonthyear",
-      "community": 0,
+      "community": 3,
       "norm_label": "getcurrentmonthyear()"
     },
     {
@@ -2900,7 +2950,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_category_label",
-      "community": 0,
+      "community": 32,
       "norm_label": "category-label.ts"
     },
     {
@@ -2910,7 +2960,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "lib_category_label_normalizecategorylabel",
-      "community": 0,
+      "community": 32,
       "norm_label": "normalizecategorylabel()"
     },
     {
@@ -2920,7 +2970,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "lib_category_label_formatcategorylabel",
-      "community": 0,
+      "community": 32,
       "norm_label": "formatcategorylabel()"
     },
     {
@@ -2930,7 +2980,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "lib_category_label_labelsequivalent",
-      "community": 0,
+      "community": 32,
       "norm_label": "labelsequivalent()"
     },
     {
@@ -3120,7 +3170,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_matrix",
-      "community": 0,
+      "community": 32,
       "norm_label": "matrix.ts"
     },
     {
@@ -3130,7 +3180,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "lib_matrix_slugify",
-      "community": 0,
+      "community": 32,
       "norm_label": "slugify()"
     },
     {
@@ -3140,7 +3190,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "lib_matrix_buildproviderkey",
-      "community": 0,
+      "community": 32,
       "norm_label": "buildproviderkey()"
     },
     {
@@ -3150,7 +3200,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "lib_matrix_resolvebankrowkey",
-      "community": 0,
+      "community": 32,
       "norm_label": "resolvebankrowkey()"
     },
     {
@@ -3160,7 +3210,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "lib_matrix_rowkeyfromexisting",
-      "community": 0,
+      "community": 32,
       "norm_label": "rowkeyfromexisting()"
     },
     {
@@ -3170,7 +3220,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "lib_matrix_resolvebankdisplaylabel",
-      "community": 0,
+      "community": 32,
       "norm_label": "resolvebankdisplaylabel()"
     },
     {
@@ -3180,84 +3230,164 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "lib_matrix_getreferencedepth",
-      "community": 0,
+      "community": 32,
       "norm_label": "getreferencedepth()"
+    },
+    {
+      "label": "MarketComparisonAnchor",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L85",
+      "_origin": "ast",
+      "id": "lib_matrix_marketcomparisonanchor",
+      "community": 32,
+      "norm_label": "marketcomparisonanchor"
+    },
+    {
+      "label": "parseReferenceNodeId()",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "lib_matrix_parsereferencenodeid",
+      "community": 32,
+      "norm_label": "parsereferencenodeid()"
+    },
+    {
+      "label": "resolveMarketComparisonAnchor()",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L103",
+      "_origin": "ast",
+      "id": "lib_matrix_resolvemarketcomparisonanchor",
+      "community": 32,
+      "norm_label": "resolvemarketcomparisonanchor()"
+    },
+    {
+      "label": "marketRowKeyFromAnchor()",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L142",
+      "_origin": "ast",
+      "id": "lib_matrix_marketrowkeyfromanchor",
+      "community": 32,
+      "norm_label": "marketrowkeyfromanchor()"
     },
     {
       "label": "resolveMarketRowKey()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L85",
+      "source_location": "L146",
       "_origin": "ast",
       "id": "lib_matrix_resolvemarketrowkey",
-      "community": 0,
+      "community": 32,
       "norm_label": "resolvemarketrowkey()"
+    },
+    {
+      "label": "marketRowKeyFromExisting()",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L150",
+      "_origin": "ast",
+      "id": "lib_matrix_marketrowkeyfromexisting",
+      "community": 32,
+      "norm_label": "marketrowkeyfromexisting()"
     },
     {
       "label": "consolidateGroupRows()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L95",
+      "source_location": "L166",
       "_origin": "ast",
       "id": "lib_matrix_consolidategrouprows",
-      "community": 0,
+      "community": 32,
       "norm_label": "consolidategrouprows()"
     },
     {
       "label": "mergeMappedItems()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L129",
+      "source_location": "L200",
       "_origin": "ast",
       "id": "lib_matrix_mergemappeditems",
-      "community": 0,
+      "community": 32,
       "norm_label": "mergemappeditems()"
     },
     {
       "label": "mergeSubmissionsIntoMatrix()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L255",
+      "source_location": "L336",
       "_origin": "ast",
       "id": "lib_matrix_mergesubmissionsintomatrix",
-      "community": 0,
+      "community": 32,
       "norm_label": "mergesubmissionsintomatrix()"
+    },
+    {
+      "label": "countProvidersInGroup()",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L354",
+      "_origin": "ast",
+      "id": "lib_matrix_countprovidersingroup",
+      "community": 3,
+      "norm_label": "countprovidersingroup()"
+    },
+    {
+      "label": "resolveMarketRowCategory()",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L368",
+      "_origin": "ast",
+      "id": "lib_matrix_resolvemarketrowcategory",
+      "community": 32,
+      "norm_label": "resolvemarketrowcategory()"
     },
     {
       "label": "isMacroOnlyGroup()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L273",
+      "source_location": "L378",
       "_origin": "ast",
       "id": "lib_matrix_ismacroonlygroup",
-      "community": 0,
+      "community": 32,
       "norm_label": "ismacroonlygroup()"
     },
     {
       "label": "groupHasSubcategories()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L284",
+      "source_location": "L389",
       "_origin": "ast",
       "id": "lib_matrix_grouphassubcategories",
-      "community": 0,
+      "community": 32,
       "norm_label": "grouphassubcategories()"
+    },
+    {
+      "label": "visibleMacroChildren()",
+      "file_type": "code",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L394",
+      "_origin": "ast",
+      "id": "lib_matrix_visiblemacrochildren",
+      "community": 32,
+      "norm_label": "visiblemacrochildren()"
     },
     {
       "label": "groupMatrixRows()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L288",
+      "source_location": "L402",
       "_origin": "ast",
       "id": "lib_matrix_groupmatrixrows",
-      "community": 0,
+      "community": 3,
       "norm_label": "groupmatrixrows()"
     },
     {
       "label": "findMatchingProvider()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L387",
+      "source_location": "L512",
       "_origin": "ast",
       "id": "lib_matrix_findmatchingprovider",
       "community": 32,
@@ -3267,7 +3397,7 @@
       "label": "createProviderFromSubmission()",
       "file_type": "code",
       "source_file": "lib/matrix.ts",
-      "source_location": "L396",
+      "source_location": "L521",
       "_origin": "ast",
       "id": "lib_matrix_createproviderfromsubmission",
       "community": 32,
@@ -3280,7 +3410,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_provider_logos",
-      "community": 32,
+      "community": 1,
       "norm_label": "provider-logos.ts"
     },
     {
@@ -3290,7 +3420,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "lib_provider_logos_logoentry",
-      "community": 32,
+      "community": 1,
       "norm_label": "logoentry"
     },
     {
@@ -3310,7 +3440,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "lib_provider_logos_catalogmatchresult",
-      "community": 32,
+      "community": 1,
       "norm_label": "catalogmatchresult"
     },
     {
@@ -3320,7 +3450,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "lib_provider_logos_catalogrecord",
-      "community": 32,
+      "community": 1,
       "norm_label": "catalogrecord"
     },
     {
@@ -3330,7 +3460,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "lib_provider_logos_marketrecord",
-      "community": 32,
+      "community": 1,
       "norm_label": "marketrecord"
     },
     {
@@ -3340,7 +3470,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "lib_provider_logos_logoaliasesfile",
-      "community": 32,
+      "community": 1,
       "norm_label": "logoaliasesfile"
     },
     {
@@ -3350,7 +3480,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "lib_provider_logos_logoaliases",
-      "community": 32,
+      "community": 1,
       "norm_label": "logoaliases"
     },
     {
@@ -3360,7 +3490,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "lib_provider_logos_buildcatalog",
-      "community": 32,
+      "community": 1,
       "norm_label": "buildcatalog()"
     },
     {
@@ -3370,7 +3500,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "lib_provider_logos_bankcatalog",
-      "community": 32,
+      "community": 1,
       "norm_label": "bankcatalog"
     },
     {
@@ -3380,7 +3510,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "lib_provider_logos_marketcatalog",
-      "community": 32,
+      "community": 1,
       "norm_label": "marketcatalog"
     },
     {
@@ -3390,7 +3520,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "lib_provider_logos_getcatalog",
-      "community": 32,
+      "community": 1,
       "norm_label": "getcatalog()"
     },
     {
@@ -3400,7 +3530,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "lib_provider_logos_tosuggestion",
-      "community": 32,
+      "community": 1,
       "norm_label": "tosuggestion()"
     },
     {
@@ -3410,7 +3540,7 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "lib_provider_logos_normalizeprovidername",
-      "community": 32,
+      "community": 1,
       "norm_label": "normalizeprovidername()"
     },
     {
@@ -3420,7 +3550,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "lib_provider_logos_getprovidercomparisonkey",
-      "community": 32,
+      "community": 1,
       "norm_label": "getprovidercomparisonkey()"
     },
     {
@@ -3430,7 +3560,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "lib_provider_logos_providernamesmatch",
-      "community": 32,
+      "community": 1,
       "norm_label": "providernamesmatch()"
     },
     {
@@ -3440,7 +3570,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "lib_provider_logos_issameprovideridentity",
-      "community": 32,
+      "community": 1,
       "norm_label": "issameprovideridentity()"
     },
     {
@@ -3450,7 +3580,7 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "lib_provider_logos_findcatalogmatchincatalog",
-      "community": 32,
+      "community": 1,
       "norm_label": "findcatalogmatchincatalog()"
     },
     {
@@ -3460,7 +3590,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "lib_provider_logos_findcatalogmatch",
-      "community": 32,
+      "community": 1,
       "norm_label": "findcatalogmatch()"
     },
     {
@@ -3470,7 +3600,7 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "lib_provider_logos_findcatalogmatches",
-      "community": 32,
+      "community": 1,
       "norm_label": "findcatalogmatches()"
     },
     {
@@ -3480,7 +3610,7 @@
       "source_location": "L153",
       "_origin": "ast",
       "id": "lib_provider_logos_scorenamematch",
-      "community": 32,
+      "community": 1,
       "norm_label": "scorenamematch()"
     },
     {
@@ -3490,7 +3620,7 @@
       "source_location": "L161",
       "_origin": "ast",
       "id": "lib_provider_logos_searchcatalogsuggestions",
-      "community": 32,
+      "community": 1,
       "norm_label": "searchcatalogsuggestions()"
     },
     {
@@ -3500,7 +3630,7 @@
       "source_location": "L217",
       "_origin": "ast",
       "id": "lib_provider_logos_searchprovidersuggestions",
-      "community": 32,
+      "community": 1,
       "norm_label": "searchprovidersuggestions()"
     },
     {
@@ -3510,7 +3640,7 @@
       "source_location": "L227",
       "_origin": "ast",
       "id": "lib_provider_logos_searchallprovidersuggestions",
-      "community": 32,
+      "community": 1,
       "norm_label": "searchallprovidersuggestions()"
     },
     {
@@ -3520,7 +3650,7 @@
       "source_location": "L261",
       "_origin": "ast",
       "id": "lib_provider_logos_getproviderlogobyslug",
-      "community": 32,
+      "community": 1,
       "norm_label": "getproviderlogobyslug()"
     },
     {
@@ -3530,7 +3660,7 @@
       "source_location": "L266",
       "_origin": "ast",
       "id": "lib_provider_logos_resolveproviderlogo",
-      "community": 32,
+      "community": 1,
       "norm_label": "resolveproviderlogo()"
     },
     {
@@ -3550,7 +3680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_reference_hierarchy_order",
-      "community": 0,
+      "community": 32,
       "norm_label": "reference-hierarchy-order.ts"
     },
     {
@@ -3560,7 +3690,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_reference_hierarchy_order_reference_hierarchy_department_order",
-      "community": 0,
+      "community": 32,
       "norm_label": "reference_hierarchy_department_order"
     },
     {
@@ -3617,7 +3747,7 @@
       "label": "MatrixProvider",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L42",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "lib_types_matrixprovider",
       "community": 0,
@@ -3627,7 +3757,7 @@
       "label": "MatrixRow",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L48",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "lib_types_matrixrow",
       "community": 0,
@@ -3637,7 +3767,7 @@
       "label": "MatrixGroup",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L63",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "lib_types_matrixgroup",
       "community": 0,
@@ -3647,7 +3777,7 @@
       "label": "CashbackMatrix",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L70",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "lib_types_cashbackmatrix",
       "community": 0,
@@ -3657,7 +3787,7 @@
       "label": "MatrixState",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L76",
+      "source_location": "L72",
       "_origin": "ast",
       "id": "lib_types_matrixstate",
       "community": 0,
@@ -3667,7 +3797,7 @@
       "label": "OcrExtractResponse",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L81",
+      "source_location": "L77",
       "_origin": "ast",
       "id": "lib_types_ocrextractresponse",
       "community": 0,
@@ -3677,7 +3807,7 @@
       "label": "CategoryMapResponse",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L85",
+      "source_location": "L81",
       "_origin": "ast",
       "id": "lib_types_categorymapresponse",
       "community": 0,
@@ -3687,7 +3817,7 @@
       "label": "SkippedSubmission",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L89",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "lib_types_skippedsubmission",
       "community": 0,
@@ -3697,7 +3827,7 @@
       "label": "LowConfidenceItem",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L94",
+      "source_location": "L90",
       "_origin": "ast",
       "id": "lib_types_lowconfidenceitem",
       "community": 0,
@@ -3707,7 +3837,7 @@
       "label": "BankOfferItem",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L101",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "lib_types_bankofferitem",
       "community": 0,
@@ -3717,7 +3847,7 @@
       "label": "ProcessingSummary",
       "file_type": "code",
       "source_file": "lib/types.ts",
-      "source_location": "L108",
+      "source_location": "L104",
       "_origin": "ast",
       "id": "lib_types_processingsummary",
       "community": 0,
@@ -4141,46 +4271,6 @@
       "_origin": "ast",
       "id": "scripts_auto_map_market_catalog_main",
       "community": 2,
-      "norm_label": "main()"
-    },
-    {
-      "label": "build_category_alias_index.py",
-      "file_type": "code",
-      "source_file": "scripts/build_category_alias_index.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "scripts_build_category_alias_index",
-      "community": 24,
-      "norm_label": "build_category_alias_index.py"
-    },
-    {
-      "label": "_normalize_key()",
-      "file_type": "code",
-      "source_file": "scripts/build_category_alias_index.py",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "scripts_build_category_alias_index_normalize_key",
-      "community": 24,
-      "norm_label": "_normalize_key()"
-    },
-    {
-      "label": "_permutations_for_key()",
-      "file_type": "code",
-      "source_file": "scripts/build_category_alias_index.py",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "scripts_build_category_alias_index_permutations_for_key",
-      "community": 24,
-      "norm_label": "_permutations_for_key()"
-    },
-    {
-      "label": "main()",
-      "file_type": "code",
-      "source_file": "scripts/build_category_alias_index.py",
-      "source_location": "L31",
-      "_origin": "ast",
-      "id": "scripts_build_category_alias_index_main",
-      "community": 24,
       "norm_label": "main()"
     },
     {
@@ -5014,22 +5104,22 @@
       "norm_label": "main()"
     },
     {
-      "label": "verify_category_normalizer.py",
+      "label": "verify_compound_split.py",
       "file_type": "code",
-      "source_file": "scripts/verify_category_normalizer.py",
+      "source_file": "scripts/verify_compound_split.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "scripts_verify_category_normalizer",
+      "id": "scripts_verify_compound_split",
       "community": 20,
-      "norm_label": "verify_category_normalizer.py"
+      "norm_label": "verify_compound_split.py"
     },
     {
       "label": "main()",
       "file_type": "code",
-      "source_file": "scripts/verify_category_normalizer.py",
-      "source_location": "L26",
+      "source_file": "scripts/verify_compound_split.py",
+      "source_location": "L19",
       "_origin": "ast",
-      "id": "scripts_verify_category_normalizer_main",
+      "id": "scripts_verify_compound_split_main",
       "community": 20,
       "norm_label": "main()"
     },
@@ -5040,7 +5130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_verify_reference_mapper",
-      "community": 20,
+      "community": 24,
       "norm_label": "verify_reference_mapper.py"
     },
     {
@@ -5050,7 +5140,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "scripts_verify_reference_mapper_verifycase",
-      "community": 20,
+      "community": 24,
       "norm_label": "verifycase"
     },
     {
@@ -5060,7 +5150,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "scripts_verify_reference_mapper_format_expectations",
-      "community": 20,
+      "community": 24,
       "norm_label": "_format_expectations()"
     },
     {
@@ -5070,7 +5160,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "scripts_verify_reference_mapper_format_actual",
-      "community": 20,
+      "community": 24,
       "norm_label": "_format_actual()"
     },
     {
@@ -5080,7 +5170,7 @@
       "source_location": "L109",
       "_origin": "ast",
       "id": "scripts_verify_reference_mapper_load_backend_env",
-      "community": 20,
+      "community": 24,
       "norm_label": "_load_backend_env()"
     },
     {
@@ -5090,7 +5180,7 @@
       "source_location": "L124",
       "_origin": "ast",
       "id": "scripts_verify_reference_mapper_main",
-      "community": 20,
+      "community": 24,
       "norm_label": "main()"
     },
     {
@@ -5445,9 +5535,9 @@
       "source_file": "backend/main.py",
       "source_location": "L11",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "backend_main",
-      "target": "services_category_normalizer_service"
+      "target": "services_category_compound_split_service",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -5512,7 +5602,7 @@
       "source_location": "L45",
       "weight": 1.0,
       "source": "backend_main_lifespan",
-      "target": "services_category_normalizer_service_categorynormalizerservice"
+      "target": "services_category_compound_split_service_categorycompoundsplitservice"
     },
     {
       "relation": "calls",
@@ -5552,9 +5642,9 @@
       "source_file": "backend/main.py",
       "source_location": "L11",
       "weight": 0.8,
-      "confidence_score": 0.5,
       "source": "fastapi",
-      "target": "services_category_normalizer_service_categorynormalizerservice"
+      "target": "services_category_compound_split_service_categorycompoundsplitservice",
+      "confidence_score": 0.5
     },
     {
       "relation": "uses",
@@ -5625,9 +5715,9 @@
       "source_file": "backend/main.py",
       "source_location": "L11",
       "weight": 0.8,
-      "confidence_score": 0.5,
       "source": "healthresponse",
-      "target": "services_category_normalizer_service_categorynormalizerservice"
+      "target": "services_category_compound_split_service_categorycompoundsplitservice",
+      "confidence_score": 0.5
     },
     {
       "relation": "uses",
@@ -5673,11 +5763,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/routers/category.py",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "routers_category",
-      "target": "routers_category_get_category_normalizer"
+      "target": "routers_category_get_category_compound_splitter",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -5696,9 +5786,20 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L4",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "routers_category",
-      "target": "services_category_normalizer_service"
+      "target": "services_category_compound_split_service",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routers_category",
+      "target": "services_category_text_utils",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -5771,6 +5872,16 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L3",
       "weight": 0.8,
+      "source": "request",
+      "target": "backend_schemas_categorymaprequestitem",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L3",
+      "weight": 0.8,
       "confidence_score": 0.5,
       "source": "request",
       "target": "backend_schemas_categorymapresponse"
@@ -5781,9 +5892,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L4",
       "weight": 0.8,
-      "confidence_score": 0.5,
       "source": "request",
-      "target": "services_category_normalizer_service_categorynormalizerservice"
+      "target": "services_category_compound_split_service_categorycompoundsplitservice",
+      "confidence_score": 0.5
     },
     {
       "relation": "uses",
@@ -5821,11 +5932,11 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/routers/category.py",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "routers_category_get_category_normalizer",
-      "target": "request"
+      "source": "routers_category_get_category_compound_splitter",
+      "target": "request",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -5854,6 +5965,16 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L3",
       "weight": 0.8,
+      "source": "mapperservice",
+      "target": "backend_schemas_categorymaprequestitem",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L3",
+      "weight": 0.8,
       "confidence_score": 0.5,
       "source": "mapperservice",
       "target": "backend_schemas_categorymapresponse"
@@ -5864,9 +5985,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L4",
       "weight": 0.8,
-      "confidence_score": 0.5,
       "source": "mapperservice",
-      "target": "services_category_normalizer_service_categorynormalizerservice"
+      "target": "services_category_compound_split_service_categorycompoundsplitservice",
+      "confidence_score": 0.5
     },
     {
       "relation": "uses",
@@ -5926,6 +6047,16 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L3",
       "weight": 0.8,
+      "source": "referencemapperservice",
+      "target": "backend_schemas_categorymaprequestitem",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L3",
+      "weight": 0.8,
       "confidence_score": 0.5,
       "source": "referencemapperservice",
       "target": "backend_schemas_categorymapresponse"
@@ -5936,9 +6067,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L4",
       "weight": 0.8,
-      "confidence_score": 0.5,
       "source": "referencemapperservice",
-      "target": "services_category_normalizer_service_categorynormalizerservice"
+      "target": "services_category_compound_split_service_categorycompoundsplitservice",
+      "confidence_score": 0.5
     },
     {
       "relation": "uses",
@@ -5965,22 +6096,22 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/routers/category.py",
-      "source_location": "L41",
+      "source_location": "L42",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "routers_category_category_map",
-      "target": "routers_category_get_category_normalizer"
+      "target": "routers_category_get_category_compound_splitter",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/routers/category.py",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "routers_category_get_category_normalizer",
-      "target": "categorynormalizerservice"
+      "source": "routers_category_get_category_compound_splitter",
+      "target": "categorycompoundsplitservice",
+      "confidence_score": 1.0
     },
     {
       "relation": "uses",
@@ -5988,9 +6119,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L3",
       "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "categorynormalizerservice",
-      "target": "backend_schemas_categorymaprequest"
+      "source": "categorycompoundsplitservice",
+      "target": "backend_schemas_categorymaprequest",
+      "confidence_score": 0.5
     },
     {
       "relation": "uses",
@@ -5998,9 +6129,19 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L3",
       "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "categorynormalizerservice",
-      "target": "backend_schemas_categorymapresponse"
+      "source": "categorycompoundsplitservice",
+      "target": "backend_schemas_categorymaprequestitem",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L3",
+      "weight": 0.8,
+      "source": "categorycompoundsplitservice",
+      "target": "backend_schemas_categorymapresponse",
+      "confidence_score": 0.5
     },
     {
       "relation": "uses",
@@ -6008,19 +6149,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L4",
       "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "categorynormalizerservice",
-      "target": "services_category_normalizer_service_categorynormalizerservice"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/routers/category.py",
-      "source_location": "L5",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "categorynormalizerservice",
-      "target": "services_mapper_service_mapperservice"
+      "source": "categorycompoundsplitservice",
+      "target": "services_category_compound_split_service_categorycompoundsplitservice",
+      "confidence_score": 0.5
     },
     {
       "relation": "uses",
@@ -6028,9 +6159,19 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L6",
       "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "categorynormalizerservice",
-      "target": "services_reference_mapper_service_referencemapperservice"
+      "source": "categorycompoundsplitservice",
+      "target": "services_mapper_service_mapperservice",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L7",
+      "weight": 0.8,
+      "source": "categorycompoundsplitservice",
+      "target": "services_reference_mapper_service_referencemapperservice",
+      "confidence_score": 0.5
     },
     {
       "relation": "references",
@@ -6055,6 +6196,17 @@
       "target": "categorymapresponse"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/routers/category.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "routers_category_category_map",
+      "target": "services_category_text_utils_sanitize_category"
+    },
+    {
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "backend/routers/category.py",
@@ -6063,6 +6215,16 @@
       "confidence_score": 0.5,
       "source": "categorymaprequest",
       "target": "backend_schemas_categorymaprequest"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L3",
+      "weight": 0.8,
+      "source": "categorymaprequest",
+      "target": "backend_schemas_categorymaprequestitem",
+      "confidence_score": 0.5
     },
     {
       "relation": "uses",
@@ -6080,9 +6242,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L4",
       "weight": 0.8,
-      "confidence_score": 0.5,
       "source": "categorymaprequest",
-      "target": "services_category_normalizer_service_categorynormalizerservice"
+      "target": "services_category_compound_split_service_categorycompoundsplitservice",
+      "confidence_score": 0.5
     },
     {
       "relation": "uses",
@@ -6120,6 +6282,16 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L3",
       "weight": 0.8,
+      "source": "categorymapresponse",
+      "target": "backend_schemas_categorymaprequestitem",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/category.py",
+      "source_location": "L3",
+      "weight": 0.8,
       "confidence_score": 0.5,
       "source": "categorymapresponse",
       "target": "backend_schemas_categorymapresponse"
@@ -6130,9 +6302,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L4",
       "weight": 0.8,
-      "confidence_score": 0.5,
       "source": "categorymapresponse",
-      "target": "services_category_normalizer_service_categorynormalizerservice"
+      "target": "services_category_compound_split_service_categorycompoundsplitservice",
+      "confidence_score": 0.5
     },
     {
       "relation": "uses",
@@ -6421,6 +6593,16 @@
     {
       "relation": "uses",
       "confidence": "INFERRED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "source": "backend_services_category_compound_split_service_py_categorymaprequestitem",
+      "target": "backend_schemas_categorymaprequestitem",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
       "source_file": "backend/services/mapper_service.py",
       "source_location": "L9",
       "weight": 0.8,
@@ -6494,9 +6676,9 @@
       "source_file": "backend/services/mapper_service.py",
       "source_location": "L9",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "matchsource",
-      "target": "backend_schemas_categorymaprequestitem",
-      "confidence_score": 0.5
+      "target": "backend_schemas_categorymaprequestitem"
     },
     {
       "relation": "uses",
@@ -6517,6 +6699,16 @@
       "confidence_score": 0.5,
       "source": "scripts_verify_reference_mapper_verifycase",
       "target": "backend_schemas_categorymaprequestitem"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice",
+      "target": "backend_schemas_categorymaprequestitem",
+      "confidence_score": 0.5
     },
     {
       "relation": "uses",
@@ -6624,9 +6816,9 @@
       "source_file": "backend/services/mapper_service.py",
       "source_location": "L9",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "matchsource",
-      "target": "backend_schemas_mappeditem",
-      "confidence_score": 0.5
+      "target": "backend_schemas_mappeditem"
     },
     {
       "relation": "uses",
@@ -6831,9 +7023,9 @@
       "source_file": "backend/services/mapper_service.py",
       "source_location": "L11",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "matchsource",
-      "target": "services_category_classifier_service_categoryclassifierservice",
-      "confidence_score": 0.5
+      "target": "services_category_classifier_service_categoryclassifierservice"
     },
     {
       "relation": "method",
@@ -6907,6 +7099,324 @@
       "confidence_score": 1.0,
       "source": "services_category_classifier_service_categoryclassifierservice_get_client",
       "target": "backend_services_category_classifier_service_py_mistral"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_compound_split.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "scripts_verify_compound_split",
+      "target": "services_category_compound_split_service",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service",
+      "target": "services_category_compound_split_service_categorycompoundsplitservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service",
+      "target": "services_category_compound_split_service_coerce_parts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L194",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service",
+      "target": "services_category_compound_split_service_get_category_compound_splitter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service",
+      "target": "services_category_compound_split_service_is_truthy_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service",
+      "target": "services_category_compound_split_service_parse_batch_size",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service",
+      "target": "services_category_compound_split_service_parse_json",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service",
+      "target": "services_category_text_utils",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice_expand_compound_items",
+      "target": "services_category_compound_split_service_is_truthy_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice_is_loaded",
+      "target": "services_category_compound_split_service_is_truthy_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice_expand_compound_items",
+      "target": "services_category_compound_split_service_parse_batch_size",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L162",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice_split_batch",
+      "target": "services_category_compound_split_service_parse_json",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/verify_compound_split.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "scripts_verify_compound_split_main",
+      "target": "services_category_compound_split_service_coerce_parts"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L187",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice_split_batch",
+      "target": "services_category_compound_split_service_coerce_parts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/verify_compound_split.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "scripts_verify_compound_split_main",
+      "target": "services_category_compound_split_service_categorycompoundsplitservice"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice",
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_expand_compound_items",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice",
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_get_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice",
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice",
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_is_loaded",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice",
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_load",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L148",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice",
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_split_batch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L194",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_get_category_compound_splitter",
+      "target": "services_category_compound_split_service_categorycompoundsplitservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L198",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_get_category_compound_splitter",
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_load",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice_expand_compound_items",
+      "target": "backend_services_category_compound_split_service_py_categorymaprequestitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice_expand_compound_items",
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_split_batch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice_expand_compound_items",
+      "target": "services_reference_mapper_service_normalize_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/verify_compound_split.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "scripts_verify_compound_split_main",
+      "target": "backend_services_category_compound_split_service_py_categorymaprequestitem"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L148",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice_split_batch",
+      "target": "backend_services_category_compound_split_service_py_categorymaprequestitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L156",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice_split_batch",
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_get_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L174",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice_split_batch",
+      "target": "services_reference_mapper_service_normalize_key"
     },
     {
       "relation": "imports_from",
@@ -7107,214 +7617,96 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "scripts/verify_category_normalizer.py",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_verify_category_normalizer",
-      "target": "services_category_normalizer_service"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "scripts/verify_reference_mapper.py",
       "source_location": "L16",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "scripts_verify_reference_mapper",
-      "target": "services_category_normalizer_service"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L53",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service",
-      "target": "services_category_normalizer_service_categorynormalizerservice"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L173",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service",
-      "target": "services_category_normalizer_service_get_category_normalizer"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L49",
-      "weight": 1.0,
-      "source": "services_category_normalizer_service",
-      "target": "services_category_normalizer_service_load_json_from_first_existing",
+      "target": "services_category_text_utils",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L28",
+      "source_file": "backend/services/category_text_utils.py",
+      "source_location": "L13",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service",
-      "target": "services_category_normalizer_service_normalize_key"
+      "source": "services_category_text_utils",
+      "target": "services_category_text_utils_normalize_key",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L46",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service",
-      "target": "services_category_normalizer_service_normalizeresult"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service",
-      "target": "services_category_normalizer_service_sanitize_raw"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
+      "source_file": "backend/services/category_text_utils.py",
       "source_location": "L32",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service",
-      "target": "services_category_normalizer_service_token_set_key"
+      "source": "services_category_text_utils",
+      "target": "services_category_text_utils_sanitize_category",
+      "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L70",
+      "source_file": "backend/services/category_text_utils.py",
+      "source_location": "L17",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_categorynormalizerservice_load",
-      "target": "services_category_normalizer_service_normalize_key"
+      "source": "services_category_text_utils",
+      "target": "services_category_text_utils_sanitize_raw",
+      "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L97",
+      "source_file": "backend/services/category_text_utils.py",
+      "source_location": "L26",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_categorynormalizerservice_normalize",
-      "target": "services_category_normalizer_service_normalize_key"
+      "source": "services_category_text_utils",
+      "target": "services_category_text_utils_sanitizedcategory",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L41",
+      "source_file": "backend/services/category_text_utils.py",
+      "source_location": "L37",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_sanitize_raw",
-      "target": "services_category_normalizer_service_normalize_key"
+      "source": "services_category_text_utils_sanitize_category",
+      "target": "services_category_text_utils_normalize_key",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
+      "source_file": "backend/services/category_text_utils.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "services_category_text_utils_sanitize_raw",
+      "target": "services_category_text_utils_normalize_key",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_text_utils.py",
       "source_location": "L33",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_token_set_key",
-      "target": "services_category_normalizer_service_normalize_key"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L89",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_categorynormalizerservice_load",
-      "target": "services_category_normalizer_service_token_set_key"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L116",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_categorynormalizerservice_normalize",
-      "target": "services_category_normalizer_service_token_set_key"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L94",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_categorynormalizerservice_normalize",
-      "target": "services_category_normalizer_service_sanitize_raw"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L86",
-      "weight": 1.0,
-      "source": "services_category_normalizer_service_categorynormalizerservice_load",
-      "target": "services_category_normalizer_service_load_json_from_first_existing",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L49",
-      "weight": 1.0,
-      "source": "services_category_normalizer_service_load_json_from_first_existing",
-      "target": "backend_services_category_normalizer_service_py_path",
+      "source": "services_category_text_utils_sanitize_category",
+      "target": "services_category_text_utils_sanitize_raw",
       "confidence_score": 1.0
     },
     {
       "relation": "references",
       "context": "return_type",
       "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L92",
+      "source_file": "backend/services/category_text_utils.py",
+      "source_location": "L32",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_categorynormalizerservice_normalize",
-      "target": "services_category_normalizer_service_normalizeresult"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/verify_category_normalizer.py",
-      "source_location": "L27",
-      "weight": 1.0,
-      "source": "scripts_verify_category_normalizer_main",
-      "target": "services_category_normalizer_service_categorynormalizerservice"
+      "source": "services_category_text_utils_sanitize_category",
+      "target": "services_category_text_utils_sanitizedcategory",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -7322,103 +7714,10 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/verify_reference_mapper.py",
-      "source_location": "L132",
+      "source_location": "L137",
       "weight": 1.0,
       "source": "scripts_verify_reference_mapper_main",
-      "target": "services_category_normalizer_service_categorynormalizerservice"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "scripts/verify_reference_mapper.py",
-      "source_location": "L16",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "scripts_verify_reference_mapper_verifycase",
-      "target": "services_category_normalizer_service_categorynormalizerservice"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L149",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_categorynormalizerservice",
-      "target": "services_category_normalizer_service_categorynormalizerservice_fuzzy_match"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L54",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_categorynormalizerservice",
-      "target": "services_category_normalizer_service_categorynormalizerservice_init"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L64",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_categorynormalizerservice",
-      "target": "services_category_normalizer_service_categorynormalizerservice_is_loaded"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L67",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_categorynormalizerservice",
-      "target": "services_category_normalizer_service_categorynormalizerservice_load"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L92",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_categorynormalizerservice",
-      "target": "services_category_normalizer_service_categorynormalizerservice_normalize"
-    },
-    {
-      "relation": "references",
-      "context": "return_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L173",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_get_category_normalizer",
-      "target": "services_category_normalizer_service_categorynormalizerservice"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L177",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_get_category_normalizer",
-      "target": "services_category_normalizer_service_categorynormalizerservice_load"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/services/category_normalizer_service.py",
-      "source_location": "L125",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_category_normalizer_service_categorynormalizerservice_normalize",
-      "target": "services_category_normalizer_service_categorynormalizerservice_fuzzy_match"
+      "target": "services_category_text_utils_sanitize_category"
     },
     {
       "relation": "imports_from",
@@ -8088,9 +8387,9 @@
       "source_file": "backend/services/mapper_service.py",
       "source_location": "L282",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_mapper_service_mapperservice_mapped_item",
-      "target": "matchsource",
-      "confidence_score": 1.0
+      "target": "matchsource"
     },
     {
       "relation": "calls",
@@ -11320,6 +11619,17 @@
       "source_file": "components/screens/results-screen.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "source": "screens_results_screen",
+      "target": "lib_matrix_countprovidersingroup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
       "confidence_score": 1.0,
       "source": "screens_results_screen",
       "target": "lib_matrix_grouphassubcategories"
@@ -11334,6 +11644,17 @@
       "confidence_score": 1.0,
       "source": "screens_results_screen",
       "target": "lib_matrix_groupmatrixrows"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/screens/results-screen.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "screens_results_screen",
+      "target": "lib_matrix_resolvemarketrowcategory",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -12658,6 +12979,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "lib/matrix.ts",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "lib_matrix_resolvemarketcomparisonanchor",
+      "target": "lib_category_label_normalizecategorylabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
       "source_location": "L92",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -12706,6 +13038,28 @@
       "source_location": "L61",
       "weight": 1.0,
       "source": "lib_matrix_mergemappeditems",
+      "target": "lib_category_label_formatcategorylabel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "lib_matrix_resolvemarketcomparisonanchor",
+      "target": "lib_category_label_formatcategorylabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/matrix.ts",
+      "source_location": "L373",
+      "weight": 1.0,
+      "source": "lib_matrix_resolvemarketrowcategory",
       "target": "lib_category_label_formatcategorylabel"
     },
     {
@@ -12762,6 +13116,17 @@
       "confidence_score": 1.0,
       "source": "lib_matrix_resolvebankdisplaylabel",
       "target": "lib_category_label_labelsequivalent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L397",
+      "weight": 1.0,
+      "source": "lib_matrix_visiblemacrochildren",
+      "target": "lib_category_label_labelsequivalent",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13078,6 +13443,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/matrix.ts",
+      "source_location": "L354",
+      "weight": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_countprovidersingroup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
       "source_location": "L99",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -13138,6 +13513,36 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/matrix.ts",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_marketcomparisonanchor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_marketrowkeyfromanchor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_marketrowkeyfromexisting",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
       "source_location": "L35",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -13158,6 +13563,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/matrix.ts",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_parsereferencenodeid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
       "source_location": "L64",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -13173,6 +13588,26 @@
       "confidence_score": 1.0,
       "source": "lib_matrix",
       "target": "lib_matrix_resolvebankrowkey"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_resolvemarketcomparisonanchor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L368",
+      "weight": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_resolvemarketrowcategory",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13203,6 +13638,16 @@
       "confidence_score": 1.0,
       "source": "lib_matrix",
       "target": "lib_matrix_slugify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L394",
+      "weight": 1.0,
+      "source": "lib_matrix",
+      "target": "lib_matrix_visiblemacrochildren",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -13407,6 +13852,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "lib/matrix.ts",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "lib_matrix_rowkeyfromexisting",
+      "target": "lib_matrix_marketrowkeyfromexisting",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
       "source_location": "L194",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -13429,11 +13885,77 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "lib/matrix.ts",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "lib_matrix_resolvemarketcomparisonanchor",
+      "target": "lib_matrix_getreferencedepth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
       "source_location": "L87",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "lib_matrix_resolvemarketrowkey",
       "target": "lib_matrix_getreferencedepth"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "lib_matrix_resolvemarketcomparisonanchor",
+      "target": "lib_matrix_parsereferencenodeid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L222",
+      "weight": 1.0,
+      "source": "lib_matrix_mergemappeditems",
+      "target": "lib_matrix_resolvemarketcomparisonanchor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "lib_matrix_resolvemarketrowkey",
+      "target": "lib_matrix_resolvemarketcomparisonanchor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "lib_matrix_resolvemarketrowkey",
+      "target": "lib_matrix_marketrowkeyfromanchor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/matrix.ts",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "lib_matrix_marketrowkeyfromexisting",
+      "target": "lib_matrix_resolvemarketrowkey",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -14511,69 +15033,6 @@
       "confidence_score": 1.0,
       "source": "scripts_auto_map_market_catalog_main",
       "target": "scripts_auto_map_market_catalog_normalize"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/build_category_alias_index.py",
-      "source_location": "L31",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_build_category_alias_index",
-      "target": "scripts_build_category_alias_index_main"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/build_category_alias_index.py",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_build_category_alias_index",
-      "target": "scripts_build_category_alias_index_normalize_key"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/build_category_alias_index.py",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_build_category_alias_index",
-      "target": "scripts_build_category_alias_index_permutations_for_key"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/build_category_alias_index.py",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_build_category_alias_index_main",
-      "target": "scripts_build_category_alias_index_normalize_key"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/build_category_alias_index.py",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_build_category_alias_index_permutations_for_key",
-      "target": "scripts_build_category_alias_index_normalize_key"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/build_category_alias_index.py",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_build_category_alias_index_main",
-      "target": "scripts_build_category_alias_index_permutations_for_key"
     },
     {
       "relation": "contains",
@@ -15746,12 +16205,12 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "scripts/verify_category_normalizer.py",
-      "source_location": "L26",
+      "source_file": "scripts/verify_compound_split.py",
+      "source_location": "L19",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_verify_category_normalizer",
-      "target": "scripts_verify_category_normalizer_main"
+      "source": "scripts_verify_compound_split",
+      "target": "scripts_verify_compound_split_main",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -16049,5 +16508,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "460d9c4ce1a3cbea6d96ce50c5748dbf7dc4eabe"
+  "built_at_commit": "d539be4ce9665315edff66dc40b33141acabf39f"
 }

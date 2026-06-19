@@ -13,7 +13,7 @@ BACKEND = ROOT / "backend"
 sys.path.insert(0, str(BACKEND))
 
 from schemas import CategoryMapRequestItem  # noqa: E402
-from services.category_normalizer_service import CategoryNormalizerService  # noqa: E402
+from services.category_text_utils import sanitize_category  # noqa: E402
 from services.reference_mapper_service import ReferenceMapperService  # noqa: E402
 
 
@@ -129,19 +129,16 @@ def main() -> int:
         print("BLOCKED: MISTRAL_API_KEY is missing in backend/.env")
         return 2
 
-    normalizer = CategoryNormalizerService()
-    normalizer.load()
-
     mapper = ReferenceMapperService()
     mapper.load()
 
     failed = 0
     for case in CASES:
-        norm = normalizer.normalize(case.raw)
+        sanitized = sanitize_category(case.raw)
         mapped = mapper.map_items(
-            [CategoryMapRequestItem(raw_category=case.raw, rate=10.0)],
+            [CategoryMapRequestItem(raw_category=sanitized.display, rate=10.0)],
             source_name="Магнит",
-            normalized_by_item=[norm.normalized],
+            normalized_by_item=[sanitized.normalized_key],
         )[0]
 
         is_ok = (
@@ -156,18 +153,18 @@ def main() -> int:
         if not is_ok:
             failed += 1
 
-    cache_norm = normalizer.normalize("Кисломолочка")
+    cache_sanitized = sanitize_category("Кисломолочка")
     cache_mapper = ReferenceMapperService()
     cache_mapper.load()
     first = cache_mapper.map_items(
-        [CategoryMapRequestItem(raw_category="Кисломолочка", rate=7.0)],
+        [CategoryMapRequestItem(raw_category=cache_sanitized.display, rate=7.0)],
         source_name="Магнит",
-        normalized_by_item=[cache_norm.normalized],
+        normalized_by_item=[cache_sanitized.normalized_key],
     )[0]
     second = cache_mapper.map_items(
-        [CategoryMapRequestItem(raw_category="Кисломолочка", rate=7.0)],
+        [CategoryMapRequestItem(raw_category=cache_sanitized.display, rate=7.0)],
         source_name="Магнит",
-        normalized_by_item=[cache_norm.normalized],
+        normalized_by_item=[cache_sanitized.normalized_key],
     )[0]
 
     cache_ok = first.match_source != "reference_cache" and second.match_source == "reference_cache"

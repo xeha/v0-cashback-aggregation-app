@@ -1,7 +1,8 @@
 from fastapi import APIRouter, HTTPException, Request
 
-from schemas import CategoryMapRequest, CategoryMapResponse
-from services.category_normalizer_service import CategoryNormalizerService
+from schemas import CategoryMapRequest, CategoryMapRequestItem, CategoryMapResponse
+from services.category_compound_split_service import CategoryCompoundSplitService
+from services.category_text_utils import sanitize_category
 from services.mapper_service import MapperService
 from services.reference_mapper_service import ReferenceMapperService
 
@@ -24,13 +25,13 @@ def _get_reference_mapper(request: Request) -> ReferenceMapperService:
     return mapper
 
 
-def _get_category_normalizer(request: Request) -> CategoryNormalizerService:
-    normalizer: CategoryNormalizerService | None = getattr(
-        request.app.state, "category_normalizer", None
+def _get_category_compound_splitter(request: Request) -> CategoryCompoundSplitService:
+    splitter: CategoryCompoundSplitService | None = getattr(
+        request.app.state, "category_compound_splitter", None
     )
-    if normalizer is None or not normalizer.is_loaded:
-        raise HTTPException(status_code=503, detail="Category normalizer is not ready")
-    return normalizer
+    if splitter is None or not splitter.is_loaded:
+        raise HTTPException(status_code=503, detail="Category compound splitter is not ready")
+    return splitter
 
 
 @router.post("/map", response_model=CategoryMapResponse)
@@ -38,16 +39,26 @@ def category_map(body: CategoryMapRequest, request: Request) -> CategoryMapRespo
     try:
         if body.kind == "market":
             mapper = _get_reference_mapper(request)
-            normalizer = _get_category_normalizer(request)
-            norm_results = [normalizer.normalize(item.raw_category) for item in body.items]
+            splitter = _get_category_compound_splitter(request)
+            expanded_items = splitter.expand_compound_items(body.items)
+            prepared_items: list[CategoryMapRequestItem] = []
+            normalized_keys: list[str] = []
+            sanitized_meta = []
+            for item in expanded_items:
+                sanitized = sanitize_category(item.raw_category)
+                prepared_items.append(
+                    CategoryMapRequestItem(raw_category=sanitized.display, rate=item.rate)
+                )
+                normalized_keys.append(sanitized.normalized_key)
+                sanitized_meta.append(sanitized)
             items = mapper.map_items(
-                body.items,
+                prepared_items,
                 body.source_name,
-                [result.normalized for result in norm_results],
+                normalized_keys,
             )
-            for mapped, norm in zip(items, norm_results):
-                mapped.normalized_raw_category = norm.normalized
-                mapped.normalize_source = norm.source
+            for mapped, meta in zip(items, sanitized_meta):
+                mapped.normalized_raw_category = meta.normalized_key
+                mapped.normalize_source = meta.source
         else:
             mapper = _get_bank_mapper(request)
             items = mapper.map_items(body.items, body.source_name)

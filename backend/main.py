@@ -8,7 +8,7 @@ from sentence_transformers import SentenceTransformer
 
 from routers import category, ocr
 from schemas import HealthResponse
-from services.category_normalizer_service import CategoryNormalizerService
+from services.category_compound_split_service import CategoryCompoundSplitService
 from services.reference_mapper_service import ReferenceMapperService
 from services.mapper_service import MapperService
 
@@ -42,14 +42,14 @@ async def lifespan(app: FastAPI):
     reference_mapper = ReferenceMapperService()
     reference_mapper.load()
 
-    category_normalizer = CategoryNormalizerService()
-    category_normalizer.load()
+    category_compound_splitter = CategoryCompoundSplitService()
+    category_compound_splitter.load()
 
     app.state.mapper = bank_mapper
     app.state.bank_mapper = bank_mapper
     app.state.reference_mapper = reference_mapper
     app.state.market_mapper = reference_mapper
-    app.state.category_normalizer = category_normalizer
+    app.state.category_compound_splitter = category_compound_splitter
     yield
 
 

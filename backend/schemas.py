@@ -33,14 +33,7 @@ class CategoryMapRequest(BaseModel):
 class MappedItem(BaseModel):
     raw_category: str
     normalized_raw_category: str | None = None
-    normalize_source: Literal[
-        "sanitize",
-        "alias",
-        "token_set",
-        "fuzzy",
-        "llm",
-        "passthrough",
-    ] | None = None
+    normalize_source: Literal["sanitize", "passthrough"] | None = None
     unified_category: str
     unified_subcategory: str | None = None
     unified_parent: str | None = None

@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "backend/main.py": {
-    "mtime": 1781797632.4478524,
-    "ast_hash": "57b5f26f627a5d342af3297c4871adf8",
+    "mtime": 1781855808.543205,
+    "ast_hash": "dddd1d73301d1e4d1d0242c46c8cafcc",
     "semantic_hash": ""
   },
   "backend/routers/__init__.py": {
@@ -25,8 +25,8 @@
     "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
   },
   "backend/routers/category.py": {
-    "mtime": 1781797626.8454535,
-    "ast_hash": "02bb10bcab3aac15f950aa2fc0ec75c3",
+    "mtime": 1781855806.4676678,
+    "ast_hash": "cad5ba147fe723a440c16e4fe3b25477",
     "semantic_hash": ""
   },
   "backend/routers/ocr.py": {
@@ -35,8 +35,8 @@
     "semantic_hash": ""
   },
   "backend/schemas.py": {
-    "mtime": 1781797301.1163347,
-    "ast_hash": "46d141c13e7dd97c4867ea9a465a97f1",
+    "mtime": 1781855809.5460045,
+    "ast_hash": "290a26c31c5bb86b508a5975ef63a881",
     "semantic_hash": ""
   },
   "backend/services/__init__.py": {
@@ -120,8 +120,8 @@
     "semantic_hash": "8062aae909450f1f017065252e0f748a"
   },
   "components/screens/results-screen.tsx": {
-    "mtime": 1781709804.6224844,
-    "ast_hash": "5577b63ee87606d73faac2cfde2766db",
+    "mtime": 1781799047.111773,
+    "ast_hash": "b07edd2d2938bed3451f88f9d88c3f77",
     "semantic_hash": ""
   },
   "components/screens/user-menu.tsx": {
@@ -180,8 +180,8 @@
     "semantic_hash": ""
   },
   "lib/matrix.ts": {
-    "mtime": 1781797882.8389285,
-    "ast_hash": "d4a54d7f452b4a018028c7b0f71eda40",
+    "mtime": 1781854350.5720727,
+    "ast_hash": "04035dc44df0b3ead487050e16465452",
     "semantic_hash": ""
   },
   "lib/provider-logos.ts": {
@@ -190,8 +190,8 @@
     "semantic_hash": "10c57906fcd608feddd73ac082dae44b"
   },
   "lib/types.ts": {
-    "mtime": 1781797846.045084,
-    "ast_hash": "b228bec7c4ef2d5dff5c5600598fc461",
+    "mtime": 1781855810.223611,
+    "ast_hash": "92748928150530db393a907e75fb6ed4",
     "semantic_hash": ""
   },
   "lib/utils.ts": {
@@ -379,11 +379,6 @@
     "ast_hash": "a502ae56f38cc097a4af3ca21b19cf9e",
     "semantic_hash": ""
   },
-  "backend/data/market_category_aliases.json": {
-    "mtime": 1781792312.2847292,
-    "ast_hash": "b784a89fc852280e29d5ac72e0d45bba",
-    "semantic_hash": ""
-  },
   "backend/data/market_category_overrides.json": {
     "mtime": 1781788172.3955407,
     "ast_hash": "b026f0a426c3dde3ead5f93e854a4d36",
@@ -399,11 +394,6 @@
     "ast_hash": "af8213b203c355d971e5fdbdfc9b2b99",
     "semantic_hash": ""
   },
-  "backend/services/category_normalizer_service.py": {
-    "mtime": 1781798030.93128,
-    "ast_hash": "77a25f228bc3b19fc80285691aedf2e7",
-    "semantic_hash": ""
-  },
   "backend/services/market_slug_resolver.py": {
     "mtime": 1781780814.719595,
     "ast_hash": "9601e1e28539feebd505c31eb8dae1a6",
@@ -414,11 +404,6 @@
     "ast_hash": "bf70a316c24dc2ac829567940d975cd2",
     "semantic_hash": ""
   },
-  "scripts/build_category_alias_index.py": {
-    "mtime": 1781798064.6375954,
-    "ast_hash": "e6c38c14f12b801d1adb62374909bcc5",
-    "semantic_hash": ""
-  },
   "scripts/generate_supermarket_hierarchy.py": {
     "mtime": 1781798075.4770286,
     "ast_hash": "070a3612abe4f08633f585008540d0a8",
@@ -427,11 +412,6 @@
   "scripts/scrape_edadeal_categories.py": {
     "mtime": 1781798067.519188,
     "ast_hash": "4728cca1ae7440becfb01860c3c0413b",
-    "semantic_hash": ""
-  },
-  "scripts/verify_category_normalizer.py": {
-    "mtime": 1781792485.0247931,
-    "ast_hash": "acc5eaa9fa4e897fd0bcfc3b5f7d5d36",
     "semantic_hash": ""
   },
   "backend/data/reference_hierarchy.json": {
@@ -460,8 +440,8 @@
     "semantic_hash": ""
   },
   "scripts/verify_reference_mapper.py": {
-    "mtime": 1781797471.9233875,
-    "ast_hash": "9d0880d55e81ffc629b6a96dc9a601be",
+    "mtime": 1781855824.8584046,
+    "ast_hash": "a26565a525b11f1cb2b996d733e592e8",
     "semantic_hash": ""
   },
   "lib/reference-hierarchy-order.ts": {
@@ -492,6 +472,21 @@
   "backend/data/archive/supermarket_category_hierarchy.json": {
     "mtime": 1781788180.9868977,
     "ast_hash": "059d0e11d2e4c061db952e4375d719e5",
+    "semantic_hash": ""
+  },
+  "backend/services/category_compound_split_service.py": {
+    "mtime": 1781855540.8821905,
+    "ast_hash": "7c574468bfef8e0339083f716b108dd5",
+    "semantic_hash": ""
+  },
+  "backend/services/category_text_utils.py": {
+    "mtime": 1781855800.6505704,
+    "ast_hash": "f441dafdfd2c70b256a29d36907594cb",
+    "semantic_hash": ""
+  },
+  "scripts/verify_compound_split.py": {
+    "mtime": 1781855530.4730833,
+    "ast_hash": "7e83fa87a23a923b8fde0cb9c57b6efd",
     "semantic_hash": ""
   }
 }
