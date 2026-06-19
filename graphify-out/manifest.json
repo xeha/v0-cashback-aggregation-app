@@ -435,8 +435,8 @@
     "semantic_hash": ""
   },
   "backend/services/reference_mapper_service.py": {
-    "mtime": 1781797451.3170943,
-    "ast_hash": "2f6d1c3e85f4465cb5fc01a149e379bd",
+    "mtime": 1781856333.8943582,
+    "ast_hash": "3ac00f3321616eb14e94adfbfd7525b5",
     "semantic_hash": ""
   },
   "scripts/verify_reference_mapper.py": {
@@ -475,18 +475,18 @@
     "semantic_hash": ""
   },
   "backend/services/category_compound_split_service.py": {
-    "mtime": 1781855540.8821905,
-    "ast_hash": "7c574468bfef8e0339083f716b108dd5",
+    "mtime": 1781856286.4180894,
+    "ast_hash": "c1fe1f2c1908c16d516591191060ae43",
     "semantic_hash": ""
   },
   "backend/services/category_text_utils.py": {
-    "mtime": 1781855800.6505704,
-    "ast_hash": "f441dafdfd2c70b256a29d36907594cb",
+    "mtime": 1781856259.9587085,
+    "ast_hash": "84abb36c5e3919842ccc93d3c198e182",
     "semantic_hash": ""
   },
   "scripts/verify_compound_split.py": {
-    "mtime": 1781855530.4730833,
-    "ast_hash": "7e83fa87a23a923b8fde0cb9c57b6efd",
+    "mtime": 1781856329.2163982,
+    "ast_hash": "f9355228d65af28519b1a6452048e5f7",
     "semantic_hash": ""
   }
 }

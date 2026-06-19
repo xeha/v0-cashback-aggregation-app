@@ -9,6 +9,7 @@ from typing import Any
 from schemas import CategoryMapRequestItem
 from services.category_text_utils import normalize_key as _normalize_key
 from services.category_text_utils import sanitize_raw as _sanitize_raw
+from services.category_text_utils import split_compound_products
 
 _JSON_FENCE_PREFIX_RE = re.compile(r"^```(?:json)?\s*", re.IGNORECASE)
 _JSON_FENCE_SUFFIX_RE = re.compile(r"\s*```$")
@@ -16,15 +17,20 @@ _JSON_FENCE_SUFFIX_RE = re.compile(r"\s*```$")
 COMPOUND_SPLIT_PROMPT = """Ты анализируешь строки категорий кэшбэка со скриншота супермаркета.
 Для каждой строки реши: это одна cashback-категория или в строке перечислены несколько разных товаров?
 
-Разделяй только если в одной строке кэшбэка явно несколько разных продуктов:
+Если в строке через запятую или союз «и» перечислены разные продукты — раздели на отдельные части.
+Магазин может дать один процент на несколько разных товаров в одной строке — каждый товар отдельно.
+
+Примеры разделения:
 - «купаты и колбаски» → ["купаты", "колбаски"]
 - «молоко, сливки» → ["молоко", "сливки"]
+- «молоко и сливки» → ["молоко", "сливки"]
+- «пиво и сидр» → ["пиво", "сидр"]
+- «колбаса и молоко» → ["колбаса", "молоко"]
+- «фрукты, овощи» → ["фрукты", "овощи"]
 
-Не разделяй, если это единое название категории (включая «и» или запятую в официальном названии):
-- «пиво и сидр» → ["пиво и сидр"]
-- «мясо и птица» → ["мясо и птица"]
-- «фрукты, овощи» → ["фрукты, овощи"]
-- «кофе и чай» → ["кофе и чай"]
+Не разделяй только если это одно неделимое название без перечисления продуктов:
+- «готовая кулинария» → ["готовая кулинария"]
+- «замороженные продукты» → ["замороженные продукты"]
 
 Сохраняй регистр слов как в исходной строке (после удаления процента).
 Не выдумывай продукты — только части исходной формулировки.
@@ -91,8 +97,6 @@ class CategoryCompoundSplitService:
     ) -> list[CategoryMapRequestItem]:
         if not items:
             return []
-        if not _is_truthy_env("COMPOUND_SPLIT_LLM_ENABLED", "true"):
-            return list(items)
 
         expanded: list[CategoryMapRequestItem] = []
         pending: list[tuple[int, CategoryMapRequestItem, str, str]] = []
@@ -106,6 +110,17 @@ class CategoryCompoundSplitService:
             if cached is not None:
                 resolved[index] = cached
                 continue
+
+            rule_parts = split_compound_products(lookup)
+            if len(rule_parts) >= 2:
+                self._cache[cache_key] = rule_parts
+                resolved[index] = rule_parts
+                continue
+
+            if not _is_truthy_env("COMPOUND_SPLIT_LLM_ENABLED", "true"):
+                resolved[index] = rule_parts
+                continue
+
             pending.append((index, item, lookup, cache_key))
 
         batch_size = _parse_batch_size()

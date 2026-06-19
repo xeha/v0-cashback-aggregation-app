@@ -390,7 +390,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "backend_schemas_mappeditem",
-      "community": 2,
+      "community": 28,
       "norm_label": "mappeditem"
     },
     {
@@ -537,7 +537,7 @@
       "label": "_is_truthy_env()",
       "file_type": "code",
       "source_file": "backend/services/category_compound_split_service.py",
-      "source_location": "L40",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "services_category_compound_split_service_is_truthy_env",
       "community": 20,
@@ -547,7 +547,7 @@
       "label": "_parse_batch_size()",
       "file_type": "code",
       "source_file": "backend/services/category_compound_split_service.py",
-      "source_location": "L44",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "services_category_compound_split_service_parse_batch_size",
       "community": 20,
@@ -557,7 +557,7 @@
       "label": "_parse_json()",
       "file_type": "code",
       "source_file": "backend/services/category_compound_split_service.py",
-      "source_location": "L52",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "services_category_compound_split_service_parse_json",
       "community": 20,
@@ -567,7 +567,7 @@
       "label": "_coerce_parts()",
       "file_type": "code",
       "source_file": "backend/services/category_compound_split_service.py",
-      "source_location": "L63",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "services_category_compound_split_service_coerce_parts",
       "community": 20,
@@ -577,7 +577,7 @@
       "label": "CategoryCompoundSplitService",
       "file_type": "code",
       "source_file": "backend/services/category_compound_split_service.py",
-      "source_location": "L74",
+      "source_location": "L80",
       "_origin": "ast",
       "id": "services_category_compound_split_service_categorycompoundsplitservice",
       "community": 20,
@@ -587,7 +587,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "backend/services/category_compound_split_service.py",
-      "source_location": "L75",
+      "source_location": "L81",
       "_origin": "ast",
       "id": "services_category_compound_split_service_categorycompoundsplitservice_init",
       "community": 20,
@@ -597,7 +597,7 @@
       "label": ".is_loaded()",
       "file_type": "code",
       "source_file": "backend/services/category_compound_split_service.py",
-      "source_location": "L80",
+      "source_location": "L86",
       "_origin": "ast",
       "id": "services_category_compound_split_service_categorycompoundsplitservice_is_loaded",
       "community": 20,
@@ -607,7 +607,7 @@
       "label": ".load()",
       "file_type": "code",
       "source_file": "backend/services/category_compound_split_service.py",
-      "source_location": "L85",
+      "source_location": "L91",
       "_origin": "ast",
       "id": "services_category_compound_split_service_categorycompoundsplitservice_load",
       "community": 20,
@@ -617,7 +617,7 @@
       "label": ".expand_compound_items()",
       "file_type": "code",
       "source_file": "backend/services/category_compound_split_service.py",
-      "source_location": "L88",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "services_category_compound_split_service_categorycompoundsplitservice_expand_compound_items",
       "community": 20,
@@ -627,7 +627,7 @@
       "label": "CategoryMapRequestItem",
       "file_type": "code",
       "source_file": "backend/services/category_compound_split_service.py",
-      "source_location": "L88",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "backend_services_category_compound_split_service_py_categorymaprequestitem",
       "community": 20,
@@ -637,7 +637,7 @@
       "label": "._get_client()",
       "file_type": "code",
       "source_file": "backend/services/category_compound_split_service.py",
-      "source_location": "L134",
+      "source_location": "L149",
       "_origin": "ast",
       "id": "services_category_compound_split_service_categorycompoundsplitservice_get_client",
       "community": 20,
@@ -647,7 +647,7 @@
       "label": "._split_batch()",
       "file_type": "code",
       "source_file": "backend/services/category_compound_split_service.py",
-      "source_location": "L148",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "services_category_compound_split_service_categorycompoundsplitservice_split_batch",
       "community": 20,
@@ -657,7 +657,7 @@
       "label": "get_category_compound_splitter()",
       "file_type": "code",
       "source_file": "backend/services/category_compound_split_service.py",
-      "source_location": "L194",
+      "source_location": "L209",
       "_origin": "ast",
       "id": "services_category_compound_split_service_get_category_compound_splitter",
       "community": 20,
@@ -730,48 +730,68 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "services_category_text_utils",
-      "community": 24,
+      "community": 20,
       "norm_label": "category_text_utils.py"
     },
     {
       "label": "normalize_key()",
       "file_type": "code",
       "source_file": "backend/services/category_text_utils.py",
-      "source_location": "L13",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "services_category_text_utils_normalize_key",
-      "community": 24,
+      "community": 20,
       "norm_label": "normalize_key()"
     },
     {
       "label": "sanitize_raw()",
       "file_type": "code",
       "source_file": "backend/services/category_text_utils.py",
-      "source_location": "L17",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "services_category_text_utils_sanitize_raw",
-      "community": 24,
+      "community": 20,
       "norm_label": "sanitize_raw()"
     },
     {
       "label": "SanitizedCategory",
       "file_type": "code",
       "source_file": "backend/services/category_text_utils.py",
-      "source_location": "L26",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "services_category_text_utils_sanitizedcategory",
-      "community": 24,
+      "community": 20,
       "norm_label": "sanitizedcategory"
     },
     {
       "label": "sanitize_category()",
       "file_type": "code",
       "source_file": "backend/services/category_text_utils.py",
-      "source_location": "L32",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "services_category_text_utils_sanitize_category",
-      "community": 24,
+      "community": 20,
       "norm_label": "sanitize_category()"
+    },
+    {
+      "label": "split_compound_products()",
+      "file_type": "code",
+      "source_file": "backend/services/category_text_utils.py",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "services_category_text_utils_split_compound_products",
+      "community": 20,
+      "norm_label": "split_compound_products()"
+    },
+    {
+      "label": "Split a cashback line into separate products by comma or \u00ab \u0438 \u00bb.",
+      "file_type": "rationale",
+      "source_file": "backend/services/category_text_utils.py",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "services_category_text_utils_rationale_44",
+      "community": 20,
+      "norm_label": "split a cashback line into separate products by comma or \u00ab \u0438 \u00bb."
     },
     {
       "label": "mapper_service.py",
@@ -860,7 +880,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice",
-      "community": 2,
+      "community": 20,
       "norm_label": "mapperservice"
     },
     {
@@ -870,7 +890,7 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_init",
-      "community": 2,
+      "community": 20,
       "norm_label": ".__init__()"
     },
     {
@@ -880,7 +900,7 @@
       "source_location": "L143",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_is_loaded",
-      "community": 2,
+      "community": 20,
       "norm_label": ".is_loaded()"
     },
     {
@@ -900,7 +920,7 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "backend_services_mapper_service_py_sentencetransformer",
-      "community": 2,
+      "community": 20,
       "norm_label": "sentencetransformer"
     },
     {
@@ -1310,14 +1330,14 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "services_reference_mapper_service",
-      "community": 20,
+      "community": 28,
       "norm_label": "reference_mapper_service.py"
     },
     {
       "label": "_normalize_key()",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L58",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "services_reference_mapper_service_normalize_key",
       "community": 20,
@@ -1327,47 +1347,47 @@
       "label": "_is_truthy_env()",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L62",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "services_reference_mapper_service_is_truthy_env",
-      "community": 20,
+      "community": 28,
       "norm_label": "_is_truthy_env()"
     },
     {
       "label": "_parse_batch_size()",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L66",
+      "source_location": "L71",
       "_origin": "ast",
       "id": "services_reference_mapper_service_parse_batch_size",
-      "community": 20,
+      "community": 28,
       "norm_label": "_parse_batch_size()"
     },
     {
       "label": "ClassifyResult",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L75",
+      "source_location": "L80",
       "_origin": "ast",
       "id": "services_reference_mapper_service_classifyresult",
-      "community": 20,
+      "community": 28,
       "norm_label": "classifyresult"
     },
     {
       "label": "ReferenceMapperService",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L81",
+      "source_location": "L86",
       "_origin": "ast",
       "id": "services_reference_mapper_service_referencemapperservice",
-      "community": 20,
+      "community": 28,
       "norm_label": "referencemapperservice"
     },
     {
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L82",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "services_reference_mapper_service_referencemapperservice_init",
       "community": 28,
@@ -1377,150 +1397,150 @@
       "label": ".is_loaded()",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L89",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "services_reference_mapper_service_referencemapperservice_is_loaded",
-      "community": 20,
+      "community": 28,
       "norm_label": ".is_loaded()"
     },
     {
       "label": ".load()",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L92",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "services_reference_mapper_service_referencemapperservice_load",
-      "community": 20,
+      "community": 28,
       "norm_label": ".load()"
     },
     {
       "label": ".map_items()",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L96",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "services_reference_mapper_service_referencemapperservice_map_items",
-      "community": 20,
+      "community": 28,
       "norm_label": ".map_items()"
     },
     {
       "label": "CategoryMapRequestItem",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L96",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "backend_services_reference_mapper_service_py_categorymaprequestitem",
-      "community": 20,
+      "community": 28,
       "norm_label": "categorymaprequestitem"
     },
     {
       "label": "MappedItem",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L96",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "backend_services_reference_mapper_service_py_mappeditem",
-      "community": 20,
+      "community": 28,
       "norm_label": "mappeditem"
     },
     {
       "label": "._fallback_result()",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L151",
+      "source_location": "L156",
       "_origin": "ast",
       "id": "services_reference_mapper_service_referencemapperservice_fallback_result",
-      "community": 20,
+      "community": 28,
       "norm_label": "._fallback_result()"
     },
     {
       "label": "._resolve_result()",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L158",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "services_reference_mapper_service_referencemapperservice_resolve_result",
-      "community": 20,
+      "community": 28,
       "norm_label": "._resolve_result()"
     },
     {
       "label": "ReferenceMatchSource",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L158",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "referencematchsource",
-      "community": 20,
+      "community": 28,
       "norm_label": "referencematchsource"
     },
     {
       "label": "._build_flat_paths()",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L171",
+      "source_location": "L176",
       "_origin": "ast",
       "id": "services_reference_mapper_service_referencemapperservice_build_flat_paths",
-      "community": 20,
+      "community": 28,
       "norm_label": "._build_flat_paths()"
     },
     {
       "label": "._get_client()",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L191",
+      "source_location": "L196",
       "_origin": "ast",
       "id": "services_reference_mapper_service_referencemapperservice_get_client",
-      "community": 20,
+      "community": 28,
       "norm_label": "._get_client()"
     },
     {
       "label": "Mistral",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L191",
+      "source_location": "L196",
       "_origin": "ast",
       "id": "backend_services_reference_mapper_service_py_mistral",
-      "community": 20,
+      "community": 28,
       "norm_label": "mistral"
     },
     {
       "label": "._classify_batch()",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L205",
+      "source_location": "L210",
       "_origin": "ast",
       "id": "services_reference_mapper_service_referencemapperservice_classify_batch",
-      "community": 20,
+      "community": 28,
       "norm_label": "._classify_batch()"
     },
     {
       "label": "._parse_json()",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L250",
+      "source_location": "L255",
       "_origin": "ast",
       "id": "services_reference_mapper_service_referencemapperservice_parse_json",
-      "community": 20,
+      "community": 28,
       "norm_label": "._parse_json()"
     },
     {
       "label": "._to_classify_result()",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L260",
+      "source_location": "L265",
       "_origin": "ast",
       "id": "services_reference_mapper_service_referencemapperservice_to_classify_result",
-      "community": 20,
+      "community": 28,
       "norm_label": "._to_classify_result()"
     },
     {
       "label": "._mapped_item_from_result()",
       "file_type": "code",
       "source_file": "backend/services/reference_mapper_service.py",
-      "source_location": "L277",
+      "source_location": "L282",
       "_origin": "ast",
       "id": "services_reference_mapper_service_referencemapperservice_mapped_item_from_result",
-      "community": 20,
+      "community": 28,
       "norm_label": "._mapped_item_from_result()"
     },
     {
@@ -1810,7 +1830,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_image_file_picker",
-      "community": 5,
+      "community": 1,
       "norm_label": "image-file-picker.tsx"
     },
     {
@@ -1820,7 +1840,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_image_file_picker_imagefilepickerstate",
-      "community": 5,
+      "community": 1,
       "norm_label": "imagefilepickerstate"
     },
     {
@@ -1940,7 +1960,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_provider_logo",
-      "community": 3,
+      "community": 24,
       "norm_label": "provider-logo.tsx"
     },
     {
@@ -1950,7 +1970,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "components_provider_logo_placeholder_palette",
-      "community": 3,
+      "community": 24,
       "norm_label": "placeholder_palette"
     },
     {
@@ -1960,7 +1980,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "components_provider_logo_isplaceholderproviderlogo",
-      "community": 3,
+      "community": 24,
       "norm_label": "isplaceholderproviderlogo()"
     },
     {
@@ -1970,7 +1990,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "components_provider_logo_getproviderinitial",
-      "community": 3,
+      "community": 24,
       "norm_label": "getproviderinitial()"
     },
     {
@@ -1980,7 +2000,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "components_provider_logo_hashstring",
-      "community": 3,
+      "community": 24,
       "norm_label": "hashstring()"
     },
     {
@@ -1990,7 +2010,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "components_provider_logo_getplaceholderavatarcolors",
-      "community": 3,
+      "community": 24,
       "norm_label": "getplaceholderavatarcolors()"
     },
     {
@@ -2000,7 +2020,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "components_provider_logo_providerlogo",
-      "community": 3,
+      "community": 24,
       "norm_label": "providerlogo()"
     },
     {
@@ -2340,7 +2360,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screens_results_screen",
-      "community": 3,
+      "community": 0,
       "norm_label": "results-screen.tsx"
     },
     {
@@ -2350,7 +2370,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "screens_results_screen_tier_styles",
-      "community": 3,
+      "community": 0,
       "norm_label": "tier_styles"
     },
     {
@@ -2360,7 +2380,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "screens_results_screen_tab",
-      "community": 3,
+      "community": 0,
       "norm_label": "tab"
     },
     {
@@ -2370,7 +2390,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "screens_results_screen_getactivematrix",
-      "community": 3,
+      "community": 0,
       "norm_label": "getactivematrix()"
     },
     {
@@ -2380,7 +2400,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "screens_results_screen_getdefaulttab",
-      "community": 3,
+      "community": 0,
       "norm_label": "getdefaulttab()"
     },
     {
@@ -2400,7 +2420,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "screens_results_screen_matrixrowcontent",
-      "community": 32,
+      "community": 0,
       "norm_label": "matrixrowcontent()"
     },
     {
@@ -2410,7 +2430,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "screens_results_screen_resultsscreen",
-      "community": 3,
+      "community": 0,
       "norm_label": "resultsscreen()"
     },
     {
@@ -2940,7 +2960,7 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "lib_cashback_data_getcurrentmonthyear",
-      "community": 3,
+      "community": 0,
       "norm_label": "getcurrentmonthyear()"
     },
     {
@@ -2950,7 +2970,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_category_label",
-      "community": 32,
+      "community": 0,
       "norm_label": "category-label.ts"
     },
     {
@@ -2960,7 +2980,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "lib_category_label_normalizecategorylabel",
-      "community": 32,
+      "community": 0,
       "norm_label": "normalizecategorylabel()"
     },
     {
@@ -2970,7 +2990,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "lib_category_label_formatcategorylabel",
-      "community": 32,
+      "community": 0,
       "norm_label": "formatcategorylabel()"
     },
     {
@@ -2980,7 +3000,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "lib_category_label_labelsequivalent",
-      "community": 32,
+      "community": 0,
       "norm_label": "labelsequivalent()"
     },
     {
@@ -3170,7 +3190,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_matrix",
-      "community": 32,
+      "community": 0,
       "norm_label": "matrix.ts"
     },
     {
@@ -3180,7 +3200,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "lib_matrix_slugify",
-      "community": 32,
+      "community": 0,
       "norm_label": "slugify()"
     },
     {
@@ -3190,7 +3210,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "lib_matrix_buildproviderkey",
-      "community": 32,
+      "community": 0,
       "norm_label": "buildproviderkey()"
     },
     {
@@ -3200,7 +3220,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "lib_matrix_resolvebankrowkey",
-      "community": 32,
+      "community": 0,
       "norm_label": "resolvebankrowkey()"
     },
     {
@@ -3210,7 +3230,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "lib_matrix_rowkeyfromexisting",
-      "community": 32,
+      "community": 0,
       "norm_label": "rowkeyfromexisting()"
     },
     {
@@ -3220,7 +3240,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "lib_matrix_resolvebankdisplaylabel",
-      "community": 32,
+      "community": 0,
       "norm_label": "resolvebankdisplaylabel()"
     },
     {
@@ -3230,7 +3250,7 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "lib_matrix_getreferencedepth",
-      "community": 32,
+      "community": 0,
       "norm_label": "getreferencedepth()"
     },
     {
@@ -3240,7 +3260,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "lib_matrix_marketcomparisonanchor",
-      "community": 32,
+      "community": 0,
       "norm_label": "marketcomparisonanchor"
     },
     {
@@ -3250,7 +3270,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "lib_matrix_parsereferencenodeid",
-      "community": 32,
+      "community": 0,
       "norm_label": "parsereferencenodeid()"
     },
     {
@@ -3260,7 +3280,7 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "lib_matrix_resolvemarketcomparisonanchor",
-      "community": 32,
+      "community": 0,
       "norm_label": "resolvemarketcomparisonanchor()"
     },
     {
@@ -3270,7 +3290,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "lib_matrix_marketrowkeyfromanchor",
-      "community": 32,
+      "community": 0,
       "norm_label": "marketrowkeyfromanchor()"
     },
     {
@@ -3280,7 +3300,7 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "lib_matrix_resolvemarketrowkey",
-      "community": 32,
+      "community": 0,
       "norm_label": "resolvemarketrowkey()"
     },
     {
@@ -3290,7 +3310,7 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "lib_matrix_marketrowkeyfromexisting",
-      "community": 32,
+      "community": 0,
       "norm_label": "marketrowkeyfromexisting()"
     },
     {
@@ -3300,7 +3320,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "lib_matrix_consolidategrouprows",
-      "community": 32,
+      "community": 0,
       "norm_label": "consolidategrouprows()"
     },
     {
@@ -3310,7 +3330,7 @@
       "source_location": "L200",
       "_origin": "ast",
       "id": "lib_matrix_mergemappeditems",
-      "community": 32,
+      "community": 0,
       "norm_label": "mergemappeditems()"
     },
     {
@@ -3320,7 +3340,7 @@
       "source_location": "L336",
       "_origin": "ast",
       "id": "lib_matrix_mergesubmissionsintomatrix",
-      "community": 32,
+      "community": 0,
       "norm_label": "mergesubmissionsintomatrix()"
     },
     {
@@ -3330,7 +3350,7 @@
       "source_location": "L354",
       "_origin": "ast",
       "id": "lib_matrix_countprovidersingroup",
-      "community": 3,
+      "community": 0,
       "norm_label": "countprovidersingroup()"
     },
     {
@@ -3340,7 +3360,7 @@
       "source_location": "L368",
       "_origin": "ast",
       "id": "lib_matrix_resolvemarketrowcategory",
-      "community": 32,
+      "community": 0,
       "norm_label": "resolvemarketrowcategory()"
     },
     {
@@ -3350,7 +3370,7 @@
       "source_location": "L378",
       "_origin": "ast",
       "id": "lib_matrix_ismacroonlygroup",
-      "community": 32,
+      "community": 0,
       "norm_label": "ismacroonlygroup()"
     },
     {
@@ -3360,7 +3380,7 @@
       "source_location": "L389",
       "_origin": "ast",
       "id": "lib_matrix_grouphassubcategories",
-      "community": 32,
+      "community": 0,
       "norm_label": "grouphassubcategories()"
     },
     {
@@ -3370,7 +3390,7 @@
       "source_location": "L394",
       "_origin": "ast",
       "id": "lib_matrix_visiblemacrochildren",
-      "community": 32,
+      "community": 0,
       "norm_label": "visiblemacrochildren()"
     },
     {
@@ -3380,7 +3400,7 @@
       "source_location": "L402",
       "_origin": "ast",
       "id": "lib_matrix_groupmatrixrows",
-      "community": 3,
+      "community": 0,
       "norm_label": "groupmatrixrows()"
     },
     {
@@ -3390,7 +3410,7 @@
       "source_location": "L512",
       "_origin": "ast",
       "id": "lib_matrix_findmatchingprovider",
-      "community": 32,
+      "community": 0,
       "norm_label": "findmatchingprovider()"
     },
     {
@@ -3400,7 +3420,7 @@
       "source_location": "L521",
       "_origin": "ast",
       "id": "lib_matrix_createproviderfromsubmission",
-      "community": 32,
+      "community": 0,
       "norm_label": "createproviderfromsubmission()"
     },
     {
@@ -3680,7 +3700,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_reference_hierarchy_order",
-      "community": 32,
+      "community": 0,
       "norm_label": "reference-hierarchy-order.ts"
     },
     {
@@ -3690,7 +3710,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_reference_hierarchy_order_reference_hierarchy_department_order",
-      "community": 32,
+      "community": 0,
       "norm_label": "reference_hierarchy_department_order"
     },
     {
@@ -5117,7 +5137,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "scripts/verify_compound_split.py",
-      "source_location": "L19",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "scripts_verify_compound_split_main",
       "community": 20,
@@ -5130,7 +5150,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_verify_reference_mapper",
-      "community": 24,
+      "community": 28,
       "norm_label": "verify_reference_mapper.py"
     },
     {
@@ -5140,7 +5160,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "scripts_verify_reference_mapper_verifycase",
-      "community": 24,
+      "community": 28,
       "norm_label": "verifycase"
     },
     {
@@ -5150,7 +5170,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "scripts_verify_reference_mapper_format_expectations",
-      "community": 24,
+      "community": 28,
       "norm_label": "_format_expectations()"
     },
     {
@@ -5160,7 +5180,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "scripts_verify_reference_mapper_format_actual",
-      "community": 24,
+      "community": 28,
       "norm_label": "_format_actual()"
     },
     {
@@ -5170,7 +5190,7 @@
       "source_location": "L109",
       "_origin": "ast",
       "id": "scripts_verify_reference_mapper_load_backend_env",
-      "community": 24,
+      "community": 28,
       "norm_label": "_load_backend_env()"
     },
     {
@@ -5180,7 +5200,7 @@
       "source_location": "L124",
       "_origin": "ast",
       "id": "scripts_verify_reference_mapper_main",
-      "community": 24,
+      "community": 28,
       "norm_label": "main()"
     },
     {
@@ -5535,9 +5555,9 @@
       "source_file": "backend/main.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_main",
-      "target": "services_category_compound_split_service",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service"
     },
     {
       "relation": "imports_from",
@@ -5642,9 +5662,9 @@
       "source_file": "backend/main.py",
       "source_location": "L11",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "fastapi",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice",
-      "confidence_score": 0.5
+      "target": "services_category_compound_split_service_categorycompoundsplitservice"
     },
     {
       "relation": "uses",
@@ -5715,9 +5735,9 @@
       "source_file": "backend/main.py",
       "source_location": "L11",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "healthresponse",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice",
-      "confidence_score": 0.5
+      "target": "services_category_compound_split_service_categorycompoundsplitservice"
     },
     {
       "relation": "uses",
@@ -5765,9 +5785,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routers_category",
-      "target": "routers_category_get_category_compound_splitter",
-      "confidence_score": 1.0
+      "target": "routers_category_get_category_compound_splitter"
     },
     {
       "relation": "contains",
@@ -5786,9 +5806,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routers_category",
-      "target": "services_category_compound_split_service",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service"
     },
     {
       "relation": "imports_from",
@@ -5797,9 +5817,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routers_category",
-      "target": "services_category_text_utils",
-      "confidence_score": 1.0
+      "target": "services_category_text_utils"
     },
     {
       "relation": "imports_from",
@@ -5872,9 +5892,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "request",
-      "target": "backend_schemas_categorymaprequestitem",
-      "confidence_score": 0.5
+      "target": "backend_schemas_categorymaprequestitem"
     },
     {
       "relation": "uses",
@@ -5892,9 +5912,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L4",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "request",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice",
-      "confidence_score": 0.5
+      "target": "services_category_compound_split_service_categorycompoundsplitservice"
     },
     {
       "relation": "uses",
@@ -5934,9 +5954,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routers_category_get_category_compound_splitter",
-      "target": "request",
-      "confidence_score": 1.0
+      "target": "request"
     },
     {
       "relation": "references",
@@ -5965,9 +5985,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "mapperservice",
-      "target": "backend_schemas_categorymaprequestitem",
-      "confidence_score": 0.5
+      "target": "backend_schemas_categorymaprequestitem"
     },
     {
       "relation": "uses",
@@ -5985,9 +6005,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L4",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "mapperservice",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice",
-      "confidence_score": 0.5
+      "target": "services_category_compound_split_service_categorycompoundsplitservice"
     },
     {
       "relation": "uses",
@@ -6047,9 +6067,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "referencemapperservice",
-      "target": "backend_schemas_categorymaprequestitem",
-      "confidence_score": 0.5
+      "target": "backend_schemas_categorymaprequestitem"
     },
     {
       "relation": "uses",
@@ -6067,9 +6087,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L4",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "referencemapperservice",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice",
-      "confidence_score": 0.5
+      "target": "services_category_compound_split_service_categorycompoundsplitservice"
     },
     {
       "relation": "uses",
@@ -6098,9 +6118,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routers_category_category_map",
-      "target": "routers_category_get_category_compound_splitter",
-      "confidence_score": 1.0
+      "target": "routers_category_get_category_compound_splitter"
     },
     {
       "relation": "references",
@@ -6109,9 +6129,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routers_category_get_category_compound_splitter",
-      "target": "categorycompoundsplitservice",
-      "confidence_score": 1.0
+      "target": "categorycompoundsplitservice"
     },
     {
       "relation": "uses",
@@ -6119,9 +6139,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "categorycompoundsplitservice",
-      "target": "backend_schemas_categorymaprequest",
-      "confidence_score": 0.5
+      "target": "backend_schemas_categorymaprequest"
     },
     {
       "relation": "uses",
@@ -6129,9 +6149,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "categorycompoundsplitservice",
-      "target": "backend_schemas_categorymaprequestitem",
-      "confidence_score": 0.5
+      "target": "backend_schemas_categorymaprequestitem"
     },
     {
       "relation": "uses",
@@ -6139,9 +6159,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "categorycompoundsplitservice",
-      "target": "backend_schemas_categorymapresponse",
-      "confidence_score": 0.5
+      "target": "backend_schemas_categorymapresponse"
     },
     {
       "relation": "uses",
@@ -6149,9 +6169,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L4",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "categorycompoundsplitservice",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice",
-      "confidence_score": 0.5
+      "target": "services_category_compound_split_service_categorycompoundsplitservice"
     },
     {
       "relation": "uses",
@@ -6159,9 +6179,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "categorycompoundsplitservice",
-      "target": "services_mapper_service_mapperservice",
-      "confidence_score": 0.5
+      "target": "services_mapper_service_mapperservice"
     },
     {
       "relation": "uses",
@@ -6169,9 +6189,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L7",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "categorycompoundsplitservice",
-      "target": "services_reference_mapper_service_referencemapperservice",
-      "confidence_score": 0.5
+      "target": "services_reference_mapper_service_referencemapperservice"
     },
     {
       "relation": "references",
@@ -6222,9 +6242,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "categorymaprequest",
-      "target": "backend_schemas_categorymaprequestitem",
-      "confidence_score": 0.5
+      "target": "backend_schemas_categorymaprequestitem"
     },
     {
       "relation": "uses",
@@ -6242,9 +6262,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L4",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "categorymaprequest",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice",
-      "confidence_score": 0.5
+      "target": "services_category_compound_split_service_categorycompoundsplitservice"
     },
     {
       "relation": "uses",
@@ -6282,9 +6302,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "categorymapresponse",
-      "target": "backend_schemas_categorymaprequestitem",
-      "confidence_score": 0.5
+      "target": "backend_schemas_categorymaprequestitem"
     },
     {
       "relation": "uses",
@@ -6302,9 +6322,9 @@
       "source_file": "backend/routers/category.py",
       "source_location": "L4",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "categorymapresponse",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice",
-      "confidence_score": 0.5
+      "target": "services_category_compound_split_service_categorycompoundsplitservice"
     },
     {
       "relation": "uses",
@@ -6596,9 +6616,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L9",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "backend_services_category_compound_split_service_py_categorymaprequestitem",
-      "target": "backend_schemas_categorymaprequestitem",
-      "confidence_score": 0.5
+      "target": "backend_schemas_categorymaprequestitem"
     },
     {
       "relation": "uses",
@@ -6706,9 +6726,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L9",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "services_category_compound_split_service_categorycompoundsplitservice",
-      "target": "backend_schemas_categorymaprequestitem",
-      "confidence_score": 0.5
+      "target": "backend_schemas_categorymaprequestitem"
     },
     {
       "relation": "uses",
@@ -7107,9 +7127,9 @@
       "source_file": "scripts/verify_compound_split.py",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_compound_split",
-      "target": "services_category_compound_split_service",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service"
     },
     {
       "relation": "contains",
@@ -7117,9 +7137,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_categorycompoundsplitservice"
     },
     {
       "relation": "contains",
@@ -7127,9 +7147,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service",
-      "target": "services_category_compound_split_service_coerce_parts",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_coerce_parts"
     },
     {
       "relation": "contains",
@@ -7137,9 +7157,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L194",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service",
-      "target": "services_category_compound_split_service_get_category_compound_splitter",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_get_category_compound_splitter"
     },
     {
       "relation": "contains",
@@ -7147,9 +7167,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service",
-      "target": "services_category_compound_split_service_is_truthy_env",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_is_truthy_env"
     },
     {
       "relation": "contains",
@@ -7157,9 +7177,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service",
-      "target": "services_category_compound_split_service_parse_batch_size",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_parse_batch_size"
     },
     {
       "relation": "contains",
@@ -7167,9 +7187,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service",
-      "target": "services_category_compound_split_service_parse_json",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_parse_json"
     },
     {
       "relation": "imports_from",
@@ -7178,9 +7198,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service",
-      "target": "services_category_text_utils",
-      "confidence_score": 1.0
+      "target": "services_category_text_utils"
     },
     {
       "relation": "calls",
@@ -7189,9 +7209,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_categorycompoundsplitservice_expand_compound_items",
-      "target": "services_category_compound_split_service_is_truthy_env",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_is_truthy_env"
     },
     {
       "relation": "calls",
@@ -7200,9 +7220,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_categorycompoundsplitservice_is_loaded",
-      "target": "services_category_compound_split_service_is_truthy_env",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_is_truthy_env"
     },
     {
       "relation": "calls",
@@ -7211,9 +7231,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_categorycompoundsplitservice_expand_compound_items",
-      "target": "services_category_compound_split_service_parse_batch_size",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_parse_batch_size"
     },
     {
       "relation": "calls",
@@ -7222,9 +7242,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L162",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_categorycompoundsplitservice_split_batch",
-      "target": "services_category_compound_split_service_parse_json",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_parse_json"
     },
     {
       "relation": "calls",
@@ -7244,9 +7264,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L187",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_categorycompoundsplitservice_split_batch",
-      "target": "services_category_compound_split_service_coerce_parts",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_coerce_parts"
     },
     {
       "relation": "calls",
@@ -7265,9 +7285,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_categorycompoundsplitservice",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice_expand_compound_items",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_expand_compound_items"
     },
     {
       "relation": "method",
@@ -7275,9 +7295,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L134",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_categorycompoundsplitservice",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice_get_client",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_get_client"
     },
     {
       "relation": "method",
@@ -7285,9 +7305,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_categorycompoundsplitservice",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice_init",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_init"
     },
     {
       "relation": "method",
@@ -7295,9 +7315,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_categorycompoundsplitservice",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice_is_loaded",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_is_loaded"
     },
     {
       "relation": "method",
@@ -7305,9 +7325,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_categorycompoundsplitservice",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice_load",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_load"
     },
     {
       "relation": "method",
@@ -7315,9 +7335,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L148",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_categorycompoundsplitservice",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice_split_batch",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_split_batch"
     },
     {
       "relation": "references",
@@ -7326,9 +7346,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L194",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_get_category_compound_splitter",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_categorycompoundsplitservice"
     },
     {
       "relation": "calls",
@@ -7337,9 +7357,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L198",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_get_category_compound_splitter",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice_load",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_load"
     },
     {
       "relation": "references",
@@ -7348,9 +7368,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_categorycompoundsplitservice_expand_compound_items",
-      "target": "backend_services_category_compound_split_service_py_categorymaprequestitem",
-      "confidence_score": 1.0
+      "target": "backend_services_category_compound_split_service_py_categorymaprequestitem"
     },
     {
       "relation": "calls",
@@ -7359,9 +7379,20 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L115",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_categorycompoundsplitservice_expand_compound_items",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice_split_batch",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_split_batch"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/services/category_compound_split_service.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "services_category_compound_split_service_categorycompoundsplitservice_expand_compound_items",
+      "target": "services_category_text_utils_split_compound_products"
     },
     {
       "relation": "calls",
@@ -7392,9 +7423,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L148",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_categorycompoundsplitservice_split_batch",
-      "target": "backend_services_category_compound_split_service_py_categorymaprequestitem",
-      "confidence_score": 1.0
+      "target": "backend_services_category_compound_split_service_py_categorymaprequestitem"
     },
     {
       "relation": "calls",
@@ -7403,9 +7434,9 @@
       "source_file": "backend/services/category_compound_split_service.py",
       "source_location": "L156",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_compound_split_service_categorycompoundsplitservice_split_batch",
-      "target": "services_category_compound_split_service_categorycompoundsplitservice_get_client",
-      "confidence_score": 1.0
+      "target": "services_category_compound_split_service_categorycompoundsplitservice_get_client"
     },
     {
       "relation": "calls",
@@ -7617,12 +7648,23 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_compound_split.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "scripts_verify_compound_split",
+      "target": "services_category_text_utils",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "scripts/verify_reference_mapper.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_reference_mapper",
-      "target": "services_category_text_utils",
-      "confidence_score": 1.0
+      "target": "services_category_text_utils"
     },
     {
       "relation": "contains",
@@ -7630,9 +7672,9 @@
       "source_file": "backend/services/category_text_utils.py",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_text_utils",
-      "target": "services_category_text_utils_normalize_key",
-      "confidence_score": 1.0
+      "target": "services_category_text_utils_normalize_key"
     },
     {
       "relation": "contains",
@@ -7640,9 +7682,9 @@
       "source_file": "backend/services/category_text_utils.py",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_text_utils",
-      "target": "services_category_text_utils_sanitize_category",
-      "confidence_score": 1.0
+      "target": "services_category_text_utils_sanitize_category"
     },
     {
       "relation": "contains",
@@ -7650,9 +7692,9 @@
       "source_file": "backend/services/category_text_utils.py",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_text_utils",
-      "target": "services_category_text_utils_sanitize_raw",
-      "confidence_score": 1.0
+      "target": "services_category_text_utils_sanitize_raw"
     },
     {
       "relation": "contains",
@@ -7660,8 +7702,18 @@
       "source_file": "backend/services/category_text_utils.py",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_text_utils",
-      "target": "services_category_text_utils_sanitizedcategory",
+      "target": "services_category_text_utils_sanitizedcategory"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_text_utils.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "services_category_text_utils",
+      "target": "services_category_text_utils_split_compound_products",
       "confidence_score": 1.0
     },
     {
@@ -7671,9 +7723,9 @@
       "source_file": "backend/services/category_text_utils.py",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_text_utils_sanitize_category",
-      "target": "services_category_text_utils_normalize_key",
-      "confidence_score": 1.0
+      "target": "services_category_text_utils_normalize_key"
     },
     {
       "relation": "calls",
@@ -7682,9 +7734,20 @@
       "source_file": "backend/services/category_text_utils.py",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_text_utils_sanitize_raw",
-      "target": "services_category_text_utils_normalize_key",
-      "confidence_score": 1.0
+      "target": "services_category_text_utils_normalize_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/verify_compound_split.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "scripts_verify_compound_split_main",
+      "target": "services_category_text_utils_sanitize_raw"
     },
     {
       "relation": "calls",
@@ -7693,9 +7756,9 @@
       "source_file": "backend/services/category_text_utils.py",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_text_utils_sanitize_category",
-      "target": "services_category_text_utils_sanitize_raw",
-      "confidence_score": 1.0
+      "target": "services_category_text_utils_sanitize_raw"
     },
     {
       "relation": "references",
@@ -7704,9 +7767,9 @@
       "source_file": "backend/services/category_text_utils.py",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_category_text_utils_sanitize_category",
-      "target": "services_category_text_utils_sanitizedcategory",
-      "confidence_score": 1.0
+      "target": "services_category_text_utils_sanitizedcategory"
     },
     {
       "relation": "calls",
@@ -7718,6 +7781,27 @@
       "weight": 1.0,
       "source": "scripts_verify_reference_mapper_main",
       "target": "services_category_text_utils_sanitize_category"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/verify_compound_split.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "scripts_verify_compound_split_main",
+      "target": "services_category_text_utils_split_compound_products"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/category_text_utils.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "services_category_text_utils_rationale_44",
+      "target": "services_category_text_utils_split_compound_products",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -11619,9 +11703,9 @@
       "source_file": "components/screens/results-screen.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screens_results_screen",
-      "target": "lib_matrix_countprovidersingroup",
-      "confidence_score": 1.0
+      "target": "lib_matrix_countprovidersingroup"
     },
     {
       "relation": "imports",
@@ -11652,9 +11736,9 @@
       "source_file": "components/screens/results-screen.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screens_results_screen",
-      "target": "lib_matrix_resolvemarketrowcategory",
-      "confidence_score": 1.0
+      "target": "lib_matrix_resolvemarketrowcategory"
     },
     {
       "relation": "imports_from",
@@ -12981,9 +13065,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix_resolvemarketcomparisonanchor",
-      "target": "lib_category_label_normalizecategorylabel",
-      "confidence_score": 1.0
+      "target": "lib_category_label_normalizecategorylabel"
     },
     {
       "relation": "calls",
@@ -13047,9 +13131,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L109",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix_resolvemarketcomparisonanchor",
-      "target": "lib_category_label_formatcategorylabel",
-      "confidence_score": 1.0
+      "target": "lib_category_label_formatcategorylabel"
     },
     {
       "relation": "calls",
@@ -13124,9 +13208,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L397",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix_visiblemacrochildren",
-      "target": "lib_category_label_labelsequivalent",
-      "confidence_score": 1.0
+      "target": "lib_category_label_labelsequivalent"
     },
     {
       "relation": "contains",
@@ -13445,9 +13529,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L354",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix",
-      "target": "lib_matrix_countprovidersingroup",
-      "confidence_score": 1.0
+      "target": "lib_matrix_countprovidersingroup"
     },
     {
       "relation": "contains",
@@ -13515,9 +13599,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix",
-      "target": "lib_matrix_marketcomparisonanchor",
-      "confidence_score": 1.0
+      "target": "lib_matrix_marketcomparisonanchor"
     },
     {
       "relation": "contains",
@@ -13525,9 +13609,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L142",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix",
-      "target": "lib_matrix_marketrowkeyfromanchor",
-      "confidence_score": 1.0
+      "target": "lib_matrix_marketrowkeyfromanchor"
     },
     {
       "relation": "contains",
@@ -13535,9 +13619,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix",
-      "target": "lib_matrix_marketrowkeyfromexisting",
-      "confidence_score": 1.0
+      "target": "lib_matrix_marketrowkeyfromexisting"
     },
     {
       "relation": "contains",
@@ -13565,9 +13649,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix",
-      "target": "lib_matrix_parsereferencenodeid",
-      "confidence_score": 1.0
+      "target": "lib_matrix_parsereferencenodeid"
     },
     {
       "relation": "contains",
@@ -13595,9 +13679,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix",
-      "target": "lib_matrix_resolvemarketcomparisonanchor",
-      "confidence_score": 1.0
+      "target": "lib_matrix_resolvemarketcomparisonanchor"
     },
     {
       "relation": "contains",
@@ -13605,9 +13689,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L368",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix",
-      "target": "lib_matrix_resolvemarketrowcategory",
-      "confidence_score": 1.0
+      "target": "lib_matrix_resolvemarketrowcategory"
     },
     {
       "relation": "contains",
@@ -13645,9 +13729,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L394",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix",
-      "target": "lib_matrix_visiblemacrochildren",
-      "confidence_score": 1.0
+      "target": "lib_matrix_visiblemacrochildren"
     },
     {
       "relation": "imports_from",
@@ -13854,9 +13938,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix_rowkeyfromexisting",
-      "target": "lib_matrix_marketrowkeyfromexisting",
-      "confidence_score": 1.0
+      "target": "lib_matrix_marketrowkeyfromexisting"
     },
     {
       "relation": "calls",
@@ -13887,9 +13971,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix_resolvemarketcomparisonanchor",
-      "target": "lib_matrix_getreferencedepth",
-      "confidence_score": 1.0
+      "target": "lib_matrix_getreferencedepth"
     },
     {
       "relation": "calls",
@@ -13909,9 +13993,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix_resolvemarketcomparisonanchor",
-      "target": "lib_matrix_parsereferencenodeid",
-      "confidence_score": 1.0
+      "target": "lib_matrix_parsereferencenodeid"
     },
     {
       "relation": "calls",
@@ -13920,9 +14004,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L222",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix_mergemappeditems",
-      "target": "lib_matrix_resolvemarketcomparisonanchor",
-      "confidence_score": 1.0
+      "target": "lib_matrix_resolvemarketcomparisonanchor"
     },
     {
       "relation": "calls",
@@ -13931,9 +14015,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L147",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix_resolvemarketrowkey",
-      "target": "lib_matrix_resolvemarketcomparisonanchor",
-      "confidence_score": 1.0
+      "target": "lib_matrix_resolvemarketcomparisonanchor"
     },
     {
       "relation": "calls",
@@ -13942,9 +14026,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L147",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix_resolvemarketrowkey",
-      "target": "lib_matrix_marketrowkeyfromanchor",
-      "confidence_score": 1.0
+      "target": "lib_matrix_marketrowkeyfromanchor"
     },
     {
       "relation": "calls",
@@ -13953,9 +14037,9 @@
       "source_file": "lib/matrix.ts",
       "source_location": "L151",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_matrix_marketrowkeyfromexisting",
-      "target": "lib_matrix_resolvemarketrowkey",
-      "confidence_score": 1.0
+      "target": "lib_matrix_resolvemarketrowkey"
     },
     {
       "relation": "calls",
@@ -16208,9 +16292,9 @@
       "source_file": "scripts/verify_compound_split.py",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_compound_split",
-      "target": "scripts_verify_compound_split_main",
-      "confidence_score": 1.0
+      "target": "scripts_verify_compound_split_main"
     },
     {
       "relation": "contains",
@@ -16508,5 +16592,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d539be4ce9665315edff66dc40b33141acabf39f"
+  "built_at_commit": "0c98f04a1b7c4b8a05a4ad7f508a5afc13a8dfcd"
 }
