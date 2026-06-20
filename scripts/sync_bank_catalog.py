@@ -169,6 +169,7 @@ def build_catalog(offers: list[dict], aliases: dict[str, str]) -> dict:
         parent_synonyms = {
             normalize(key): value
             for key, value in json.loads(PARENT_SYNONYMS_PATH.read_text(encoding="utf-8")).items()
+            if not str(key).startswith("_")
         }
 
     enriched = json.loads(ENRICHED_PATH.read_text(encoding="utf-8"))

@@ -4,9 +4,11 @@ from contextlib import asynccontextmanager
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from sentence_transformers import SentenceTransformer
 
 from routers import category, ocr
 from schemas import HealthResponse
+from services.market_split_map_service import MarketSplitMapService
 from services.mapper_service import MapperService
 
 load_dotenv()
@@ -27,9 +29,21 @@ def _local_network_origin_regex() -> str:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    mapper = MapperService()
-    mapper.load()
-    app.state.mapper = mapper
+    model_name = os.environ.get(
+        "SENTENCE_TRANSFORMER_MODEL",
+        "paraphrase-multilingual-MiniLM-L12-v2",
+    )
+    shared_model = SentenceTransformer(model_name)
+
+    bank_mapper = MapperService()
+    bank_mapper.load(model=shared_model)
+
+    market_mapper = MarketSplitMapService()
+    market_mapper.load()
+
+    app.state.mapper = bank_mapper
+    app.state.bank_mapper = bank_mapper
+    app.state.market_mapper = market_mapper
     yield
 
 
@@ -50,8 +64,15 @@ app.include_router(category.router)
 
 @app.get("/health", response_model=HealthResponse)
 def health() -> HealthResponse:
-    mapper: MapperService | None = getattr(app.state, "mapper", None)
+    bank_mapper: MapperService | None = getattr(app.state, "bank_mapper", None) or getattr(
+        app.state, "mapper", None
+    )
+    market_mapper: MarketSplitMapService | None = getattr(app.state, "market_mapper", None)
+    bank_loaded = bool(bank_mapper and bank_mapper.is_loaded)
+    market_loaded = bool(market_mapper and market_mapper.is_loaded)
     return HealthResponse(
         status="ok",
-        mapper_loaded=bool(mapper and mapper.is_loaded),
+        mapper_loaded=bank_loaded,
+        bank_mapper_loaded=bank_loaded,
+        market_mapper_loaded=market_loaded,
     )

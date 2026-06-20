@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field
 class OcrExtractRequest(BaseModel):
     image_base64: str = Field(..., min_length=1)
     mime_type: Literal["image/jpeg", "image/png", "image/jpg"] = "image/jpeg"
+    kind: Literal["bank", "market"] = "bank"
 
 
 class OcrItem(BaseModel):
@@ -25,10 +26,20 @@ class CategoryMapRequestItem(BaseModel):
 class CategoryMapRequest(BaseModel):
     items: list[CategoryMapRequestItem]
     source_name: str | None = None
+    kind: Literal["bank", "market"] = "bank"
+    source_slug: str | None = None
+
+
+class ReferencePathNode(BaseModel):
+    id: str
+    name: str
 
 
 class MappedItem(BaseModel):
     raw_category: str
+    normalized_raw_category: str | None = None
+    normalize_source: Literal["sanitize", "passthrough"] | None = None
+    split_text: str | None = None
     unified_category: str
     unified_subcategory: str | None = None
     unified_parent: str | None = None
@@ -44,10 +55,22 @@ class MappedItem(BaseModel):
         "leaf_exact",
         "parent_embedding",
         "leaf_embedding",
+        "coarse_cashback",
         "llm_parent",
         "fallback",
         "embedding",
+        "reference_llm",
+        "reference_cache",
+        "reference_fallback",
+        "reference_split_llm",
     ] | None = None
+    display_label: str | None = None
+    reference_node_id: str | None = None
+    reference_department: str | None = None
+    reference_category: str | None = None
+    reference_subcategory: str | None = None
+    reference_depth: int | None = None
+    reference_path: list[ReferencePathNode] | None = None
 
 
 class CategoryMapResponse(BaseModel):
@@ -57,3 +80,5 @@ class CategoryMapResponse(BaseModel):
 class HealthResponse(BaseModel):
     status: str
     mapper_loaded: bool
+    bank_mapper_loaded: bool = False
+    market_mapper_loaded: bool = False

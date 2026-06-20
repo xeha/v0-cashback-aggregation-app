@@ -1,7 +1,7 @@
 {
   "source": "https://cashpack.ru/offers/",
   "parsed_at": "2026-06-17 10:25:10",
-  "total_parents": 26,
+  "total_parents": 27,
   "total_subcategories": 108,
   "parents": [
     {
@@ -591,6 +591,11 @@
           "name": "Прочее (УСЛУГИ)"
         }
       ]
+    },
+    {
+      "id": 27,
+      "name": "Все покупки",
+      "subcategories": []
     }
   ],
   "subcategory_names": [

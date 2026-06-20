@@ -1,4 +1,9 @@
 {
+  "_meta": {
+    "scope": "bank-only",
+    "description": "OCR-алиасы банковских категорий → parent из category_hierarchy.json. Используется только MapperService (kind=bank). Market идёт через ReferenceMapperService + reference_hierarchy.json."
+  },
+  "все покупки": "Все покупки",
   "активный отдых": "Досуг И Отдых",
   "развлечения": "Досуг И Отдых",
   "кафе и рестораны": "Кафе И Рестораны",

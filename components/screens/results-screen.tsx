@@ -6,7 +6,14 @@ import { ChevronDown, ChevronRight, Download, Share, LayoutGrid, ImagePlus, Tras
 import { ProviderLogo } from "@/components/provider-logo"
 import { ProcessingWarningsBanner } from "@/components/processing-warnings-banner"
 import { getCurrentMonthYear, getRowTiers, type RateTier } from "@/lib/cashback-data"
-import { groupMatrixRows, groupHasSubcategories } from "@/lib/matrix"
+import {
+  groupMatrixRows,
+  groupHasSubcategories,
+  countProvidersInGroup,
+  resolveMarketRowCategory,
+  getMarketGroupDisplayLabel,
+  getVisibleMarketGroupRows,
+} from "@/lib/matrix"
 import {
   formatCategoryLabel,
   labelsEquivalent,
@@ -35,23 +42,34 @@ function getDefaultTab(matrix: MatrixState, kind: Kind): Tab {
 
 function RateBadges({
   rates,
+  rateRanges,
   providers,
 }: {
   rates: Record<string, number>
+  rateRanges?: MatrixRow["rateRanges"]
   providers: MatrixProvider[]
 }) {
   const tiers = getRowTiers(rates)
   return (
     <div className="flex shrink-0 items-center gap-1">
       {providers.map((p) => {
+        const range = rateRanges?.[p.key]
         const rate = rates[p.key]
+        const label =
+          range !== undefined
+            ? range.min === range.max
+              ? `${range.max}%`
+              : `${range.min}–${range.max}%`
+            : rate !== undefined
+              ? `${rate}%`
+              : undefined
         return (
           <div key={p.key} className="flex w-11 justify-center">
-            {rate !== undefined ? (
+            {label !== undefined ? (
               <span
-                className={`rounded-full px-2 py-1 text-[12px] font-bold ${TIER_STYLES[tiers[p.key]]}`}
+                className={`rounded-full px-2 py-1 text-[12px] font-bold ${TIER_STYLES[tiers[p.key] ?? "mid"]}`}
               >
-                {rate}%
+                {label}
               </span>
             ) : (
               <span className="text-[13px] text-slate-300">—</span>
@@ -67,29 +85,34 @@ function MatrixRowContent({
   row,
   providers,
   indented = false,
+  displayCategory,
 }: {
   row: MatrixRow
   providers: MatrixProvider[]
   indented?: boolean
+  displayCategory?: string
 }) {
+  const categoryLabel = displayCategory ?? row.category
   const showParent =
     row.parent &&
     !indented &&
     !row.isMacro &&
-    !labelsEquivalent(row.category, row.parent)
+    !labelsEquivalent(categoryLabel, row.parent)
   const showBankRaw =
     row.bankRaw &&
-    !labelsEquivalent(row.bankRaw, row.category) &&
+    !labelsEquivalent(row.bankRaw, categoryLabel) &&
     !(row.parent && labelsEquivalent(row.bankRaw, row.parent))
 
   return (
     <>
       <div className={`flex-1 pr-2 ${indented ? "pl-6" : ""}`}>
-        <p className="text-[13px] font-medium leading-snug text-slate-800">{row.category}</p>
-        {showParent && <p className="text-[11px] text-slate-400">{formatCategoryLabel(row.parent)}</p>}
+        <p className="text-[13px] font-medium leading-snug text-slate-800">{categoryLabel}</p>
+        {showParent && row.parent ? (
+          <p className="text-[11px] text-slate-400">{formatCategoryLabel(row.parent)}</p>
+        ) : null}
         {showBankRaw && <p className="text-[11px] text-slate-400">{row.bankRaw}</p>}
       </div>
-      <RateBadges rates={row.rates} providers={providers} />
+      <RateBadges rates={row.rates} rateRanges={row.rateRanges} providers={providers} />
     </>
   )
 }
@@ -117,7 +140,9 @@ export function ResultsScreen({
   const activeMatrix = getActiveMatrix(matrix, activeTab)
   const providers = activeMatrix?.providers ?? []
   const rows = activeMatrix?.rows ?? []
-  const groups = groupMatrixRows(rows)
+  const marketParts = activeTab === "market" ? activeMatrix?.marketParts : undefined
+  const groups = groupMatrixRows(rows, marketParts)
+  const hasMatrixData = groups.length > 0
 
   function toggleParent(parent: string) {
     setExpandedParents((prev) => {
@@ -191,7 +216,7 @@ export function ResultsScreen({
         })}
       </div>
 
-      {rows.length === 0 ? (
+      {!hasMatrixData ? (
         <div className="rounded-2xl border border-dashed border-slate-200 px-4 py-10 text-center">
           <p className="text-[15px] font-medium text-slate-700">Нет данных для этой вкладки</p>
           <p className="mt-2 text-[14px] text-slate-500">
@@ -215,18 +240,29 @@ export function ResultsScreen({
             </div>
 
             {groups.map((group, groupIdx) => {
-              const hasSubcategories = groupHasSubcategories(group)
+              const visibleRows =
+                activeTab === "market" ? getVisibleMarketGroupRows(group) : group.rows
+              const hasSubcategories = groupHasSubcategories(group, activeTab)
               const isExpanded = hasSubcategories && expandedParents.has(group.parent)
               const isLastGroup = groupIdx === groups.length - 1
+              const providerCountInGroup = activeTab === "market" ? countProvidersInGroup(group) : 0
+              const resolveRowLabel = (row: MatrixRow) =>
+                activeTab === "market"
+                  ? resolveMarketRowCategory(row, providerCountInGroup)
+                  : row.category
+              const groupHeaderLabel = getMarketGroupDisplayLabel(group)
               const displayLabel = hasSubcategories
-                ? formatCategoryLabel(group.parent)
-                : formatCategoryLabel(group.rows[0]?.category ?? group.parent)
+                ? formatCategoryLabel(groupHeaderLabel)
+                : formatCategoryLabel(
+                    group.rows[0] ? resolveRowLabel(group.rows[0]) : groupHeaderLabel,
+                  )
 
               if (!hasSubcategories) {
                 const row = group.rows[0]
+                const rowLabel = row ? resolveRowLabel(row) : displayLabel
                 const showBankRaw =
                   row?.bankRaw &&
-                  !labelsEquivalent(row.bankRaw, displayLabel) &&
+                  !labelsEquivalent(row.bankRaw, rowLabel) &&
                   !(row.parent && labelsEquivalent(row.bankRaw, row.parent))
 
                 return (
@@ -238,7 +274,7 @@ export function ResultsScreen({
                   >
                     <div className="flex-1 pr-2">
                       <p className="text-[13px] font-semibold leading-snug text-slate-800">
-                        {displayLabel}
+                        {rowLabel}
                       </p>
                       {showBankRaw ? (
                         <p className="text-[11px] text-slate-400">{row.bankRaw}</p>
@@ -282,12 +318,17 @@ export function ResultsScreen({
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         className="overflow-hidden"
                       >
-                        {group.rows.map((child) => (
+                        {visibleRows.map((child) => (
                           <div
-                            key={child.category}
+                            key={`${child.referenceNodeId ?? child.category}-${child.referenceDepth ?? 0}`}
                             className="flex items-center border-t border-slate-100 bg-slate-50/50 px-3 py-2.5"
                           >
-                            <MatrixRowContent row={child} providers={providers} indented />
+                            <MatrixRowContent
+                              row={child}
+                              providers={providers}
+                              indented
+                              displayCategory={resolveRowLabel(child)}
+                            />
                           </div>
                         ))}
                       </motion.div>

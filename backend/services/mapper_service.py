@@ -18,7 +18,9 @@ ENRICHED_PATH = Path(__file__).resolve().parent.parent / "data" / "parent_catego
 NAMED_CATEGORIES_PATH = (
     Path(__file__).resolve().parent.parent / "data" / "bank_named_categories.json"
 )
-PARENT_SYNONYMS_PATH = (
+# Bank-only OCR aliases → parent category (category_hierarchy.json).
+# Not used for market mapping (ReferenceMapperService + reference_hierarchy.json).
+BANK_PARENT_SYNONYMS_PATH = (
     Path(__file__).resolve().parent.parent / "data" / "parent_category_synonyms.json"
 )
 BANK_OFFER_ENTRIES_PATH = (
@@ -147,7 +149,7 @@ class MapperService:
             and self._parent_embeddings is not None
         )
 
-    def load(self) -> None:
+    def load(self, model: SentenceTransformer | None = None) -> None:
         hierarchy = json.loads(HIERARCHY_PATH.read_text(encoding="utf-8"))
         self._subcategories = hierarchy["subcategory_names"]
         self._subcategory_to_parent = hierarchy["subcategory_to_parent"]
@@ -163,10 +165,12 @@ class MapperService:
             _normalize_category_name(key): value for key, value in raw_overrides.items()
         }
         self._named_categories = _load_named_categories()
-        if PARENT_SYNONYMS_PATH.is_file():
-            raw_synonyms = json.loads(PARENT_SYNONYMS_PATH.read_text(encoding="utf-8"))
+        if BANK_PARENT_SYNONYMS_PATH.is_file():
+            raw_synonyms = json.loads(BANK_PARENT_SYNONYMS_PATH.read_text(encoding="utf-8"))
             self._parent_synonyms = {
-                _normalize_category_name(key): value for key, value in raw_synonyms.items()
+                _normalize_category_name(key): value
+                for key, value in raw_synonyms.items()
+                if not str(key).startswith("_")
             }
 
         with CATALOG_PATH.open(encoding="utf-8") as f:
@@ -180,11 +184,14 @@ class MapperService:
             self._enriched[name]["embedding_text"] for name in self._parents
         ]
 
-        model_name = os.environ.get(
-            "SENTENCE_TRANSFORMER_MODEL",
-            "paraphrase-multilingual-MiniLM-L12-v2",
-        )
-        self._model = SentenceTransformer(model_name)
+        if model is not None:
+            self._model = model
+        else:
+            model_name = os.environ.get(
+                "SENTENCE_TRANSFORMER_MODEL",
+                "paraphrase-multilingual-MiniLM-L12-v2",
+            )
+            self._model = SentenceTransformer(model_name)
         self._subcategory_embeddings = encode_texts(self._model, self._subcategories)
         self._parent_embeddings = encode_texts(self._model, self._parent_embedding_texts)
 
@@ -297,12 +304,6 @@ class MapperService:
         else:
             display_subcategory = subcategory
             display_category = subcategory
-
-        print(
-            f"map: raw={item.raw_category!r} bank={bank_slug!r} "
-            f"parent={resolved_parent!r} sub={display_subcategory!r} "
-            f"source={match_source} conf={confidence}"
-        )
 
         return MappedItem(
             raw_category=item.raw_category,

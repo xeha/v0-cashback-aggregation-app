@@ -3,13 +3,15 @@ import os
 import re
 from pathlib import Path
 
+from typing import Literal
+
 from mistralai.client import Mistral
 
 from schemas import OcrItem
 
 EXCLUSIONS_PATH = Path(__file__).resolve().parent.parent / "data" / "bank_service_exclusions.json"
 
-OCR_PROMPT = """Извлеки из скриншота мобильного приложения пары «категория кэшбэка — процент».
+OCR_PROMPT_BANK = """Извлеки из скриншота мобильного приложения пары «категория кэшбэка — процент».
 
 Цель: только ОСНОВНЫЕ категории трат на месяц (типы покупок). Не партнёрские сервисы банка.
 
@@ -20,7 +22,7 @@ OCR_PROMPT = """Извлеки из скриншота мобильного пр
 - Если указано «до 5%» у ОБЫЧНОЙ категории — возьми максимальное значение
 - Сохраняй оригинальные русские названия категорий как на скриншоте (без процента в raw_category)
 - НЕ выдумывай категории и проценты — извлекай только то, что явно видно
-- Если на изображении НЕТ экрана кэшбэка банка или магазина — верни пустой массив []
+- Если на изображении НЕТ экрана кэшбэка банка — верни пустой массив []
 
 Что ИГНОРИРОВАТЬ (не включать в JSON):
 - Промо-баннеры, заголовки экрана, даты, кнопки, иконки «i»
@@ -63,11 +65,25 @@ OCR_PROMPT = """Извлеки из скриншота мобильного пр
 - «Супермаркеты + Почта» как единая сервисная строка; отделения Почты России как партнёрский блок
 
 Ozon Банк:
-- Не применяй обратную логику Ozon здесь — извлекай обычные категории кэшбэка, если они есть на скриншоте
+- Не применяй обратную логику Ozon здесь — извлекай обычные категории кэшбэка, если они есть на скриншоте"""
 
-Супермаркеты (Магнит, Пятёрочка, Лента и т.п.):
-- Категории часто товарные: «Молоко», «Твёрдые сыры», «Кисломолочка» — извлекай каждую строку списка отдельно
-- Подписи вроде «Даже по акции» включай в raw_category только если они напечатаны как часть названия категории"""
+OCR_PROMPT_MARKET = """Извлеки из скриншота мобильного приложения супермаркета пары «товарная категория кэшбэка — процент».
+
+Правила формата:
+- Верни ТОЛЬКО валидный JSON-массив без markdown и пояснений
+- Формат: [{"raw_category": "название", "rate": число}]
+- rate — целое или дробное число процента (10 для «10%», 7.5 для «7,5%»)
+- Каждая строка списка кэшбэка — отдельная категория («Молоко», «Кисломолочка», «Твёрдые сыры»)
+- НЕ выдумывай категории — только явно видимые строки
+- Игнорируй промо-баннеры, заголовки, даты, кнопки
+- Если на изображении НЕТ экрана кэшбэка супермаркета — верни []
+
+Правила названия категории (raw_category):
+- Бери ТОЛЬКО основной заголовок карточки/строки — крупный текст с названием товарной категории
+- НЕ включай подписи, уточнения и мелкий текст под заголовком
+- НЕ склеивай заголовок с подписью в одну строку
+- Примеры: «Готовая кулинария» (НЕ «Готовая кулинария и на товары со скидкой»); «Пиво и сидр»; «Замороженные фрукты и ягоды»
+- Игнорируй фразы про скидки и условия: «и на товары со скидкой», «на товары со скидкой», «кроме акций», «по карте», «до конца месяца» и подобное"""
 
 
 def _normalize_category_name(name: str) -> str:
@@ -120,15 +136,34 @@ def _parse_ocr_json(text: str) -> list[OcrItem]:
     return items
 
 
-def _parse_and_filter_ocr_json(text: str) -> list[OcrItem]:
-    return filter_bank_services(_parse_ocr_json(text))
+def _finalize_ocr_items(items: list[OcrItem], kind: Literal["bank", "market"]) -> list[OcrItem]:
+    if kind == "market":
+        return items
+    return filter_bank_services(items)
 
 
-def extract_cashback_items(image_base64: str, mime_type: str) -> list[OcrItem]:
+def _parse_response_content(content: str, kind: Literal["bank", "market"]) -> list[OcrItem]:
+    try:
+        parsed = json.loads(content)
+        if isinstance(parsed, dict) and "items" in parsed:
+            return _finalize_ocr_items(_parse_ocr_json(json.dumps(parsed["items"])), kind)
+        if isinstance(parsed, list):
+            return _finalize_ocr_items(_parse_ocr_json(json.dumps(parsed)), kind)
+        return _finalize_ocr_items(_parse_ocr_json(content), kind)
+    except (json.JSONDecodeError, ValueError):
+        return _finalize_ocr_items(_parse_ocr_json(content), kind)
+
+
+def extract_cashback_items(
+    image_base64: str,
+    mime_type: str,
+    kind: Literal["bank", "market"] = "bank",
+) -> list[OcrItem]:
     api_key = os.environ.get("MISTRAL_API_KEY")
     if not api_key:
         raise RuntimeError("MISTRAL_API_KEY is not configured")
 
+    prompt = OCR_PROMPT_MARKET if kind == "market" else OCR_PROMPT_BANK
     client = Mistral(api_key=api_key)
     normalized_mime = "image/jpeg" if mime_type == "image/jpg" else mime_type
     data_url = f"data:{normalized_mime};base64,{image_base64}"
@@ -139,7 +174,7 @@ def extract_cashback_items(image_base64: str, mime_type: str) -> list[OcrItem]:
             {
                 "role": "user",
                 "content": [
-                    {"type": "text", "text": OCR_PROMPT},
+                    {"type": "text", "text": prompt},
                     {"type": "image_url", "image_url": data_url},
                 ],
             }
@@ -151,12 +186,4 @@ def extract_cashback_items(image_base64: str, mime_type: str) -> list[OcrItem]:
     if not content:
         return []
 
-    try:
-        parsed = json.loads(content)
-        if isinstance(parsed, dict) and "items" in parsed:
-            return _parse_and_filter_ocr_json(json.dumps(parsed["items"]))
-        if isinstance(parsed, list):
-            return _parse_and_filter_ocr_json(json.dumps(parsed))
-        return _parse_and_filter_ocr_json(content)
-    except (json.JSONDecodeError, ValueError):
-        return _parse_and_filter_ocr_json(content)
+    return _parse_response_content(content, kind)

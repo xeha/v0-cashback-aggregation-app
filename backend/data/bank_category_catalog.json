@@ -18,11 +18,11 @@
     },
     "все покупки": {
       "bank_category": "Все покупки",
-      "unified_subcategory": "Прочее (УСЛУГИ)",
-      "unified_parent": "Услуги",
-      "unified": "Прочее (УСЛУГИ)",
+      "unified_subcategory": "Все покупки",
+      "unified_parent": "Все покупки",
+      "unified": "Все покупки",
       "match_level": "category",
-      "is_macro": false
+      "is_macro": true
     },
     "выбираемые категории": {
       "bank_category": "Аптеки",
@@ -954,11 +954,11 @@
     },
     "все покупки": {
       "bank_category": "Все покупки",
-      "unified_subcategory": "Прочее (УСЛУГИ)",
-      "unified_parent": "Услуги",
-      "unified": "Прочее (УСЛУГИ)",
+      "unified_subcategory": "Все покупки",
+      "unified_parent": "Все покупки",
+      "unified": "Все покупки",
       "match_level": "category",
-      "is_macro": false
+      "is_macro": true
     },
     "детская обувь": {
       "bank_category": "Товары для детей",
@@ -1494,11 +1494,11 @@
     },
     "все покупки": {
       "bank_category": "Все покупки",
-      "unified_subcategory": "Прочее (УСЛУГИ)",
-      "unified_parent": "Услуги",
-      "unified": "Прочее (УСЛУГИ)",
+      "unified_subcategory": "Все покупки",
+      "unified_parent": "Все покупки",
+      "unified": "Все покупки",
       "match_level": "category",
-      "is_macro": false
+      "is_macro": true
     },
     "выставки": {
       "bank_category": "Искусство",
@@ -1712,11 +1712,11 @@
   "rajffajzenbank": {
     "все покупки": {
       "bank_category": "Все покупки",
-      "unified_subcategory": "Прочее (УСЛУГИ)",
-      "unified_parent": "Услуги",
-      "unified": "Прочее (УСЛУГИ)",
+      "unified_subcategory": "Все покупки",
+      "unified_parent": "Все покупки",
+      "unified": "Все покупки",
       "match_level": "category",
-      "is_macro": false
+      "is_macro": true
     },
     "категория на выбор": {
       "bank_category": "Все покупки",

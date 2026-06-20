@@ -1,0 +1,4522 @@
+[
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "fix-price",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "poliarnaia_zvezda",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "eshyo",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "detmir",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "azbuka-daily",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "winelab",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "agrokompleks",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "bristol",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "gastronombim",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "pervym-delom",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "azbuka_vkusa",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "krasnyj-drakon",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "amelia",
+    "l1": "Продукты",
+    "market_category": "Майонез и соусы",
+    "unified_subcategory": "Кетчупы и томатные соусы",
+    "unified_parent": "Соусы, кетчупы, майонезы",
+    "score": 0.8119
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "fix-price",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "r-ulybka",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "poliarnaia_zvezda",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "riv-gosh",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "eshyo",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "myfasol",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "detmir",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "azbuka-daily",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "yolamarket",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "winelab",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "agrokompleks",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "bristol",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "avokado",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "amwine",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "gastronombim",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "letual",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "pervym-delom",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "simplewine",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "magazin-postoyannyh-rasprodazh",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "azbuka_vkusa",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "apteki-dialog",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "petshop1",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "mir-kubikov",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "wine-and-whiskey-by-simple",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "krasnyj-drakon",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "dinozavrik",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "vajnstajl",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "amelia",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "dekanter",
+    "l1": "Продукты",
+    "market_category": "Бакалея",
+    "unified_subcategory": "Индейка",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8139
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "fix-price",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "r-ulybka",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "eshyo",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "myfasol",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "detmir",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "azbuka-daily",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "yolamarket",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "winelab",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "bristol",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "avokado",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "amwine",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "gastronombim",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "letual",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "pervym-delom",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "magazin-postoyannyh-rasprodazh",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "azbuka_vkusa",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "apteki-dialog",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "petshop1",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "mir-kubikov",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "krasnyj-drakon",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "vajnstajl",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "amelia",
+    "l1": "Продукты",
+    "market_category": "Кондитерские изделия",
+    "unified_subcategory": "Творог",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.8478
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "fix-price",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "miasnitskii_riad",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "poliarnaia_zvezda",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "eshyo",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "myfasol",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "detmir",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "yolamarket",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "winelab",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "agrokompleks",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "bristol",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "avokado",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "gastronombim",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "pervym-delom",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "magazin-postoyannyh-rasprodazh",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "4lapy",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "td-domovoj",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "krasnyj-drakon",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "vajnstajl",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "amelia",
+    "l1": "Продукты",
+    "market_category": "Замороженные продукты",
+    "unified_subcategory": "Замороженные готовые блюда",
+    "unified_parent": "Замороженные продукты",
+    "score": 0.8529
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "fix-price",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "eshyo",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "myfasol",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "detmir",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "yolamarket",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "bristol",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "gastronombim",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "magazin-postoyannyh-rasprodazh",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "apteki-dialog",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "krasnyj-drakon",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "amelia",
+    "l1": "Продукты",
+    "market_category": "Кофе и чай",
+    "unified_subcategory": "Кофе молотый",
+    "unified_parent": "Кофе, чай, какао, сахар",
+    "score": 0.8777
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "fix-price",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "eshyo",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "yolamarket",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "winelab",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "bristol",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "krasnyj-drakon",
+    "l1": "Продукты",
+    "market_category": "Хлеб",
+    "unified_subcategory": "Печенье",
+    "unified_parent": "Шоколад, конфеты, сладости",
+    "score": 0.8798
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "fix-price",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "eshyo",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "myfasol",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "detmir",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "azbuka-daily",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "winelab",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "miratorg",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "agrokompleks",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "bristol",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "avokado",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "amwine",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "gastronombim",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "letual",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "pervym-delom",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "simplewine",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "magazin-postoyannyh-rasprodazh",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "azbuka_vkusa",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "apteki-dialog",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "drinx",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "wine-and-whiskey-by-simple",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "krasnyj-drakon",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "winestate",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "vajnstajl",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "amelia",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "dekanter",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "dva-topora",
+    "l1": "Продукты",
+    "market_category": "Напитки",
+    "unified_subcategory": "Слабоалкогольные напитки и сидр",
+    "unified_parent": "Алкогольные напитки",
+    "score": 0.8845
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "fix-price",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "miasnitskii_riad",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "poliarnaia_zvezda",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "azbuka-daily",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "yolamarket",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "winelab",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "agrokompleks",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "bristol",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "avokado",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "volgogradskii_miasokombinat",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "amwine",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "gastronombim",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "pervym-delom",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "azbuka_vkusa",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "drinx",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "petshop1",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "vajnstajl",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "amelia",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "dva-topora",
+    "l1": "Продукты",
+    "market_category": "Мясные продукты",
+    "unified_subcategory": "Субпродукты",
+    "unified_parent": "Мясо и птица",
+    "score": 0.8984
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "fix-price",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "miasnitskii_riad",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "poliarnaia_zvezda",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Фастфуд",
+    "market_category": "Десерты",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9037
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "yolamarket",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "winelab",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "bristol",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "mir-kubikov",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "krasnyj-drakon",
+    "l1": "Продукты",
+    "market_category": "Кулинария",
+    "unified_subcategory": "Сметана",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9037
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "zolotoe-yabloko",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "azbuka-daily",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "winelab",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "agrokompleks",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "azbuka_vkusa",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "petshop1",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "mir-kubikov",
+    "l1": "Продукты",
+    "market_category": "Птица",
+    "unified_subcategory": "Утка и другая птица",
+    "unified_parent": "Мясо и птица",
+    "score": 0.905
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "fix-price",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "poliarnaia_zvezda",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "eshyo",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "myfasol",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "detmir",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "azbuka-daily",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "yolamarket",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "winelab",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "agrokompleks",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "bristol",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "avokado",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "amwine",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "gastronombim",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "pervym-delom",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "azbuka_vkusa",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "apteki-dialog",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "krasnyj-drakon",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "vajnstajl",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "amelia",
+    "l1": "Продукты",
+    "market_category": "Молочные продукты",
+    "unified_subcategory": "Молоко",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9288
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "azbuka-daily",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "bristol",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "gastronombim",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "azbuka_vkusa",
+    "l1": "Продукты",
+    "market_category": "Яйцо",
+    "unified_subcategory": "Яйца перепелиные",
+    "unified_parent": "Молоко, сыр, яйца",
+    "score": 0.9355
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "miasnitskii_riad",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "azbuka-daily",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "yolamarket",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "miratorg",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "agrokompleks",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "volgogradskii_miasokombinat",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "gastronombim",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "azbuka_vkusa",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "petshop1",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "mir-kubikov",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "krasnyj-drakon",
+    "l1": "Продукты",
+    "market_category": "Мясо",
+    "unified_subcategory": "Говядина",
+    "unified_parent": "Мясо и птица",
+    "score": 0.9363
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "fix-price",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "miasnitskii_riad",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "poliarnaia_zvezda",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "eshyo",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "detmir",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "azbuka-daily",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "winelab",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "agrokompleks",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "bristol",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "avokado",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "gastronombim",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "pervym-delom",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "azbuka_vkusa",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "petshop1",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "mir-kubikov",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "krasnyj-drakon",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "vajnstajl",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "amelia",
+    "l1": "Продукты",
+    "market_category": "Консервы",
+    "unified_subcategory": "Ветчина",
+    "unified_parent": "Колбасные изделия",
+    "score": 0.9399
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "fix-price",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "detmir",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "azbuka-daily",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "winelab",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "bristol",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "azbuka_vkusa",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "krasnyj-drakon",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "vajnstajl",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "amelia",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "dekanter",
+    "l1": "Продукты",
+    "market_category": "Фрукты, овощи",
+    "unified_subcategory": "Снеки овощные / фруктовые",
+    "unified_parent": "Чипсы, снеки, попкорн",
+    "score": 0.9486
+  },
+  {
+    "market": "magnit",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "lenta",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "pyaterochka",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "spar",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "fix-price",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "dixy",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "globus",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "perekrestok",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "okmarket-giper",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "chizhik",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "svetofor",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "verno",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "vkusvill_offline",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "iarche",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "market-da",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "avoska",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "auchan",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "poliarnaia_zvezda",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "eshyo",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "dobryninskij",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "azbuka-daily",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "metro-cc",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "kuul-klever-myasnov-otdohni",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "winelab",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "ramenskii_delikates",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "bristol",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "vingarazh",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "avokado",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "gastronombim",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "pervym-delom",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "azbuka_vkusa",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  },
+  {
+    "market": "krasnyj-drakon",
+    "l1": "Продукты",
+    "market_category": "Рыба",
+    "unified_subcategory": "Рыба копчёная",
+    "unified_parent": "Рыба",
+    "score": 0.9641
+  }
+]

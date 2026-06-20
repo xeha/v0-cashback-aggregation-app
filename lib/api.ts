@@ -1,3 +1,4 @@
+import type { Kind } from "@/lib/types"
 import { imageSrcToBase64 } from "@/lib/image-utils"
 import { createProviderFromSubmission, mergeMappedItems } from "@/lib/matrix"
 import type {
@@ -7,7 +8,6 @@ import type {
   LowConfidenceItem,
   MappedItem,
   OcrExtractResponse,
-  OcrItem,
   SourceSubmission,
 } from "@/lib/types"
 
@@ -57,15 +57,21 @@ function isUnreliableMapping(items: MappedItem[]): boolean {
   const comparable = items.filter((item) => !item.is_bank_offer)
   if (comparable.length === 0) return false
 
-  const confidences = comparable.map((item) => item.confidence)
+  // LLM/map fallback is degraded mapping, not a signal that OCR misread the screenshot.
+  const qualityItems = comparable.filter(
+    (item) => item.match_source !== "reference_fallback",
+  )
+  if (qualityItems.length === 0) return false
+
+  const confidences = qualityItems.map((item) => item.confidence)
   const average =
     confidences.reduce((sum, value) => sum + value, 0) / confidences.length
   const allBelowThreshold = confidences.every(
     (value) => value < LOW_CONFIDENCE_UI_THRESHOLD,
   )
   const mostlyFallback =
-    comparable.filter((item) => item.unified_category === "Прочее").length /
-      comparable.length >=
+    qualityItems.filter((item) => item.unified_category === "Прочее").length /
+      qualityItems.length >=
     0.5
 
   return allBelowThreshold || average < LOW_CONFIDENCE_UI_THRESHOLD || mostlyFallback
@@ -149,31 +155,26 @@ async function postJson<T>(path: string, body: unknown): Promise<T> {
 export async function extractOcr(
   image_base64: string,
   mime_type: string,
+  kind: Kind = "bank",
 ): Promise<OcrExtractResponse> {
   return postJson<OcrExtractResponse>("/api/ocr/extract", {
     image_base64,
     mime_type,
+    kind,
   })
 }
 
 export async function mapCategories(
   items: { raw_category: string; rate: number }[],
   source_name?: string,
+  options?: { kind?: Kind; sourceSlug?: string },
 ): Promise<CategoryMapResponse> {
   return postJson<CategoryMapResponse>("/api/category/map", {
     items,
     source_name,
+    kind: options?.kind ?? "bank",
+    source_slug: options?.sourceSlug,
   })
-}
-
-/** Supermarkets use product-level categories that do not fit the bank taxonomy. */
-function mapMarketItemsFromOcr(items: OcrItem[]): MappedItem[] {
-  return items.map((item) => ({
-    raw_category: item.raw_category,
-    unified_category: item.raw_category,
-    rate: item.rate,
-    confidence: 1,
-  }))
 }
 
 export async function processSubmission(
@@ -182,18 +183,20 @@ export async function processSubmission(
   currentMatrix: CashbackMatrix | null,
 ): Promise<ProcessSubmissionResult> {
   const { image_base64, mime_type } = await imageSrcToBase64(submission.screenshotSrc)
-  const ocr = await extractOcr(image_base64, mime_type)
+  const ocr = await extractOcr(image_base64, mime_type, submission.kind)
 
   if (ocr.items.length === 0) {
     throw new OcrEmptyError()
   }
 
-  const mappedItems =
-    submission.kind === "market"
-      ? mapMarketItemsFromOcr(ocr.items)
-      : ((await mapCategories(ocr.items, submission.providerName)).items as MappedItem[])
+  const mappedItems = (
+    await mapCategories(ocr.items, submission.providerName, {
+      kind: submission.kind,
+      sourceSlug: submission.providerSlug,
+    })
+  ).items as MappedItem[]
 
-  if (submission.kind !== "market" && isUnreliableMapping(mappedItems)) {
+  if (isUnreliableMapping(mappedItems)) {
     throw new OcrUnreliableError()
   }
 
