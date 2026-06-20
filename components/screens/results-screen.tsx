@@ -6,7 +6,14 @@ import { ChevronDown, ChevronRight, Download, Share, LayoutGrid, ImagePlus, Tras
 import { ProviderLogo } from "@/components/provider-logo"
 import { ProcessingWarningsBanner } from "@/components/processing-warnings-banner"
 import { getCurrentMonthYear, getRowTiers, type RateTier } from "@/lib/cashback-data"
-import { groupMatrixRows, groupHasSubcategories, countProvidersInGroup, resolveMarketRowCategory } from "@/lib/matrix"
+import {
+  groupMatrixRows,
+  groupHasSubcategories,
+  countProvidersInGroup,
+  resolveMarketRowCategory,
+  getMarketGroupDisplayLabel,
+  getVisibleMarketGroupRows,
+} from "@/lib/matrix"
 import {
   formatCategoryLabel,
   labelsEquivalent,
@@ -133,10 +140,9 @@ export function ResultsScreen({
   const activeMatrix = getActiveMatrix(matrix, activeTab)
   const providers = activeMatrix?.providers ?? []
   const rows = activeMatrix?.rows ?? []
-  const groups = groupMatrixRows(
-    rows,
-    activeTab === "market" ? activeMatrix?.marketParts : undefined,
-  )
+  const marketParts = activeTab === "market" ? activeMatrix?.marketParts : undefined
+  const groups = groupMatrixRows(rows, marketParts)
+  const hasMatrixData = groups.length > 0
 
   function toggleParent(parent: string) {
     setExpandedParents((prev) => {
@@ -210,7 +216,7 @@ export function ResultsScreen({
         })}
       </div>
 
-      {rows.length === 0 ? (
+      {!hasMatrixData ? (
         <div className="rounded-2xl border border-dashed border-slate-200 px-4 py-10 text-center">
           <p className="text-[15px] font-medium text-slate-700">Нет данных для этой вкладки</p>
           <p className="mt-2 text-[14px] text-slate-500">
@@ -234,7 +240,9 @@ export function ResultsScreen({
             </div>
 
             {groups.map((group, groupIdx) => {
-              const hasSubcategories = groupHasSubcategories(group)
+              const visibleRows =
+                activeTab === "market" ? getVisibleMarketGroupRows(group) : group.rows
+              const hasSubcategories = groupHasSubcategories(group, activeTab)
               const isExpanded = hasSubcategories && expandedParents.has(group.parent)
               const isLastGroup = groupIdx === groups.length - 1
               const providerCountInGroup = activeTab === "market" ? countProvidersInGroup(group) : 0
@@ -242,10 +250,11 @@ export function ResultsScreen({
                 activeTab === "market"
                   ? resolveMarketRowCategory(row, providerCountInGroup)
                   : row.category
+              const groupHeaderLabel = getMarketGroupDisplayLabel(group)
               const displayLabel = hasSubcategories
-                ? formatCategoryLabel(group.parent)
+                ? formatCategoryLabel(groupHeaderLabel)
                 : formatCategoryLabel(
-                    group.rows[0] ? resolveRowLabel(group.rows[0]) : group.parent,
+                    group.rows[0] ? resolveRowLabel(group.rows[0]) : groupHeaderLabel,
                   )
 
               if (!hasSubcategories) {
@@ -309,7 +318,7 @@ export function ResultsScreen({
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         className="overflow-hidden"
                       >
-                        {group.rows.map((child) => (
+                        {visibleRows.map((child) => (
                           <div
                             key={`${child.referenceNodeId ?? child.category}-${child.referenceDepth ?? 0}`}
                             className="flex items-center border-t border-slate-100 bg-slate-50/50 px-3 py-2.5"

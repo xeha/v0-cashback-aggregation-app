@@ -9,7 +9,13 @@ import {
   normalizeCategoryLabel,
 } from "@/lib/category-label"
 import { REFERENCE_HIERARCHY_DEPARTMENT_ORDER } from "@/lib/reference-hierarchy-order"
-import { buildMarketGroups, type ComparisonPart } from "@/lib/market-comparison"
+import {
+  buildMarketGroups,
+  partsInAnchorSubtree,
+  resolveMarketDisplayAnchor,
+  summaryRatesForParts,
+  type ComparisonPart,
+} from "@/lib/market-comparison"
 import type {
   CashbackMatrix,
   Kind,
@@ -260,9 +266,29 @@ export function isMacroOnlyGroup(group: MatrixGroup): boolean {
   })
 }
 
+/** LCA anchor or coarse item that repeats the department header label. */
+export function isRedundantMarketRowUnderParent(row: MatrixRow, parent: string): boolean {
+  if (row.rowKind === "anchor" && labelsEquivalent(row.category, parent)) return true
+  if (labelsEquivalent(row.category, parent)) return true
+  return false
+}
+
+export function getMarketGroupDisplayLabel(group: MatrixGroup): string {
+  return group.displayParent ?? group.parent
+}
+
+export function getVisibleMarketGroupRows(group: MatrixGroup): MatrixRow[] {
+  const displayParent = getMarketGroupDisplayLabel(group)
+  return group.rows.filter(
+    (row) => !isRedundantMarketRowUnderParent(row, displayParent),
+  )
+}
+
 /** Parent row is flat; subcategories expand on chevron click. */
-export function groupHasSubcategories(group: MatrixGroup): boolean {
-  return !isMacroOnlyGroup(group)
+export function groupHasSubcategories(group: MatrixGroup, kind: Kind = "bank"): boolean {
+  const rows = kind === "market" ? getVisibleMarketGroupRows(group) : group.rows
+  if (rows.length === 0) return false
+  return !isMacroOnlyGroup({ ...group, rows })
 }
 
 /** Macro rows mapped to L1 but with a narrower OCR label (e.g. «Мясо») stay visible as children. */
@@ -285,15 +311,33 @@ function buildMarketGroupsAsMatrix(parts: ComparisonPart[]): MatrixGroup[] {
       index,
     ]),
   )
+  const byDepartment = new Map<string, ComparisonPart[]>()
+  for (const part of parts) {
+    if (part.path.length === 0) continue
+    const dept = part.path[0].name
+    const list = byDepartment.get(dept) ?? []
+    list.push(part)
+    byDepartment.set(dept, list)
+  }
+
   const groups = buildMarketGroups(parts).map((group) => {
-    const summaryRates: Record<string, number> = {}
+    const deptParts = byDepartment.get(group.parent) ?? []
+    const { depth: displayDepth, label: displayAnchorLabel } =
+      resolveMarketDisplayAnchor(deptParts)
+    const displayParent =
+      displayDepth > 0 ? formatCategoryLabel(displayAnchorLabel) : group.parent
+    const summaryParts =
+      displayDepth > 0
+        ? partsInAnchorSubtree(deptParts, displayDepth)
+        : deptParts
+    const summaryRates = summaryRatesForParts(summaryParts)
+
     const rows: MatrixRow[] = []
     for (const row of group.rows) {
       if (row.kind === "anchor") {
         const rates: Record<string, number> = {}
         for (const [store, range] of Object.entries(row.rateRanges)) {
           rates[store] = formatRange(range)
-          summaryRates[store] = Math.max(summaryRates[store] ?? 0, range.max)
         }
         rows.push({
           category: formatCategoryLabel(row.label),
@@ -305,7 +349,6 @@ function buildMarketGroupsAsMatrix(parts: ComparisonPart[]): MatrixGroup[] {
           rates,
         })
       } else {
-        summaryRates[row.store] = Math.max(summaryRates[row.store] ?? 0, row.rate)
         rows.push({
           category: formatCategoryLabel(row.label),
           parent: group.parent,
@@ -318,6 +361,7 @@ function buildMarketGroupsAsMatrix(parts: ComparisonPart[]): MatrixGroup[] {
     }
     return {
       parent: group.parent,
+      displayParent: displayParent !== group.parent ? displayParent : undefined,
       summaryRates,
       rows,
       isMacroOnly: rows.every((r) => r.rowKind === "anchor"),

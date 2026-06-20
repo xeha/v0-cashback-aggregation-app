@@ -43,8 +43,11 @@ function storesUnder(parts: ComparisonPart[]): Set<string> {
   return new Set(parts.map((p) => p.store))
 }
 
+/** Максимальная глубина LCA для заголовка группы (L2 = категория под отделом). */
+export const MARKET_DISPLAY_ANCHOR_MAX_DEPTH = 1
+
 /** Спуск: пока один ребёнок покрывает все магазины родителя — идём вниз. */
-function findAnchorDepth(parts: ComparisonPart[]): number {
+export function findAnchorDepth(parts: ComparisonPart[]): number {
   const totalStores = storesUnder(parts)
   let depth = 0
   for (;;) {
@@ -68,6 +71,42 @@ function findAnchorDepth(parts: ComparisonPart[]): number {
     }
     if (!descended) return depth
   }
+}
+
+export function partsInAnchorSubtree(
+  parts: ComparisonPart[],
+  depth: number,
+): ComparisonPart[] {
+  if (depth <= 0 || parts.length === 0) return parts
+  const anchorId = parts[0].path[depth]?.id
+  if (!anchorId) return parts
+  return parts.filter(
+    (part) => part.path.length > depth && part.path[depth].id === anchorId,
+  )
+}
+
+export function summaryRatesForParts(
+  parts: ComparisonPart[],
+): Record<string, number> {
+  const summary: Record<string, number> = {}
+  for (const part of parts) {
+    summary[part.store] = Math.max(summary[part.store] ?? 0, part.rate)
+  }
+  return summary
+}
+
+/** Заголовок группы: LCA-категория при согласованности, иначе отдел. */
+export function resolveMarketDisplayAnchor(parts: ComparisonPart[]): {
+  depth: number
+  label: string
+} {
+  if (parts.length === 0 || parts[0].path.length === 0) {
+    return { depth: 0, label: "" }
+  }
+  const rawDepth = findAnchorDepth(parts)
+  const depth = Math.min(rawDepth, MARKET_DISPLAY_ANCHOR_MAX_DEPTH)
+  const label = parts[0].path[depth]?.name ?? parts[0].path[0].name
+  return { depth, label }
 }
 
 function rangeFor(parts: ComparisonPart[]): Record<string, RateRange> {

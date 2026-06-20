@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest"
-import { buildMarketGroups, type ComparisonPart } from "@/lib/market-comparison"
+import {
+  buildMarketGroups,
+  resolveMarketDisplayAnchor,
+  type ComparisonPart,
+} from "@/lib/market-comparison"
 
 function part(
   store: string,
@@ -76,5 +80,27 @@ describe("buildMarketGroups", () => {
     const groups = buildMarketGroups(parts)
     const anchors = groups[0].rows.filter((r) => r.kind === "anchor")
     expect(anchors.length).toBe(0)
+  })
+})
+
+describe("resolveMarketDisplayAnchor", () => {
+  it("uses L2 category when all parts share it", () => {
+    const parts = [
+      part("magnit", 10, "Пиво", ["Напитки", "Алкогольные напитки", "Пиво"]),
+      part("lenta", 8, "Сидр", ["Напитки", "Алкогольные напитки", "Сидр"]),
+    ]
+    const { depth, label } = resolveMarketDisplayAnchor(parts)
+    expect(depth).toBe(1)
+    expect(label).toBe("Алкогольные напитки")
+  })
+
+  it("keeps department when stores diverge within it", () => {
+    const parts = [
+      part("magnit", 10, "Пиво", ["Напитки", "Алкогольные напитки", "Пиво"]),
+      part("lenta", 7, "Лимонад", ["Напитки", "Сладкие газированные напитки", "Лимонад"]),
+    ]
+    const { depth, label } = resolveMarketDisplayAnchor(parts)
+    expect(depth).toBe(0)
+    expect(label).toBe("Напитки")
   })
 })

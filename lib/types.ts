@@ -73,7 +73,10 @@ export interface MatrixRow {
 }
 
 export interface MatrixGroup {
+  /** Отдел (path[0]) — сортировка и ключ раскрытия. */
   parent: string
+  /** LCA-заголовок для UI; если не задан — parent. */
+  displayParent?: string
   summaryRates: Record<string, number>
   rows: MatrixRow[]
   isMacroOnly?: boolean
