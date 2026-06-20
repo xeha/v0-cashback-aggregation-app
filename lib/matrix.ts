@@ -197,6 +197,19 @@ export function mergeMappedItems(
     }
 
     rowMap.set(rowKey, existing)
+
+    if (isMacro && parent && bankRaw) {
+      const retailerKey = `leaf::${normalizeCategoryLabel(bankRaw)}`
+      const retailerRow = rowMap.get(retailerKey) ?? {
+        category: formatCategoryLabel(bankRaw),
+        parent,
+        isMacro: false,
+        rates: {},
+      }
+      retailerRow.rates[provider.key] = item.rate
+      if (!retailerRow.parent) retailerRow.parent = parent
+      rowMap.set(retailerKey, retailerRow)
+    }
   }
 
   const providers =
@@ -284,9 +297,24 @@ export function getVisibleMarketGroupRows(group: MatrixGroup): MatrixRow[] {
   )
 }
 
+/** Macro header row that only repeats the parent label (e.g. «Для Детей»). */
+export function isRedundantBankMacroRowUnderParent(row: MatrixRow, parent: string): boolean {
+  if (!row.isMacro) return false
+  return labelsEquivalent(row.category, parent)
+}
+
+export function getVisibleBankGroupRows(group: MatrixGroup): MatrixRow[] {
+  const parentLabel = formatCategoryLabel(group.parent)
+  const children = group.rows.filter(
+    (row) => !isRedundantBankMacroRowUnderParent(row, parentLabel),
+  )
+  return children.length > 0 ? children : group.rows
+}
+
 /** Parent row is flat; subcategories expand on chevron click. */
 export function groupHasSubcategories(group: MatrixGroup, kind: Kind = "bank"): boolean {
-  const rows = kind === "market" ? getVisibleMarketGroupRows(group) : group.rows
+  const rows =
+    kind === "market" ? getVisibleMarketGroupRows(group) : getVisibleBankGroupRows(group)
   if (rows.length === 0) return false
   return !isMacroOnlyGroup({ ...group, rows })
 }

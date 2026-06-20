@@ -12,6 +12,7 @@ import {
   countProvidersInGroup,
   resolveMarketRowCategory,
   getMarketGroupDisplayLabel,
+  getVisibleBankGroupRows,
   getVisibleMarketGroupRows,
 } from "@/lib/matrix"
 import {
@@ -241,7 +242,9 @@ export function ResultsScreen({
 
             {groups.map((group, groupIdx) => {
               const visibleRows =
-                activeTab === "market" ? getVisibleMarketGroupRows(group) : group.rows
+                activeTab === "market"
+                  ? getVisibleMarketGroupRows(group)
+                  : getVisibleBankGroupRows(group)
               const hasSubcategories = groupHasSubcategories(group, activeTab)
               const isExpanded = hasSubcategories && expandedParents.has(group.parent)
               const isLastGroup = groupIdx === groups.length - 1
