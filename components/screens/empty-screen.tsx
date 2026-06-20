@@ -27,11 +27,13 @@ export function EmptyScreen({
           </div>
 
           <div className="flex flex-1 flex-col items-center justify-center text-center">
-            <img
-              src="/images/empty-cashback.png"
-              alt="Иллюстрация: руки и категории кэшбэка"
-              className="mb-8 mx-auto h-auto w-[30vw]"
-            />
+            <div className="-mx-6 mb-6 w-[calc(100%+3rem)]">
+              <img
+                src="/images/empty-cashback.png"
+                alt="Иллюстрация: руки и категории кэшбэка"
+                className="mx-auto h-auto w-full max-h-[min(52vw,240px)] object-contain object-center sm:max-h-[260px]"
+              />
+            </div>
 
             <h1 className="text-balance text-2xl font-bold leading-tight text-slate-900">
               У вас нет данных о кэшбеках
