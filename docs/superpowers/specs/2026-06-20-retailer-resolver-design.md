@@ -1,28 +1,28 @@
-# Retailer Resolver — Design Doc
-**Date:** 2026-06-20  
-**Status:** Approved
+# Retailer Resolver — Дизайн-документ
+**Дата:** 2026-06-20  
+**Статус:** Утверждён
 
-## Problem
+## Проблема
 
-Bank cashback screenshots sometimes list specific retailer names (e.g., "Детский мир 7%", "Леонардо 5%") instead of generic category names. The current OCR→mapping pipeline does not have a dedicated retailer lookup — these names either match the existing bank_category_catalog (partial coverage) or fall through to embedding-based mapping with uncertain results. There is no mechanism to automatically discover and persist new retailer→category mappings.
+Скриншоты банковских приложений иногда содержат названия конкретных магазинов вместо обобщённых категорий (например, «Детский мир 7%», «Леонардо 5%»). Текущий пайплайн OCR→маппинг не имеет выделенного справочника ритейлеров — такие названия либо совпадают с частично заполненным `bank_category_catalog` (неполное покрытие), либо попадают в эмбеддинг-маппинг с неопределённым результатом. Механизма автоматического обнаружения и сохранения новых связок «ритейлер → категория» нет.
 
-## Goal
+## Цель
 
-When a retailer name appears as a raw_category in a bank screenshot:
-1. Map it to the correct unified parent category (e.g., "Детский мир" → "Для Детей")
-2. Merge the result into the standard category row (no frontend changes)
-3. For unknown retailers: auto-enrich the catalog in the background using Mistral web search
-4. Persist new retailers to the catalog for future requests
+Когда в поле `raw_category` скриншота банка появляется название магазина:
+1. Сопоставить его с корректной унифицированной родительской категорией (например, «Детский мир» → «Для Детей»)
+2. Смержить результат в стандартную строку категории (фронтенд не меняется)
+3. Для неизвестных ритейлеров: автоматически обогатить каталог в фоне через Mistral Web Search
+4. Сохранить новый ритейлер в каталог для будущих запросов
 
-## Approach: Instant Response + Background Enrichment
+## Подход: мгновенный ответ + фоновое обогащение
 
-Zero latency overhead in the request path. The catalog grows automatically over time.
+Нулевая задержка в пути запроса. Каталог растёт автоматически со временем.
 
-## Data
+## Данные
 
 ### `backend/data/retailer_catalog.json`
 
-Central retailer lookup, initialized from `rf_retailers.json` (146 entries), auto-enriched at runtime.
+Центральный справочник ритейлеров — инициализируется из `rf_retailers.json` (146 записей), автоматически обогащается в runtime.
 
 ```json
 {
@@ -45,12 +45,12 @@ Central retailer lookup, initialized from `rf_retailers.json` (146 entries), aut
 }
 ```
 
-Keys are normalized: lower-case, stripped, brackets/legal suffixes removed  
+Ключи нормализованы: нижний регистр, обрезка пробелов, удаление скобок и юридических суффиксов  
 (`"Детский мир (ПАО)"` → `"детский мир"`).
 
-### Section → unified_parent mapping (`rf_retailers.json` sections)
+### Маппинг секций `rf_retailers.json` → `unified_parent`
 
-| rf_retailers section | unified_parent |
+| Секция rf_retailers | unified_parent |
 |---|---|
 | FMCG — Продукты питания | Супермаркеты / Продукты |
 | Fashion — Одежда | Одежда |
@@ -65,52 +65,52 @@ Keys are normalized: lower-case, stripped, brackets/legal suffixes removed
 | Ювелирные украшения | Ювелирные украшения |
 | Универсальные маркетплейсы | Маркетплейсы |
 
-## Request Pipeline
+## Пайплайн запроса
 
 ```
 raw_category → normalize()
     ↓
-retailer_catalog.lookup(normalized)
-    ├── HIT  → override unified_parent + subcategory → return (instant)
-    └── MISS → existing embedding-based mapping (current code)
-               + if should_enrich(raw_category):
-                   BackgroundTask: enrich_and_save(raw_category)
+retailer_catalog.lookup(нормализованное значение)
+    ├── НАЙДЕНО  → переопределить unified_parent + subcategory → вернуть (мгновенно)
+    └── НЕ НАЙДЕНО → существующий эмбеддинг-маппинг (текущий код)
+                   + если should_enrich(raw_category):
+                       BackgroundTask: enrich_and_save(raw_category)
 ```
 
-`should_enrich(name)` returns `True` when:
-- name is NOT in `retailer_catalog`
-- AND name does not directly match any taxonomy key
-- AND embedding similarity score < 0.75 OR name looks like a proper noun (capitalized, not a common noun in taxonomy)
+`should_enrich(name)` возвращает `True` при выполнении всех условий:
+- название НЕ найдено в `retailer_catalog`
+- И название не совпадает напрямую ни с одним ключом таксономии
+- И score эмбеддинг-сходства < 0.75 ИЛИ название похоже на имя собственное (с заглавной буквы, не является нарицательным существительным таксономии)
 
-## Components
+## Компоненты
 
-### New files
+### Новые файлы
 
 **`backend/services/retailer_resolver_service.py`**
-- `normalize(name: str) → str` — lower-case, strip, remove legal suffixes / parentheses
-- `lookup(name: str) → RetailerEntry | None` — exact match on normalized key
-- `enrich_and_save(name: str) → None` — called as BackgroundTask:
-  1. Calls `mistral-small-latest` with `web_search` tool
-  2. Prompt: "Что за магазин {name}? К какой категории розничной торговли он относится в России? Выбери из списка: [unified_parent_list]. Ответь JSON: {unified_parent, unified_subcategory, canonical_name}"
-  3. Parses response, validates `unified_parent` against allowed list
-  4. Writes to `retailer_catalog.json` (thread-safe via file lock)
+- `normalize(name: str) → str` — нижний регистр, обрезка пробелов, удаление юридических суффиксов / скобок
+- `lookup(name: str) → RetailerEntry | None` — точное совпадение по нормализованному ключу
+- `enrich_and_save(name: str) → None` — вызывается как BackgroundTask:
+  1. Вызывает `mistral-small-latest` с инструментом `web_search`
+  2. Промпт: «Что за магазин {name}? К какой категории розничной торговли он относится в России? Выбери из списка: [unified_parent_list]. Ответь JSON: {unified_parent, unified_subcategory, canonical_name}»
+  3. Парсит ответ, проверяет `unified_parent` против допустимого списка
+  4. Записывает в `retailer_catalog.json` (потокобезопасно через file lock)
 
 **`scripts/import_rf_retailers.py`**
-- One-time import script: reads `rf_retailers.json`, maps sections to unified_parent using the table above, writes `retailer_catalog.json`
+- Одноразовый скрипт импорта: читает `rf_retailers.json`, маппит секции на `unified_parent` по таблице выше, записывает `retailer_catalog.json`
 
-### Modified files
+### Изменяемые файлы
 
 **`backend/services/mapper_service.py`**
-- Add retailer pre-check step before the embedding loop
-- Import `RetailerResolverService`, call `lookup()` first
-- If HIT: skip embedding, use retailer entry directly
-- If MISS: existing flow + return `should_enrich` flag
+- Добавить шаг предварительной проверки по ритейлерам перед циклом эмбеддингов
+- Импортировать `RetailerResolverService`, вызывать `lookup()` первым
+- При НАЙДЕНО: пропустить эмбеддинг, использовать запись ритейлера напрямую
+- При НЕ НАЙДЕНО: существующий флоу + вернуть флаг `should_enrich`
 
 **`backend/routers/category.py`**
-- Accept `BackgroundTasks` from FastAPI
-- After `mapper.map_items()`, for items flagged `should_enrich=True`: `bg_tasks.add_task(retailer_resolver.enrich_and_save, item.raw_category)`
+- Принять `BackgroundTasks` из FastAPI
+- После `mapper.map_items()`, для элементов с флагом `should_enrich=True`: `bg_tasks.add_task(retailer_resolver.enrich_and_save, item.raw_category)`
 
-## Mistral Web Search Call
+## Вызов Mistral Web Search
 
 ```python
 response = client.chat.complete(
@@ -121,40 +121,40 @@ response = client.chat.complete(
 )
 ```
 
-The response is parsed for JSON with `unified_parent` from the closed list. If parsing fails or confidence is low → skip write (do not pollute catalog with bad data).
+Ответ парсится на наличие JSON с `unified_parent` из закрытого списка. Если парсинг не удался или уверенность низкая → пропустить запись (не загрязнять каталог некорректными данными).
 
-## Error Handling
+## Обработка ошибок
 
-- Mistral API error in background → log warning, skip write (catalog unchanged)
-- File lock timeout → log warning, skip write
-- Unknown `unified_parent` in Mistral response → discard, do not write
-- Catalog file missing on startup → create empty `{"version":"1.0","entries":{}}`
+- Ошибка Mistral API в фоне → логировать предупреждение, пропустить запись (каталог не меняется)
+- Таймаут file lock → логировать предупреждение, пропустить запись
+- Неизвестный `unified_parent` в ответе Mistral → отбросить, не записывать
+- Файл каталога отсутствует при старте → создать пустой `{"version":"1.0","entries":{}}`
 
-## Out of Scope (MVP)
+## Вне скоупа (MVP)
 
-- Frontend UI changes (retailer name shown as category, no label change)
-- Human review / approval workflow for llm_web entries
-- PostgreSQL or Redis (all storage in JSON files)
-- Deduplication of enrichment tasks across concurrent requests (acceptable race condition: last-write-wins on same key)
+- Изменения интерфейса (название ритейлера показывается как категория, метка не меняется)
+- Процесс ревью / подтверждения записей `llm_web` человеком
+- PostgreSQL или Redis (всё хранится в JSON-файлах)
+- Дедупликация задач обогащения при конкурентных запросах (допустимое состояние гонки: последняя запись побеждает для одного ключа)
 
-## Sequence Diagram
+## Диаграмма последовательности
 
 ```
-User → POST /api/category/map
-  → category.py router
+Пользователь → POST /api/category/map
+  → роутер category.py
     → mapper_service.map_items(items, source_name)
-      → for each item:
+      → для каждого элемента:
           retailer_resolver.lookup(item.raw_category)
-          ├── HIT → RetailerEntry → mapped_item (unified override)
-          └── MISS → embedding_map() → mapped_item + should_enrich=True
-    → return CategoryMapResponse
-  → if any should_enrich: bg_tasks.add_task(enrich_and_save, name)
-→ HTTP 200 (instant)
+          ├── НАЙДЕНО → RetailerEntry → mapped_item (переопределение unified)
+          └── НЕ НАЙДЕНО → embedding_map() → mapped_item + should_enrich=True
+    → вернуть CategoryMapResponse
+  → если есть should_enrich: bg_tasks.add_task(enrich_and_save, name)
+→ HTTP 200 (мгновенно)
 
-[Background]
+[Фон]
 enrich_and_save(name)
   → Mistral web search
-  → parse JSON
-  → write to retailer_catalog.json
-  (next request with same name → catalog HIT)
+  → парсинг JSON
+  → запись в retailer_catalog.json
+  (следующий запрос с тем же именем → НАЙДЕНО в каталоге)
 ```
