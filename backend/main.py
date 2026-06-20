@@ -10,6 +10,7 @@ from routers import category, ocr
 from schemas import HealthResponse
 from services.market_split_map_service import MarketSplitMapService
 from services.mapper_service import MapperService
+from services.retailer_resolver_service import RetailerResolverService
 
 load_dotenv()
 
@@ -38,12 +39,18 @@ async def lifespan(app: FastAPI):
     bank_mapper = MapperService()
     bank_mapper.load(model=shared_model)
 
+    retailer_resolver = RetailerResolverService()
+    retailer_resolver.load()
+    retailer_resolver.set_allowed_parents(bank_mapper._parents)
+    bank_mapper.set_retailer_resolver(retailer_resolver)
+
     market_mapper = MarketSplitMapService()
     market_mapper.load()
 
     app.state.mapper = bank_mapper
     app.state.bank_mapper = bank_mapper
     app.state.market_mapper = market_mapper
+    app.state.retailer_resolver = retailer_resolver
     yield
 
 

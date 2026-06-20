@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "entries": {
+    "детский мир": {
+      "unified_parent": "Для Детей",
+      "unified_subcategory": "Товары для детей",
+      "canonical_name": "Детский мир",
+      "source": "static"
+    },
+    "пятёрочка": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Пятёрочка",
+      "source": "static"
+    }
+  }
+}

@@ -1,9 +1,10 @@
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, BackgroundTasks, HTTPException, Request
 
 from schemas import CategoryMapRequest, CategoryMapRequestItem, CategoryMapResponse
 from services.category_text_utils import sanitize_category
 from services.mapper_service import MapperService
 from services.market_split_map_service import MarketSplitMapService
+from services.retailer_resolver_service import RetailerResolverService
 
 router = APIRouter(prefix="/api/category", tags=["category"])
 
@@ -24,8 +25,16 @@ def _get_market_mapper(request: Request) -> MarketSplitMapService:
     return mapper
 
 
+def _get_retailer_resolver(request: Request) -> RetailerResolverService | None:
+    return getattr(request.app.state, "retailer_resolver", None)
+
+
 @router.post("/map", response_model=CategoryMapResponse)
-def category_map(body: CategoryMapRequest, request: Request) -> CategoryMapResponse:
+def category_map(
+    body: CategoryMapRequest,
+    request: Request,
+    bg_tasks: BackgroundTasks,
+) -> CategoryMapResponse:
     try:
         if body.kind == "market":
             mapper = _get_market_mapper(request)
@@ -50,6 +59,15 @@ def category_map(body: CategoryMapRequest, request: Request) -> CategoryMapRespo
         else:
             mapper = _get_bank_mapper(request)  # bank-only: parent_category_synonyms.json
             items = mapper.map_items(body.items, body.source_name)
+            resolver = _get_retailer_resolver(request)
+            if resolver:
+                enrich_names = {
+                    item.raw_category for item in items if item.should_enrich_retailer
+                }
+                for name in enrich_names:
+                    bg_tasks.add_task(resolver.enrich_and_save, name)
+            for item in items:
+                item.should_enrich_retailer = False
     except HTTPException:
         raise
     except Exception as exc:

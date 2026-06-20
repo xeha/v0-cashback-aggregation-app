@@ -1,0 +1,1027 @@
+{
+  "version": "1.0",
+  "entries": {
+    "пятёрочка": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Пятёрочка",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "перекрёсток": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Перекрёсток",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "чижик": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Чижик",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "магнит": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Магнит",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "магнит семейный": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Магнит Семейный",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "моя цена": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Моя цена",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "лента": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Лента",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "красное & белое": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания / алкоголь",
+      "canonical_name": "Красное & Белое",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "бристоль": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания / алкоголь",
+      "canonical_name": "Бристоль",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "вкусвилл": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания (фермерские)",
+      "canonical_name": "ВкусВилл",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "о'кей": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "О'кей",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "глобус (гиперглобус)": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Глобус",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "светофор": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Светофор",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "маяк": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Маяк",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "спутник": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Спутник",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "mere": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "MERE",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "fix price": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания / товары повседневного спроса",
+      "canonical_name": "Fix Price",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "азбука вкуса": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания (премиум)",
+      "canonical_name": "Азбука вкуса",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "ашан": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Ашан",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "spar": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "SPAR",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "eurospar": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "EUROSPAR",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "metro c&c": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания / оптовый",
+      "canonical_name": "Metro C&C",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "зельгрос": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания / оптовый",
+      "canonical_name": "Зельгрос",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "самокат": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания (e-grocery)",
+      "canonical_name": "Самокат",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "яндекс лавка": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания (e-grocery)",
+      "canonical_name": "Яндекс Лавка",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "верный": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Верный",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "монетка": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Монетка",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "мария": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Мария-Ра",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "магнолия": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Магнолия",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "командор": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Командор",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "самбери": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Самбери",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "победа": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Победа",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "гулливер": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Гулливер",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "гурман": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Гурман",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "f city / абрикос / первоцен (гк лама)": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "F city / Абрикос / Первоцен",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "высшая лига / ценорез / винный склад": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания / алкоголь",
+      "canonical_name": "Высшая лига / Ценорез / Винный склад",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "красный яр / слата / батон / хлебсоль": {
+      "unified_parent": "Продукты И Напитки",
+      "unified_subcategory": "Продукты питания",
+      "canonical_name": "Красный яр / Слата / Батон / ХлебСоль",
+      "source": "static",
+      "rf_section": "FMCG — Продукты питания и товары повседневного спроса"
+    },
+    "dns": {
+      "unified_parent": "Техника И Электроника",
+      "unified_subcategory": "Бытовая техника и электроника",
+      "canonical_name": "DNS",
+      "source": "static",
+      "rf_section": "БиКТ — Бытовая техника, электроника, мобильные устройства"
+    },
+    "м.видео": {
+      "unified_parent": "Техника И Электроника",
+      "unified_subcategory": "Бытовая техника и электроника",
+      "canonical_name": "М.Видео",
+      "source": "static",
+      "rf_section": "БиКТ — Бытовая техника, электроника, мобильные устройства"
+    },
+    "эльдорадо": {
+      "unified_parent": "Техника И Электроника",
+      "unified_subcategory": "Бытовая техника и электроника",
+      "canonical_name": "Эльдорадо",
+      "source": "static",
+      "rf_section": "БиКТ — Бытовая техника, электроника, мобильные устройства"
+    },
+    "ситилинк": {
+      "unified_parent": "Техника И Электроника",
+      "unified_subcategory": "Бытовая техника и электроника",
+      "canonical_name": "Ситилинк",
+      "source": "static",
+      "rf_section": "БиКТ — Бытовая техника, электроника, мобильные устройства"
+    },
+    "никс": {
+      "unified_parent": "Техника И Электроника",
+      "unified_subcategory": "Компьютерная техника",
+      "canonical_name": "Никс",
+      "source": "static",
+      "rf_section": "БиКТ — Бытовая техника, электроника, мобильные устройства"
+    },
+    "холодильник.ру": {
+      "unified_parent": "Техника И Электроника",
+      "unified_subcategory": "Бытовая техника",
+      "canonical_name": "Холодильник.ру",
+      "source": "static",
+      "rf_section": "БиКТ — Бытовая техника, электроника, мобильные устройства"
+    },
+    "restore:": {
+      "unified_parent": "Техника И Электроника",
+      "unified_subcategory": "Электроника (Apple Premium)",
+      "canonical_name": "Restore:",
+      "source": "static",
+      "rf_section": "БиКТ — Бытовая техника, электроника, мобильные устройства"
+    },
+    "мтс (салоны)": {
+      "unified_parent": "Техника И Электроника",
+      "unified_subcategory": "Мобильные устройства / электроника",
+      "canonical_name": "МТС",
+      "source": "static",
+      "rf_section": "БиКТ — Бытовая техника, электроника, мобильные устройства"
+    },
+    "билайн (салоны)": {
+      "unified_parent": "Техника И Электроника",
+      "unified_subcategory": "Мобильные устройства / электроника",
+      "canonical_name": "Билайн",
+      "source": "static",
+      "rf_section": "БиКТ — Бытовая техника, электроника, мобильные устройства"
+    },
+    "мегафон (салоны)": {
+      "unified_parent": "Техника И Электроника",
+      "unified_subcategory": "Мобильные устройства",
+      "canonical_name": "МегаФон",
+      "source": "static",
+      "rf_section": "БиКТ — Бытовая техника, электроника, мобильные устройства"
+    },
+    "телефон.ру": {
+      "unified_parent": "Техника И Электроника",
+      "unified_subcategory": "Мобильные устройства",
+      "canonical_name": "Телефон.ру",
+      "source": "static",
+      "rf_section": "БиКТ — Бытовая техника, электроника, мобильные устройства"
+    },
+    "samsung (irg)": {
+      "unified_parent": "Техника И Электроника",
+      "unified_subcategory": "Электроника",
+      "canonical_name": "Samsung",
+      "source": "static",
+      "rf_section": "БиКТ — Бытовая техника, электроника, мобильные устройства"
+    },
+    "лемана про (leroy merlin)": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "DIY и ремонт",
+      "canonical_name": "Лемана ПРО",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "всеинструменты.ру": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "DIY / инструменты",
+      "canonical_name": "ВсеИнструменты.ру",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "петрович": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "Строительные материалы",
+      "canonical_name": "Петрович",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "максидом": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "Товары для дома и ремонта",
+      "canonical_name": "Максидом",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "obi": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "DIY и ремонт",
+      "canonical_name": "OBI",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "castorama": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "DIY и ремонт",
+      "canonical_name": "Castorama",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "бауцентр": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "Стройматериалы",
+      "canonical_name": "Бауцентр",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "строительный двор": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "Стройматериалы",
+      "canonical_name": "Строительный двор",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "мегастрой": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "DIY",
+      "canonical_name": "Мегастрой",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "аксон": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "DIY",
+      "canonical_name": "Аксон",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "стройландия": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "Стройматериалы",
+      "canonical_name": "Стройландия",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "к": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "Стройматериалы",
+      "canonical_name": "К-Раута",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "суперстрой / суперарсенал": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "Стройматериалы",
+      "canonical_name": "СуперСтрой / СуперАрсенал",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "метрика": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "Стройматериалы",
+      "canonical_name": "Метрика",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "домоцентр / прораб / практик": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "DIY и ремонт",
+      "canonical_name": "ДомоЦентр / Прораб / Практик",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "домовой": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "Товары для дома / DIY",
+      "canonical_name": "Домовой",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "baumol": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "DIY",
+      "canonical_name": "BAUMOL",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "порядок": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "Товары для дома",
+      "canonical_name": "Порядок",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "добрострой": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "Стройматериалы и сад",
+      "canonical_name": "Добрострой",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "кенгуру": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "Мебель и отделка",
+      "canonical_name": "Кенгуру",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "hoff": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "Мебель и товары для дома",
+      "canonical_name": "Hoff",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "divan.ru": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "Мебель",
+      "canonical_name": "Divan.ru",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "аскона": {
+      "unified_parent": "Дом И Интерьер",
+      "unified_subcategory": "Мебель / товары для сна",
+      "canonical_name": "Аскона",
+      "source": "static",
+      "rf_section": "DIY & Household — Стройматериалы, ремонт, товары для дома"
+    },
+    "limé": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда",
+      "canonical_name": "LIMÉ",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "o'stin + funday + face code": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда",
+      "canonical_name": "O'stin + Funday + Face Code",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "befree": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда",
+      "canonical_name": "befree",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "gloria jeans (gj)": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда",
+      "canonical_name": "Gloria Jeans",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "sela": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда",
+      "canonical_name": "Sela",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "zarina": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда",
+      "canonical_name": "Zarina",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "zolla + nice & easy": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда",
+      "canonical_name": "Zolla + Nice & Easy",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "love republic": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда",
+      "canonical_name": "Love Republic",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "henderson": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Мужская одежда",
+      "canonical_name": "HENDERSON",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "твое": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда",
+      "canonical_name": "Твое",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "familia": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда / аксессуары",
+      "canonical_name": "Familia",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "снежная королева": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Верхняя одежда",
+      "canonical_name": "Снежная королева",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "oodji": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда",
+      "canonical_name": "Oodji",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "elis / lalis / 20line": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда",
+      "canonical_name": "Elis / Lalis / 20Line",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "peplos": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда",
+      "canonical_name": "Peplos",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "цум / цум.дисконт": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда (мультибренд, люкс)",
+      "canonical_name": "ЦУМ / ЦУМ.Дисконт",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "стокманн": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда, обувь (мультибренд)",
+      "canonical_name": "Стокманн",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "lamoda": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда и обувь (онлайн)",
+      "canonical_name": "Lamoda",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "lamoda sport": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда / спорт",
+      "canonical_name": "Lamoda Sport",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "amazing red / hiker / street beat (irg)": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда и обувь",
+      "canonical_name": "Amazing Red / Hiker / Street Beat",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "francesco donni": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда",
+      "canonical_name": "Francesco Donni",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "lc waikiki": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Одежда",
+      "canonical_name": "LC Waikiki",
+      "source": "static",
+      "rf_section": "Fashion — Одежда"
+    },
+    "kari": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Обувь",
+      "canonical_name": "Kari",
+      "source": "static",
+      "rf_section": "Обувь"
+    },
+    "ralf ringer": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Обувь",
+      "canonical_name": "Ralf Ringer",
+      "source": "static",
+      "rf_section": "Обувь"
+    },
+    "zenden + mascotte": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Обувь",
+      "canonical_name": "Zenden + Mascotte",
+      "source": "static",
+      "rf_section": "Обувь"
+    },
+    "ekonika": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Обувь",
+      "canonical_name": "Ekonika",
+      "source": "static",
+      "rf_section": "Обувь"
+    },
+    "юничел": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Обувь",
+      "canonical_name": "Юничел",
+      "source": "static",
+      "rf_section": "Обувь"
+    },
+    "monro": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Обувь",
+      "canonical_name": "Monro",
+      "source": "static",
+      "rf_section": "Обувь"
+    },
+    "respect": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Обувь",
+      "canonical_name": "Respect",
+      "source": "static",
+      "rf_section": "Обувь"
+    },
+    "rendez": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Обувь",
+      "canonical_name": "Rendez-Vous",
+      "source": "static",
+      "rf_section": "Обувь"
+    },
+    "котофей": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Детская обувь",
+      "canonical_name": "Котофей",
+      "source": "static",
+      "rf_section": "Обувь"
+    },
+    "слепая курица shoes": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Обувь",
+      "canonical_name": "Слепая Курица Shoes",
+      "source": "static",
+      "rf_section": "Обувь"
+    },
+    "монарх": {
+      "unified_parent": "Одежда И Обувь",
+      "unified_subcategory": "Обувь",
+      "canonical_name": "Монарх",
+      "source": "static",
+      "rf_section": "Обувь"
+    },
+    "лэтуаль": {
+      "unified_parent": "Косметика И Парфюмерия",
+      "unified_subcategory": "Косметика и парфюмерия",
+      "canonical_name": "Лэтуаль",
+      "source": "static",
+      "rf_section": "Косметика, парфюмерия и дрогери"
+    },
+    "рив гош": {
+      "unified_parent": "Косметика И Парфюмерия",
+      "unified_subcategory": "Косметика и парфюмерия",
+      "canonical_name": "Рив Гош",
+      "source": "static",
+      "rf_section": "Косметика, парфюмерия и дрогери"
+    },
+    "золотое яблоко": {
+      "unified_parent": "Косметика И Парфюмерия",
+      "unified_subcategory": "Косметика и парфюмерия",
+      "canonical_name": "Золотое Яблоко",
+      "source": "static",
+      "rf_section": "Косметика, парфюмерия и дрогери"
+    },
+    "улыбка радуги": {
+      "unified_parent": "Косметика И Парфюмерия",
+      "unified_subcategory": "Дрогери / косметика",
+      "canonical_name": "Улыбка Радуги",
+      "source": "static",
+      "rf_section": "Косметика, парфюмерия и дрогери"
+    },
+    "магнит косметик": {
+      "unified_parent": "Косметика И Парфюмерия",
+      "unified_subcategory": "Дрогери",
+      "canonical_name": "Магнит Косметик",
+      "source": "static",
+      "rf_section": "Косметика, парфюмерия и дрогери"
+    },
+    "ригла": {
+      "unified_parent": "Медицина И Здоровье",
+      "unified_subcategory": "Аптека",
+      "canonical_name": "Ригла",
+      "source": "static",
+      "rf_section": "Аптеки и здоровье"
+    },
+    "апрель": {
+      "unified_parent": "Медицина И Здоровье",
+      "unified_subcategory": "Аптека",
+      "canonical_name": "Апрель",
+      "source": "static",
+      "rf_section": "Аптеки и здоровье"
+    },
+    "аптека 36,6": {
+      "unified_parent": "Медицина И Здоровье",
+      "unified_subcategory": "Аптека",
+      "canonical_name": "Аптека 36,6",
+      "source": "static",
+      "rf_section": "Аптеки и здоровье"
+    },
+    "планета здоровья": {
+      "unified_parent": "Медицина И Здоровье",
+      "unified_subcategory": "Аптека",
+      "canonical_name": "Планета здоровья",
+      "source": "static",
+      "rf_section": "Аптеки и здоровье"
+    },
+    "доктор столетов": {
+      "unified_parent": "Медицина И Здоровье",
+      "unified_subcategory": "Аптека",
+      "canonical_name": "Доктор Столетов",
+      "source": "static",
+      "rf_section": "Аптеки и здоровье"
+    },
+    "мелодия здоровья (катрен)": {
+      "unified_parent": "Медицина И Здоровье",
+      "unified_subcategory": "Аптека",
+      "canonical_name": "Мелодия Здоровья",
+      "source": "static",
+      "rf_section": "Аптеки и здоровье"
+    },
+    "вита": {
+      "unified_parent": "Медицина И Здоровье",
+      "unified_subcategory": "Аптека",
+      "canonical_name": "Вита-экспресс / Вита",
+      "source": "static",
+      "rf_section": "Аптеки и здоровье"
+    },
+    "фармленд": {
+      "unified_parent": "Медицина И Здоровье",
+      "unified_subcategory": "Аптека",
+      "canonical_name": "Фармленд",
+      "source": "static",
+      "rf_section": "Аптеки и здоровье"
+    },
+    "еаптека (сбер)": {
+      "unified_parent": "Медицина И Здоровье",
+      "unified_subcategory": "Аптека (онлайн)",
+      "canonical_name": "ЕАПТЕКА",
+      "source": "static",
+      "rf_section": "Аптеки и здоровье"
+    },
+    "implozia": {
+      "unified_parent": "Медицина И Здоровье",
+      "unified_subcategory": "Аптека",
+      "canonical_name": "Implozia",
+      "source": "static",
+      "rf_section": "Аптеки и здоровье"
+    },
+    "детский мир": {
+      "unified_parent": "Для Детей",
+      "unified_subcategory": "Детские товары",
+      "canonical_name": "Детский мир",
+      "source": "static",
+      "rf_section": "Детские товары и одежда"
+    },
+    "зоозавр / детмир мини": {
+      "unified_parent": "Для Детей",
+      "unified_subcategory": "Детские товары",
+      "canonical_name": "Зоозавр / Детмир Мини",
+      "source": "static",
+      "rf_section": "Детские товары и одежда"
+    },
+    "rich family": {
+      "unified_parent": "Для Детей",
+      "unified_subcategory": "Детские товары",
+      "canonical_name": "Rich Family",
+      "source": "static",
+      "rf_section": "Детские товары и одежда"
+    },
+    "кораблик": {
+      "unified_parent": "Для Детей",
+      "unified_subcategory": "Детские товары",
+      "canonical_name": "Кораблик",
+      "source": "static",
+      "rf_section": "Детские товары и одежда"
+    },
+    "button blue": {
+      "unified_parent": "Для Детей",
+      "unified_subcategory": "Детская одежда",
+      "canonical_name": "Button Blue",
+      "source": "static",
+      "rf_section": "Детские товары и одежда"
+    },
+    "gulliver (одежда)": {
+      "unified_parent": "Для Детей",
+      "unified_subcategory": "Детская одежда",
+      "canonical_name": "Gulliver",
+      "source": "static",
+      "rf_section": "Детские товары и одежда"
+    },
+    "sunlight": {
+      "unified_parent": "Подарки",
+      "unified_subcategory": "Ювелирные украшения",
+      "canonical_name": "Sunlight",
+      "source": "static",
+      "rf_section": "Ювелирные украшения"
+    },
+    "sokolov": {
+      "unified_parent": "Подарки",
+      "unified_subcategory": "Ювелирные украшения",
+      "canonical_name": "Sokolov",
+      "source": "static",
+      "rf_section": "Ювелирные украшения"
+    },
+    "585 золотой": {
+      "unified_parent": "Подарки",
+      "unified_subcategory": "Ювелирные украшения",
+      "canonical_name": "585 Золотой",
+      "source": "static",
+      "rf_section": "Ювелирные украшения"
+    },
+    "adamas": {
+      "unified_parent": "Подарки",
+      "unified_subcategory": "Ювелирные украшения",
+      "canonical_name": "Adamas",
+      "source": "static",
+      "rf_section": "Ювелирные украшения"
+    },
+    "спортмастер": {
+      "unified_parent": "Спорт И Активный Отдых",
+      "unified_subcategory": "Спорттовары",
+      "canonical_name": "Спортмастер",
+      "source": "static",
+      "rf_section": "Спорт и активный отдых"
+    },
+    "demix / спортландия (гк спортмастер)": {
+      "unified_parent": "Спорт И Активный Отдых",
+      "unified_subcategory": "Спорт / одежда",
+      "canonical_name": "Demix / Спортландия",
+      "source": "static",
+      "rf_section": "Спорт и активный отдых"
+    },
+    "decathlon": {
+      "unified_parent": "Спорт И Активный Отдых",
+      "unified_subcategory": "Спорттовары",
+      "canonical_name": "Decathlon",
+      "source": "static",
+      "rf_section": "Спорт и активный отдых"
+    },
+    "desport": {
+      "unified_parent": "Спорт И Активный Отдых",
+      "unified_subcategory": "Спорт / мультибренд",
+      "canonical_name": "Desport",
+      "source": "static",
+      "rf_section": "Спорт и активный отдых"
+    },
+    "forward": {
+      "unified_parent": "Спорт И Активный Отдых",
+      "unified_subcategory": "Спортивная одежда",
+      "canonical_name": "Forward",
+      "source": "static",
+      "rf_section": "Спорт и активный отдых"
+    },
+    "четыре лапы": {
+      "unified_parent": "Питомцам",
+      "unified_subcategory": "Зоотовары",
+      "canonical_name": "Четыре лапы",
+      "source": "static",
+      "rf_section": "Зоотовары"
+    },
+    "petshop": {
+      "unified_parent": "Питомцам",
+      "unified_subcategory": "Зоотовары",
+      "canonical_name": "PetShop",
+      "source": "static",
+      "rf_section": "Зоотовары"
+    },
+    "зоозавр (дм)": {
+      "unified_parent": "Питомцам",
+      "unified_subcategory": "Зоотовары",
+      "canonical_name": "Зоозавр",
+      "source": "static",
+      "rf_section": "Зоотовары"
+    },
+    "wildberries": {
+      "unified_parent": "Супермаркеты И Маркетплейсы",
+      "unified_subcategory": "Мультикатегорийный",
+      "canonical_name": "Wildberries",
+      "source": "static",
+      "rf_section": "Универсальные маркетплейсы (онлайн)"
+    },
+    "ozon": {
+      "unified_parent": "Супермаркеты И Маркетплейсы",
+      "unified_subcategory": "Мультикатегорийный",
+      "canonical_name": "Ozon",
+      "source": "static",
+      "rf_section": "Универсальные маркетплейсы (онлайн)"
+    },
+    "яндекс маркет": {
+      "unified_parent": "Супермаркеты И Маркетплейсы",
+      "unified_subcategory": "Мультикатегорийный",
+      "canonical_name": "Яндекс Маркет",
+      "source": "static",
+      "rf_section": "Универсальные маркетплейсы (онлайн)"
+    },
+    "мегамаркет (сбер)": {
+      "unified_parent": "Супермаркеты И Маркетплейсы",
+      "unified_subcategory": "Мультикатегорийный",
+      "canonical_name": "Мегамаркет",
+      "source": "static",
+      "rf_section": "Универсальные маркетплейсы (онлайн)"
+    },
+    "авито": {
+      "unified_parent": "Супермаркеты И Маркетплейсы",
+      "unified_subcategory": "C2C / B2C",
+      "canonical_name": "Авито",
+      "source": "static",
+      "rf_section": "Универсальные маркетплейсы (онлайн)"
+    },
+    "магнит маркет": {
+      "unified_parent": "Супермаркеты И Маркетплейсы",
+      "unified_subcategory": "Мультикатегорийный",
+      "canonical_name": "Магнит Маркет",
+      "source": "static",
+      "rf_section": "Универсальные маркетплейсы (онлайн)"
+    },
+    "aizel": {
+      "unified_parent": "Супермаркеты И Маркетплейсы",
+      "unified_subcategory": "Fashion (мультибренд, люкс)",
+      "canonical_name": "Aizel",
+      "source": "static",
+      "rf_section": "Универсальные маркетплейсы (онлайн)"
+    },
+    "tsum.ru": {
+      "unified_parent": "Супермаркеты И Маркетплейсы",
+      "unified_subcategory": "Fashion (мультибренд)",
+      "canonical_name": "TSUM.ru",
+      "source": "static",
+      "rf_section": "Универсальные маркетплейсы (онлайн)"
+    }
+  }
+}

@@ -49,6 +49,7 @@ class MappedItem(BaseModel):
     is_macro_category: bool = False
     match_source: Literal[
         "catalog",
+        "retailer_catalog",
         "override",
         "parent",
         "named",
@@ -64,6 +65,7 @@ class MappedItem(BaseModel):
         "reference_fallback",
         "reference_split_llm",
     ] | None = None
+    should_enrich_retailer: bool = False
     display_label: str | None = None
     reference_node_id: str | None = None
     reference_department: str | None = None

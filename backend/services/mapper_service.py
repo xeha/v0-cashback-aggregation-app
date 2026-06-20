@@ -10,6 +10,7 @@ from schemas import CategoryMapRequestItem, MappedItem
 from services.bank_slug_resolver import load_bank_aliases, resolve_bank_slug
 from services.category_classifier_service import CategoryClassifierService
 from services.category_embedding import best_match, best_match_among, encode_texts
+from services.retailer_resolver_service import RetailerResolverService
 
 HIERARCHY_PATH = Path(__file__).resolve().parent.parent / "data" / "category_hierarchy.json"
 OVERRIDES_PATH = Path(__file__).resolve().parent.parent / "data" / "category_overrides.json"
@@ -34,6 +35,7 @@ CONFIDENCE_OVERRIDE = 1.0
 
 MatchSource = Literal[
     "catalog",
+    "retailer_catalog",
     "override",
     "parent",
     "named",
@@ -44,6 +46,8 @@ MatchSource = Literal[
     "fallback",
     "embedding",
 ]
+
+ENRICH_CONFIDENCE_THRESHOLD = 0.75
 
 
 def _normalize_category_name(name: str) -> str:
@@ -140,6 +144,7 @@ class MapperService:
         )
         self._classifier: CategoryClassifierService | None = None
         self._enriched: dict[str, dict] = {}
+        self._retailer_resolver: RetailerResolverService | None = None
 
     @property
     def is_loaded(self) -> bool:
@@ -202,6 +207,43 @@ class MapperService:
                 self._parent_to_child_indices.setdefault(parent, []).append(idx)
 
         self._classifier = CategoryClassifierService(self._parents)
+
+    def set_retailer_resolver(self, resolver: RetailerResolverService) -> None:
+        self._retailer_resolver = resolver
+
+    def _should_enrich_retailer(
+        self,
+        raw_category: str,
+        normalized: str,
+        confidence: float,
+    ) -> bool:
+        if self._retailer_resolver and self._retailer_resolver.lookup(raw_category):
+            return False
+        if normalized in self._normalized_to_parent:
+            return False
+        if self._resolve_exact_leaf(normalized):
+            return False
+        if normalized in self._parent_synonyms:
+            return False
+        if normalized in self._named_categories:
+            return False
+        looks_like_brand = bool(raw_category.strip()) and raw_category.strip()[0].isupper()
+        low_confidence = confidence < ENRICH_CONFIDENCE_THRESHOLD
+        return looks_like_brand or low_confidence
+
+    def _with_enrich_flag(
+        self,
+        mapped: MappedItem,
+        raw_category: str,
+        normalized: str,
+        confidence: float,
+    ) -> MappedItem:
+        mapped.should_enrich_retailer = self._should_enrich_retailer(
+            raw_category,
+            normalized,
+            confidence,
+        )
+        return mapped
 
     def _resolve_parent(self, subcategory: str) -> str:
         return self._subcategory_to_parent.get(
@@ -344,6 +386,24 @@ class MapperService:
                     source_name=source_name,
                 )
 
+        if self._retailer_resolver:
+            retailer = self._retailer_resolver.lookup(item.raw_category)
+            if retailer:
+                is_macro = _normalize_category_name(retailer.unified_subcategory) == _normalize_category_name(
+                    retailer.unified_parent
+                )
+                return self._mapped_item(
+                    item,
+                    retailer.unified_subcategory,
+                    CONFIDENCE_OVERRIDE,
+                    bank_slug,
+                    normalized,
+                    "retailer_catalog",
+                    parent=retailer.unified_parent,
+                    is_macro_category=is_macro,
+                    source_name=source_name,
+                )
+
         named = self._named_categories.get(normalized)
         if named:
             parent = named["parent"]
@@ -412,26 +472,36 @@ class MapperService:
                 normalized,
             )
             if leaf_in_parent and leaf_source:
-                return self._mapped_item(
+                return self._with_enrich_flag(
+                    self._mapped_item(
+                        item,
+                        leaf_in_parent,
+                        round(leaf_score, 4),
+                        bank_slug,
+                        normalized,
+                        leaf_source,
+                        parent=parent,
+                        source_name=source_name,
+                    ),
+                    item.raw_category,
+                    normalized,
+                    leaf_score,
+                )
+            return self._with_enrich_flag(
+                self._mapped_item(
                     item,
-                    leaf_in_parent,
-                    round(leaf_score, 4),
+                    parent,
+                    round(parent_score, 4),
                     bank_slug,
                     normalized,
-                    leaf_source,
+                    "parent_embedding",
                     parent=parent,
+                    is_macro_category=True,
                     source_name=source_name,
-                )
-            return self._mapped_item(
-                item,
-                parent,
-                round(parent_score, 4),
-                bank_slug,
+                ),
+                item.raw_category,
                 normalized,
-                "parent_embedding",
-                parent=parent,
-                is_macro_category=True,
-                source_name=source_name,
+                parent_score,
             )
 
         if self._classifier:
@@ -441,29 +511,39 @@ class MapperService:
                     source_name,
                 )
                 if llm_parent:
-                    return self._mapped_item(
-                        item,
-                        llm_parent,
-                        round(llm_conf, 4),
-                        bank_slug,
+                    return self._with_enrich_flag(
+                        self._mapped_item(
+                            item,
+                            llm_parent,
+                            round(llm_conf, 4),
+                            bank_slug,
+                            normalized,
+                            "llm_parent",
+                            parent=llm_parent,
+                            is_macro_category=True,
+                            source_name=source_name,
+                        ),
+                        item.raw_category,
                         normalized,
-                        "llm_parent",
-                        parent=llm_parent,
-                        is_macro_category=True,
-                        source_name=source_name,
+                        llm_conf,
                     )
             except Exception as exc:
                 print(f"map: LLM classifier failed for {item.raw_category!r}: {exc}")
 
-        return self._mapped_item(
-            item,
-            FALLBACK_SUBCATEGORY,
-            round(parent_score, 4),
-            bank_slug,
+        return self._with_enrich_flag(
+            self._mapped_item(
+                item,
+                FALLBACK_SUBCATEGORY,
+                round(parent_score, 4),
+                bank_slug,
+                normalized,
+                "fallback",
+                parent=FALLBACK_PARENT,
+                source_name=source_name,
+            ),
+            item.raw_category,
             normalized,
-            "fallback",
-            parent=FALLBACK_PARENT,
-            source_name=source_name,
+            parent_score,
         )
 
     def map_items(
