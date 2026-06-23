@@ -59,13 +59,12 @@ cashback-assets/
     bank_named_categories.json
     edadeal_slug_aliases.json
     category_overrides.json
+    taxonomy.json
     taxonomy_migration.json
-    # ... все остальные файлы из backend/data/
+    # все файлы из backend/data/ без исключений
 ```
 
-**Правило:** всё что лежит в `backend/data/` или `lib/data/` и является JSON-справочником → переезжает в R2. В Docker-образе остаётся только Python-код и зависимости.
-
-**Исключение из Docker:** `taxonomy.json` и `bank_service_exclusions.json` — можно тоже вынести в R2, они туда и идут.
+**Правило:** все JSON-файлы из `backend/data/` и `lib/data/` переезжают в R2. В Docker-образе остаётся только Python-код и зависимости.
 
 ### PocketBase (Railway — отдельный сервис)
 
