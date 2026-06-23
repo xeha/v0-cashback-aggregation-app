@@ -19,10 +19,10 @@
 2. Отвязать скрипты обогащения от Yandex.Disk — работают с любой машины и в CI
 3. Вынести все JSON-справочники так, чтобы можно было обновлять их без передеплоя (hot-reload)
 
-## Выбранный подход: Cloudflare R2 + Supabase Postgres
+## Выбранный подход: Cloudflare R2 + PocketBase
 
 - **Cloudflare R2** — для всех статических ассетов (PNG + JSON-каталоги): CDN-класса раздача, бесплатный тир 10 ГБ / 10 млн запросов в месяц, мгновенная инвалидация кэша
-- **Supabase Postgres** — для `retailer_catalog` (конкурентная запись в runtime) и будущей авторизации + user data
+- **PocketBase** — self-hosted (деплоится на Railway как отдельный сервис): встроенный SQLite, встроенный Auth, Admin UI из коробки. Нет паузинга как у Supabase free tier. Подходит для `retailer_catalog`, будущей авторизации и user data на нашем масштабе.
 
 ## Архитектура
 
@@ -67,24 +67,25 @@ cashback-assets/
 
 **Исключение из Docker:** `taxonomy.json` и `bank_service_exclusions.json` — можно тоже вынести в R2, они туда и идут.
 
-### Supabase Postgres
+### PocketBase (Railway — отдельный сервис)
 
-**Таблица `retailer_catalog`** (заменяет `backend/data/retailer_catalog.json`):
+**Деплой:** отдельный Railway-сервис из официального Docker-образа `ghcr.io/pocketbase/pocketbase`. Railway persistent volume (`/pb/pb_data`) — данные сохраняются между рестартами.
 
-```sql
-create table retailer_catalog (
-  key                  text primary key,        -- нормализованный ("детский мир")
-  unified_parent       text not null,
-  unified_subcategory  text,
-  canonical_name       text not null,
-  source               text not null,           -- 'static' | 'llm_web' | 'manual'
-  added_at             timestamptz default now()
-);
+**Коллекция `retailer_catalog`** (заменяет `backend/data/retailer_catalog.json`):
 
-create index on retailer_catalog (key);
-```
+| Поле | Тип | Описание |
+|---|---|---|
+| `key` | text (unique) | нормализованный ключ ("детский мир") |
+| `unified_parent` | text | |
+| `unified_subcategory` | text | |
+| `canonical_name` | text | |
+| `source` | select | `static` / `llm_web` / `manual` |
 
-Будущие таблицы (auth / user data) добавляются в тот же Supabase-проект.
+Создаётся через PocketBase Admin UI (или миграционный скрипт при первом деплое).
+
+**Ручное курирование:** Admin UI (`https://pb.yourdomain.com/_/`) позволяет добавлять/редактировать ритейлеры прямо в браузере без скриптов — удобно в период активного наполнения каталога.
+
+**Будущие коллекции** (auth / user data) добавляются в тот же PocketBase-инстанс.
 
 ## Компоненты
 
@@ -122,7 +123,7 @@ Header: X-Admin-Key: <ADMIN_KEY>
 
 - **`backend/main.py`** — lifespan: `await catalog_store.load_all()` при старте
 - **`backend/services/mapper_service.py`**, **`reference_mapper_service.py`**, **`category_classifier_service.py`** и все остальные сервисы — заменяют `json.load(open("data/xxx.json"))` на `catalog_store.get("xxx")`
-- **`backend/services/retailer_resolver_service.py`** — `lookup()` / `enrich_and_save()` переходят с file lock + JSON на asyncpg / supabase-py запросы
+- **`backend/services/retailer_resolver_service.py`** — `lookup()` / `enrich_and_save()` переходят с file lock + JSON на запросы к PocketBase REST API через `httpx` (библиотека `pocketbase` для Python или прямые HTTP-запросы)
 
 ### Скрипты
 
@@ -163,9 +164,10 @@ const ASSETS_URL = process.env.NEXT_PUBLIC_ASSETS_URL ?? ""
 
 ```
 ASSETS_URL=https://pub-xxxx.r2.dev                 # или кастомный домен
-SUPABASE_URL=https://xxx.supabase.co
-SUPABASE_KEY=service_role_key
-ADMIN_KEY=<случайно сгенерированный ключ>
+POCKETBASE_URL=https://pb.yourdomain.com           # Railway URL PocketBase-сервиса
+POCKETBASE_ADMIN_EMAIL=admin@example.com
+POCKETBASE_ADMIN_PASSWORD=<пароль>
+ADMIN_KEY=<случайно сгенерированный ключ для /api/admin/reload-catalogs>
 ```
 
 ### Фронтенд (Vercel)
@@ -201,7 +203,8 @@ curl -X POST https://api.yourdomain.com/api/admin/reload-catalogs \
 - Кастомный домен для R2 (можно подключить позже через Cloudflare Workers)
 - CDN-кэширование каталогов на уровне R2 (сейчас просто прямые URL)
 - Версионирование ассетов (cache-busting через query string)
-- Авторизация для admin endpoints через Supabase Auth (сейчас — статический ADMIN_KEY)
+- Авторизация для admin endpoints через PocketBase Auth (сейчас — статический ADMIN_KEY)
+- Бэкап SQLite (Railway persistent volume — рекомендуется настроить периодический snapshot)
 - Переезд review-файлов (`market_catalog_review_*.json`) — это dev-артефакты, не нужны в R2
 
 ## Диаграмма
@@ -219,5 +222,10 @@ curl -X POST https://api.yourdomain.com/api/admin/reload-catalogs \
     startup → catalog_store.load_all() → fetch R2/catalogs/*.json
     POST /api/admin/reload-catalogs → повторная загрузка без рестарта
 
-    retailer_resolver → Supabase Postgres (lookup + enrich_and_save)
+    retailer_resolver → PocketBase REST API (lookup + enrich_and_save)
+
+[Railway PocketBase]
+    SQLite + persistent volume
+    Admin UI → ручное курирование retailer_catalog
+    Будущий auth + user data
 ```
