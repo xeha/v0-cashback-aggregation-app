@@ -45,7 +45,6 @@ function isAcceptedImage(file: File): boolean {
 }
 
 function shouldCompress(file: File): boolean {
-  if (file.size <= COMPRESS_THRESHOLD_BYTES) return false
   if (file.type === "image/gif") return false
   const ext = fileExtension(file)
   return ext !== "gif"

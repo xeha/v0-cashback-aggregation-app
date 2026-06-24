@@ -6,10 +6,15 @@ import os
 import re
 from dataclasses import dataclass
 from datetime import datetime, timezone
+from pathlib import Path
 
 import httpx
 
 logger = logging.getLogger(__name__)
+
+_LOCAL_RETAILER_CATALOG = (
+    Path(__file__).resolve().parent.parent / "data" / "retailer_catalog.json"
+)
 
 LEGAL_SUFFIX_RE = re.compile(
     r"\s*[\(\[]\s*(?:ооо|ао|пао|зао|ип|x5 group|магнит)[^)\]]*[\)\]]",
@@ -104,11 +109,9 @@ class RetailerResolverService:
     def _clean_base_url(url: str) -> str:
         return url.rstrip("/")
 
-    def _pocketbase_url(self) -> str:
+    def _pocketbase_url(self) -> str | None:
         raw = os.environ.get("POCKETBASE_URL", "").strip()
-        if not raw:
-            raise RuntimeError("POCKETBASE_URL is not configured")
-        return self._clean_base_url(raw)
+        return self._clean_base_url(raw) if raw else None
 
     def _admin_credentials(self) -> tuple[str, str]:
         email = os.environ.get("POCKETBASE_ADMIN_EMAIL", "").strip()
@@ -177,8 +180,23 @@ class RetailerResolverService:
             entry["added_at"] = added_at
         return key, entry
 
+    def _load_local_catalog(self) -> dict[str, dict]:
+        if not _LOCAL_RETAILER_CATALOG.is_file():
+            raise RuntimeError(
+                f"Local retailer catalog not found: {_LOCAL_RETAILER_CATALOG}. "
+                "Set POCKETBASE_URL or restore backend/data/retailer_catalog.json."
+            )
+        payload = json.loads(_LOCAL_RETAILER_CATALOG.read_text(encoding="utf-8"))
+        entries = payload.get("entries", {})
+        if not isinstance(entries, dict):
+            raise RuntimeError("Invalid local retailer_catalog.json: entries must be an object")
+        logger.info("Loaded %d retailer entries from %s", len(entries), _LOCAL_RETAILER_CATALOG)
+        return dict(entries)
+
     def _warm_cache(self) -> dict[str, dict]:
         base_url = self._pocketbase_url()
+        if base_url is None:
+            return self._load_local_catalog()
         entries: dict[str, dict] = {}
         page = 1
         per_page = 200
