@@ -42,6 +42,11 @@ interface LogoAliasesFile {
 
 const logoAliases = logoAliasesData as LogoAliasesFile
 
+const ASSETS_URL =
+  typeof process !== "undefined"
+    ? (process.env.NEXT_PUBLIC_ASSETS_URL ?? "")
+    : ""
+
 function buildCatalog(entries: CatalogRecord[], basePath: string): LogoEntry[] {
   return entries.map(({ slug, name, alsoKnownAs }) => ({
     slug,
@@ -52,12 +57,12 @@ function buildCatalog(entries: CatalogRecord[], basePath: string): LogoEntry[] {
 
 const bankCatalog: LogoEntry[] = buildCatalog(
   bankCatalogData as CatalogRecord[],
-  "/logos/banks",
+  `${ASSETS_URL}/logos/banks`,
 )
 
 const marketCatalog: LogoEntry[] = buildCatalog(
   marketRetailersData as MarketRecord[],
-  "/logos/markets",
+  `${ASSETS_URL}/logos/markets`,
 )
 
 function getCatalog(kind: Kind): LogoEntry[] {
