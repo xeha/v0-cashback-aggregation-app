@@ -6,7 +6,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sentence_transformers import SentenceTransformer
 
-from routers import category, ocr
+from routers import admin, category, ocr
+from services import catalog_store
 from schemas import HealthResponse
 from services.market_split_map_service import MarketSplitMapService
 from services.mapper_service import MapperService
@@ -30,6 +31,7 @@ def _local_network_origin_regex() -> str:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    await catalog_store.load_all()
     model_name = os.environ.get(
         "SENTENCE_TRANSFORMER_MODEL",
         "paraphrase-multilingual-MiniLM-L12-v2",
@@ -67,6 +69,7 @@ app.add_middleware(
 
 app.include_router(ocr.router)
 app.include_router(category.router)
+app.include_router(admin.router)
 
 
 @app.get("/health", response_model=HealthResponse)
