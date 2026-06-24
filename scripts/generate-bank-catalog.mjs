@@ -5,7 +5,9 @@ import { fileURLToPath } from "node:url"
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = join(__dirname, "..")
 const banksJsonPath =
-  "/Users/kseniya_agrova/Yandex.Disk.localized/obsidian/VIBECODING_Чуйков/banks_logos/banks.json"
+  process.env.BANKS_SOURCE_JSON ??
+  process.argv[2] ??
+  (() => { throw new Error("Provide BANKS_SOURCE_JSON env or path as first argument") })()
 const overridesPath = join(root, "lib/data/bank-display-overrides.json")
 const outPath = join(root, "lib/data/bank-catalog.json")
 
