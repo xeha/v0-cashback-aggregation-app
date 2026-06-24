@@ -134,7 +134,7 @@ export async function readImageFile(file: File): Promise<string> {
 
   const dataUrl = await readFileAsDataUrl(source)
 
-  if (shouldCompress(source)) {
+  if (shouldCompress(source) && source.size > COMPRESS_THRESHOLD_BYTES) {
     return compressDataUrl(dataUrl)
   }
 

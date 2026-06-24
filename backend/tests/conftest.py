@@ -19,8 +19,10 @@ DATA_DIR = BACKEND_ROOT / "data"
 
 def _load_local_catalogs() -> dict[str, object]:
     store: dict[str, object] = {}
-    if DATA_DIR.exists():
-        for json_file in DATA_DIR.glob("*.json"):
+    for directory in (DATA_DIR, DATA_DIR / "archive"):
+        if not directory.exists():
+            continue
+        for json_file in directory.glob("*.json"):
             try:
                 store[json_file.stem] = json.loads(json_file.read_text(encoding="utf-8"))
             except Exception:

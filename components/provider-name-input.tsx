@@ -1,7 +1,9 @@
 "use client"
 
 import { useEffect, useId, useRef, useState } from "react"
+import { ProviderLogo } from "@/components/provider-logo"
 import {
+  getLocalProviderLogo,
   searchAllProviderSuggestions,
   type ProviderSuggestion,
 } from "@/lib/provider-logos"
@@ -96,10 +98,12 @@ export function ProviderNameInput({
                     isActive ? "bg-emerald-50" : ""
                   }`}
                 >
-                  <img
-                    src={suggestion.logo}
-                    alt=""
-                    className="h-7 w-7 shrink-0 rounded-lg object-cover"
+                  <ProviderLogo
+                    name={suggestion.name}
+                    logo={suggestion.logo}
+                    fallbackSrc={getLocalProviderLogo(suggestion.slug, suggestion.kind)}
+                    seed={`${suggestion.kind}:${suggestion.slug}`}
+                    className="h-7 w-7 text-[12px]"
                   />
                   <span className="truncate text-[14px] font-medium text-slate-800">
                     {suggestion.name}

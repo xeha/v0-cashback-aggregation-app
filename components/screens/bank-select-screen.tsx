@@ -389,7 +389,8 @@ export function BankSelectScreen({
               <img
                 src={shots[i] || "/placeholder.svg"}
                 alt={`Скриншот ${name || i + 1}`}
-                className={`h-12 w-12 shrink-0 rounded-xl border object-cover ${
+                decoding="async"
+                className={`h-16 w-12 shrink-0 rounded-xl border bg-slate-50 object-contain ${
                   hasScreenshotConflict
                     ? "border-red-300 ring-2 ring-red-200"
                     : "border-slate-200"

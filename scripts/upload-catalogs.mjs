@@ -20,6 +20,7 @@ const SKIP_PATTERNS = [
 
 const CATALOG_DIRS = [
   join(root, "backend", "data"),
+  join(root, "backend", "data", "archive"),
   join(root, "lib", "data"),
 ]
 

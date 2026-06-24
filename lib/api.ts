@@ -12,8 +12,11 @@ import type {
 } from "@/lib/types"
 
 function getBackendUrl(): string {
-  // Dev + browser: same-origin requests via Next.js rewrite (works from phone over Wi‑Fi).
   if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
+    const configured = process.env.NEXT_PUBLIC_BACKEND_URL?.trim()
+    // Direct FastAPI when URL is set (avoids Next.js rewrite ~30s timeout on large OCR bodies).
+    if (configured) return configured
+    // Same-origin rewrite when testing from phone over Wi‑Fi without env.
     return ""
   }
   return process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:8000"
@@ -142,9 +145,16 @@ async function postJson<T>(path: string, body: unknown): Promise<T> {
     let detail = response.statusText
     try {
       const payload = await response.json()
-      detail = payload.detail ?? detail
+      if (typeof payload.detail === "string") {
+        detail = payload.detail
+      } else if (Array.isArray(payload.detail)) {
+        detail = payload.detail.map((item: { msg?: string }) => item.msg).filter(Boolean).join("; ")
+      }
     } catch {
-      // ignore parse errors
+      if (response.status === 500 && detail === "Internal Server Error") {
+        detail =
+          "Сервер не успел обработать запрос. Проверьте, что FastAPI запущен на порту 8000, и попробуйте снова."
+      }
     }
     throw new ApiError(String(detail), response.status)
   }

@@ -17,9 +17,9 @@ from services import catalog_store
 logger = logging.getLogger(__name__)
 
 DEFAULT_MISTRAL_TIMEOUT_SEC = 120.0
-DEFAULT_OCR_MAX_IMAGE_DIMENSION = 1600
-DEFAULT_OCR_JPEG_QUALITY = 82
-OCR_MAX_ATTEMPTS = 3
+DEFAULT_OCR_MAX_IMAGE_DIMENSION = 1200
+DEFAULT_OCR_JPEG_QUALITY = 80
+OCR_MAX_ATTEMPTS = 2
 
 OCR_PROMPT_BANK = """Извлеки из скриншота мобильного приложения пары «категория кэшбэка — процент».
 

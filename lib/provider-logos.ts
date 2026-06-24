@@ -47,7 +47,16 @@ const ASSETS_URL =
     ? (process.env.NEXT_PUBLIC_ASSETS_URL ?? "")
     : ""
 
-function buildCatalog(entries: CatalogRecord[], basePath: string): LogoEntry[] {
+function resolveLogoBasePath(folder: "banks" | "markets"): string {
+  const useRemoteAssets =
+    Boolean(ASSETS_URL) &&
+    typeof process !== "undefined" &&
+    process.env.NODE_ENV === "production"
+  return useRemoteAssets ? `${ASSETS_URL}/logos/${folder}` : `/logos/${folder}`
+}
+
+function buildCatalog(entries: CatalogRecord[], folder: "banks" | "markets"): LogoEntry[] {
+  const basePath = resolveLogoBasePath(folder)
   return entries.map(({ slug, name, alsoKnownAs }) => ({
     slug,
     names: [name, ...(alsoKnownAs ?? [])],
@@ -57,12 +66,12 @@ function buildCatalog(entries: CatalogRecord[], basePath: string): LogoEntry[] {
 
 const bankCatalog: LogoEntry[] = buildCatalog(
   bankCatalogData as CatalogRecord[],
-  `${ASSETS_URL}/logos/banks`,
+  "banks",
 )
 
 const marketCatalog: LogoEntry[] = buildCatalog(
   marketRetailersData as MarketRecord[],
-  `${ASSETS_URL}/logos/markets`,
+  "markets",
 )
 
 function getCatalog(kind: Kind): LogoEntry[] {
@@ -266,6 +275,12 @@ export function searchAllProviderSuggestions(
 export function getProviderLogoBySlug(slug: string, kind: Kind): string {
   const hit = getCatalog(kind).find((entry) => entry.slug === slug)
   return hit?.logo ?? PROVIDER_LOGO_PLACEHOLDER
+}
+
+/** Local public/ path when CDN logo fails or is not configured. */
+export function getLocalProviderLogo(slug: string, kind: Kind): string {
+  const folder = kind === "bank" ? "banks" : "markets"
+  return `/logos/${folder}/${slug}.png`
 }
 
 export function resolveProviderLogo(name: string, kind: Kind): string {

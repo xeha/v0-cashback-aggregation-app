@@ -1,18 +1,13 @@
 from __future__ import annotations
 
 import asyncio
-import json
 import logging
 import os
-from pathlib import Path
 from typing import Any
 
 import httpx
 
 logger = logging.getLogger(__name__)
-
-_DATA_DIR = Path(__file__).resolve().parent.parent / "data"
-_ARCHIVE_DIR = _DATA_DIR / "archive"
 
 _store: dict[str, Any] = {}
 
@@ -27,7 +22,6 @@ _CATALOG_NAMES = [
     "bank_aliases",
     "market_aliases",
     "market_category_overrides",
-    "market_parent_synonyms",
     "parent_category_synonyms",
     "parent_category_disambiguation",
     "bank_service_exclusions",
@@ -35,7 +29,6 @@ _CATALOG_NAMES = [
     "bank_named_categories",
     "edadeal_slug_aliases",
     "category_overrides",
-    "taxonomy",
     "taxonomy_migration",
     "retailer_catalog",
 ]
@@ -43,25 +36,14 @@ _CATALOG_NAMES = [
 _CATALOG_NAMES = list(dict.fromkeys(_CATALOG_NAMES))
 
 
-def _assets_url() -> str | None:
+def _assets_url() -> str:
     url = os.environ.get("ASSETS_URL", "").rstrip("/")
-    return url or None
-
-
-def _local_catalog_path(name: str) -> Path | None:
-    for directory in (_DATA_DIR, _ARCHIVE_DIR):
-        path = directory / f"{name}.json"
-        if path.is_file():
-            return path
-    return None
-
-
-def _load_one_local(name: str) -> tuple[str, Any] | None:
-    path = _local_catalog_path(name)
-    if path is None:
-        logger.warning("Local catalog '%s' not found in %s or %s", name, _DATA_DIR, _ARCHIVE_DIR)
-        return None
-    return name, json.loads(path.read_text(encoding="utf-8"))
+    if not url:
+        raise RuntimeError(
+            "ASSETS_URL environment variable is not set. "
+            "Catalogs are loaded only from Timeweb Object Storage."
+        )
+    return url
 
 
 async def _fetch_one(client: httpx.AsyncClient, name: str) -> tuple[str, Any]:
@@ -81,30 +63,14 @@ async def _fetch_one(client: httpx.AsyncClient, name: str) -> tuple[str, Any]:
 
 
 async def load_all() -> None:
-    """Load catalogs into memory. Uses R2 when ASSETS_URL is set, else backend/data/."""
+    """Download all catalogs from Timeweb (ASSETS_URL). Fails if any file is missing."""
+    logger.info("Loading %d catalogs from %s...", len(_CATALOG_NAMES), _assets_url())
+    async with httpx.AsyncClient() as client:
+        results = await asyncio.gather(*[_fetch_one(client, name) for name in _CATALOG_NAMES])
     _store.clear()
-
-    assets_url = _assets_url()
-    if assets_url:
-        logger.info("Loading %d catalogs from %s...", len(_CATALOG_NAMES), assets_url)
-        async with httpx.AsyncClient() as client:
-            results = await asyncio.gather(*[_fetch_one(client, name) for name in _CATALOG_NAMES])
-        for name, data in results:
-            _store[name] = data
-        logger.info("Catalogs loaded from R2: %s", list(_store.keys()))
-        return
-
-    logger.info(
-        "ASSETS_URL not set — loading %d catalogs from %s",
-        len(_CATALOG_NAMES),
-        _DATA_DIR,
-    )
-    for name in _CATALOG_NAMES:
-        loaded = await asyncio.to_thread(_load_one_local, name)
-        if loaded is not None:
-            catalog_name, data = loaded
-            _store[catalog_name] = data
-    logger.info("Catalogs loaded locally: %s", list(_store.keys()))
+    for name, data in results:
+        _store[name] = data
+    logger.info("Catalogs loaded: %s", list(_store.keys()))
 
 
 def get(name: str) -> Any:
