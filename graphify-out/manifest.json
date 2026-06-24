@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "backend/main.py": {
-    "mtime": 1781867583.9812915,
-    "ast_hash": "ef04736041410b2a83d575145b4259d4",
+    "mtime": 1782288450.0296052,
+    "ast_hash": "2ee235ca8d6b8f06f45dae12e35fad63",
     "semantic_hash": ""
   },
   "backend/routers/__init__.py": {
@@ -25,18 +25,18 @@
     "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
   },
   "backend/routers/category.py": {
-    "mtime": 1781867586.1939707,
-    "ast_hash": "d5283e1ea69daaa96acf42dc85950a0f",
+    "mtime": 1781972280.451538,
+    "ast_hash": "88632a05d4ffdd6904503838f62bb185",
     "semantic_hash": ""
   },
   "backend/routers/ocr.py": {
-    "mtime": 1781780894.4808443,
+    "mtime": 1781964584.3767583,
     "ast_hash": "380faf1409f5172830292546d56841c0",
     "semantic_hash": ""
   },
   "backend/schemas.py": {
-    "mtime": 1781867540.4882824,
-    "ast_hash": "0210b1904e2206d39b8e6187e02945ee",
+    "mtime": 1781972264.539563,
+    "ast_hash": "0f169f997e1e4d63d6aa34f5d85b9f16",
     "semantic_hash": ""
   },
   "backend/services/__init__.py": {
@@ -45,13 +45,13 @@
     "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
   },
   "backend/services/mapper_service.py": {
-    "mtime": 1781861839.4036126,
-    "ast_hash": "d75aeddb027dc43e876b62fdf1b48c2e",
+    "mtime": 1782288596.804109,
+    "ast_hash": "435eb91bdd157d2c03b95d240c132440",
     "semantic_hash": ""
   },
   "backend/services/ocr_service.py": {
-    "mtime": 1781783789.5359125,
-    "ast_hash": "ac014491f06da1792f59919c44f21482",
+    "mtime": 1782288622.1687348,
+    "ast_hash": "0b66455f7c353804a86d0d026088954e",
     "semantic_hash": ""
   },
   "components.json": {
@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "components/screens/empty-screen.tsx": {
-    "mtime": 1781685967.1779768,
-    "ast_hash": "bb18d0d3ad2e66f52c475e654cddb2b3",
+    "mtime": 1781969506.977521,
+    "ast_hash": "9ed74bcbc33e9fb5b66a796c63e6f3f3",
     "semantic_hash": ""
   },
   "components/screens/gallery-screen.tsx": {
@@ -120,8 +120,8 @@
     "semantic_hash": "8062aae909450f1f017065252e0f748a"
   },
   "components/screens/results-screen.tsx": {
-    "mtime": 1781868029.1440756,
-    "ast_hash": "1424e24e170bd8f239c887c01be0031f",
+    "mtime": 1781973413.846823,
+    "ast_hash": "40520d6042a74fff5e5e90b39b099b01",
     "semantic_hash": ""
   },
   "components/screens/user-menu.tsx": {
@@ -140,7 +140,7 @@
     "semantic_hash": "63cfaae37f8d5e0fa4451635ccc521b4"
   },
   "lib/api.ts": {
-    "mtime": 1781858912.4446619,
+    "mtime": 1781964584.398169,
     "ast_hash": "d7784eb9b3cdaac24aed188a9bb393cb",
     "semantic_hash": ""
   },
@@ -180,8 +180,8 @@
     "semantic_hash": ""
   },
   "lib/matrix.ts": {
-    "mtime": 1781867924.8635936,
-    "ast_hash": "d814e1a0ee24a541b3b0b1912ade7e01",
+    "mtime": 1781973412.3894484,
+    "ast_hash": "5c58489608c591042adaeeecd37eb16f",
     "semantic_hash": ""
   },
   "lib/provider-logos.ts": {
@@ -190,8 +190,8 @@
     "semantic_hash": "10c57906fcd608feddd73ac082dae44b"
   },
   "lib/types.ts": {
-    "mtime": 1781867892.2435396,
-    "ast_hash": "c3f5fc0691023d21cf90460fb69e52d8",
+    "mtime": 1781964584.3989646,
+    "ast_hash": "482159510dbc03029ab132772e54295b",
     "semantic_hash": ""
   },
   "lib/utils.ts": {
@@ -200,18 +200,18 @@
     "semantic_hash": "9a4cc6f9f3155ffdc1fa7c2c097f6429"
   },
   "next-env.d.ts": {
-    "mtime": 1781780960.0154648,
-    "ast_hash": "2a74d3909800ca5467fa83b0ab4a4890",
+    "mtime": 1781964584.399139,
+    "ast_hash": "d0f8375ae1199dc7acd3977fc33b78b8",
     "semantic_hash": ""
   },
   "next.config.mjs": {
-    "mtime": 1781685967.1914945,
-    "ast_hash": "d4fe1d652e60b3d6772ea1cf0eca0b4b",
+    "mtime": 1782236435.5291312,
+    "ast_hash": "3772335f5d932e63049f5d14187995d0",
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1781867882.6882768,
-    "ast_hash": "f694ebfad8a9889fa1ec7c5846337de4",
+    "mtime": 1782288273.520975,
+    "ast_hash": "99ef285a5cbff6296bf51a000e7829b1",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -225,9 +225,9 @@
     "semantic_hash": "a0c05f819baf6ef4324fe0021fe76656"
   },
   "scripts/generate-bank-catalog.mjs": {
-    "mtime": 1781533450.2530856,
-    "ast_hash": "3f67badd3325f10d3434df8d1e846631",
-    "semantic_hash": "3f67badd3325f10d3434df8d1e846631"
+    "mtime": 1782288252.3744385,
+    "ast_hash": "ca344db961d07bdd3e6219c31cee307f",
+    "semantic_hash": ""
   },
   "scripts/verify-provider-logos.mjs": {
     "mtime": 1781533450.2535427,
@@ -245,12 +245,12 @@
     "semantic_hash": ""
   },
   "backend/data/bank_category_catalog.json": {
-    "mtime": 1781711091.5590174,
+    "mtime": 1781964584.3729103,
     "ast_hash": "459947b41b5615e160df2f9f32899f0c",
     "semantic_hash": ""
   },
   "backend/data/bank_category_unified_overrides.json": {
-    "mtime": 1781711088.7573457,
+    "mtime": 1781964584.3731668,
     "ast_hash": "ae853335a34527c48c7ff1577bcfc279",
     "semantic_hash": ""
   },
@@ -260,8 +260,8 @@
     "semantic_hash": ""
   },
   "backend/services/bank_slug_resolver.py": {
-    "mtime": 1781709804.62073,
-    "ast_hash": "d8ccf9513d38394a8b740f2785692558",
+    "mtime": 1782288617.355941,
+    "ast_hash": "25703161a7519cd0f843e0c42adeab7d",
     "semantic_hash": ""
   },
   "components/image-file-picker.tsx": {
@@ -270,7 +270,7 @@
     "semantic_hash": ""
   },
   "scripts/sync_bank_catalog.py": {
-    "mtime": 1781861832.8755832,
+    "mtime": 1781964584.400733,
     "ast_hash": "27d77ac2db4c1891f8dd655fe0afecee",
     "semantic_hash": ""
   },
@@ -285,7 +285,7 @@
     "semantic_hash": ""
   },
   "scripts/verify_bank_catalog.py": {
-    "mtime": 1781711093.7026641,
+    "mtime": 1781964584.400876,
     "ast_hash": "64409d867cba178e42629076a826326c",
     "semantic_hash": ""
   },
@@ -300,17 +300,17 @@
     "semantic_hash": ""
   },
   "backend/data/category_hierarchy.json": {
-    "mtime": 1781711086.1828227,
+    "mtime": 1781964584.3733735,
     "ast_hash": "b35341dd759e4646def9c5658d45be19",
     "semantic_hash": ""
   },
   "backend/data/parent_category_synonyms.json": {
-    "mtime": 1781861832.886667,
+    "mtime": 1781964584.375424,
     "ast_hash": "cddf96462a2d103b408d8091aa97135e",
     "semantic_hash": ""
   },
   "backend/data/taxonomy_migration.json": {
-    "mtime": 1781711089.3477826,
+    "mtime": 1781964584.3758967,
     "ast_hash": "8acad6fcab55e5ab45b0e89e0788b300",
     "semantic_hash": ""
   },
@@ -330,12 +330,12 @@
     "semantic_hash": ""
   },
   "backend/data/parent_category_enriched.json": {
-    "mtime": 1781711100.4874628,
+    "mtime": 1781964584.3752682,
     "ast_hash": "8427f06c5ebd5f68c6405fb1e974c724",
     "semantic_hash": ""
   },
   "backend/services/category_classifier_service.py": {
-    "mtime": 1781786198.0426097,
+    "mtime": 1781964584.3771791,
     "ast_hash": "d0cef44ce31ada08fbc0ec9ce2862ec9",
     "semantic_hash": ""
   },
@@ -350,188 +350,253 @@
     "semantic_hash": ""
   },
   "backend/data/edadeal_categories_raw.json": {
-    "mtime": 1781784374.978785,
+    "mtime": 1781964584.373818,
     "ast_hash": "b31cbcb55c5ec0246f6bbb693cc4d2b3",
     "semantic_hash": ""
   },
   "backend/data/edadeal_slug_aliases.json": {
-    "mtime": 1781783031.329635,
+    "mtime": 1781964584.3739767,
     "ast_hash": "ded554aeb1ea7fd1b24670b2bc0141a5",
     "semantic_hash": ""
   },
   "backend/data/market_aliases.json": {
-    "mtime": 1781780811.9040911,
+    "mtime": 1781964584.3741095,
     "ast_hash": "f122578d0195658dcdf23a8dbe012391",
     "semantic_hash": ""
   },
   "backend/data/market_catalog_review_grocery_all.json": {
-    "mtime": 1781784555.6630547,
+    "mtime": 1781964584.374321,
     "ast_hash": "d09f086eadc1bb0348b2b453485b9538",
     "semantic_hash": ""
   },
   "backend/data/market_catalog_review_grocery_worst50.json": {
-    "mtime": 1781784555.6618052,
+    "mtime": 1781964584.374496,
     "ast_hash": "01d417a4a4bf03f0c2481e7f952383d9",
     "semantic_hash": ""
   },
   "backend/data/market_catalog_review_worst50.json": {
-    "mtime": 1781784329.5250742,
+    "mtime": 1781964584.3747356,
     "ast_hash": "a502ae56f38cc097a4af3ca21b19cf9e",
     "semantic_hash": ""
   },
   "backend/data/market_category_overrides.json": {
-    "mtime": 1781788172.3955407,
+    "mtime": 1781964584.3749597,
     "ast_hash": "b026f0a426c3dde3ead5f93e854a4d36",
     "semantic_hash": ""
   },
   "backend/data/market_parent_enriched.json": {
-    "mtime": 1781788180.9871888,
+    "mtime": 1781964584.3750868,
     "ast_hash": "a0f73ba87de9d49b403b845baad3b214",
     "semantic_hash": ""
   },
   "backend/services/market_slug_resolver.py": {
-    "mtime": 1781780814.719595,
-    "ast_hash": "9601e1e28539feebd505c31eb8dae1a6",
+    "mtime": 1782288619.543673,
+    "ast_hash": "2153f8cf62193a17df5b0528fedee24e",
     "semantic_hash": ""
   },
   "scripts/auto_map_market_catalog.py": {
-    "mtime": 1781798071.1966717,
+    "mtime": 1781964584.400176,
     "ast_hash": "bf70a316c24dc2ac829567940d975cd2",
     "semantic_hash": ""
   },
   "scripts/generate_supermarket_hierarchy.py": {
-    "mtime": 1781798075.4770286,
+    "mtime": 1781964584.4004204,
     "ast_hash": "070a3612abe4f08633f585008540d0a8",
     "semantic_hash": ""
   },
   "scripts/scrape_edadeal_categories.py": {
-    "mtime": 1781798067.519188,
+    "mtime": 1781964584.4005492,
     "ast_hash": "4728cca1ae7440becfb01860c3c0413b",
     "semantic_hash": ""
   },
   "backend/data/reference_hierarchy.json": {
-    "mtime": 1781867444.8795123,
+    "mtime": 1781964584.3756273,
     "ast_hash": "44b7241e8a55093e1e9cc8f5551934e9",
     "semantic_hash": ""
   },
   "backend/services/reference_hierarchy.py": {
-    "mtime": 1781867493.008816,
-    "ast_hash": "e0922846d38b13a52249732ad78a5cb7",
+    "mtime": 1782288964.0137482,
+    "ast_hash": "9fbc95a7a8aa8b1586854aeafc117ad3",
     "semantic_hash": ""
   },
   "scripts/build_reference_hierarchy.py": {
-    "mtime": 1781867421.411695,
+    "mtime": 1781964584.4003103,
     "ast_hash": "4690b2e11ca51a8b29240992127b05b6",
     "semantic_hash": ""
   },
   "scripts/verify_reference_mapper_offline.py": {
-    "mtime": 1781797180.413087,
+    "mtime": 1781964584.4010923,
     "ast_hash": "d11cd909e59d312cb745539c84908398",
     "semantic_hash": ""
   },
   "scripts/verify_reference_mapper.py": {
-    "mtime": 1781855824.8584046,
+    "mtime": 1781964584.4009893,
     "ast_hash": "a26565a525b11f1cb2b996d733e592e8",
     "semantic_hash": ""
   },
   "lib/reference-hierarchy-order.ts": {
-    "mtime": 1781797849.668702,
+    "mtime": 1781964584.3987753,
     "ast_hash": "0207c06d709693d58ebfdc9ab7609792",
     "semantic_hash": ""
   },
   "backend/data/archive/market_cashback_consensus.json": {
-    "mtime": 1781789635.8682024,
+    "mtime": 1781964584.3704495,
     "ast_hash": "0a97e0782d880a3607e2ad403c4709bd",
     "semantic_hash": ""
   },
   "backend/data/archive/market_category_catalog.json": {
-    "mtime": 1781789663.765071,
+    "mtime": 1781964584.371572,
     "ast_hash": "1d8b70521e714431097d0b733db74084",
     "semantic_hash": ""
   },
   "backend/data/archive/parsed_market_taxonomies.json": {
-    "mtime": 1781784374.9802165,
+    "mtime": 1781964584.3719738,
     "ast_hash": "09d84f079639cfbe7bf84b1780b0957d",
     "semantic_hash": ""
   },
   "backend/data/archive/supermarket_catalog_tree.json": {
-    "mtime": 1781788166.8511274,
+    "mtime": 1781964584.3721466,
     "ast_hash": "1700ecd6ca7f4192b5c14e9145faddbb",
     "semantic_hash": ""
   },
   "backend/data/archive/supermarket_category_hierarchy.json": {
-    "mtime": 1781788180.9868977,
+    "mtime": 1781964584.372364,
     "ast_hash": "059d0e11d2e4c061db952e4375d719e5",
     "semantic_hash": ""
   },
   "backend/services/category_text_utils.py": {
-    "mtime": 1781862036.5063708,
+    "mtime": 1781964584.3773527,
     "ast_hash": "f441dafdfd2c70b256a29d36907594cb",
     "semantic_hash": ""
   },
   "backend/services/market_split_map_service.py": {
-    "mtime": 1781867566.7084506,
+    "mtime": 1781964584.37778,
     "ast_hash": "2f306983b249c8513fb2b93855085c53",
     "semantic_hash": ""
   },
   "backend/tests/__init__.py": {
-    "mtime": 1781867321.9563477,
+    "mtime": 1781964584.3782413,
     "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
     "semantic_hash": ""
   },
   "backend/tests/conftest.py": {
-    "mtime": 1781867322.8833315,
-    "ast_hash": "7b85c469b0334255d01a7a7b3af31694",
+    "mtime": 1782288948.072881,
+    "ast_hash": "e47ca9d71677ddea1cd23b33da638b2f",
     "semantic_hash": ""
   },
   "backend/tests/fixtures/mini_hierarchy.json": {
-    "mtime": 1781867467.6783252,
+    "mtime": 1781964584.3786676,
     "ast_hash": "6a204f7a7231dafdde62ba55bc360c6c",
     "semantic_hash": ""
   },
   "backend/tests/test_build_reference_hierarchy.py": {
-    "mtime": 1781867372.9922535,
+    "mtime": 1781964584.3789392,
     "ast_hash": "90b5d93097bf2e736255cd420a689c07",
     "semantic_hash": ""
   },
   "backend/tests/test_market_split_map_service.py": {
-    "mtime": 1781867576.8957293,
+    "mtime": 1781964584.3790722,
     "ast_hash": "e454a3760f7d64a384606b44987c5218",
     "semantic_hash": ""
   },
   "backend/tests/test_reference_hierarchy.py": {
-    "mtime": 1781867486.455052,
+    "mtime": 1781964584.3792126,
     "ast_hash": "ffcf0f6f0b87bdbd0af94c1bb770e010",
     "semantic_hash": ""
   },
   "lib/market-comparison.test.ts": {
-    "mtime": 1781867881.6670985,
-    "ast_hash": "d3150df159822b80f5e1a05e65a52ddd",
+    "mtime": 1781964584.3982882,
+    "ast_hash": "d6d72e836ddaad21a05465f3ae28671a",
     "semantic_hash": ""
   },
   "lib/market-comparison.ts": {
-    "mtime": 1781867866.31483,
-    "ast_hash": "9b51eb494225e3e1b94e20eb79a22cc7",
+    "mtime": 1781964584.3984025,
+    "ast_hash": "75948d38ed553ce049d92c335aecf7de",
     "semantic_hash": ""
   },
   "scripts/__init__.py": {
-    "mtime": 1781867404.9348664,
+    "mtime": 1781964584.4000187,
     "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
     "semantic_hash": ""
   },
   "scripts/verify_split_map.py": {
-    "mtime": 1781867594.1974783,
+    "mtime": 1781964584.4011877,
     "ast_hash": "f2faea9f874ac0c603ef129945481be0",
     "semantic_hash": ""
   },
   "scripts/verify_split_map_offline.py": {
-    "mtime": 1781867588.8180265,
+    "mtime": 1781964584.4014778,
     "ast_hash": "7e615e87e3185fb2b78092bf6d0f3dff",
     "semantic_hash": ""
   },
   "vitest.config.ts": {
-    "mtime": 1781867855.2246895,
+    "mtime": 1781964584.4021282,
     "ast_hash": "b65971ec3a5abe23ce1b4b01004cba81",
+    "semantic_hash": ""
+  },
+  "backend/data/retailer_catalog.json": {
+    "mtime": 1781972208.4868805,
+    "ast_hash": "c31f161ef5d846feb42b44f857acf746",
+    "semantic_hash": ""
+  },
+  "backend/routers/admin.py": {
+    "mtime": 1782288448.9846792,
+    "ast_hash": "e83aec2ee5e2c786f15695f7fb7a7828",
+    "semantic_hash": ""
+  },
+  "backend/services/catalog_store.py": {
+    "mtime": 1782288362.413322,
+    "ast_hash": "59b6eb1046c81c8b525311373b46abc2",
+    "semantic_hash": ""
+  },
+  "backend/services/retailer_resolver_service.py": {
+    "mtime": 1782289199.443725,
+    "ast_hash": "884bd595272a83ec4910cf3307ee2b16",
+    "semantic_hash": ""
+  },
+  "backend/tests/fixtures/mini_retailer_catalog.json": {
+    "mtime": 1781972384.4043972,
+    "ast_hash": "fff5254043df072494ace581a39cc86a",
+    "semantic_hash": ""
+  },
+  "backend/tests/test_mapper_retailer_integration.py": {
+    "mtime": 1782289176.113096,
+    "ast_hash": "d05c63aad61fe2d1b2a6572635a30f38",
+    "semantic_hash": ""
+  },
+  "backend/tests/test_retailer_resolver_service.py": {
+    "mtime": 1782289170.1484113,
+    "ast_hash": "26e991b6f987656dcaa308e7b2f22e5b",
+    "semantic_hash": ""
+  },
+  "lib/matrix-bank-display.test.ts": {
+    "mtime": 1781973471.2117264,
+    "ast_hash": "b6548b9564f8c2a817574eeeee0849b8",
+    "semantic_hash": ""
+  },
+  "lib/matrix-market-display.test.ts": {
+    "mtime": 1781964584.3985023,
+    "ast_hash": "25713b639d80874dca818fc193da6295",
+    "semantic_hash": ""
+  },
+  "scripts/import_rf_retailers.py": {
+    "mtime": 1782289203.1682599,
+    "ast_hash": "98cd5f5f338f9823ec5a65d36d516f30",
+    "semantic_hash": ""
+  },
+  "scripts/upload-assets.mjs": {
+    "mtime": 1782288250.559167,
+    "ast_hash": "6ce8d2a81bfc7792059f277971980f5a",
+    "semantic_hash": ""
+  },
+  "scripts/upload-catalogs.mjs": {
+    "mtime": 1782288252.2038834,
+    "ast_hash": "285667d23fb1c2653193ee9913636aed",
+    "semantic_hash": ""
+  },
+  "scripts/verify_retailer_resolver.py": {
+    "mtime": 1781972288.2450166,
+    "ast_hash": "7baee8df9020bd2801ce87c125fa8fea",
     "semantic_hash": ""
   }
 }
