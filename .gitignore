@@ -24,3 +24,6 @@ backend/__pycache__/
 **/__pycache__/
 *.pyc
 backend/.env
+
+# Logos served from R2 — keep locally for dev but not in git
+public/logos/
