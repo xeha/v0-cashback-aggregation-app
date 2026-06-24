@@ -113,6 +113,15 @@ class RetailerResolverService:
         raw = os.environ.get("POCKETBASE_URL", "").strip()
         return self._clean_base_url(raw) if raw else None
 
+    def _require_pocketbase_url(self) -> str:
+        base_url = self._pocketbase_url()
+        if base_url is None:
+            raise RuntimeError(
+                "POCKETBASE_URL is not configured. "
+                "Set POCKETBASE_URL (and admin credentials) to persist retailer catalog entries."
+            )
+        return base_url
+
     def _admin_credentials(self) -> tuple[str, str]:
         email = os.environ.get("POCKETBASE_ADMIN_EMAIL", "").strip()
         password = os.environ.get("POCKETBASE_ADMIN_PASSWORD", "").strip()
@@ -127,8 +136,9 @@ class RetailerResolverService:
             return {"Authorization": f"Bearer {self._admin_token}"}
 
         email, password = self._admin_credentials()
+        base_url = self._require_pocketbase_url()
         response = client.post(
-            f"{self._pocketbase_url()}/api/admins/auth-with-password",
+            f"{base_url}/api/admins/auth-with-password",
             json={"identity": email, "password": password},
         )
         response.raise_for_status()
@@ -239,7 +249,7 @@ class RetailerResolverService:
         return entries
 
     def _find_record_id_by_key(self, client: httpx.Client, key: str) -> str | None:
-        base_url = self._pocketbase_url()
+        base_url = self._require_pocketbase_url()
         escaped_key = key.replace("\\", "\\\\").replace("'", "\\'")
         headers = self._admin_headers(client)
         response = client.get(
@@ -272,7 +282,7 @@ class RetailerResolverService:
         added_at = entry.get("added_at")
         if added_at:
             payload["added_at"] = added_at
-        base_url = self._pocketbase_url()
+        base_url = self._require_pocketbase_url()
         with httpx.Client(timeout=15.0) as client:
             record_id = self._find_record_id_by_key(client, key)
             if record_id:

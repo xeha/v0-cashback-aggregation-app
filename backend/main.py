@@ -1,4 +1,5 @@
 import os
+import asyncio
 from contextlib import asynccontextmanager
 
 from dotenv import load_dotenv
@@ -42,7 +43,7 @@ async def lifespan(app: FastAPI):
     bank_mapper.load(model=shared_model)
 
     retailer_resolver = RetailerResolverService()
-    retailer_resolver.load()
+    await asyncio.to_thread(retailer_resolver.load)
     retailer_resolver.set_allowed_parents(bank_mapper._parents)
     bank_mapper.set_retailer_resolver(retailer_resolver)
 

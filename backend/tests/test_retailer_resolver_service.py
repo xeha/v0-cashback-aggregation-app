@@ -60,3 +60,22 @@ def test_save_entry_upserts_and_updates_cache(
     entry = service.lookup("Леонардо")
     assert entry is not None
     assert entry.source == "llm_web"
+
+
+def test_upsert_requires_pocketbase_url(
+    monkeypatch: pytest.MonkeyPatch,
+    fixture_entries: dict[str, dict],
+):
+    monkeypatch.delenv("POCKETBASE_URL", raising=False)
+    service = RetailerResolverService()
+    monkeypatch.setattr(service, "_warm_cache", lambda: dict(fixture_entries))
+    service.load()
+
+    with pytest.raises(RuntimeError, match="POCKETBASE_URL is not configured"):
+        service.save_entry(
+            key="леонардо",
+            unified_parent="Досуг И Отдых",
+            unified_subcategory="Хобби и творчество",
+            canonical_name="Леонардо",
+            source="llm_web",
+        )

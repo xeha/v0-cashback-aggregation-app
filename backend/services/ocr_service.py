@@ -236,16 +236,6 @@ def _is_transient_mistral_error(exc: BaseException) -> bool:
     )
 
 
-def _get_mistral_client() -> Mistral:
-    api_key = os.environ.get("MISTRAL_API_KEY")
-    if not api_key:
-        raise RuntimeError("MISTRAL_API_KEY is not configured")
-    timeout = httpx.Timeout(_mistral_timeout_sec(), connect=30.0)
-    return Mistral(
-        api_key=api_key,
-        client=httpx.Client(timeout=timeout, follow_redirects=True, http2=False),
-    )
-
 
 def _call_mistral_vision(client: Mistral, prompt: str, data_url: str) -> str:
     response = client.chat.complete(
@@ -273,26 +263,33 @@ def extract_cashback_items(
     prepared_base64, prepared_mime = _prepare_image_for_ocr(image_base64, mime_type)
     data_url = f"data:{prepared_mime};base64,{prepared_base64}"
 
+    api_key = os.environ.get("MISTRAL_API_KEY")
+    if not api_key:
+        raise RuntimeError("MISTRAL_API_KEY is not configured")
+    timeout = httpx.Timeout(_mistral_timeout_sec(), connect=30.0)
+
     last_error: Exception | None = None
-    for attempt in range(1, OCR_MAX_ATTEMPTS + 1):
-        try:
-            content = _call_mistral_vision(_get_mistral_client(), prompt, data_url)
-            if not content:
-                return []
-            return _parse_response_content(content, kind)
-        except Exception as exc:
-            last_error = exc
-            if not _is_transient_mistral_error(exc) or attempt == OCR_MAX_ATTEMPTS:
-                raise
-            wait_sec = 2 ** (attempt - 1)
-            logger.warning(
-                "Mistral OCR attempt %d/%d failed (%s), retrying in %ss",
-                attempt,
-                OCR_MAX_ATTEMPTS,
-                exc,
-                wait_sec,
-            )
-            time.sleep(wait_sec)
+    with httpx.Client(timeout=timeout, follow_redirects=True, http2=False) as http_client:
+        mistral = Mistral(api_key=api_key, client=http_client)
+        for attempt in range(1, OCR_MAX_ATTEMPTS + 1):
+            try:
+                content = _call_mistral_vision(mistral, prompt, data_url)
+                if not content:
+                    return []
+                return _parse_response_content(content, kind)
+            except Exception as exc:
+                last_error = exc
+                if not _is_transient_mistral_error(exc) or attempt == OCR_MAX_ATTEMPTS:
+                    raise
+                wait_sec = 2 ** (attempt - 1)
+                logger.warning(
+                    "Mistral OCR attempt %d/%d failed (%s), retrying in %ss",
+                    attempt,
+                    OCR_MAX_ATTEMPTS,
+                    exc,
+                    wait_sec,
+                )
+                time.sleep(wait_sec)
 
     if last_error is not None:
         raise last_error

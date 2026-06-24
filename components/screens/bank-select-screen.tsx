@@ -176,6 +176,12 @@ export function BankSelectScreen({
   function removeRow(index: number) {
     if (index < lockedRowCount) return
     clearScreenshotReuseBlock()
+
+    if (names.length <= 1) {
+      onBack()
+      return
+    }
+
     setNames((prev) => prev.filter((_, i) => i !== index))
     setCatalogSlugs((prev) => prev.filter((_, i) => i !== index))
     setRowKinds((prev) => prev.filter((_, i) => i !== index))
@@ -386,16 +392,28 @@ export function BankSelectScreen({
           return (
           <div key={i} className="flex items-center gap-2">
             {shots[i] && (
-              <img
-                src={shots[i] || "/placeholder.svg"}
-                alt={`Скриншот ${name || i + 1}`}
-                decoding="async"
-                className={`h-16 w-12 shrink-0 rounded-xl border bg-slate-50 object-contain ${
-                  hasScreenshotConflict
-                    ? "border-red-300 ring-2 ring-red-200"
-                    : "border-slate-200"
-                }`}
-              />
+              <div className="relative shrink-0">
+                <img
+                  src={shots[i] || "/placeholder.svg"}
+                  alt={`Скриншот ${name || i + 1}`}
+                  decoding="async"
+                  className={`h-16 w-12 rounded-xl border bg-slate-50 object-contain ${
+                    hasScreenshotConflict
+                      ? "border-red-300 ring-2 ring-red-200"
+                      : "border-slate-200"
+                  }`}
+                />
+                {!isLocked && (
+                  <button
+                    type="button"
+                    onClick={() => removeRow(i)}
+                    aria-label={`Удалить скриншот ${name || i + 1}`}
+                    className="absolute -right-1.5 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-slate-800 text-white shadow-sm transition-colors hover:bg-slate-950"
+                  >
+                    <X className="h-3.5 w-3.5" />
+                  </button>
+                )}
+              </div>
             )}
             <div
               className={`min-w-0 flex-1 rounded-2xl ${
@@ -417,15 +435,6 @@ export function BankSelectScreen({
                 />
               )}
             </div>
-            {names.length > 1 && !isLocked && (
-              <button
-                onClick={() => removeRow(i)}
-                aria-label="Удалить источник"
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            )}
           </div>
           )
         })}
