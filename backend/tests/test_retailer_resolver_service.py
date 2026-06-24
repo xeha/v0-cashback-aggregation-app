@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import pytest
@@ -8,8 +9,15 @@ FIXTURE_CATALOG = Path(__file__).parent / "fixtures" / "mini_retailer_catalog.js
 
 
 @pytest.fixture
-def resolver(tmp_path: Path) -> RetailerResolverService:
-    service = RetailerResolverService(catalog_path=FIXTURE_CATALOG)
+def fixture_entries() -> dict[str, dict]:
+    payload = json.loads(FIXTURE_CATALOG.read_text(encoding="utf-8"))
+    return payload["entries"]
+
+
+@pytest.fixture
+def resolver(monkeypatch: pytest.MonkeyPatch, fixture_entries: dict[str, dict]) -> RetailerResolverService:
+    service = RetailerResolverService()
+    monkeypatch.setattr(service, "_warm_cache", lambda: dict(fixture_entries))
     service.load()
     return service
 
@@ -28,10 +36,18 @@ def test_lookup_miss(resolver: RetailerResolverService):
     assert resolver.lookup("Неизвестный Магазин XYZ") is None
 
 
-def test_save_entry_appends_to_catalog(tmp_path: Path):
-    catalog_path = tmp_path / "retailer_catalog.json"
-    catalog_path.write_text('{"version":"1.0","entries":{}}', encoding="utf-8")
-    service = RetailerResolverService(catalog_path=catalog_path)
+def test_save_entry_upserts_and_updates_cache(
+    monkeypatch: pytest.MonkeyPatch,
+    fixture_entries: dict[str, dict],
+):
+    service = RetailerResolverService()
+    monkeypatch.setattr(service, "_warm_cache", lambda: dict(fixture_entries))
+    upserts: dict[str, dict] = {}
+
+    def _fake_upsert(key: str, entry: dict) -> None:
+        upserts[key] = entry
+
+    monkeypatch.setattr(service, "_upsert_entry", _fake_upsert)
     service.load()
     service.save_entry(
         key="леонардо",
@@ -40,7 +56,7 @@ def test_save_entry_appends_to_catalog(tmp_path: Path):
         canonical_name="Леонардо",
         source="llm_web",
     )
-    service.load()
+    assert "леонардо" in upserts
     entry = service.lookup("Леонардо")
     assert entry is not None
     assert entry.source == "llm_web"

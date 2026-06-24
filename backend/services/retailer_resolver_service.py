@@ -6,11 +6,10 @@ import os
 import re
 from dataclasses import dataclass
 from datetime import datetime, timezone
-from pathlib import Path
+
+import httpx
 
 logger = logging.getLogger(__name__)
-
-CATALOG_PATH = Path(__file__).resolve().parent.parent / "data" / "retailer_catalog.json"
 
 LEGAL_SUFFIX_RE = re.compile(
     r"\s*[\(\[]\s*(?:ооо|ао|пао|зао|ип|x5 group|магнит)[^)\]]*[\)\]]",
@@ -39,12 +38,12 @@ class RetailerEntry:
 
 
 class RetailerResolverService:
-    def __init__(self, catalog_path: Path = CATALOG_PATH) -> None:
-        self._catalog_path = catalog_path
+    def __init__(self) -> None:
         self._entries: dict[str, dict] = {}
         self._allowed_parents: list[str] = []
         self._loaded = False
         self._client = None
+        self._admin_token: str | None = None
 
     @property
     def is_loaded(self) -> bool:
@@ -60,11 +59,7 @@ class RetailerResolverService:
         self._allowed_parents = list(parents)
 
     def load(self) -> None:
-        if self._catalog_path.is_file():
-            raw = json.loads(self._catalog_path.read_text(encoding="utf-8"))
-            self._entries = raw.get("entries", {})
-        else:
-            self._entries = {}
+        self._entries = self._warm_cache()
         self._loaded = True
 
     def reload(self) -> None:
@@ -93,27 +88,190 @@ class RetailerResolverService:
         canonical_name: str,
         source: str,
     ) -> None:
-        import fcntl
-
-        self._catalog_path.parent.mkdir(parents=True, exist_ok=True)
-        if self._catalog_path.is_file():
-            raw = json.loads(self._catalog_path.read_text(encoding="utf-8"))
-        else:
-            raw = {"version": "1.0", "entries": {}}
-        raw.setdefault("entries", {})[key] = {
+        key = self.normalize(key)
+        entry = {
             "unified_parent": unified_parent,
             "unified_subcategory": unified_subcategory,
             "canonical_name": canonical_name,
             "source": source,
             "added_at": datetime.now(timezone.utc).isoformat(),
         }
-        payload = json.dumps(raw, ensure_ascii=False, indent=2)
-        with self._catalog_path.open("w", encoding="utf-8") as fh:
-            fcntl.flock(fh.fileno(), fcntl.LOCK_EX)
-            fh.write(payload)
-            fh.flush()
-            fcntl.flock(fh.fileno(), fcntl.LOCK_UN)
-        self._entries = raw["entries"]
+        self._upsert_entry(key, entry)
+        self._entries[key] = entry
+        self._loaded = True
+
+    @staticmethod
+    def _clean_base_url(url: str) -> str:
+        return url.rstrip("/")
+
+    def _pocketbase_url(self) -> str:
+        raw = os.environ.get("POCKETBASE_URL", "").strip()
+        if not raw:
+            raise RuntimeError("POCKETBASE_URL is not configured")
+        return self._clean_base_url(raw)
+
+    def _admin_credentials(self) -> tuple[str, str]:
+        email = os.environ.get("POCKETBASE_ADMIN_EMAIL", "").strip()
+        password = os.environ.get("POCKETBASE_ADMIN_PASSWORD", "").strip()
+        if not email or not password:
+            raise RuntimeError(
+                "POCKETBASE_ADMIN_EMAIL or POCKETBASE_ADMIN_PASSWORD is not configured"
+            )
+        return email, password
+
+    def _admin_headers(self, client: httpx.Client) -> dict[str, str]:
+        if self._admin_token:
+            return {"Authorization": f"Bearer {self._admin_token}"}
+
+        email, password = self._admin_credentials()
+        response = client.post(
+            f"{self._pocketbase_url()}/api/admins/auth-with-password",
+            json={"identity": email, "password": password},
+        )
+        response.raise_for_status()
+        token = response.json().get("token")
+        if not token:
+            raise RuntimeError("PocketBase admin auth succeeded without token")
+        self._admin_token = str(token)
+        return {"Authorization": f"Bearer {self._admin_token}"}
+
+    def _request_with_admin_auth(
+        self,
+        client: httpx.Client,
+        *,
+        method: str,
+        url: str,
+        json_payload: dict | None = None,
+    ) -> httpx.Response:
+        headers = self._admin_headers(client)
+        response = client.request(method, url, json=json_payload, headers=headers)
+        if response.status_code != 401:
+            response.raise_for_status()
+            return response
+
+        self._admin_token = None
+        headers = self._admin_headers(client)
+        retry = client.request(method, url, json=json_payload, headers=headers)
+        retry.raise_for_status()
+        return retry
+
+    @staticmethod
+    def _entry_from_record(record: dict) -> tuple[str, dict]:
+        key = RetailerResolverService.normalize(str(record.get("key", "")).strip())
+        if not key:
+            raise ValueError("retailer_catalog record missing key")
+        parent = str(record.get("unified_parent", "")).strip()
+        if not parent:
+            raise ValueError(f"retailer_catalog record {key!r} missing unified_parent")
+        subcategory = str(record.get("unified_subcategory", "")).strip() or parent
+        canonical = str(record.get("canonical_name", "")).strip() or key
+        source = str(record.get("source", "")).strip() or "static"
+        entry = {
+            "unified_parent": parent,
+            "unified_subcategory": subcategory,
+            "canonical_name": canonical,
+            "source": source,
+        }
+        added_at = record.get("added_at")
+        if added_at:
+            entry["added_at"] = added_at
+        return key, entry
+
+    def _warm_cache(self) -> dict[str, dict]:
+        base_url = self._pocketbase_url()
+        entries: dict[str, dict] = {}
+        page = 1
+        per_page = 200
+        with httpx.Client(timeout=15.0) as client:
+            while True:
+                response = client.get(
+                    f"{base_url}/api/collections/retailer_catalog/records",
+                    params={
+                        "page": page,
+                        "perPage": per_page,
+                        "sort": "key",
+                        "fields": "id,key,unified_parent,unified_subcategory,canonical_name,source,added_at",
+                    },
+                )
+                if response.status_code in {401, 403}:
+                    headers = self._admin_headers(client)
+                    response = client.get(
+                        f"{base_url}/api/collections/retailer_catalog/records",
+                        params={
+                            "page": page,
+                            "perPage": per_page,
+                            "sort": "key",
+                            "fields": "id,key,unified_parent,unified_subcategory,canonical_name,source,added_at",
+                        },
+                        headers=headers,
+                    )
+                response.raise_for_status()
+                payload = response.json()
+                items = payload.get("items", [])
+                if not isinstance(items, list):
+                    raise RuntimeError("PocketBase retailer_catalog payload has invalid items")
+                for item in items:
+                    key, entry = self._entry_from_record(item)
+                    entries[key] = entry
+
+                total_items = int(payload.get("totalItems", len(items)))
+                if page * per_page >= total_items:
+                    break
+                page += 1
+        return entries
+
+    def _find_record_id_by_key(self, client: httpx.Client, key: str) -> str | None:
+        base_url = self._pocketbase_url()
+        escaped_key = key.replace("\\", "\\\\").replace("'", "\\'")
+        headers = self._admin_headers(client)
+        response = client.get(
+            f"{base_url}/api/collections/retailer_catalog/records",
+            params={"filter": f"(key='{escaped_key}')", "perPage": 1, "fields": "id,key"},
+            headers=headers,
+        )
+        if response.status_code == 401:
+            self._admin_token = None
+            headers = self._admin_headers(client)
+            response = client.get(
+                f"{base_url}/api/collections/retailer_catalog/records",
+                params={"filter": f"(key='{escaped_key}')", "perPage": 1, "fields": "id,key"},
+                headers=headers,
+            )
+        response.raise_for_status()
+        items = response.json().get("items") or []
+        if not items:
+            return None
+        return str(items[0].get("id"))
+
+    def _upsert_entry(self, key: str, entry: dict) -> None:
+        payload: dict[str, str] = {
+            "key": key,
+            "unified_parent": entry["unified_parent"],
+            "unified_subcategory": entry["unified_subcategory"],
+            "canonical_name": entry["canonical_name"],
+            "source": entry["source"],
+        }
+        added_at = entry.get("added_at")
+        if added_at:
+            payload["added_at"] = added_at
+        base_url = self._pocketbase_url()
+        with httpx.Client(timeout=15.0) as client:
+            record_id = self._find_record_id_by_key(client, key)
+            if record_id:
+                self._request_with_admin_auth(
+                    client,
+                    method="PATCH",
+                    url=f"{base_url}/api/collections/retailer_catalog/records/{record_id}",
+                    json_payload=payload,
+                )
+                return
+
+            self._request_with_admin_auth(
+                client,
+                method="POST",
+                url=f"{base_url}/api/collections/retailer_catalog/records",
+                json_payload=payload,
+            )
 
     def _get_client(self):
         if self._client is None:

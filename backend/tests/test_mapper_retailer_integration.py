@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
@@ -20,8 +21,10 @@ def mapper_with_retailer_resolver() -> MapperService:
     mapper = MapperService()
     with patch("services.mapper_service.encode_texts", side_effect=_fake_embeddings):
         mapper.load(model=MagicMock())
-    resolver = RetailerResolverService(catalog_path=FIXTURE_CATALOG)
-    resolver.load()
+    payload = json.loads(FIXTURE_CATALOG.read_text(encoding="utf-8"))
+    resolver = RetailerResolverService()
+    resolver._entries = payload["entries"]  # test-only preloaded cache
+    resolver._loaded = True
     resolver.set_allowed_parents(mapper._parents)
     mapper.set_retailer_resolver(resolver)
     return mapper
