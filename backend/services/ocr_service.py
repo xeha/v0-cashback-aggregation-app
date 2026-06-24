@@ -1,15 +1,13 @@
 import json
 import os
 import re
-from pathlib import Path
 
 from typing import Literal
 
 from mistralai.client import Mistral
 
 from schemas import OcrItem
-
-EXCLUSIONS_PATH = Path(__file__).resolve().parent.parent / "data" / "bank_service_exclusions.json"
+from services import catalog_store
 
 OCR_PROMPT_BANK = """Извлеки из скриншота мобильного приложения пары «категория кэшбэка — процент».
 
@@ -91,8 +89,7 @@ def _normalize_category_name(name: str) -> str:
 
 
 def _load_bank_service_patterns() -> list[str]:
-    with EXCLUSIONS_PATH.open(encoding="utf-8") as f:
-        data = json.load(f)
+    data = catalog_store.get("bank_service_exclusions")
     if not isinstance(data, list):
         raise ValueError("bank_service_exclusions.json must be a JSON array")
     return [str(entry).strip().lower() for entry in data if str(entry).strip()]

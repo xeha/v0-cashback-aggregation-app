@@ -4,9 +4,7 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 
-REFERENCE_HIERARCHY_PATH = (
-    Path(__file__).resolve().parent.parent / "data" / "reference_hierarchy.json"
-)
+from services import catalog_store
 
 
 @dataclass(frozen=True)
@@ -42,8 +40,10 @@ class ReferenceHierarchy:
         return self._fallback_node_id
 
     def load(self, path: Path | None = None) -> None:
-        source_path = path or REFERENCE_HIERARCHY_PATH
-        raw_data = json.loads(source_path.read_text(encoding="utf-8"))
+        if path is not None:
+            raw_data = json.loads(path.read_text(encoding="utf-8"))
+        else:
+            raw_data = catalog_store.get("reference_hierarchy")
 
         departments = raw_data.get("departments")
         fallback_node_id = raw_data.get("fallback_node_id")

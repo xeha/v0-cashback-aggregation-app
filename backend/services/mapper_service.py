@@ -1,32 +1,15 @@
-import json
 import os
-from pathlib import Path
 from typing import Literal
 
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
 from schemas import CategoryMapRequestItem, MappedItem
+from services import catalog_store
 from services.bank_slug_resolver import load_bank_aliases, resolve_bank_slug
 from services.category_classifier_service import CategoryClassifierService
 from services.category_embedding import best_match, best_match_among, encode_texts
 from services.retailer_resolver_service import RetailerResolverService
-
-HIERARCHY_PATH = Path(__file__).resolve().parent.parent / "data" / "category_hierarchy.json"
-OVERRIDES_PATH = Path(__file__).resolve().parent.parent / "data" / "category_overrides.json"
-CATALOG_PATH = Path(__file__).resolve().parent.parent / "data" / "bank_category_catalog.json"
-ENRICHED_PATH = Path(__file__).resolve().parent.parent / "data" / "parent_category_enriched.json"
-NAMED_CATEGORIES_PATH = (
-    Path(__file__).resolve().parent.parent / "data" / "bank_named_categories.json"
-)
-# Bank-only OCR aliases → parent category (category_hierarchy.json).
-# Not used for market mapping (ReferenceMapperService + reference_hierarchy.json).
-BANK_PARENT_SYNONYMS_PATH = (
-    Path(__file__).resolve().parent.parent / "data" / "parent_category_synonyms.json"
-)
-BANK_OFFER_ENTRIES_PATH = (
-    Path(__file__).resolve().parent.parent / "data" / "bank_offer_entries.json"
-)
 FALLBACK_SUBCATEGORY = "Прочее (УСЛУГИ)"
 FALLBACK_PARENT = "Услуги"
 DEFAULT_PARENT_THRESHOLD = 0.55
@@ -55,9 +38,7 @@ def _normalize_category_name(name: str) -> str:
 
 
 def _load_bank_offer_keys() -> dict[str, set[str]]:
-    if not BANK_OFFER_ENTRIES_PATH.is_file():
-        return {}
-    raw = json.loads(BANK_OFFER_ENTRIES_PATH.read_text(encoding="utf-8"))
+    raw = catalog_store.get("bank_offer_entries")
     return {
         slug: {_normalize_category_name(key) for key in keys}
         for slug, keys in raw.items()
@@ -65,9 +46,7 @@ def _load_bank_offer_keys() -> dict[str, set[str]]:
 
 
 def _load_named_categories() -> dict[str, dict[str, str]]:
-    if not NAMED_CATEGORIES_PATH.is_file():
-        return {}
-    raw = json.loads(NAMED_CATEGORIES_PATH.read_text(encoding="utf-8"))
+    raw = catalog_store.get("bank_named_categories")
     return {_normalize_category_name(key): value for key, value in raw.items()}
 
 
@@ -155,7 +134,7 @@ class MapperService:
         )
 
     def load(self, model: SentenceTransformer | None = None) -> None:
-        hierarchy = json.loads(HIERARCHY_PATH.read_text(encoding="utf-8"))
+        hierarchy = catalog_store.get("category_hierarchy")
         self._subcategories = hierarchy["subcategory_names"]
         self._subcategory_to_parent = hierarchy["subcategory_to_parent"]
         self._parents = [p["name"] for p in hierarchy.get("parents", [])]
@@ -164,27 +143,24 @@ class MapperService:
             for parent in hierarchy.get("parents", [])
         }
 
-        with OVERRIDES_PATH.open(encoding="utf-8") as f:
-            raw_overrides = json.load(f)
+        raw_overrides = catalog_store.get("category_overrides")
         self._overrides = {
             _normalize_category_name(key): value for key, value in raw_overrides.items()
         }
         self._named_categories = _load_named_categories()
-        if BANK_PARENT_SYNONYMS_PATH.is_file():
-            raw_synonyms = json.loads(BANK_PARENT_SYNONYMS_PATH.read_text(encoding="utf-8"))
-            self._parent_synonyms = {
-                _normalize_category_name(key): value
-                for key, value in raw_synonyms.items()
-                if not str(key).startswith("_")
-            }
+        raw_synonyms = catalog_store.get("parent_category_synonyms")
+        self._parent_synonyms = {
+            _normalize_category_name(key): value
+            for key, value in raw_synonyms.items()
+            if not str(key).startswith("_")
+        }
 
-        with CATALOG_PATH.open(encoding="utf-8") as f:
-            self._catalog = json.load(f)
+        self._catalog = catalog_store.get("bank_category_catalog")
         self._catalog_by_key, self._catalog_consensus = _build_catalog_indexes(self._catalog)
         self._bank_aliases = load_bank_aliases()
         self._bank_offer_keys = _load_bank_offer_keys()
 
-        self._enriched = json.loads(ENRICHED_PATH.read_text(encoding="utf-8"))
+        self._enriched = catalog_store.get("parent_category_enriched")
         self._parent_embedding_texts = [
             self._enriched[name]["embedding_text"] for name in self._parents
         ]

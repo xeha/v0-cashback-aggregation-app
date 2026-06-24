@@ -1,7 +1,4 @@
-import json
-from pathlib import Path
-
-ALIASES_PATH = Path(__file__).resolve().parent.parent / "data" / "bank_aliases.json"
+from services import catalog_store
 
 
 def _normalize_bank_name(name: str) -> str:
@@ -9,8 +6,7 @@ def _normalize_bank_name(name: str) -> str:
 
 
 def load_bank_aliases() -> dict[str, str]:
-    with ALIASES_PATH.open(encoding="utf-8") as f:
-        raw = json.load(f)
+    raw = catalog_store.get("bank_aliases")
     return {_normalize_bank_name(key): slug for key, slug in raw.items()}
 
 
