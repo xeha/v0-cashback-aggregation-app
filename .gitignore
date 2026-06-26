@@ -26,5 +26,5 @@ backend/__pycache__/
 *.pyc
 backend/.env
 
-# Logos served from R2 — keep locally for dev but not in git
+# Logos on S3 when NEXT_PUBLIC_ASSETS_URL is set; optional local copy (public/logos/)
 public/logos/

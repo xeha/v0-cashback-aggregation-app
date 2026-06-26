@@ -1,16 +1,16 @@
-# Graph Report - v0-cashback-aggregation-app  (2026-06-24)
+# Graph Report - v0-cashback-aggregation-app  (2026-06-26)
 
 ## Corpus Check
-- 120 files · ~176,075 words
+- 120 files · ~177,013 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 675 nodes · 1331 edges · 46 communities (40 shown, 6 thin omitted)
-- Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 121 edges (avg confidence: 0.51)
+- 695 nodes · 1376 edges · 42 communities (37 shown, 5 thin omitted)
+- Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 122 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `159d66d1`
+- Built from commit: `8fda721a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -47,16 +47,12 @@
 - [[_COMMUNITY_Community 36|Community 36]]
 - [[_COMMUNITY_Community 37|Community 37]]
 - [[_COMMUNITY_Community 38|Community 38]]
-- [[_COMMUNITY_Community 39|Community 39]]
 - [[_COMMUNITY_Community 40|Community 40]]
 - [[_COMMUNITY_Community 41|Community 41]]
 - [[_COMMUNITY_Community 42|Community 42]]
-- [[_COMMUNITY_Community 43|Community 43]]
-- [[_COMMUNITY_Community 44|Community 44]]
-- [[_COMMUNITY_Community 45|Community 45]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `RetailerResolverService` - 42 edges
+1. `RetailerResolverService` - 44 edges
 2. `MapperService` - 34 edges
 3. `MarketSplitMapService` - 29 edges
 4. `CategoryMapRequestItem` - 25 edges
@@ -82,19 +78,19 @@
 ## Import Cycles
 - 1-file cycle: `backend/main.py -> backend/main.py`
 
-## Communities (46 total, 6 thin omitted)
+## Communities (42 total, 5 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.10
 Nodes (26): OcrFailureDialog(), ApiError, collectBankOfferItems(), collectLowConfidenceItems(), extractOcr(), getBackendUrl(), isOcrRecognitionFailure(), isRequestTimeoutError() (+18 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.12
-Nodes (26): createProviderFromSubmission(), findMatchingProvider(), bankCatalog, CatalogMatchResult, CatalogRecord, findCatalogMatch(), findCatalogMatches(), findCatalogMatchInCatalog() (+18 more)
+Cohesion: 0.09
+Nodes (37): getPlaceholderAvatarColors(), getProviderInitial(), hashString(), isPlaceholderProviderLogo(), PLACEHOLDER_PALETTE, ProviderLogo(), ProviderNameInput(), createProviderFromSubmission() (+29 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.09
-Nodes (43): MapperService, RetailerResolverService, CategoryMapRequest, CategoryMapRequestItem, CategoryMapResponse, HealthResponse, MappedItem, OcrExtractRequest (+35 more)
+Cohesion: 0.07
+Nodes (53): health(), lifespan(), _local_network_origin_regex(), Allow phone testing over Wi-Fi (Next.js dev on port 3000)., MapperService, RetailerResolverService, BaseException, CategoryMapRequest (+45 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.10
@@ -129,8 +125,8 @@ Cohesion: 1.00
 Nodes (3): load_market_aliases(), _normalize_market_name(), resolve_market_slug()
 
 ### Community 11 - "Community 11"
-Cohesion: 0.40
-Nodes (9): OcrItem, extract_cashback_items(), filter_bank_services(), _finalize_ocr_items(), _is_bank_service_category(), _load_bank_service_patterns(), _normalize_category_name(), _parse_ocr_json() (+1 more)
+Cohesion: 0.21
+Nodes (19): OcrItem, BaseException, Mistral, OcrItem, _call_mistral_vision(), extract_cashback_items(), filter_bank_services(), _finalize_ocr_items() (+11 more)
 
 ### Community 12 - "Community 12"
 Cohesion: 0.33
@@ -145,8 +141,8 @@ Cohesion: 0.70
 Nodes (3): cn(), Button(), buttonVariants
 
 ### Community 20 - "Community 20"
-Cohesion: 0.17
-Nodes (18): DuplicateSourceConfirmDialog(), formatProviderList(), ProviderKindPickerDialog(), ProviderKindPickerDialogProps, ProviderKindPickerMode, BankSelectInitialRow, buildBankSelectRowState(), submissionToBankSelectRow() (+10 more)
+Cohesion: 0.08
+Nodes (36): CashbackApp(), EMPTY_PROCESSING_SUMMARY, getBankSelectInitialRows(), PickMode, Screen, DuplicateSourceConfirmDialog(), formatProviderList(), ImageFilePicker() (+28 more)
 
 ### Community 21 - "Community 21"
 Cohesion: 0.40
@@ -185,20 +181,16 @@ Cohesion: 0.83
 Nodes (3): build_hierarchy(), main(), normalize()
 
 ### Community 36 - "Community 36"
-Cohesion: 0.33
-Nodes (8): AsyncClient, Any, _assets_url(), _fetch_one(), get(), load_all(), Download all catalogs from R2 into memory. Call once during FastAPI lifespan., Return catalog by name (filename without .json). Raises KeyError if not loaded.
+Cohesion: 0.27
+Nodes (11): AsyncClient, Any, _assets_url(), _fetch_one(), get(), load_all(), load_from_local(), Return catalog by name (filename without .json). Raises KeyError if not loaded. (+3 more)
 
 ### Community 37 - "Community 37"
-Cohesion: 0.07
-Nodes (38): health(), lifespan(), _local_network_origin_regex(), Allow phone testing over Wi-Fi (Next.js dev on port 3000)., ndarray, SentenceTransformer, CategoryMapRequestItem, MappedItem (+30 more)
+Cohesion: 0.09
+Nodes (31): Mistral, ndarray, SentenceTransformer, CategoryMapRequestItem, MappedItem, MatchSource, ndarray, MapperService (+23 more)
 
 ### Community 38 - "Community 38"
-Cohesion: 0.10
-Nodes (12): Client, RetailerResolverService, Mistral, MonkeyPatch, Response, main(), RetailerEntry, RetailerResolverService (+4 more)
-
-### Community 39 - "Community 39"
-Cohesion: 0.48
-Nodes (6): getPlaceholderAvatarColors(), getProviderInitial(), hashString(), isPlaceholderProviderLogo(), PLACEHOLDER_PALETTE, ProviderLogo()
+Cohesion: 0.11
+Nodes (12): Client, RetailerResolverService, MonkeyPatch, Response, main(), RetailerEntry, RetailerResolverService, resolver() (+4 more)
 
 ### Community 40 - "Community 40"
 Cohesion: 0.32
@@ -208,28 +200,20 @@ Nodes (12): _admin_credentials(), _admin_token(), canonical_name(), _fetch_exist
 Cohesion: 0.40
 Nodes (4): CATALOG_DIRS, client, root, SKIP_PATTERNS
 
-### Community 43 - "Community 43"
-Cohesion: 0.14
-Nodes (13): CashbackApp(), EMPTY_PROCESSING_SUMMARY, getBankSelectInitialRows(), PickMode, Screen, ImageFilePicker(), ImageFilePickerState, EmptyScreen() (+5 more)
-
-### Community 44 - "Community 44"
-Cohesion: 0.47
-Nodes (5): formatConflictDescription(), formatName(), ScreenshotReuseConfirmDialog(), ScreenshotReuseConflict, ScreenshotReuseBlockState
-
 ## Knowledge Gaps
-- **144 isolated node(s):** `geistSans`, `geistMono`, `metadata`, `Path`, `Response` (+139 more)
+- **145 isolated node(s):** `geistSans`, `geistMono`, `metadata`, `Mistral`, `Path` (+140 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `RetailerResolverService` connect `Community 38` to `Community 2`, `Community 37`?**
-  _High betweenness centrality (0.027) - this node is a cross-community bridge._
-- **Why does `MarketSplitMapService` connect `Community 2` to `Community 28`, `Community 37`, `Community 38`?**
-  _High betweenness centrality (0.025) - this node is a cross-community bridge._
+  _High betweenness centrality (0.030) - this node is a cross-community bridge._
+- **Why does `MarketSplitMapService` connect `Community 2` to `Community 28`?**
+  _High betweenness centrality (0.026) - this node is a cross-community bridge._
 - **Why does `MapperService` connect `Community 37` to `Community 2`, `Community 38`?**
-  _High betweenness centrality (0.021) - this node is a cross-community bridge._
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **Are the 20 inferred relationships involving `RetailerResolverService` (e.g. with `MapperService` and `RetailerResolverService`) actually correct?**
   _`RetailerResolverService` has 20 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 15 inferred relationships involving `MapperService` (e.g. with `MapperService` and `RetailerResolverService`) actually correct?**

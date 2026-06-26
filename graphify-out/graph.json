@@ -60,7 +60,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_page",
-      "community": 43,
+      "community": 20,
       "norm_label": "page.tsx"
     },
     {
@@ -70,7 +70,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "app_page_page",
-      "community": 43,
+      "community": 20,
       "norm_label": "page()"
     },
     {
@@ -80,77 +80,77 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_main",
-      "community": 37,
+      "community": 2,
       "norm_label": "main.py"
     },
     {
       "label": "_allowed_origins()",
       "file_type": "code",
       "source_file": "backend/main.py",
-      "source_location": "L19",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "backend_main_allowed_origins",
-      "community": 37,
+      "community": 2,
       "norm_label": "_allowed_origins()"
     },
     {
       "label": "_local_network_origin_regex()",
       "file_type": "code",
       "source_file": "backend/main.py",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "backend_main_local_network_origin_regex",
-      "community": 37,
+      "community": 2,
       "norm_label": "_local_network_origin_regex()"
     },
     {
       "label": "lifespan()",
       "file_type": "code",
       "source_file": "backend/main.py",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "backend_main_lifespan",
-      "community": 37,
+      "community": 2,
       "norm_label": "lifespan()"
     },
     {
       "label": "FastAPI",
       "file_type": "code",
       "source_file": "backend/main.py",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "fastapi",
-      "community": 37,
+      "community": 2,
       "norm_label": "fastapi"
     },
     {
       "label": "health()",
       "file_type": "code",
       "source_file": "backend/main.py",
-      "source_location": "L76",
+      "source_location": "L77",
       "_origin": "ast",
       "id": "backend_main_health",
-      "community": 37,
+      "community": 2,
       "norm_label": "health()"
     },
     {
       "label": "HealthResponse",
       "file_type": "code",
       "source_file": "backend/main.py",
-      "source_location": "L76",
+      "source_location": "L77",
       "_origin": "ast",
       "id": "healthresponse",
-      "community": 37,
+      "community": 2,
       "norm_label": "healthresponse"
     },
     {
       "label": "Allow phone testing over Wi-Fi (Next.js dev on port 3000).",
       "file_type": "rationale",
       "source_file": "backend/main.py",
-      "source_location": "L28",
+      "source_location": "L29",
       "_origin": "ast",
-      "id": "backend_main_rationale_28",
-      "community": 37,
+      "id": "backend_main_rationale_29",
+      "community": 2,
       "norm_label": "allow phone testing over wi-fi (next.js dev on port 3000)."
     },
     {
@@ -170,7 +170,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routers_admin",
-      "community": 37,
+      "community": 2,
       "norm_label": "admin.py"
     },
     {
@@ -180,7 +180,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "routers_admin_reload_catalogs",
-      "community": 37,
+      "community": 2,
       "norm_label": "reload_catalogs()"
     },
     {
@@ -310,14 +310,44 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routers_ocr",
-      "community": 11,
+      "community": 2,
       "norm_label": "ocr.py"
+    },
+    {
+      "label": "_is_timeout_error()",
+      "file_type": "code",
+      "source_file": "backend/routers/ocr.py",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "routers_ocr_is_timeout_error",
+      "community": 2,
+      "norm_label": "_is_timeout_error()"
+    },
+    {
+      "label": "BaseException",
+      "file_type": "code",
+      "source_file": "backend/routers/ocr.py",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "backend_routers_ocr_py_baseexception",
+      "community": 2,
+      "norm_label": "baseexception"
+    },
+    {
+      "label": "_is_transient_ocr_error()",
+      "file_type": "code",
+      "source_file": "backend/routers/ocr.py",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "routers_ocr_is_transient_ocr_error",
+      "community": 2,
+      "norm_label": "_is_transient_ocr_error()"
     },
     {
       "label": "ocr_extract()",
       "file_type": "code",
       "source_file": "backend/routers/ocr.py",
-      "source_location": "L10",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "routers_ocr_ocr_extract",
       "community": 2,
@@ -327,7 +357,7 @@
       "label": "OcrExtractRequest",
       "file_type": "code",
       "source_file": "backend/routers/ocr.py",
-      "source_location": "L10",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "ocrextractrequest",
       "community": 2,
@@ -337,7 +367,7 @@
       "label": "OcrExtractResponse",
       "file_type": "code",
       "source_file": "backend/routers/ocr.py",
-      "source_location": "L10",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "ocrextractresponse",
       "community": 2,
@@ -380,7 +410,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_schemas_ocritem",
-      "community": 2,
+      "community": 11,
       "norm_label": "ocritem"
     },
     {
@@ -517,7 +547,7 @@
       "label": "_assets_url()",
       "file_type": "code",
       "source_file": "backend/services/catalog_store.py",
-      "source_location": "L41",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "services_catalog_store_assets_url",
       "community": 36,
@@ -527,7 +557,7 @@
       "label": "_fetch_one()",
       "file_type": "code",
       "source_file": "backend/services/catalog_store.py",
-      "source_location": "L48",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "services_catalog_store_fetch_one",
       "community": 36,
@@ -537,7 +567,7 @@
       "label": "AsyncClient",
       "file_type": "code",
       "source_file": "backend/services/catalog_store.py",
-      "source_location": "L48",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "asyncclient",
       "community": 36,
@@ -547,17 +577,37 @@
       "label": "Any",
       "file_type": "code",
       "source_file": "backend/services/catalog_store.py",
-      "source_location": "L48",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "backend_services_catalog_store_py_any",
       "community": 36,
       "norm_label": "any"
     },
     {
+      "label": "_use_local_catalogs()",
+      "file_type": "code",
+      "source_file": "backend/services/catalog_store.py",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "services_catalog_store_use_local_catalogs",
+      "community": 36,
+      "norm_label": "_use_local_catalogs()"
+    },
+    {
+      "label": "load_from_local()",
+      "file_type": "code",
+      "source_file": "backend/services/catalog_store.py",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "services_catalog_store_load_from_local",
+      "community": 36,
+      "norm_label": "load_from_local()"
+    },
+    {
       "label": "load_all()",
       "file_type": "code",
       "source_file": "backend/services/catalog_store.py",
-      "source_location": "L64",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "services_catalog_store_load_all",
       "community": 36,
@@ -567,7 +617,7 @@
       "label": "get()",
       "file_type": "code",
       "source_file": "backend/services/catalog_store.py",
-      "source_location": "L76",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "services_catalog_store_get",
       "community": 36,
@@ -577,29 +627,39 @@
       "label": "loaded_names()",
       "file_type": "code",
       "source_file": "backend/services/catalog_store.py",
-      "source_location": "L86",
+      "source_location": "L116",
       "_origin": "ast",
       "id": "services_catalog_store_loaded_names",
       "community": 36,
       "norm_label": "loaded_names()"
     },
     {
-      "label": "Download all catalogs from R2 into memory. Call once during FastAPI lifespan.",
+      "label": "Load catalogs from backend/data (and data/archive). For local dev when S3 is unr",
       "file_type": "rationale",
       "source_file": "backend/services/catalog_store.py",
-      "source_location": "L65",
+      "source_location": "L75",
       "_origin": "ast",
-      "id": "services_catalog_store_rationale_65",
+      "id": "services_catalog_store_rationale_75",
       "community": 36,
-      "norm_label": "download all catalogs from r2 into memory. call once during fastapi lifespan."
+      "norm_label": "load catalogs from backend/data (and data/archive). for local dev when s3 is unr"
+    },
+    {
+      "label": "Load catalogs from local data/ or download from Timeweb (ASSETS_URL).",
+      "file_type": "rationale",
+      "source_file": "backend/services/catalog_store.py",
+      "source_location": "L93",
+      "_origin": "ast",
+      "id": "services_catalog_store_rationale_93",
+      "community": 36,
+      "norm_label": "load catalogs from local data/ or download from timeweb (assets_url)."
     },
     {
       "label": "Return catalog by name (filename without .json). Raises KeyError if not loaded.",
       "file_type": "rationale",
       "source_file": "backend/services/catalog_store.py",
-      "source_location": "L77",
+      "source_location": "L107",
       "_origin": "ast",
-      "id": "services_catalog_store_rationale_77",
+      "id": "services_catalog_store_rationale_107",
       "community": 36,
       "norm_label": "return catalog by name (filename without .json). raises keyerror if not loaded."
     },
@@ -649,8 +709,8 @@
       "source_file": "backend/services/category_classifier_service.py",
       "source_location": "L46",
       "_origin": "ast",
-      "id": "mistral",
-      "community": 38,
+      "id": "backend_services_category_classifier_service_py_mistral",
+      "community": 37,
       "norm_label": "mistral"
     },
     {
@@ -900,7 +960,7 @@
       "source_location": "L136",
       "_origin": "ast",
       "id": "backend_services_mapper_service_py_sentencetransformer",
-      "community": 37,
+      "community": 2,
       "norm_label": "sentencetransformer"
     },
     {
@@ -910,7 +970,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_set_retailer_resolver",
-      "community": 37,
+      "community": 2,
       "norm_label": ".set_retailer_resolver()"
     },
     {
@@ -920,7 +980,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "backend_services_mapper_service_py_retailerresolverservice",
-      "community": 37,
+      "community": 2,
       "norm_label": "retailerresolverservice"
     },
     {
@@ -1330,7 +1390,7 @@
       "source_location": "L231",
       "_origin": "ast",
       "id": "services_market_split_map_service_marketsplitmapservice_get_client",
-      "community": 38,
+      "community": 2,
       "norm_label": "._get_client()"
     },
     {
@@ -1367,7 +1427,7 @@
       "label": "_normalize_category_name()",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L87",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "services_ocr_service_normalize_category_name",
       "community": 11,
@@ -1377,7 +1437,7 @@
       "label": "_load_bank_service_patterns()",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L91",
+      "source_location": "L103",
       "_origin": "ast",
       "id": "services_ocr_service_load_bank_service_patterns",
       "community": 11,
@@ -1387,7 +1447,7 @@
       "label": "_is_bank_service_category()",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L98",
+      "source_location": "L110",
       "_origin": "ast",
       "id": "services_ocr_service_is_bank_service_category",
       "community": 11,
@@ -1397,7 +1457,7 @@
       "label": "filter_bank_services()",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L105",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "services_ocr_service_filter_bank_services",
       "community": 11,
@@ -1407,7 +1467,7 @@
       "label": "OcrItem",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L105",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "ocritem",
       "community": 11,
@@ -1417,7 +1477,7 @@
       "label": "_parse_ocr_json()",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L114",
+      "source_location": "L126",
       "_origin": "ast",
       "id": "services_ocr_service_parse_ocr_json",
       "community": 11,
@@ -1427,7 +1487,7 @@
       "label": "_finalize_ocr_items()",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L136",
+      "source_location": "L148",
       "_origin": "ast",
       "id": "services_ocr_service_finalize_ocr_items",
       "community": 11,
@@ -1437,21 +1497,111 @@
       "label": "_parse_response_content()",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L142",
+      "source_location": "L154",
       "_origin": "ast",
       "id": "services_ocr_service_parse_response_content",
       "community": 11,
       "norm_label": "_parse_response_content()"
     },
     {
+      "label": "_mistral_timeout_sec()",
+      "file_type": "code",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L166",
+      "_origin": "ast",
+      "id": "services_ocr_service_mistral_timeout_sec",
+      "community": 11,
+      "norm_label": "_mistral_timeout_sec()"
+    },
+    {
+      "label": "_ocr_max_image_dimension()",
+      "file_type": "code",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L173",
+      "_origin": "ast",
+      "id": "services_ocr_service_ocr_max_image_dimension",
+      "community": 11,
+      "norm_label": "_ocr_max_image_dimension()"
+    },
+    {
+      "label": "_ocr_jpeg_quality()",
+      "file_type": "code",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L180",
+      "_origin": "ast",
+      "id": "services_ocr_service_ocr_jpeg_quality",
+      "community": 11,
+      "norm_label": "_ocr_jpeg_quality()"
+    },
+    {
+      "label": "_prepare_image_for_ocr()",
+      "file_type": "code",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L187",
+      "_origin": "ast",
+      "id": "services_ocr_service_prepare_image_for_ocr",
+      "community": 11,
+      "norm_label": "_prepare_image_for_ocr()"
+    },
+    {
+      "label": "_is_transient_mistral_error()",
+      "file_type": "code",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L218",
+      "_origin": "ast",
+      "id": "services_ocr_service_is_transient_mistral_error",
+      "community": 11,
+      "norm_label": "_is_transient_mistral_error()"
+    },
+    {
+      "label": "BaseException",
+      "file_type": "code",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L218",
+      "_origin": "ast",
+      "id": "backend_services_ocr_service_py_baseexception",
+      "community": 11,
+      "norm_label": "baseexception"
+    },
+    {
+      "label": "_call_mistral_vision()",
+      "file_type": "code",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L240",
+      "_origin": "ast",
+      "id": "services_ocr_service_call_mistral_vision",
+      "community": 11,
+      "norm_label": "_call_mistral_vision()"
+    },
+    {
+      "label": "Mistral",
+      "file_type": "code",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L240",
+      "_origin": "ast",
+      "id": "backend_services_ocr_service_py_mistral",
+      "community": 11,
+      "norm_label": "mistral"
+    },
+    {
       "label": "extract_cashback_items()",
       "file_type": "code",
       "source_file": "backend/services/ocr_service.py",
-      "source_location": "L154",
+      "source_location": "L257",
       "_origin": "ast",
       "id": "services_ocr_service_extract_cashback_items",
       "community": 11,
       "norm_label": "extract_cashback_items()"
+    },
+    {
+      "label": "Downscale and recompress screenshots to keep Mistral uploads reliable.",
+      "file_type": "rationale",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L188",
+      "_origin": "ast",
+      "id": "services_ocr_service_rationale_188",
+      "community": 11,
+      "norm_label": "downscale and recompress screenshots to keep mistral uploads reliable."
     },
     {
       "label": "reference_hierarchy.py",
@@ -1627,7 +1777,7 @@
       "label": "RetailerEntry",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L33",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerentry",
       "community": 38,
@@ -1637,7 +1787,7 @@
       "label": "RetailerResolverService",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L40",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice",
       "community": 38,
@@ -1647,7 +1797,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L41",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_init",
       "community": 38,
@@ -1657,7 +1807,7 @@
       "label": ".is_loaded()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L49",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_is_loaded",
       "community": 38,
@@ -1667,7 +1817,7 @@
       "label": ".normalize()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L53",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_normalize",
       "community": 38,
@@ -1677,7 +1827,7 @@
       "label": ".set_allowed_parents()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L58",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_set_allowed_parents",
       "community": 38,
@@ -1687,7 +1837,7 @@
       "label": ".load()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L61",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_load",
       "community": 38,
@@ -1697,7 +1847,7 @@
       "label": ".reload()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L65",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_reload",
       "community": 38,
@@ -1707,7 +1857,7 @@
       "label": ".lookup()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L68",
+      "source_location": "L73",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_lookup",
       "community": 38,
@@ -1717,7 +1867,7 @@
       "label": ".save_entry()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L82",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_save_entry",
       "community": 38,
@@ -1727,7 +1877,7 @@
       "label": "._clean_base_url()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L104",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_clean_base_url",
       "community": 38,
@@ -1737,17 +1887,27 @@
       "label": "._pocketbase_url()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L107",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_pocketbase_url",
       "community": 38,
       "norm_label": "._pocketbase_url()"
     },
     {
+      "label": "._require_pocketbase_url()",
+      "file_type": "code",
+      "source_file": "backend/services/retailer_resolver_service.py",
+      "source_location": "L116",
+      "_origin": "ast",
+      "id": "services_retailer_resolver_service_retailerresolverservice_require_pocketbase_url",
+      "community": 38,
+      "norm_label": "._require_pocketbase_url()"
+    },
+    {
       "label": "._admin_credentials()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L113",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_admin_credentials",
       "community": 38,
@@ -1757,7 +1917,7 @@
       "label": "._admin_headers()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L122",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_admin_headers",
       "community": 38,
@@ -1767,7 +1927,7 @@
       "label": "Client",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L122",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "backend_services_retailer_resolver_service_py_client",
       "community": 38,
@@ -1777,7 +1937,7 @@
       "label": "._request_with_admin_auth()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L138",
+      "source_location": "L151",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_request_with_admin_auth",
       "community": 38,
@@ -1787,7 +1947,7 @@
       "label": "Response",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L138",
+      "source_location": "L151",
       "_origin": "ast",
       "id": "response",
       "community": 38,
@@ -1797,17 +1957,27 @@
       "label": "._entry_from_record()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L159",
+      "source_location": "L172",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_entry_from_record",
       "community": 38,
       "norm_label": "._entry_from_record()"
     },
     {
+      "label": "._load_local_catalog()",
+      "file_type": "code",
+      "source_file": "backend/services/retailer_resolver_service.py",
+      "source_location": "L193",
+      "_origin": "ast",
+      "id": "services_retailer_resolver_service_retailerresolverservice_load_local_catalog",
+      "community": 38,
+      "norm_label": "._load_local_catalog()"
+    },
+    {
       "label": "._warm_cache()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L180",
+      "source_location": "L206",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_warm_cache",
       "community": 38,
@@ -1817,7 +1987,7 @@
       "label": "._find_record_id_by_key()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L223",
+      "source_location": "L251",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_find_record_id_by_key",
       "community": 38,
@@ -1827,7 +1997,7 @@
       "label": "._upsert_entry()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L246",
+      "source_location": "L274",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_upsert_entry",
       "community": 38,
@@ -1837,7 +2007,7 @@
       "label": "._get_client()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L276",
+      "source_location": "L304",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_get_client",
       "community": 38,
@@ -1847,7 +2017,7 @@
       "label": "._parse_json_response()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L286",
+      "source_location": "L314",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_parse_json_response",
       "community": 38,
@@ -1857,7 +2027,7 @@
       "label": ".enrich_and_save()",
       "file_type": "code",
       "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L293",
+      "source_location": "L321",
       "_origin": "ast",
       "id": "services_retailer_resolver_service_retailerresolverservice_enrich_and_save",
       "community": 38,
@@ -1897,7 +2067,7 @@
       "label": "load_catalogs_from_local()",
       "file_type": "code",
       "source_file": "backend/tests/conftest.py",
-      "source_location": "L36",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "tests_conftest_load_catalogs_from_local",
       "community": 33,
@@ -2314,6 +2484,16 @@
       "norm_label": "test_save_entry_upserts_and_updates_cache()"
     },
     {
+      "label": "test_upsert_requires_pocketbase_url()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_retailer_resolver_service.py",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "tests_test_retailer_resolver_service_test_upsert_requires_pocketbase_url",
+      "community": 38,
+      "norm_label": "test_upsert_requires_pocketbase_url()"
+    },
+    {
       "label": "components.json",
       "file_type": "code",
       "source_file": "components.json",
@@ -2500,7 +2680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_cashback_app",
-      "community": 43,
+      "community": 20,
       "norm_label": "cashback-app.tsx"
     },
     {
@@ -2510,7 +2690,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "components_cashback_app_screen",
-      "community": 43,
+      "community": 20,
       "norm_label": "screen"
     },
     {
@@ -2520,7 +2700,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "components_cashback_app_pickmode",
-      "community": 43,
+      "community": 20,
       "norm_label": "pickmode"
     },
     {
@@ -2530,7 +2710,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "components_cashback_app_empty_processing_summary",
-      "community": 43,
+      "community": 20,
       "norm_label": "empty_processing_summary"
     },
     {
@@ -2540,7 +2720,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "components_cashback_app_resetstate",
-      "community": 43,
+      "community": 20,
       "norm_label": "resetstate()"
     },
     {
@@ -2550,7 +2730,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "components_cashback_app_getbankselectinitialrows",
-      "community": 43,
+      "community": 20,
       "norm_label": "getbankselectinitialrows()"
     },
     {
@@ -2560,7 +2740,7 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "components_cashback_app_cashbackapp",
-      "community": 43,
+      "community": 20,
       "norm_label": "cashbackapp()"
     },
     {
@@ -2600,7 +2780,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_image_file_picker",
-      "community": 43,
+      "community": 20,
       "norm_label": "image-file-picker.tsx"
     },
     {
@@ -2610,7 +2790,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_image_file_picker_imagefilepickerstate",
-      "community": 43,
+      "community": 20,
       "norm_label": "imagefilepickerstate"
     },
     {
@@ -2620,7 +2800,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "components_image_file_picker_imagefilepicker",
-      "community": 43,
+      "community": 20,
       "norm_label": "imagefilepicker()"
     },
     {
@@ -2730,67 +2910,67 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_provider_logo",
-      "community": 39,
+      "community": 1,
       "norm_label": "provider-logo.tsx"
     },
     {
       "label": "PLACEHOLDER_PALETTE",
       "file_type": "code",
       "source_file": "components/provider-logo.tsx",
-      "source_location": "L3",
+      "source_location": "L5",
       "_origin": "ast",
       "id": "components_provider_logo_placeholder_palette",
-      "community": 39,
+      "community": 1,
       "norm_label": "placeholder_palette"
     },
     {
       "label": "isPlaceholderProviderLogo()",
       "file_type": "code",
       "source_file": "components/provider-logo.tsx",
-      "source_location": "L16",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "components_provider_logo_isplaceholderproviderlogo",
-      "community": 39,
+      "community": 1,
       "norm_label": "isplaceholderproviderlogo()"
     },
     {
       "label": "getProviderInitial()",
       "file_type": "code",
       "source_file": "components/provider-logo.tsx",
-      "source_location": "L20",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "components_provider_logo_getproviderinitial",
-      "community": 39,
+      "community": 1,
       "norm_label": "getproviderinitial()"
     },
     {
       "label": "hashString()",
       "file_type": "code",
       "source_file": "components/provider-logo.tsx",
-      "source_location": "L28",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "components_provider_logo_hashstring",
-      "community": 39,
+      "community": 1,
       "norm_label": "hashstring()"
     },
     {
       "label": "getPlaceholderAvatarColors()",
       "file_type": "code",
       "source_file": "components/provider-logo.tsx",
-      "source_location": "L36",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "components_provider_logo_getplaceholderavatarcolors",
-      "community": 39,
+      "community": 1,
       "norm_label": "getplaceholderavatarcolors()"
     },
     {
       "label": "ProviderLogo()",
       "file_type": "code",
       "source_file": "components/provider-logo.tsx",
-      "source_location": "L41",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "components_provider_logo_providerlogo",
-      "community": 39,
+      "community": 1,
       "norm_label": "providerlogo()"
     },
     {
@@ -2800,17 +2980,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_provider_name_input",
-      "community": 45,
+      "community": 1,
       "norm_label": "provider-name-input.tsx"
     },
     {
       "label": "ProviderNameInput()",
       "file_type": "code",
       "source_file": "components/provider-name-input.tsx",
-      "source_location": "L10",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "components_provider_name_input_providernameinput",
-      "community": 45,
+      "community": 1,
       "norm_label": "providernameinput()"
     },
     {
@@ -2870,7 +3050,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "screens_bank_select_screen_screenshotreuseblockstate",
-      "community": 44,
+      "community": 20,
       "norm_label": "screenshotreuseblockstate"
     },
     {
@@ -2920,7 +3100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screens_empty_screen",
-      "community": 43,
+      "community": 20,
       "norm_label": "empty-screen.tsx"
     },
     {
@@ -2930,7 +3110,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screens_empty_screen_emptyscreen",
-      "community": 43,
+      "community": 20,
       "norm_label": "emptyscreen()"
     },
     {
@@ -2940,7 +3120,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screens_gallery_screen",
-      "community": 43,
+      "community": 20,
       "norm_label": "gallery-screen.tsx"
     },
     {
@@ -2950,7 +3130,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screens_gallery_screen_galleryscreen",
-      "community": 43,
+      "community": 20,
       "norm_label": "galleryscreen()"
     },
     {
@@ -3210,7 +3390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screens_user_menu",
-      "community": 43,
+      "community": 20,
       "norm_label": "user-menu.tsx"
     },
     {
@@ -3220,7 +3400,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "screens_user_menu_view",
-      "community": 43,
+      "community": 20,
       "norm_label": "view"
     },
     {
@@ -3230,7 +3410,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "screens_user_menu_cashback_categories",
-      "community": 43,
+      "community": 20,
       "norm_label": "cashback_categories"
     },
     {
@@ -3240,7 +3420,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "screens_user_menu_menu_items",
-      "community": 43,
+      "community": 20,
       "norm_label": "menu_items"
     },
     {
@@ -3250,7 +3430,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "screens_user_menu_usermenu",
-      "community": 43,
+      "community": 20,
       "norm_label": "usermenu()"
     },
     {
@@ -3260,7 +3440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_screenshot_reuse_confirm_dialog",
-      "community": 44,
+      "community": 20,
       "norm_label": "screenshot-reuse-confirm-dialog.tsx"
     },
     {
@@ -3270,7 +3450,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_screenshot_reuse_confirm_dialog_screenshotreuseconflict",
-      "community": 44,
+      "community": 20,
       "norm_label": "screenshotreuseconflict"
     },
     {
@@ -3280,7 +3460,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "components_screenshot_reuse_confirm_dialog_formatname",
-      "community": 44,
+      "community": 20,
       "norm_label": "formatname()"
     },
     {
@@ -3290,7 +3470,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "components_screenshot_reuse_confirm_dialog_formatconflictdescription",
-      "community": 44,
+      "community": 20,
       "norm_label": "formatconflictdescription()"
     },
     {
@@ -3300,7 +3480,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "components_screenshot_reuse_confirm_dialog_screenshotreuseconfirmdialog",
-      "community": 44,
+      "community": 20,
       "norm_label": "screenshotreuseconfirmdialog()"
     },
     {
@@ -3357,7 +3537,7 @@
       "label": "ApiError",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L26",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "lib_api_apierror",
       "community": 0,
@@ -3367,7 +3547,7 @@
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L29",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "lib_api_apierror_constructor",
       "community": 0,
@@ -3377,7 +3557,7 @@
       "label": "OcrEmptyError",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L35",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "lib_api_ocremptyerror",
       "community": 0,
@@ -3387,7 +3567,7 @@
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L36",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "lib_api_ocremptyerror_constructor",
       "community": 0,
@@ -3397,7 +3577,7 @@
       "label": "OcrUnreliableError",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L41",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "lib_api_ocrunreliableerror",
       "community": 0,
@@ -3407,7 +3587,7 @@
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L42",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "lib_api_ocrunreliableerror_constructor",
       "community": 0,
@@ -3417,7 +3597,7 @@
       "label": "isOcrRecognitionFailure()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L50",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "lib_api_isocrrecognitionfailure",
       "community": 0,
@@ -3427,7 +3607,7 @@
       "label": "isUnreliableMapping()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L56",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "lib_api_isunreliablemapping",
       "community": 0,
@@ -3437,7 +3617,7 @@
       "label": "collectLowConfidenceItems()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L80",
+      "source_location": "L83",
       "_origin": "ast",
       "id": "lib_api_collectlowconfidenceitems",
       "community": 0,
@@ -3447,7 +3627,7 @@
       "label": "collectBankOfferItems()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L97",
+      "source_location": "L100",
       "_origin": "ast",
       "id": "lib_api_collectbankofferitems",
       "community": 0,
@@ -3457,7 +3637,7 @@
       "label": "ProcessSubmissionResult",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L111",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "lib_api_processsubmissionresult",
       "community": 0,
@@ -3467,7 +3647,7 @@
       "label": "isRequestTimeoutError()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L117",
+      "source_location": "L120",
       "_origin": "ast",
       "id": "lib_api_isrequesttimeouterror",
       "community": 0,
@@ -3477,7 +3657,7 @@
       "label": "postJson()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L122",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "lib_api_postjson",
       "community": 0,
@@ -3487,7 +3667,7 @@
       "label": "extractOcr()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L155",
+      "source_location": "L165",
       "_origin": "ast",
       "id": "lib_api_extractocr",
       "community": 0,
@@ -3497,7 +3677,7 @@
       "label": "mapCategories()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L167",
+      "source_location": "L177",
       "_origin": "ast",
       "id": "lib_api_mapcategories",
       "community": 0,
@@ -3507,7 +3687,7 @@
       "label": "processSubmission()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L180",
+      "source_location": "L190",
       "_origin": "ast",
       "id": "lib_api_processsubmission",
       "community": 0,
@@ -3517,7 +3697,7 @@
       "label": "processSubmissionWithKeyTracking()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L224",
+      "source_location": "L234",
       "_origin": "ast",
       "id": "lib_api_processsubmissionwithkeytracking",
       "community": 0,
@@ -3527,7 +3707,7 @@
       "label": "processAllSubmissions()",
       "file_type": "code",
       "source_file": "lib/api.ts",
-      "source_location": "L242",
+      "source_location": "L252",
       "_origin": "ast",
       "id": "lib_api_processallsubmissions",
       "community": 0,
@@ -3887,7 +4067,7 @@
       "label": "convertHeicToJpeg()",
       "file_type": "code",
       "source_file": "lib/image-utils.ts",
-      "source_location": "L54",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "lib_image_utils_convertheictojpeg",
       "community": 5,
@@ -3897,7 +4077,7 @@
       "label": "readFileAsDataUrl()",
       "file_type": "code",
       "source_file": "lib/image-utils.ts",
-      "source_location": "L66",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "lib_image_utils_readfileasdataurl",
       "community": 5,
@@ -3907,7 +4087,7 @@
       "label": "compressDataUrl()",
       "file_type": "code",
       "source_file": "lib/image-utils.ts",
-      "source_location": "L82",
+      "source_location": "L81",
       "_origin": "ast",
       "id": "lib_image_utils_compressdataurl",
       "community": 5,
@@ -3917,7 +4097,7 @@
       "label": "readImageFile()",
       "file_type": "code",
       "source_file": "lib/image-utils.ts",
-      "source_location": "L113",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "lib_image_utils_readimagefile",
       "community": 5,
@@ -3927,7 +4107,7 @@
       "label": "guessMimeType()",
       "file_type": "code",
       "source_file": "lib/image-utils.ts",
-      "source_location": "L145",
+      "source_location": "L144",
       "_origin": "ast",
       "id": "lib_image_utils_guessmimetype",
       "community": 5,
@@ -3937,7 +4117,7 @@
       "label": "stripDataUrlPrefix()",
       "file_type": "code",
       "source_file": "lib/image-utils.ts",
-      "source_location": "L150",
+      "source_location": "L149",
       "_origin": "ast",
       "id": "lib_image_utils_stripdataurlprefix",
       "community": 5,
@@ -3947,7 +4127,7 @@
       "label": "imageSrcToBase64()",
       "file_type": "code",
       "source_file": "lib/image-utils.ts",
-      "source_location": "L158",
+      "source_location": "L157",
       "_origin": "ast",
       "id": "lib_image_utils_imagesrctobase64",
       "community": 5,
@@ -4504,10 +4684,20 @@
       "norm_label": "logoaliases"
     },
     {
+      "label": "resolveLogoBasePath()",
+      "file_type": "code",
+      "source_file": "lib/provider-logos.ts",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "lib_provider_logos_resolvelogobasepath",
+      "community": 1,
+      "norm_label": "resolvelogobasepath()"
+    },
+    {
       "label": "buildCatalog()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L45",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "lib_provider_logos_buildcatalog",
       "community": 1,
@@ -4517,7 +4707,7 @@
       "label": "bankCatalog",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L53",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "lib_provider_logos_bankcatalog",
       "community": 1,
@@ -4527,7 +4717,7 @@
       "label": "marketCatalog",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L58",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "lib_provider_logos_marketcatalog",
       "community": 1,
@@ -4537,7 +4727,7 @@
       "label": "getCatalog()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L63",
+      "source_location": "L73",
       "_origin": "ast",
       "id": "lib_provider_logos_getcatalog",
       "community": 1,
@@ -4547,7 +4737,7 @@
       "label": "toSuggestion()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L67",
+      "source_location": "L77",
       "_origin": "ast",
       "id": "lib_provider_logos_tosuggestion",
       "community": 1,
@@ -4557,7 +4747,7 @@
       "label": "normalizeProviderName()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L76",
+      "source_location": "L86",
       "_origin": "ast",
       "id": "lib_provider_logos_normalizeprovidername",
       "community": 1,
@@ -4567,7 +4757,7 @@
       "label": "getProviderComparisonKey()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L88",
+      "source_location": "L98",
       "_origin": "ast",
       "id": "lib_provider_logos_getprovidercomparisonkey",
       "community": 1,
@@ -4577,7 +4767,7 @@
       "label": "providerNamesMatch()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L98",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "lib_provider_logos_providernamesmatch",
       "community": 1,
@@ -4587,7 +4777,7 @@
       "label": "isSameProviderIdentity()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L104",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "lib_provider_logos_issameprovideridentity",
       "community": 1,
@@ -4597,7 +4787,7 @@
       "label": "findCatalogMatchInCatalog()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L112",
+      "source_location": "L122",
       "_origin": "ast",
       "id": "lib_provider_logos_findcatalogmatchincatalog",
       "community": 1,
@@ -4607,7 +4797,7 @@
       "label": "findCatalogMatch()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L142",
+      "source_location": "L152",
       "_origin": "ast",
       "id": "lib_provider_logos_findcatalogmatch",
       "community": 1,
@@ -4617,7 +4807,7 @@
       "label": "findCatalogMatches()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L146",
+      "source_location": "L156",
       "_origin": "ast",
       "id": "lib_provider_logos_findcatalogmatches",
       "community": 1,
@@ -4627,7 +4817,7 @@
       "label": "scoreNameMatch()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L153",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "lib_provider_logos_scorenamematch",
       "community": 1,
@@ -4637,7 +4827,7 @@
       "label": "searchCatalogSuggestions()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L161",
+      "source_location": "L171",
       "_origin": "ast",
       "id": "lib_provider_logos_searchcatalogsuggestions",
       "community": 1,
@@ -4647,7 +4837,7 @@
       "label": "searchProviderSuggestions()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L217",
+      "source_location": "L227",
       "_origin": "ast",
       "id": "lib_provider_logos_searchprovidersuggestions",
       "community": 1,
@@ -4657,27 +4847,37 @@
       "label": "searchAllProviderSuggestions()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L227",
+      "source_location": "L237",
       "_origin": "ast",
       "id": "lib_provider_logos_searchallprovidersuggestions",
-      "community": 45,
+      "community": 1,
       "norm_label": "searchallprovidersuggestions()"
     },
     {
       "label": "getProviderLogoBySlug()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L261",
+      "source_location": "L271",
       "_origin": "ast",
       "id": "lib_provider_logos_getproviderlogobyslug",
       "community": 1,
       "norm_label": "getproviderlogobyslug()"
     },
     {
+      "label": "getLocalProviderLogo()",
+      "file_type": "code",
+      "source_file": "lib/provider-logos.ts",
+      "source_location": "L277",
+      "_origin": "ast",
+      "id": "lib_provider_logos_getlocalproviderlogo",
+      "community": 1,
+      "norm_label": "getlocalproviderlogo()"
+    },
+    {
       "label": "resolveProviderLogo()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L266",
+      "source_location": "L282",
       "_origin": "ast",
       "id": "lib_provider_logos_resolveproviderlogo",
       "community": 1,
@@ -4687,7 +4887,7 @@
       "label": "getMarketAutocompleteNames()",
       "file_type": "code",
       "source_file": "lib/provider-logos.ts",
-      "source_location": "L270",
+      "source_location": "L286",
       "_origin": "ast",
       "id": "lib_provider_logos_getmarketautocompletenames",
       "community": 3,
@@ -6137,7 +6337,7 @@
       "label": "client",
       "file_type": "code",
       "source_file": "scripts/upload-catalogs.mjs",
-      "source_location": "L26",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "scripts_upload_catalogs_client",
       "community": 41,
@@ -6915,11 +7115,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/main.py",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_main_rationale_28",
-      "target": "backend_main_local_network_origin_regex"
+      "source": "backend_main_rationale_29",
+      "target": "backend_main_local_network_origin_regex",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -7763,6 +7963,26 @@
       "source_file": "backend/routers/ocr.py",
       "source_location": "L10",
       "weight": 1.0,
+      "source": "routers_ocr",
+      "target": "routers_ocr_is_timeout_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/ocr.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "routers_ocr",
+      "target": "routers_ocr_is_transient_ocr_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/ocr.py",
+      "source_location": "L10",
+      "weight": 1.0,
       "confidence_score": 1.0,
       "source": "routers_ocr",
       "target": "routers_ocr_ocr_extract"
@@ -7777,6 +7997,70 @@
       "confidence_score": 1.0,
       "source": "routers_ocr",
       "target": "services_ocr_service"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/ocr.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "routers_ocr_is_timeout_error",
+      "target": "backend_routers_ocr_py_baseexception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/ocr.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "routers_ocr_is_transient_ocr_error",
+      "target": "routers_ocr_is_timeout_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/ocr.py",
+      "source_location": "L4",
+      "weight": 0.8,
+      "source": "backend_routers_ocr_py_baseexception",
+      "target": "backend_schemas_ocrextractrequest",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/routers/ocr.py",
+      "source_location": "L4",
+      "weight": 0.8,
+      "source": "backend_routers_ocr_py_baseexception",
+      "target": "backend_schemas_ocrextractresponse",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/ocr.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "routers_ocr_is_transient_ocr_error",
+      "target": "backend_routers_ocr_py_baseexception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/ocr.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "routers_ocr_ocr_extract",
+      "target": "routers_ocr_is_transient_ocr_error",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -8030,6 +8314,26 @@
       "confidence_score": 1.0,
       "source": "backend_schemas_referencepathnode",
       "target": "basemodel"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L14",
+      "weight": 0.8,
+      "source": "backend_services_ocr_service_py_baseexception",
+      "target": "backend_schemas_ocritem",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L14",
+      "weight": 0.8,
+      "source": "backend_services_ocr_service_py_mistral",
+      "target": "backend_schemas_ocritem",
+      "confidence_score": 0.5
     },
     {
       "relation": "uses",
@@ -8542,11 +8846,31 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/catalog_store.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "services_catalog_store",
+      "target": "services_catalog_store_load_from_local",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/catalog_store.py",
       "source_location": "L86",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "services_catalog_store",
       "target": "services_catalog_store_loaded_names"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/catalog_store.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "services_catalog_store",
+      "target": "services_catalog_store_use_local_catalogs",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -8569,6 +8893,17 @@
       "confidence_score": 1.0,
       "source": "services_catalog_store_fetch_one",
       "target": "services_catalog_store_assets_url"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/catalog_store.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "services_catalog_store_load_all",
+      "target": "services_catalog_store_assets_url",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -8637,24 +8972,56 @@
       "target": "backend_services_catalog_store_py_any"
     },
     {
-      "relation": "rationale_for",
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/catalog_store.py",
-      "source_location": "L65",
+      "source_location": "L94",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_catalog_store_rationale_65",
-      "target": "services_catalog_store_load_all"
+      "source": "services_catalog_store_load_all",
+      "target": "services_catalog_store_use_local_catalogs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/catalog_store.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "services_catalog_store_use_local_catalogs",
+      "target": "services_catalog_store_get",
+      "confidence_score": 1.0
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/catalog_store.py",
-      "source_location": "L77",
+      "source_location": "L75",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_catalog_store_rationale_77",
-      "target": "services_catalog_store_get"
+      "source": "services_catalog_store_rationale_75",
+      "target": "services_catalog_store_load_from_local",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/catalog_store.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "services_catalog_store_rationale_93",
+      "target": "services_catalog_store_load_all",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/catalog_store.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "services_catalog_store_rationale_107",
+      "target": "services_catalog_store_get",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8806,42 +9173,9 @@
       "source_file": "backend/services/category_classifier_service.py",
       "source_location": "L46",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "services_category_classifier_service_categoryclassifierservice_get_client",
-      "target": "mistral"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backend/services/market_split_map_service.py",
-      "source_location": "L240",
-      "weight": 1.0,
-      "source": "services_market_split_map_service_marketsplitmapservice_get_client",
-      "target": "mistral"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backend/services/ocr_service.py",
-      "source_location": "L167",
-      "weight": 1.0,
-      "source": "services_ocr_service_extract_cashback_items",
-      "target": "mistral"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backend/services/retailer_resolver_service.py",
-      "source_location": "L125",
-      "weight": 1.0,
-      "source": "services_retailer_resolver_service_retailerresolverservice_get_client",
-      "target": "mistral"
+      "target": "backend_services_category_classifier_service_py_mistral",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -10804,6 +11138,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/ocr_service.py",
+      "source_location": "L240",
+      "weight": 1.0,
+      "source": "services_ocr_service",
+      "target": "services_ocr_service_call_mistral_vision",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
       "source_location": "L44",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -10844,6 +11188,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/ocr_service.py",
+      "source_location": "L218",
+      "weight": 1.0,
+      "source": "services_ocr_service",
+      "target": "services_ocr_service_is_transient_mistral_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
       "source_location": "L77",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -10854,11 +11208,41 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/ocr_service.py",
+      "source_location": "L166",
+      "weight": 1.0,
+      "source": "services_ocr_service",
+      "target": "services_ocr_service_mistral_timeout_sec",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
       "source_location": "L73",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "services_ocr_service",
       "target": "services_ocr_service_normalize_category_name"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L180",
+      "weight": 1.0,
+      "source": "services_ocr_service",
+      "target": "services_ocr_service_ocr_jpeg_quality",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L173",
+      "weight": 1.0,
+      "source": "services_ocr_service",
+      "target": "services_ocr_service_ocr_max_image_dimension",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10879,6 +11263,16 @@
       "confidence_score": 1.0,
       "source": "services_ocr_service",
       "target": "services_ocr_service_parse_response_content"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L187",
+      "weight": 1.0,
+      "source": "services_ocr_service",
+      "target": "services_ocr_service_prepare_image_for_ocr",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -11022,6 +11416,115 @@
       "confidence_score": 1.0,
       "source": "services_ocr_service_extract_cashback_items",
       "target": "services_ocr_service_parse_response_content"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L269",
+      "weight": 1.0,
+      "source": "services_ocr_service_extract_cashback_items",
+      "target": "services_ocr_service_mistral_timeout_sec",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L193",
+      "weight": 1.0,
+      "source": "services_ocr_service_prepare_image_for_ocr",
+      "target": "services_ocr_service_ocr_max_image_dimension",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L203",
+      "weight": 1.0,
+      "source": "services_ocr_service_prepare_image_for_ocr",
+      "target": "services_ocr_service_ocr_jpeg_quality",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L263",
+      "weight": 1.0,
+      "source": "services_ocr_service_extract_cashback_items",
+      "target": "services_ocr_service_prepare_image_for_ocr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L188",
+      "weight": 1.0,
+      "source": "services_ocr_service_rationale_188",
+      "target": "services_ocr_service_prepare_image_for_ocr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L282",
+      "weight": 1.0,
+      "source": "services_ocr_service_extract_cashback_items",
+      "target": "services_ocr_service_is_transient_mistral_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L218",
+      "weight": 1.0,
+      "source": "services_ocr_service_is_transient_mistral_error",
+      "target": "backend_services_ocr_service_py_baseexception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L240",
+      "weight": 1.0,
+      "source": "services_ocr_service_call_mistral_vision",
+      "target": "backend_services_ocr_service_py_mistral",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L276",
+      "weight": 1.0,
+      "source": "services_ocr_service_extract_cashback_items",
+      "target": "services_ocr_service_call_mistral_vision",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/ocr_service.py",
+      "source_location": "L273",
+      "weight": 1.0,
+      "source": "services_ocr_service_extract_cashback_items",
+      "target": "backend_services_ocr_service_py_mistral",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -11438,9 +11941,9 @@
       "source_file": "backend/tests/test_retailer_resolver_service.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "monkeypatch",
-      "target": "services_retailer_resolver_service_retailerresolverservice",
-      "confidence_score": 0.5
+      "target": "services_retailer_resolver_service_retailerresolverservice"
     },
     {
       "relation": "calls",
@@ -11459,9 +11962,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L113",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice",
-      "target": "services_retailer_resolver_service_retailerresolverservice_admin_credentials",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_admin_credentials"
     },
     {
       "relation": "method",
@@ -11469,9 +11972,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L122",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice",
-      "target": "services_retailer_resolver_service_retailerresolverservice_admin_headers",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_admin_headers"
     },
     {
       "relation": "method",
@@ -11479,9 +11982,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice",
-      "target": "services_retailer_resolver_service_retailerresolverservice_clean_base_url",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_clean_base_url"
     },
     {
       "relation": "method",
@@ -11499,9 +12002,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L159",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice",
-      "target": "services_retailer_resolver_service_retailerresolverservice_entry_from_record",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_entry_from_record"
     },
     {
       "relation": "method",
@@ -11509,9 +12012,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L223",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice",
-      "target": "services_retailer_resolver_service_retailerresolverservice_find_record_id_by_key",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_find_record_id_by_key"
     },
     {
       "relation": "method",
@@ -11557,6 +12060,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/services/retailer_resolver_service.py",
+      "source_location": "L193",
+      "weight": 1.0,
+      "source": "services_retailer_resolver_service_retailerresolverservice",
+      "target": "services_retailer_resolver_service_retailerresolverservice_load_local_catalog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L73",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -11589,9 +12102,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L107",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice",
-      "target": "services_retailer_resolver_service_retailerresolverservice_pocketbase_url",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_pocketbase_url"
     },
     {
       "relation": "method",
@@ -11609,8 +12122,18 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L138",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice",
-      "target": "services_retailer_resolver_service_retailerresolverservice_request_with_admin_auth",
+      "target": "services_retailer_resolver_service_retailerresolverservice_request_with_admin_auth"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/retailer_resolver_service.py",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "services_retailer_resolver_service_retailerresolverservice",
+      "target": "services_retailer_resolver_service_retailerresolverservice_require_pocketbase_url",
       "confidence_score": 1.0
     },
     {
@@ -11639,9 +12162,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L246",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice",
-      "target": "services_retailer_resolver_service_retailerresolverservice_upsert_entry",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_upsert_entry"
     },
     {
       "relation": "method",
@@ -11649,9 +12172,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L180",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice",
-      "target": "services_retailer_resolver_service_retailerresolverservice_warm_cache",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_warm_cache"
     },
     {
       "relation": "calls",
@@ -11671,9 +12194,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L160",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_entry_from_record",
-      "target": "services_retailer_resolver_service_retailerresolverservice_normalize",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_normalize"
     },
     {
       "relation": "calls",
@@ -11693,9 +12216,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_save_entry",
-      "target": "services_retailer_resolver_service_retailerresolverservice_normalize",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_normalize"
     },
     {
       "relation": "calls",
@@ -11715,9 +12238,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_load",
-      "target": "services_retailer_resolver_service_retailerresolverservice_warm_cache",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_warm_cache"
     },
     {
       "relation": "calls",
@@ -11759,9 +12282,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L99",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_save_entry",
-      "target": "services_retailer_resolver_service_retailerresolverservice_upsert_entry",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_upsert_entry"
     },
     {
       "relation": "calls",
@@ -11770,9 +12293,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_pocketbase_url",
-      "target": "services_retailer_resolver_service_retailerresolverservice_clean_base_url",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_clean_base_url"
     },
     {
       "relation": "calls",
@@ -11781,9 +12304,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_admin_headers",
-      "target": "services_retailer_resolver_service_retailerresolverservice_pocketbase_url",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_pocketbase_url"
     },
     {
       "relation": "calls",
@@ -11792,7 +12315,18 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L224",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_find_record_id_by_key",
+      "target": "services_retailer_resolver_service_retailerresolverservice_pocketbase_url"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/retailer_resolver_service.py",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "services_retailer_resolver_service_retailerresolverservice_require_pocketbase_url",
       "target": "services_retailer_resolver_service_retailerresolverservice_pocketbase_url",
       "confidence_score": 1.0
     },
@@ -11803,9 +12337,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L257",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_upsert_entry",
-      "target": "services_retailer_resolver_service_retailerresolverservice_pocketbase_url",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_pocketbase_url"
     },
     {
       "relation": "calls",
@@ -11814,8 +12348,41 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L181",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_warm_cache",
-      "target": "services_retailer_resolver_service_retailerresolverservice_pocketbase_url",
+      "target": "services_retailer_resolver_service_retailerresolverservice_pocketbase_url"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/retailer_resolver_service.py",
+      "source_location": "L139",
+      "weight": 1.0,
+      "source": "services_retailer_resolver_service_retailerresolverservice_admin_headers",
+      "target": "services_retailer_resolver_service_retailerresolverservice_require_pocketbase_url",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/retailer_resolver_service.py",
+      "source_location": "L252",
+      "weight": 1.0,
+      "source": "services_retailer_resolver_service_retailerresolverservice_find_record_id_by_key",
+      "target": "services_retailer_resolver_service_retailerresolverservice_require_pocketbase_url",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/retailer_resolver_service.py",
+      "source_location": "L285",
+      "weight": 1.0,
+      "source": "services_retailer_resolver_service_retailerresolverservice_upsert_entry",
+      "target": "services_retailer_resolver_service_retailerresolverservice_require_pocketbase_url",
       "confidence_score": 1.0
     },
     {
@@ -11825,9 +12392,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L126",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_admin_headers",
-      "target": "services_retailer_resolver_service_retailerresolverservice_admin_credentials",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_admin_credentials"
     },
     {
       "relation": "references",
@@ -11836,9 +12403,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L122",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_admin_headers",
-      "target": "backend_services_retailer_resolver_service_py_client",
-      "confidence_score": 1.0
+      "target": "backend_services_retailer_resolver_service_py_client"
     },
     {
       "relation": "calls",
@@ -11847,9 +12414,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L226",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_find_record_id_by_key",
-      "target": "services_retailer_resolver_service_retailerresolverservice_admin_headers",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_admin_headers"
     },
     {
       "relation": "calls",
@@ -11858,9 +12425,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L146",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_request_with_admin_auth",
-      "target": "services_retailer_resolver_service_retailerresolverservice_admin_headers",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_admin_headers"
     },
     {
       "relation": "calls",
@@ -11869,9 +12436,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L197",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_warm_cache",
-      "target": "services_retailer_resolver_service_retailerresolverservice_admin_headers",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_admin_headers"
     },
     {
       "relation": "references",
@@ -11880,9 +12447,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L223",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_find_record_id_by_key",
-      "target": "backend_services_retailer_resolver_service_py_client",
-      "confidence_score": 1.0
+      "target": "backend_services_retailer_resolver_service_py_client"
     },
     {
       "relation": "references",
@@ -11891,9 +12458,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L138",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_request_with_admin_auth",
-      "target": "backend_services_retailer_resolver_service_py_client",
-      "confidence_score": 1.0
+      "target": "backend_services_retailer_resolver_service_py_client"
     },
     {
       "relation": "calls",
@@ -11902,9 +12469,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L258",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_upsert_entry",
-      "target": "backend_services_retailer_resolver_service_py_client",
-      "confidence_score": 1.0
+      "target": "backend_services_retailer_resolver_service_py_client"
     },
     {
       "relation": "calls",
@@ -11913,9 +12480,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L185",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_warm_cache",
-      "target": "backend_services_retailer_resolver_service_py_client",
-      "confidence_score": 1.0
+      "target": "backend_services_retailer_resolver_service_py_client"
     },
     {
       "relation": "references",
@@ -11924,9 +12491,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L138",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_request_with_admin_auth",
-      "target": "response",
-      "confidence_score": 1.0
+      "target": "response"
     },
     {
       "relation": "calls",
@@ -11935,9 +12502,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L261",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_upsert_entry",
-      "target": "services_retailer_resolver_service_retailerresolverservice_request_with_admin_auth",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_request_with_admin_auth"
     },
     {
       "relation": "calls",
@@ -11946,8 +12513,19 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L214",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_warm_cache",
-      "target": "services_retailer_resolver_service_retailerresolverservice_entry_from_record",
+      "target": "services_retailer_resolver_service_retailerresolverservice_entry_from_record"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/services/retailer_resolver_service.py",
+      "source_location": "L209",
+      "weight": 1.0,
+      "source": "services_retailer_resolver_service_retailerresolverservice_warm_cache",
+      "target": "services_retailer_resolver_service_retailerresolverservice_load_local_catalog",
       "confidence_score": 1.0
     },
     {
@@ -11957,9 +12535,9 @@
       "source_file": "backend/services/retailer_resolver_service.py",
       "source_location": "L259",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_retailer_resolver_service_retailerresolverservice_upsert_entry",
-      "target": "services_retailer_resolver_service_retailerresolverservice_find_record_id_by_key",
-      "confidence_score": 1.0
+      "target": "services_retailer_resolver_service_retailerresolverservice_find_record_id_by_key"
     },
     {
       "relation": "calls",
@@ -12622,9 +13200,9 @@
       "source_file": "backend/tests/test_retailer_resolver_service.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_retailer_resolver_service",
-      "target": "tests_test_retailer_resolver_service_fixture_entries",
-      "confidence_score": 1.0
+      "target": "tests_test_retailer_resolver_service_fixture_entries"
     },
     {
       "relation": "contains",
@@ -12672,8 +13250,18 @@
       "source_file": "backend/tests/test_retailer_resolver_service.py",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_retailer_resolver_service",
-      "target": "tests_test_retailer_resolver_service_test_save_entry_upserts_and_updates_cache",
+      "target": "tests_test_retailer_resolver_service_test_save_entry_upserts_and_updates_cache"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_retailer_resolver_service.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "tests_test_retailer_resolver_service",
+      "target": "tests_test_retailer_resolver_service_test_upsert_requires_pocketbase_url",
       "confidence_score": 1.0
     },
     {
@@ -12694,9 +13282,9 @@
       "source_file": "backend/tests/test_retailer_resolver_service.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_retailer_resolver_service_resolver",
-      "target": "monkeypatch",
-      "confidence_score": 1.0
+      "target": "monkeypatch"
     },
     {
       "relation": "references",
@@ -12705,7 +13293,18 @@
       "source_file": "backend/tests/test_retailer_resolver_service.py",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_retailer_resolver_service_test_save_entry_upserts_and_updates_cache",
+      "target": "monkeypatch"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_retailer_resolver_service.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "tests_test_retailer_resolver_service_test_upsert_requires_pocketbase_url",
       "target": "monkeypatch",
       "confidence_score": 1.0
     },
@@ -12738,7 +13337,18 @@
       "source_file": "backend/tests/test_retailer_resolver_service.py",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_retailer_resolver_service_test_save_entry_upserts_and_updates_cache",
+      "target": "backend_tests_test_retailer_resolver_service_py_retailerresolverservice"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_retailer_resolver_service.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "tests_test_retailer_resolver_service_test_upsert_requires_pocketbase_url",
       "target": "backend_tests_test_retailer_resolver_service_py_retailerresolverservice",
       "confidence_score": 1.0
     },
@@ -13707,6 +14317,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "components/provider-name-input.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_provider_name_input",
+      "target": "components_provider_logo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "components/screens/results-screen.tsx",
       "source_location": "L6",
       "weight": 1.0,
@@ -13762,6 +14383,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "components/provider-name-input.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_provider_name_input",
+      "target": "components_provider_logo_providerlogo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "components/screens/results-screen.tsx",
       "source_location": "L6",
       "weight": 1.0,
@@ -13789,6 +14421,17 @@
       "confidence_score": 1.0,
       "source": "components_provider_name_input",
       "target": "lib_provider_logos"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/provider-name-input.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_provider_name_input",
+      "target": "lib_provider_logos_getlocalproviderlogo",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -17956,6 +18599,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/provider-logos.ts",
+      "source_location": "L277",
+      "weight": 1.0,
+      "source": "lib_provider_logos",
+      "target": "lib_provider_logos_getlocalproviderlogo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/provider-logos.ts",
       "source_location": "L270",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -18076,6 +18729,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/provider-logos.ts",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "lib_provider_logos",
+      "target": "lib_provider_logos_resolvelogobasepath",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/provider-logos.ts",
       "source_location": "L266",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -18164,6 +18827,17 @@
       "confidence_score": 1.0,
       "source": "lib_provider_logos_providersuggestion",
       "target": "lib_types_kind"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/provider-logos.ts",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "lib_provider_logos_buildcatalog",
+      "target": "lib_provider_logos_resolvelogobasepath",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -19362,9 +20036,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers",
-      "target": "scripts_import_rf_retailers_admin_credentials",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_admin_credentials"
     },
     {
       "relation": "contains",
@@ -19372,9 +20046,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers",
-      "target": "scripts_import_rf_retailers_admin_token",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_admin_token"
     },
     {
       "relation": "contains",
@@ -19392,9 +20066,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L115",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers",
-      "target": "scripts_import_rf_retailers_fetch_existing_records",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_fetch_existing_records"
     },
     {
       "relation": "contains",
@@ -19432,9 +20106,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers",
-      "target": "scripts_import_rf_retailers_pocketbase_url",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_pocketbase_url"
     },
     {
       "relation": "contains",
@@ -19442,9 +20116,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L98",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers",
-      "target": "scripts_import_rf_retailers_request_with_admin_auth",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_request_with_admin_auth"
     },
     {
       "relation": "contains",
@@ -19452,9 +20126,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L144",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers",
-      "target": "scripts_import_rf_retailers_upsert_catalog_to_pocketbase",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_upsert_catalog_to_pocketbase"
     },
     {
       "relation": "calls",
@@ -19518,9 +20192,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers_upsert_catalog_to_pocketbase",
-      "target": "scripts_import_rf_retailers_pocketbase_url",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_pocketbase_url"
     },
     {
       "relation": "calls",
@@ -19529,9 +20203,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L86",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers_admin_token",
-      "target": "scripts_import_rf_retailers_admin_credentials",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_admin_credentials"
     },
     {
       "relation": "references",
@@ -19540,9 +20214,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers_admin_token",
-      "target": "scripts_import_rf_retailers_py_client",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_py_client"
     },
     {
       "relation": "calls",
@@ -19551,9 +20225,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L151",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers_upsert_catalog_to_pocketbase",
-      "target": "scripts_import_rf_retailers_admin_token",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_admin_token"
     },
     {
       "relation": "references",
@@ -19562,9 +20236,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L115",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers_fetch_existing_records",
-      "target": "scripts_import_rf_retailers_py_client",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_py_client"
     },
     {
       "relation": "references",
@@ -19573,9 +20247,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L98",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers_request_with_admin_auth",
-      "target": "scripts_import_rf_retailers_py_client",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_py_client"
     },
     {
       "relation": "calls",
@@ -19584,9 +20258,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers_upsert_catalog_to_pocketbase",
-      "target": "scripts_import_rf_retailers_py_client",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_py_client"
     },
     {
       "relation": "calls",
@@ -19595,9 +20269,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L165",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers_upsert_catalog_to_pocketbase",
-      "target": "scripts_import_rf_retailers_request_with_admin_auth",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_request_with_admin_auth"
     },
     {
       "relation": "calls",
@@ -19606,9 +20280,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L152",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers_upsert_catalog_to_pocketbase",
-      "target": "scripts_import_rf_retailers_fetch_existing_records",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_fetch_existing_records"
     },
     {
       "relation": "calls",
@@ -19617,9 +20291,9 @@
       "source_file": "scripts/import_rf_retailers.py",
       "source_location": "L193",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_import_rf_retailers_main",
-      "target": "scripts_import_rf_retailers_upsert_catalog_to_pocketbase",
-      "confidence_score": 1.0
+      "target": "scripts_import_rf_retailers_upsert_catalog_to_pocketbase"
     },
     {
       "relation": "contains",
@@ -20727,5 +21401,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "159d66d1b1d44632e9b6ec6b57e5c641366fed26"
+  "built_at_commit": "8fda721a45c0a0cb0709bd88c947a0003784eb39"
 }

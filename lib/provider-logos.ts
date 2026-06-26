@@ -48,11 +48,7 @@ const ASSETS_URL =
     : ""
 
 function resolveLogoBasePath(folder: "banks" | "markets"): string {
-  const useRemoteAssets =
-    Boolean(ASSETS_URL) &&
-    typeof process !== "undefined" &&
-    process.env.NODE_ENV === "production"
-  return useRemoteAssets ? `${ASSETS_URL}/logos/${folder}` : `/logos/${folder}`
+  return ASSETS_URL ? `${ASSETS_URL}/logos/${folder}` : `/logos/${folder}`
 }
 
 function buildCatalog(entries: CatalogRecord[], folder: "banks" | "markets"): LogoEntry[] {
