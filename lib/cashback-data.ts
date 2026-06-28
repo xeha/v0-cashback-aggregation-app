@@ -1,8 +1,6 @@
-import { getMarketAutocompleteNames } from "@/lib/provider-logos"
+type BankKey = "alfa" | "psb" | "yandex" | "tbank"
 
-export type BankKey = "alfa" | "psb" | "yandex" | "tbank"
-
-export interface Bank {
+interface Bank {
   key: BankKey
   name: string
   logo: string
@@ -15,7 +13,7 @@ export const BANKS: Bank[] = [
   { key: "tbank", name: "Т-Банк", logo: "/logos/banks/t-bank.png" },
 ]
 
-export interface CashbackRow {
+interface CashbackRow {
   category: string
   rates: Partial<Record<BankKey, number>>
 }
@@ -28,22 +26,11 @@ export const CASHBACK_ROWS: CashbackRow[] = [
   { category: "Товары для детей", rates: { alfa: 9, yandex: 3, tbank: 3 } },
 ]
 
-export const TOP_BANKS = [
-  "Сбер",
-  "Т-Банк",
-  "Альфа-Банк",
-  "ВТБ",
-  "Газпромбанк",
-  "Райффайзен",
-  "ПСБ",
-  "Яндекс Пэй",
-]
-
 /* ----------------------------- Supermarkets ----------------------------- */
 
-export type MarketKey = "pyaterochka" | "magnit" | "lenta"
+type MarketKey = "pyaterochka" | "magnit" | "lenta"
 
-export interface Market {
+interface Market {
   key: MarketKey
   name: string
   logo: string
@@ -55,7 +42,7 @@ export const MARKETS: Market[] = [
   { key: "lenta", name: "Лента", logo: "/logos/markets/lenta-super.png" },
 ]
 
-export interface MarketCashbackRow {
+interface MarketCashbackRow {
   category: string
   rates: Partial<Record<MarketKey, number>>
 }
@@ -73,8 +60,6 @@ export const MARKET_CASHBACK_ROWS: MarketCashbackRow[] = [
   { category: "Пиво и сидр", rates: { pyaterochka: 15 } },
   { category: "Замороженные ягоды", rates: { pyaterochka: 20 } },
 ]
-
-export const TOP_MARKETS = getMarketAutocompleteNames()
 
 export type RateTier = "high" | "mid" | "low"
 
