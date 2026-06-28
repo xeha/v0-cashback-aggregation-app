@@ -1,7 +1,7 @@
 "use client"
 
-import { AnimatePresence } from "framer-motion"
-import { useRef, useState } from "react"
+import { AnimatePresence, motion } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
 import { ImageFilePicker } from "@/components/image-file-picker"
 import { AuthScreen } from "@/components/screens/auth-screen"
 import { BankSelectScreen } from "@/components/screens/bank-select-screen"
@@ -93,7 +93,21 @@ export function CashbackApp() {
   const [bankSelectSession, setBankSelectSession] = useState(0)
   const [isReplacingScreenshot, setIsReplacingScreenshot] = useState(false)
   const [isAddingMore, setIsAddingMore] = useState(false)
+  const [authOpen, setAuthOpen] = useState(false)
+  const [guestBannerDismissed, setGuestBannerDismissed] = useState(false)
   const pickModeRef = useRef<PickMode | null>(null)
+
+  const isGuest = !user
+
+  function openAuth() {
+    setAuthOpen(true)
+  }
+
+  useEffect(() => {
+    if (user && authOpen) {
+      setAuthOpen(false)
+    }
+  }, [user, authOpen])
 
   function handleRestart() {
     const next = resetState()
@@ -168,13 +182,8 @@ export function CashbackApp() {
           <div className="flex flex-1 items-center justify-center">
             <div className="h-8 w-8 animate-spin rounded-full border-2 border-slate-200 border-t-yellow-400" />
           </div>
-        ) : !user ? (
-          <div className="relative flex-1 overflow-y-auto">
-            <AnimatePresence mode="wait">
-              <AuthScreen />
-            </AnimatePresence>
-          </div>
         ) : (
+          <>
           <ImageFilePicker
             onPick={handleGlobalFilePicked}
             onDismiss={() => {
@@ -193,7 +202,7 @@ export function CashbackApp() {
                       setCurrentScreen("gallery")
                     }}
                     onLogout={handleLogout}
-                    userEmail={typeof user.email === "string" ? user.email : undefined}
+                    userEmail={typeof user?.email === "string" ? user.email : undefined}
                   />
                 )}
                 {currentScreen === "gallery" && (
@@ -320,7 +329,7 @@ export function CashbackApp() {
                     processingSummary={processingSummary}
                     onRestart={handleRestart}
                     onLogout={handleLogout}
-                    userEmail={typeof user.email === "string" ? user.email : undefined}
+                    userEmail={typeof user?.email === "string" ? user.email : undefined}
                     onUploadMore={() => {
                       pickModeRef.current = "upload-more"
                       openGlobalPicker()
@@ -332,6 +341,22 @@ export function CashbackApp() {
               </div>
             )}
           </ImageFilePicker>
+
+          <AnimatePresence>
+            {authOpen && (
+              <motion.div
+                key="auth-overlay"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="absolute inset-0 z-50 overflow-y-auto bg-white"
+              >
+                <AuthScreen onClose={() => setAuthOpen(false)} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+          </>
         )}
       </div>
     </main>

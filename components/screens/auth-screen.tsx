@@ -2,11 +2,17 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
+import { X } from "lucide-react"
+import { AppLogo } from "@/components/app-logo"
 import { useAuth } from "@/lib/auth-context"
 
 type AuthTab = "login" | "register"
 
-export function AuthScreen() {
+type AuthScreenProps = {
+  onClose?: () => void
+}
+
+export function AuthScreen({ onClose }: AuthScreenProps) {
   const { login, register } = useAuth()
   const [tab, setTab] = useState<AuthTab>("login")
   const [email, setEmail] = useState("")
@@ -47,15 +53,26 @@ export function AuthScreen() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -16 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="flex min-h-full flex-col px-6 py-8"
+      className="relative flex min-h-full flex-col px-6 py-8"
     >
+      {onClose && (
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Закрыть"
+          className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700"
+        >
+          <X className="h-5 w-5" />
+        </button>
+      )}
+
       <div className="mb-8 text-center">
-        <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow-200 text-2xl font-bold text-slate-800">
-          %
-        </span>
+        <div className="flex justify-center">
+          <AppLogo size="lg" />
+        </div>
         <h1 className="mt-4 text-2xl font-bold text-slate-900">CashbackBrain</h1>
         <p className="mt-2 text-[15px] leading-relaxed text-slate-500">
-          Войдите или создайте аккаунт, чтобы сохранять матрицы кэшбэка
+          Войдите или создайте аккаунт, чтобы сохранять результаты
         </p>
       </div>
 
