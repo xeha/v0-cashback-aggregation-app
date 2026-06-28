@@ -14,6 +14,21 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_CATALOG = REPO_ROOT / "backend" / "data" / "retailer_catalog.json"
 
 
+def _load_env_file(path: Path | None = None) -> None:
+    env_path = path or Path(os.environ.get("POCKETBASE_ENV_FILE", REPO_ROOT / ".env.pocketbase"))
+    if not env_path.is_file():
+        return
+    for line in env_path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        if key not in os.environ:
+            cleaned = value.strip().strip('"')
+            os.environ[key] = cleaned.strip("'")
+
+
 def _pb_url() -> str:
     raw = os.environ.get("POCKETBASE_URL", "").strip()
     if not raw:
@@ -79,7 +94,8 @@ def _retailer_catalog_spec() -> dict:
                 "name": "source",
                 "type": "select",
                 "required": True,
-                "options": {"maxSelect": 1, "values": ["static", "llm_web", "manual"]},
+                "maxSelect": 1,
+                "values": ["static", "llm_web", "manual"],
             },
             {"name": "added_at", "type": "date", "required": False},
             {"name": "rf_section", "type": "text", "required": False},
@@ -101,13 +117,10 @@ def _saved_matrices_spec(users_collection_id: str) -> dict:
                 "name": "user",
                 "type": "relation",
                 "required": True,
-                "options": {
-                    "collectionId": users_collection_id,
-                    "cascadeDelete": True,
-                    "minSelect": None,
-                    "maxSelect": 1,
-                    "displayFields": None,
-                },
+                "collectionId": users_collection_id,
+                "cascadeDelete": True,
+                "minSelect": None,
+                "maxSelect": 1,
             },
             {"name": "title", "type": "text", "required": True},
             {"name": "period_month", "type": "number", "required": False},
@@ -234,10 +247,12 @@ def main() -> int:
     )
     args = parser.parse_args()
 
+    _load_env_file()
     base_url = _pb_url()
     print(f"PocketBase: {base_url}")
 
-    with httpx.Client(timeout=30.0) as client:
+    verify = os.environ.get("POCKETBASE_SSL_VERIFY", "true").lower() not in ("0", "false", "no")
+    with httpx.Client(timeout=30.0, verify=verify) as client:
         health = client.get(f"{base_url}/api/health")
         health.raise_for_status()
         print("  ✓ health OK")

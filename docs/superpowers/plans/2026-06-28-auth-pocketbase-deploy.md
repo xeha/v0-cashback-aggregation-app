@@ -40,37 +40,21 @@
 | Volume | mount `/pb/pb_data`, 1 GB |
 | Domain | `pb.cashbackbrain.ru` |
 
-- [ ] **Step 1:** Deploy, дождаться green status
-- [ ] **Step 2:** Открыть `https://pb.cashbackbrain.ru/_/` → создать superadmin (email + password — сохранить в password manager)
-- [ ] **Step 3:** Settings → Application → CORS: добавить `https://cashbackbrain.ru`, `http://localhost:3000`
-
----
-
-### Task 2–3: Коллекции + импорт (одной командой)
-
-- [ ] **Step 1:** После создания superadmin в `/_/`, запустить:
+### Task 1–4: Deploy + коллекции + auth (автоматизация)
 
 ```bash
-export POCKETBASE_URL=https://pb.cashbackbrain.ru
-export POCKETBASE_ADMIN_EMAIL=ваш@email.com
-export POCKETBASE_ADMIN_PASSWORD=ваш_пароль
-
-python scripts/setup_pocketbase.py --import-catalog
+python3 scripts/setup_pocketbase_phase1.py   # settings, auth, CORS, verify catalog
+python3 scripts/setup_pocketbase.py --import-catalog  # если нужен re-import
 ```
 
-Создаёт `retailer_catalog`, `saved_matrices` (с API rules) и импортирует 146 записей из `backend/data/retailer_catalog.json`.
+Креды: `.env.pocketbase` (см. `pocketbase/pocketbase.env.example`).
 
-- [ ] **Step 2:** Проверить в Admin UI: `retailer_catalog` → Records > 0
-
----
-
-### Task 4: Auth settings
-
-**Settings → Auth**
-
-- [ ] **Step 1:** Min password length: 8
-- [ ] **Step 2:** Email verification: **выкл** на MVP (включить позже)
-- [ ] **Step 3:** Auth token duration: 7 days (604800 sec)
+- [x] Deploy PocketBase (`jasonc/pocketbase:latest`, volume, HTTPS)
+- [x] Superadmin + `.env.pocketbase`
+- [x] Коллекции + 146 записей `retailer_catalog`
+- [x] App settings: `CashbackBrain`, `appURL=https://cashbackbrain.ru`
+- [x] Auth: min password 8, token 7d, email verification off
+- [x] CORS `--origins` для `cashbackbrain.ru` и `localhost:3000`
 
 ---
 

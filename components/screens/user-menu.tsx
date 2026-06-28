@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import {
   Settings,
@@ -40,19 +40,27 @@ const MENU_ITEMS: { key: View; label: string; icon: typeof User }[] = [
 
 export function UserMenu({
   onLogout,
+  userEmail,
   variant = "light",
 }: {
   onLogout: () => void
+  userEmail?: string
   variant?: "light" | "overlay"
 }) {
   const [open, setOpen] = useState(false)
   const [view, setView] = useState<View>("menu")
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false)
 
-  // Profile state
-  const [name, setName] = useState("Анна Смирнова")
-  const [email, setEmail] = useState("anna@example.com")
+  const [name, setName] = useState("Пользователь")
+  const [email, setEmail] = useState(userEmail ?? "")
   const [notifications, setNotifications] = useState(true)
+
+  useEffect(() => {
+    if (!userEmail) return
+    setEmail(userEmail)
+    const localPart = userEmail.split("@")[0] ?? "Пользователь"
+    setName(localPart.charAt(0).toUpperCase() + localPart.slice(1))
+  }, [userEmail])
 
   // Cashback profile state
   const [preferred, setPreferred] = useState<string[]>([
@@ -385,7 +393,7 @@ export function UserMenu({
                             %
                           </span>
                           <div className="text-center">
-                            <p className="text-[16px] font-semibold text-slate-900">Кэшбэки</p>
+                            <p className="text-[16px] font-semibold text-slate-900">CashbackBrain</p>
                             <p className="text-[13px] text-slate-500">Версия 1.0.0</p>
                           </div>
                         </div>

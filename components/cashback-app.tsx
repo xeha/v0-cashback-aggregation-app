@@ -3,6 +3,7 @@
 import { AnimatePresence } from "framer-motion"
 import { useRef, useState } from "react"
 import { ImageFilePicker } from "@/components/image-file-picker"
+import { AuthScreen } from "@/components/screens/auth-screen"
 import { BankSelectScreen } from "@/components/screens/bank-select-screen"
 import { EmptyScreen } from "@/components/screens/empty-screen"
 import { GalleryScreen } from "@/components/screens/gallery-screen"
@@ -12,6 +13,7 @@ import {
   submissionToBankSelectRow,
   type BankSelectInitialRow,
 } from "@/lib/bank-select-rows"
+import { useAuth } from "@/lib/auth-context"
 import type { Kind, MatrixState, ProcessingSummary, SourceSubmission } from "@/lib/types"
 
 type Screen = "empty" | "gallery" | "bank-select" | "processing" | "results"
@@ -75,6 +77,7 @@ function getBankSelectInitialRows({
 }
 
 export function CashbackApp() {
+  const { user, isLoading, logout } = useAuth()
   const [currentScreen, setCurrentScreen] = useState<Screen>("empty")
   const [kind, setKind] = useState<Kind>("bank")
   const [initialShot, setInitialShot] = useState("")
@@ -150,21 +153,38 @@ export function CashbackApp() {
     bankSelectDraft,
   })
 
+  function handleLogout() {
+    logout()
+    handleRestart()
+  }
+
   const lockedRowCount =
     isReplacingScreenshot || isAddingMore ? savedSubmissions.length : 0
 
   return (
     <main className="flex min-h-dvh items-center justify-center bg-gray-100 sm:py-8">
-      <ImageFilePicker
-        onPick={handleGlobalFilePicked}
-        onDismiss={() => {
-          pickModeRef.current = null
-        }}
-      >
-        {(openGlobalPicker) => (
-          <div className="relative flex h-dvh w-full flex-col overflow-hidden bg-white sm:h-[844px] sm:max-w-[400px] sm:rounded-[2.5rem] sm:shadow-2xl">
-            <div className="relative flex-1 overflow-y-auto">
-              <AnimatePresence mode="wait">
+      <div className="relative flex h-dvh w-full flex-col overflow-hidden bg-white sm:h-[844px] sm:max-w-[400px] sm:rounded-[2.5rem] sm:shadow-2xl">
+        {isLoading ? (
+          <div className="flex flex-1 items-center justify-center">
+            <div className="h-8 w-8 animate-spin rounded-full border-2 border-slate-200 border-t-yellow-400" />
+          </div>
+        ) : !user ? (
+          <div className="relative flex-1 overflow-y-auto">
+            <AnimatePresence mode="wait">
+              <AuthScreen />
+            </AnimatePresence>
+          </div>
+        ) : (
+          <ImageFilePicker
+            onPick={handleGlobalFilePicked}
+            onDismiss={() => {
+              pickModeRef.current = null
+            }}
+          >
+            {(openGlobalPicker) => (
+              <div className="relative flex h-full flex-col overflow-hidden">
+                <div className="relative flex-1 overflow-y-auto">
+                  <AnimatePresence mode="wait">
                 {currentScreen === "empty" && (
                   <EmptyScreen
                     onFilePicked={(src) => {
@@ -172,7 +192,8 @@ export function CashbackApp() {
                       setGalleryPrefillSrc(src)
                       setCurrentScreen("gallery")
                     }}
-                    onLogout={handleRestart}
+                    onLogout={handleLogout}
+                    userEmail={typeof user.email === "string" ? user.email : undefined}
                   />
                 )}
                 {currentScreen === "gallery" && (
@@ -295,19 +316,24 @@ export function CashbackApp() {
                   <ResultsScreen
                     kind={kind}
                     matrix={matrix}
+                    submissions={submissions}
                     processingSummary={processingSummary}
                     onRestart={handleRestart}
+                    onLogout={handleLogout}
+                    userEmail={typeof user.email === "string" ? user.email : undefined}
                     onUploadMore={() => {
                       pickModeRef.current = "upload-more"
                       openGlobalPicker()
                     }}
                   />
                 )}
-              </AnimatePresence>
-            </div>
-          </div>
+                  </AnimatePresence>
+                </div>
+              </div>
+            )}
+          </ImageFilePicker>
         )}
-      </ImageFilePicker>
+      </div>
     </main>
   )
 }

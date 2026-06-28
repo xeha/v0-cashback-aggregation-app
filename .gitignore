@@ -10,6 +10,7 @@ __v0_jsx-dev-runtime.ts
 .env*.local
 .env.s3
 .env.dokploy
+.env.pocketbase
 
 # Common ignores
 node_modules

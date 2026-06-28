@@ -47,17 +47,16 @@ Enable HTTPS (Let's Encrypt).
 
 ## 3. Коллекции и импорт (из репозитория)
 
-На локальной машине:
+На локальной машине (креды в `.env.pocketbase`):
 
 ```bash
-cd backend
-pip install httpx  # если ещё не установлено
+python3 scripts/setup_pocketbase_phase1.py
+```
 
-export POCKETBASE_URL=https://pb.cashbackbrain.ru
-export POCKETBASE_ADMIN_EMAIL=ваш@email.com
-export POCKETBASE_ADMIN_PASSWORD=ваш_пароль
+Или только re-import каталога:
 
-python ../scripts/setup_pocketbase.py --import-catalog
+```bash
+POCKETBASE_ENV_FILE=.env.pocketbase python3 scripts/setup_pocketbase.py --import-catalog
 ```
 
 Скрипт:
@@ -68,13 +67,19 @@ python ../scripts/setup_pocketbase.py --import-catalog
 
 ---
 
-## 4. Env для FastAPI (следующий шаг)
+## 4. Env для FastAPI
+
+См. [`backend/DOKPLOY.md`](../backend/DOKPLOY.md) и `backend/dokploy.env.example`.
 
 ```env
 POCKETBASE_URL=https://pb.cashbackbrain.ru
 POCKETBASE_ADMIN_EMAIL=...
 POCKETBASE_ADMIN_PASSWORD=...
+ASSETS_URL=https://fcdc8bee-4045-49ca-8869-3f22cd730eb5.s3.twcstorage.ru
+ADMIN_KEY=...   # openssl rand -hex 16
 ```
+
+Проверка: `python3 scripts/setup_backend_phase3.py`
 
 ---
 
@@ -136,5 +141,14 @@ python3 scripts/fix_pocketbase_dokploy.py
 ```
 
 Скрипт очищает Command, redeploy, проверяет health.
+
+**HTTPS / Let's Encrypt** (если браузер ругается на сертификат или `TRAEFIK DEFAULT CERT`):
+
+```bash
+set -a && source .env.dokploy && set +a
+python3 scripts/fix_pocketbase_https_dokploy.py
+```
+
+Admin UI PocketBase: `https://pb.cashbackbrain.ru/_/` (корень `/` всегда 404 — это нормально).
 
 Ключ **не коммитить** в git. После деплоя всё равно нужен ручной шаг: superadmin в `https://pb.cashbackbrain.ru/_/`.

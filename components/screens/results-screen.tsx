@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, ChevronRight, Download, Share, LayoutGrid, ImagePlus, Trash2 } from "lucide-react"
+import { ChevronDown, ChevronRight, Download, Share, LayoutGrid, ImagePlus, Trash2, Bookmark } from "lucide-react"
 import { ProviderLogo } from "@/components/provider-logo"
 import { ProcessingWarningsBanner } from "@/components/processing-warnings-banner"
 import { getCurrentMonthYear, getRowTiers, type RateTier } from "@/lib/cashback-data"
@@ -19,7 +19,9 @@ import {
   formatCategoryLabel,
   labelsEquivalent,
 } from "@/lib/category-label"
-import type { CashbackMatrix, Kind, MatrixProvider, MatrixRow, MatrixState, ProcessingSummary } from "@/lib/types"
+import type { CashbackMatrix, Kind, MatrixProvider, MatrixRow, MatrixState, ProcessingSummary, SourceSubmission } from "@/lib/types"
+import { useAuth } from "@/lib/auth-context"
+import { saveMatrix } from "@/lib/saved-matrices"
 import { AddWidgetOverlay, SavePngOverlay, ShareSheet } from "./results-overlays"
 import { UserMenu } from "./user-menu"
 
@@ -120,23 +122,33 @@ function MatrixRowContent({
 
 export function ResultsScreen({
   onRestart,
+  onLogout,
   onUploadMore,
   kind = "bank",
   matrix,
+  submissions = [],
   processingSummary = { skipped: [], lowConfidence: [], bankOffers: [] },
+  userEmail,
 }: {
   onRestart: () => void
+  onLogout: () => void
   onUploadMore: () => void
   kind?: Kind
   matrix: MatrixState
+  submissions?: SourceSubmission[]
   processingSummary?: ProcessingSummary
+  userEmail?: string
 }) {
+  const { pb } = useAuth()
   const [activeTab, setActiveTab] = useState<Tab>(() => getDefaultTab(matrix, kind))
   const [showSave, setShowSave] = useState(false)
   const [showShare, setShowShare] = useState(false)
   const [showWidget, setShowWidget] = useState(false)
   const [showResetConfirm, setShowResetConfirm] = useState(false)
   const [expandedParents, setExpandedParents] = useState<Set<string>>(new Set())
+  const [isSavingMatrix, setIsSavingMatrix] = useState(false)
+  const [saveToast, setSaveToast] = useState<string | null>(null)
+  const [saveError, setSaveError] = useState<string | null>(null)
 
   const activeMatrix = getActiveMatrix(matrix, activeTab)
   const providers = activeMatrix?.providers ?? []
@@ -166,6 +178,25 @@ export function ResultsScreen({
     setShowWidget(true)
   }
 
+  async function handleSaveMatrix() {
+    setSaveError(null)
+    setIsSavingMatrix(true)
+
+    try {
+      await saveMatrix(pb, {
+        matrix,
+        submissions,
+        summary: processingSummary,
+      })
+      setSaveToast("Матрица сохранена")
+      window.setTimeout(() => setSaveToast(null), 3000)
+    } catch (error) {
+      setSaveError(error instanceof Error ? error.message : "Не удалось сохранить")
+    } finally {
+      setIsSavingMatrix(false)
+    }
+  }
+
   return (
     <motion.div
       key="results"
@@ -182,7 +213,7 @@ export function ResultsScreen({
             {getCurrentMonthYear()}
           </p>
         </div>
-        <UserMenu onLogout={onRestart} />
+        <UserMenu onLogout={onLogout} userEmail={userEmail} />
       </div>
 
       <ProcessingWarningsBanner summary={processingSummary} />
@@ -361,6 +392,18 @@ export function ResultsScreen({
 
       <div className="mt-auto overflow-hidden rounded-2xl border border-yellow-300 bg-yellow-200 shadow-md">
         <button
+          type="button"
+          onClick={handleSaveMatrix}
+          disabled={isSavingMatrix || !hasMatrixData}
+          className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-yellow-300 active:bg-yellow-400 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          <Bookmark className="h-5 w-5 shrink-0 text-slate-700" />
+          <span className="text-[15px] font-medium text-slate-900">
+            {isSavingMatrix ? "Сохранение…" : "Сохранить матрицу"}
+          </span>
+        </button>
+        <div className="h-px bg-yellow-300" />
+        <button
           onClick={handleSavePng}
           className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-yellow-300 active:bg-yellow-400"
         >
@@ -401,9 +444,28 @@ export function ResultsScreen({
         Очистить данные
       </button>
 
+      {saveError && (
+        <p className="mt-3 text-sm text-red-600" role="alert">
+          {saveError}
+        </p>
+      )}
+
       <SavePngOverlay open={showSave} onClose={() => setShowSave(false)} />
       <ShareSheet open={showShare} onClose={() => setShowShare(false)} />
       <AddWidgetOverlay open={showWidget} onClose={() => setShowWidget(false)} tab={activeTab} />
+
+      <AnimatePresence>
+        {saveToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 16 }}
+            className="pointer-events-none absolute inset-x-5 bottom-6 z-40 rounded-2xl bg-slate-900 px-4 py-3 text-center text-[14px] font-medium text-white shadow-lg"
+          >
+            {saveToast}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {showResetConfirm && (

@@ -1,8 +1,8 @@
 {
   "app/layout.tsx": {
-    "mtime": 1781445919.6103175,
-    "ast_hash": "96a305e01dabf3b22d4cd127e1c6c991",
-    "semantic_hash": "96a305e01dabf3b22d4cd127e1c6c991"
+    "mtime": 1782655917.1258328,
+    "ast_hash": "79091a93a26865a294e745e2a5b949b9",
+    "semantic_hash": ""
   },
   "app/page.tsx": {
     "mtime": 1781445919.6104133,
@@ -60,8 +60,8 @@
     "semantic_hash": "a1691b243ef8732e37a47e5eef18a7e4"
   },
   "components/cashback-app.tsx": {
-    "mtime": 1781709804.6218429,
-    "ast_hash": "b83462116cd952b8de80c1cf3c69f7eb",
+    "mtime": 1782655930.4637551,
+    "ast_hash": "adf52ec6fea43a825ae82a03ed8168e2",
     "semantic_hash": ""
   },
   "components/duplicate-source-confirm-dialog.tsx": {
@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "components/screens/empty-screen.tsx": {
-    "mtime": 1781969506.977521,
-    "ast_hash": "9ed74bcbc33e9fb5b66a796c63e6f3f3",
+    "mtime": 1782655936.578676,
+    "ast_hash": "f642ac023f46ae39bf910d92b6815689",
     "semantic_hash": ""
   },
   "components/screens/gallery-screen.tsx": {
@@ -120,14 +120,14 @@
     "semantic_hash": "8062aae909450f1f017065252e0f748a"
   },
   "components/screens/results-screen.tsx": {
-    "mtime": 1781973413.846823,
-    "ast_hash": "40520d6042a74fff5e5e90b39b099b01",
+    "mtime": 1782655955.055967,
+    "ast_hash": "0475e825fc98567d7818cb95cffc3f19",
     "semantic_hash": ""
   },
   "components/screens/user-menu.tsx": {
-    "mtime": 1781453216.6966968,
-    "ast_hash": "98fa20b441efb98ca9489d9871c8bf44",
-    "semantic_hash": "98fa20b441efb98ca9489d9871c8bf44"
+    "mtime": 1782655972.0980055,
+    "ast_hash": "470178bae0b6127ed41b775793085f84",
+    "semantic_hash": ""
   },
   "components/screenshot-reuse-confirm-dialog.tsx": {
     "mtime": 1781533450.1650953,
@@ -200,8 +200,8 @@
     "semantic_hash": "9a4cc6f9f3155ffdc1fa7c2c097f6429"
   },
   "next-env.d.ts": {
-    "mtime": 1782300591.4299111,
-    "ast_hash": "d0f8375ae1199dc7acd3977fc33b78b8",
+    "mtime": 1782655982.4381533,
+    "ast_hash": "2a74d3909800ca5467fa83b0ab4a4890",
     "semantic_hash": ""
   },
   "next.config.mjs": {
@@ -210,8 +210,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1782288273.520975,
-    "ast_hash": "99ef285a5cbff6296bf51a000e7829b1",
+    "mtime": 1782655862.6931524,
+    "ast_hash": "dfa266d52c5b5b9711215e0cc2abc60f",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -550,8 +550,8 @@
     "semantic_hash": ""
   },
   "backend/services/retailer_resolver_service.py": {
-    "mtime": 1782320019.1580188,
-    "ast_hash": "1fd615c50e5ae0854726da193d2d5cc3",
+    "mtime": 1782659052.703241,
+    "ast_hash": "f61c286bc0dc2ddcf286f79eacb3459b",
     "semantic_hash": ""
   },
   "backend/tests/fixtures/mini_retailer_catalog.json": {
@@ -597,6 +597,81 @@
   "scripts/verify_retailer_resolver.py": {
     "mtime": 1781972288.2450166,
     "ast_hash": "7baee8df9020bd2801ce87c125fa8fea",
+    "semantic_hash": ""
+  },
+  "components/app-providers.tsx": {
+    "mtime": 1782655911.5226395,
+    "ast_hash": "e5b40766d07da2541397d6a94af1f320",
+    "semantic_hash": ""
+  },
+  "components/screens/auth-screen.tsx": {
+    "mtime": 1782655910.786016,
+    "ast_hash": "b1a01cf8eb6d031a91fb58caa62b92eb",
+    "semantic_hash": ""
+  },
+  "lib/auth-context.tsx": {
+    "mtime": 1782655899.9838464,
+    "ast_hash": "8e7e1b6e1a92807eedcfd9aed1434e5f",
+    "semantic_hash": ""
+  },
+  "lib/auth-errors.ts": {
+    "mtime": 1782655851.921398,
+    "ast_hash": "3fe0aa5fdd48017a48059fec00ffa50c",
+    "semantic_hash": ""
+  },
+  "lib/pocketbase.ts": {
+    "mtime": 1782655847.1272142,
+    "ast_hash": "234ef7f43f4cce6d71d143dda5594c38",
+    "semantic_hash": ""
+  },
+  "lib/saved-matrices.ts": {
+    "mtime": 1782655899.9838786,
+    "ast_hash": "45a2079a0f33850309214d2c5f8fe3fb",
+    "semantic_hash": ""
+  },
+  "scripts/create_pocketbase_superuser.py": {
+    "mtime": 1782654102.8983493,
+    "ast_hash": "f764ce0b43b24aa32892d0372b586eee",
+    "semantic_hash": ""
+  },
+  "scripts/deploy_pocketbase_dokploy.py": {
+    "mtime": 1782652630.8563209,
+    "ast_hash": "540bf4470afa98cfb72d16b70cf6935e",
+    "semantic_hash": ""
+  },
+  "scripts/fix_pocketbase_dokploy.py": {
+    "mtime": 1782652539.210924,
+    "ast_hash": "011114cf34934557c0162bc2584737be",
+    "semantic_hash": ""
+  },
+  "scripts/fix_pocketbase_https_dokploy.py": {
+    "mtime": 1782654658.1417937,
+    "ast_hash": "570e39914e9f517c931baac3254bdac7",
+    "semantic_hash": ""
+  },
+  "scripts/remove-local-dns.sh": {
+    "mtime": 1782647274.0607238,
+    "ast_hash": "9677d2cf818dfcc215d751fb68716848",
+    "semantic_hash": ""
+  },
+  "scripts/setup-local-dns.sh": {
+    "mtime": 1782647273.0217433,
+    "ast_hash": "ca056c715cd746984ae660df1f3d4f90",
+    "semantic_hash": ""
+  },
+  "scripts/setup_pocketbase.py": {
+    "mtime": 1782655621.8222885,
+    "ast_hash": "e0ed2745a6d9a419c14d38eac7127ffe",
+    "semantic_hash": ""
+  },
+  "scripts/setup_pocketbase_phase1.py": {
+    "mtime": 1782655252.3438172,
+    "ast_hash": "f4dcf9539e74c2608706c33da79f38f0",
+    "semantic_hash": ""
+  },
+  "scripts/setup_backend_phase3.py": {
+    "mtime": 1782659150.916822,
+    "ast_hash": "6f7c206eda3e02fd709f8745fbe088e7",
     "semantic_hash": ""
   }
 }

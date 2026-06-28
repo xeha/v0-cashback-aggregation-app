@@ -7,9 +7,11 @@ import { UserMenu } from "./user-menu"
 export function EmptyScreen({
   onFilePicked,
   onLogout,
+  userEmail,
 }: {
   onFilePicked: (src: string) => void
   onLogout: () => void
+  userEmail?: string
 }) {
   return (
     <ImageFilePicker onPick={onFilePicked}>
@@ -23,7 +25,7 @@ export function EmptyScreen({
           className="relative flex min-h-full flex-col px-6 py-6"
         >
           <div className="flex justify-end">
-            <UserMenu onLogout={onLogout} />
+            <UserMenu onLogout={onLogout} userEmail={userEmail} />
           </div>
 
           <div className="flex flex-1 flex-col items-center justify-center text-center">

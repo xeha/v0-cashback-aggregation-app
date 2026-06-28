@@ -138,7 +138,7 @@ class RetailerResolverService:
         email, password = self._admin_credentials()
         base_url = self._require_pocketbase_url()
         response = client.post(
-            f"{base_url}/api/admins/auth-with-password",
+            f"{base_url}/api/collections/_superusers/auth-with-password",
             json={"identity": email, "password": password},
         )
         response.raise_for_status()
