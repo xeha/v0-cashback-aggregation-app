@@ -57,6 +57,23 @@ DOKPLOY_TARGET=production python3 scripts/deploy_fastapi_dokploy.py
 
 Каждое окружение Dokploy — отдельный **Environment** в проекте `CashbackBrain` со своими приложениями и volume PocketBase.
 
+### Development (создано 2026-06-28)
+
+| Сервис | appId | Домен |
+|--------|-------|-------|
+| PocketBase | `TJLMTHwQTtE8Qw9jzsehJ` | `pb-dev.cashbackbrain.ru` |
+| FastAPI | `xmQBvNSxw4xjfEbPmxlR3` | `api-dev.cashbackbrain.ru` |
+| Frontend | `dRpUgqUmQomxUb63Sc4rh` | `dev.cashbackbrain.ru` |
+
+Environment id: `PBM-xAngzTQwyL8_8rxQi`
+
+После сборки контейнеров (5–15 мин):
+
+```bash
+set -a && source .env.dokploy && source .env.pocketbase && set +a
+python3 scripts/setup_dev_post_deploy.py
+```
+
 ## Локальный DNS (если Timeweb ещё не пропагировал)
 
 ```bash
