@@ -126,7 +126,7 @@ python3 scripts/deploy_pocketbase_dokploy.py
 **Вариант 2 — только в терминале (разово)**
 
 ```bash
-export DOKPLOY_URL=https://cashbackbrain.ru
+export DOKPLOY_URL=https://dokploy.cashbackbrain.ru
 export DOKPLOY_API_KEY=ваш_новый_ключ
 python3 scripts/deploy_pocketbase_dokploy.py
 ```

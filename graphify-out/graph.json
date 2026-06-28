@@ -10,7 +10,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_layout",
-      "community": 20,
+      "community": 53,
       "norm_label": "layout.tsx"
     },
     {
@@ -20,7 +20,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "app_layout_geistsans",
-      "community": 20,
+      "community": 53,
       "norm_label": "geistsans"
     },
     {
@@ -30,7 +30,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "app_layout_geistmono",
-      "community": 20,
+      "community": 53,
       "norm_label": "geistmono"
     },
     {
@@ -40,7 +40,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "app_layout_metadata",
-      "community": 20,
+      "community": 53,
       "norm_label": "metadata"
     },
     {
@@ -50,7 +50,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "app_layout_rootlayout",
-      "community": 20,
+      "community": 53,
       "norm_label": "rootlayout()"
     },
     {
@@ -410,7 +410,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_schemas_ocritem",
-      "community": 2,
+      "community": 11,
       "norm_label": "ocritem"
     },
     {
@@ -670,7 +670,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "services_category_classifier_service",
-      "community": 2,
+      "community": 37,
       "norm_label": "category_classifier_service.py"
     },
     {
@@ -680,7 +680,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "services_category_classifier_service_categoryclassifierservice",
-      "community": 2,
+      "community": 37,
       "norm_label": "categoryclassifierservice"
     },
     {
@@ -690,7 +690,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "services_category_classifier_service_categoryclassifierservice_init",
-      "community": 2,
+      "community": 37,
       "norm_label": ".__init__()"
     },
     {
@@ -700,7 +700,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "services_category_classifier_service_categoryclassifierservice_get_client",
-      "community": 2,
+      "community": 37,
       "norm_label": "._get_client()"
     },
     {
@@ -710,7 +710,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_services_category_classifier_service_py_mistral",
-      "community": 2,
+      "community": 37,
       "norm_label": "mistral"
     },
     {
@@ -720,7 +720,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "services_category_classifier_service_categoryclassifierservice_classify_parent",
-      "community": 2,
+      "community": 37,
       "norm_label": ".classify_parent()"
     },
     {
@@ -920,7 +920,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice",
-      "community": 37,
+      "community": 2,
       "norm_label": "mapperservice"
     },
     {
@@ -930,7 +930,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_init",
-      "community": 37,
+      "community": 2,
       "norm_label": ".__init__()"
     },
     {
@@ -940,7 +940,7 @@
       "source_location": "L129",
       "_origin": "ast",
       "id": "services_mapper_service_mapperservice_is_loaded",
-      "community": 37,
+      "community": 2,
       "norm_label": ".is_loaded()"
     },
     {
@@ -1070,7 +1070,7 @@
       "source_location": "L242",
       "_origin": "ast",
       "id": "backend_services_mapper_service_py_ndarray",
-      "community": 2,
+      "community": 37,
       "norm_label": "ndarray"
     },
     {
@@ -1120,7 +1120,7 @@
       "source_location": "L304",
       "_origin": "ast",
       "id": "backend_services_mapper_service_py_matchsource",
-      "community": 2,
+      "community": 37,
       "norm_label": "matchsource"
     },
     {
@@ -2180,7 +2180,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "backend_tests_test_mapper_retailer_integration_py_ndarray",
-      "community": 37,
+      "community": 2,
       "norm_label": "ndarray"
     },
     {
@@ -2680,7 +2680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_app_providers",
-      "community": 20,
+      "community": 53,
       "norm_label": "app-providers.tsx"
     },
     {
@@ -2690,7 +2690,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "components_app_providers_appproviders",
-      "community": 20,
+      "community": 53,
       "norm_label": "appproviders()"
     },
     {
@@ -2770,7 +2770,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_duplicate_source_confirm_dialog",
-      "community": 1,
+      "community": 60,
       "norm_label": "duplicate-source-confirm-dialog.tsx"
     },
     {
@@ -2780,7 +2780,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_duplicate_source_confirm_dialog_formatproviderlist",
-      "community": 1,
+      "community": 60,
       "norm_label": "formatproviderlist()"
     },
     {
@@ -2790,7 +2790,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "components_duplicate_source_confirm_dialog_duplicatesourceconfirmdialog",
-      "community": 1,
+      "community": 60,
       "norm_label": "duplicatesourceconfirmdialog()"
     },
     {
@@ -2880,7 +2880,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_provider_kind_picker_dialog",
-      "community": 1,
+      "community": 52,
       "norm_label": "provider-kind-picker-dialog.tsx"
     },
     {
@@ -2890,7 +2890,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "components_provider_kind_picker_dialog_providerkindpickermode",
-      "community": 1,
+      "community": 52,
       "norm_label": "providerkindpickermode"
     },
     {
@@ -2900,7 +2900,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "components_provider_kind_picker_dialog_providerkindpickerdialogprops",
-      "community": 1,
+      "community": 52,
       "norm_label": "providerkindpickerdialogprops"
     },
     {
@@ -2910,7 +2910,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "components_provider_kind_picker_dialog_providerkindpickerdialog",
-      "community": 1,
+      "community": 52,
       "norm_label": "providerkindpickerdialog()"
     },
     {
@@ -2920,7 +2920,7 @@
       "source_location": "L119",
       "_origin": "ast",
       "id": "components_provider_kind_picker_dialog_pickercard",
-      "community": 1,
+      "community": 52,
       "norm_label": "pickercard()"
     },
     {
@@ -2930,7 +2930,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_provider_logo",
-      "community": 1,
+      "community": 58,
       "norm_label": "provider-logo.tsx"
     },
     {
@@ -2940,7 +2940,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "components_provider_logo_placeholder_palette",
-      "community": 1,
+      "community": 58,
       "norm_label": "placeholder_palette"
     },
     {
@@ -2950,7 +2950,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "components_provider_logo_isplaceholderproviderlogo",
-      "community": 1,
+      "community": 58,
       "norm_label": "isplaceholderproviderlogo()"
     },
     {
@@ -2960,7 +2960,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "components_provider_logo_getproviderinitial",
-      "community": 1,
+      "community": 58,
       "norm_label": "getproviderinitial()"
     },
     {
@@ -2970,7 +2970,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "components_provider_logo_hashstring",
-      "community": 1,
+      "community": 58,
       "norm_label": "hashstring()"
     },
     {
@@ -2980,7 +2980,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "components_provider_logo_getplaceholderavatarcolors",
-      "community": 1,
+      "community": 58,
       "norm_label": "getplaceholderavatarcolors()"
     },
     {
@@ -2990,7 +2990,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "components_provider_logo_providerlogo",
-      "community": 1,
+      "community": 58,
       "norm_label": "providerlogo()"
     },
     {
@@ -3000,7 +3000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_provider_name_input",
-      "community": 1,
+      "community": 58,
       "norm_label": "provider-name-input.tsx"
     },
     {
@@ -3010,7 +3010,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "components_provider_name_input_providernameinput",
-      "community": 1,
+      "community": 58,
       "norm_label": "providernameinput()"
     },
     {
@@ -3050,7 +3050,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screens_bank_select_screen",
-      "community": 1,
+      "community": 52,
       "norm_label": "bank-select-screen.tsx"
     },
     {
@@ -3060,7 +3060,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "screens_bank_select_screen_copy",
-      "community": 1,
+      "community": 52,
       "norm_label": "copy"
     },
     {
@@ -3070,7 +3070,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "screens_bank_select_screen_resolutiontask",
-      "community": 1,
+      "community": 52,
       "norm_label": "resolutiontask"
     },
     {
@@ -3080,7 +3080,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "screens_bank_select_screen_resolvecontext",
-      "community": 1,
+      "community": 52,
       "norm_label": "resolvecontext"
     },
     {
@@ -3090,7 +3090,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "screens_bank_select_screen_duplicateconfirmstate",
-      "community": 1,
+      "community": 52,
       "norm_label": "duplicateconfirmstate"
     },
     {
@@ -3100,7 +3100,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "screens_bank_select_screen_screenshotreuseblockstate",
-      "community": 1,
+      "community": 59,
       "norm_label": "screenshotreuseblockstate"
     },
     {
@@ -3110,7 +3110,7 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "screens_bank_select_screen_submissionrow",
-      "community": 1,
+      "community": 52,
       "norm_label": "submissionrow"
     },
     {
@@ -3140,7 +3140,7 @@
       "source_location": "L122",
       "_origin": "ast",
       "id": "screens_bank_select_screen_bankselectscreen",
-      "community": 1,
+      "community": 52,
       "norm_label": "bankselectscreen()"
     },
     {
@@ -3210,7 +3210,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "screens_processing_screen_ocrfailurestate",
-      "community": 46,
+      "community": 52,
       "norm_label": "ocrfailurestate"
     },
     {
@@ -3490,7 +3490,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_screenshot_reuse_confirm_dialog",
-      "community": 1,
+      "community": 59,
       "norm_label": "screenshot-reuse-confirm-dialog.tsx"
     },
     {
@@ -3500,7 +3500,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_screenshot_reuse_confirm_dialog_screenshotreuseconflict",
-      "community": 1,
+      "community": 59,
       "norm_label": "screenshotreuseconflict"
     },
     {
@@ -3510,7 +3510,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "components_screenshot_reuse_confirm_dialog_formatname",
-      "community": 1,
+      "community": 59,
       "norm_label": "formatname()"
     },
     {
@@ -3520,7 +3520,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "components_screenshot_reuse_confirm_dialog_formatconflictdescription",
-      "community": 1,
+      "community": 59,
       "norm_label": "formatconflictdescription()"
     },
     {
@@ -3530,7 +3530,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "components_screenshot_reuse_confirm_dialog_screenshotreuseconfirmdialog",
-      "community": 1,
+      "community": 59,
       "norm_label": "screenshotreuseconfirmdialog()"
     },
     {
@@ -3770,7 +3770,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_auth_context",
-      "community": 20,
+      "community": 53,
       "norm_label": "auth-context.tsx"
     },
     {
@@ -3780,7 +3780,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "lib_auth_context_authcontextvalue",
-      "community": 20,
+      "community": 53,
       "norm_label": "authcontextvalue"
     },
     {
@@ -3790,7 +3790,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "lib_auth_context_authcontext",
-      "community": 20,
+      "community": 53,
       "norm_label": "authcontext"
     },
     {
@@ -3800,7 +3800,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "lib_auth_context_getclientpocketbase",
-      "community": 20,
+      "community": 53,
       "norm_label": "getclientpocketbase()"
     },
     {
@@ -3810,7 +3810,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "lib_auth_context_authprovider",
-      "community": 20,
+      "community": 53,
       "norm_label": "authprovider()"
     },
     {
@@ -3830,7 +3830,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_auth_errors",
-      "community": 20,
+      "community": 53,
       "norm_label": "auth-errors.ts"
     },
     {
@@ -3840,7 +3840,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "lib_auth_errors_status_messages",
-      "community": 20,
+      "community": 53,
       "norm_label": "status_messages"
     },
     {
@@ -3850,7 +3850,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "lib_auth_errors_formatautherror",
-      "community": 20,
+      "community": 53,
       "norm_label": "formatautherror()"
     },
     {
@@ -3860,7 +3860,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_bank_select_rows",
-      "community": 1,
+      "community": 52,
       "norm_label": "bank-select-rows.ts"
     },
     {
@@ -3870,7 +3870,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "lib_bank_select_rows_bankselectinitialrow",
-      "community": 1,
+      "community": 52,
       "norm_label": "bankselectinitialrow"
     },
     {
@@ -3880,7 +3880,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "lib_bank_select_rows_submissiontobankselectrow",
-      "community": 1,
+      "community": 52,
       "norm_label": "submissiontobankselectrow()"
     },
     {
@@ -3890,7 +3890,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "lib_bank_select_rows_buildbankselectrowstate",
-      "community": 1,
+      "community": 52,
       "norm_label": "buildbankselectrowstate()"
     },
     {
@@ -4100,7 +4100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_image_utils",
-      "community": 20,
+      "community": 56,
       "norm_label": "image-utils.ts"
     },
     {
@@ -4110,7 +4110,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_image_utils_mime_by_ext",
-      "community": 20,
+      "community": 56,
       "norm_label": "mime_by_ext"
     },
     {
@@ -4120,7 +4120,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "lib_image_utils_accepted_image_types",
-      "community": 20,
+      "community": 56,
       "norm_label": "accepted_image_types"
     },
     {
@@ -4130,7 +4130,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "lib_image_utils_heic_types",
-      "community": 20,
+      "community": 56,
       "norm_label": "heic_types"
     },
     {
@@ -4140,7 +4140,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "lib_image_utils_heic_extensions",
-      "community": 20,
+      "community": 56,
       "norm_label": "heic_extensions"
     },
     {
@@ -4150,7 +4150,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "lib_image_utils_imagereaderror",
-      "community": 20,
+      "community": 56,
       "norm_label": "imagereaderror"
     },
     {
@@ -4160,7 +4160,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "lib_image_utils_imagereaderror_constructor",
-      "community": 20,
+      "community": 56,
       "norm_label": ".constructor()"
     },
     {
@@ -4170,7 +4170,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "lib_image_utils_fileextension",
-      "community": 20,
+      "community": 56,
       "norm_label": "fileextension()"
     },
     {
@@ -4180,7 +4180,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "lib_image_utils_isheicfile",
-      "community": 20,
+      "community": 56,
       "norm_label": "isheicfile()"
     },
     {
@@ -4190,7 +4190,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "lib_image_utils_isacceptedimage",
-      "community": 20,
+      "community": 56,
       "norm_label": "isacceptedimage()"
     },
     {
@@ -4200,7 +4200,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "lib_image_utils_shouldcompress",
-      "community": 20,
+      "community": 56,
       "norm_label": "shouldcompress()"
     },
     {
@@ -4210,7 +4210,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "lib_image_utils_convertheictojpeg",
-      "community": 20,
+      "community": 56,
       "norm_label": "convertheictojpeg()"
     },
     {
@@ -4220,7 +4220,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "lib_image_utils_readfileasdataurl",
-      "community": 20,
+      "community": 56,
       "norm_label": "readfileasdataurl()"
     },
     {
@@ -4230,7 +4230,7 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "lib_image_utils_compressdataurl",
-      "community": 20,
+      "community": 56,
       "norm_label": "compressdataurl()"
     },
     {
@@ -4240,7 +4240,7 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "lib_image_utils_readimagefile",
-      "community": 20,
+      "community": 56,
       "norm_label": "readimagefile()"
     },
     {
@@ -4250,7 +4250,7 @@
       "source_location": "L144",
       "_origin": "ast",
       "id": "lib_image_utils_guessmimetype",
-      "community": 20,
+      "community": 56,
       "norm_label": "guessmimetype()"
     },
     {
@@ -4260,7 +4260,7 @@
       "source_location": "L149",
       "_origin": "ast",
       "id": "lib_image_utils_stripdataurlprefix",
-      "community": 20,
+      "community": 56,
       "norm_label": "stripdataurlprefix()"
     },
     {
@@ -4270,7 +4270,7 @@
       "source_location": "L157",
       "_origin": "ast",
       "id": "lib_image_utils_imagesrctobase64",
-      "community": 20,
+      "community": 56,
       "norm_label": "imagesrctobase64()"
     },
     {
@@ -4750,7 +4750,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_pocketbase",
-      "community": 20,
+      "community": 53,
       "norm_label": "pocketbase.ts"
     },
     {
@@ -4760,7 +4760,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "lib_pocketbase_getpocketbaseurl",
-      "community": 20,
+      "community": 53,
       "norm_label": "getpocketbaseurl()"
     },
     {
@@ -4770,7 +4770,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "lib_pocketbase_createpocketbase",
-      "community": 20,
+      "community": 53,
       "norm_label": "createpocketbase()"
     },
     {
@@ -4800,7 +4800,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "lib_provider_logos_providersuggestion",
-      "community": 1,
+      "community": 52,
       "norm_label": "providersuggestion"
     },
     {
@@ -4910,7 +4910,7 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "lib_provider_logos_tosuggestion",
-      "community": 1,
+      "community": 58,
       "norm_label": "tosuggestion()"
     },
     {
@@ -5020,7 +5020,7 @@
       "source_location": "L237",
       "_origin": "ast",
       "id": "lib_provider_logos_searchallprovidersuggestions",
-      "community": 1,
+      "community": 58,
       "norm_label": "searchallprovidersuggestions()"
     },
     {
@@ -5040,7 +5040,7 @@
       "source_location": "L277",
       "_origin": "ast",
       "id": "lib_provider_logos_getlocalproviderlogo",
-      "community": 1,
+      "community": 58,
       "norm_label": "getlocalproviderlogo()"
     },
     {
@@ -5120,7 +5120,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_types_kind",
-      "community": 1,
+      "community": 52,
       "norm_label": "kind"
     },
     {
@@ -5130,7 +5130,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "lib_types_sourcesubmission",
-      "community": 46,
+      "community": 52,
       "norm_label": "sourcesubmission"
     },
     {
@@ -6054,6 +6054,176 @@
       "norm_label": "main()"
     },
     {
+      "label": "deploy_fastapi_dokploy.py",
+      "file_type": "code",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_deploy_fastapi_dokploy",
+      "community": 51,
+      "norm_label": "deploy_fastapi_dokploy.py"
+    },
+    {
+      "label": "load_backend_env()",
+      "file_type": "code",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L86",
+      "_origin": "ast",
+      "id": "scripts_deploy_fastapi_dokploy_load_backend_env",
+      "community": 51,
+      "norm_label": "load_backend_env()"
+    },
+    {
+      "label": "build_env_block()",
+      "file_type": "code",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L136",
+      "_origin": "ast",
+      "id": "scripts_deploy_fastapi_dokploy_build_env_block",
+      "community": 51,
+      "norm_label": "build_env_block()"
+    },
+    {
+      "label": "ensure_git_branch_pushed()",
+      "file_type": "code",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "scripts_deploy_fastapi_dokploy_ensure_git_branch_pushed",
+      "community": 51,
+      "norm_label": "ensure_git_branch_pushed()"
+    },
+    {
+      "label": "deploy_fastapi()",
+      "file_type": "code",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L191",
+      "_origin": "ast",
+      "id": "scripts_deploy_fastapi_dokploy_deploy_fastapi",
+      "community": 51,
+      "norm_label": "deploy_fastapi()"
+    },
+    {
+      "label": "DokployClient",
+      "file_type": "code",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L191",
+      "_origin": "ast",
+      "id": "scripts_deploy_fastapi_dokploy_py_dokployclient",
+      "community": 51,
+      "norm_label": "dokployclient"
+    },
+    {
+      "label": "wait_for_health()",
+      "file_type": "code",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L276",
+      "_origin": "ast",
+      "id": "scripts_deploy_fastapi_dokploy_wait_for_health",
+      "community": 51,
+      "norm_label": "wait_for_health()"
+    },
+    {
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L276",
+      "_origin": "ast",
+      "id": "scripts_deploy_fastapi_dokploy_py_any",
+      "community": 51,
+      "norm_label": "any"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L301",
+      "_origin": "ast",
+      "id": "scripts_deploy_fastapi_dokploy_main",
+      "community": 51,
+      "norm_label": "main()"
+    },
+    {
+      "label": "deploy_frontend_dokploy.py",
+      "file_type": "code",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_deploy_frontend_dokploy",
+      "community": 51,
+      "norm_label": "deploy_frontend_dokploy.py"
+    },
+    {
+      "label": "build_public_env()",
+      "file_type": "code",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "scripts_deploy_frontend_dokploy_build_public_env",
+      "community": 51,
+      "norm_label": "build_public_env()"
+    },
+    {
+      "label": "env_block()",
+      "file_type": "code",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "scripts_deploy_frontend_dokploy_env_block",
+      "community": 51,
+      "norm_label": "env_block()"
+    },
+    {
+      "label": "ensure_git_branch_pushed()",
+      "file_type": "code",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L73",
+      "_origin": "ast",
+      "id": "scripts_deploy_frontend_dokploy_ensure_git_branch_pushed",
+      "community": 51,
+      "norm_label": "ensure_git_branch_pushed()"
+    },
+    {
+      "label": "deploy_frontend()",
+      "file_type": "code",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L95",
+      "_origin": "ast",
+      "id": "scripts_deploy_frontend_dokploy_deploy_frontend",
+      "community": 51,
+      "norm_label": "deploy_frontend()"
+    },
+    {
+      "label": "DokployClient",
+      "file_type": "code",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L95",
+      "_origin": "ast",
+      "id": "scripts_deploy_frontend_dokploy_py_dokployclient",
+      "community": 51,
+      "norm_label": "dokployclient"
+    },
+    {
+      "label": "wait_for_frontend()",
+      "file_type": "code",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L174",
+      "_origin": "ast",
+      "id": "scripts_deploy_frontend_dokploy_wait_for_frontend",
+      "community": 51,
+      "norm_label": "wait_for_frontend()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L197",
+      "_origin": "ast",
+      "id": "scripts_deploy_frontend_dokploy_main",
+      "community": 51,
+      "norm_label": "main()"
+    },
+    {
       "label": "deploy_pocketbase_dokploy.py",
       "file_type": "code",
       "source_file": "scripts/deploy_pocketbase_dokploy.py",
@@ -6212,6 +6382,206 @@
       "id": "scripts_deploy_pocketbase_dokploy_main",
       "community": 39,
       "norm_label": "main()"
+    },
+    {
+      "label": "dokploy_common.py",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common",
+      "community": 51,
+      "norm_label": "dokploy_common.py"
+    },
+    {
+      "label": "load_env_file()",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_load_env_file",
+      "community": 51,
+      "norm_label": "load_env_file()"
+    },
+    {
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_py_path",
+      "community": 51,
+      "norm_label": "path"
+    },
+    {
+      "label": "load_dokploy_env()",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_load_dokploy_env",
+      "community": 51,
+      "norm_label": "load_dokploy_env()"
+    },
+    {
+      "label": "require_env()",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_require_env",
+      "community": 51,
+      "norm_label": "require_env()"
+    },
+    {
+      "label": "DokployClient",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_dokployclient",
+      "community": 51,
+      "norm_label": "dokployclient"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_dokployclient_init",
+      "community": 51,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".post()",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_dokployclient_post",
+      "community": 51,
+      "norm_label": ".post()"
+    },
+    {
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_py_any",
+      "community": 51,
+      "norm_label": "any"
+    },
+    {
+      "label": ".get()",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_dokployclient_get",
+      "community": 51,
+      "norm_label": ".get()"
+    },
+    {
+      "label": "._read()",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_dokployclient_read",
+      "community": 51,
+      "norm_label": "._read()"
+    },
+    {
+      "label": "Request",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_py_request",
+      "community": 51,
+      "norm_label": "request"
+    },
+    {
+      "label": "unwrap_list()",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L78",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_unwrap_list",
+      "community": 51,
+      "norm_label": "unwrap_list()"
+    },
+    {
+      "label": "pick_by_name()",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L90",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_pick_by_name",
+      "community": 51,
+      "norm_label": "pick_by_name()"
+    },
+    {
+      "label": "application_id()",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L99",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_application_id",
+      "community": 51,
+      "norm_label": "application_id()"
+    },
+    {
+      "label": "find_environment_id()",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L106",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_find_environment_id",
+      "community": 51,
+      "norm_label": "find_environment_id()"
+    },
+    {
+      "label": "find_app_by_name()",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L136",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_find_app_by_name",
+      "community": 51,
+      "norm_label": "find_app_by_name()"
+    },
+    {
+      "label": "resolve_github_id()",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L150",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_resolve_github_id",
+      "community": 51,
+      "norm_label": "resolve_github_id()"
+    },
+    {
+      "label": "ensure_domain()",
+      "file_type": "code",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L170",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_ensure_domain",
+      "community": 51,
+      "norm_label": "ensure_domain()"
+    },
+    {
+      "label": "Shared helpers for Dokploy REST API scripts.",
+      "file_type": "rationale",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_dokploy_common_rationale_1",
+      "community": 51,
+      "norm_label": "shared helpers for dokploy rest api scripts."
     },
     {
       "label": "fix_pocketbase_dokploy.py",
@@ -6903,7 +7273,7 @@
       "label": "_load_env()",
       "file_type": "code",
       "source_file": "scripts/setup_backend_phase3.py",
-      "source_location": "L50",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "scripts_setup_backend_phase3_load_env",
       "community": 50,
@@ -6913,7 +7283,7 @@
       "label": "_require()",
       "file_type": "code",
       "source_file": "scripts/setup_backend_phase3.py",
-      "source_location": "L60",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "scripts_setup_backend_phase3_require",
       "community": 50,
@@ -6923,7 +7293,7 @@
       "label": "verify_assets_url()",
       "file_type": "code",
       "source_file": "scripts/setup_backend_phase3.py",
-      "source_location": "L67",
+      "source_location": "L72",
       "_origin": "ast",
       "id": "scripts_setup_backend_phase3_verify_assets_url",
       "community": 50,
@@ -6933,7 +7303,7 @@
       "label": "_pb_superuser_token()",
       "file_type": "code",
       "source_file": "scripts/setup_backend_phase3.py",
-      "source_location": "L80",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "scripts_setup_backend_phase3_pb_superuser_token",
       "community": 50,
@@ -6943,7 +7313,7 @@
       "label": "Client",
       "file_type": "code",
       "source_file": "scripts/setup_backend_phase3.py",
-      "source_location": "L80",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "scripts_setup_backend_phase3_py_client",
       "community": 50,
@@ -6953,7 +7323,7 @@
       "label": "verify_pocketbase()",
       "file_type": "code",
       "source_file": "scripts/setup_backend_phase3.py",
-      "source_location": "L94",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "scripts_setup_backend_phase3_verify_pocketbase",
       "community": 50,
@@ -6963,7 +7333,7 @@
       "label": "verify_optional_keys()",
       "file_type": "code",
       "source_file": "scripts/setup_backend_phase3.py",
-      "source_location": "L129",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "scripts_setup_backend_phase3_verify_optional_keys",
       "community": 50,
@@ -6973,7 +7343,7 @@
       "label": "verify_health_endpoint()",
       "file_type": "code",
       "source_file": "scripts/setup_backend_phase3.py",
-      "source_location": "L147",
+      "source_location": "L152",
       "_origin": "ast",
       "id": "scripts_setup_backend_phase3_verify_health_endpoint",
       "community": 50,
@@ -6983,7 +7353,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "scripts/setup_backend_phase3.py",
-      "source_location": "L201",
+      "source_location": "L206",
       "_origin": "ast",
       "id": "scripts_setup_backend_phase3_main",
       "community": 50,
@@ -7807,6 +8177,166 @@
       "_origin": "ast",
       "id": "scripts_verify_bank_catalog_main",
       "community": 37,
+      "norm_label": "main()"
+    },
+    {
+      "label": "verify_e2e_phase5.py",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5",
+      "community": 57,
+      "norm_label": "verify_e2e_phase5.py"
+    },
+    {
+      "label": "load_env_file()",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5_load_env_file",
+      "community": 57,
+      "norm_label": "load_env_file()"
+    },
+    {
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5_py_path",
+      "community": 57,
+      "norm_label": "path"
+    },
+    {
+      "label": "ok()",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5_ok",
+      "community": 57,
+      "norm_label": "ok()"
+    },
+    {
+      "label": "fail()",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5_fail",
+      "community": 57,
+      "norm_label": "fail()"
+    },
+    {
+      "label": "skip()",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5_skip",
+      "community": 57,
+      "norm_label": "skip()"
+    },
+    {
+      "label": "check_api_health()",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5_check_api_health",
+      "community": 57,
+      "norm_label": "check_api_health()"
+    },
+    {
+      "label": "Client",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5_py_client",
+      "community": 57,
+      "norm_label": "client"
+    },
+    {
+      "label": "check_pb_health()",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L80",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5_check_pb_health",
+      "community": 57,
+      "norm_label": "check_pb_health()"
+    },
+    {
+      "label": "check_frontend()",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L86",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5_check_frontend",
+      "community": 57,
+      "norm_label": "check_frontend()"
+    },
+    {
+      "label": "check_cors()",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L95",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5_check_cors",
+      "community": 57,
+      "norm_label": "check_cors()"
+    },
+    {
+      "label": "check_s3_logo()",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L111",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5_check_s3_logo",
+      "community": 57,
+      "norm_label": "check_s3_logo()"
+    },
+    {
+      "label": "check_retailer_lookup()",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L120",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5_check_retailer_lookup",
+      "community": 57,
+      "norm_label": "check_retailer_lookup()"
+    },
+    {
+      "label": "check_pb_auth()",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L135",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5_check_pb_auth",
+      "community": 57,
+      "norm_label": "check_pb_auth()"
+    },
+    {
+      "label": "check_save_matrix()",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L164",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5_check_save_matrix",
+      "community": 57,
+      "norm_label": "check_save_matrix()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L194",
+      "_origin": "ast",
+      "id": "scripts_verify_e2e_phase5_main",
+      "community": 57,
       "norm_label": "main()"
     },
     {
@@ -21767,6 +22297,508 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy",
+      "target": "scripts_deploy_fastapi_dokploy_build_env_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L191",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy",
+      "target": "scripts_deploy_fastapi_dokploy_deploy_fastapi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy",
+      "target": "scripts_deploy_fastapi_dokploy_ensure_git_branch_pushed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy",
+      "target": "scripts_deploy_fastapi_dokploy_load_backend_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L301",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy",
+      "target": "scripts_deploy_fastapi_dokploy_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L276",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy",
+      "target": "scripts_deploy_fastapi_dokploy_wait_for_health",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_load_backend_env",
+      "target": "scripts_deploy_fastapi_dokploy_py_dokployclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_load_backend_env",
+      "target": "scripts_dokploy_common_load_dokploy_env"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_load_backend_env",
+      "target": "scripts_dokploy_common_require_env"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L303",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_main",
+      "target": "scripts_deploy_fastapi_dokploy_load_backend_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L247",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_deploy_fastapi",
+      "target": "scripts_deploy_fastapi_dokploy_build_env_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L217",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_deploy_fastapi",
+      "target": "scripts_deploy_fastapi_dokploy_ensure_git_branch_pushed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L191",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_deploy_fastapi",
+      "target": "scripts_deploy_fastapi_dokploy_py_dokployclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L196",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_deploy_fastapi",
+      "target": "scripts_dokploy_common_application_id"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L261",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_deploy_fastapi",
+      "target": "scripts_dokploy_common_ensure_domain"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L193",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_deploy_fastapi",
+      "target": "scripts_dokploy_common_find_app_by_name"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L192",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_deploy_fastapi",
+      "target": "scripts_dokploy_common_find_environment_id"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L211",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_deploy_fastapi",
+      "target": "scripts_dokploy_common_resolve_github_id"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L310",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_main",
+      "target": "scripts_deploy_fastapi_dokploy_deploy_fastapi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L309",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_main",
+      "target": "scripts_deploy_fastapi_dokploy_py_dokployclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L32",
+      "weight": 0.8,
+      "source": "scripts_deploy_fastapi_dokploy_py_dokployclient",
+      "target": "scripts_dokploy_common_dokployclient",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L316",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_main",
+      "target": "scripts_deploy_fastapi_dokploy_wait_for_health",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L276",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_wait_for_health",
+      "target": "scripts_deploy_fastapi_dokploy_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L32",
+      "weight": 0.8,
+      "source": "scripts_deploy_fastapi_dokploy_py_any",
+      "target": "scripts_dokploy_common_dokployclient",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L302",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_main",
+      "target": "scripts_dokploy_common_load_dokploy_env"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_fastapi_dokploy.py",
+      "source_location": "L305",
+      "weight": 1.0,
+      "source": "scripts_deploy_fastapi_dokploy_main",
+      "target": "scripts_dokploy_common_require_env"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy",
+      "target": "scripts_deploy_frontend_dokploy_build_public_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy",
+      "target": "scripts_deploy_frontend_dokploy_deploy_frontend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy",
+      "target": "scripts_deploy_frontend_dokploy_ensure_git_branch_pushed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy",
+      "target": "scripts_deploy_frontend_dokploy_env_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L197",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy",
+      "target": "scripts_deploy_frontend_dokploy_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L174",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy",
+      "target": "scripts_deploy_frontend_dokploy_wait_for_frontend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy_deploy_frontend",
+      "target": "scripts_deploy_frontend_dokploy_build_public_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L152",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy_deploy_frontend",
+      "target": "scripts_deploy_frontend_dokploy_env_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy_deploy_frontend",
+      "target": "scripts_deploy_frontend_dokploy_ensure_git_branch_pushed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy_deploy_frontend",
+      "target": "scripts_deploy_frontend_dokploy_py_dokployclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy_deploy_frontend",
+      "target": "scripts_dokploy_common_application_id"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L166",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy_deploy_frontend",
+      "target": "scripts_dokploy_common_ensure_domain"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy_deploy_frontend",
+      "target": "scripts_dokploy_common_find_app_by_name"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy_deploy_frontend",
+      "target": "scripts_dokploy_common_find_environment_id"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy_deploy_frontend",
+      "target": "scripts_dokploy_common_resolve_github_id"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L202",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy_main",
+      "target": "scripts_deploy_frontend_dokploy_deploy_frontend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L201",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy_main",
+      "target": "scripts_deploy_frontend_dokploy_py_dokployclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L21",
+      "weight": 0.8,
+      "source": "scripts_deploy_frontend_dokploy_py_dokployclient",
+      "target": "scripts_dokploy_common_dokployclient",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L208",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy_main",
+      "target": "scripts_deploy_frontend_dokploy_wait_for_frontend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L198",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy_main",
+      "target": "scripts_dokploy_common_load_dokploy_env"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts/deploy_frontend_dokploy.py",
+      "source_location": "L201",
+      "weight": 1.0,
+      "source": "scripts_deploy_frontend_dokploy_main",
+      "target": "scripts_dokploy_common_require_env"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "scripts/deploy_pocketbase_dokploy.py",
       "source_location": "L172",
       "weight": 1.0,
@@ -22245,6 +23277,496 @@
       "confidence_score": 1.0,
       "source": "scripts_deploy_pocketbase_dokploy_main",
       "target": "scripts_deploy_pocketbase_dokploy_deploy_pocketbase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common",
+      "target": "scripts_dokploy_common_application_id",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common",
+      "target": "scripts_dokploy_common_dokployclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common",
+      "target": "scripts_dokploy_common_ensure_domain",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common",
+      "target": "scripts_dokploy_common_find_app_by_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common",
+      "target": "scripts_dokploy_common_find_environment_id",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common",
+      "target": "scripts_dokploy_common_load_dokploy_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common",
+      "target": "scripts_dokploy_common_load_env_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common",
+      "target": "scripts_dokploy_common_pick_by_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common",
+      "target": "scripts_dokploy_common_require_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common",
+      "target": "scripts_dokploy_common_resolve_github_id",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common",
+      "target": "scripts_dokploy_common_unwrap_list",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_rationale_1",
+      "target": "scripts_dokploy_common",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_load_dokploy_env",
+      "target": "scripts_dokploy_common_load_env_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_load_env_file",
+      "target": "scripts_dokploy_common_py_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_require_env",
+      "target": "scripts_dokploy_common_dokployclient_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_dokployclient",
+      "target": "scripts_dokploy_common_dokployclient_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_dokployclient",
+      "target": "scripts_dokploy_common_dokployclient_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_dokployclient",
+      "target": "scripts_dokploy_common_dokployclient_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_dokployclient",
+      "target": "scripts_dokploy_common_dokployclient_read",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_ensure_domain",
+      "target": "scripts_dokploy_common_dokployclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_find_app_by_name",
+      "target": "scripts_dokploy_common_dokployclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_find_environment_id",
+      "target": "scripts_dokploy_common_dokployclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_resolve_github_id",
+      "target": "scripts_dokploy_common_dokployclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_dokployclient_post",
+      "target": "scripts_dokploy_common_dokployclient_read",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_dokployclient_post",
+      "target": "scripts_dokploy_common_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L186",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_ensure_domain",
+      "target": "scripts_dokploy_common_dokployclient_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_application_id",
+      "target": "scripts_dokploy_common_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_dokployclient_get",
+      "target": "scripts_dokploy_common_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_dokployclient_read",
+      "target": "scripts_dokploy_common_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_find_app_by_name",
+      "target": "scripts_dokploy_common_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_pick_by_name",
+      "target": "scripts_dokploy_common_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_unwrap_list",
+      "target": "scripts_dokploy_common_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_application_id",
+      "target": "scripts_dokploy_common_dokployclient_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_dokployclient_get",
+      "target": "scripts_dokploy_common_dokployclient_read",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L177",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_ensure_domain",
+      "target": "scripts_dokploy_common_dokployclient_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_find_app_by_name",
+      "target": "scripts_dokploy_common_dokployclient_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_find_environment_id",
+      "target": "scripts_dokploy_common_dokployclient_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_pick_by_name",
+      "target": "scripts_dokploy_common_dokployclient_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_resolve_github_id",
+      "target": "scripts_dokploy_common_dokployclient_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_unwrap_list",
+      "target": "scripts_dokploy_common_dokployclient_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_dokployclient_read",
+      "target": "scripts_dokploy_common_py_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L177",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_ensure_domain",
+      "target": "scripts_dokploy_common_unwrap_list",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_find_app_by_name",
+      "target": "scripts_dokploy_common_unwrap_list",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_find_environment_id",
+      "target": "scripts_dokploy_common_unwrap_list",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L155",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_resolve_github_id",
+      "target": "scripts_dokploy_common_unwrap_list",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dokploy_common.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "scripts_dokploy_common_find_environment_id",
+      "target": "scripts_dokploy_common_pick_by_name",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -23305,9 +24827,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3",
-      "target": "scripts_setup_backend_phase3_load_env",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_load_env"
     },
     {
       "relation": "contains",
@@ -23315,9 +24837,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3",
-      "target": "scripts_setup_backend_phase3_load_env_file",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_load_env_file"
     },
     {
       "relation": "contains",
@@ -23325,9 +24847,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L201",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3",
-      "target": "scripts_setup_backend_phase3_main",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_main"
     },
     {
       "relation": "contains",
@@ -23335,9 +24857,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3",
-      "target": "scripts_setup_backend_phase3_pb_superuser_token",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_pb_superuser_token"
     },
     {
       "relation": "contains",
@@ -23345,9 +24867,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3",
-      "target": "scripts_setup_backend_phase3_require",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_require"
     },
     {
       "relation": "contains",
@@ -23355,9 +24877,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3",
-      "target": "scripts_setup_backend_phase3_verify_assets_url",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_verify_assets_url"
     },
     {
       "relation": "contains",
@@ -23365,9 +24887,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L147",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3",
-      "target": "scripts_setup_backend_phase3_verify_health_endpoint",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_verify_health_endpoint"
     },
     {
       "relation": "contains",
@@ -23375,9 +24897,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3",
-      "target": "scripts_setup_backend_phase3_verify_optional_keys",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_verify_optional_keys"
     },
     {
       "relation": "contains",
@@ -23385,9 +24907,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3",
-      "target": "scripts_setup_backend_phase3_verify_pocketbase",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_verify_pocketbase"
     },
     {
       "relation": "calls",
@@ -23396,9 +24918,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3_load_env",
-      "target": "scripts_setup_backend_phase3_load_env_file",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_load_env_file"
     },
     {
       "relation": "references",
@@ -23407,9 +24929,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3_load_env_file",
-      "target": "scripts_setup_backend_phase3_py_path",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_py_path"
     },
     {
       "relation": "calls",
@@ -23418,9 +24940,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L210",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3_main",
-      "target": "scripts_setup_backend_phase3_load_env",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_load_env"
     },
     {
       "relation": "calls",
@@ -23429,9 +24951,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3_pb_superuser_token",
-      "target": "scripts_setup_backend_phase3_require",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_require"
     },
     {
       "relation": "calls",
@@ -23440,9 +24962,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L214",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3_main",
-      "target": "scripts_setup_backend_phase3_verify_assets_url",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_verify_assets_url"
     },
     {
       "relation": "calls",
@@ -23451,9 +24973,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3_verify_assets_url",
-      "target": "scripts_setup_backend_phase3_py_client",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_py_client"
     },
     {
       "relation": "references",
@@ -23462,9 +24984,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3_pb_superuser_token",
-      "target": "scripts_setup_backend_phase3_py_client",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_py_client"
     },
     {
       "relation": "calls",
@@ -23473,9 +24995,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3_verify_pocketbase",
-      "target": "scripts_setup_backend_phase3_pb_superuser_token",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_pb_superuser_token"
     },
     {
       "relation": "calls",
@@ -23484,9 +25006,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L98",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3_verify_pocketbase",
-      "target": "scripts_setup_backend_phase3_py_client",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_py_client"
     },
     {
       "relation": "calls",
@@ -23495,9 +25017,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L215",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3_main",
-      "target": "scripts_setup_backend_phase3_verify_pocketbase",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_verify_pocketbase"
     },
     {
       "relation": "calls",
@@ -23506,9 +25028,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L216",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3_main",
-      "target": "scripts_setup_backend_phase3_verify_optional_keys",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_verify_optional_keys"
     },
     {
       "relation": "calls",
@@ -23517,9 +25039,9 @@
       "source_file": "scripts/setup_backend_phase3.py",
       "source_location": "L221",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_setup_backend_phase3_main",
-      "target": "scripts_setup_backend_phase3_verify_health_endpoint",
-      "confidence_score": 1.0
+      "target": "scripts_setup_backend_phase3_verify_health_endpoint"
     },
     {
       "relation": "contains",
@@ -24856,6 +26378,455 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5",
+      "target": "scripts_verify_e2e_phase5_check_api_health",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5",
+      "target": "scripts_verify_e2e_phase5_check_cors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5",
+      "target": "scripts_verify_e2e_phase5_check_frontend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5",
+      "target": "scripts_verify_e2e_phase5_check_pb_auth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5",
+      "target": "scripts_verify_e2e_phase5_check_pb_health",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5",
+      "target": "scripts_verify_e2e_phase5_check_retailer_lookup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5",
+      "target": "scripts_verify_e2e_phase5_check_s3_logo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L164",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5",
+      "target": "scripts_verify_e2e_phase5_check_save_matrix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5",
+      "target": "scripts_verify_e2e_phase5_fail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5",
+      "target": "scripts_verify_e2e_phase5_load_env_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L194",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5",
+      "target": "scripts_verify_e2e_phase5_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5",
+      "target": "scripts_verify_e2e_phase5_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5",
+      "target": "scripts_verify_e2e_phase5_skip",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_load_env_file",
+      "target": "scripts_verify_e2e_phase5_py_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L195",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_main",
+      "target": "scripts_verify_e2e_phase5_load_env_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_api_health",
+      "target": "scripts_verify_e2e_phase5_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_cors",
+      "target": "scripts_verify_e2e_phase5_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_frontend",
+      "target": "scripts_verify_e2e_phase5_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L160",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_pb_auth",
+      "target": "scripts_verify_e2e_phase5_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_pb_health",
+      "target": "scripts_verify_e2e_phase5_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_retailer_lookup",
+      "target": "scripts_verify_e2e_phase5_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_s3_logo",
+      "target": "scripts_verify_e2e_phase5_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L191",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_save_matrix",
+      "target": "scripts_verify_e2e_phase5_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L220",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_main",
+      "target": "scripts_verify_e2e_phase5_fail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L233",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_main",
+      "target": "scripts_verify_e2e_phase5_skip",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_api_health",
+      "target": "scripts_verify_e2e_phase5_py_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L207",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_main",
+      "target": "scripts_verify_e2e_phase5_check_api_health",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_cors",
+      "target": "scripts_verify_e2e_phase5_py_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_frontend",
+      "target": "scripts_verify_e2e_phase5_py_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_pb_auth",
+      "target": "scripts_verify_e2e_phase5_py_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_pb_health",
+      "target": "scripts_verify_e2e_phase5_py_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_retailer_lookup",
+      "target": "scripts_verify_e2e_phase5_py_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_s3_logo",
+      "target": "scripts_verify_e2e_phase5_py_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L164",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_check_save_matrix",
+      "target": "scripts_verify_e2e_phase5_py_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L205",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_main",
+      "target": "scripts_verify_e2e_phase5_py_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L208",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_main",
+      "target": "scripts_verify_e2e_phase5_check_pb_health",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L209",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_main",
+      "target": "scripts_verify_e2e_phase5_check_frontend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L210",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_main",
+      "target": "scripts_verify_e2e_phase5_check_cors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L211",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_main",
+      "target": "scripts_verify_e2e_phase5_check_s3_logo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L212",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_main",
+      "target": "scripts_verify_e2e_phase5_check_retailer_lookup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L223",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_main",
+      "target": "scripts_verify_e2e_phase5_check_pb_auth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify_e2e_phase5.py",
+      "source_location": "L229",
+      "weight": 1.0,
+      "source": "scripts_verify_e2e_phase5_main",
+      "target": "scripts_verify_e2e_phase5_check_save_matrix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "scripts/verify_reference_mapper.py",
       "source_location": "L99",
       "weight": 1.0,
@@ -25200,5 +27171,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "14be61144732e36fd9c5b22bcaa43d6055c275ee"
+  "built_at_commit": "7b16531cdd1a539b8c06b85760042709622d7185"
 }

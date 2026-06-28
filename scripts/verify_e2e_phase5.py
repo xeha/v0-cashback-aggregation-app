@@ -21,7 +21,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 
 API_URL = os.environ.get("E2E_API_URL", "https://api.cashbackbrain.ru").rstrip("/")
 PB_URL = os.environ.get("E2E_POCKETBASE_URL", "https://pb.cashbackbrain.ru").rstrip("/")
-FRONTEND_URL = os.environ.get("FRONTEND_URL", "https://dev.cashbackbrain.ru").rstrip("/")
+FRONTEND_URL = os.environ.get("FRONTEND_URL", "https://cashbackbrain.ru").rstrip("/")
 ASSETS_URL = os.environ.get(
     "E2E_ASSETS_URL",
     "https://fcdc8bee-4045-49ca-8869-3f22cd730eb5.s3.twcstorage.ru",

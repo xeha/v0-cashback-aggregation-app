@@ -205,8 +205,8 @@
     "semantic_hash": ""
   },
   "next.config.mjs": {
-    "mtime": 1782305889.7285652,
-    "ast_hash": "b62fd75aa6f201707b4e03bb54210201",
+    "mtime": 1782660992.3233373,
+    "ast_hash": "5db775ab2209dec465ebfb88eacbf8af",
     "semantic_hash": ""
   },
   "package.json": {
@@ -665,13 +665,33 @@
     "semantic_hash": ""
   },
   "scripts/setup_pocketbase_phase1.py": {
-    "mtime": 1782655252.3438172,
-    "ast_hash": "f4dcf9539e74c2608706c33da79f38f0",
+    "mtime": 1782661068.3490868,
+    "ast_hash": "6ec2dc79c2afa91dc628b3e72c5fb5fb",
     "semantic_hash": ""
   },
   "scripts/setup_backend_phase3.py": {
-    "mtime": 1782659150.916822,
-    "ast_hash": "6f7c206eda3e02fd709f8745fbe088e7",
+    "mtime": 1782659177.6314387,
+    "ast_hash": "22063470119449ac8e2360c235b1d15e",
+    "semantic_hash": ""
+  },
+  "scripts/deploy_fastapi_dokploy.py": {
+    "mtime": 1782661055.4087825,
+    "ast_hash": "266c93771dc062033bac28fd7635577d",
+    "semantic_hash": ""
+  },
+  "scripts/deploy_frontend_dokploy.py": {
+    "mtime": 1782661020.8503313,
+    "ast_hash": "72b81ac4b17fb0d09237010d55a0f116",
+    "semantic_hash": ""
+  },
+  "scripts/dokploy_common.py": {
+    "mtime": 1782660236.6183498,
+    "ast_hash": "54632a6acf6aef4cbd47eb537ecc2a8b",
+    "semantic_hash": ""
+  },
+  "scripts/verify_e2e_phase5.py": {
+    "mtime": 1782661043.6768558,
+    "ast_hash": "477f39b93b13c3cad400c70c8124b793",
     "semantic_hash": ""
   }
 }

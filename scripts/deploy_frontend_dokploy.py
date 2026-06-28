@@ -3,7 +3,7 @@
 
 Requires DOKPLOY_URL, DOKPLOY_API_KEY (.env.dokploy).
 
-Default domain: dev.cashbackbrain.ru (cashbackbrain.ru = Dokploy panel).
+Default domain: cashbackbrain.ru (Dokploy panel: dokploy.cashbackbrain.ru).
 """
 from __future__ import annotations
 
@@ -34,7 +34,7 @@ APP_NAME = "frontend"
 APP_DISPLAY_NAME = "CashbackBrain"
 APP_DESCRIPTION = "Cashback aggregator Next.js frontend"
 FRONTEND_PORT = 3000
-DEFAULT_DOMAIN = "dev.cashbackbrain.ru"
+DEFAULT_DOMAIN = "cashbackbrain.ru"
 DEFAULT_OWNER = "xeha"
 DEFAULT_REPO = "v0-cashback-aggregation-app"
 DEFAULT_BRANCH = "dev-out"
