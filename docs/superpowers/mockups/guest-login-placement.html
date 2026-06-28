@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Эскизы: размещение входа для гостя</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px 20px 40px;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+    h1 { font-size: 22px; margin: 0 0 6px; }
+    .lead { color: #64748b; margin: 0 0 24px; max-width: 720px; line-height: 1.5; }
+    .phone-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 1100px) { .phone-grid { grid-template-columns: 1fr; } }
+    .option-col { display: flex; flex-direction: column; gap: 12px; }
+    .option-header {
+      background: #fff;
+      border: 2px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .option-header:hover { border-color: #cbd5e1; }
+    .option-header.selected {
+      border-color: #eab308;
+      background: #fffbeb;
+    }
+    .option-header h2 {
+      margin: 0 0 4px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: #fef08a;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .option-header p { margin: 0; font-size: 13px; color: #64748b; }
+    .label-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #64748b;
+    }
+    .phone {
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+      border: 2px solid #cbd5e1;
+      border-radius: 28px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .phone-status {
+      height: 22px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .phone-body {
+      padding: 14px 16px 18px;
+      min-height: 430px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .phone-top { display: flex; justify-content: flex-end; margin-bottom: 8px; }
+    .gear {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: #f1f5f9;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: #64748b;
+    }
+    .gear.highlight {
+      outline: 2px solid #facc15;
+      outline-offset: 2px;
+      background: #fef9c3;
+    }
+    .illus {
+      height: 110px;
+      margin: 0 -16px 14px;
+      background: #fef9c3;
+      display: flex; align-items: center; justify-content: center;
+      color: #94a3b8; font-size: 11px; text-align: center; padding: 0 12px;
+    }
+    .logo-row {
+      display: flex; align-items: center; gap: 8px;
+      justify-content: center; margin-bottom: 10px;
+    }
+    .logo-icon {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: #fef08a; font-size: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; color: #334155;
+    }
+    .logo-text { font-size: 13px; font-weight: 700; }
+    .h1 {
+      font-size: 17px; font-weight: 700; line-height: 1.25;
+      text-align: center; margin: 0 0 6px;
+    }
+    .sub {
+      font-size: 12px; line-height: 1.4; text-align: center;
+      color: #64748b; margin: 0 0 18px;
+    }
+    .cta {
+      width: 100%; border-radius: 16px; background: #fef08a;
+      padding: 14px 12px; text-align: center; margin-bottom: 8px;
+    }
+    .cta-title { font-size: 13px; font-weight: 600; display: block; }
+    .cta-sub { font-size: 11px; color: #475569; display: block; margin-top: 2px; }
+    .login-link {
+      text-align: center; font-size: 12px; color: #2563eb;
+      text-decoration: underline; padding: 8px 0;
+      background: #eff6ff; border-radius: 8px;
+      border: 1px dashed #93c5fd;
+    }
+    .login-link.highlight {
+      outline: 2px solid #3b82f6; outline-offset: 2px;
+    }
+    .sheet {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      background: #fff; border-top: 1px solid #e2e8f0;
+      border-radius: 20px 20px 0 0; padding: 10px 14px 16px;
+    }
+    .sheet-handle {
+      width: 36px; height: 4px; background: #e2e8f0;
+      border-radius: 99px; margin: 0 auto 10px;
+    }
+    .sheet-title { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+    .menu-item {
+      padding: 10px 12px; border: 1px solid #e2e8f0;
+      border-radius: 12px; font-size: 12px; margin-bottom: 6px;
+    }
+    .menu-item.login {
+      border-color: #facc15; background: #fefce8; font-weight: 600;
+    }
+    .menu-item.muted { color: #94a3b8; }
+    .results-table {
+      flex: 1; border: 1px solid #e2e8f0; border-radius: 12px;
+      padding: 8px; font-size: 10px; color: #64748b; margin-bottom: 10px;
+    }
+    .row {
+      display: flex; justify-content: space-between;
+      padding: 4px 0; border-bottom: 1px solid #f1f5f9;
+    }
+    .banner {
+      background: #fef9c3; border: 1px solid #fde047;
+      border-radius: 12px; padding: 10px 12px; margin-bottom: 10px;
+      font-size: 11px; line-height: 1.35; color: #334155;
+    }
+    .banner strong { display: block; margin-bottom: 4px; font-size: 12px; }
+    .banner-btn {
+      display: inline-block; margin-top: 6px; padding: 6px 10px;
+      background: #fef08a; border-radius: 8px; font-weight: 600; font-size: 11px;
+    }
+    .banner.highlight { outline: 2px solid #eab308; outline-offset: 2px; }
+    .pros-mini {
+      font-size: 12px; color: #475569; line-height: 1.45;
+      margin: 0; padding-left: 18px;
+    }
+    .pros-mini li { margin-bottom: 4px; }
+    .footer {
+      margin-top: 28px; font-size: 13px; color: #64748b;
+    }
+    #picked {
+      margin-top: 12px; padding: 10px 14px;
+      background: #ecfdf5; border: 1px solid #86efac;
+      border-radius: 10px; font-size: 14px; display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Где гость может войти в аккаунт?</h1>
+  <p class="lead">Три варианта размещения входа. Кликните на заголовок варианта, чтобы выбрать. Жёлтым и синим подсвечены точки входа.</p>
+
+  <div class="phone-grid">
+    <div class="option-col">
+      <div class="option-header" data-choice="a" onclick="pick(this)">
+        <h2><span class="badge">A</span> Только в меню</h2>
+        <p>Вход спрятан в настройках, первый экран чистый</p>
+      </div>
+      <span class="label-tag">Первый экран</span>
+      <div class="phone">
+        <div class="phone-status"></div>
+        <div class="phone-body">
+          <div class="phone-top"><div class="gear highlight">⚙</div></div>
+          <div class="illus">иллюстрация empty-cashback</div>
+          <div class="logo-row">
+            <div class="logo-icon">CB</div>
+            <div class="logo-text">CashbackBrain</div>
+          </div>
+          <p class="h1">Соберите кэшбэки в одном месте</p>
+          <p class="sub">Загрузите скриншоты категорий из банков и магазинов</p>
+          <div class="cta">
+            <span class="cta-title">Выбрать скриншоты</span>
+            <span class="cta-sub">Сбер, Т-Банк, Магнит…</span>
+          </div>
+          <div class="sheet">
+            <div class="sheet-handle"></div>
+            <div class="sheet-title">Настройки</div>
+            <div class="menu-item muted">Профиль</div>
+            <div class="menu-item muted">Кэшбек-профиль</div>
+            <div class="menu-item login">→ Войти / создать аккаунт</div>
+          </div>
+        </div>
+      </div>
+      <ul class="pros-mini">
+        <li>Минимум отвлечений на старте</li>
+        <li>Минус: вход неочевиден</li>
+      </ul>
+    </div>
+
+    <div class="option-col">
+      <div class="option-header" data-choice="b" onclick="pick(this)">
+        <h2><span class="badge">B</span> Меню + ссылка на экране</h2>
+        <p>Мягкое напоминание под основной кнопкой</p>
+      </div>
+      <span class="label-tag">Первый экран</span>
+      <div class="phone">
+        <div class="phone-status"></div>
+        <div class="phone-body">
+          <div class="phone-top"><div class="gear">⚙</div></div>
+          <div class="illus">иллюстрация empty-cashback</div>
+          <div class="logo-row">
+            <div class="logo-icon">CB</div>
+            <div class="logo-text">CashbackBrain</div>
+          </div>
+          <p class="h1">Соберите кэшбэки в одном месте</p>
+          <p class="sub">Загрузите скриншоты категорий из банков и магазинов</p>
+          <div class="cta">
+            <span class="cta-title">Выбрать скриншоты</span>
+            <span class="cta-sub">Сбер, Т-Банк, Магнит…</span>
+          </div>
+          <div class="login-link highlight">Войти, чтобы сохранить матрицу</div>
+        </div>
+      </div>
+      <ul class="pros-mini">
+        <li>Баланс: не мешает, но видно сразу</li>
+        <li>Рекомендуемый вариант</li>
+      </ul>
+    </div>
+
+    <div class="option-col">
+      <div class="option-header" data-choice="c" onclick="pick(this)">
+        <h2><span class="badge">C</span> Только на экране результатов</h2>
+        <p>Предложение после первого успешного OCR</p>
+      </div>
+      <span class="label-tag">Экран результатов</span>
+      <div class="phone">
+        <div class="phone-status"></div>
+        <div class="phone-body">
+          <div class="phone-top"><div class="gear">⚙</div></div>
+          <p class="h1" style="font-size:15px;margin-bottom:10px">Ваши кэшбэки — июнь</p>
+          <div class="banner highlight">
+            <strong>Сохранить матрицу?</strong>
+            Войдите в аккаунт, чтобы не потерять данные при закрытии приложения.
+            <span class="banner-btn">Войти / создать аккаунт</span>
+          </div>
+          <div class="results-table">
+            <div class="row"><span>Супермаркеты</span><span style="color:#16a34a">5%</span></div>
+            <div class="row"><span>Кафе</span><span style="color:#ca8a04">3%</span></div>
+            <div class="row"><span>АЗС</span><span style="color:#dc2626">1%</span></div>
+            <div class="row" style="border:none"><span>…</span><span></span></div>
+          </div>
+          <div class="cta" style="margin-top:auto">
+            <span class="cta-title">Загрузить ещё</span>
+          </div>
+        </div>
+      </div>
+      <ul class="pros-mini">
+        <li>Контекстно: пользователь уже видит ценность</li>
+        <li>Минус: до первого результата входа нет</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="picked"></div>
+  <p class="footer">Выберите вариант и напишите букву (A, B или C) в чат с агентом.</p>
+
+  <script>
+    function pick(el) {
+      document.querySelectorAll('.option-header').forEach((n) => n.classList.remove('selected'));
+      el.classList.add('selected');
+      const labels = { a: 'A — только в меню', b: 'B — меню + ссылка на экране', c: 'C — только на экране результатов' };
+      const box = document.getElementById('picked');
+      box.style.display = 'block';
+      box.textContent = 'Выбрано: ' + labels[el.dataset.choice];
+    }
+  </script>
+</body>
+</html>
