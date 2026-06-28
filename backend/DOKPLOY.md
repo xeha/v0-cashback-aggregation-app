@@ -71,25 +71,29 @@ curl -X POST http://localhost:8000/api/admin/reload-catalogs \
 
 ---
 
-## 5. Env для Dockploy (Фаза 4)
+## 5. Deploy на Dockploy (Фаза 4)
 
-Dockploy → **Create Service** → **Git** или **Dockerfile**:
+Автоматизация:
+
+```bash
+# .env.dokploy + backend/.env + .env.pocketbase
+python3 scripts/deploy_fastapi_dokploy.py
+```
+
+Скрипт: GitHub `xeha/v0-cashback-aggregation-app@dev-out`, buildPath `backend/`, домен `api.cashbackbrain.ru`.
 
 | Поле | Значение |
 |------|----------|
-| **Name** | `fastapi` / `api` |
-| **Build context** | `backend/` |
-| **Dockerfile** | `Dockerfile` |
-| **Port** | `8000` |
-| **Domain** | `api.cashbackbrain.ru` |
-| **Health check** | `GET /health` |
+| **appId** | `m3NsWg_snuw8lJ8ZrTthu` |
+| **Domain** | `https://api.cashbackbrain.ru` |
+| **Health** | `GET /health` |
 
-Вставить env из `backend/dokploy.env.example` (заполненный).
+Первый деплой ~8–10 мин (Docker build + sentence-transformers).
 
-`ALLOWED_ORIGINS` для prod:
+Повторный деплой без push:
 
-```
-https://cashbackbrain.ru,https://www.cashbackbrain.ru,http://localhost:3000
+```bash
+FASTAPI_SKIP_GIT_PUSH=1 python3 scripts/deploy_fastapi_dokploy.py
 ```
 
 ---

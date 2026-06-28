@@ -54,7 +54,8 @@ DEFAULT_BRANCH = "dev-out"
 DEFAULT_BUILD_PATH = "backend"
 
 PROD_ALLOWED_ORIGINS = (
-    "https://cashbackbrain.ru,https://www.cashbackbrain.ru,http://localhost:3000"
+    "https://cashbackbrain.ru,https://www.cashbackbrain.ru,"
+    "https://dev.cashbackbrain.ru,http://localhost:3000"
 )
 
 ENV_KEYS = [

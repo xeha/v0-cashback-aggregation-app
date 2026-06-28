@@ -23,6 +23,7 @@ const allowedDevOrigins = getAllowedDevOrigins()
 const devProxyBackendUrl = "http://127.0.0.1:8000"
 
 const nextConfig = {
+  output: "standalone",
   allowedDevOrigins,
   typescript: {
     ignoreBuildErrors: true,

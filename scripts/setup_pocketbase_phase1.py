@@ -33,7 +33,7 @@ if not PB_PUBLIC_URL.startswith("http"):
 
 CORS_ORIGINS = os.environ.get(
     "POCKETBASE_CORS_ORIGINS",
-    "https://cashbackbrain.ru,http://localhost:3000,https://pb.cashbackbrain.ru",
+    "https://cashbackbrain.ru,https://dev.cashbackbrain.ru,http://localhost:3000,https://pb.cashbackbrain.ru",
 )
 AUTH_TOKEN_SECONDS = int(os.environ.get("POCKETBASE_AUTH_TOKEN_SEC", "604800"))
 MIN_PASSWORD_LENGTH = 8
