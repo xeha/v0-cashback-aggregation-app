@@ -9,6 +9,7 @@ __v0_jsx-dev-runtime.ts
 # Environment variables
 .env*.local
 .env.s3
+.env.dokploy
 
 # Common ignores
 node_modules

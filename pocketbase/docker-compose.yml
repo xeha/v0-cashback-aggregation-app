@@ -1,0 +1,14 @@
+# Local PocketBase or reference for Dockploy.
+# Dockploy: use Docker image ghcr.io/pocketbase/pocketbase:latest instead of this file.
+services:
+  pocketbase:
+    image: ghcr.io/pocketbase/pocketbase:latest
+    command: serve --http=0.0.0.0:8090 --dir=/pb/pb_data
+    ports:
+      - "8090:8090"
+    volumes:
+      - pb_data:/pb/pb_data
+    restart: unless-stopped
+
+volumes:
+  pb_data:
