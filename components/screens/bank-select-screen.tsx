@@ -27,10 +27,10 @@ import {
 import type { Kind, SourceSubmission } from "@/lib/types"
 
 const COPY = {
-  title: "Выберите или введите источник кэшбека",
+  title: "Выберите или введите источник кешбэка",
   subtitle: "Укажите, из какого приложения сделан скриншот — банка или супермаркета",
   placeholder: "Например, Сбер или Пятёрочка",
-  addLabel: "Ещё кэшбек",
+  addLabel: "Ещё кешбэк",
 } as const
 
 interface ResolutionTask {

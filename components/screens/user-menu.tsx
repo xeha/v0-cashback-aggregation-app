@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import { AppLogo } from "@/components/app-logo"
 import {
   Settings,
   User,
   CreditCard,
   MessageSquare,
   Info,
+  LogIn,
   LogOut,
   ChevronLeft,
   X,
@@ -31,19 +33,28 @@ const CASHBACK_CATEGORIES = [
   "Путешествия",
 ]
 
-const MENU_ITEMS: { key: View; label: string; icon: typeof User }[] = [
+const AUTHENTICATED_MENU_ITEMS: { key: View; label: string; icon: typeof User }[] = [
   { key: "profile", label: "Профиль", icon: User },
-  { key: "cashback", label: "Кэшбек-профиль", icon: CreditCard },
+  { key: "cashback", label: "Кешбэк-профиль", icon: CreditCard },
+  { key: "feedback", label: "Обратная связь", icon: MessageSquare },
+  { key: "about", label: "О приложении", icon: Info },
+]
+
+const GUEST_MENU_ITEMS: { key: View; label: string; icon: typeof MessageSquare }[] = [
   { key: "feedback", label: "Обратная связь", icon: MessageSquare },
   { key: "about", label: "О приложении", icon: Info },
 ]
 
 export function UserMenu({
   onLogout,
+  onLoginRequest,
+  isGuest = false,
   userEmail,
   variant = "light",
 }: {
   onLogout: () => void
+  onLoginRequest?: () => void
+  isGuest?: boolean
   userEmail?: string
   variant?: "light" | "overlay"
 }) {
@@ -101,7 +112,7 @@ export function UserMenu({
   const titles: Record<View, string> = {
     menu: "Настройки",
     profile: "Профиль",
-    cashback: "Кэшбек-профиль",
+    cashback: "Кешбэк-профиль",
     feedback: "Обратная связь",
     about: "О приложении",
   }
@@ -181,13 +192,14 @@ export function UserMenu({
                     {view === "menu" && (
                       <div className="pt-2">
                         <div className="overflow-hidden rounded-2xl border border-slate-200">
-                          {MENU_ITEMS.map((item, idx) => (
+                          {(isGuest ? GUEST_MENU_ITEMS : AUTHENTICATED_MENU_ITEMS).map(
+                            (item, idx, items) => (
                             <button
                               key={item.key}
                               type="button"
                               onClick={() => setView(item.key)}
                               className={`flex w-full items-center gap-4 px-4 py-3.5 text-left transition-colors hover:bg-slate-50 active:bg-slate-100 ${
-                                idx !== MENU_ITEMS.length - 1
+                                idx !== items.length - 1
                                   ? "border-b border-slate-100"
                                   : ""
                               }`}
@@ -198,17 +210,34 @@ export function UserMenu({
                               </span>
                               <ChevronLeft className="h-4 w-4 shrink-0 rotate-180 text-slate-300" />
                             </button>
-                          ))}
+                          ),
+                          )}
                         </div>
 
-                        <button
-                          type="button"
-                          onClick={() => setShowLogoutConfirm(true)}
-                          className="mt-3 flex w-full items-center gap-4 rounded-2xl border border-red-200 px-4 py-3.5 text-left transition-colors hover:bg-red-50 active:bg-red-100"
-                        >
-                          <LogOut className="h-5 w-5 shrink-0 text-red-600" />
-                          <span className="text-[15px] font-medium text-red-600">Выйти</span>
-                        </button>
+                        {isGuest ? (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              close()
+                              onLoginRequest?.()
+                            }}
+                            className="mt-3 flex w-full items-center gap-4 rounded-2xl border border-yellow-300 bg-yellow-50 px-4 py-3.5 text-left transition-colors hover:bg-yellow-100 active:bg-yellow-200"
+                          >
+                            <LogIn className="h-5 w-5 shrink-0 text-slate-700" />
+                            <span className="text-[15px] font-medium text-slate-800">
+                              Войти / создать аккаунт
+                            </span>
+                          </button>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => setShowLogoutConfirm(true)}
+                            className="mt-3 flex w-full items-center gap-4 rounded-2xl border border-red-200 px-4 py-3.5 text-left transition-colors hover:bg-red-50 active:bg-red-100"
+                          >
+                            <LogOut className="h-5 w-5 shrink-0 text-red-600" />
+                            <span className="text-[15px] font-medium text-red-600">Выйти</span>
+                          </button>
+                        )}
                       </div>
                     )}
 
@@ -389,9 +418,7 @@ export function UserMenu({
                     {view === "about" && (
                       <div className="flex flex-col gap-4 pt-2">
                         <div className="flex flex-col items-center gap-3 py-4">
-                          <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-yellow-200 text-2xl font-bold text-slate-800">
-                            %
-                          </span>
+                          <AppLogo size="md" />
                           <div className="text-center">
                             <p className="text-[16px] font-semibold text-slate-900">CashbackBrain</p>
                             <p className="text-[13px] text-slate-500">Версия 1.0.0</p>
@@ -412,8 +439,8 @@ export function UserMenu({
                           </div>
                         </div>
                         <p className="text-center text-[13px] leading-relaxed text-slate-400">
-                          Собирайте кэшбэк-категории из банков и магазинов в одном месте.
-                          {"\n"}© 2026 Кэшбэки. Все права защищены.
+                          Собирайте кешбэк-категории из банков и магазинов в одном месте.
+                          {"\n"}© 2026 Кешбэки. Все права защищены.
                         </p>
                       </div>
                     )}

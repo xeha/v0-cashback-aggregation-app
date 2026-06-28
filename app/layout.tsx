@@ -11,8 +11,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Кэшбэк-агрегатор',
-  description: 'Агрегатор кэшбека по картам — распознавание категорий со скриншотов',
+  title: 'Кешбэк-агрегатор',
+  description: 'Агрегатор кешбэка по картам — распознавание категорий со скриншотов',
   generator: 'v0.app',
   icons: {
     icon: [

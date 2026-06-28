@@ -21,7 +21,7 @@ export async function saveMatrix(
 
   return pb.collection("saved_matrices").create({
     user: userId,
-    title: payload.title ?? `Кэшбэк ${month}.${year}`,
+    title: payload.title ?? `Кешбэк ${month}.${year}`,
     period_month: month,
     period_year: year,
     bank_matrix: payload.matrix.bank,

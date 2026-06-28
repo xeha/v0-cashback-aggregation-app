@@ -22,6 +22,7 @@ import {
 import type { CashbackMatrix, Kind, MatrixProvider, MatrixRow, MatrixState, ProcessingSummary, SourceSubmission } from "@/lib/types"
 import { useAuth } from "@/lib/auth-context"
 import { saveMatrix } from "@/lib/saved-matrices"
+import { GuestSaveBanner } from "./guest-save-banner"
 import { AddWidgetOverlay, SavePngOverlay, ShareSheet } from "./results-overlays"
 import { UserMenu } from "./user-menu"
 
@@ -124,20 +125,28 @@ export function ResultsScreen({
   onRestart,
   onLogout,
   onUploadMore,
+  onLoginRequest,
   kind = "bank",
   matrix,
   submissions = [],
   processingSummary = { skipped: [], lowConfidence: [], bankOffers: [] },
   userEmail,
+  isGuest = false,
+  showGuestSaveBanner = false,
+  onGuestSaveBannerDismiss,
 }: {
   onRestart: () => void
   onLogout: () => void
   onUploadMore: () => void
+  onLoginRequest?: () => void
   kind?: Kind
   matrix: MatrixState
   submissions?: SourceSubmission[]
   processingSummary?: ProcessingSummary
   userEmail?: string
+  isGuest?: boolean
+  showGuestSaveBanner?: boolean
+  onGuestSaveBannerDismiss?: () => void
 }) {
   const { pb } = useAuth()
   const [activeTab, setActiveTab] = useState<Tab>(() => getDefaultTab(matrix, kind))
@@ -188,7 +197,7 @@ export function ResultsScreen({
         submissions,
         summary: processingSummary,
       })
-      setSaveToast("Матрица сохранена")
+      setSaveToast("Результат сохранён")
       window.setTimeout(() => setSaveToast(null), 3000)
     } catch (error) {
       setSaveError(error instanceof Error ? error.message : "Не удалось сохранить")
@@ -208,13 +217,25 @@ export function ResultsScreen({
     >
       <div className="mb-5 flex items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Ваши кэшбэки</h1>
+          <h1 className="text-2xl font-bold text-slate-900">Ваши кешбэки</h1>
           <p className="mt-1 text-[14px] capitalize text-slate-500">
             {getCurrentMonthYear()}
           </p>
         </div>
-        <UserMenu onLogout={onLogout} userEmail={userEmail} />
+        <UserMenu
+          onLogout={onLogout}
+          onLoginRequest={onLoginRequest}
+          isGuest={isGuest}
+          userEmail={userEmail}
+        />
       </div>
+
+      {showGuestSaveBanner && onLoginRequest && onGuestSaveBannerDismiss && (
+        <GuestSaveBanner
+          onLoginRequest={onLoginRequest}
+          onDismiss={onGuestSaveBannerDismiss}
+        />
+      )}
 
       <ProcessingWarningsBanner summary={processingSummary} />
 
@@ -497,7 +518,7 @@ export function ResultsScreen({
                 Очистить все данные?
               </h2>
               <p id="reset-desc" className="mt-2 text-[14px] leading-relaxed text-slate-500">
-                Все сохранённые категории кэшбэка будут удалены без возможности восстановления. Вы
+                Все сохранённые категории кешбэка будут удалены без возможности восстановления. Вы
                 уверены, что хотите начать заново?
               </p>
               <div className="mt-6 flex flex-col gap-2">

@@ -158,7 +158,7 @@ function WidgetCard({ tab }: { tab: Tab }) {
   return (
     <div className="rounded-3xl bg-white/95 p-3 shadow-2xl backdrop-blur">
       <div className="mb-2 flex items-center justify-between px-1">
-        <span className="text-[12px] font-bold text-slate-900">Кэшбэки</span>
+        <span className="text-[12px] font-bold text-slate-900">Кешбэки</span>
         <div className="flex items-center gap-1">
           {providers.map((p) => (
             <img

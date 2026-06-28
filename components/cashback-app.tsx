@@ -196,6 +196,8 @@ export function CashbackApp() {
                   <AnimatePresence mode="wait">
                 {currentScreen === "empty" && (
                   <EmptyScreen
+                    isGuest={isGuest}
+                    onLoginRequest={openAuth}
                     onFilePicked={(src) => {
                       setInitialShot(src)
                       setGalleryPrefillSrc(src)
@@ -329,6 +331,10 @@ export function CashbackApp() {
                     processingSummary={processingSummary}
                     onRestart={handleRestart}
                     onLogout={handleLogout}
+                    isGuest={isGuest}
+                    onLoginRequest={openAuth}
+                    showGuestSaveBanner={isGuest && !guestBannerDismissed}
+                    onGuestSaveBannerDismiss={() => setGuestBannerDismissed(true)}
                     userEmail={typeof user?.email === "string" ? user.email : undefined}
                     onUploadMore={() => {
                       pickModeRef.current = "upload-more"

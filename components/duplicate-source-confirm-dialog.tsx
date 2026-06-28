@@ -24,7 +24,7 @@ export function DuplicateSourceConfirmDialog({
   const isSingle = providerNames.length === 1
   const title = isSingle ? "Источник уже добавлен" : "Повторяющиеся источники"
   const description = isSingle
-    ? `Кэшбек по ${formatProviderList(providerNames)} уже есть в списке. Дополнить его категориями из нового скриншота?`
+    ? `Кешбэк по ${formatProviderList(providerNames)} уже есть в списке. Дополнить его категориями из нового скриншота?`
     : `Источники ${formatProviderList(providerNames)} указаны несколько раз. Объединить категории из всех скриншотов в одну колонку?`
 
   return (

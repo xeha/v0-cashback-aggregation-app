@@ -1,16 +1,21 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { AppLogo } from "@/components/app-logo"
 import { ImageFilePicker } from "@/components/image-file-picker"
 import { UserMenu } from "./user-menu"
 
 export function EmptyScreen({
   onFilePicked,
   onLogout,
+  onLoginRequest,
+  isGuest,
   userEmail,
 }: {
   onFilePicked: (src: string) => void
   onLogout: () => void
+  onLoginRequest: () => void
+  isGuest: boolean
   userEmail?: string
 }) {
   return (
@@ -25,23 +30,30 @@ export function EmptyScreen({
           className="relative flex min-h-full flex-col px-6 py-6"
         >
           <div className="flex justify-end">
-            <UserMenu onLogout={onLogout} userEmail={userEmail} />
+            <UserMenu
+              onLogout={onLogout}
+              onLoginRequest={onLoginRequest}
+              isGuest={isGuest}
+              userEmail={userEmail}
+            />
           </div>
 
           <div className="flex flex-1 flex-col items-center justify-center text-center">
             <div className="-mx-6 mb-6 w-[calc(100%+3rem)]">
               <img
                 src="/images/empty-cashback.png"
-                alt="Иллюстрация: руки и категории кэшбэка"
+                alt="Иллюстрация: руки и категории кешбэка"
                 className="mx-auto h-auto w-full max-h-[min(52vw,240px)] object-contain object-center sm:max-h-[260px]"
               />
             </div>
 
+            <AppLogo showName className="mb-4 justify-center" />
+
             <h1 className="text-balance text-2xl font-bold leading-tight text-slate-900">
-              У вас нет данных о кэшбеках
+              Соберите кешбэки в одном месте
             </h1>
             <p className="mt-3 text-pretty text-[15px] leading-relaxed text-slate-500">
-              Просто загрузите скриншоты ваших категорий из банков и магазинов
+              Загрузите скриншоты категорий из банков и магазинов
             </p>
 
             <div className="mt-10 flex w-full flex-col gap-3">
@@ -58,6 +70,16 @@ export function EmptyScreen({
                   Сбер, Т-Банк, Магнит, Пятерочка и другие
                 </span>
               </button>
+
+              {isGuest && (
+                <button
+                  type="button"
+                  onClick={onLoginRequest}
+                  className="text-[14px] font-medium text-slate-500 underline-offset-2 hover:text-slate-700 hover:underline"
+                >
+                  Войти, чтобы сохранить результат
+                </button>
+              )}
 
               {error && (
                 <p className="text-sm text-red-600" role="alert">

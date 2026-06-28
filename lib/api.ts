@@ -37,14 +37,14 @@ export class ApiError extends Error {
 
 export class OcrEmptyError extends ApiError {
   constructor() {
-    super("На скриншоте не найдены категории кэшбэка.", 422)
+    super("На скриншоте не найдены категории кешбэка.", 422)
   }
 }
 
 export class OcrUnreliableError extends ApiError {
   constructor() {
     super(
-      "Категории распознаны неуверенно — похоже, это не скриншот кэшбэка. Выберите другое фото.",
+      "Категории распознаны неуверенно — похоже, это не скриншот кешбэка. Выберите другое фото.",
       422,
     )
   }
