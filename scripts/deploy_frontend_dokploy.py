@@ -3,7 +3,8 @@
 
 Requires DOKPLOY_URL, DOKPLOY_API_KEY (.env.dokploy).
 
-Default domain: cashbackbrain.ru (Dokploy panel: dokploy.cashbackbrain.ru).
+Profiles via DOKPLOY_TARGET=development|production or deploy_environment_dokploy.py.
+Default (no profile): production on cashbackbrain.ru, branch main.
 """
 from __future__ import annotations
 
@@ -19,9 +20,11 @@ from typing import Any
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from dokploy_common import (
+    ASSETS_URL,
     DokployClient,
     REPO_ROOT,
     application_id,
+    apply_deploy_profile,
     ensure_domain,
     find_app_by_name,
     find_environment_id,
@@ -37,12 +40,8 @@ FRONTEND_PORT = 3000
 DEFAULT_DOMAIN = "cashbackbrain.ru"
 DEFAULT_OWNER = "xeha"
 DEFAULT_REPO = "v0-cashback-aggregation-app"
-DEFAULT_BRANCH = "dev-out"
+DEFAULT_BRANCH = "main"
 DEFAULT_BUILD_PATH = "."
-
-ASSETS_URL = "https://fcdc8bee-4045-49ca-8869-3f22cd730eb5.s3.twcstorage.ru"
-API_URL = "https://api.cashbackbrain.ru"
-PB_URL = "https://pb.cashbackbrain.ru"
 
 PUBLIC_ENV_KEYS = [
     "NEXT_PUBLIC_BACKEND_URL",
@@ -53,8 +52,12 @@ PUBLIC_ENV_KEYS = [
 
 def build_public_env() -> dict[str, str]:
     return {
-        "NEXT_PUBLIC_BACKEND_URL": os.environ.get("NEXT_PUBLIC_BACKEND_URL", API_URL).strip(),
-        "NEXT_PUBLIC_POCKETBASE_URL": os.environ.get("NEXT_PUBLIC_POCKETBASE_URL", PB_URL).strip(),
+        "NEXT_PUBLIC_BACKEND_URL": os.environ.get(
+            "NEXT_PUBLIC_BACKEND_URL", "https://api.cashbackbrain.ru"
+        ).strip(),
+        "NEXT_PUBLIC_POCKETBASE_URL": os.environ.get(
+            "NEXT_PUBLIC_POCKETBASE_URL", "https://pb.cashbackbrain.ru"
+        ).strip(),
         "NEXT_PUBLIC_ASSETS_URL": os.environ.get("NEXT_PUBLIC_ASSETS_URL", ASSETS_URL).strip(),
     }
 
@@ -196,6 +199,9 @@ def wait_for_frontend(domain: str, timeout_sec: int = 900) -> None:
 
 def main() -> None:
     load_dokploy_env()
+    target = os.environ.get("DOKPLOY_TARGET", "").strip()
+    if target:
+        apply_deploy_profile(target)
     domain = os.environ.get("FRONTEND_DOMAIN", DEFAULT_DOMAIN).strip()
 
     client = DokployClient(require_env("DOKPLOY_URL"), require_env("DOKPLOY_API_KEY"))

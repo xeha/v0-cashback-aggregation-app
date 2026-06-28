@@ -73,14 +73,31 @@ curl -X POST http://localhost:8000/api/admin/reload-catalogs \
 
 ## 5. Deploy на Dockploy (Фаза 4)
 
-Автоматизация:
+### Два окружения
+
+| | Development | Production |
+|---|-------------|------------|
+| Ветка | `dev` | `main` |
+| API | `api-dev.cashbackbrain.ru` | `api.cashbackbrain.ru` |
+| CORS | `dev.cashbackbrain.ru` | `cashbackbrain.ru` |
+
+Полная схема: [`DOKPLOY.md`](../DOKPLOY.md) в корне репозитория.
+
+### Автоматизация
 
 ```bash
 # .env.dokploy + backend/.env + .env.pocketbase
+python3 scripts/deploy_environment_dokploy.py development
+python3 scripts/deploy_environment_dokploy.py production
+```
+
+Только FastAPI (production):
+
+```bash
 python3 scripts/deploy_fastapi_dokploy.py
 ```
 
-Скрипт: GitHub `xeha/v0-cashback-aggregation-app@dev-out`, buildPath `backend/`, домен `api.cashbackbrain.ru`.
+Скрипт: GitHub `xeha/v0-cashback-aggregation-app@main`, buildPath `backend/`, домен `api.cashbackbrain.ru`.
 
 | Поле | Значение |
 |------|----------|
@@ -100,11 +117,13 @@ FASTAPI_SKIP_GIT_PUSH=1 python3 scripts/deploy_fastapi_dokploy.py
 
 ## Связь с другими сервисами
 
-| Сервис | URL |
-|--------|-----|
-| PocketBase | `https://pb.cashbackbrain.ru` |
-| Frontend | `https://cashbackbrain.ru` |
-| Dokploy | `https://dokploy.cashbackbrain.ru` |
-| S3 assets | `https://fcdc8bee-4045-49ca-8869-3f22cd730eb5.s3.twcstorage.ru` |
+| Сервис | Development | Production |
+|--------|-------------|------------|
+| PocketBase | `https://pb-dev.cashbackbrain.ru` | `https://pb.cashbackbrain.ru` |
+| Frontend | `https://dev.cashbackbrain.ru` | `https://cashbackbrain.ru` |
+| Dokploy | `https://dokploy.cashbackbrain.ru` | |
+| S3 assets | `https://fcdc8bee-4045-49ca-8869-3f22cd730eb5.s3.twcstorage.ru` | (общий) |
+
+Dev env-шаблон: [`dokploy.dev.env.example`](dokploy.dev.env.example).
 
 См. также: [`pocketbase/DOKPLOY.md`](../pocketbase/DOKPLOY.md)

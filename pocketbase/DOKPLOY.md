@@ -33,8 +33,11 @@ Enable HTTPS (Let's Encrypt).
 
 1. Открыть `https://pb.cashbackbrain.ru/_/`
 2. Создать **superadmin** (email + password) — сохранить в менеджер паролей
-3. Settings → **Application** → **Allowed origins**:
+3. Settings → **Application** → **Allowed origins** (production):
    - `https://cashbackbrain.ru`
+   - `http://localhost:3000`
+   Development (`pb-dev.cashbackbrain.ru`):
+   - `https://dev.cashbackbrain.ru`
    - `http://localhost:3000`
 
 ### Auth (Settings → Auth)
@@ -108,7 +111,20 @@ docker compose up -d
 
 ## Автодеплой через Dockploy API (опционально)
 
-Скрипт `scripts/deploy_pocketbase_dokploy.py` создаёт сервис, volume, домен и запускает deploy.
+Полный стек (dev или prod):
+
+```bash
+cp dokploy.env.example .env.dokploy
+set -a && source .env.dokploy && set +a
+python3 scripts/deploy_environment_dokploy.py development
+python3 scripts/deploy_environment_dokploy.py production
+```
+
+Только PocketBase:
+
+```bash
+DOKPLOY_TARGET=development python3 scripts/deploy_pocketbase_dokploy.py
+```
 
 ### Куда вписать ключ
 

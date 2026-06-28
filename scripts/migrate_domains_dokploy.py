@@ -95,13 +95,8 @@ def migrate_frontend_domain(client: DokployClient) -> None:
         print(f"  ✓ Frontend domain created: https://{FRONTEND_HOST}")
 
     dev = _domain_by_host(domains, "dev.cashbackbrain.ru")
-    if dev and os.environ.get("KEEP_DEV_DOMAIN", "").strip() not in ("1", "true", "yes"):
-        domain_id = str(dev.get("domainId"))
-        try:
-            client.post("domain.delete", {"domainId": domain_id})
-            print("  ✓ Removed dev.cashbackbrain.ru (frontend now on root domain)")
-        except RuntimeError as exc:
-            print(f"  ~ Could not remove dev domain: {exc}")
+    if dev:
+        print("  ✓ dev.cashbackbrain.ru kept (use development environment / deploy_environment_dokploy.py)")
 
     client.post("application.deploy", {"applicationId": FRONTEND_APP_ID})
     print("  ✓ Frontend redeploy triggered")

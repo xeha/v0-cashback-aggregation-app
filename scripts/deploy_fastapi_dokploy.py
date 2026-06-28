@@ -11,7 +11,7 @@ Optional:
   FASTAPI_DOMAIN=api.cashbackbrain.ru
   FASTAPI_GITHUB_OWNER=xeha
   FASTAPI_GITHUB_REPO=v0-cashback-aggregation-app
-  FASTAPI_GITHUB_BRANCH=dev-out
+  FASTAPI_GITHUB_BRANCH=main (or dev for development)
   FASTAPI_BUILD_PATH=backend
   DOKPLOY_GITHUB_ID=...
 """
@@ -30,9 +30,11 @@ from typing import Any
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from dokploy_common import (
+    ASSETS_URL,
     DokployClient,
     REPO_ROOT,
     application_id,
+    apply_deploy_profile,
     ensure_domain,
     find_app_by_name,
     find_environment_id,
@@ -40,7 +42,6 @@ from dokploy_common import (
     load_env_file,
     require_env,
     resolve_github_id,
-    unwrap_list,
 )
 
 APP_NAME = "fastapi"
@@ -50,12 +51,12 @@ FASTAPI_PORT = 8000
 DEFAULT_DOMAIN = "api.cashbackbrain.ru"
 DEFAULT_OWNER = "xeha"
 DEFAULT_REPO = "v0-cashback-aggregation-app"
-DEFAULT_BRANCH = "dev-out"
+DEFAULT_BRANCH = "main"
 DEFAULT_BUILD_PATH = "backend"
 
+DEV_ALLOWED_ORIGINS = "https://dev.cashbackbrain.ru,http://localhost:3000"
 PROD_ALLOWED_ORIGINS = (
-    "https://cashbackbrain.ru,https://www.cashbackbrain.ru,"
-    "https://dev.cashbackbrain.ru,http://localhost:3000"
+    "https://cashbackbrain.ru,https://www.cashbackbrain.ru,http://localhost:3000"
 )
 
 ENV_KEYS = [
@@ -101,15 +102,14 @@ def load_backend_env() -> None:
         override=True,
     )
 
-    os.environ.setdefault(
-        "ASSETS_URL",
-        "https://fcdc8bee-4045-49ca-8869-3f22cd730eb5.s3.twcstorage.ru",
-    )
+    os.environ.setdefault("ASSETS_URL", ASSETS_URL)
     os.environ.setdefault("POCKETBASE_URL", "https://pb.cashbackbrain.ru")
     os.environ.setdefault("MISTRAL_REQUEST_TIMEOUT_SEC", "120")
     os.environ.setdefault("OCR_MAX_IMAGE_DIMENSION", "1200")
-    # Prod deploy always uses production CORS (backend/.env may have localhost only).
-    os.environ["ALLOWED_ORIGINS"] = os.environ.get("FASTAPI_ALLOWED_ORIGINS", PROD_ALLOWED_ORIGINS)
+
+    target = os.environ.get("DOKPLOY_TARGET", "").strip().lower()
+    default_origins = DEV_ALLOWED_ORIGINS if target in ("development", "dev") else PROD_ALLOWED_ORIGINS
+    os.environ["ALLOWED_ORIGINS"] = os.environ.get("FASTAPI_ALLOWED_ORIGINS", default_origins)
 
     if not os.environ.get("ADMIN_KEY", "").strip():
         existing_id = os.environ.get("FASTAPI_APP_ID", "m3NsWg_snuw8lJ8ZrTthu").strip()
@@ -300,6 +300,9 @@ def wait_for_health(domain: str, timeout_sec: int = 600) -> dict[str, Any]:
 
 def main() -> None:
     load_dokploy_env()
+    target = os.environ.get("DOKPLOY_TARGET", "").strip()
+    if target:
+        apply_deploy_profile(target)
     load_backend_env()
 
     base_url = require_env("DOKPLOY_URL")

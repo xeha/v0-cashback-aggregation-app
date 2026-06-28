@@ -11,6 +11,72 @@ from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
+ASSETS_URL = "https://fcdc8bee-4045-49ca-8869-3f22cd730eb5.s3.twcstorage.ru"
+DEFAULT_PROJECT_NAME = "CashbackBrain"
+
+# development → dev branch; production → main (лекция 7)
+DEPLOY_PROFILES: dict[str, dict[str, str]] = {
+    "development": {
+        "DOKPLOY_ENVIRONMENT_NAME": "development",
+        "GITHUB_BRANCH": "dev",
+        "FRONTEND_DOMAIN": "dev.cashbackbrain.ru",
+        "FASTAPI_DOMAIN": "api-dev.cashbackbrain.ru",
+        "POCKETBASE_DOMAIN": "pb-dev.cashbackbrain.ru",
+        "FASTAPI_ALLOWED_ORIGINS": "https://dev.cashbackbrain.ru,http://localhost:3000",
+        "POCKETBASE_VOLUME_NAME": "pocketbase_pb_data_dev",
+        "POCKETBASE_CORS_ORIGINS": (
+            "https://dev.cashbackbrain.ru,http://localhost:3000,https://pb-dev.cashbackbrain.ru"
+        ),
+        "POCKETBASE_APP_URL": "https://dev.cashbackbrain.ru",
+    },
+    "production": {
+        "DOKPLOY_ENVIRONMENT_NAME": "production",
+        "GITHUB_BRANCH": "main",
+        "FRONTEND_DOMAIN": "cashbackbrain.ru",
+        "FASTAPI_DOMAIN": "api.cashbackbrain.ru",
+        "POCKETBASE_DOMAIN": "pb.cashbackbrain.ru",
+        "FASTAPI_ALLOWED_ORIGINS": (
+            "https://cashbackbrain.ru,https://www.cashbackbrain.ru,http://localhost:3000"
+        ),
+        "POCKETBASE_VOLUME_NAME": "pocketbase_pb_data",
+        "POCKETBASE_CORS_ORIGINS": (
+            "https://cashbackbrain.ru,https://www.cashbackbrain.ru,"
+            "http://localhost:3000,https://pb.cashbackbrain.ru"
+        ),
+        "POCKETBASE_APP_URL": "https://cashbackbrain.ru",
+    },
+}
+
+
+def normalize_deploy_target(value: str) -> str:
+    target = value.strip().lower()
+    aliases = {"dev": "development", "prod": "production", "development": "development", "production": "production"}
+    if target not in aliases:
+        raise SystemExit(f"Unknown deploy target: {value!r}. Use: development, production")
+    return aliases[target]
+
+
+def apply_deploy_profile(target: str) -> dict[str, str]:
+    """Set Dokploy env defaults for development or production (explicit env wins)."""
+    profile_key = normalize_deploy_target(target)
+    profile = DEPLOY_PROFILES[profile_key]
+
+    for key, value in profile.items():
+        os.environ.setdefault(key, value)
+
+    branch = profile["GITHUB_BRANCH"]
+    os.environ.setdefault("FRONTEND_GITHUB_BRANCH", branch)
+    os.environ.setdefault("FASTAPI_GITHUB_BRANCH", branch)
+
+    fastapi_domain = profile["FASTAPI_DOMAIN"]
+    pocketbase_domain = profile["POCKETBASE_DOMAIN"]
+    os.environ.setdefault("NEXT_PUBLIC_BACKEND_URL", f"https://{fastapi_domain}")
+    os.environ.setdefault("NEXT_PUBLIC_POCKETBASE_URL", f"https://{pocketbase_domain}")
+    os.environ.setdefault("POCKETBASE_URL", f"https://{pocketbase_domain}")
+
+    print(f"Deploy profile: {profile_key} (branch={branch})")
+    return profile
+
 
 def load_env_file(path: Path, *, keys_only: set[str] | None = None, override: bool = False) -> None:
     if not path.is_file():
@@ -103,23 +169,81 @@ def application_id(app: dict[str, Any]) -> str:
     return app_id
 
 
-def find_environment_id(client: DokployClient) -> str:
-    project_name = os.environ.get("DOKPLOY_PROJECT_NAME", "CashbackBrain").strip()
-    env_name = os.environ.get("DOKPLOY_ENVIRONMENT_NAME", "production").strip()
-
+def find_project(client: DokployClient, project_name: str | None = None) -> dict[str, Any]:
+    name = (project_name or os.environ.get("DOKPLOY_PROJECT_NAME", DEFAULT_PROJECT_NAME)).strip()
     projects = unwrap_list(client.get("project.all"))
     if not projects:
         raise RuntimeError("No Dokploy projects found")
-
-    project = pick_by_name(projects, project_name) or projects[0]
+    project = pick_by_name(projects, name) or projects[0]
     project_id = str(project.get("projectId") or project.get("id") or "")
     if not project_id:
         raise RuntimeError(f"Project has no id: {project}")
+    return project
 
+
+def list_environments(client: DokployClient, project_id: str) -> list[dict[str, Any]]:
     try:
-        environments = unwrap_list(client.get("environment.byProjectId", {"projectId": project_id}))
+        return unwrap_list(client.get("environment.byProjectId", {"projectId": project_id}))
     except RuntimeError:
-        environments = unwrap_list(client.get("environment.search", {"projectId": project_id}))
+        return unwrap_list(client.get("environment.search", {"projectId": project_id}))
+
+
+def ensure_environment_id(client: DokployClient) -> str:
+    """Resolve environment id; create non-production environments when missing."""
+    project_name = os.environ.get("DOKPLOY_PROJECT_NAME", DEFAULT_PROJECT_NAME).strip()
+    env_name = os.environ.get("DOKPLOY_ENVIRONMENT_NAME", "production").strip()
+
+    project = find_project(client, project_name)
+    project_id = str(project.get("projectId") or project.get("id") or "")
+    environments = list_environments(client, project_id)
+
+    environment = pick_by_name(environments, env_name) if environments else None
+    if environment is None and env_name.lower() != "production":
+        print(f"Creating environment: {env_name}")
+        created = client.post(
+            "environment.create",
+            {
+                "name": env_name,
+                "description": f"CashbackBrain {env_name}",
+                "projectId": project_id,
+            },
+        )
+        if isinstance(created, dict):
+            environment_id = str(created.get("environmentId") or created.get("id") or "")
+            if environment_id:
+                print(f"Project: {project.get('name')} → Environment: {env_name} ({environment_id})")
+                return environment_id
+        environments = list_environments(client, project_id)
+        environment = pick_by_name(environments, env_name)
+
+    if not environments and env_name.lower() == "production":
+        raise RuntimeError(f"No environments for project {project.get('name', project_id)}")
+
+    if environment is None:
+        environment = pick_by_name(environments, env_name) if environments else None
+    if environment is None:
+        environment = environments[0] if environments else None
+    if environment is None:
+        raise RuntimeError(f"Environment {env_name!r} not found in project {project.get('name')}")
+
+    environment_id = str(environment.get("environmentId") or environment.get("id") or "")
+    if not environment_id:
+        raise RuntimeError(f"Environment has no id: {environment}")
+
+    print(f"Project: {project.get('name')} → Environment: {environment.get('name')} ({environment_id})")
+    return environment_id
+
+
+def find_environment_id(client: DokployClient) -> str:
+    if os.environ.get("DOKPLOY_ENSURE_ENVIRONMENT", "1").strip() not in ("0", "false", "no"):
+        return ensure_environment_id(client)
+
+    project_name = os.environ.get("DOKPLOY_PROJECT_NAME", DEFAULT_PROJECT_NAME).strip()
+    env_name = os.environ.get("DOKPLOY_ENVIRONMENT_NAME", "production").strip()
+
+    project = find_project(client, project_name)
+    project_id = str(project.get("projectId") or project.get("id") or "")
+    environments = list_environments(client, project_id)
 
     if not environments:
         raise RuntimeError(f"No environments for project {project.get('name', project_id)}")

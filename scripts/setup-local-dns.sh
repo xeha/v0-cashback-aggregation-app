@@ -24,6 +24,10 @@ $MARKER
 $IP pb.cashbackbrain.ru
 $IP dokploy.cashbackbrain.ru
 $IP api.cashbackbrain.ru
+$IP dev.cashbackbrain.ru
+$IP api-dev.cashbackbrain.ru
+$IP pb-dev.cashbackbrain.ru
+$IP cashbackbrain.ru
 EOF
 
 echo "Добавлено в $HOSTS_FILE:"
