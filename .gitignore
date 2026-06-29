@@ -31,3 +31,6 @@ backend/.env
 
 # Logos on S3 when NEXT_PUBLIC_ASSETS_URL is set; optional local copy (public/logos/)
 public/logos/
+
+# Git worktrees (isolated feature workspaces)
+.worktrees/

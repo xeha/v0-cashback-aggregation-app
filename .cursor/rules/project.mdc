@@ -39,6 +39,25 @@ uvicorn main:app --reload --port 8000
 
 Сборка: `npm run build` (frontend). Тестов нет. Env: см. `env.example` и `backend/env.example`.
 
+## Git и worktrees
+
+- **Ветки:** `dev` — интеграция фич; `main` — прод после проверки на `dev`
+- **Поток:** feature-ветка → merge в `dev` → если всё ок → merge `dev` → `main`
+- **Worktrees:** `.worktrees/<имя-ветки>/` — изолированные копии, не коммитятся (в `.gitignore`)
+
+```bash
+# Новая фича от dev
+git fetch origin
+git worktree add .worktrees/<имя> -b feature/<имя> dev
+cd .worktrees/<имя>
+npm install
+cd backend && pip install -r requirements.txt
+
+# После merge — убрать worktree
+git worktree remove .worktrees/<имя>
+git branch -d feature/<имя>   # если ветка уже влита
+```
+
 ## Конвенции
 
 - Импорты `@/*`; strict TypeScript; UI на русском (`lang="ru"`)
