@@ -38,8 +38,8 @@ test.describe("guest-first auth", () => {
     await registerViaUi(page)
 
     await page.getByRole("button", { name: "Открыть меню" }).click()
-    await page.getByRole("button", { name: "Выйти" }).click()
-    await page.getByRole("button", { name: "Выйти" }).click()
+    await page.getByRole("button", { name: "Выйти", exact: true }).first().click()
+    await page.getByRole("alertdialog").getByRole("button", { name: "Выйти" }).click()
 
     await expect(
       page.getByRole("button", { name: "Войти, чтобы сохранить результат" }),

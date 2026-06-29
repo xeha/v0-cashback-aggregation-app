@@ -21,7 +21,7 @@ export default defineConfig({
     : {
         command: "npm run dev",
         url: "http://localhost:3000",
-        reuseExistingServer: !process.env.CI,
+        reuseExistingServer: false,
         env: {
           NEXT_PUBLIC_POCKETBASE_URL:
             process.env.NEXT_PUBLIC_POCKETBASE_URL ?? "http://127.0.0.1:8090",

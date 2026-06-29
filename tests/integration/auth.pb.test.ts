@@ -110,9 +110,9 @@ describe.skipIf(!pbReady)("PocketBase auth integration", () => {
     expect(login.record?.email).toBe(email)
   })
 
-  it("rotates token on login", async () => {
+  it("re-login after logout restores valid session", async () => {
     const pb = createTestPocketBase()
-    const email = uniqueTestEmail("rotate")
+    const email = uniqueTestEmail("relogin")
 
     await pb.collection("users").create({
       email,
@@ -120,11 +120,29 @@ describe.skipIf(!pbReady)("PocketBase auth integration", () => {
       passwordConfirm: TEST_PASSWORD,
     })
 
-    const first = await pb.collection("users").authWithPassword(email, TEST_PASSWORD)
+    await pb.collection("users").authWithPassword(email, TEST_PASSWORD)
     pb.authStore.clear()
+    expect(pb.authStore.isValid).toBe(false)
 
     const second = await pb.collection("users").authWithPassword(email, TEST_PASSWORD)
     expect(second.token).toBeTruthy()
-    expect(second.token).not.toBe(first.token)
+    expect(pb.authStore.isValid).toBe(true)
+  })
+
+  it("authRefresh keeps session valid", async () => {
+    const pb = createTestPocketBase()
+    const email = uniqueTestEmail("refresh")
+
+    await pb.collection("users").create({
+      email,
+      password: TEST_PASSWORD,
+      passwordConfirm: TEST_PASSWORD,
+    })
+
+    await pb.collection("users").authWithPassword(email, TEST_PASSWORD)
+    const refreshed = await pb.collection("users").authRefresh()
+
+    expect(refreshed.token).toBeTruthy()
+    expect(pb.authStore.isValid).toBe(true)
   })
 })

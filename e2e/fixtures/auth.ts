@@ -11,7 +11,7 @@ export async function registerViaUi(page: Page): Promise<{ email: string; passwo
   await page.locator('input[autocomplete="new-password"]').nth(1).fill(password)
   await page.getByRole("button", { name: "Создать аккаунт" }).click()
 
-  await expect(page.getByRole("button", { name: "Создать аккаунт" })).not.toBeVisible({
+  await expect(page.getByRole("heading", { name: "CashbackBrain" })).not.toBeVisible({
     timeout: 15_000,
   })
 
