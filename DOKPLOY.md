@@ -18,9 +18,34 @@ DNS: A-записи `dev`, `api-dev`, `pb-dev`, `@`, `api`, `pb`, `dokploy` → 
 ```
 dev ──push──▶ Dokploy development ──▶ тест на dev.cashbackbrain.ru
          │
-         ▼ PR dev → main
+         ▼ PR dev → main (только после «да»)
     merge ──▶ Dokploy production ──▶ cashbackbrain.ru
 ```
+
+## Правило деплоя (обязательно)
+
+**Сначала development, потом production — всегда.**
+
+1. Код попадает в ветку **`dev`** и деплоится в Dokploy **Environment: development**.
+2. Проверяем на dev-доменах (см. таблицу выше).
+3. **Только после успешной проверки и явного согласия** — merge в `main` и деплой **Environment: production**.
+
+**Нельзя** деплоить в production, пока изменения не проверены на development — даже через UI Dokploy (кнопка Deploy у приложения в production).
+
+### Как не перепутать окружение в UI
+
+| Действие | Development (нужно для теста) | Production (только после «да») |
+|----------|-------------------------------|--------------------------------|
+| Environment в проекте | `development` | `production` |
+| Ветка Git | `dev` | `main` |
+| FastAPI | `api-dev.cashbackbrain.ru` | `api.cashbackbrain.ru` |
+| Frontend | `dev.cashbackbrain.ru` | `cashbackbrain.ru` |
+
+Путь в UI: **Projects → CashbackBrain → выбрать `development` в переключателе Environment → сервис → Deploy**.
+
+На странице **Deployments** смотрите колонку **Environment** — `production` в строке означает прод-деплой.
+
+Подробнее для агентов: [`.cursor/rules/deploy-git-workflow.mdc`](.cursor/rules/deploy-git-workflow.mdc).
 
 ## Быстрый деплой
 
@@ -33,15 +58,16 @@ set -a && source .env.dokploy && set +a
 # Development (ветка dev)
 python3 scripts/deploy_environment_dokploy.py development
 
-# Production (ветка main)
-python3 scripts/deploy_environment_dokploy.py production
+# Production (ветка main) — ТОЛЬКО после проверки на dev и явного согласия
+# python3 scripts/deploy_environment_dokploy.py production
 ```
 
 Отдельные сервисы:
 
 ```bash
 DOKPLOY_TARGET=development python3 scripts/deploy_frontend_dokploy.py
-DOKPLOY_TARGET=production python3 scripts/deploy_fastapi_dokploy.py
+# Production — только после merge dev→main и согласия:
+# DOKPLOY_TARGET=production python3 scripts/deploy_fastapi_dokploy.py
 ```
 
 ## После первого dev-деплоя PocketBase
