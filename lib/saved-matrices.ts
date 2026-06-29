@@ -60,12 +60,17 @@ function countCategories(
 }
 
 function recordToSummary(record: PocketBaseSavedMatrixRecord): SavedMatrixSummary {
+  const periodFallback =
+    record.period_year && record.period_month
+      ? new Date(record.period_year, record.period_month - 1, 15).toISOString()
+      : ""
+
   return {
     id: record.id,
     title: record.title,
     periodMonth: record.period_month,
     periodYear: record.period_year,
-    updated: record.updated || record.created,
+    updated: record.updated || record.created || periodFallback,
     providerCount: countProviders(record.bank_matrix, record.market_matrix),
     categoryCount: countCategories(record.bank_matrix, record.market_matrix),
     isFavorite: record.is_favorite ?? false,
@@ -91,14 +96,21 @@ function requireUserId(pb: PocketBase): string {
   return userId
 }
 
+function periodSortKey(summary: SavedMatrixSummary): number {
+  return (summary.periodYear ?? 0) * 100 + (summary.periodMonth ?? 0)
+}
+
 export async function listSavedMatrices(pb: PocketBase): Promise<SavedMatrixSummary[]> {
   requireUserId(pb)
 
+  // PocketBase returns 400 for sort on system date fields on this collection.
   const result = await pb.collection("saved_matrices").getList<PocketBaseSavedMatrixRecord>(1, 50, {
-    sort: "-updated",
+    fields: "id,title,period_month,period_year,is_favorite,bank_matrix,market_matrix",
   })
 
-  return result.items.map(recordToSummary)
+  return result.items
+    .map(recordToSummary)
+    .sort((a, b) => periodSortKey(b) - periodSortKey(a) || b.title.localeCompare(a.title, "ru"))
 }
 
 export async function getSavedMatrix(pb: PocketBase, id: string): Promise<SavedMatrixRecord> {
