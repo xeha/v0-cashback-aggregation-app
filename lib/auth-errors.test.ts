@@ -7,7 +7,7 @@ describe("formatAuthError", () => {
     const error = makeClientResponseError(400, {
       message: "Invalid login credentials.",
     })
-    expect(formatAuthError(error)).toBe("Invalid login credentials.")
+    expect(formatAuthError(error)).toBe("Неверный email или пароль")
   })
 
   it("maps 429 to Russian rate limit message", () => {
@@ -17,7 +17,14 @@ describe("formatAuthError", () => {
 
   it("maps 403 and 404", () => {
     expect(formatAuthError(makeClientResponseError(403))).toBe("Доступ запрещён")
-    expect(formatAuthError(makeClientResponseError(404))).toBe("Сервис авторизации недоступен")
+    expect(formatAuthError(makeClientResponseError(404))).toBe("Ссылка недействительна или устарела")
+  })
+
+  it("maps invalid credentials to Russian generic message", () => {
+    const error = makeClientResponseError(400, {
+      message: "Invalid login credentials.",
+    })
+    expect(formatAuthError(error)).toBe("Неверный email или пароль")
   })
 
   it("returns field email error", () => {

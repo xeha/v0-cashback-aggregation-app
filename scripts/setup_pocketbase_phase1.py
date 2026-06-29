@@ -37,7 +37,42 @@ CORS_ORIGINS = os.environ.get(
 )
 AUTH_TOKEN_SECONDS = int(os.environ.get("POCKETBASE_AUTH_TOKEN_SEC", "604800"))
 MIN_PASSWORD_LENGTH = 8
+VERIFICATION_TOKEN_SECONDS = int(os.environ.get("POCKETBASE_VERIFICATION_TOKEN_SEC", "86400"))
+RESET_PASSWORD_TOKEN_SECONDS = int(os.environ.get("POCKETBASE_RESET_TOKEN_SEC", "3600"))
+REQUIRE_EMAIL_VERIFICATION = os.environ.get("POCKETBASE_REQUIRE_EMAIL_VERIFICATION", "true").lower() not in (
+    "0",
+    "false",
+    "no",
+)
 EXPECTED_CATALOG_COUNT = 146
+
+VERIFY_EMAIL_SUBJECT = "Подтвердите ваш email в CashbackBrain"
+RESET_PASSWORD_SUBJECT = "Восстановление пароля в CashbackBrain"
+
+EMAIL_BUTTON_STYLE = (
+    "display:inline-block;padding:12px 24px;background:#fde68a;color:#0f172a;"
+    "text-decoration:none;border-radius:12px;font-weight:600;"
+)
+
+VERIFY_EMAIL_BODY = f"""<div style="font-family:system-ui,sans-serif;max-width:560px;margin:0 auto;padding:24px;color:#334155;">
+<p>Здравствуйте!</p>
+<p>Спасибо за регистрацию в <strong>{{{{APP_NAME}}}}</strong>. Подтвердите email, чтобы сохранять результаты и входить в аккаунт.</p>
+<p style="text-align:center;margin:32px 0;">
+  <a href="{{{{APP_URL}}}}/verify-email?token={{{{TOKEN}}}}" style="{EMAIL_BUTTON_STYLE}">Подтвердить email</a>
+</p>
+<p style="font-size:14px;color:#64748b;">Ссылка действует 24 часа. Если вы не регистрировались — проигнорируйте письмо или напишите на <a href="mailto:support@cashbackbrain.ru">support@cashbackbrain.ru</a>.</p>
+<p style="font-size:13px;color:#94a3b8;margin-top:32px;">— Команда CashbackBrain</p>
+</div>"""
+
+RESET_PASSWORD_BODY = f"""<div style="font-family:system-ui,sans-serif;max-width:560px;margin:0 auto;padding:24px;color:#334155;">
+<p>Здравствуйте!</p>
+<p>Мы получили запрос на сброс пароля в <strong>{{{{APP_NAME}}}}</strong>. Если это были вы — нажмите кнопку ниже.</p>
+<p style="text-align:center;margin:32px 0;">
+  <a href="{{{{APP_URL}}}}/reset-password?token={{{{TOKEN}}}}" style="{EMAIL_BUTTON_STYLE}">Сбросить пароль</a>
+</p>
+<p style="font-size:14px;color:#64748b;">Ссылка действует 1 час. Если вы не запрашивали сброс — проигнорируйте письмо.</p>
+<p style="font-size:13px;color:#94a3b8;margin-top:32px;">— Команда CashbackBrain</p>
+</div>"""
 
 
 def load_env_file(path: Path) -> dict[str, str]:
@@ -117,17 +152,50 @@ class PocketBaseClient:
             "authRule": "",
             "authToken": {"duration": AUTH_TOKEN_SECONDS},
             "passwordAuth": {"enabled": True, "identityFields": ["email"]},
-            "oauth2": {"enabled": False, "providers": [], "mappedFields": users.get("oauth2", {}).get("mappedFields", {})},
+            "oauth2": {
+                "enabled": False,
+                "providers": [],
+                "mappedFields": users.get("oauth2", {}).get("mappedFields", {}),
+            },
             "mfa": {"enabled": False, "duration": 600, "rule": ""},
-            "otp": {"enabled": False, "duration": 180, "length": 8, "emailTemplate": users.get("otp", {}).get("emailTemplate", {})},
+            "otp": {
+                "enabled": False,
+                "duration": 180,
+                "length": 8,
+                "emailTemplate": users.get("otp", {}).get("emailTemplate", {}),
+            },
+            "verification": {
+                "enabled": True,
+                "duration": VERIFICATION_TOKEN_SECONDS,
+                "emailTemplate": {
+                    "subject": VERIFY_EMAIL_SUBJECT,
+                    "body": VERIFY_EMAIL_BODY,
+                },
+            },
+            "resetPassword": {
+                "enabled": True,
+                "duration": RESET_PASSWORD_TOKEN_SECONDS,
+                "emailTemplate": {
+                    "subject": RESET_PASSWORD_SUBJECT,
+                    "body": RESET_PASSWORD_BODY,
+                },
+            },
         }
+
+        options = users.get("options") or {}
+        options["onlyVerified"] = REQUIRE_EMAIL_VERIFICATION
+        options["minPasswordLength"] = MIN_PASSWORD_LENGTH
+        body["options"] = options
+
         if password_field:
             body["fields"] = users["fields"]
 
         self.request("PATCH", "/api/collections/users", body)
+        verified_label = "on" if REQUIRE_EMAIL_VERIFICATION else "off"
         print(
             f"  ✓ auth: min password {MIN_PASSWORD_LENGTH}, token {AUTH_TOKEN_SECONDS}s, "
-            "email verification off (authRule empty)"
+            f"email verification {verified_label}, "
+            f"verification TTL {VERIFICATION_TOKEN_SECONDS}s, reset TTL {RESET_PASSWORD_TOKEN_SECONDS}s"
         )
 
     def verify_catalog(self) -> int:

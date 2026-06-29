@@ -84,3 +84,24 @@ class HealthResponse(BaseModel):
     mapper_loaded: bool
     bank_mapper_loaded: bool = False
     market_mapper_loaded: bool = False
+
+
+class ValidateEmailRequest(BaseModel):
+    email: str = Field(..., min_length=1, max_length=254)
+
+
+class ValidateEmailResponse(BaseModel):
+    valid: bool
+    email: str
+    domain: str
+    mx: bool
+
+
+class AuthValidationErrorDetail(BaseModel):
+    code: str
+    message: str
+    details: list[dict[str, str]]
+
+
+class AuthValidationErrorResponse(BaseModel):
+    error: AuthValidationErrorDetail

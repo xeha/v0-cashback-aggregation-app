@@ -27,6 +27,8 @@ export default defineConfig({
             process.env.NEXT_PUBLIC_POCKETBASE_URL ?? "http://127.0.0.1:8090",
           NEXT_PUBLIC_BACKEND_URL:
             process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:8000",
+          NEXT_PUBLIC_AUTH_REQUIRE_EMAIL_VERIFICATION: "false",
+          NEXT_PUBLIC_AUTH_SKIP_MX_CHECK: "true",
         },
       },
 })

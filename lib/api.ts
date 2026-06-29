@@ -1,4 +1,5 @@
 import type { Kind } from "@/lib/types"
+import { getBackendUrl } from "@/lib/backend-url"
 import { imageSrcToBase64 } from "@/lib/image-utils"
 import { createProviderFromSubmission, mergeMappedItems } from "@/lib/matrix"
 import type {
@@ -11,16 +12,6 @@ import type {
   SourceSubmission,
 } from "@/lib/types"
 
-function getBackendUrl(): string {
-  if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
-    const configured = process.env.NEXT_PUBLIC_BACKEND_URL?.trim()
-    // Direct FastAPI when URL is set (avoids Next.js rewrite ~30s timeout on large OCR bodies).
-    if (configured) return configured
-    // Same-origin rewrite when testing from phone over Wi‑Fi without env.
-    return ""
-  }
-  return process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:8000"
-}
 const REQUEST_TIMEOUT_MS = 60_000
 
 /** Below this confidence, show a warning on the results screen. */

@@ -11,7 +11,7 @@
     "test:integration": "vitest run --config vitest.integration.config.ts",
     "test:e2e": "playwright test",
     "test:e2e:staging": "PLAYWRIGHT_BASE_URL=https://cashbackbrain.ru playwright test",
-    "test:auth": "vitest run lib/auth-errors.test.ts lib/auth-validation.test.ts lib/auth-context.test.ts && npm run test:integration",
+    "test:auth": "vitest run lib/auth-errors.test.ts lib/auth-validation.test.ts lib/auth-context.test.ts lib/use-email-blur-validation.test.ts && npm run test:integration",
     "security:audit": "npm audit --audit-level=high",
     "upload:logos": "node scripts/upload-assets.mjs",
     "upload:catalogs": "node scripts/upload-catalogs.mjs"

@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest"
 import { ClientResponseError } from "pocketbase"
 import { formatAuthError } from "@/lib/auth-errors"
+import { validateRegisterInput } from "@/lib/auth-validation"
 import {
   createTestPocketBase,
   isPocketBaseReady,
@@ -144,5 +145,26 @@ describe.skipIf(!pbReady)("PocketBase auth integration", () => {
 
     expect(refreshed.token).toBeTruthy()
     expect(pb.authStore.isValid).toBe(true)
+  })
+
+  it("requestPasswordReset returns without error for unknown email", async () => {
+    const pb = createTestPocketBase()
+    await expect(
+      pb.collection("users").requestPasswordReset("missing@cashbackbrain.test"),
+    ).resolves.toBeTruthy()
+  })
+
+  it("requestVerification returns without error for unknown email", async () => {
+    const pb = createTestPocketBase()
+    await expect(
+      pb.collection("users").requestVerification("missing@cashbackbrain.test"),
+    ).resolves.toBeTruthy()
+  })
+})
+
+describe("client validation aligned with PB", () => {
+  it("rejects weak passwords before API call", () => {
+    const result = validateRegisterInput("user@example.com", "weak", "weak")
+    expect(result.ok).toBe(false)
   })
 })
