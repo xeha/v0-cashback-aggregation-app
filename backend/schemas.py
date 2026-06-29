@@ -105,3 +105,68 @@ class AuthValidationErrorDetail(BaseModel):
 
 class AuthValidationErrorResponse(BaseModel):
     error: AuthValidationErrorDetail
+
+
+class MatrixProvider(BaseModel):
+    key: str
+    name: str
+    slug: str | None = None
+
+
+class MatrixRow(BaseModel):
+    category: str
+    canonical_category: str | None = None
+    parent: str | None = None
+    bank_raw: str | None = None
+    market_raw: str | None = None
+    is_macro: bool = False
+    reference_node_id: str | None = None
+    reference_department: str | None = None
+    reference_depth: int | None = None
+    row_kind: Literal["anchor", "item"] | None = None
+    rate_ranges: dict[str, dict[str, float]] | None = None
+    rates: dict[str, float] = Field(default_factory=dict)
+
+
+class ComparisonPart(BaseModel):
+    store: str
+    rate: float
+    label: str
+    node_id: str
+    path: list[ReferencePathNode]
+
+
+class CashbackMatrix(BaseModel):
+    kind: Literal["bank", "market"]
+    providers: list[MatrixProvider]
+    rows: list[MatrixRow]
+    market_parts: list[ComparisonPart] | None = None
+
+
+class ProcessSubmissionRequest(BaseModel):
+    image_base64: str = Field(..., min_length=1)
+    mime_type: Literal["image/jpeg", "image/png", "image/jpg"] = "image/jpeg"
+    kind: Literal["bank", "market"] = "bank"
+    provider_name: str
+    provider_slug: str | None = None
+    current_matrix: CashbackMatrix | None = None
+
+
+class LowConfidenceItem(BaseModel):
+    provider_name: str
+    raw_category: str
+    unified_category: str
+    confidence: float
+
+
+class BankOfferItem(BaseModel):
+    provider_name: str
+    raw_category: str
+    unified_category: str
+    rate: float
+
+
+class ProcessSubmissionResponse(BaseModel):
+    matrix: CashbackMatrix
+    low_confidence: list[LowConfidenceItem] = Field(default_factory=list)
+    bank_offers: list[BankOfferItem] = Field(default_factory=list)

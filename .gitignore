@@ -39,3 +39,6 @@ public/logos/
 playwright-report/
 test-results/
 blob-report/
+
+# Local pipeline comparison fixtures (Desktop screenshots copy)
+test-screenshots/

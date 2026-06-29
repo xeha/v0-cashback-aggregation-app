@@ -60,6 +60,10 @@ const nextConfig = {
         source: "/api/auth/:path*",
         destination: `${devProxyBackendUrl}/api/auth/:path*`,
       },
+      {
+        source: "/api/pipeline/:path*",
+        destination: `${devProxyBackendUrl}/api/pipeline/:path*`,
+      },
     ]
   },
 }

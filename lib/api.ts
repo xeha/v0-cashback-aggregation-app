@@ -1,6 +1,12 @@
 import type { Kind } from "@/lib/types"
 import { getBackendUrl } from "@/lib/backend-url"
 import { imageSrcToBase64 } from "@/lib/image-utils"
+import {
+  apiMatrixToClient,
+  clientMatrixToApi,
+  enrichMatrixLogos,
+  type ApiProcessSubmissionResponse,
+} from "@/lib/matrix-api"
 import { createProviderFromSubmission, mergeMappedItems } from "@/lib/matrix"
 import type {
   BankOfferItem,
@@ -13,6 +19,7 @@ import type {
 } from "@/lib/types"
 
 const REQUEST_TIMEOUT_MS = 60_000
+const USE_PIPELINE = process.env.NEXT_PUBLIC_USE_PIPELINE !== "0"
 
 /** Below this confidence, show a warning on the results screen. */
 export const LOW_CONFIDENCE_UI_THRESHOLD = 0.55
@@ -51,7 +58,6 @@ function isUnreliableMapping(items: MappedItem[]): boolean {
   const comparable = items.filter((item) => !item.is_bank_offer)
   if (comparable.length === 0) return false
 
-  // LLM/map fallback is degraded mapping, not a signal that OCR misread the screenshot.
   const qualityItems = comparable.filter(
     (item) => item.match_source !== "reference_fallback",
   )
@@ -111,6 +117,14 @@ export interface ProcessSubmissionResult {
 function isRequestTimeoutError(error: unknown): boolean {
   if (!(error instanceof Error)) return false
   return error.name === "TimeoutError" || error.name === "AbortError"
+}
+
+function mapPipelineError(error: ApiError): never {
+  if (error.status === 422) {
+    if (error.message.includes("не найдены")) throw new OcrEmptyError()
+    if (error.message.includes("неуверенно")) throw new OcrUnreliableError()
+  }
+  throw error
 }
 
 async function postJson<T>(path: string, body: unknown): Promise<T> {
@@ -178,7 +192,7 @@ export async function mapCategories(
   })
 }
 
-export async function processSubmission(
+async function processSubmissionLegacy(
   submission: SourceSubmission,
   existingKeys: Set<string>,
   currentMatrix: CashbackMatrix | null,
@@ -219,6 +233,56 @@ export async function processSubmission(
     lowConfidenceItems: collectLowConfidenceItems(mappedItems, submission.providerName),
     bankOfferItems: collectBankOfferItems(mappedItems, submission.providerName),
   }
+}
+
+async function processSubmissionPipeline(
+  submission: SourceSubmission,
+  currentMatrix: CashbackMatrix | null,
+): Promise<ProcessSubmissionResult> {
+  const { image_base64, mime_type } = await imageSrcToBase64(submission.screenshotSrc)
+
+  try {
+    const response = await postJson<ApiProcessSubmissionResponse>("/api/pipeline/process", {
+      image_base64,
+      mime_type,
+      kind: submission.kind,
+      provider_name: submission.providerName,
+      provider_slug: submission.providerSlug,
+      current_matrix: currentMatrix ? clientMatrixToApi(currentMatrix) : null,
+    })
+
+    const matrix = enrichMatrixLogos(apiMatrixToClient(response.matrix))
+
+    return {
+      matrix,
+      lowConfidenceItems: response.low_confidence.map((item) => ({
+        providerName: item.provider_name,
+        rawCategory: item.raw_category,
+        unifiedCategory: item.unified_category,
+        confidence: item.confidence,
+      })),
+      bankOfferItems: response.bank_offers.map((item) => ({
+        providerName: item.provider_name,
+        rawCategory: item.raw_category,
+        unifiedCategory: item.unified_category,
+        rate: item.rate,
+      })),
+    }
+  } catch (error) {
+    if (error instanceof ApiError) mapPipelineError(error)
+    throw error
+  }
+}
+
+export async function processSubmission(
+  submission: SourceSubmission,
+  existingKeys: Set<string>,
+  currentMatrix: CashbackMatrix | null,
+): Promise<ProcessSubmissionResult> {
+  if (USE_PIPELINE) {
+    return processSubmissionPipeline(submission, currentMatrix)
+  }
+  return processSubmissionLegacy(submission, existingKeys, currentMatrix)
 }
 
 /** Runs OCR + merge and keeps `keys` in sync with the matrix (by provider key, not display name). */

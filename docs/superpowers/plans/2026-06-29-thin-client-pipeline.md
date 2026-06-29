@@ -4,7 +4,7 @@
 >
 > **REQUIRED before Task 1:** Use superpowers:using-git-worktrees — вся реализация только в worktree, не в корневом checkout.
 >
-> **Status:** отложено — план готов, реализация не начата.
+> **Status:** в работе — фаза 1a/1b в ветке `feature/thin-client-pipeline`.
 
 **Goal:** Перенести доменную логику сборки матрицы кэшбэка с Next.js-клиента на FastAPI, сократив клиент до UI + препроцессинга изображений + транспорта.
 
