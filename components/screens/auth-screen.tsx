@@ -2,10 +2,57 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { X } from "lucide-react"
+import { Eye, EyeOff, X } from "lucide-react"
 import { useAuth } from "@/lib/auth-context"
 
 type AuthTab = "login" | "register"
+
+type PasswordFieldProps = {
+  id: string
+  label: string
+  value: string
+  onChange: (value: string) => void
+  autoComplete: string
+  placeholder?: string
+}
+
+function PasswordField({
+  id,
+  label,
+  value,
+  onChange,
+  autoComplete,
+  placeholder,
+}: PasswordFieldProps) {
+  const [isVisible, setIsVisible] = useState(false)
+
+  return (
+    <label htmlFor={id} className="flex flex-col gap-1.5">
+      <span className="text-[13px] font-medium text-slate-500">{label}</span>
+      <div className="relative">
+        <input
+          id={id}
+          type={isVisible ? "text" : "password"}
+          autoComplete={autoComplete}
+          required
+          minLength={8}
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          className="w-full rounded-xl border border-slate-200 py-3 pl-4 pr-12 text-[15px] text-slate-900 outline-none focus:border-slate-400"
+          placeholder={placeholder}
+        />
+        <button
+          type="button"
+          onClick={() => setIsVisible((prev) => !prev)}
+          aria-label={isVisible ? "Скрыть пароль" : "Показать пароль"}
+          className="absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600"
+        >
+          {isVisible ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+        </button>
+      </div>
+    </label>
+  )
+}
 
 type AuthScreenProps = {
   onClose?: () => void
@@ -116,37 +163,30 @@ export function AuthScreen({ onClose }: AuthScreenProps) {
           />
         </label>
 
-        <label className="flex flex-col gap-1.5">
-          <span className="text-[13px] font-medium text-slate-500">Пароль</span>
-          <input
-            type="password"
-            autoComplete={tab === "login" ? "current-password" : "new-password"}
-            required
-            minLength={8}
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            className="rounded-xl border border-slate-200 px-4 py-3 text-[15px] text-slate-900 outline-none focus:border-slate-400"
-            placeholder="Минимум 8 символов"
-          />
-        </label>
+        <PasswordField
+          key={`password-${tab}`}
+          id="auth-password"
+          label="Пароль"
+          value={password}
+          onChange={setPassword}
+          autoComplete={tab === "login" ? "current-password" : "new-password"}
+          placeholder="Минимум 8 символов"
+        />
 
         {tab === "register" && (
-          <motion.label
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
-            className="flex flex-col gap-1.5"
           >
-            <span className="text-[13px] font-medium text-slate-500">Повторите пароль</span>
-            <input
-              type="password"
-              autoComplete="new-password"
-              required
-              minLength={8}
+            <PasswordField
+              key="password-confirm"
+              id="auth-password-confirm"
+              label="Повторите пароль"
               value={passwordConfirm}
-              onChange={(event) => setPasswordConfirm(event.target.value)}
-              className="rounded-xl border border-slate-200 px-4 py-3 text-[15px] text-slate-900 outline-none focus:border-slate-400"
+              onChange={setPasswordConfirm}
+              autoComplete="new-password"
             />
-          </motion.label>
+          </motion.div>
         )}
 
         {error && (

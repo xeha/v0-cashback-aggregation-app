@@ -420,7 +420,7 @@ export function ResultsScreen({
         >
           <Bookmark className="h-5 w-5 shrink-0 text-slate-700" />
           <span className="text-[15px] font-medium text-slate-900">
-            {isSavingMatrix ? "Сохранение…" : "Сохранить матрицу"}
+            {isSavingMatrix ? "Сохранение…" : "Сохранить результат"}
           </span>
         </button>
         <div className="h-px bg-yellow-300" />
