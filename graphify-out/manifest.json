@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "backend/main.py": {
-    "mtime": 1782666605.063532,
-    "ast_hash": "4b8ea07f97d8353dc8960c0481c4f892",
+    "mtime": 1782734817.6455865,
+    "ast_hash": "305e90300cd0755f1ad8a5c3222da25e",
     "semantic_hash": ""
   },
   "backend/routers/__init__.py": {
@@ -35,8 +35,8 @@
     "semantic_hash": ""
   },
   "backend/schemas.py": {
-    "mtime": 1782666598.2820997,
-    "ast_hash": "0f169f997e1e4d63d6aa34f5d85b9f16",
+    "mtime": 1782734814.2994323,
+    "ast_hash": "054b603c2b88d4d7d0f217eaaad1d8cd",
     "semantic_hash": ""
   },
   "backend/services/__init__.py": {
@@ -140,8 +140,8 @@
     "semantic_hash": "63cfaae37f8d5e0fa4451635ccc521b4"
   },
   "lib/api.ts": {
-    "mtime": 1782727652.5724845,
-    "ast_hash": "7331477f3321cbdf6c1edbf47b0e065a",
+    "mtime": 1782735155.5386307,
+    "ast_hash": "6982c13d4e45dd03e37e7847bfebaa09",
     "semantic_hash": ""
   },
   "lib/bank-select-rows.ts": {
@@ -200,18 +200,18 @@
     "semantic_hash": "9a4cc6f9f3155ffdc1fa7c2c097f6429"
   },
   "next-env.d.ts": {
-    "mtime": 1782727652.573824,
+    "mtime": 1782735157.91736,
     "ast_hash": "d0f8375ae1199dc7acd3977fc33b78b8",
     "semantic_hash": ""
   },
   "next.config.mjs": {
-    "mtime": 1782727652.5741112,
-    "ast_hash": "efe39e5c42a637091016612d6e60b8fc",
+    "mtime": 1782735157.218524,
+    "ast_hash": "84b7673eda987aaf53137eac8e0bcf05",
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1782731304.7458613,
-    "ast_hash": "ae268a8abbb904df9b4c54fa9be7f4d4",
+    "mtime": 1782735042.313087,
+    "ast_hash": "0a403f3143e6b11d4ced7f8db7c4917a",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -605,23 +605,23 @@
     "semantic_hash": ""
   },
   "components/screens/auth-screen.tsx": {
-    "mtime": 1782733293.9165182,
-    "ast_hash": "d3ebf6ebf985a041ff4da34bb8b6ee37",
+    "mtime": 1782735024.9826956,
+    "ast_hash": "944924347ac9a3d3be931d87568a7176",
     "semantic_hash": ""
   },
   "lib/auth-context.tsx": {
-    "mtime": 1782731304.743737,
-    "ast_hash": "9c876cfde38f1e89b577f39ca92b8e5a",
+    "mtime": 1782734880.788052,
+    "ast_hash": "6ae7ea33fbf13868b91026517636cf17",
     "semantic_hash": ""
   },
   "lib/auth-errors.ts": {
-    "mtime": 1782666605.0788286,
-    "ast_hash": "3fe0aa5fdd48017a48059fec00ffa50c",
+    "mtime": 1782734185.7115262,
+    "ast_hash": "220583675b45dd5c4f8c25afc723754a",
     "semantic_hash": ""
   },
   "lib/pocketbase.ts": {
-    "mtime": 1782666605.0791624,
-    "ast_hash": "234ef7f43f4cce6d71d143dda5594c38",
+    "mtime": 1782734400.8903441,
+    "ast_hash": "21a05c60d18dbb73283cdd4c1b9da73c",
     "semantic_hash": ""
   },
   "lib/saved-matrices.ts": {
@@ -665,8 +665,8 @@
     "semantic_hash": ""
   },
   "scripts/setup_pocketbase_phase1.py": {
-    "mtime": 1782666605.0842535,
-    "ast_hash": "6ec2dc79c2afa91dc628b3e72c5fb5fb",
+    "mtime": 1782734301.7911565,
+    "ast_hash": "ca21ad29a74f4006f19e4e7743291b4b",
     "semantic_hash": ""
   },
   "scripts/setup_backend_phase3.py": {
@@ -740,23 +740,23 @@
     "semantic_hash": ""
   },
   "lib/auth-context.test.ts": {
-    "mtime": 1782731304.7432377,
-    "ast_hash": "c4cba0646cbf16c03190df1b3d5664ee",
+    "mtime": 1782734889.969135,
+    "ast_hash": "12ad5aed8100109d4c4371d122922c75",
     "semantic_hash": ""
   },
   "lib/auth-errors.test.ts": {
-    "mtime": 1782731304.7439554,
-    "ast_hash": "3d19bffe64e18338976f50e3da1d6a95",
+    "mtime": 1782734337.484729,
+    "ast_hash": "0559a9471c3bca53c8b4d938f57b602e",
     "semantic_hash": ""
   },
   "lib/auth-validation.test.ts": {
-    "mtime": 1782731304.74431,
-    "ast_hash": "4bb55a679fd9faa259878a6e4f502029",
+    "mtime": 1782734319.833539,
+    "ast_hash": "076ab7f2bacb6302d25866e5f4466454",
     "semantic_hash": ""
   },
   "lib/auth-validation.ts": {
-    "mtime": 1782731304.7444973,
-    "ast_hash": "36e1cd8842105e56c8a75f3a909ae02c",
+    "mtime": 1782734366.179334,
+    "ast_hash": "28476a50d0db8c54dc97adfe6c028836",
     "semantic_hash": ""
   },
   "lib/test-utils/pocketbase-error.ts": {
@@ -765,13 +765,13 @@
     "semantic_hash": ""
   },
   "playwright.config.ts": {
-    "mtime": 1782731304.7460635,
-    "ast_hash": "47250bfa151c7f253af00c4af5d410c5",
+    "mtime": 1782734890.9659703,
+    "ast_hash": "bbb8159c4183716aa5eb52ed2d4bd75d",
     "semantic_hash": ""
   },
   "tests/integration/auth.pb.test.ts": {
-    "mtime": 1782731304.7463796,
-    "ast_hash": "27b87470ce1c436042f35f5e29d707bb",
+    "mtime": 1782734357.5750945,
+    "ast_hash": "6d2ac1a11c414c3dd39eb0cfeecde9f2",
     "semantic_hash": ""
   },
   "tests/integration/helpers/pocketbase-test-env.ts": {
@@ -782,6 +782,86 @@
   "vitest.integration.config.ts": {
     "mtime": 1782731304.7472718,
     "ast_hash": "887afced81e9e9e5665f4b4360f0c051",
+    "semantic_hash": ""
+  },
+  "app/forgot-password/page.tsx": {
+    "mtime": 1782735027.483977,
+    "ast_hash": "3e30348c29694bf4adb7da2414dc3b41",
+    "semantic_hash": ""
+  },
+  "app/reset-password/page.tsx": {
+    "mtime": 1782734258.134641,
+    "ast_hash": "1ac863755bf5cbcaba48048004daccb5",
+    "semantic_hash": ""
+  },
+  "app/verify-email/page.tsx": {
+    "mtime": 1782734238.507048,
+    "ast_hash": "46900409d285d31c4fc79b2c89bbec5b",
+    "semantic_hash": ""
+  },
+  "app/verify-error/page.tsx": {
+    "mtime": 1782735030.5305405,
+    "ast_hash": "c89a47e94619cc479028323ab2a7ef21",
+    "semantic_hash": ""
+  },
+  "app/verify-success/page.tsx": {
+    "mtime": 1782734279.32632,
+    "ast_hash": "9a52437e2402c200705f1df30e9f9ca5",
+    "semantic_hash": ""
+  },
+  "components/auth-page-shell.tsx": {
+    "mtime": 1782734206.873204,
+    "ast_hash": "09d2ec50668550cbca494552b0872737",
+    "semantic_hash": ""
+  },
+  "lib/auth-config.ts": {
+    "mtime": 1782734156.9014902,
+    "ast_hash": "a20db84dcaf23c4425d9a80fe4f27157",
+    "semantic_hash": ""
+  },
+  "lib/auth-validation-data.ts": {
+    "mtime": 1782734163.8433378,
+    "ast_hash": "40cd2b2efea9b5596f8699c13ecc2390",
+    "semantic_hash": ""
+  },
+  "backend/routers/auth.py": {
+    "mtime": 1782734943.1200264,
+    "ast_hash": "5ec14f4450fc476da71ee31b8f1b74a6",
+    "semantic_hash": ""
+  },
+  "backend/services/email_mx_service.py": {
+    "mtime": 1782734807.2229729,
+    "ast_hash": "52671298f06f71209c7c70c08d0b723b",
+    "semantic_hash": ""
+  },
+  "backend/tests/test_email_mx_service.py": {
+    "mtime": 1782734945.409692,
+    "ast_hash": "a21e2f2d14e680031516ce4104b27bc9",
+    "semantic_hash": ""
+  },
+  "lib/auth-api.ts": {
+    "mtime": 1782735151.7037535,
+    "ast_hash": "01d157a35e1a77941b33b0fabb52f19d",
+    "semantic_hash": ""
+  },
+  "components/auth-email-field.tsx": {
+    "mtime": 1782735011.8416162,
+    "ast_hash": "e9d3f4ece594d0d4284514f0066a423c",
+    "semantic_hash": ""
+  },
+  "lib/use-email-blur-validation.test.ts": {
+    "mtime": 1782735050.3601162,
+    "ast_hash": "47ac53a4b7f439bc9cd51cb52bfd832c",
+    "semantic_hash": ""
+  },
+  "lib/use-email-blur-validation.ts": {
+    "mtime": 1782735007.4623075,
+    "ast_hash": "c10b6be47939d023408aa2f0913a532a",
+    "semantic_hash": ""
+  },
+  "lib/backend-url.ts": {
+    "mtime": 1782735146.1687071,
+    "ast_hash": "757ea924a5693e2803fe700c6e1dba03",
     "semantic_hash": ""
   }
 }
