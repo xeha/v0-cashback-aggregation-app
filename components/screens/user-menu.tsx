@@ -127,7 +127,7 @@ export function UserMenu({
       <button
         type="button"
         onClick={openMenu}
-        aria-label="Открыть настройки"
+        aria-label="Открыть меню"
         className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors active:scale-95 ${triggerClasses}`}
       >
         <Settings className="h-5 w-5" />
