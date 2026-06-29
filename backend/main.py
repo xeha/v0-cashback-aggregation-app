@@ -7,7 +7,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sentence_transformers import SentenceTransformer
 
-from routers import admin, category, ocr
+from routers import admin, auth, category, ocr, pipeline
 from services import catalog_store
 from schemas import HealthResponse
 from services.market_split_map_service import MarketSplitMapService
@@ -71,6 +71,8 @@ app.add_middleware(
 app.include_router(ocr.router)
 app.include_router(category.router)
 app.include_router(admin.router)
+app.include_router(auth.router)
+app.include_router(pipeline.router)
 
 
 @app.get("/health", response_model=HealthResponse)

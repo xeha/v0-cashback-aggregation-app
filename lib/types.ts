@@ -48,6 +48,7 @@ export interface MatrixProvider {
   key: string
   name: string
   logo: string
+  slug?: string
 }
 
 export interface MatrixRow {

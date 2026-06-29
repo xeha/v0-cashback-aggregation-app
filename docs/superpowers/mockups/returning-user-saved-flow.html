@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Эскизы: повторное открытие с сохранённым результатом</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px 20px 48px;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+    h1 { font-size: 22px; margin: 0 0 6px; }
+    .lead {
+      color: #64748b;
+      margin: 0 0 8px;
+      max-width: 820px;
+      line-height: 1.55;
+    }
+    .context {
+      font-size: 13px;
+      color: #475569;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin: 0 0 28px;
+      max-width: 820px;
+      line-height: 1.5;
+    }
+    .phone-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px 24px;
+    }
+    @media (max-width: 900px) { .phone-grid { grid-template-columns: 1fr; } }
+    .option-col { display: flex; flex-direction: column; gap: 10px; }
+    .option-header {
+      background: #fff;
+      border: 2px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .option-header:hover { border-color: #cbd5e1; }
+    .option-header.selected {
+      border-color: #eab308;
+      background: #fffbeb;
+    }
+    .option-header h2 {
+      margin: 0 0 4px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 6px;
+      border-radius: 8px;
+      background: #fef08a;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .option-header p { margin: 0; font-size: 13px; color: #64748b; line-height: 1.4; }
+    .label-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #64748b;
+    }
+    .phone-wrap { display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap; }
+    .phone {
+      width: 100%;
+      max-width: 260px;
+      flex: 1;
+      min-width: 220px;
+      border: 2px solid #cbd5e1;
+      border-radius: 28px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+    }
+    .phone.secondary { opacity: 0.92; border-style: dashed; }
+    .phone-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #94a3b8;
+      text-align: center;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .phone-status {
+      height: 20px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .phone-body {
+      padding: 12px 14px 16px;
+      min-height: 440px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .phone-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .phone-top-right { display: flex; gap: 6px; }
+    .gear, .back-btn {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: #f1f5f9;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; color: #64748b;
+      flex-shrink: 0;
+    }
+    .gear.highlight {
+      outline: 2px solid #facc15;
+      outline-offset: 2px;
+      background: #fef9c3;
+    }
+    .illus {
+      height: 88px;
+      margin: 0 -14px 12px;
+      background: linear-gradient(180deg, #fef9c3 0%, #fff 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: #94a3b8; font-size: 10px; text-align: center; padding: 0 10px;
+    }
+    .h1 {
+      font-size: 16px; font-weight: 700; line-height: 1.25;
+      margin: 0 0 4px;
+    }
+    .sub {
+      font-size: 11px; line-height: 1.4;
+      color: #64748b; margin: 0 0 12px;
+    }
+    .tabs {
+      display: flex; background: #f1f5f9; border-radius: 12px;
+      padding: 3px; margin-bottom: 10px; font-size: 11px; font-weight: 600;
+    }
+    .tab { flex: 1; text-align: center; padding: 6px 4px; border-radius: 10px; color: #64748b; }
+    .tab.active { background: #fff; color: #0f172a; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+    .results-table {
+      flex: 1; border: 1px solid #e2e8f0; border-radius: 12px;
+      padding: 6px 8px; font-size: 10px; color: #334155; margin-bottom: 8px;
+      background: #fff;
+    }
+    .row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 5px 0; border-bottom: 1px solid #f1f5f9;
+    }
+    .row:last-child { border-bottom: none; }
+    .rate-high { color: #16a34a; font-weight: 700; background: #dcfce7; padding: 2px 6px; border-radius: 99px; }
+    .rate-mid { color: #ca8a04; font-weight: 700; background: #fef9c3; padding: 2px 6px; border-radius: 99px; }
+    .providers { font-size: 9px; color: #94a3b8; margin-bottom: 6px; }
+    .cta {
+      width: 100%; border: none; border-radius: 14px; background: #fef08a;
+      padding: 12px 10px; text-align: center; margin-bottom: 6px;
+      font-family: inherit; cursor: default;
+    }
+    .cta-title { font-size: 12px; font-weight: 600; display: block; color: #0f172a; }
+    .cta-sub { font-size: 10px; color: #475569; display: block; margin-top: 2px; }
+    .cta.outline {
+      background: #fff; border: 1.5px solid #e2e8f0;
+    }
+    .continue-card {
+      width: 100%;
+      border-radius: 16px;
+      border: 2px solid #fde047;
+      background: #fffbeb;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    .continue-card.highlight {
+      outline: 2px solid #eab308;
+      outline-offset: 2px;
+    }
+    .continue-card .title {
+      font-size: 13px; font-weight: 700; margin-bottom: 4px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .continue-card .meta { font-size: 10px; color: #64748b; margin-bottom: 8px; }
+    .continue-card .btn {
+      display: inline-block;
+      font-size: 11px; font-weight: 600;
+      background: #fef08a; padding: 6px 12px; border-radius: 8px;
+    }
+    .save-list { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .save-item {
+      border: 1.5px solid #e2e8f0; border-radius: 14px;
+      padding: 10px 12px; background: #fff;
+    }
+    .save-item.active {
+      border-color: #fde047; background: #fffbeb;
+      outline: 2px solid #eab308; outline-offset: 1px;
+    }
+    .save-item .title { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+    .save-item .meta { font-size: 10px; color: #64748b; }
+    .save-item .chips { display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap; }
+    .chip {
+      font-size: 9px; padding: 2px 6px; border-radius: 99px;
+      background: #f1f5f9; color: #475569;
+    }
+    .fab-new {
+      margin-top: auto;
+      font-size: 11px; text-align: center; color: #64748b;
+      padding: 8px;
+    }
+    .sheet {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      background: #fff; border-top: 1px solid #e2e8f0;
+      border-radius: 18px 18px 0 0; padding: 8px 12px 14px;
+      box-shadow: 0 -8px 24px rgba(0,0,0,0.08);
+    }
+    .sheet-handle {
+      width: 32px; height: 3px; background: #e2e8f0;
+      border-radius: 99px; margin: 0 auto 8px;
+    }
+    .sheet-title { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+    .menu-item {
+      padding: 9px 10px; border: 1px solid #e2e8f0;
+      border-radius: 10px; font-size: 11px; margin-bottom: 5px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .menu-item.highlight {
+      border-color: #fde047; background: #fffbeb; font-weight: 600;
+    }
+    .menu-item.muted { color: #94a3b8; }
+    .arrow { color: #cbd5e1; font-size: 12px; }
+    .action-bar {
+      border-radius: 14px; border: 1px solid #fde047;
+      background: #fef9c3; overflow: hidden; margin-top: auto;
+    }
+    .action-row {
+      padding: 9px 12px; font-size: 11px; font-weight: 500;
+      border-bottom: 1px solid #fde047;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .action-row:last-child { border-bottom: none; }
+    .action-row.highlight { background: #fef08a; font-weight: 600; }
+    .splash-note {
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,0.85);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: #64748b; text-align: center; padding: 20px;
+      pointer-events: none;
+    }
+    .auto-badge {
+      display: inline-block;
+      font-size: 9px; font-weight: 700;
+      background: #dcfce7; color: #166534;
+      padding: 2px 6px; border-radius: 6px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .pros-mini {
+      font-size: 12px; color: #475569; line-height: 1.45;
+      margin: 4px 0 0; padding-left: 18px;
+    }
+    .pros-mini li { margin-bottom: 3px; }
+    .pros-mini .con { color: #b45309; }
+    .footer { margin-top: 32px; font-size: 13px; color: #64748b; max-width: 820px; }
+    #picked {
+      margin-top: 16px; padding: 10px 14px;
+      background: #ecfdf5; border: 1px solid #86efac;
+      border-radius: 10px; font-size: 14px; display: none;
+      max-width: 820px;
+    }
+    .flow-arrow {
+      display: flex; align-items: center; justify-content: center;
+      color: #94a3b8; font-size: 20px; padding: 0 4px;
+      align-self: center;
+    }
+    @media (max-width: 600px) { .flow-arrow { transform: rotate(90deg); } }
+    .edit-hint {
+      font-size: 9px; color: #64748b; text-align: center;
+      margin-top: 4px; font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Повторное открытие: что видит авторизованный пользователь</h1>
+  <p class="lead">
+    Сценарий: пользователь уже сохранил результат («Кешбэк 6.2026») и снова открывает приложение.
+    Четыре варианта первого экрана. Жёлтым подсвечены ключевые точки входа.
+  </p>
+  <p class="context">
+    <strong>Общее для всех:</strong> редактирование = открыть сохранённый результат → «Загрузить ещё» →
+    bank-select с уже привязанными скриншотами → processing → обновлённые кешбэки → пересохранить.
+  </p>
+
+  <div class="phone-grid">
+    <!-- A -->
+    <div class="option-col">
+      <div class="option-header" data-choice="a" onclick="pick(this)">
+        <h2><span class="badge">A</span> Сразу последний сохранённый</h2>
+        <p>Пропускаем empty — сразу экран «Ваши кешбэки» с данными из PocketBase</p>
+      </div>
+      <span class="label-tag">Первый экран при открытии</span>
+      <div class="phone-wrap">
+        <div style="flex:1;min-width:200px">
+          <div class="phone-label">Открытие приложения</div>
+          <div class="phone">
+            <div class="phone-status"></div>
+            <div class="phone-body">
+              <div class="phone-top">
+                <div>
+                  <p class="h1">Ваши кешбэки</p>
+                  <p class="sub">Июнь 2026 · сохранено</p>
+                </div>
+                <div class="phone-top-right"><div class="gear">⚙</div></div>
+              </div>
+              <div class="tabs">
+                <div class="tab active">Банки</div>
+                <div class="tab">Супермаркеты</div>
+              </div>
+              <div class="providers">Сбер · Т-Банк · Альфа</div>
+              <div class="results-table">
+                <div class="row"><span>Супермаркеты</span><span class="rate-high">5%</span></div>
+                <div class="row"><span>Кафе и рестораны</span><span class="rate-mid">3%</span></div>
+                <div class="row"><span>АЗС</span><span style="color:#dc2626;font-weight:700">1%</span></div>
+                <div class="row"><span>Аптеки</span><span class="rate-mid">2%</span></div>
+              </div>
+              <div class="action-bar">
+                <div class="action-row">🔖 Сохранить результат</div>
+                <div class="action-row highlight">📷 Загрузить ещё</div>
+                <div class="action-row">↗ Поделиться</div>
+              </div>
+              <p class="edit-hint">«Загрузить ещё» → редактирование</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="pros-mini">
+        <li>Минимум кликов — сразу к делу</li>
+        <li class="con">Нельзя начать новый месяц без явного действия</li>
+        <li class="con">Нет выбора, если сохранений несколько</li>
+      </ul>
+    </div>
+
+    <!-- B -->
+    <div class="option-col">
+      <div class="option-header" data-choice="b" onclick="pick(this)">
+        <h2><span class="badge">B</span> Empty + карточка «Продолжить»</h2>
+        <p>Приветственный экран остаётся; сверху — карточка с последним сохранением</p>
+      </div>
+      <span class="label-tag">Первый экран при открытии</span>
+      <div class="phone">
+        <div class="phone-status"></div>
+        <div class="phone-body">
+          <div class="phone-top" style="justify-content:flex-end">
+            <div class="gear">⚙</div>
+          </div>
+          <div class="continue-card highlight">
+            <div class="title">📂 Кешбэк за июнь 2026</div>
+            <div class="meta">3 банка · 12 категорий · обновлено вчера</div>
+            <span class="btn">Продолжить →</span>
+          </div>
+          <div class="illus">иллюстрация empty-cashback</div>
+          <p class="h1" style="text-align:center;font-size:15px">Собери кешбэки в одном месте</p>
+          <p class="sub" style="text-align:center;margin-bottom:14px">Загрузите скриншоты…</p>
+          <div class="cta">
+            <span class="cta-title">Выбрать скриншоты</span>
+            <span class="cta-sub">Новая сборка с нуля</span>
+          </div>
+        </div>
+      </div>
+      <ul class="pros-mini">
+        <li>Баланс: продолжить vs начать заново</li>
+        <li>Понятно новым и возвращающимся</li>
+        <li class="con">Карточка занимает место на empty</li>
+      </ul>
+    </div>
+
+    <!-- C -->
+    <div class="option-col">
+      <div class="option-header" data-choice="c" onclick="pick(this)">
+        <h2><span class="badge">C</span> Список всех сохранений</h2>
+        <p>Отдельный экран «Мои кешбэки» — выбор месяца / записи</p>
+      </div>
+      <span class="label-tag">Первый экран при открытии</span>
+      <div class="phone-wrap">
+        <div style="flex:1;min-width:200px">
+          <div class="phone-label">Список</div>
+          <div class="phone">
+            <div class="phone-status"></div>
+            <div class="phone-body">
+              <div class="phone-top">
+                <div>
+                  <p class="h1">Мои кешбэки</p>
+                  <p class="sub">Выберите, что открыть</p>
+                </div>
+                <div class="gear">⚙</div>
+              </div>
+              <div class="save-list">
+                <div class="save-item active">
+                  <div class="title">Кешбэк 6.2026</div>
+                  <div class="meta">3 банка · 12 категорий</div>
+                  <div class="chips">
+                    <span class="chip">Сбер</span>
+                    <span class="chip">Т-Банк</span>
+                    <span class="chip">★ избранное</span>
+                  </div>
+                </div>
+                <div class="save-item">
+                  <div class="title">Кешбэк 5.2026</div>
+                  <div class="meta">2 банка · 8 категорий</div>
+                  <div class="chips"><span class="chip">Альфа</span></div>
+                </div>
+                <div class="save-item" style="opacity:0.55;border-style:dashed">
+                  <div class="title" style="color:#94a3b8">Кешбэк 4.2026</div>
+                  <div class="meta">архив</div>
+                </div>
+              </div>
+              <div class="fab-new">+ Собрать новые кешбэки</div>
+            </div>
+          </div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div style="flex:1;min-width:200px">
+          <div class="phone-label">После тапа</div>
+          <div class="phone secondary">
+            <div class="phone-status"></div>
+            <div class="phone-body" style="min-height:380px">
+              <div class="phone-top">
+                <div class="back-btn">←</div>
+                <div class="gear">⚙</div>
+              </div>
+              <p class="h1">Ваши кешбэки</p>
+              <p class="sub">Июнь 2026</p>
+              <div class="results-table" style="margin-top:8px">
+                <div class="row"><span>Супермаркеты</span><span class="rate-high">5%</span></div>
+                <div class="row"><span>Кафе</span><span class="rate-mid">3%</span></div>
+              </div>
+              <div class="action-bar">
+                <div class="action-row highlight">📷 Загрузить ещё</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="pros-mini">
+        <li>Масштабируется при истории за несколько месяцев</li>
+        <li>Явный выбор записи</li>
+        <li class="con">Лишний шаг, если сохранение одно</li>
+      </ul>
+    </div>
+
+    <!-- D -->
+    <div class="option-col">
+      <div class="option-header" data-choice="d" onclick="pick(this)">
+        <h2><span class="badge">D</span> Только через меню</h2>
+        <p>Empty без изменений; «Кешбэк-профиль» → список сохранений + предпочтения</p>
+      </div>
+      <span class="label-tag">Empty + шестерёнка</span>
+      <div class="phone-wrap">
+        <div style="flex:1;min-width:200px">
+          <div class="phone-label">Первый экран</div>
+          <div class="phone">
+            <div class="phone-status"></div>
+            <div class="phone-body">
+              <div class="phone-top" style="justify-content:flex-end">
+                <div class="gear highlight">⚙</div>
+              </div>
+              <div class="illus">иллюстрация empty-cashback</div>
+              <p class="h1" style="text-align:center;font-size:15px">Собери кешбэки в одном месте</p>
+              <p class="sub" style="text-align:center">Загрузите скриншоты…</p>
+              <div class="cta" style="margin-top:auto">
+                <span class="cta-title">Выбрать скриншоты</span>
+              </div>
+              <div class="sheet">
+                <div class="sheet-handle"></div>
+                <div class="sheet-title">Настройки</div>
+                <div class="menu-item muted">Профиль</div>
+                <div class="menu-item highlight">Кешбэк-профиль →</div>
+                <div class="menu-item muted">Обратная связь</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div style="flex:1;min-width:200px">
+          <div class="phone-label">Кешбэк-профиль (новый)</div>
+          <div class="phone secondary">
+            <div class="phone-status"></div>
+            <div class="phone-body" style="min-height:420px">
+              <div class="phone-top">
+                <div class="back-btn">←</div>
+                <p class="h1" style="font-size:14px">Кешбэк-профиль</p>
+              </div>
+              <p class="sub" style="margin-bottom:8px">Сохранённые результаты</p>
+              <div class="save-item active" style="margin-bottom:8px">
+                <div class="title">Кешбэк 6.2026</div>
+                <div class="meta">3 банка · нажмите, чтобы открыть</div>
+              </div>
+              <div class="save-item" style="margin-bottom:12px;opacity:0.7">
+                <div class="title">Кешбэк 5.2026</div>
+              </div>
+              <p class="sub" style="margin-bottom:6px">Любимые категории</p>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px">
+                <span class="chip" style="background:#fef08a">Супермаркеты</span>
+                <span class="chip" style="background:#fef08a">Кафе</span>
+                <span class="chip">Аптеки</span>
+              </div>
+              <div class="cta outline" style="margin-top:auto">
+                <span class="cta-title">+ Новая сборка</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="pros-mini">
+        <li>Empty остаётся чистым для новой сборки</li>
+        <li>Переиспользуем вкладку «Кешбэк-профиль»</li>
+        <li class="con">Сохранения спрятаны — легко забыть</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="picked"></div>
+  <p class="footer">
+    Откройте файл в браузере: <code>docs/superpowers/mockups/returning-user-saved-flow.html</code><br>
+    Выберите вариант (клик по заголовку) и напишите букву в чат. Можно комбинировать — например, B на empty + C в меню.
+  </p>
+
+  <script>
+    function pick(el) {
+      document.querySelectorAll('.option-header').forEach((n) => n.classList.remove('selected'));
+      el.classList.add('selected');
+      const labels = {
+        a: 'A — сразу последний сохранённый',
+        b: 'B — empty + карточка «Продолжить»',
+        c: 'C — список всех сохранений',
+        d: 'D — только через меню / Кешбэк-профиль',
+      };
+      const box = document.getElementById('picked');
+      box.style.display = 'block';
+      box.textContent = 'Выбрано: ' + labels[el.dataset.choice];
+    }
+  </script>
+</body>
+</html>

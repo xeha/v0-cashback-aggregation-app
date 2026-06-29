@@ -16,7 +16,10 @@ import {
   Bell,
   Star,
   Check,
+  RefreshCw,
 } from "lucide-react"
+import { formatSaveMetaLine } from "@/lib/saved-matrix-meta"
+import type { SavedMatrixSummary } from "@/lib/saved-matrices"
 
 type View = "menu" | "profile" | "cashback" | "feedback" | "about"
 
@@ -51,12 +54,24 @@ export function UserMenu({
   isGuest = false,
   userEmail,
   variant = "light",
+  savedSummaries = [],
+  savesLoading = false,
+  savesError = null,
+  onOpenSaved,
+  onNewAssembly,
+  onRetrySaves,
 }: {
   onLogout: () => void
   onLoginRequest?: () => void
   isGuest?: boolean
   userEmail?: string
   variant?: "light" | "overlay"
+  savedSummaries?: SavedMatrixSummary[]
+  savesLoading?: boolean
+  savesError?: string | null
+  onOpenSaved?: (id: string) => void
+  onNewAssembly?: () => void
+  onRetrySaves?: () => void
 }) {
   const [open, setOpen] = useState(false)
   const [view, setView] = useState<View>("menu")
@@ -109,6 +124,16 @@ export function UserMenu({
     setFeedbackSent(true)
   }
 
+  function openSaved(id: string) {
+    close()
+    onOpenSaved?.(id)
+  }
+
+  function handleNewAssembly() {
+    close()
+    onNewAssembly?.()
+  }
+
   const titles: Record<View, string> = {
     menu: "Настройки",
     profile: "Профиль",
@@ -127,7 +152,7 @@ export function UserMenu({
       <button
         type="button"
         onClick={openMenu}
-        aria-label="Открыть настройки"
+        aria-label="Открыть меню"
         className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors active:scale-95 ${triggerClasses}`}
       >
         <Settings className="h-5 w-5" />
@@ -308,38 +333,100 @@ export function UserMenu({
                     )}
 
                     {view === "cashback" && (
-                      <div className="flex flex-col gap-4 pt-2">
-                        <p className="text-[14px] leading-relaxed text-slate-500">
-                          Отметьте категории, в которых вы чаще покупаете — мы будем подсказывать
-                          лучшие ставки именно для них.
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {CASHBACK_CATEGORIES.map((cat) => {
-                            const active = preferred.includes(cat)
-                            return (
-                              <button
-                                key={cat}
-                                type="button"
-                                onClick={() => toggleCategory(cat)}
-                                className={`flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
-                                  active
-                                    ? "border-yellow-300 bg-yellow-200 text-slate-900"
-                                    : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
-                                }`}
-                              >
-                                {active && <Check className="h-3.5 w-3.5" />}
-                                {cat}
-                              </button>
-                            )
-                          })}
+                      <div className="flex flex-col gap-5 pt-2">
+                        <div>
+                          <h3 className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-slate-400">
+                            Сохранённые результаты
+                          </h3>
+                          {savesLoading ? (
+                            <div className="space-y-2">
+                              <div className="h-16 animate-pulse rounded-xl bg-slate-100" />
+                              <div className="h-16 animate-pulse rounded-xl bg-slate-100" />
+                            </div>
+                          ) : savesError ? (
+                            <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3">
+                              <p className="text-[13px] text-red-700">{savesError}</p>
+                              {onRetrySaves && (
+                                <button
+                                  type="button"
+                                  onClick={onRetrySaves}
+                                  className="mt-2 flex items-center gap-1.5 text-[13px] font-semibold text-red-700"
+                                >
+                                  <RefreshCw className="h-3.5 w-3.5" />
+                                  Повторить
+                                </button>
+                              )}
+                            </div>
+                          ) : savedSummaries.length === 0 ? (
+                            <p className="text-[14px] leading-relaxed text-slate-500">
+                              Пока нет сохранений. Соберите кешбэки и нажмите «Сохранить результат» на
+                              экране итогов.
+                            </p>
+                          ) : (
+                            <div className="flex flex-col gap-2">
+                              {savedSummaries.map((save) => (
+                                <button
+                                  key={save.id}
+                                  type="button"
+                                  onClick={() => openSaved(save.id)}
+                                  className="rounded-xl border border-slate-200 px-4 py-3 text-left transition-colors hover:border-yellow-300 hover:bg-yellow-50 active:bg-yellow-100"
+                                >
+                                  <div className="flex items-start justify-between gap-2">
+                                    <p className="text-[14px] font-semibold text-slate-900">
+                                      {save.title}
+                                    </p>
+                                    {save.isFavorite && (
+                                      <Star className="h-4 w-4 shrink-0 fill-yellow-400 text-yellow-400" />
+                                    )}
+                                  </div>
+                                  <p className="mt-1 text-[12px] text-slate-500">
+                                    {formatSaveMetaLine(save)}
+                                  </p>
+                                </button>
+                              ))}
+                            </div>
+                          )}
                         </div>
-                        <button
-                          type="button"
-                          onClick={() => setView("menu")}
-                          className="mt-1 w-full rounded-2xl bg-yellow-200 px-5 py-3.5 text-[15px] font-semibold text-slate-900 transition-colors hover:bg-yellow-300 active:bg-yellow-400"
-                        >
-                          Сохранить предпочтения
-                        </button>
+
+                        <div>
+                          <h3 className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-slate-400">
+                            Любимые категории
+                          </h3>
+                          <p className="mb-3 text-[14px] leading-relaxed text-slate-500">
+                            Отметьте категории, в которых вы чаще покупаете — мы будем подсказывать лучшие
+                            ставки именно для них.
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {CASHBACK_CATEGORIES.map((cat) => {
+                              const active = preferred.includes(cat)
+                              return (
+                                <button
+                                  key={cat}
+                                  type="button"
+                                  onClick={() => toggleCategory(cat)}
+                                  className={`flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
+                                    active
+                                      ? "border-yellow-300 bg-yellow-200 text-slate-900"
+                                      : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+                                  }`}
+                                >
+                                  {active && <Check className="h-3.5 w-3.5" />}
+                                  {cat}
+                                </button>
+                              )
+                            })}
+                          </div>
+                        </div>
+
+                        {onNewAssembly && (
+                          <button
+                            type="button"
+                            onClick={handleNewAssembly}
+                            className="w-full rounded-2xl border border-slate-200 bg-white px-5 py-3.5 text-[15px] font-semibold text-slate-800 transition-colors hover:bg-slate-50 active:bg-slate-100"
+                          >
+                            + Новая сборка
+                          </button>
+                        )}
                       </div>
                     )}
 

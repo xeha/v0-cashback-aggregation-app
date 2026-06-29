@@ -43,8 +43,10 @@ Enable HTTPS (Let's Encrypt).
 ### Auth (Settings → Auth)
 
 - Min password length: **8**
-- Email verification: **выключено** (MVP)
+- Email verification: **включено** (`setup_pocketbase_phase1.py` + SMTP в Settings → Mail)
 - Token duration: **604800** (7 дней)
+- Verification link: `{APP_URL}/verify-email?token={TOKEN}`
+- Reset password link: `{APP_URL}/reset-password?token={TOKEN}`
 
 ---
 

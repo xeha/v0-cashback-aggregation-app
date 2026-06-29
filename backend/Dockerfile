@@ -1,5 +1,8 @@
 FROM python:3.11-slim
 
+# Bust Docker layer cache when app code changes (increment on auth/MX deploy).
+ARG APP_REVISION=2026-06-29-auth-mx
+
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y --no-install-recommends \

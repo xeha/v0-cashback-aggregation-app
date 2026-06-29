@@ -34,3 +34,11 @@ public/logos/
 
 # Git worktrees (isolated feature workspaces)
 .worktrees/
+
+# Playwright
+playwright-report/
+test-results/
+blob-report/
+
+# Local pipeline comparison fixtures (Desktop screenshots copy)
+test-screenshots/
