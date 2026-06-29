@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { AppLogo } from "@/components/app-logo"
 import { ImageFilePicker } from "@/components/image-file-picker"
 import { UserMenu } from "./user-menu"
 
@@ -47,10 +46,8 @@ export function EmptyScreen({
               />
             </div>
 
-            <AppLogo showName className="mb-4 justify-center" />
-
             <h1 className="text-balance text-2xl font-bold leading-tight text-slate-900">
-              Соберите кешбэки в одном месте
+              Собери кешбэки в одном месте
             </h1>
             <p className="mt-3 text-pretty text-[15px] leading-relaxed text-slate-500">
               Загрузите скриншоты категорий из банков и магазинов

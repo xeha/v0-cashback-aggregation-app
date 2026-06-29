@@ -43,14 +43,11 @@ export function getPlaceholderAvatarColors(seed: string) {
 export function ProviderLogo({
   name,
   logo,
-  fallbackSrc,
   seed,
   className = "h-7 w-7 text-[12px]",
 }: {
   name: string
   logo?: string
-  /** Tried when the primary logo URL fails (e.g. CDN → local public/). */
-  fallbackSrc?: string
   /** Stable id for color when several placeholders share the same initial */
   seed?: string
   className?: string
@@ -102,11 +99,6 @@ export function ProviderLogo({
         decoding="async"
         onLoad={() => setLoaded(true)}
         onError={() => {
-          if (fallbackSrc && src !== fallbackSrc) {
-            setSrc(fallbackSrc)
-            setLoaded(false)
-            return
-          }
           setFailed(true)
         }}
         className={`h-full w-full rounded-lg object-cover transition-opacity duration-150 ${

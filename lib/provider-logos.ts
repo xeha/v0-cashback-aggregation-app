@@ -42,13 +42,17 @@ interface LogoAliasesFile {
 
 const logoAliases = logoAliasesData as LogoAliasesFile
 
-const ASSETS_URL =
-  typeof process !== "undefined"
-    ? (process.env.NEXT_PUBLIC_ASSETS_URL ?? "")
-    : ""
+/** Timeweb CDN → S3 — единственный источник логотипов (без public/logos). */
+const DEFAULT_ASSETS_URL = "https://1mh89t7nqb.cdn.twcstorage.ru"
+
+export function getAssetsBaseUrl(): string {
+  const fromEnv =
+    typeof process !== "undefined" ? process.env.NEXT_PUBLIC_ASSETS_URL?.trim() : ""
+  return (fromEnv || DEFAULT_ASSETS_URL).replace(/\/$/, "")
+}
 
 function resolveLogoBasePath(folder: "banks" | "markets"): string {
-  return ASSETS_URL ? `${ASSETS_URL}/logos/${folder}` : `/logos/${folder}`
+  return `${getAssetsBaseUrl()}/logos/${folder}`
 }
 
 function buildCatalog(entries: CatalogRecord[], folder: "banks" | "markets"): LogoEntry[] {
@@ -271,12 +275,6 @@ export function searchAllProviderSuggestions(
 export function getProviderLogoBySlug(slug: string, kind: Kind): string {
   const hit = getCatalog(kind).find((entry) => entry.slug === slug)
   return hit?.logo ?? PROVIDER_LOGO_PLACEHOLDER
-}
-
-/** Local public/ path when CDN logo fails or is not configured. */
-export function getLocalProviderLogo(slug: string, kind: Kind): string {
-  const folder = kind === "bank" ? "banks" : "markets"
-  return `/logos/${folder}/${slug}.png`
 }
 
 export function resolveProviderLogo(name: string, kind: Kind): string {

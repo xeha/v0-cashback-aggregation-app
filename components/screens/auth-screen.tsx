@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { X } from "lucide-react"
-import { AppLogo } from "@/components/app-logo"
 import { useAuth } from "@/lib/auth-context"
 
 type AuthTab = "login" | "register"
@@ -67,10 +66,7 @@ export function AuthScreen({ onClose }: AuthScreenProps) {
       )}
 
       <div className="mb-8 text-center">
-        <div className="flex justify-center">
-          <AppLogo size="lg" />
-        </div>
-        <h1 className="mt-4 text-2xl font-bold text-slate-900">CashbackBrain</h1>
+        <h1 className="text-2xl font-bold text-slate-900">CashbackBrain</h1>
         <p className="mt-2 text-[15px] leading-relaxed text-slate-500">
           Войдите или создайте аккаунт, чтобы сохранять результаты
         </p>

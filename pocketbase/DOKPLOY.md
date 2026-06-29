@@ -78,7 +78,7 @@ POCKETBASE_ENV_FILE=.env.pocketbase python3 scripts/setup_pocketbase.py --import
 POCKETBASE_URL=https://pb.cashbackbrain.ru
 POCKETBASE_ADMIN_EMAIL=...
 POCKETBASE_ADMIN_PASSWORD=...
-ASSETS_URL=https://fcdc8bee-4045-49ca-8869-3f22cd730eb5.s3.twcstorage.ru
+ASSETS_URL=https://1mh89t7nqb.cdn.twcstorage.ru
 ADMIN_KEY=...   # openssl rand -hex 16
 ```
 

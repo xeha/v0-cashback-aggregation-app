@@ -24,7 +24,7 @@ PB_URL = os.environ.get("E2E_POCKETBASE_URL", "https://pb.cashbackbrain.ru").rst
 FRONTEND_URL = os.environ.get("FRONTEND_URL", "https://cashbackbrain.ru").rstrip("/")
 ASSETS_URL = os.environ.get(
     "E2E_ASSETS_URL",
-    "https://fcdc8bee-4045-49ca-8869-3f22cd730eb5.s3.twcstorage.ru",
+    "https://1mh89t7nqb.cdn.twcstorage.ru",
 ).rstrip("/")
 
 passed = 0

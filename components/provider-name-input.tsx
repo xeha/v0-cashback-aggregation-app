@@ -3,7 +3,6 @@
 import { useEffect, useId, useRef, useState } from "react"
 import { ProviderLogo } from "@/components/provider-logo"
 import {
-  getLocalProviderLogo,
   searchAllProviderSuggestions,
   type ProviderSuggestion,
 } from "@/lib/provider-logos"
@@ -101,7 +100,6 @@ export function ProviderNameInput({
                   <ProviderLogo
                     name={suggestion.name}
                     logo={suggestion.logo}
-                    fallbackSrc={getLocalProviderLogo(suggestion.slug, suggestion.kind)}
                     seed={`${suggestion.kind}:${suggestion.slug}`}
                     className="h-7 w-7 text-[12px]"
                   />

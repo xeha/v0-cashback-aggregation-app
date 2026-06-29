@@ -1,3 +1,5 @@
+import { getProviderLogoBySlug } from "./provider-logos"
+
 type BankKey = "alfa" | "psb" | "yandex" | "tbank"
 
 interface Bank {
@@ -7,10 +9,10 @@ interface Bank {
 }
 
 export const BANKS: Bank[] = [
-  { key: "alfa", name: "Альфа-Банк", logo: "/logos/banks/alfa-bank.png" },
-  { key: "psb", name: "ПСБ", logo: "/logos/banks/promsvjazbank.png" },
-  { key: "yandex", name: "Яндекс Пэй", logo: "/logos/banks/yandex-bank.png" },
-  { key: "tbank", name: "Т-Банк", logo: "/logos/banks/t-bank.png" },
+  { key: "alfa", name: "Альфа-Банк", logo: getProviderLogoBySlug("alfa-bank", "bank") },
+  { key: "psb", name: "ПСБ", logo: getProviderLogoBySlug("promsvjazbank", "bank") },
+  { key: "yandex", name: "Яндекс Пэй", logo: getProviderLogoBySlug("yandex-bank", "bank") },
+  { key: "tbank", name: "Т-Банк", logo: getProviderLogoBySlug("t-bank", "bank") },
 ]
 
 interface CashbackRow {
@@ -37,9 +39,9 @@ interface Market {
 }
 
 export const MARKETS: Market[] = [
-  { key: "pyaterochka", name: "Пятёрочка", logo: "/logos/markets/5ka.png" },
-  { key: "magnit", name: "Магнит", logo: "/logos/markets/magnit-univer.png" },
-  { key: "lenta", name: "Лента", logo: "/logos/markets/lenta-super.png" },
+  { key: "pyaterochka", name: "Пятёрочка", logo: getProviderLogoBySlug("5ka", "market") },
+  { key: "magnit", name: "Магнит", logo: getProviderLogoBySlug("magnit-univer", "market") },
+  { key: "lenta", name: "Лента", logo: getProviderLogoBySlug("lenta-super", "market") },
 ]
 
 interface MarketCashbackRow {

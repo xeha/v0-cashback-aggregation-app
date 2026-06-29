@@ -27,7 +27,7 @@ import httpx
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 BACKEND_ROOT = REPO_ROOT / "backend"
-DEFAULT_ASSETS_URL = "https://fcdc8bee-4045-49ca-8869-3f22cd730eb5.s3.twcstorage.ru"
+DEFAULT_ASSETS_URL = "https://1mh89t7nqb.cdn.twcstorage.ru"
 EXPECTED_CATALOG_RECORDS = 146
 
 

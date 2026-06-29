@@ -122,7 +122,7 @@ FASTAPI_SKIP_GIT_PUSH=1 python3 scripts/deploy_fastapi_dokploy.py
 | PocketBase | `https://pb-dev.cashbackbrain.ru` | `https://pb.cashbackbrain.ru` |
 | Frontend | `https://dev.cashbackbrain.ru` | `https://cashbackbrain.ru` |
 | Dokploy | `https://dokploy.cashbackbrain.ru` | |
-| S3 assets | `https://fcdc8bee-4045-49ca-8869-3f22cd730eb5.s3.twcstorage.ru` | (общий) |
+| CDN assets | `https://1mh89t7nqb.cdn.twcstorage.ru` | (общий) |
 
 Dev env-шаблон: [`dokploy.dev.env.example`](dokploy.dev.env.example).
 

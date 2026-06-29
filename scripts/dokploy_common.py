@@ -11,7 +11,7 @@ from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
-ASSETS_URL = "https://fcdc8bee-4045-49ca-8869-3f22cd730eb5.s3.twcstorage.ru"
+ASSETS_URL = "https://1mh89t7nqb.cdn.twcstorage.ru"
 DEFAULT_PROJECT_NAME = "CashbackBrain"
 
 # development → dev branch; production → main (лекция 7)

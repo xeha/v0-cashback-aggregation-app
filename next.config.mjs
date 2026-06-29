@@ -39,6 +39,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "**.s3.twcstorage.ru",
       },
+      {
+        protocol: "https",
+        hostname: "**.cdn.twcstorage.ru",
+      },
     ],
   },
   async rewrites() {
