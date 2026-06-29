@@ -1,16 +1,16 @@
-# Graph Report - v0-cashback-aggregation-app  (2026-06-28)
+# Graph Report - v0-cashback-aggregation-app  (2026-06-29)
 
 ## Corpus Check
-- 144 files · ~187,847 words
+- 156 files · ~190,003 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 887 nodes · 1804 edges · 67 communities (59 shown, 8 thin omitted)
+- 931 nodes · 1868 edges · 69 communities (62 shown, 7 thin omitted)
 - Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 165 edges (avg confidence: 0.57)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b6092838`
+- Built from commit: `3f8a375f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -75,6 +75,7 @@
 - [[_COMMUNITY_Community 64|Community 64]]
 - [[_COMMUNITY_Community 65|Community 65]]
 - [[_COMMUNITY_Community 66|Community 66]]
+- [[_COMMUNITY_Community 67|Community 67]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `RetailerResolverService` - 44 edges
@@ -91,27 +92,27 @@
 ## Surprising Connections (you probably didn't know these)
 - `VerifyCase` --uses--> `CategoryMapRequestItem`  [INFERRED]
   scripts/verify_reference_mapper.py → backend/schemas.py
+- `OcrFailureState` --references--> `SourceSubmission`  [EXTRACTED]
+  components/screens/processing-screen.tsx → lib/types.ts
 - `main()` --calls--> `MapperService`  [EXTRACTED]
   scripts/verify_bank_catalog.py → backend/services/mapper_service.py
 - `run_model()` --calls--> `MarketSplitMapService`  [EXTRACTED]
   scripts/verify_split_map.py → backend/services/market_split_map_service.py
 - `main()` --calls--> `ReferenceHierarchy`  [EXTRACTED]
   scripts/verify_reference_mapper_offline.py → backend/services/reference_hierarchy.py
-- `main()` --calls--> `ReferenceHierarchy`  [EXTRACTED]
-  scripts/verify_split_map_offline.py → backend/services/reference_hierarchy.py
 
 ## Import Cycles
 - 1-file cycle: `backend/main.py -> backend/main.py`
 
-## Communities (67 total, 8 thin omitted)
+## Communities (69 total, 7 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.08
-Nodes (38): OcrFailureDialog(), formatLowConfidence(), ProcessingWarningsBanner(), ApiError, collectBankOfferItems(), collectLowConfidenceItems(), extractOcr(), getBackendUrl() (+30 more)
+Cohesion: 0.20
+Nodes (14): ApiError, collectBankOfferItems(), collectLowConfidenceItems(), extractOcr(), getBackendUrl(), isRequestTimeoutError(), isUnreliableMapping(), mapCategories() (+6 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.12
-Nodes (26): bankCatalog, buildCatalog(), CatalogMatchResult, CatalogRecord, findCatalogMatch(), findCatalogMatches(), findCatalogMatchInCatalog(), getAssetsBaseUrl() (+18 more)
+Nodes (27): bankCatalog, buildCatalog(), CatalogMatchResult, CatalogRecord, findCatalogMatch(), findCatalogMatches(), findCatalogMatchInCatalog(), getAssetsBaseUrl() (+19 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.19
@@ -122,8 +123,8 @@ Cohesion: 0.11
 Nodes (19): Bank, BankKey, BANKS, CASHBACK_ROWS, CashbackRow, Market, MARKET_CASHBACK_ROWS, MarketCashbackRow (+11 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.05
-Nodes (36): dependencies, @base-ui/react, class-variance-authority, clsx, framer-motion, heic2any, lucide-react, next (+28 more)
+Cohesion: 0.04
+Nodes (46): dependencies, @base-ui/react, class-variance-authority, clsx, framer-motion, heic2any, lucide-react, next (+38 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.22
@@ -158,16 +159,16 @@ Cohesion: 0.33
 Nodes (5): banksDir, dataDir, __dirname, marketsDir, root
 
 ### Community 13 - "Community 13"
-Cohesion: 0.18
-Nodes (11): CashbackApp(), EMPTY_PROCESSING_SUMMARY, getBankSelectInitialRows(), PickMode, Screen, ImageFilePicker(), ImageFilePickerState, useAuth() (+3 more)
+Cohesion: 0.15
+Nodes (14): CashbackApp(), EMPTY_PROCESSING_SUMMARY, getBankSelectInitialRows(), PickMode, Screen, ImageFilePicker(), ImageFilePickerState, useAuth() (+6 more)
 
 ### Community 14 - "Community 14"
 Cohesion: 0.70
 Nodes (3): cn(), Button(), buttonVariants
 
 ### Community 20 - "Community 20"
-Cohesion: 0.16
-Nodes (11): AppLogo(), AppLogoProps, ROUND_CLASS, SIZE_CLASS, AuthScreenProps, AuthTab, AUTHENTICATED_MENU_ITEMS, CASHBACK_CATEGORIES (+3 more)
+Cohesion: 0.13
+Nodes (19): OcrFailureDialog(), formatLowConfidence(), ProcessingWarningsBanner(), isOcrRecognitionFailure(), ProcessSubmissionResult, BankOfferItem, CashbackMatrix, CategoryMapResponse (+11 more)
 
 ### Community 21 - "Community 21"
 Cohesion: 0.40
@@ -178,8 +179,8 @@ Cohesion: 0.40
 Nodes (5): cases, __dirname, isBankService(), normalize(), patterns
 
 ### Community 24 - "Community 24"
-Cohesion: 0.16
-Nodes (23): formatCategoryLabel(), labelsEquivalent(), normalizeCategoryLabel(), alfa, buildProviderKey(), consolidateGroupRows(), createProviderFromSubmission(), findMatchingProvider() (+15 more)
+Cohesion: 0.15
+Nodes (25): formatCategoryLabel(), labelsEquivalent(), normalizeCategoryLabel(), alfa, buildProviderKey(), consolidateGroupRows(), createProviderFromSubmission(), findMatchingProvider() (+17 more)
 
 ### Community 25 - "Community 25"
 Cohesion: 0.70
@@ -242,16 +243,16 @@ Cohesion: 0.35
 Nodes (7): _auth_ok(), Client, _compose_yaml(), main(), Any, Request, _require()
 
 ### Community 46 - "Community 46"
-Cohesion: 0.29
-Nodes (5): geistMono, geistSans, metadata, AppProviders(), AuthProvider()
+Cohesion: 0.80
+Nodes (4): analyze_chunk(), fetch(), find_logo_chunks(), main()
 
 ### Community 47 - "Community 47"
 Cohesion: 0.36
 Nodes (6): _cert_issuer(), Client, main(), Any, Request, _require()
 
 ### Community 48 - "Community 48"
-Cohesion: 0.22
-Nodes (10): getCurrentMonthYear(), getRowTiers(), countProvidersInGroup(), groupMatrixRows(), GuestSaveBanner(), getActiveMatrix(), RateBadges(), ResultsScreen() (+2 more)
+Cohesion: 0.20
+Nodes (11): getCurrentMonthYear(), getRowTiers(), countProvidersInGroup(), groupMatrixRows(), saveMatrix(), GuestSaveBanner(), getActiveMatrix(), RateBadges() (+3 more)
 
 ### Community 49 - "Community 49"
 Cohesion: 0.40
@@ -263,70 +264,78 @@ Nodes (11): _load_env(), _load_env_file(), main(), _pb_superuser_token(), Client
 
 ### Community 51 - "Community 51"
 Cohesion: 0.08
-Nodes (54): main(), parse_services(), build_env_block(), deploy_fastapi(), ensure_git_branch_pushed(), load_backend_env(), main(), Any (+46 more)
+Nodes (56): main(), parse_services(), build_env_block(), deploy_fastapi(), ensure_git_branch_pushed(), load_backend_env(), main(), Any (+48 more)
 
 ### Community 52 - "Community 52"
-Cohesion: 0.18
-Nodes (17): ProviderKindPickerDialog(), ProviderKindPickerDialogProps, ProviderKindPickerMode, formatConflictDescription(), formatName(), ScreenshotReuseConfirmDialog(), ScreenshotReuseConflict, BankSelectInitialRow (+9 more)
+Cohesion: 0.07
+Nodes (25): geistMono, geistSans, metadata, AppProviders(), openAuthFromEmpty(), registerViaUi(), createTestPocketBase(), isPocketBaseReady() (+17 more)
 
 ### Community 53 - "Community 53"
-Cohesion: 0.29
-Nodes (7): AuthContext, AuthContextValue, getClientPocketBase(), formatAuthError(), STATUS_MESSAGES, createPocketBase(), getPocketBaseUrl()
+Cohesion: 0.23
+Nodes (20): MapperService, Request, RetailerResolverService, CategoryMapRequest, CategoryMapRequestItem, CategoryMapResponse, HealthResponse, OcrExtractRequest (+12 more)
 
 ### Community 56 - "Community 56"
-Cohesion: 0.29
-Nodes (5): getMarketGroupDisplayLabel(), getVisibleMarketGroupRows(), isRedundantMarketRowUnderParent(), MatrixGroup, MatrixRow
+Cohesion: 0.19
+Nodes (15): DuplicateSourceConfirmDialog(), formatProviderList(), ProviderKindPickerDialog(), ProviderKindPickerDialogProps, ProviderKindPickerMode, ProviderNameInput(), ProviderSuggestion, searchAllProviderSuggestions() (+7 more)
 
 ### Community 57 - "Community 57"
 Cohesion: 0.35
 Nodes (15): check_api_health(), check_cors(), check_frontend(), check_pb_auth(), check_pb_health(), check_retailer_lookup(), check_s3_logo(), check_save_matrix() (+7 more)
 
 ### Community 58 - "Community 58"
-Cohesion: 0.29
-Nodes (9): getPlaceholderAvatarColors(), getProviderInitial(), hashString(), isPlaceholderProviderLogo(), PLACEHOLDER_PALETTE, ProviderLogo(), ProviderNameInput(), searchAllProviderSuggestions() (+1 more)
+Cohesion: 0.14
+Nodes (13): AppLogo(), AppLogoProps, ROUND_CLASS, SIZE_CLASS, AuthScreenProps, AuthTab, PasswordFieldProps, EmptyScreen() (+5 more)
 
-### Community 60 - "Community 60"
-Cohesion: 0.25
-Nodes (4): Mistral, MatchSource, RetailerResolverService, CategoryClassifierService
-
-### Community 61 - "Community 61"
-Cohesion: 0.23
-Nodes (20): MapperService, Request, RetailerResolverService, CategoryMapRequest, CategoryMapRequestItem, CategoryMapResponse, HealthResponse, OcrExtractRequest (+12 more)
-
-### Community 62 - "Community 62"
+### Community 59 - "Community 59"
 Cohesion: 0.38
 Nodes (10): CategoryMapRequestItem, main(), run_model(), _node_id(), _service(), test_cache_hit_second_call(), test_invalid_node_id_falls_back(), test_low_confidence_falls_back() (+2 more)
 
-### Community 63 - "Community 63"
+### Community 60 - "Community 60"
 Cohesion: 0.20
 Nodes (7): health(), lifespan(), _local_network_origin_regex(), Allow phone testing over Wi-Fi (Next.js dev on port 3000)., SentenceTransformer, FastAPI, HealthResponse
 
-### Community 64 - "Community 64"
-Cohesion: 0.42
-Nodes (7): ndarray, SentenceTransformer, main(), _normalize(), best_match(), best_match_among(), encode_texts()
-
-### Community 65 - "Community 65"
+### Community 61 - "Community 61"
 Cohesion: 0.27
 Nodes (8): CategoryMapRequestItem, MapperService, ndarray, main(), _fake_embeddings(), mapper_with_retailer_resolver(), test_retailer_lookup_maps_to_parent(), test_unknown_retailer_sets_enrich_flag()
 
+### Community 62 - "Community 62"
+Cohesion: 0.25
+Nodes (4): Mistral, MatchSource, RetailerResolverService, CategoryClassifierService
+
+### Community 63 - "Community 63"
+Cohesion: 0.42
+Nodes (7): ndarray, SentenceTransformer, main(), _normalize(), best_match(), best_match_among(), encode_texts()
+
+### Community 64 - "Community 64"
+Cohesion: 0.48
+Nodes (6): getPlaceholderAvatarColors(), getProviderInitial(), hashString(), isPlaceholderProviderLogo(), PLACEHOLDER_PALETTE, ProviderLogo()
+
+### Community 65 - "Community 65"
+Cohesion: 0.33
+Nodes (4): getMarketGroupDisplayLabel(), getVisibleMarketGroupRows(), MatrixGroup, MatrixRow
+
 ### Community 66 - "Community 66"
+Cohesion: 0.47
+Nodes (5): formatConflictDescription(), formatName(), ScreenshotReuseConfirmDialog(), ScreenshotReuseConflict, ScreenshotReuseBlockState
+
+### Community 67 - "Community 67"
 Cohesion: 1.00
 Nodes (3): load_bank_aliases(), _normalize_bank_name(), resolve_bank_slug()
 
 ## Knowledge Gaps
-- **163 isolated node(s):** `geistSans`, `geistMono`, `metadata`, `Mistral`, `Path` (+158 more)
+- **180 isolated node(s):** `geistSans`, `geistMono`, `metadata`, `Mistral`, `Path` (+175 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `RetailerResolverService` connect `Community 38` to `Community 65`, `Community 37`, `Community 60`, `Community 61`, `Community 63`?**
-  _High betweenness centrality (0.019) - this node is a cross-community bridge._
-- **Why does `MarketSplitMapService` connect `Community 2` to `Community 28`, `Community 61`, `Community 62`, `Community 63`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
-- **Why does `MapperService` connect `Community 37` to `Community 65`, `Community 2`, `Community 38`, `Community 60`, `Community 61`, `Community 63`?**
-  _High betweenness centrality (0.014) - this node is a cross-community bridge._
+- **Why does `RetailerResolverService` connect `Community 38` to `Community 37`, `Community 53`, `Community 60`, `Community 61`, `Community 62`?**
+  _High betweenness centrality (0.017) - this node is a cross-community bridge._
+- **Why does `MarketSplitMapService` connect `Community 2` to `Community 28`, `Community 59`, `Community 60`, `Community 53`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **Why does `MapperService` connect `Community 37` to `Community 2`, `Community 38`, `Community 53`, `Community 60`, `Community 61`, `Community 62`?**
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **Are the 20 inferred relationships involving `RetailerResolverService` (e.g. with `MapperService` and `Request`) actually correct?**
   _`RetailerResolverService` has 20 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 15 inferred relationships involving `MapperService` (e.g. with `MapperService` and `Request`) actually correct?**
