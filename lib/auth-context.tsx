@@ -12,6 +12,7 @@ import {
 import type PocketBase from "pocketbase"
 import type { RecordModel } from "pocketbase"
 import { formatAuthError } from "@/lib/auth-errors"
+import { validateRegisterInput } from "@/lib/auth-validation"
 import { createPocketBase } from "@/lib/pocketbase"
 
 type AuthContextValue = {
@@ -77,15 +78,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const register = useCallback(
     async (email: string, password: string, passwordConfirm: string) => {
-      const trimmedEmail = email.trim()
-
-      if (password.length < 8) {
-        throw new Error("Пароль должен быть не короче 8 символов")
+      const validation = validateRegisterInput(email, password, passwordConfirm)
+      if (!validation.ok) {
+        throw new Error(validation.message)
       }
-
-      if (password !== passwordConfirm) {
-        throw new Error("Пароли не совпадают")
-      }
+      const trimmedEmail = validation.email
 
       try {
         await pb.collection("users").create({
