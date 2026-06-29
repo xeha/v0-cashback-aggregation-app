@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion"
 import { ImageFilePicker } from "@/components/image-file-picker"
+import type { SavedMatrixSummary } from "@/lib/saved-matrices"
+import { ContinueSaveCard, ContinueSaveCardSkeleton } from "./continue-save-card"
 import { UserMenu } from "./user-menu"
 
 export function EmptyScreen({
@@ -10,12 +12,28 @@ export function EmptyScreen({
   onLoginRequest,
   isGuest,
   userEmail,
+  continueSave,
+  onContinueSave,
+  savesLoading = false,
+  savedSummaries = [],
+  onOpenSaved,
+  onNewAssembly,
+  savesError,
+  onRetrySaves,
 }: {
   onFilePicked: (src: string) => void
   onLogout: () => void
   onLoginRequest: () => void
   isGuest: boolean
   userEmail?: string
+  continueSave?: SavedMatrixSummary | null
+  onContinueSave?: (id: string) => void
+  savesLoading?: boolean
+  savedSummaries?: SavedMatrixSummary[]
+  onOpenSaved?: (id: string) => void
+  onNewAssembly?: () => void
+  savesError?: string | null
+  onRetrySaves?: () => void
 }) {
   return (
     <ImageFilePicker onPick={onFilePicked}>
@@ -34,8 +52,20 @@ export function EmptyScreen({
               onLoginRequest={onLoginRequest}
               isGuest={isGuest}
               userEmail={userEmail}
+              savedSummaries={savedSummaries}
+              savesLoading={savesLoading}
+              savesError={savesError}
+              onOpenSaved={onOpenSaved}
+              onNewAssembly={onNewAssembly}
+              onRetrySaves={onRetrySaves}
             />
           </div>
+
+          {!isGuest && savesLoading && <ContinueSaveCardSkeleton />}
+
+          {!isGuest && !savesLoading && continueSave && onContinueSave && (
+            <ContinueSaveCard save={continueSave} onContinue={onContinueSave} />
+          )}
 
           <div className="flex flex-1 flex-col items-center justify-center text-center">
             <div className="-mx-6 mb-6 w-[calc(100%+3rem)]">
