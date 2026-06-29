@@ -30,6 +30,7 @@ def fetch(url: str, timeout: int = 25) -> str:
 def find_logo_chunks(html: str) -> list[str]:
     chunks = CHUNK_RE.findall(html)
     logo_chunks: list[str] = []
+    seen: set[str] = set()
     for chunk in chunks[:24]:
         try:
             body = fetch(f"{FRONTEND_URL}{chunk}")
@@ -37,7 +38,9 @@ def find_logo_chunks(html: str) -> list[str]:
             print(f"  warn: skip {chunk}: {exc}")
             continue
         if "logos/banks" in body or "logos/markets" in body:
-            logo_chunks.append(chunk)
+            if chunk not in seen:
+                seen.add(chunk)
+                logo_chunks.append(chunk)
     return logo_chunks
 
 

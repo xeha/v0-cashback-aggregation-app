@@ -183,9 +183,29 @@ def verify_cdn_bundle(domain: str) -> None:
         cwd=REPO_ROOT,
         env=env,
         check=False,
+        capture_output=True,
+        text=True,
     )
     if result.returncode != 0:
-        raise RuntimeError(f"CDN bundle check failed for https://{domain}/")
+        detail = (result.stdout or result.stderr or "CDN bundle check failed").strip()
+        raise RuntimeError(detail)
+
+
+def wait_for_cdn_bundle(domain: str, timeout_sec: int = 900) -> None:
+    deadline = time.time() + timeout_sec
+    last_error = "timeout"
+
+    while time.time() < deadline:
+        try:
+            verify_cdn_bundle(domain)
+            print(f"  ✓ CDN bundle OK: https://{domain}/")
+            return
+        except RuntimeError as exc:
+            last_error = str(exc).splitlines()[-1]
+        print(f"  waiting for CDN bundle on https://{domain}/ … ({last_error})")
+        time.sleep(30)
+
+    raise RuntimeError(f"CDN bundle not ready: https://{domain}/ ({last_error})")
 
 
 def wait_for_frontend(domain: str, timeout_sec: int = 900) -> None:
@@ -228,8 +248,8 @@ def main() -> None:
             wait_for_frontend(domain)
             if os.environ.get("FRONTEND_VERIFY_CDN", "1").strip() not in ("0", "false", "no"):
                 print()
-                print("Verifying CDN in frontend bundle…")
-                verify_cdn_bundle(domain)
+                print("Waiting for CDN URLs in frontend bundle…")
+                wait_for_cdn_bundle(domain)
         except RuntimeError as exc:
             print(f"Warning: {exc}", file=sys.stderr)
 
