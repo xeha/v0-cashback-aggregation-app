@@ -1,0 +1,51 @@
+---
+description: Git-ветки и деплой — сначала dev, в main и прод только с явного согласия
+alwaysApply: true
+---
+
+# Git и деплой: dev → проверка → main
+
+## Поток (обязателен)
+
+```
+feature → dev → тест на dev.cashbackbrain.ru → (спросить пользователя) → main → прод
+```
+
+- **`dev`** — интеграция и Dokploy **development** (`dev.cashbackbrain.ru`, `api-dev`, `pb-dev`)
+- **`main`** — только после проверки на dev; Dokploy **production** (`cashbackbrain.ru`)
+
+## Запрещено без явного запроса пользователя
+
+- `git merge dev` (или любой merge) **в `main`**
+- `git push origin main`
+- `DOKPLOY_TARGET=production` и деплой frontend/fastapi/pocketbase на прод
+- смена ветки production-приложения в Dokploy (например `dev-out` → `main`)
+- «ускорить прод» через мердж неоттестированного кода из `dev`
+
+Даже если прод сломан или env уже обновлён — **сначала dev**, потом спросить про `main`.
+
+## Инфраструктурные изменения (CDN, env, Dockerfile)
+
+1. Код и скрипты — в **`dev`**, коммит, push `origin dev`
+2. Деплой только development:
+   ```bash
+   DOKPLOY_TARGET=development python3 scripts/deploy_environment_dokploy.py --services frontend
+   ```
+3. Проверка на dev:
+   ```bash
+   FRONTEND_URL=https://dev.cashbackbrain.ru python3 scripts/verify_frontend_cdn_bundle.py
+   python3 scripts/verify_e2e_phase5.py   # FRONTEND_URL=... при необходимости
+   ```
+4. Сообщить результат пользователю и **дождаться «да»** на merge в `main` / прод-деплой
+5. Только после согласия: merge `dev` → `main`, push `main`, `DOKPLOY_TARGET=production`
+
+## Что можно без отдельного согласия
+
+- коммиты и push в **`dev`** (и feature-ветки)
+- деплой **`DOKPLOY_TARGET=development`**
+- локальный `npm run dev` / `npm run build`
+- правки `scripts/`, `Dockerfile`, env **в ветке dev** до проверки на dev-окружении
+
+## Если пользователь просит только «починить прод»
+
+Не мерджить весь `dev`. Уточнить: cherry-pick / hotfix-ветка от `main`, или полный merge после dev-теста — и **не выполнять merge/push main**, пока не ответит.

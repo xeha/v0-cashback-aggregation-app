@@ -41,3 +41,11 @@ empty → gallery → bank-select → processing → results
 - Transitions: `<AnimatePresence mode="wait">`, 0.35s opacity + y-slide
 - Phone shell on `sm:` breakpoints
 - Tier colors: green/yellow/red for cashback rates
+
+### Git branches and deploy
+
+**Never merge `dev` → `main` or deploy to production without explicit user approval.**
+
+Flow: `dev` → test on `dev.cashbackbrain.ru` → user confirms → `main` → production.
+
+See `.cursor/rules/deploy-git-workflow.mdc` for the full agent checklist (CDN/env changes, Dokploy targets, verification scripts).

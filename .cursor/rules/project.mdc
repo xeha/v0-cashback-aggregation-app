@@ -41,8 +41,9 @@ uvicorn main:app --reload --port 8000
 
 ## Git и worktrees
 
-- **Ветки:** `dev` — интеграция фич; `main` — прод после проверки на `dev`
-- **Поток:** feature-ветка → merge в `dev` → если всё ок → merge `dev` → `main`
+- **Ветки:** `dev` — интеграция фич; `main` — прод **только после проверки на dev**
+- **Поток:** feature-ветка → merge в `dev` → тест на `dev.cashbackbrain.ru` → **спросить пользователя** → merge `dev` → `main`
+- **Агентам:** см. `.cursor/rules/deploy-git-workflow.mdc` — запрет merge/push `main` и `DOKPLOY_TARGET=production` без явного запроса
 - **Worktrees:** `.worktrees/<имя-ветки>/` — изолированные копии, не коммитятся (в `.gitignore`)
 
 ```bash
