@@ -168,8 +168,20 @@ def deploy_frontend(client: DokployClient) -> str:
     domain = os.environ.get("FRONTEND_DOMAIN", DEFAULT_DOMAIN).strip()
     ensure_domain(client, app_id, domain, FRONTEND_PORT)
 
-    client.post("application.update", {"applicationId": app_id, "sourceType": "github"})
-    client.post("application.deploy", {"applicationId": app_id})
+    client.post(
+        "application.update",
+        {"applicationId": app_id, "sourceType": "github", "cleanCache": True},
+    )
+
+    sha = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=REPO_ROOT, text=True).strip()
+    client.post(
+        "application.deploy",
+        {
+            "applicationId": app_id,
+            "title": f"Deploy {branch}",
+            "description": f"Commit: {sha}",
+        },
+    )
     print("Deploy triggered")
     return app_id
 
