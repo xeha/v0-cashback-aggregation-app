@@ -15,5 +15,7 @@ export function getPocketBaseUrl(): string {
 }
 
 export function createPocketBase(): PocketBase {
-  return new PocketBase(getPocketBaseUrl())
+  const pb = new PocketBase(getPocketBaseUrl())
+  pb.autoCancellation(false)
+  return pb
 }

@@ -20,11 +20,10 @@ import {
   labelsEquivalent,
 } from "@/lib/category-label"
 import type { CashbackMatrix, Kind, MatrixProvider, MatrixRow, MatrixState, ProcessingSummary, SourceSubmission } from "@/lib/types"
-import { useAuth } from "@/lib/auth-context"
-import { saveMatrix } from "@/lib/saved-matrices"
 import { GuestSaveBanner } from "./guest-save-banner"
 import { AddWidgetOverlay, SavePngOverlay, ShareSheet } from "./results-overlays"
 import { UserMenu } from "./user-menu"
+import type { SavedMatrixSummary } from "@/lib/saved-matrices"
 
 const TIER_STYLES: Record<RateTier, string> = {
   high: "bg-green-100 text-green-700",
@@ -126,6 +125,7 @@ export function ResultsScreen({
   onLogout,
   onUploadMore,
   onLoginRequest,
+  onSaveMatrix,
   kind = "bank",
   matrix,
   submissions = [],
@@ -134,11 +134,19 @@ export function ResultsScreen({
   isGuest = false,
   showGuestSaveBanner = false,
   onGuestSaveBannerDismiss,
+  activeSaveId = null,
+  savedSummaries = [],
+  savesLoading = false,
+  savesError = null,
+  onOpenSaved,
+  onNewAssembly,
+  onRetrySaves,
 }: {
   onRestart: () => void
   onLogout: () => void
   onUploadMore: () => void
   onLoginRequest?: () => void
+  onSaveMatrix?: () => Promise<{ ok: true; message: string } | { ok: false; message: string }>
   kind?: Kind
   matrix: MatrixState
   submissions?: SourceSubmission[]
@@ -147,8 +155,14 @@ export function ResultsScreen({
   isGuest?: boolean
   showGuestSaveBanner?: boolean
   onGuestSaveBannerDismiss?: () => void
+  activeSaveId?: string | null
+  savedSummaries?: SavedMatrixSummary[]
+  savesLoading?: boolean
+  savesError?: string | null
+  onOpenSaved?: (id: string) => void
+  onNewAssembly?: () => void
+  onRetrySaves?: () => void
 }) {
-  const { pb } = useAuth()
   const [activeTab, setActiveTab] = useState<Tab>(() => getDefaultTab(matrix, kind))
   const [showSave, setShowSave] = useState(false)
   const [showShare, setShowShare] = useState(false)
@@ -188,17 +202,19 @@ export function ResultsScreen({
   }
 
   async function handleSaveMatrix() {
+    if (!onSaveMatrix) return
+
     setSaveError(null)
     setIsSavingMatrix(true)
 
     try {
-      await saveMatrix(pb, {
-        matrix,
-        submissions,
-        summary: processingSummary,
-      })
-      setSaveToast("Результат сохранён")
-      window.setTimeout(() => setSaveToast(null), 3000)
+      const result = await onSaveMatrix()
+      if (result.ok) {
+        setSaveToast(result.message)
+        window.setTimeout(() => setSaveToast(null), 3000)
+      } else {
+        setSaveError(result.message)
+      }
     } catch (error) {
       setSaveError(error instanceof Error ? error.message : "Не удалось сохранить")
     } finally {
@@ -227,6 +243,12 @@ export function ResultsScreen({
           onLoginRequest={onLoginRequest}
           isGuest={isGuest}
           userEmail={userEmail}
+          savedSummaries={savedSummaries}
+          savesLoading={savesLoading}
+          savesError={savesError}
+          onOpenSaved={onOpenSaved}
+          onNewAssembly={onNewAssembly}
+          onRetrySaves={onRetrySaves}
         />
       </div>
 
@@ -412,6 +434,8 @@ export function ResultsScreen({
       </div>
 
       <div className="mt-auto overflow-hidden rounded-2xl border border-yellow-300 bg-yellow-200 shadow-md">
+        {!isGuest && onSaveMatrix && (
+          <>
         <button
           type="button"
           onClick={handleSaveMatrix}
@@ -420,10 +444,16 @@ export function ResultsScreen({
         >
           <Bookmark className="h-5 w-5 shrink-0 text-slate-700" />
           <span className="text-[15px] font-medium text-slate-900">
-            {isSavingMatrix ? "Сохранение…" : "Сохранить результат"}
+            {isSavingMatrix
+              ? "Сохранение…"
+              : activeSaveId
+                ? "Сохранить изменения"
+                : "Сохранить результат"}
           </span>
         </button>
         <div className="h-px bg-yellow-300" />
+          </>
+        )}
         <button
           onClick={handleSavePng}
           className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-yellow-300 active:bg-yellow-400"
