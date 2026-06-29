@@ -174,6 +174,20 @@ def deploy_frontend(client: DokployClient) -> str:
     return app_id
 
 
+def verify_cdn_bundle(domain: str) -> None:
+    script = REPO_ROOT / "scripts" / "verify_frontend_cdn_bundle.py"
+    env = os.environ.copy()
+    env["FRONTEND_URL"] = f"https://{domain}"
+    result = subprocess.run(
+        [sys.executable, str(script)],
+        cwd=REPO_ROOT,
+        env=env,
+        check=False,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(f"CDN bundle check failed for https://{domain}/")
+
+
 def wait_for_frontend(domain: str, timeout_sec: int = 900) -> None:
     url = f"https://{domain}/"
     deadline = time.time() + timeout_sec
@@ -212,6 +226,10 @@ def main() -> None:
         print(f"Waiting for https://{domain}/ (build ~5–10 min)…")
         try:
             wait_for_frontend(domain)
+            if os.environ.get("FRONTEND_VERIFY_CDN", "1").strip() not in ("0", "false", "no"):
+                print()
+                print("Verifying CDN in frontend bundle…")
+                verify_cdn_bundle(domain)
         except RuntimeError as exc:
             print(f"Warning: {exc}", file=sys.stderr)
 
