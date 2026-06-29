@@ -265,10 +265,19 @@ def deploy_fastapi(client: DokployClient) -> str:
         {
             "applicationId": app_id,
             "sourceType": "github",
+            "cleanCache": True,
         },
     )
 
-    client.post("application.deploy", {"applicationId": app_id})
+    sha = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=REPO_ROOT, text=True).strip()
+    client.post(
+        "application.deploy",
+        {
+            "applicationId": app_id,
+            "title": f"Deploy {branch}",
+            "description": f"Commit: {sha}",
+        },
+    )
     print("Deploy triggered")
     return app_id
 
