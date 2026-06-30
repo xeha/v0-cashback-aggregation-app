@@ -2,6 +2,7 @@ import { getProviderLogoBySlug, resolveProviderLogo } from "@/lib/provider-logos
 import type {
   CashbackMatrix,
   Kind,
+  MatrixGroup,
   MatrixProvider,
   MatrixRow,
 } from "@/lib/types"
@@ -37,6 +38,14 @@ export interface ApiComparisonPart {
   path: { id: string; name: string }[]
 }
 
+export interface ApiMatrixGroup {
+  parent: string
+  display_parent?: string | null
+  summary_rates: Record<string, number>
+  rows: ApiMatrixRow[]
+  is_macro_only?: boolean | null
+}
+
 export interface ApiCashbackMatrix {
   kind: Kind
   providers: ApiMatrixProvider[]
@@ -46,6 +55,7 @@ export interface ApiCashbackMatrix {
 
 export interface ApiProcessSubmissionResponse {
   matrix: ApiCashbackMatrix
+  groups: ApiMatrixGroup[]
   low_confidence: {
     provider_name: string
     raw_category: string
@@ -58,6 +68,16 @@ export interface ApiProcessSubmissionResponse {
     unified_category: string
     rate: number
   }[]
+}
+
+function apiGroupToClient(group: ApiMatrixGroup): MatrixGroup {
+  return {
+    parent: group.parent,
+    displayParent: group.display_parent ?? undefined,
+    summaryRates: group.summary_rates,
+    rows: group.rows.map(apiRowToClient),
+    isMacroOnly: group.is_macro_only ?? undefined,
+  }
 }
 
 function apiRowToClient(row: ApiMatrixRow): MatrixRow {
@@ -125,6 +145,15 @@ export function apiMatrixToClient(matrix: ApiCashbackMatrix): CashbackMatrix {
     })),
     rows: matrix.rows.map(apiRowToClient),
     marketParts: matrix.market_parts?.map(apiPartToClient),
+  }
+}
+
+export function apiProcessResponseToClient(
+  response: ApiProcessSubmissionResponse,
+): CashbackMatrix {
+  return {
+    ...apiMatrixToClient(response.matrix),
+    groups: response.groups.map(apiGroupToClient),
   }
 }
 

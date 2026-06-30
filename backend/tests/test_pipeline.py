@@ -95,3 +95,4 @@ def test_process_submission_returns_matrix(monkeypatch):
     assert len(result.matrix.providers) == 1
     assert result.matrix.providers[0].slug == "alfa-bank"
     assert result.matrix.rows[0].rates
+    assert isinstance(result.groups, list)

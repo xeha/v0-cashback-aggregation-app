@@ -16,6 +16,7 @@ from schemas import (
 from services.category_text_utils import sanitize_category
 from services.mapper_service import MapperService
 from services.market_split_map_service import MarketSplitMapService
+from services.matrix_group_service import group_matrix_rows
 from services.matrix_merge_service import create_provider_from_submission, merge_mapped_items
 from services.ocr_service import extract_cashback_items
 from services.retailer_resolver_service import RetailerResolverService
@@ -180,9 +181,11 @@ def process_submission(
     )
 
     matrix = merge_mapped_items(current_matrix, provider, mapped_items, body.kind)
+    groups = group_matrix_rows(matrix.rows, matrix.market_parts)
 
     return ProcessSubmissionResponse(
         matrix=matrix,
+        groups=groups,
         low_confidence=collect_low_confidence_items(mapped_items, body.provider_name),
         bank_offers=collect_bank_offer_items(mapped_items, body.provider_name),
     )

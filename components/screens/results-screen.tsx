@@ -177,7 +177,7 @@ export function ResultsScreen({
   const providers = activeMatrix?.providers ?? []
   const rows = activeMatrix?.rows ?? []
   const marketParts = activeTab === "market" ? activeMatrix?.marketParts : undefined
-  const groups = groupMatrixRows(rows, marketParts)
+  const groups = activeMatrix?.groups ?? groupMatrixRows(rows, marketParts)
   const hasMatrixData = groups.length > 0
 
   function toggleParent(parent: string) {

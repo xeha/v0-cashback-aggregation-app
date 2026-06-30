@@ -89,6 +89,8 @@ export interface CashbackMatrix {
   rows: MatrixRow[]
   /** Сырые части market для LCA-группировки (только kind="market") */
   marketParts?: import("@/lib/market-comparison").ComparisonPart[]
+  /** Pre-computed from POST /api/pipeline/process; client falls back to groupMatrixRows */
+  groups?: MatrixGroup[]
 }
 
 export interface MatrixState {

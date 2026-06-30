@@ -1,7 +1,7 @@
 import { getBackendUrl } from "@/lib/backend-url"
 import { imageSrcToBase64 } from "@/lib/image-utils"
 import {
-  apiMatrixToClient,
+  apiProcessResponseToClient,
   clientMatrixToApi,
   enrichMatrixLogos,
   type ApiProcessSubmissionResponse,
@@ -123,7 +123,7 @@ export async function processSubmission(
       current_matrix: currentMatrix ? clientMatrixToApi(currentMatrix) : null,
     })
 
-    const matrix = enrichMatrixLogos(apiMatrixToClient(response.matrix))
+    const matrix = enrichMatrixLogos(apiProcessResponseToClient(response))
 
     return {
       matrix,

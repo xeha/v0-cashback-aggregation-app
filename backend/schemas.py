@@ -136,6 +136,14 @@ class ComparisonPart(BaseModel):
     path: list[ReferencePathNode]
 
 
+class MatrixGroup(BaseModel):
+    parent: str
+    display_parent: str | None = None
+    summary_rates: dict[str, float] = Field(default_factory=dict)
+    rows: list[MatrixRow] = Field(default_factory=list)
+    is_macro_only: bool | None = None
+
+
 class CashbackMatrix(BaseModel):
     kind: Literal["bank", "market"]
     providers: list[MatrixProvider]
@@ -168,5 +176,6 @@ class BankOfferItem(BaseModel):
 
 class ProcessSubmissionResponse(BaseModel):
     matrix: CashbackMatrix
+    groups: list[MatrixGroup] = Field(default_factory=list)
     low_confidence: list[LowConfidenceItem] = Field(default_factory=list)
     bank_offers: list[BankOfferItem] = Field(default_factory=list)
