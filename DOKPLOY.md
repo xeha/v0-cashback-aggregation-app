@@ -91,19 +91,35 @@ cp dokploy.env.example .env.dokploy   # DOKPLOY_API_KEY
 
 set -a && source .env.dokploy && set +a
 
-# Development (ветка dev)
+# Development (ветка dev) — автоматически деплоит только изменённые сервисы
 python3 scripts/deploy_environment_dokploy.py development
 
 # Production (ветка main) — ТОЛЬКО после проверки на dev и явного согласия
 # python3 scripts/deploy_environment_dokploy.py production
 ```
 
-Отдельные сервисы:
+### Умный деплой (авто-определение сервисов)
+
+По умолчанию скрипт сравнивает `git diff origin/<branch>...HEAD` и деплоит
+только те сервисы, файлы которых реально изменились:
+
+| Изменились файлы | Задеплоится |
+|-----------------|-------------|
+| `components/`, `lib/`, `app/`, `public/` | только **frontend** |
+| `backend/` | только **fastapi** |
+| `pocketbase/` | только **pocketbase** |
+| docs, scripts | **ничего** (выход без деплоя) |
 
 ```bash
-DOKPLOY_TARGET=development python3 scripts/deploy_frontend_dokploy.py
-# Production — только после merge dev→main и согласия:
-# DOKPLOY_TARGET=production python3 scripts/deploy_fastapi_dokploy.py
+# Принудительно деплоить конкретные сервисы:
+python3 scripts/deploy_environment_dokploy.py development --services frontend
+python3 scripts/deploy_environment_dokploy.py development --services fastapi,frontend
+
+# Сравнивать с другим ref (например, последние 3 коммита):
+python3 scripts/deploy_environment_dokploy.py development --base-ref HEAD~3
+
+# Задеплоить всё принудительно:
+python3 scripts/deploy_environment_dokploy.py development --services pocketbase,fastapi,frontend
 ```
 
 ## После первого dev-деплоя PocketBase
