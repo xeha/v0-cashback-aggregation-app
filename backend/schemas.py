@@ -170,6 +170,20 @@ class BatchPipelineRequest(BaseModel):
     existing_matrix: MatrixState | None = None
 
 
+class LowConfidenceItem(BaseModel):
+    provider_name: str
+    raw_category: str
+    unified_category: str
+    confidence: float
+
+
+class BankOfferItem(BaseModel):
+    provider_name: str
+    raw_category: str
+    unified_category: str
+    rate: float
+
+
 class ProcessingSummaryResponse(BaseModel):
     skipped: list[dict[str, str]] = Field(default_factory=list)
     low_confidence: list[LowConfidenceItem] = Field(default_factory=list)
@@ -196,20 +210,6 @@ class ProcessSubmissionRequest(BaseModel):
     provider_name: str
     provider_slug: str | None = None
     current_matrix: CashbackMatrix | None = None
-
-
-class LowConfidenceItem(BaseModel):
-    provider_name: str
-    raw_category: str
-    unified_category: str
-    confidence: float
-
-
-class BankOfferItem(BaseModel):
-    provider_name: str
-    raw_category: str
-    unified_category: str
-    rate: float
 
 
 class ProcessSubmissionResponse(BaseModel):
