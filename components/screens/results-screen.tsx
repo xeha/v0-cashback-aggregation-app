@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown, ChevronRight, Download, Share, Smartphone, ImagePlus, Trash2, Bookmark } from "lucide-react"
 import { ProviderLogo } from "@/components/provider-logo"
@@ -21,8 +21,9 @@ import {
 } from "@/lib/category-label"
 import type { CashbackMatrix, Kind, MatrixProvider, MatrixRow, MatrixState, ProcessingSummary, SourceSubmission } from "@/lib/types"
 import { usePwaInstall } from "@/lib/use-pwa-install"
+import { getMobilePlatform } from "@/lib/pwa"
 import { GuestSaveBanner } from "./guest-save-banner"
-import { AddToHomeScreenOverlay, SavePngOverlay, ShareSheet } from "./results-overlays"
+import { AddToHomeScreenOverlay, SavePngOverlay, type SavePngStatus } from "./results-overlays"
 import { UserMenu } from "./user-menu"
 import type { SavedMatrixSummary } from "@/lib/saved-matrices"
 
@@ -169,8 +170,9 @@ export function ResultsScreen({
   onRetrySaves?: () => void
 }) {
   const [activeTab, setActiveTab] = useState<Tab>(() => getDefaultTab(matrix, kind))
-  const [showSave, setShowSave] = useState(false)
-  const [showShare, setShowShare] = useState(false)
+  const captureRef = useRef<HTMLDivElement>(null)
+  const [savePngStatus, setSavePngStatus] = useState<SavePngStatus>(null)
+  const [pngPreviewUrl, setPngPreviewUrl] = useState<string | null>(null)
   const [showWidget, setShowWidget] = useState(false)
   const [showResetConfirm, setShowResetConfirm] = useState(false)
   const [expandedParents, setExpandedParents] = useState<Set<string>>(new Set())
@@ -195,12 +197,51 @@ export function ResultsScreen({
     })
   }
 
-  function handleSavePng() {
-    setShowSave(true)
+  async function handleSavePng() {
+    const node = captureRef.current
+    if (!node || savePngStatus === "saving") return
+    setSavePngStatus("saving")
+    setPngPreviewUrl(null)
+    try {
+      const { toPng } = await import("html-to-image")
+      const dataUrl = await toPng(node, {
+        backgroundColor: "#ffffff",
+        pixelRatio: 2,
+        filter: (el) => !(el instanceof HTMLElement && el.hasAttribute("data-no-capture")),
+      })
+      if (getMobilePlatform() === "ios") {
+        setPngPreviewUrl(dataUrl)
+        setSavePngStatus("done")
+      } else {
+        const link = document.createElement("a")
+        link.download = `кешбэки-${cashbackPeriodLabel.replace(/\s+/g, "-").toLowerCase()}.png`
+        link.href = dataUrl
+        link.click()
+        setSavePngStatus("done")
+        setTimeout(() => setSavePngStatus(null), 2000)
+      }
+    } catch {
+      setSavePngStatus("error")
+    }
   }
 
-  function handleShare() {
-    setShowShare(true)
+  async function handleShare() {
+    const url = window.location.href
+    const text = `Мои кешбэки за ${cashbackPeriodLabel}`
+    if (typeof navigator.share === "function") {
+      try {
+        await navigator.share({ title: "CashbackBrain", text, url })
+      } catch {
+        // пользователь отменил — ничего не делаем
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(url)
+        setSaveToast("Ссылка скопирована")
+      } catch {
+        setSaveToast("Не удалось скопировать ссылку")
+      }
+    }
   }
 
   async function handleAddToHomeScreen() {
@@ -246,6 +287,7 @@ export function ResultsScreen({
       exit={{ opacity: 0, y: -16 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
       className="relative flex min-h-full flex-col px-5 py-8"
+      ref={captureRef}
     >
       <div className="mb-5 flex items-start justify-between gap-3">
         <div>
@@ -254,27 +296,31 @@ export function ResultsScreen({
             {cashbackPeriodLabel}
           </p>
         </div>
-        <UserMenu
-          onLogout={onLogout}
-          onLoginRequest={onLoginRequest}
-          isGuest={isGuest}
-          userEmail={userEmail}
-          savedSummaries={savedSummaries}
-          savesLoading={savesLoading}
-          savesError={savesError}
-          onOpenSaved={onOpenSaved}
-          onDeleteSaved={onDeleteSaved}
-          onNewAssembly={onNewAssembly}
-          onRetrySaves={onRetrySaves}
-          matrix={matrix}
-        />
+        <div data-no-capture>
+          <UserMenu
+            onLogout={onLogout}
+            onLoginRequest={onLoginRequest}
+            isGuest={isGuest}
+            userEmail={userEmail}
+            savedSummaries={savedSummaries}
+            savesLoading={savesLoading}
+            savesError={savesError}
+            onOpenSaved={onOpenSaved}
+            onDeleteSaved={onDeleteSaved}
+            onNewAssembly={onNewAssembly}
+            onRetrySaves={onRetrySaves}
+            matrix={matrix}
+          />
+        </div>
       </div>
 
       {showGuestSaveBanner && onLoginRequest && onGuestSaveBannerDismiss && (
-        <GuestSaveBanner
-          onLoginRequest={onLoginRequest}
-          onDismiss={onGuestSaveBannerDismiss}
-        />
+        <div data-no-capture>
+          <GuestSaveBanner
+            onLoginRequest={onLoginRequest}
+            onDismiss={onGuestSaveBannerDismiss}
+          />
+        </div>
       )}
 
       <ProcessingWarningsBanner summary={processingSummary} />
@@ -451,7 +497,7 @@ export function ResultsScreen({
         </span>
       </div>
 
-      <div className="mt-auto overflow-hidden rounded-2xl border border-yellow-300 bg-yellow-200 shadow-md">
+      <div data-no-capture className="mt-auto overflow-hidden rounded-2xl border border-yellow-300 bg-yellow-200 shadow-md">
         {!isGuest && onSaveMatrix && (
           <>
         <button
@@ -507,6 +553,7 @@ export function ResultsScreen({
       </div>
 
       <button
+        data-no-capture
         onClick={() => setShowResetConfirm(true)}
         className="mt-3 flex w-full items-center justify-center gap-2 rounded-2xl border border-red-200 px-5 py-3.5 text-[15px] font-medium text-red-600 transition-colors hover:bg-red-50 active:bg-red-100"
       >
@@ -520,8 +567,11 @@ export function ResultsScreen({
         </p>
       )}
 
-      <SavePngOverlay open={showSave} onClose={() => setShowSave(false)} />
-      <ShareSheet open={showShare} onClose={() => setShowShare(false)} />
+      <SavePngOverlay
+        status={savePngStatus}
+        previewUrl={pngPreviewUrl}
+        onClose={() => { setSavePngStatus(null); setPngPreviewUrl(null) }}
+      />
       <AddToHomeScreenOverlay
         open={showWidget}
         onClose={() => setShowWidget(false)}

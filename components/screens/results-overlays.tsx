@@ -6,137 +6,123 @@ import {
   Check,
   Download,
   Loader2,
-  Mail,
-  Link2,
-  MessageCircle,
-  Send,
-  Share,
   Smartphone,
   X,
+  Share,
 } from "lucide-react"
 import { getMobilePlatform, type MobilePlatform } from "@/lib/pwa"
 
 /* ------------------------------------------------------------------ */
-/* Save PNG overlay: spinner -> green check                            */
+/* Save PNG overlay                                                    */
 /* ------------------------------------------------------------------ */
 
-export function SavePngOverlay({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const [done, setDone] = useState(false)
+export type SavePngStatus = "saving" | "done" | "error" | null
 
+export function SavePngOverlay({
+  status,
+  previewUrl,
+  onClose,
+}: {
+  status: SavePngStatus
+  previewUrl?: string | null
+  onClose: () => void
+}) {
   useEffect(() => {
-    if (!open) return
-    setDone(false)
-    const doneTimer = setTimeout(() => setDone(true), 1600)
-    const closeTimer = setTimeout(onClose, 3000)
-    return () => {
-      clearTimeout(doneTimer)
-      clearTimeout(closeTimer)
+    if (status === "done" && !previewUrl) {
+      const t = setTimeout(onClose, 2000)
+      return () => clearTimeout(t)
     }
-  }, [open, onClose])
+    if (status === "error") {
+      const t = setTimeout(onClose, 3000)
+      return () => clearTimeout(t)
+    }
+  }, [status, previewUrl, onClose])
 
   return (
     <AnimatePresence>
-      {open && (
+      {status && (
         <motion.div
-          className="absolute inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm"
+          className="absolute inset-0 z-50 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
         >
-          <motion.div
-            className="flex w-44 flex-col items-center gap-4 rounded-3xl bg-white px-6 py-7 shadow-xl"
-            initial={{ scale: 0.85, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.85, opacity: 0 }}
-            transition={{ type: "spring", stiffness: 320, damping: 24 }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <AnimatePresence mode="wait">
-              {!done ? (
-                <motion.div key="spinner" exit={{ opacity: 0 }}>
-                  <Loader2 className="h-12 w-12 animate-spin text-slate-400" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="check"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 18 }}
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100"
-                >
-                  <Check className="h-7 w-7 text-green-600" strokeWidth={3} />
-                </motion.div>
-              )}
-            </AnimatePresence>
-            <p className="text-center text-[14px] font-medium text-slate-700">
-              {done ? "Сохранено в галерею" : "Сохраняем…"}
-            </p>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  )
-}
+          {status === "saving" && (
+            <motion.div
+              className="flex w-44 flex-col items-center gap-4 rounded-3xl bg-white px-6 py-7 shadow-xl"
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.85, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 320, damping: 24 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Loader2 className="h-12 w-12 animate-spin text-slate-400" />
+              <p className="text-center text-[14px] font-medium text-slate-700">Создаём…</p>
+            </motion.div>
+          )}
 
-/* ------------------------------------------------------------------ */
-/* Share bottom sheet                                                  */
-/* ------------------------------------------------------------------ */
-
-const SHARE_TARGETS = [
-  { key: "telegram", label: "Telegram", icon: Send, bg: "bg-sky-500" },
-  { key: "whatsapp", label: "WhatsApp", icon: MessageCircle, bg: "bg-green-500" },
-  { key: "email", label: "Почта", icon: Mail, bg: "bg-slate-500" },
-  { key: "copy", label: "Копировать", icon: Link2, bg: "bg-slate-700" },
-]
-
-export function ShareSheet({ open, onClose }: { open: boolean; onClose: () => void }) {
-  return (
-    <AnimatePresence>
-      {open && (
-        <motion.div
-          className="absolute inset-0 z-50 flex flex-col justify-end bg-slate-900/40 backdrop-blur-sm"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
-        >
-          <motion.div
-            className="rounded-t-3xl bg-white px-5 pb-8 pt-3"
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "100%" }}
-            transition={{ type: "spring", stiffness: 360, damping: 34 }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="mx-auto mb-5 h-1.5 w-10 rounded-full bg-slate-200" />
-            <div className="mb-5 flex items-center justify-between">
-              <h2 className="text-[17px] font-semibold text-slate-900">Поделиться</h2>
-              <button
-                onClick={onClose}
-                aria-label="Закрыть"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-500"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            </div>
-            <div className="grid grid-cols-4 gap-4">
-              {SHARE_TARGETS.map((t) => (
+          {status === "done" && previewUrl && (
+            <motion.div
+              className="mx-4 flex max-h-[90dvh] w-full flex-col overflow-hidden rounded-3xl bg-white shadow-xl"
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 320, damping: 24 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex shrink-0 items-center justify-between px-5 py-3">
+                <p className="text-[13px] font-medium text-slate-500">
+                  Нажмите и удерживайте, чтобы сохранить в Фото
+                </p>
                 <button
-                  key={t.key}
+                  type="button"
                   onClick={onClose}
-                  className="flex flex-col items-center gap-2"
+                  aria-label="Закрыть"
+                  className="ml-3 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
                 >
-                  <span
-                    className={`flex h-14 w-14 items-center justify-center rounded-2xl text-white ${t.bg}`}
-                  >
-                    <t.icon className="h-6 w-6" />
-                  </span>
-                  <span className="text-[12px] font-medium text-slate-600">{t.label}</span>
+                  <X className="h-4 w-4" />
                 </button>
-              ))}
-            </div>
-          </motion.div>
+              </div>
+              <div className="overflow-y-auto">
+                <img src={previewUrl} alt="Кешбэки" className="w-full" />
+              </div>
+            </motion.div>
+          )}
+
+          {status === "done" && !previewUrl && (
+            <motion.div
+              className="flex w-44 flex-col items-center gap-4 rounded-3xl bg-white px-6 py-7 shadow-xl"
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.85, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 320, damping: 24 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+                <Check className="h-7 w-7 text-green-600" strokeWidth={3} />
+              </div>
+              <p className="text-center text-[14px] font-medium text-slate-700">Файл сохранён</p>
+            </motion.div>
+          )}
+
+          {status === "error" && (
+            <motion.div
+              className="flex w-56 flex-col items-center gap-4 rounded-3xl bg-white px-6 py-7 shadow-xl"
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.85, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 320, damping: 24 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-100">
+                <X className="h-7 w-7 text-red-600" />
+              </div>
+              <p className="text-center text-[14px] font-medium text-slate-700">
+                Не удалось создать изображение
+              </p>
+            </motion.div>
+          )}
         </motion.div>
       )}
     </AnimatePresence>
