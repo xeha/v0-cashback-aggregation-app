@@ -74,6 +74,15 @@ DEV_STACK_AUTO_STOP=1 python3 scripts/deploy_environment_dokploy.py development
 
 Spec: [`docs/superpowers/specs/2026-06-29-dev-stack-memory-design.md`](docs/superpowers/specs/2026-06-29-dev-stack-memory-design.md)
 
+### Timeweb VPS (RAM, бэкапы диска)
+
+```bash
+cp timeweb.env.example .env.timeweb   # TIMEWEB_CLOUD_TOKEN
+python3 scripts/timeweb_server_status.py status
+python3 scripts/timeweb_server_status.py backups
+python3 scripts/timeweb_server_status.py backup-create --comment "before deploy"
+```
+
 ## Быстрый деплой
 
 ```bash
