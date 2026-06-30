@@ -8,10 +8,16 @@ from schemas import (
     BankOfferItem,
     CategoryMapRequest,
     CategoryMapRequestItem,
+    BatchPipelineErrorDetail,
+    BatchPipelineRequest,
+    BatchPipelineResponse,
+    CashbackMatrix,
     LowConfidenceItem,
     MappedItem,
+    MatrixState,
     ProcessSubmissionRequest,
     ProcessSubmissionResponse,
+    ProcessingSummaryResponse,
 )
 from services.category_text_utils import sanitize_category
 from services.mapper_service import MapperService
@@ -182,10 +188,98 @@ def process_submission(
 
     matrix = merge_mapped_items(current_matrix, provider, mapped_items, body.kind)
     groups = group_matrix_rows(matrix.rows, matrix.market_parts)
+    matrix = matrix.model_copy(update={"groups": groups})
 
     return ProcessSubmissionResponse(
         matrix=matrix,
         groups=groups,
         low_confidence=collect_low_confidence_items(mapped_items, body.provider_name),
         bank_offers=collect_bank_offer_items(mapped_items, body.provider_name),
+    )
+
+
+def _attach_matrix_groups(matrix: CashbackMatrix | None) -> CashbackMatrix | None:
+    if matrix is None:
+        return None
+    groups = group_matrix_rows(matrix.rows, matrix.market_parts)
+    return matrix.model_copy(update={"groups": groups})
+
+
+def _raise_batch_failure(
+    *,
+    index: int,
+    exc: HTTPException,
+    bank_matrix: CashbackMatrix | None,
+    market_matrix: CashbackMatrix | None,
+    low_confidence: list[LowConfidenceItem],
+    bank_offers: list[BankOfferItem],
+) -> None:
+    message = exc.detail if isinstance(exc.detail, str) else str(exc.detail)
+    is_ocr_failure = exc.status_code == 422
+    raise HTTPException(
+        status_code=exc.status_code,
+        detail=BatchPipelineErrorDetail(
+            message=message,
+            failed_index=index,
+            is_ocr_failure=is_ocr_failure,
+            matrix=MatrixState(
+                bank=_attach_matrix_groups(bank_matrix),
+                market=_attach_matrix_groups(market_matrix),
+            ),
+            summary=ProcessingSummaryResponse(
+                low_confidence=low_confidence,
+                bank_offers=bank_offers,
+            ),
+        ).model_dump(),
+    ) from exc
+
+
+def process_batch(
+    body: BatchPipelineRequest,
+    request: Request,
+    bg_tasks: BackgroundTasks,
+) -> BatchPipelineResponse:
+    bank_matrix = body.existing_matrix.bank if body.existing_matrix else None
+    market_matrix = body.existing_matrix.market if body.existing_matrix else None
+    low_confidence: list[LowConfidenceItem] = []
+    bank_offers: list[BankOfferItem] = []
+
+    for index, item in enumerate(body.submissions):
+        current_matrix = market_matrix if item.kind == "market" else bank_matrix
+        submission_request = ProcessSubmissionRequest(
+            image_base64=item.image_base64,
+            mime_type=item.mime_type,
+            kind=item.kind,
+            provider_name=item.provider_name,
+            provider_slug=item.provider_slug,
+            current_matrix=current_matrix,
+        )
+        try:
+            result = process_submission(submission_request, request, bg_tasks)
+        except HTTPException as exc:
+            _raise_batch_failure(
+                index=index,
+                exc=exc,
+                bank_matrix=bank_matrix,
+                market_matrix=market_matrix,
+                low_confidence=low_confidence,
+                bank_offers=bank_offers,
+            )
+
+        if item.kind == "market":
+            market_matrix = result.matrix
+        else:
+            bank_matrix = result.matrix
+        low_confidence.extend(result.low_confidence)
+        bank_offers.extend(result.bank_offers)
+
+    return BatchPipelineResponse(
+        matrix=MatrixState(
+            bank=_attach_matrix_groups(bank_matrix),
+            market=_attach_matrix_groups(market_matrix),
+        ),
+        summary=ProcessingSummaryResponse(
+            low_confidence=low_confidence,
+            bank_offers=bank_offers,
+        ),
     )

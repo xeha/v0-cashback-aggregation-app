@@ -5,6 +5,7 @@ import type {
   MatrixGroup,
   MatrixProvider,
   MatrixRow,
+  MatrixState,
 } from "@/lib/types"
 import type { ComparisonPart } from "@/lib/market-comparison"
 
@@ -51,6 +52,7 @@ export interface ApiCashbackMatrix {
   providers: ApiMatrixProvider[]
   rows: ApiMatrixRow[]
   market_parts?: ApiComparisonPart[] | null
+  groups?: ApiMatrixGroup[] | null
 }
 
 export interface ApiProcessSubmissionResponse {
@@ -68,6 +70,28 @@ export interface ApiProcessSubmissionResponse {
     unified_category: string
     rate: number
   }[]
+}
+
+export interface ApiMatrixState {
+  bank?: ApiCashbackMatrix | null
+  market?: ApiCashbackMatrix | null
+}
+
+export interface ApiBatchPipelineResponse {
+  matrix: ApiMatrixState
+  summary: {
+    skipped: { provider_name?: string; message?: string }[]
+    low_confidence: ApiProcessSubmissionResponse["low_confidence"]
+    bank_offers: ApiProcessSubmissionResponse["bank_offers"]
+  }
+}
+
+export interface ApiBatchPipelineErrorDetail {
+  message: string
+  failed_index: number
+  is_ocr_failure: boolean
+  matrix: ApiMatrixState
+  summary: ApiBatchPipelineResponse["summary"]
 }
 
 function apiGroupToClient(group: ApiMatrixGroup): MatrixGroup {
@@ -145,15 +169,24 @@ export function apiMatrixToClient(matrix: ApiCashbackMatrix): CashbackMatrix {
     })),
     rows: matrix.rows.map(apiRowToClient),
     marketParts: matrix.market_parts?.map(apiPartToClient),
+    groups: matrix.groups?.map(apiGroupToClient),
   }
 }
 
 export function apiProcessResponseToClient(
   response: ApiProcessSubmissionResponse,
 ): CashbackMatrix {
+  const matrix = apiMatrixToClient(response.matrix)
   return {
-    ...apiMatrixToClient(response.matrix),
-    groups: response.groups.map(apiGroupToClient),
+    ...matrix,
+    groups: matrix.groups ?? response.groups.map(apiGroupToClient),
+  }
+}
+
+export function apiMatrixStateToClient(state: ApiMatrixState): MatrixState {
+  return {
+    bank: state.bank ? apiMatrixToClient(state.bank) : null,
+    market: state.market ? apiMatrixToClient(state.market) : null,
   }
 }
 

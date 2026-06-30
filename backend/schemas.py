@@ -149,6 +149,44 @@ class CashbackMatrix(BaseModel):
     providers: list[MatrixProvider]
     rows: list[MatrixRow]
     market_parts: list[ComparisonPart] | None = None
+    groups: list[MatrixGroup] | None = None
+
+
+class MatrixState(BaseModel):
+    bank: CashbackMatrix | None = None
+    market: CashbackMatrix | None = None
+
+
+class BatchSubmissionInput(BaseModel):
+    image_base64: str = Field(..., min_length=1)
+    mime_type: Literal["image/jpeg", "image/png", "image/jpg"] = "image/jpeg"
+    kind: Literal["bank", "market"] = "bank"
+    provider_name: str
+    provider_slug: str | None = None
+
+
+class BatchPipelineRequest(BaseModel):
+    submissions: list[BatchSubmissionInput] = Field(..., min_length=1)
+    existing_matrix: MatrixState | None = None
+
+
+class ProcessingSummaryResponse(BaseModel):
+    skipped: list[dict[str, str]] = Field(default_factory=list)
+    low_confidence: list[LowConfidenceItem] = Field(default_factory=list)
+    bank_offers: list[BankOfferItem] = Field(default_factory=list)
+
+
+class BatchPipelineResponse(BaseModel):
+    matrix: MatrixState
+    summary: ProcessingSummaryResponse
+
+
+class BatchPipelineErrorDetail(BaseModel):
+    message: str
+    failed_index: int
+    is_ocr_failure: bool
+    matrix: MatrixState
+    summary: ProcessingSummaryResponse
 
 
 class ProcessSubmissionRequest(BaseModel):
