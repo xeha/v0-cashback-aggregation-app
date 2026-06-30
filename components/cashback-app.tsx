@@ -372,11 +372,22 @@ export function CashbackApp() {
                       setProcessingError(null)
                       if (isReplacingScreenshot) {
                         const newSubmissions = nextSubmissions.slice(savedSubmissions.length)
+                        if (newSubmissions.length === 0) {
+                          setIsReplacingScreenshot(false)
+                          setCurrentScreen("processing")
+                          return
+                        }
                         setSubmissions((prev) => [...newSubmissions, ...prev])
                         setBankSelectDraft([...savedSubmissions, ...newSubmissions])
                         setIsReplacingScreenshot(false)
                       } else if (isAddingMore) {
                         const newSubmissions = nextSubmissions.slice(savedSubmissions.length)
+                        if (newSubmissions.length === 0) {
+                          setIsAddingMore(false)
+                          setSavedSubmissions([])
+                          setCurrentScreen("results")
+                          return
+                        }
                         setSubmissions(newSubmissions)
                         setBankSelectDraft(nextSubmissions)
                         setIsAddingMore(false)

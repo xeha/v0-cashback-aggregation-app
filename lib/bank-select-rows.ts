@@ -18,6 +18,14 @@ export function submissionToBankSelectRow(
   }
 }
 
+export function isBankSelectRowComplete(name: string, screenshotSrc: string): boolean {
+  return name.trim().length > 0 && screenshotSrc.length > 0
+}
+
+export function canProceedBankSelect(names: string[], shots: string[]): boolean {
+  return names.some((name, index) => isBankSelectRowComplete(name, shots[index] ?? ""))
+}
+
 export function buildBankSelectRowState(
   initialRows: BankSelectInitialRow[] | undefined,
   initialShot: string,

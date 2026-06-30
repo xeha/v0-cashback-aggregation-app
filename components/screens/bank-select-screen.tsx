@@ -16,6 +16,7 @@ import {
 import { ImageFilePicker } from "@/components/image-file-picker"
 import {
   buildBankSelectRowState,
+  canProceedBankSelect,
   type BankSelectInitialRow,
 } from "@/lib/bank-select-rows"
 import {
@@ -188,10 +189,7 @@ export function BankSelectScreen({
     setShots((prev) => prev.filter((_, i) => i !== index))
   }
 
-  const canProceed =
-    lockedRowCount > 0
-      ? names.some((name, i) => i >= lockedRowCount && name.trim().length > 0)
-      : names.some((name) => name.trim().length > 0)
+  const canProceed = canProceedBankSelect(names, shots)
 
   function buildSubmission(
     rowIndex: number,

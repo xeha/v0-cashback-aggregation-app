@@ -1,7 +1,7 @@
 {
   "app/layout.tsx": {
-    "mtime": 1782727652.558632,
-    "ast_hash": "a8d4e290dd47f96f8e5a56ed27b3ef0d",
+    "mtime": 1782829183.7622688,
+    "ast_hash": "42d0fcc0b2a1798ed4df2a928acdf99b",
     "semantic_hash": ""
   },
   "app/page.tsx": {
@@ -35,8 +35,8 @@
     "semantic_hash": ""
   },
   "backend/schemas.py": {
-    "mtime": 1782739996.4105368,
-    "ast_hash": "bf0b2daf008ec3278b059b53c6407006",
+    "mtime": 1782829551.739764,
+    "ast_hash": "cc93f3325a6b266ebdcb359ae4e59bbe",
     "semantic_hash": ""
   },
   "backend/services/__init__.py": {
@@ -60,8 +60,8 @@
     "semantic_hash": "a1691b243ef8732e37a47e5eef18a7e4"
   },
   "components/cashback-app.tsx": {
-    "mtime": 1782736332.8980572,
-    "ast_hash": "0ac6a81f85f4af205f757e26111213dc",
+    "mtime": 1782830004.573951,
+    "ast_hash": "43de4549841e1d60fed12bb3e06b950e",
     "semantic_hash": ""
   },
   "components/duplicate-source-confirm-dialog.tsx": {
@@ -95,8 +95,8 @@
     "semantic_hash": ""
   },
   "components/screens/bank-select-screen.tsx": {
-    "mtime": 1782727652.5615761,
-    "ast_hash": "465c90649d422730775fee7dba64f7ae",
+    "mtime": 1782830001.7101893,
+    "ast_hash": "de7aeb1986267cf2d29e567b7355da81",
     "semantic_hash": ""
   },
   "components/screens/empty-screen.tsx": {
@@ -110,18 +110,18 @@
     "semantic_hash": ""
   },
   "components/screens/processing-screen.tsx": {
-    "mtime": 1782666598.2864947,
-    "ast_hash": "beb5b593c450e98c2048e006b060b5b5",
+    "mtime": 1782829551.7408776,
+    "ast_hash": "a2129b32e4b16ec83398bf8616c44581",
     "semantic_hash": ""
   },
   "components/screens/results-overlays.tsx": {
-    "mtime": 1782727652.5624523,
-    "ast_hash": "aecb699de693f2cd58cdb5fbcd5c90d9",
+    "mtime": 1782829322.3211024,
+    "ast_hash": "dd4add72187dae61ee24b2087ce5bf1e",
     "semantic_hash": ""
   },
   "components/screens/results-screen.tsx": {
-    "mtime": 1782825619.8090217,
-    "ast_hash": "9bc498a4de01e9b579885c1f25473ffe",
+    "mtime": 1782829337.6784427,
+    "ast_hash": "b8675631eab68ae175e69cad61cbd214",
     "semantic_hash": ""
   },
   "components/screens/user-menu.tsx": {
@@ -140,14 +140,14 @@
     "semantic_hash": "63cfaae37f8d5e0fa4451635ccc521b4"
   },
   "lib/api.ts": {
-    "mtime": 1782825562.6614184,
-    "ast_hash": "2cc7a17a72d4cf815449e60fc7031050",
+    "mtime": 1782829551.741289,
+    "ast_hash": "5ef14145b4f79c9949f8faa12401f5e9",
     "semantic_hash": ""
   },
   "lib/bank-select-rows.ts": {
-    "mtime": 1782666598.3206077,
-    "ast_hash": "5e062944de5091668cb54f970726ec14",
-    "semantic_hash": "5e062944de5091668cb54f970726ec14"
+    "mtime": 1782830000.2586374,
+    "ast_hash": "f81e4b426ee3048b29701864aa7c2fdd",
+    "semantic_hash": ""
   },
   "lib/cashback-data.ts": {
     "mtime": 1782727652.5729008,
@@ -190,8 +190,8 @@
     "semantic_hash": ""
   },
   "lib/types.ts": {
-    "mtime": 1782739996.4165378,
-    "ast_hash": "a07cfcfa71dc72976c846d6b0c7203c7",
+    "mtime": 1782826601.538556,
+    "ast_hash": "e95e132f235a0c92877b86947e07bd4f",
     "semantic_hash": ""
   },
   "lib/utils.ts": {
@@ -210,8 +210,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1782735042.313087,
-    "ast_hash": "0a403f3143e6b11d4ced7f8db7c4917a",
+    "mtime": 1782829336.0098562,
+    "ast_hash": "9cdd9786767e828416658abb74ded9bc",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -600,8 +600,8 @@
     "semantic_hash": ""
   },
   "components/app-providers.tsx": {
-    "mtime": 1782666605.0655434,
-    "ast_hash": "e5b40766d07da2541397d6a94af1f320",
+    "mtime": 1782829176.3287725,
+    "ast_hash": "fc963f1454c9f5240f5bef9107881266",
     "semantic_hash": ""
   },
   "components/screens/auth-screen.tsx": {
@@ -625,8 +625,8 @@
     "semantic_hash": ""
   },
   "lib/saved-matrices.ts": {
-    "mtime": 1782736332.9014843,
-    "ast_hash": "efb0278a3f86edb11f709fc4537ac80d",
+    "mtime": 1782829546.205922,
+    "ast_hash": "bae3edf6c8a4b6704ae5616149a2892b",
     "semantic_hash": ""
   },
   "scripts/create_pocketbase_superuser.py": {
@@ -865,8 +865,8 @@
     "semantic_hash": ""
   },
   "backend/routers/pipeline.py": {
-    "mtime": 1782739996.4099329,
-    "ast_hash": "40f61fb1046d8e9830452f7058ca4b12",
+    "mtime": 1782829551.7395098,
+    "ast_hash": "9faa48f24165f638a73cf86c6bcc6eab",
     "semantic_hash": ""
   },
   "backend/scripts/compare_pipeline_paths.py": {
@@ -885,8 +885,8 @@
     "semantic_hash": ""
   },
   "backend/services/pipeline_service.py": {
-    "mtime": 1782739996.411875,
-    "ast_hash": "cec2b2a2f1b0f04a0922bcdccdcd2372",
+    "mtime": 1782829551.740054,
+    "ast_hash": "a6417ea7131ca2eb64a766b350e3353e",
     "semantic_hash": ""
   },
   "backend/tests/test_category_label.py": {
@@ -900,8 +900,8 @@
     "semantic_hash": ""
   },
   "backend/tests/test_pipeline.py": {
-    "mtime": 1782739996.41255,
-    "ast_hash": "30a3ab681558923afaa8e1e4bb1eebb3",
+    "mtime": 1782826601.5378885,
+    "ast_hash": "59513958a1f036e1f4077e8bdaf0f1b3",
     "semantic_hash": ""
   },
   "components/screens/continue-save-card.tsx": {
@@ -910,18 +910,18 @@
     "semantic_hash": ""
   },
   "lib/matrix-api.ts": {
-    "mtime": 1782739996.4153504,
-    "ast_hash": "34bd9f478c71175b8914ba1c1ecba694",
+    "mtime": 1782829551.7415586,
+    "ast_hash": "d601bfd892fcbd877987b128bee8710c",
     "semantic_hash": ""
   },
   "lib/saved-matrix-meta.test.ts": {
-    "mtime": 1782736332.9017048,
-    "ast_hash": "51ab4506ef9b668769d02228c16358c9",
+    "mtime": 1782829552.6888492,
+    "ast_hash": "6197ea6d1ee7cb95276642d70aec1c35",
     "semantic_hash": ""
   },
   "lib/saved-matrix-meta.ts": {
-    "mtime": 1782736332.901937,
-    "ast_hash": "d19a9d5b346159d9a39cad809b2a0898",
+    "mtime": 1782829567.5023067,
+    "ast_hash": "8860d245922453be57e554bac7fb2abe",
     "semantic_hash": ""
   },
   "scripts/run-pipeline-compare.sh": {
@@ -947,6 +947,71 @@
   "scripts/timeweb_server_status.py": {
     "mtime": 1782823865.7211578,
     "ast_hash": "93d1bff8f03b7935db66a9d722ff90e9",
+    "semantic_hash": ""
+  },
+  "backend/services/market_comparison_service.py": {
+    "mtime": 1782826601.5367522,
+    "ast_hash": "daf3ddd3ea5a1d4514a0872cbaf8618c",
+    "semantic_hash": ""
+  },
+  "backend/services/matrix_group_service.py": {
+    "mtime": 1782826601.5369132,
+    "ast_hash": "21f6fb966391a303048f6767f70bbdd5",
+    "semantic_hash": ""
+  },
+  "backend/services/reference_hierarchy_order.py": {
+    "mtime": 1782826601.537293,
+    "ast_hash": "c5f42f7f93cecfbd462eb895fe4449b7",
+    "semantic_hash": ""
+  },
+  "backend/tests/test_market_comparison.py": {
+    "mtime": 1782826601.5374289,
+    "ast_hash": "c33516f12e8d8506a9c8085ead5f8d95",
+    "semantic_hash": ""
+  },
+  "backend/tests/test_matrix_group_display.py": {
+    "mtime": 1782826601.5375252,
+    "ast_hash": "bd8737bdda69bf5bf8462f7e363a2cb1",
+    "semantic_hash": ""
+  },
+  "components/pwa-registrar.tsx": {
+    "mtime": 1782829146.4218292,
+    "ast_hash": "6df8eeace08935dc63f43bc1c2c25913",
+    "semantic_hash": ""
+  },
+  "lib/matrix-export.ts": {
+    "mtime": 1782829257.2748344,
+    "ast_hash": "a27b2421ac979984f4731e83680058c7",
+    "semantic_hash": ""
+  },
+  "lib/pwa.ts": {
+    "mtime": 1782829196.1861076,
+    "ast_hash": "6caaa2762f74da0f4448e1396f85f81a",
+    "semantic_hash": ""
+  },
+  "lib/register-service-worker.ts": {
+    "mtime": 1782829145.8479118,
+    "ast_hash": "d7dc0d29403d1a191104fc6ec5394e4e",
+    "semantic_hash": ""
+  },
+  "lib/use-pwa-install.ts": {
+    "mtime": 1782829196.3527565,
+    "ast_hash": "f364c7f3ed84604329ae6cdfc9939dfe",
+    "semantic_hash": ""
+  },
+  "scripts/generate-pwa-icons.mjs": {
+    "mtime": 1782829143.0373533,
+    "ast_hash": "281d5d4e0011485b71ff9de88afe5d0f",
+    "semantic_hash": ""
+  },
+  "backend/tests/test_batch_pipeline.py": {
+    "mtime": 1782829551.7401938,
+    "ast_hash": "5b6857e39c70280f41f27f50976d9d81",
+    "semantic_hash": ""
+  },
+  "lib/bank-select-rows.test.ts": {
+    "mtime": 1782830009.2739506,
+    "ast_hash": "4f6892dd66efe5189786f4f039352f0f",
     "semantic_hash": ""
   }
 }
