@@ -37,13 +37,13 @@ export function optionValueToPeriod(value: string): CashbackPeriod | null {
 }
 
 export function getCashbackPeriodOptions(
-  monthsBack = 11,
   now = new Date(),
 ): { value: string; label: string; period: CashbackPeriod }[] {
   const options: { value: string; label: string; period: CashbackPeriod }[] = []
-  const cursor = new Date(now.getFullYear(), now.getMonth(), 1)
+  const stopDate = new Date(now.getFullYear(), 0, 1) // 1 января текущего года
+  const cursor = new Date(now.getFullYear(), now.getMonth() + 1, 1) // следующий месяц
 
-  for (let i = 0; i <= monthsBack; i += 1) {
+  while (cursor >= stopDate) {
     const period = { month: cursor.getMonth() + 1, year: cursor.getFullYear() }
     options.push({
       value: periodToOptionValue(period),

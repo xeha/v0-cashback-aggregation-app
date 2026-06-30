@@ -81,28 +81,36 @@ describe("optionValueToPeriod", () => {
 })
 
 describe("getCashbackPeriodOptions", () => {
-  const now = new Date("2026-06-15T10:00:00")
-
-  it("returns 12 months including current, newest first", () => {
-    const options = getCashbackPeriodOptions(11, now)
-    expect(options).toHaveLength(12)
+  it("starts from next month and goes back to January of current year", () => {
+    const now = new Date("2026-06-15T10:00:00")
+    const options = getCashbackPeriodOptions(now)
+    expect(options).toHaveLength(7) // Jul..Jan 2026
     expect(options[0]).toEqual({
-      value: "2026-06",
-      label: "Июнь 2026",
-      period: { month: 6, year: 2026 },
+      value: "2026-07",
+      label: "Июль 2026",
+      period: { month: 7, year: 2026 },
     })
-    expect(options[11]).toEqual({
-      value: "2025-07",
-      label: "Июль 2025",
-      period: { month: 7, year: 2025 },
+    expect(options[options.length - 1]).toEqual({
+      value: "2026-01",
+      label: "Январь 2026",
+      period: { month: 1, year: 2026 },
     })
   })
 
-  it("crosses year boundary", () => {
-    const janNow = new Date("2026-01-10T00:00:00")
-    const options = getCashbackPeriodOptions(11, janNow)
-    expect(options[0].period).toEqual({ month: 1, year: 2026 })
-    expect(options[1].period).toEqual({ month: 12, year: 2025 })
+  it("for January returns next month and current January only", () => {
+    const now = new Date("2026-01-10T00:00:00")
+    const options = getCashbackPeriodOptions(now)
+    expect(options).toHaveLength(2)
+    expect(options[0].period).toEqual({ month: 2, year: 2026 })
+    expect(options[1].period).toEqual({ month: 1, year: 2026 })
+  })
+
+  it("for December includes January of next year", () => {
+    const now = new Date("2026-12-30T00:00:00")
+    const options = getCashbackPeriodOptions(now)
+    expect(options[0].period).toEqual({ month: 1, year: 2027 })
+    expect(options[options.length - 1].period).toEqual({ month: 1, year: 2026 })
+    expect(options).toHaveLength(13) // Jan 2027 + Dec..Jan 2026
   })
 })
 
