@@ -1,7 +1,8 @@
 # bank-select: период кешбэка и даты файлов — Design Spec
 
 **Date:** 2026-06-30  
-**Status:** Approved  
+**Status:** Shipped (`dev`, merge `c7263dc`)  
+**Changelog:** [`2026-06-30-dev-integrations-changelog-design.md`](./2026-06-30-dev-integrations-changelog-design.md)  
 **Mockup:** `canvases/bank-select-period-mockup.canvas.tsx`
 
 ## Problem
