@@ -5,6 +5,7 @@ export interface BankSelectInitialRow {
   screenshotSrc: string
   kind: Kind | null
   catalogSlug: string | null
+  fileModifiedAt?: string | null
 }
 
 export function submissionToBankSelectRow(
@@ -15,6 +16,7 @@ export function submissionToBankSelectRow(
     screenshotSrc: submission.screenshotSrc,
     kind: submission.kind,
     catalogSlug: submission.providerSlug ?? null,
+    fileModifiedAt: submission.fileModifiedAt ?? null,
   }
 }
 
@@ -36,6 +38,7 @@ export function buildBankSelectRowState(
       shots: initialRows.map((row) => row.screenshotSrc),
       catalogSlugs: initialRows.map((row) => row.catalogSlug),
       rowKinds: initialRows.map((row) => row.kind),
+      fileModifiedAts: initialRows.map((row) => row.fileModifiedAt ?? null),
     }
   }
 
@@ -44,5 +47,6 @@ export function buildBankSelectRowState(
     shots: [initialShot],
     catalogSlugs: [null] as (string | null)[],
     rowKinds: [null] as (Kind | null)[],
+    fileModifiedAts: [null] as (string | null)[],
   }
 }

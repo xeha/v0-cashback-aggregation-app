@@ -3,23 +3,29 @@
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { ImageFilePicker } from "@/components/image-file-picker"
+import type { ImagePickResult } from "@/lib/types"
 
 export function GalleryScreen({
   initialSrc = null,
   onCancel,
   onAdd,
+  onScreenshotPicked,
   kind: _kind = "bank",
 }: {
   initialSrc?: string | null
   onCancel: () => void
   onAdd: (src: string) => void
+  onScreenshotPicked?: (result: ImagePickResult) => void
   kind?: "bank" | "market"
 }) {
   const [selectedSrc, setSelectedSrc] = useState<string | null>(initialSrc)
 
   return (
     <ImageFilePicker
-      onPick={setSelectedSrc}
+      onPick={(result) => {
+        setSelectedSrc(result.dataUrl)
+        onScreenshotPicked?.(result)
+      }}
       onDismiss={() => {
         if (!selectedSrc) onCancel()
       }}

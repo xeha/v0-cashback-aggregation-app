@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown, ChevronRight, Download, Share, Smartphone, ImagePlus, Trash2, Bookmark } from "lucide-react"
 import { ProviderLogo } from "@/components/provider-logo"
 import { ProcessingWarningsBanner } from "@/components/processing-warnings-banner"
-import { getCurrentMonthYear, getRowTiers, type RateTier } from "@/lib/cashback-data"
+import { getRowTiers, type RateTier } from "@/lib/cashback-data"
 import {
   groupMatrixRows,
   groupHasSubcategories,
@@ -127,6 +127,7 @@ export function ResultsScreen({
   onUploadMore,
   onLoginRequest,
   onSaveMatrix,
+  cashbackPeriodLabel,
   kind = "bank",
   matrix,
   submissions = [],
@@ -148,6 +149,7 @@ export function ResultsScreen({
   onUploadMore: () => void
   onLoginRequest?: () => void
   onSaveMatrix?: () => Promise<{ ok: true; message: string } | { ok: false; message: string }>
+  cashbackPeriodLabel: string
   kind?: Kind
   matrix: MatrixState
   submissions?: SourceSubmission[]
@@ -247,7 +249,7 @@ export function ResultsScreen({
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Ваши кешбэки</h1>
           <p className="mt-1 text-[14px] capitalize text-slate-500">
-            {getCurrentMonthYear()}
+            {cashbackPeriodLabel}
           </p>
         </div>
         <UserMenu
