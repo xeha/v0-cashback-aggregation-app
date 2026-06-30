@@ -7,6 +7,10 @@ self.addEventListener("activate", (event) => {
 })
 
 self.addEventListener("fetch", (event) => {
+  // Only handle same-origin navigation requests; pass API calls through without
+  // SW interception so base64 image payloads never touch the SW cache layer.
+  const url = new URL(event.request.url)
+  if (url.origin !== self.location.origin) return
   event.respondWith(fetch(event.request))
 })
 
