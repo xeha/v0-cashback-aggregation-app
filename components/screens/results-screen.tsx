@@ -207,7 +207,11 @@ export function ResultsScreen({
       const dataUrl = await toPng(node, {
         backgroundColor: "#ffffff",
         pixelRatio: 2,
-        filter: (el) => !(el instanceof HTMLElement && el.hasAttribute("data-no-capture")),
+        filter: (el) => {
+          if (el instanceof HTMLElement && el.hasAttribute("data-no-capture")) return false
+          if (el instanceof HTMLImageElement) return false
+          return true
+        },
       })
       if (getMobilePlatform() === "ios") {
         setPngPreviewUrl(dataUrl)
