@@ -142,6 +142,11 @@ export async function saveMatrix(
   })
 }
 
+export async function deleteSavedMatrix(pb: PocketBase, id: string): Promise<void> {
+  requireUserId(pb)
+  await pb.collection("saved_matrices").delete(id)
+}
+
 export async function updateSavedMatrix(
   pb: PocketBase,
   id: string,

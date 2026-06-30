@@ -20,6 +20,7 @@ export function EmptyScreen({
   savesLoading = false,
   savedSummaries = [],
   onOpenSaved,
+  onDeleteSaved,
   onNewAssembly,
   savesError,
   onRetrySaves,
@@ -34,6 +35,7 @@ export function EmptyScreen({
   savesLoading?: boolean
   savedSummaries?: SavedMatrixSummary[]
   onOpenSaved?: (id: string) => void
+  onDeleteSaved?: (id: string) => void
   onNewAssembly?: () => void
   savesError?: string | null
   onRetrySaves?: () => void
@@ -73,6 +75,7 @@ export function EmptyScreen({
               savesLoading={savesLoading}
               savesError={savesError}
               onOpenSaved={onOpenSaved}
+              onDeleteSaved={onDeleteSaved}
               onNewAssembly={onNewAssembly}
               onRetrySaves={onRetrySaves}
             />

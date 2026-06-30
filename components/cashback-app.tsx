@@ -20,6 +20,7 @@ import {
 } from "@/lib/cashback-period"
 import { useAuth } from "@/lib/auth-context"
 import {
+  deleteSavedMatrix,
   getSavedMatrix,
   listSavedMatrices,
   saveMatrix,
@@ -179,6 +180,16 @@ export function CashbackApp() {
     }
   }
 
+  async function handleDeleteSaved(id: string) {
+    try {
+      await deleteSavedMatrix(pb, id)
+      setSavedSummaries((prev) => prev.filter((s) => s.id !== id))
+      if (activeSaveId === id) setActiveSaveId(null)
+    } catch {
+      // silently ignore — user stays in current state
+    }
+  }
+
   async function handleSaveMatrix(): Promise<{ ok: true; message: string } | { ok: false; message: string }> {
     const payload = {
       matrix,
@@ -308,6 +319,7 @@ export function CashbackApp() {
     savesLoading,
     savesError,
     onOpenSaved: handleOpenSaved,
+    onDeleteSaved: handleDeleteSaved,
     onNewAssembly: handleRestart,
     onRetrySaves: refreshSavedSummaries,
   }

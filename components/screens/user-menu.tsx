@@ -17,6 +17,7 @@ import {
   Star,
   Check,
   RefreshCw,
+  Trash2,
 } from "lucide-react"
 import { labelsEquivalent } from "@/lib/category-label"
 import { formatSaveMetaLine } from "@/lib/saved-matrix-meta"
@@ -98,6 +99,7 @@ export function UserMenu({
   savesLoading = false,
   savesError = null,
   onOpenSaved,
+  onDeleteSaved,
   onNewAssembly,
   onRetrySaves,
   matrix,
@@ -111,6 +113,7 @@ export function UserMenu({
   savesLoading?: boolean
   savesError?: string | null
   onOpenSaved?: (id: string) => void
+  onDeleteSaved?: (id: string) => void
   onNewAssembly?: () => void
   onRetrySaves?: () => void
   matrix?: MatrixState | null
@@ -118,6 +121,7 @@ export function UserMenu({
   const [open, setOpen] = useState(false)
   const [view, setView] = useState<View>("menu")
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false)
+  const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null)
 
   const [name, setName] = useState("Пользователь")
   const [email, setEmail] = useState(userEmail ?? "")
@@ -408,24 +412,33 @@ export function UserMenu({
                           ) : (
                             <div className="flex flex-col gap-2">
                               {savedSummaries.map((save) => (
-                                <button
-                                  key={save.id}
-                                  type="button"
-                                  onClick={() => openSaved(save.id)}
-                                  className="rounded-xl border border-slate-200 px-4 py-3 text-left transition-colors hover:border-yellow-300 hover:bg-yellow-50 active:bg-yellow-100"
-                                >
-                                  <div className="flex items-start justify-between gap-2">
-                                    <p className="text-[14px] font-semibold text-slate-900">
-                                      {save.title}
+                                <div key={save.id} className="flex items-stretch gap-2">
+                                  <button
+                                    type="button"
+                                    onClick={() => openSaved(save.id)}
+                                    className="min-w-0 flex-1 rounded-xl border border-slate-200 px-4 py-3 text-left transition-colors hover:border-yellow-300 hover:bg-yellow-50 active:bg-yellow-100"
+                                  >
+                                    <div className="flex items-start justify-between gap-2">
+                                      <p className="truncate text-[14px] font-semibold text-slate-900">
+                                        {save.title}
+                                      </p>
+                                      {save.isFavorite && (
+                                        <Star className="h-4 w-4 shrink-0 fill-yellow-400 text-yellow-400" />
+                                      )}
+                                    </div>
+                                    <p className="mt-1 text-[12px] text-slate-500">
+                                      {formatSaveMetaLine(save)}
                                     </p>
-                                    {save.isFavorite && (
-                                      <Star className="h-4 w-4 shrink-0 fill-yellow-400 text-yellow-400" />
-                                    )}
-                                  </div>
-                                  <p className="mt-1 text-[12px] text-slate-500">
-                                    {formatSaveMetaLine(save)}
-                                  </p>
-                                </button>
+                                  </button>
+                                  <button
+                                    type="button"
+                                    aria-label="Удалить"
+                                    onClick={() => setDeleteConfirmId(save.id)}
+                                    className="flex shrink-0 items-center justify-center rounded-xl border border-red-100 bg-red-50 px-3 text-red-400 transition-colors hover:bg-red-100 hover:text-red-600 active:bg-red-200"
+                                  >
+                                    <Trash2 className="h-4 w-4" />
+                                  </button>
+                                </div>
                               ))}
                             </div>
                           )}
@@ -576,6 +589,63 @@ export function UserMenu({
                     )}
                   </motion.div>
                 </AnimatePresence>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Delete save confirmation */}
+      <AnimatePresence>
+        {deleteConfirmId && (
+          <motion.div
+            className="absolute inset-0 z-[60] flex items-center justify-center p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="absolute inset-0 bg-slate-900/50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setDeleteConfirmId(null)}
+            />
+            <motion.div
+              role="alertdialog"
+              aria-modal="true"
+              aria-labelledby="delete-save-title"
+              aria-describedby="delete-save-desc"
+              className="relative w-full max-w-sm rounded-3xl bg-white p-6 shadow-xl"
+              initial={{ opacity: 0, scale: 0.92, y: 12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 12 }}
+              transition={{ type: "spring", stiffness: 380, damping: 30 }}
+            >
+              <h2 id="delete-save-title" className="text-lg font-bold text-slate-900">
+                Удалить результат?
+              </h2>
+              <p id="delete-save-desc" className="mt-2 text-[14px] leading-relaxed text-slate-500">
+                Это действие нельзя отменить. Сохранённый результат будет удалён без возможности восстановления.
+              </p>
+              <div className="mt-6 flex flex-col gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    onDeleteSaved?.(deleteConfirmId)
+                    setDeleteConfirmId(null)
+                  }}
+                  className="w-full rounded-2xl bg-red-600 px-5 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-red-700 active:bg-red-800"
+                >
+                  Удалить
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setDeleteConfirmId(null)}
+                  className="w-full rounded-2xl bg-slate-100 px-5 py-3.5 text-[15px] font-semibold text-slate-700 transition-colors hover:bg-slate-200 active:bg-slate-300"
+                >
+                  Отмена
+                </button>
               </div>
             </motion.div>
           </motion.div>

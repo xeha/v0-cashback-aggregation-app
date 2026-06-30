@@ -141,6 +141,7 @@ export function ResultsScreen({
   savesLoading = false,
   savesError = null,
   onOpenSaved,
+  onDeleteSaved,
   onNewAssembly,
   onRetrySaves,
 }: {
@@ -163,6 +164,7 @@ export function ResultsScreen({
   savesLoading?: boolean
   savesError?: string | null
   onOpenSaved?: (id: string) => void
+  onDeleteSaved?: (id: string) => void
   onNewAssembly?: () => void
   onRetrySaves?: () => void
 }) {
@@ -261,6 +263,7 @@ export function ResultsScreen({
           savesLoading={savesLoading}
           savesError={savesError}
           onOpenSaved={onOpenSaved}
+          onDeleteSaved={onDeleteSaved}
           onNewAssembly={onNewAssembly}
           onRetrySaves={onRetrySaves}
           matrix={matrix}
