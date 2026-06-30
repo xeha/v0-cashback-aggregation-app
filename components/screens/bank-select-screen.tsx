@@ -463,7 +463,7 @@ export function BankSelectScreen({
             const p = optionValueToPeriod(e.target.value)
             if (p) onCashbackPeriodChange(p)
           }}
-          className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-[15px] text-slate-900"
+          className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-[15px] text-slate-900 disabled:cursor-not-allowed disabled:opacity-50"
         >
           {getCashbackPeriodOptions().map((opt) => (
             <option key={opt.value} value={opt.value}>
@@ -471,6 +471,11 @@ export function BankSelectScreen({
             </option>
           ))}
         </select>
+        {lockedRowCount > 0 && (
+          <p className="mt-2 text-[12px] text-slate-400">
+            Период зафиксирован для текущей сборки
+          </p>
+        )}
       </div>
 
       <div className="mt-5 flex flex-col gap-3">
