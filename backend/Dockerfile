@@ -1,7 +1,7 @@
 FROM python:3.11-slim
 
 # Bust Docker layer cache when app code changes (increment on auth/MX deploy).
-ARG APP_REVISION=2026-06-29-auth-mx
+ARG APP_REVISION=2026-06-30-cpu-torch
 
 WORKDIR /app
 
@@ -10,7 +10,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# CPU-only torch: avoids ~1.5 GB CUDA wheels and lowers RAM on 8 GiB VPS.
+RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu \
+    && pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
