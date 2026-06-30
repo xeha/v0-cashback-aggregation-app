@@ -230,17 +230,19 @@ export function ResultsScreen({
   }
 
   async function handleShare() {
-    const url = window.location.href
+    const shareUrl = activeSaveId
+      ? `${window.location.origin}/share/${activeSaveId}`
+      : window.location.href
     const text = `Мои кешбэки за ${cashbackPeriodLabel}`
     if (typeof navigator.share === "function") {
       try {
-        await navigator.share({ title: "CashbackBrain", text, url })
+        await navigator.share({ title: "CashbackBrain", text, url: shareUrl })
       } catch {
         // пользователь отменил — ничего не делаем
       }
     } else {
       try {
-        await navigator.clipboard.writeText(url)
+        await navigator.clipboard.writeText(shareUrl)
         setSaveToast("Ссылка скопирована")
       } catch {
         setSaveToast("Не удалось скопировать ссылку")
