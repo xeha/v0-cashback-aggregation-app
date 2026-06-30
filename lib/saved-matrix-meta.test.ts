@@ -26,18 +26,37 @@ describe("formatRelativeUpdated", () => {
 })
 
 describe("formatSaveMetaLine", () => {
-  it("joins provider, category and relative date", () => {
+  it("joins bank, category and relative date", () => {
     const summary: SavedMatrixSummary = {
       id: "1",
       title: "Кешбэк 6.2026",
       updated: "2026-06-28T10:00:00",
-      providerCount: 3,
+      bankCount: 2,
+      marketCount: 0,
       categoryCount: 12,
       isFavorite: false,
     }
     const line = formatSaveMetaLine(summary)
-    expect(line).toContain("3 банка")
+    expect(line).toContain("2 банка")
+    expect(line).not.toContain("супермаркет")
     expect(line).toContain("12 категорий")
     expect(line).toContain("обновлено")
+  })
+
+  it("shows banks and supermarkets separately", () => {
+    const summary: SavedMatrixSummary = {
+      id: "2",
+      title: "Кешбэк 6.2026",
+      updated: "2026-06-15T10:00:00",
+      bankCount: 2,
+      marketCount: 1,
+      categoryCount: 8,
+      isFavorite: false,
+    }
+    const line = formatSaveMetaLine(summary)
+    expect(line).toContain("2 банка")
+    expect(line).toContain("1 супермаркет")
+    expect(line).not.toContain("3 банка")
+    expect(line).toContain("8 категорий")
   })
 })

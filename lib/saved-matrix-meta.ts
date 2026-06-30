@@ -28,8 +28,12 @@ export function formatRelativeUpdated(isoDate: string, now = new Date()): string
   return `${day}.${month}.${year}`
 }
 
-export function formatProviderCount(count: number): string {
+export function formatBankCount(count: number): string {
   return `${count} ${pluralRu(count, "банк", "банка", "банков")}`
+}
+
+export function formatMarketCount(count: number): string {
+  return `${count} ${pluralRu(count, "супермаркет", "супермаркета", "супермаркетов")}`
 }
 
 export function formatCategoryCount(count: number): string {
@@ -37,10 +41,10 @@ export function formatCategoryCount(count: number): string {
 }
 
 export function formatSaveMetaLine(summary: SavedMatrixSummary): string {
-  const parts = [
-    formatProviderCount(summary.providerCount),
-    formatCategoryCount(summary.categoryCount),
-    `обновлено ${formatRelativeUpdated(summary.updated)}`,
-  ]
+  const parts: string[] = []
+  if (summary.bankCount > 0) parts.push(formatBankCount(summary.bankCount))
+  if (summary.marketCount > 0) parts.push(formatMarketCount(summary.marketCount))
+  parts.push(formatCategoryCount(summary.categoryCount))
+  parts.push(`обновлено ${formatRelativeUpdated(summary.updated)}`)
   return parts.join(" · ")
 }

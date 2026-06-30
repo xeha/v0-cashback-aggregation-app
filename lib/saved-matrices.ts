@@ -12,7 +12,8 @@ export interface SavedMatrixSummary {
   periodMonth?: number
   periodYear?: number
   updated: string
-  providerCount: number
+  bankCount: number
+  marketCount: number
   categoryCount: number
   isFavorite: boolean
 }
@@ -38,15 +39,9 @@ type PocketBaseSavedMatrixRecord = {
   summary?: ProcessingSummary
 }
 
-function countProviders(
-  bankMatrix: CashbackMatrix | null | undefined,
-  marketMatrix: CashbackMatrix | null | undefined,
-): number {
+function countMatrixProviders(matrix: CashbackMatrix | null | undefined): number {
   const names = new Set<string>()
-  for (const provider of bankMatrix?.providers ?? []) {
-    names.add(provider.name)
-  }
-  for (const provider of marketMatrix?.providers ?? []) {
+  for (const provider of matrix?.providers ?? []) {
     names.add(provider.name)
   }
   return names.size
@@ -71,7 +66,8 @@ function recordToSummary(record: PocketBaseSavedMatrixRecord): SavedMatrixSummar
     periodMonth: record.period_month,
     periodYear: record.period_year,
     updated: record.updated || record.created || periodFallback,
-    providerCount: countProviders(record.bank_matrix, record.market_matrix),
+    bankCount: countMatrixProviders(record.bank_matrix),
+    marketCount: countMatrixProviders(record.market_matrix),
     categoryCount: countCategories(record.bank_matrix, record.market_matrix),
     isFavorite: record.is_favorite ?? false,
   }
