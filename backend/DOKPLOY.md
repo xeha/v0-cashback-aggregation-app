@@ -83,6 +83,13 @@ curl -X POST http://localhost:8000/api/admin/reload-catalogs \
 
 Полная схема: [`DOKPLOY.md`](../DOKPLOY.md) в корне репозитория.
 
+### Память (VPS)
+
+- Рекомендуемый VPS: **8 GB RAM**
+- FastAPI с `sentence-transformers`: ~800 MB–1.2 GB на инстанс
+- Dev FastAPI не должен работать 24/7 — `python3 scripts/toggle_dev_stack.py stop`
+- Memory limit в Dokploy UI: **1536m** на FastAPI (dev + prod)
+
 ### Автоматизация
 
 ```bash

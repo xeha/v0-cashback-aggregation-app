@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import subprocess
 import sys
 from pathlib import Path
 
@@ -110,6 +111,19 @@ def main() -> None:
         print(f"  {name} appId: {app_id}")
 
     if target == "development":
+        print()
+        print("Development deploy finished.")
+        print("  Stop dev stack when not testing (saves RAM on VPS):")
+        print("    python3 scripts/toggle_dev_stack.py stop")
+        print("  Before next test:")
+        print("    python3 scripts/toggle_dev_stack.py start --wait-health")
+        if os.environ.get("DEV_STACK_AUTO_STOP", "").strip().lower() in ("1", "true", "yes"):
+            print()
+            print("DEV_STACK_AUTO_STOP=1 — stopping development stack…")
+            subprocess.run(
+                [sys.executable, str(Path(__file__).resolve().parent / "toggle_dev_stack.py"), "stop"],
+                check=False,
+            )
         print()
         print("After first PocketBase deploy:")
         print("  1. Create superadmin at https://pb-dev.cashbackbrain.ru/_/")

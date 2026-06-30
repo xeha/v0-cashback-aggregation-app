@@ -47,6 +47,33 @@ dev ──push──▶ Dokploy development ──▶ тест на dev.cashback
 
 Подробнее для агентов: [`.cursor/rules/deploy-git-workflow.mdc`](.cursor/rules/deploy-git-workflow.mdc).
 
+## Dev-стек по запросу (RAM)
+
+VPS: **8 GB RAM**. Production 24/7. Development **stopped**, когда не тестируем.
+
+| Режим | RAM (оценка) |
+|-------|----------------|
+| Штатный (prod only) | ~2.0–2.5 GB |
+| Dev-тест (prod + dev) | ~4.0–4.5 GB |
+
+```bash
+# Перед тестом на dev
+python3 scripts/toggle_dev_stack.py start --wait-health
+FRONTEND_URL=https://dev.cashbackbrain.ru python3 scripts/verify_e2e_phase5.py
+
+# После теста / после deploy development
+python3 scripts/toggle_dev_stack.py stop
+python3 scripts/toggle_dev_stack.py status
+```
+
+После deploy development (авто-stop опционально):
+
+```bash
+DEV_STACK_AUTO_STOP=1 python3 scripts/deploy_environment_dokploy.py development
+```
+
+Spec: [`docs/superpowers/specs/2026-06-29-dev-stack-memory-design.md`](docs/superpowers/specs/2026-06-29-dev-stack-memory-design.md)
+
 ## Быстрый деплой
 
 ```bash
