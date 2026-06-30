@@ -1,5 +1,6 @@
 import type {
   CashbackMatrix,
+  CashbackPeriod,
   MatrixState,
   ProcessingSummary,
   SourceSubmission,
@@ -125,12 +126,11 @@ export async function saveMatrix(
     matrix: MatrixState
     submissions: SourceSubmission[]
     summary: ProcessingSummary
+    period: CashbackPeriod
     title?: string
   },
 ) {
-  const now = new Date()
-  const month = now.getMonth() + 1
-  const year = now.getFullYear()
+  const { month, year } = payload.period
   const userId = requireUserId(pb)
 
   return pb.collection("saved_matrices").create({

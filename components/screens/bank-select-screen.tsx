@@ -19,12 +19,23 @@ import {
   type BankSelectInitialRow,
 } from "@/lib/bank-select-rows"
 import {
+  formatFileModifiedDate,
+  getCashbackPeriodOptions,
+  optionValueToPeriod,
+  periodToOptionValue,
+} from "@/lib/cashback-period"
+import {
   findCatalogMatches,
   getProviderComparisonKey,
   providerNamesMatch,
   type ProviderSuggestion,
 } from "@/lib/provider-logos"
-import type { Kind, SourceSubmission } from "@/lib/types"
+import type {
+  CashbackPeriod,
+  ImagePickResult,
+  Kind,
+  SourceSubmission,
+} from "@/lib/types"
 
 const COPY = {
   title: "Выберите или введите источник кешбэка",
@@ -119,6 +130,47 @@ function getDuplicateProviderNames(
   return [...duplicates].sort((a, b) => a.localeCompare(b, "ru"))
 }
 
+function resolveInitialFileModifiedAts(
+  fileModifiedAts: (string | null)[],
+  shots: string[],
+  fileModifiedBySrc?: Record<string, number>,
+): (string | null)[] {
+  if (!fileModifiedBySrc) return fileModifiedAts
+
+  return fileModifiedAts.map((existing, i) => {
+    if (existing) return existing
+    const src = shots[i]
+    if (!src) return null
+    const ms = fileModifiedBySrc[src]
+    if (ms == null) return null
+    if (!formatFileModifiedDate(ms)) return null
+    return new Date(ms).toISOString()
+  })
+}
+
+function getFileDateLabel(
+  rowIndex: number,
+  fileModifiedAts: (string | null)[],
+  shots: string[],
+  fileModifiedBySrc?: Record<string, number>,
+): string | null {
+  const iso = fileModifiedAts[rowIndex]
+  if (iso) {
+    const ms = Date.parse(iso)
+    if (Number.isFinite(ms)) {
+      const label = formatFileModifiedDate(ms)
+      if (label) return label
+    }
+  }
+
+  const src = shots[rowIndex]
+  if (src && fileModifiedBySrc?.[src] != null) {
+    return formatFileModifiedDate(fileModifiedBySrc[src])
+  }
+
+  return null
+}
+
 export function BankSelectScreen({
   onBack,
   onNext,
@@ -126,6 +178,10 @@ export function BankSelectScreen({
   initialShot = "",
   initialRows,
   lockedRowCount = 0,
+  cashbackPeriod,
+  onCashbackPeriodChange,
+  fileModifiedBySrc,
+  onScreenshotPicked,
 }: {
   onBack: () => void
   onNext: (submissions: SourceSubmission[]) => void
@@ -133,12 +189,19 @@ export function BankSelectScreen({
   initialShot?: string
   initialRows?: BankSelectInitialRow[]
   lockedRowCount?: number
+  cashbackPeriod: CashbackPeriod
+  onCashbackPeriodChange: (period: CashbackPeriod) => void
+  fileModifiedBySrc?: Record<string, number>
+  onScreenshotPicked?: (result: ImagePickResult) => void
 }) {
   const initial = buildBankSelectRowState(initialRows, initialShot)
   const [names, setNames] = useState<string[]>(initial.names)
   const [catalogSlugs, setCatalogSlugs] = useState<(string | null)[]>(initial.catalogSlugs)
   const [rowKinds, setRowKinds] = useState<(Kind | null)[]>(initial.rowKinds)
   const [shots, setShots] = useState<string[]>(initial.shots)
+  const [fileModifiedAts, setFileModifiedAts] = useState<(string | null)[]>(() =>
+    resolveInitialFileModifiedAts(initial.fileModifiedAts, initial.shots, fileModifiedBySrc),
+  )
   const [resolveContext, setResolveContext] = useState<ResolveContext | null>(null)
   const [duplicateConfirm, setDuplicateConfirm] = useState<DuplicateConfirmState | null>(null)
   const [screenshotReuseBlock, setScreenshotReuseBlock] =
@@ -164,13 +227,20 @@ export function BankSelectScreen({
     setRowKinds((prev) => prev.map((value, i) => (i === index ? rowKind : value)))
   }
 
-  function handleScreenshotAdded(src: string) {
+  function handleScreenshotAdded(result: ImagePickResult) {
     const newIndex = names.length
+    const fileDateLabel = formatFileModifiedDate(result.fileModifiedAt)
+    const fileModifiedAt = fileDateLabel
+      ? new Date(result.fileModifiedAt).toISOString()
+      : null
+
     setNames((prev) => [...prev, ""])
     setCatalogSlugs((prev) => [...prev, null])
     setRowKinds((prev) => [...prev, null])
-    setShots((prev) => [...prev, src])
+    setShots((prev) => [...prev, result.dataUrl])
+    setFileModifiedAts((prev) => [...prev, fileModifiedAt])
     focusIndexRef.current = newIndex
+    onScreenshotPicked?.(result)
   }
 
   function removeRow(index: number) {
@@ -186,6 +256,7 @@ export function BankSelectScreen({
     setCatalogSlugs((prev) => prev.filter((_, i) => i !== index))
     setRowKinds((prev) => prev.filter((_, i) => i !== index))
     setShots((prev) => prev.filter((_, i) => i !== index))
+    setFileModifiedAts((prev) => prev.filter((_, i) => i !== index))
   }
 
   const canProceed =
@@ -199,11 +270,13 @@ export function BankSelectScreen({
     rowKind: Kind,
     providerSlug?: string,
   ): SourceSubmission {
+    const fileModifiedAt = fileModifiedAts[rowIndex]
     return {
       providerName,
       screenshotSrc: shots[rowIndex] ?? "",
       kind: rowKind,
       providerSlug,
+      ...(fileModifiedAt ? { fileModifiedAt } : {}),
     }
   }
 
@@ -383,11 +456,36 @@ export function BankSelectScreen({
         {COPY.subtitle}
       </p>
 
-      <div className="mt-7 flex flex-col gap-3">
+      <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+        <label className="text-[13px] text-slate-500">Кешбэк за</label>
+        <select
+          value={periodToOptionValue(cashbackPeriod)}
+          disabled={lockedRowCount > 0}
+          onChange={(e) => {
+            const p = optionValueToPeriod(e.target.value)
+            if (p) onCashbackPeriodChange(p)
+          }}
+          className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-[15px] text-slate-900"
+        >
+          {getCashbackPeriodOptions().map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="mt-5 flex flex-col gap-3">
         {names.map((name, i) => {
           const hasScreenshotConflict =
             screenshotReuseBlock?.conflictRowIndices.includes(i) ?? false
           const isLocked = i < lockedRowCount
+          const fileDateLabel = getFileDateLabel(
+            i,
+            fileModifiedAts,
+            shots,
+            fileModifiedBySrc,
+          )
 
           return (
           <div key={i} className="flex items-center gap-2">
@@ -433,6 +531,11 @@ export function BankSelectScreen({
                   placeholder={COPY.placeholder}
                   onChange={(nextName, slug, rowKind) => updateRow(i, nextName, slug, rowKind)}
                 />
+              )}
+              {fileDateLabel && (
+                <p className="mt-1 px-1 text-[13px] text-slate-400">
+                  Файл от {fileDateLabel}
+                </p>
               )}
             </div>
           </div>

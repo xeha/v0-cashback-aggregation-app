@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { ImageFilePicker } from "@/components/image-file-picker"
 import type { SavedMatrixSummary } from "@/lib/saved-matrices"
+import type { ImagePickResult } from "@/lib/types"
 import { ContinueSaveCard, ContinueSaveCardSkeleton } from "./continue-save-card"
 import { UserMenu } from "./user-menu"
 
@@ -21,7 +22,7 @@ export function EmptyScreen({
   savesError,
   onRetrySaves,
 }: {
-  onFilePicked: (src: string) => void
+  onFilePicked: (result: ImagePickResult) => void
   onLogout: () => void
   onLoginRequest: () => void
   isGuest: boolean

@@ -13,6 +13,11 @@ import {
   submissionToBankSelectRow,
   type BankSelectInitialRow,
 } from "@/lib/bank-select-rows"
+import {
+  cashbackPeriodFromSaved,
+  formatCashbackPeriod,
+  getDefaultCashbackPeriod,
+} from "@/lib/cashback-period"
 import { useAuth } from "@/lib/auth-context"
 import {
   getSavedMatrix,
@@ -22,7 +27,14 @@ import {
   type SavedMatrixRecord,
   type SavedMatrixSummary,
 } from "@/lib/saved-matrices"
-import type { Kind, MatrixState, ProcessingSummary, SourceSubmission } from "@/lib/types"
+import type {
+  CashbackPeriod,
+  ImagePickResult,
+  Kind,
+  MatrixState,
+  ProcessingSummary,
+  SourceSubmission,
+} from "@/lib/types"
 
 type Screen = "empty" | "gallery" | "bank-select" | "processing" | "results"
 
@@ -38,7 +50,9 @@ function resetState() {
   return {
     currentScreen: "empty" as Screen,
     kind: "bank" as Kind,
+    cashbackPeriod: getDefaultCashbackPeriod() as CashbackPeriod,
     initialShot: "",
+    fileModifiedBySrc: {} as Record<string, number>,
     galleryPrefillSrc: null as string | null,
     submissions: [] as SourceSubmission[],
     matrix: { bank: null, market: null } as MatrixState,
@@ -88,7 +102,9 @@ export function CashbackApp() {
   const { user, isLoading, logout, pb } = useAuth()
   const [currentScreen, setCurrentScreen] = useState<Screen>("empty")
   const [kind, setKind] = useState<Kind>("bank")
+  const [cashbackPeriod, setCashbackPeriod] = useState<CashbackPeriod>(getDefaultCashbackPeriod())
   const [initialShot, setInitialShot] = useState("")
+  const [fileModifiedBySrc, setFileModifiedBySrc] = useState<Record<string, number>>({})
   const [galleryPrefillSrc, setGalleryPrefillSrc] = useState<string | null>(null)
   const [submissions, setSubmissions] = useState<SourceSubmission[]>([])
   const [matrix, setMatrix] = useState<MatrixState>({ bank: null, market: null })
@@ -143,6 +159,7 @@ export function CashbackApp() {
     setMatrix({ bank: record.bank_matrix, market: record.market_matrix })
     setSubmissions(record.submissions)
     setProcessingSummary(record.summary)
+    setCashbackPeriod(cashbackPeriodFromSaved(record.periodMonth, record.periodYear))
     setBankSelectDraft(record.submissions)
     setProcessingError(null)
     setSavedSubmissions([])
@@ -167,6 +184,7 @@ export function CashbackApp() {
       matrix,
       submissions,
       summary: processingSummary,
+      period: cashbackPeriod,
     }
 
     try {
@@ -211,7 +229,9 @@ export function CashbackApp() {
     const next = resetState()
     setCurrentScreen(next.currentScreen)
     setKind(next.kind)
+    setCashbackPeriod(next.cashbackPeriod)
     setInitialShot(next.initialShot)
+    setFileModifiedBySrc(next.fileModifiedBySrc)
     setGalleryPrefillSrc(next.galleryPrefillSrc)
     setSubmissions(next.submissions)
     setMatrix(next.matrix)
@@ -226,6 +246,14 @@ export function CashbackApp() {
     pickModeRef.current = null
   }
 
+  function registerFilePick(result: ImagePickResult) {
+    setFileModifiedBySrc((prev) => ({
+      ...prev,
+      [result.dataUrl]: result.fileModifiedAt,
+    }))
+    return result.dataUrl
+  }
+
   function goToBankSelectWithShot(src: string) {
     setInitialShot(src)
     if (!isReplacingScreenshot && !isAddingMore) {
@@ -236,7 +264,8 @@ export function CashbackApp() {
     setCurrentScreen("bank-select")
   }
 
-  function handleGlobalFilePicked(src: string) {
+  function handleGlobalFilePicked(result: ImagePickResult) {
+    const src = registerFilePick(result)
     const mode = pickModeRef.current
     pickModeRef.current = null
 
@@ -306,8 +335,9 @@ export function CashbackApp() {
                   <EmptyScreen
                     isGuest={isGuest}
                     onLoginRequest={openAuth}
-                    onFilePicked={(src) => {
+                    onFilePicked={(result) => {
                       setActiveSaveId(null)
+                      const src = registerFilePick(result)
                       setInitialShot(src)
                       setGalleryPrefillSrc(src)
                       setCurrentScreen("gallery")
@@ -324,6 +354,7 @@ export function CashbackApp() {
                   <GalleryScreen
                     kind={kind}
                     initialSrc={galleryPrefillSrc}
+                    onScreenshotPicked={registerFilePick}
                     onCancel={() => {
                       setGalleryPrefillSrc(null)
                       if (isReplacingScreenshot) {
@@ -352,6 +383,10 @@ export function CashbackApp() {
                     initialShot={initialShot}
                     initialRows={bankSelectInitialRows}
                     lockedRowCount={lockedRowCount}
+                    cashbackPeriod={cashbackPeriod}
+                    onCashbackPeriodChange={setCashbackPeriod}
+                    fileModifiedBySrc={fileModifiedBySrc}
+                    onScreenshotPicked={registerFilePick}
                     onBack={() => {
                       if (isReplacingScreenshot) {
                         setIsReplacingScreenshot(false)
@@ -440,6 +475,7 @@ export function CashbackApp() {
                 {currentScreen === "results" && (
                   <ResultsScreen
                     kind={kind}
+                    cashbackPeriodLabel={formatCashbackPeriod(cashbackPeriod)}
                     matrix={matrix}
                     submissions={submissions}
                     processingSummary={processingSummary}

@@ -1,11 +1,22 @@
 export type Kind = "bank" | "market"
 
+export interface CashbackPeriod {
+  month: number
+  year: number
+}
+
+export interface ImagePickResult {
+  dataUrl: string
+  fileModifiedAt: number
+}
+
 export interface SourceSubmission {
   providerName: string
   screenshotSrc: string
   kind: Kind
   /** Set when user picks from catalog or name exactly matches catalog */
   providerSlug?: string
+  fileModifiedAt?: string
 }
 
 export interface OcrItem {
