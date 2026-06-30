@@ -2,9 +2,12 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
+# 20 MB base64 ≈ 15 MB raw image — upper bound before Pydantic, before Pillow decode
+_IMAGE_BASE64_MAX = 20_000_000
+
 
 class OcrExtractRequest(BaseModel):
-    image_base64: str = Field(..., min_length=1)
+    image_base64: str = Field(..., min_length=1, max_length=_IMAGE_BASE64_MAX)
     mime_type: Literal["image/jpeg", "image/png", "image/jpg"] = "image/jpeg"
     kind: Literal["bank", "market"] = "bank"
 
@@ -158,7 +161,7 @@ class MatrixState(BaseModel):
 
 
 class BatchSubmissionInput(BaseModel):
-    image_base64: str = Field(..., min_length=1)
+    image_base64: str = Field(..., min_length=1, max_length=_IMAGE_BASE64_MAX)
     mime_type: Literal["image/jpeg", "image/png", "image/jpg"] = "image/jpeg"
     kind: Literal["bank", "market"] = "bank"
     provider_name: str
@@ -204,7 +207,7 @@ class BatchPipelineErrorDetail(BaseModel):
 
 
 class ProcessSubmissionRequest(BaseModel):
-    image_base64: str = Field(..., min_length=1)
+    image_base64: str = Field(..., min_length=1, max_length=_IMAGE_BASE64_MAX)
     mime_type: Literal["image/jpeg", "image/png", "image/jpg"] = "image/jpeg"
     kind: Literal["bank", "market"] = "bank"
     provider_name: str

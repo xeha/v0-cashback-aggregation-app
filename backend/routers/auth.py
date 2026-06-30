@@ -13,9 +13,9 @@ router = APIRouter(prefix="/api/auth", tags=["auth"])
 
 
 def _client_ip(request: Request) -> str:
-    forwarded = request.headers.get("x-forwarded-for", "")
-    if forwarded:
-        return forwarded.split(",")[0].strip()
+    # X-Forwarded-For is not trusted here: without a verified proxy allowlist,
+    # any client can spoof arbitrary IPs to bypass the rate limiter.
+    # Use the direct connection IP instead.
     if request.client and request.client.host:
         return request.client.host
     return "unknown"
