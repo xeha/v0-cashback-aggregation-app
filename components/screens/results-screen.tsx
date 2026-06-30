@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, ChevronRight, Download, Share, LayoutGrid, ImagePlus, Trash2, Bookmark } from "lucide-react"
+import { ChevronDown, ChevronRight, Download, Share, Smartphone, ImagePlus, Trash2, Bookmark } from "lucide-react"
 import { ProviderLogo } from "@/components/provider-logo"
 import { ProcessingWarningsBanner } from "@/components/processing-warnings-banner"
 import { getCurrentMonthYear, getRowTiers, type RateTier } from "@/lib/cashback-data"
@@ -20,8 +20,9 @@ import {
   labelsEquivalent,
 } from "@/lib/category-label"
 import type { CashbackMatrix, Kind, MatrixProvider, MatrixRow, MatrixState, ProcessingSummary, SourceSubmission } from "@/lib/types"
+import { usePwaInstall } from "@/lib/use-pwa-install"
 import { GuestSaveBanner } from "./guest-save-banner"
-import { AddWidgetOverlay, SavePngOverlay, ShareSheet } from "./results-overlays"
+import { AddToHomeScreenOverlay, SavePngOverlay, ShareSheet } from "./results-overlays"
 import { UserMenu } from "./user-menu"
 import type { SavedMatrixSummary } from "@/lib/saved-matrices"
 
@@ -172,6 +173,7 @@ export function ResultsScreen({
   const [isSavingMatrix, setIsSavingMatrix] = useState(false)
   const [saveToast, setSaveToast] = useState<string | null>(null)
   const [saveError, setSaveError] = useState<string | null>(null)
+  const { isStandalone, canPromptInstall, promptInstall } = usePwaInstall()
 
   const activeMatrix = getActiveMatrix(matrix, activeTab)
   const providers = activeMatrix?.providers ?? []
@@ -197,7 +199,17 @@ export function ResultsScreen({
     setShowShare(true)
   }
 
-  function handleAddWidget() {
+  async function handleAddToHomeScreen() {
+    if (isStandalone) {
+      setShowWidget(true)
+      return
+    }
+
+    if (canPromptInstall) {
+      const accepted = await promptInstall()
+      if (accepted) return
+    }
+
     setShowWidget(true)
   }
 
@@ -472,11 +484,12 @@ export function ResultsScreen({
         </button>
         <div className="h-px bg-yellow-300" />
         <button
-          onClick={handleAddWidget}
+          type="button"
+          onClick={() => void handleAddToHomeScreen()}
           className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-yellow-300 active:bg-yellow-400"
         >
-          <LayoutGrid className="h-5 w-5 shrink-0 text-slate-700" />
-          <span className="text-[15px] font-medium text-slate-900">Добавить виджет</span>
+          <Smartphone className="h-5 w-5 shrink-0 text-slate-700" />
+          <span className="text-[15px] font-medium text-slate-900">На экран «Домой»</span>
         </button>
         <div className="h-px bg-yellow-300" />
         <button
@@ -504,7 +517,13 @@ export function ResultsScreen({
 
       <SavePngOverlay open={showSave} onClose={() => setShowSave(false)} />
       <ShareSheet open={showShare} onClose={() => setShowShare(false)} />
-      <AddWidgetOverlay open={showWidget} onClose={() => setShowWidget(false)} tab={activeTab} />
+      <AddToHomeScreenOverlay
+        open={showWidget}
+        onClose={() => setShowWidget(false)}
+        canPromptInstall={canPromptInstall}
+        onInstall={promptInstall}
+        isStandalone={isStandalone}
+      />
 
       <AnimatePresence>
         {saveToast && (

@@ -14,7 +14,8 @@
     "test:auth": "vitest run lib/auth-errors.test.ts lib/auth-validation.test.ts lib/auth-context.test.ts lib/use-email-blur-validation.test.ts && npm run test:integration",
     "security:audit": "npm audit --audit-level=high",
     "upload:logos": "node scripts/upload-assets.mjs",
-    "upload:catalogs": "node scripts/upload-catalogs.mjs"
+    "upload:catalogs": "node scripts/upload-catalogs.mjs",
+    "generate:pwa-icons": "node scripts/generate-pwa-icons.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
@@ -45,6 +46,7 @@
     "@vitest/coverage-v8": "^4.1.9",
     "jsdom": "^29.1.1",
     "postcss": "^8.5",
+    "sharp": "^0.35.2",
     "tailwindcss": "^4.2.0",
     "typescript": "5.7.3",
     "vitest": "^4.1.9"
