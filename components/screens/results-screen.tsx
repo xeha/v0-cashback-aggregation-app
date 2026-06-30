@@ -249,6 +249,7 @@ export function ResultsScreen({
           onOpenSaved={onOpenSaved}
           onNewAssembly={onNewAssembly}
           onRetrySaves={onRetrySaves}
+          matrix={matrix}
         />
       </div>
 

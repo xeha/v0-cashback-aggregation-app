@@ -1,16 +1,16 @@
 # Graph Report - v0-cashback-aggregation-app  (2026-06-30)
 
 ## Corpus Check
-- 187 files · ~200,524 words
+- 189 files · ~200,437 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1180 nodes · 2625 edges · 72 communities (64 shown, 8 thin omitted)
-- Extraction: 86% EXTRACTED · 14% INFERRED · 0% AMBIGUOUS · INFERRED: 373 edges (avg confidence: 0.54)
+- 1193 nodes · 2657 edges · 80 communities (72 shown, 8 thin omitted)
+- Extraction: 86% EXTRACTED · 14% INFERRED · 0% AMBIGUOUS · INFERRED: 378 edges (avg confidence: 0.55)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6c5dad59`
+- Built from commit: `d7d5acae`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -79,6 +79,14 @@
 - [[_COMMUNITY_Community 69|Community 69]]
 - [[_COMMUNITY_Community 70|Community 70]]
 - [[_COMMUNITY_Community 71|Community 71]]
+- [[_COMMUNITY_Community 72|Community 72]]
+- [[_COMMUNITY_Community 73|Community 73]]
+- [[_COMMUNITY_Community 74|Community 74]]
+- [[_COMMUNITY_Community 75|Community 75]]
+- [[_COMMUNITY_Community 76|Community 76]]
+- [[_COMMUNITY_Community 77|Community 77]]
+- [[_COMMUNITY_Community 78|Community 78]]
+- [[_COMMUNITY_Community 79|Community 79]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `RetailerResolverService` - 55 edges
@@ -107,23 +115,23 @@
 ## Import Cycles
 - 1-file cycle: `backend/main.py -> backend/main.py`
 
-## Communities (72 total, 8 thin omitted)
+## Communities (80 total, 8 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.06
-Nodes (50): ApiError, collectBankOfferItems(), collectLowConfidenceItems(), extractOcr(), isRequestTimeoutError(), isUnreliableMapping(), mapCategories(), mapPipelineError() (+42 more)
+Cohesion: 0.15
+Nodes (17): ApiError, isOcrRecognitionFailure(), isRequestTimeoutError(), mapPipelineError(), OcrEmptyError, OcrUnreliableError, postJson(), processSubmission() (+9 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.12
-Nodes (28): resolveProviderLogoFields(), bankCatalog, buildCatalog(), CatalogMatchResult, CatalogRecord, findCatalogMatch(), findCatalogMatches(), findCatalogMatchInCatalog() (+20 more)
+Cohesion: 0.11
+Nodes (30): ProviderNameInput(), resolveProviderLogoFields(), bankCatalog, buildCatalog(), CatalogMatchResult, CatalogRecord, findCatalogMatch(), findCatalogMatches() (+22 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.06
-Nodes (101): health(), lifespan(), _local_network_origin_regex(), Allow phone testing over Wi-Fi (Next.js dev on port 3000)., BackgroundTasks, MapperService, MarketSplitMapService, Request (+93 more)
+Cohesion: 0.20
+Nodes (35): BackgroundTasks, ProcessSubmissionRequest, ProcessSubmissionResponse, Request, BankOfferItem, CategoryMapRequest, CategoryMapRequestItem, LowConfidenceItem (+27 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.11
-Nodes (21): Bank, BankKey, BANKS, CASHBACK_ROWS, CashbackRow, getRowTiers(), Market, MARKET_CASHBACK_ROWS (+13 more)
+Nodes (19): Bank, BankKey, BANKS, CASHBACK_ROWS, CashbackRow, Market, MARKET_CASHBACK_ROWS, MarketCashbackRow (+11 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.04
@@ -154,24 +162,24 @@ Cohesion: 1.00
 Nodes (3): load_market_aliases(), _normalize_market_name(), resolve_market_slug()
 
 ### Community 11 - "Community 11"
-Cohesion: 0.16
-Nodes (23): BaseException, OcrItem, BaseException, Mistral, OcrItem, _is_timeout_error(), _is_transient_ocr_error(), ocr_extract() (+15 more)
+Cohesion: 0.21
+Nodes (19): OcrItem, BaseException, Mistral, OcrItem, _call_mistral_vision(), extract_cashback_items(), filter_bank_services(), _finalize_ocr_items() (+11 more)
 
 ### Community 12 - "Community 12"
 Cohesion: 0.33
 Nodes (5): banksDir, dataDir, __dirname, marketsDir, root
 
 ### Community 13 - "Community 13"
-Cohesion: 0.14
-Nodes (19): CashbackApp(), EMPTY_PROCESSING_SUMMARY, getBankSelectInitialRows(), PickMode, Screen, submissionToBankSelectRow(), countCategories(), countProviders() (+11 more)
+Cohesion: 0.20
+Nodes (18): TimewebServerStatusHelpersTest, cmd_backup_create(), cmd_backups(), cmd_status(), fetch_server(), format_mib(), load_timeweb_env(), main() (+10 more)
 
 ### Community 14 - "Community 14"
 Cohesion: 0.70
 Nodes (3): cn(), Button(), buttonVariants
 
 ### Community 20 - "Community 20"
-Cohesion: 0.20
-Nodes (11): OcrFailureDialog(), isOcrRecognitionFailure(), ProcessSubmissionResult, BankOfferItem, CashbackMatrix, LowConfidenceItem, ActiveStep, BatchProgress (+3 more)
+Cohesion: 0.14
+Nodes (17): OcrFailureDialog(), formatLowConfidence(), ProcessingWarningsBanner(), ProcessSubmissionResult, BankOfferItem, CashbackMatrix, CategoryMapResponse, LowConfidenceItem (+9 more)
 
 ### Community 21 - "Community 21"
 Cohesion: 0.40
@@ -182,8 +190,8 @@ Cohesion: 0.40
 Nodes (5): cases, __dirname, isBankService(), normalize(), patterns
 
 ### Community 24 - "Community 24"
-Cohesion: 0.20
-Nodes (18): formatCategoryLabel(), labelsEquivalent(), normalizeCategoryLabel(), buildProviderKey(), consolidateGroupRows(), isMacroOnlyGroup(), isRedundantBankMacroRowUnderParent(), isRedundantMarketRowUnderParent() (+10 more)
+Cohesion: 0.19
+Nodes (20): formatCategoryLabel(), labelsEquivalent(), normalizeCategoryLabel(), partsInAnchorSubtree(), resolveMarketDisplayAnchor(), summaryRatesForParts(), buildMarketGroupsAsMatrix(), consolidateGroupRows() (+12 more)
 
 ### Community 25 - "Community 25"
 Cohesion: 0.70
@@ -194,8 +202,8 @@ Cohesion: 0.35
 Nodes (9): _format_actual(), _format_expectations(), _load_backend_env(), main(), VerifyCase, normalize_key(), sanitize_category(), sanitize_raw() (+1 more)
 
 ### Community 28 - "Community 28"
-Cohesion: 0.11
-Nodes (14): Path, ReferenceHierarchy, main(), main(), _normalize(), ReferenceHierarchy, ReferenceNode, _hierarchy() (+6 more)
+Cohesion: 0.07
+Nodes (30): CategoryMapRequestItem, MappedItem, Path, ReferenceHierarchy, main(), main(), main(), run_model() (+22 more)
 
 ### Community 29 - "Community 29"
 Cohesion: 0.22
@@ -214,12 +222,12 @@ Cohesion: 0.27
 Nodes (11): AsyncClient, Any, _assets_url(), _fetch_one(), get(), load_all(), load_from_local(), Return catalog by name (filename without .json). Raises KeyError if not loaded. (+3 more)
 
 ### Community 37 - "Community 37"
-Cohesion: 0.08
-Nodes (30): Mistral, ndarray, SentenceTransformer, CategoryMapRequestItem, MappedItem, MatchSource, ndarray, SentenceTransformer (+22 more)
+Cohesion: 0.13
+Nodes (16): Mistral, CategoryMapRequestItem, MappedItem, MatchSource, ndarray, RetailerResolverService, main(), CategoryClassifierService (+8 more)
 
 ### Community 38 - "Community 38"
-Cohesion: 0.11
-Nodes (12): Client, RetailerResolverService, MonkeyPatch, Response, main(), RetailerEntry, RetailerResolverService, resolver() (+4 more)
+Cohesion: 0.16
+Nodes (5): Client, Response, main(), RetailerEntry, RetailerResolverService
 
 ### Community 39 - "Community 39"
 Cohesion: 0.11
@@ -238,8 +246,8 @@ Cohesion: 0.29
 Nodes (15): _admin_credentials(), _admin_token(), _auth_headers(), _ensure_collection(), _import_retailer_catalog(), _list_collections(), _load_catalog(), _load_env_file() (+7 more)
 
 ### Community 44 - "Community 44"
-Cohesion: 0.18
-Nodes (15): buildMarketGroups(), ComparisonAnchorRow, ComparisonGroup, ComparisonItemRow, ComparisonPart, ComparisonRow, findAnchorDepth(), partsInAnchorSubtree() (+7 more)
+Cohesion: 0.21
+Nodes (11): buildMarketGroups(), ComparisonAnchorRow, ComparisonGroup, ComparisonItemRow, ComparisonPart, ComparisonRow, findAnchorDepth(), rangeFor() (+3 more)
 
 ### Community 45 - "Community 45"
 Cohesion: 0.35
@@ -274,48 +282,48 @@ Cohesion: 0.27
 Nodes (6): AuthContext, AuthContextValue, getClientPocketBase(), RegisterResult, createPocketBase(), getPocketBaseUrl()
 
 ### Community 53 - "Community 53"
-Cohesion: 0.15
-Nodes (23): format_category_label(), labels_equivalent(), normalize_category_label(), Mirror of lib/category-label.ts for matrix merge on the server., build_provider_key(), create_provider_from_submission(), find_matching_provider(), merge_mapped_items() (+15 more)
+Cohesion: 0.08
+Nodes (59): BaseException, CashbackMatrix, ComparisonPart, HealthResponse, MatrixProvider, MatrixRow, OcrExtractRequest, OcrExtractResponse (+51 more)
 
 ### Community 56 - "Community 56"
-Cohesion: 0.15
-Nodes (21): DuplicateSourceConfirmDialog(), formatProviderList(), ProviderKindPickerDialog(), ProviderKindPickerDialogProps, ProviderKindPickerMode, formatConflictDescription(), formatName(), ScreenshotReuseConfirmDialog() (+13 more)
+Cohesion: 0.11
+Nodes (25): CashbackApp(), EMPTY_PROCESSING_SUMMARY, getBankSelectInitialRows(), PickMode, Screen, DuplicateSourceConfirmDialog(), formatProviderList(), ImageFilePicker() (+17 more)
 
 ### Community 57 - "Community 57"
 Cohesion: 0.35
 Nodes (15): check_api_health(), check_cors(), check_frontend(), check_pb_auth(), check_pb_health(), check_retailer_lookup(), check_s3_logo(), check_save_matrix() (+7 more)
 
 ### Community 58 - "Community 58"
-Cohesion: 0.16
-Nodes (18): AppLogo(), AppLogoProps, ROUND_CLASS, SIZE_CLASS, SavedMatrixSummary, formatCategoryCount(), formatProviderCount(), formatRelativeUpdated() (+10 more)
+Cohesion: 0.10
+Nodes (31): AppLogo(), AppLogoProps, ROUND_CLASS, SIZE_CLASS, countCategories(), countProviders(), getSavedMatrix(), listSavedMatrices() (+23 more)
 
 ### Community 59 - "Community 59"
-Cohesion: 0.21
-Nodes (10): formatLowConfidence(), ProcessingWarningsBanner(), getCurrentMonthYear(), countProvidersInGroup(), groupMatrixRows(), GuestSaveBanner(), getActiveMatrix(), ResultsScreen() (+2 more)
+Cohesion: 0.23
+Nodes (9): getCurrentMonthYear(), getRowTiers(), countProvidersInGroup(), GuestSaveBanner(), getActiveMatrix(), RateBadges(), ResultsScreen(), Tab (+1 more)
 
 ### Community 60 - "Community 60"
 Cohesion: 0.26
 Nodes (8): openAuthFromEmpty(), registerViaUi(), createTestPocketBase(), isPocketBaseReady(), uniqueTestEmail(), formatAuthError(), MESSAGE_OVERRIDES, STATUS_MESSAGES
 
 ### Community 61 - "Community 61"
-Cohesion: 0.38
-Nodes (10): CategoryMapRequestItem, main(), run_model(), _node_id(), _service(), test_cache_hit_second_call(), test_invalid_node_id_falls_back(), test_low_confidence_falls_back() (+2 more)
+Cohesion: 0.18
+Nodes (16): ACCEPTED_IMAGE_TYPES, compressDataUrl(), convertHeicToJpeg(), fileExtension(), guessMimeType(), HEIC_EXTENSIONS, HEIC_TYPES, ImageReadError (+8 more)
 
 ### Community 62 - "Community 62"
 Cohesion: 0.29
 Nodes (5): geistMono, geistSans, metadata, AppProviders(), AuthProvider()
 
 ### Community 63 - "Community 63"
-Cohesion: 0.50
-Nodes (3): ImageFilePicker(), ImageFilePickerState, GalleryScreen()
+Cohesion: 0.31
+Nodes (12): BackgroundTasks, MapperService, MarketSplitMapService, Request, RetailerResolverService, CategoryMapResponse, CategoryMapRequest, CategoryMapResponse (+4 more)
 
 ### Community 64 - "Community 64"
-Cohesion: 0.33
-Nodes (8): getPlaceholderAvatarColors(), getProviderInitial(), hashString(), isPlaceholderProviderLogo(), PLACEHOLDER_PALETTE, ProviderLogo(), ProviderNameInput(), searchAllProviderSuggestions()
+Cohesion: 0.48
+Nodes (6): getPlaceholderAvatarColors(), getProviderInitial(), hashString(), isPlaceholderProviderLogo(), PLACEHOLDER_PALETTE, ProviderLogo()
 
 ### Community 65 - "Community 65"
-Cohesion: 0.19
-Nodes (10): alfa, getMarketGroupDisplayLabel(), getVisibleBankGroupRows(), getVisibleMarketGroupRows(), groupHasSubcategories(), MappedItem, MatrixGroup, MatrixProvider (+2 more)
+Cohesion: 0.33
+Nodes (4): getMarketGroupDisplayLabel(), getVisibleMarketGroupRows(), MatrixGroup, MatrixRow
 
 ### Community 66 - "Community 66"
 Cohesion: 0.16
@@ -333,6 +341,38 @@ Nodes (12): COMMON_PASSWORDS, DISPOSABLE_EMAIL_DOMAINS, ROLE_BASED_EMAIL_LOCALS,
 Cohesion: 0.16
 Nodes (10): authRefresh, authWithPassword, clear, confirmPasswordReset, confirmVerification, create, onChange, requestPasswordReset (+2 more)
 
+### Community 72 - "Community 72"
+Cohesion: 0.18
+Nodes (7): health(), lifespan(), _local_network_origin_regex(), Allow phone testing over Wi-Fi (Next.js dev on port 3000)., SentenceTransformer, FastAPI, HealthResponse
+
+### Community 73 - "Community 73"
+Cohesion: 0.33
+Nodes (7): RetailerResolverService, MonkeyPatch, resolver(), test_lookup_hit(), test_lookup_miss(), test_save_entry_upserts_and_updates_cache(), test_upsert_requires_pocketbase_url()
+
+### Community 74 - "Community 74"
+Cohesion: 0.20
+Nodes (5): ApiCashbackMatrix, ApiComparisonPart, ApiMatrixProvider, ApiMatrixRow, ApiProcessSubmissionResponse
+
+### Community 75 - "Community 75"
+Cohesion: 0.42
+Nodes (7): ndarray, SentenceTransformer, main(), _normalize(), best_match(), best_match_among(), encode_texts()
+
+### Community 76 - "Community 76"
+Cohesion: 0.33
+Nodes (7): ProviderKindPickerDialog(), ProviderKindPickerDialogProps, ProviderKindPickerMode, ProviderSuggestion, Kind, ResolutionTask, SubmissionRow
+
+### Community 77 - "Community 77"
+Cohesion: 0.54
+Nodes (7): MappedItem, SimpleNamespace, _mapped_item(), _request_with_mappers(), test_process_submission_raises_when_ocr_empty(), test_process_submission_raises_when_unreliable(), test_process_submission_returns_matrix()
+
+### Community 78 - "Community 78"
+Cohesion: 0.38
+Nodes (6): MapperService, ndarray, _fake_embeddings(), mapper_with_retailer_resolver(), test_retailer_lookup_maps_to_parent(), test_unknown_retailer_sets_enrich_flag()
+
+### Community 79 - "Community 79"
+Cohesion: 1.00
+Nodes (3): load_bank_aliases(), _normalize_bank_name(), resolve_bank_slug()
+
 ## Knowledge Gaps
 - **198 isolated node(s):** `geistSans`, `geistMono`, `metadata`, `VerifySuccessPageProps`, `Mistral` (+193 more)
   These have ≤1 connection - possible missing edges or undocumented components.
@@ -341,12 +381,12 @@ Nodes (10): authRefresh, authWithPassword, clear, confirmPasswordReset, confirmV
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `FastAPI` connect `Community 2` to `Community 11`, `Community 38`, `Community 39`?**
-  _High betweenness centrality (0.022) - this node is a cross-community bridge._
-- **Why does `MarketSplitMapService` connect `Community 2` to `Community 28`, `Community 61`?**
-  _High betweenness centrality (0.019) - this node is a cross-community bridge._
-- **Why does `MapperService` connect `Community 2` to `Community 37`, `Community 38`?**
-  _High betweenness centrality (0.018) - this node is a cross-community bridge._
+- **Why does `FastAPI` connect `Community 72` to `Community 2`, `Community 37`, `Community 38`, `Community 39`, `Community 77`, `Community 53`, `Community 63`?**
+  _High betweenness centrality (0.021) - this node is a cross-community bridge._
+- **Why does `MarketSplitMapService` connect `Community 2` to `Community 72`, `Community 28`, `Community 53`, `Community 63`?**
+  _High betweenness centrality (0.017) - this node is a cross-community bridge._
+- **Why does `MapperService` connect `Community 37` to `Community 2`, `Community 38`, `Community 72`, `Community 78`, `Community 63`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
 - **Are the 31 inferred relationships involving `RetailerResolverService` (e.g. with `BackgroundTasks` and `MapperService`) actually correct?**
   _`RetailerResolverService` has 31 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 26 inferred relationships involving `MapperService` (e.g. with `BackgroundTasks` and `MapperService`) actually correct?**

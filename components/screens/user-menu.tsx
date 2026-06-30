@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { AppLogo } from "@/components/app-logo"
 import {
@@ -18,8 +18,10 @@ import {
   Check,
   RefreshCw,
 } from "lucide-react"
+import { labelsEquivalent } from "@/lib/category-label"
 import { formatSaveMetaLine } from "@/lib/saved-matrix-meta"
 import type { SavedMatrixSummary } from "@/lib/saved-matrices"
+import type { MatrixState } from "@/lib/types"
 
 type View = "menu" | "profile" | "cashback" | "feedback" | "about"
 
@@ -34,7 +36,45 @@ const CASHBACK_CATEGORIES = [
   "АЗС и топливо",
   "Развлечения",
   "Путешествия",
-]
+] as const
+
+function collectMatrixLabels(matrix: MatrixState): string[] {
+  const labels: string[] = []
+  for (const part of [matrix.bank, matrix.market]) {
+    if (!part) continue
+    for (const row of part.rows) {
+      labels.push(row.category)
+      if (row.canonicalCategory) labels.push(row.canonicalCategory)
+      if (row.parent) labels.push(row.parent)
+    }
+  }
+  return labels
+}
+
+function isCategoryInMatrix(cat: string, matrixLabels: string[]): boolean {
+  return matrixLabels.some((label) => labelsEquivalent(cat, label))
+}
+
+function sortCategoriesForProfile(
+  categories: readonly string[],
+  matrix?: MatrixState | null,
+): string[] {
+  if (!matrix?.bank && !matrix?.market) return [...categories]
+
+  const matrixLabels = collectMatrixLabels(matrix)
+  const inMatrix: string[] = []
+  const notInMatrix: string[] = []
+
+  for (const cat of categories) {
+    if (isCategoryInMatrix(cat, matrixLabels)) {
+      inMatrix.push(cat)
+    } else {
+      notInMatrix.push(cat)
+    }
+  }
+
+  return [...inMatrix, ...notInMatrix]
+}
 
 const AUTHENTICATED_MENU_ITEMS: { key: View; label: string; icon: typeof User }[] = [
   { key: "profile", label: "Профиль", icon: User },
@@ -60,6 +100,7 @@ export function UserMenu({
   onOpenSaved,
   onNewAssembly,
   onRetrySaves,
+  matrix,
 }: {
   onLogout: () => void
   onLoginRequest?: () => void
@@ -72,6 +113,7 @@ export function UserMenu({
   onOpenSaved?: (id: string) => void
   onNewAssembly?: () => void
   onRetrySaves?: () => void
+  matrix?: MatrixState | null
 }) {
   const [open, setOpen] = useState(false)
   const [view, setView] = useState<View>("menu")
@@ -88,12 +130,13 @@ export function UserMenu({
     setName(localPart.charAt(0).toUpperCase() + localPart.slice(1))
   }, [userEmail])
 
-  // Cashback profile state
-  const [preferred, setPreferred] = useState<string[]>([
-    "Супермаркеты",
-    "Кафе и рестораны",
-    "Товары для детей",
-  ])
+  // Cashback profile state — all categories selected by default
+  const [preferred, setPreferred] = useState<string[]>(() => [...CASHBACK_CATEGORIES])
+
+  const sortedCategories = useMemo(
+    () => sortCategoriesForProfile(CASHBACK_CATEGORIES, matrix),
+    [matrix],
+  )
 
   // Feedback state
   const [rating, setRating] = useState(0)
@@ -397,7 +440,7 @@ export function UserMenu({
                             ставки именно для них.
                           </p>
                           <div className="flex flex-wrap gap-2">
-                            {CASHBACK_CATEGORIES.map((cat) => {
+                            {sortedCategories.map((cat) => {
                               const active = preferred.includes(cat)
                               return (
                                 <button
