@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
+import { createPortal } from "react-dom"
 import { AnimatePresence, motion } from "framer-motion"
 import { AppLogo } from "@/components/app-logo"
 import {
@@ -122,6 +123,14 @@ export function UserMenu({
   const [view, setView] = useState<View>("menu")
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false)
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null)
+  const portalContainerRef = useRef<Element | null>(null)
+  const [portalMounted, setPortalMounted] = useState(false)
+
+  useEffect(() => {
+    portalContainerRef.current =
+      document.getElementById("cashback-phone-root") ?? document.body
+    setPortalMounted(true)
+  }, [])
 
   const [name, setName] = useState("Пользователь")
   const [email, setEmail] = useState(userEmail ?? "")
@@ -205,10 +214,11 @@ export function UserMenu({
         <Settings className="h-5 w-5" />
       </button>
 
+      {portalMounted && portalContainerRef.current && createPortal(
       <AnimatePresence>
         {open && (
           <motion.div
-            className="absolute inset-0 z-50 flex flex-col justify-end bg-slate-900/40 backdrop-blur-sm"
+            className="absolute inset-0 z-50 flex flex-col justify-end bg-slate-900/40 backdrop-blur-sm cursor-pointer"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -594,8 +604,10 @@ export function UserMenu({
           </motion.div>
         )}
       </AnimatePresence>
+      , portalContainerRef.current)}
 
       {/* Delete save confirmation */}
+      {portalMounted && portalContainerRef.current && createPortal(
       <AnimatePresence>
         {deleteConfirmId && (
           <motion.div
@@ -605,7 +617,7 @@ export function UserMenu({
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="absolute inset-0 bg-slate-900/50"
+              className="absolute inset-0 cursor-pointer bg-slate-900/50"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -651,8 +663,10 @@ export function UserMenu({
           </motion.div>
         )}
       </AnimatePresence>
+      , portalContainerRef.current)}
 
       {/* Logout confirmation */}
+      {portalMounted && portalContainerRef.current && createPortal(
       <AnimatePresence>
         {showLogoutConfirm && (
           <motion.div
@@ -662,7 +676,7 @@ export function UserMenu({
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="absolute inset-0 bg-slate-900/50"
+              className="absolute inset-0 cursor-pointer bg-slate-900/50"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -709,6 +723,7 @@ export function UserMenu({
           </motion.div>
         )}
       </AnimatePresence>
+      , portalContainerRef.current)}
     </>
   )
 }
