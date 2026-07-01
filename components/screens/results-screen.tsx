@@ -252,13 +252,23 @@ export function ResultsScreen({
 
   async function handleShare() {
     const origin = window.location.origin
-    const hasBank = (matrix.bank?.rows.length ?? 0) > 0
-    const hasMarket = (matrix.market?.rows.length ?? 0) > 0
+    const hasBank = (matrix.bank?.providers.length ?? 0) > 0
+    const hasMarket = (matrix.market?.providers.length ?? 0) > 0
+
+    if (!hasBank && !hasMarket) {
+      setSaveToast("Нечем поделиться — кешбэк не заполнен")
+      window.setTimeout(() => setSaveToast(null), 3000)
+      return
+    }
+
     const bothExist = activeSaveId && hasBank && hasMarket
+    const singleKind = hasBank ? "bank" : "market"
 
     const bankUrl = activeSaveId ? `${origin}/share/${activeSaveId}?kind=bank` : null
     const marketUrl = activeSaveId ? `${origin}/share/${activeSaveId}?kind=market` : null
-    const singleUrl = activeSaveId ? `${origin}/share/${activeSaveId}` : window.location.href
+    const singleUrl = activeSaveId
+      ? `${origin}/share/${activeSaveId}?kind=${singleKind}`
+      : window.location.href
 
     const shareText = bothExist
       ? `Мои кешбэки за ${cashbackPeriodLabel}\n🏦 Банки: ${bankUrl}\n🛒 Маркетплейсы: ${marketUrl}`
@@ -282,8 +292,10 @@ export function ResultsScreen({
       try {
         await navigator.clipboard.writeText(clipboardText)
         setSaveToast("Ссылка скопирована")
+        window.setTimeout(() => setSaveToast(null), 3000)
       } catch {
         setSaveToast("Не удалось скопировать ссылку")
+        window.setTimeout(() => setSaveToast(null), 3000)
       }
     }
   }
