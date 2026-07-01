@@ -623,11 +623,13 @@ export function ResultsScreen({
         </p>
       )}
 
-      <SavePngOverlay
-        status={savePngStatus}
-        previewUrl={pngPreviewUrl}
-        onClose={() => { setSavePngStatus(null); setPngPreviewUrl(null) }}
-      />
+      <div data-no-capture>
+        <SavePngOverlay
+          status={savePngStatus}
+          previewUrl={pngPreviewUrl}
+          onClose={() => { setSavePngStatus(null); setPngPreviewUrl(null) }}
+        />
+      </div>
       <AddToHomeScreenOverlay
         open={showWidget}
         onClose={() => setShowWidget(false)}
