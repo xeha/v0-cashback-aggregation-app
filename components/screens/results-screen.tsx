@@ -217,6 +217,7 @@ export function ResultsScreen({
 
     async function doCapture() {
       try {
+        await new Promise((resolve) => setTimeout(resolve, 300))
         const { toPng } = await import("html-to-image")
         const dataUrl = await toPng(node!, {
           backgroundColor: "#ffffff",
