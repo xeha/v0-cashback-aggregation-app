@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown, ChevronRight, Download, Share, Smartphone, ImagePlus, Trash2, Bookmark } from "lucide-react"
 import { ProviderLogo } from "@/components/provider-logo"
@@ -176,6 +176,7 @@ export function ResultsScreen({
   const [showWidget, setShowWidget] = useState(false)
   const [showResetConfirm, setShowResetConfirm] = useState(false)
   const [expandedParents, setExpandedParents] = useState<Set<string>>(new Set())
+  const [isCapturing, setIsCapturing] = useState(false)
   const [isSavingMatrix, setIsSavingMatrix] = useState(false)
   const [saveToast, setSaveToast] = useState<string | null>(null)
   const [saveError, setSaveError] = useState<string | null>(null)
@@ -197,42 +198,61 @@ export function ResultsScreen({
     })
   }
 
-  async function handleSavePng() {
-    const node = captureRef.current
-    if (!node || savePngStatus === "saving") return
-    setSavePngStatus("saving")
+  function handleSavePng() {
+    if (savePngStatus === "saving" || isCapturing) return
     setPngPreviewUrl(null)
-    try {
-      const { toPng } = await import("html-to-image")
-      const dataUrl = await toPng(node, {
-        backgroundColor: "#ffffff",
-        pixelRatio: 2,
-        filter: (el) => {
-          if (el instanceof HTMLElement && el.hasAttribute("data-no-capture")) return false
-          if (el instanceof HTMLImageElement) return false
-          return true
-        },
-      })
-      if (getMobilePlatform() === "ios") {
-        setPngPreviewUrl(dataUrl)
-        setSavePngStatus("done")
-      } else {
-        const link = document.createElement("a")
-        link.download = `кешбэки-${cashbackPeriodLabel.replace(/\s+/g, "-").toLowerCase()}.png`
-        link.href = dataUrl
-        link.click()
-        setSavePngStatus("done")
-        setTimeout(() => setSavePngStatus(null), 2000)
-      }
-    } catch {
-      setSavePngStatus("error")
-    }
+    setIsCapturing(true)
   }
+
+  useEffect(() => {
+    if (!isCapturing) return
+
+    const node = captureRef.current
+    if (!node) {
+      setIsCapturing(false)
+      return
+    }
+
+    setSavePngStatus("saving")
+
+    async function doCapture() {
+      try {
+        const { toPng } = await import("html-to-image")
+        const dataUrl = await toPng(node!, {
+          backgroundColor: "#ffffff",
+          pixelRatio: 2,
+          filter: (el) => {
+            if (el instanceof HTMLElement && el.hasAttribute("data-no-capture")) return false
+            if (el instanceof HTMLImageElement) return false
+            return true
+          },
+        })
+        if (getMobilePlatform() === "ios") {
+          setPngPreviewUrl(dataUrl)
+          setSavePngStatus("done")
+        } else {
+          const link = document.createElement("a")
+          link.download = `кешбэки-${cashbackPeriodLabel.replace(/\s+/g, "-").toLowerCase()}.png`
+          link.href = dataUrl
+          link.click()
+          setSavePngStatus("done")
+          setTimeout(() => setSavePngStatus(null), 2000)
+        }
+      } catch {
+        setSavePngStatus("error")
+      } finally {
+        setIsCapturing(false)
+      }
+    }
+
+    void doCapture()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isCapturing])
 
   async function handleShare() {
     const origin = window.location.origin
-    const hasBank = (matrix.bank?.providers.length ?? 0) > 0
-    const hasMarket = (matrix.market?.providers.length ?? 0) > 0
+    const hasBank = (matrix.bank?.rows.length ?? 0) > 0
+    const hasMarket = (matrix.market?.rows.length ?? 0) > 0
     const bothExist = activeSaveId && hasBank && hasMarket
 
     const bankUrl = activeSaveId ? `${origin}/share/${activeSaveId}?kind=bank` : null
@@ -407,7 +427,7 @@ export function ResultsScreen({
                   ? getVisibleMarketGroupRows(group)
                   : getVisibleBankGroupRows(group)
               const hasSubcategories = groupHasSubcategories(group, activeTab)
-              const isExpanded = hasSubcategories && expandedParents.has(group.parent)
+              const isExpanded = hasSubcategories && (expandedParents.has(group.parent) || isCapturing)
               const isLastGroup = groupIdx === groups.length - 1
               const providerCountInGroup = activeTab === "market" ? countProvidersInGroup(group) : 0
               const resolveRowLabel = (row: MatrixRow) =>
