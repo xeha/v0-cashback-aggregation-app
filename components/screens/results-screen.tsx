@@ -1,8 +1,8 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { Fragment, useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, ChevronRight, Download, Share, Smartphone, ImagePlus, Trash2, Bookmark } from "lucide-react"
+import { ArrowDownNarrowWide, Bookmark, ChevronDown, ChevronRight, ChevronsUpDown, Download, ImagePlus, Share, Smartphone, Trash2, X } from "lucide-react"
 import { ProviderLogo } from "@/components/provider-logo"
 import { ProcessingWarningsBanner } from "@/components/processing-warnings-banner"
 import { getRowTiers, type RateTier } from "@/lib/cashback-data"
@@ -19,7 +19,7 @@ import {
   formatCategoryLabel,
   labelsEquivalent,
 } from "@/lib/category-label"
-import type { CashbackMatrix, Kind, MatrixProvider, MatrixRow, MatrixState, ProcessingSummary, SourceSubmission } from "@/lib/types"
+import type { CashbackMatrix, Kind, MatrixRow, MatrixState, ProcessingSummary, SourceSubmission } from "@/lib/types"
 import { usePwaInstall } from "@/lib/use-pwa-install"
 import { getMobilePlatform } from "@/lib/pwa"
 import { GuestSaveBanner } from "./guest-save-banner"
@@ -27,10 +27,10 @@ import { AddToHomeScreenOverlay, SavePngOverlay, type SavePngStatus } from "./re
 import { UserMenu } from "./user-menu"
 import type { SavedMatrixSummary } from "@/lib/saved-matrices"
 
-const TIER_STYLES: Record<RateTier, string> = {
-  high: "bg-green-100 text-green-700",
-  mid: "bg-yellow-100 text-yellow-700",
-  low: "bg-red-100 text-red-700",
+const CELL_STYLES: Record<RateTier, string> = {
+  high: "bg-green-100 text-green-700 font-bold",
+  mid:  "bg-yellow-50 text-yellow-700 font-semibold",
+  low:  "bg-red-50 text-red-500 font-semibold",
 }
 
 type Tab = "bank" | "market"
@@ -45,82 +45,7 @@ function getDefaultTab(matrix: MatrixState, kind: Kind): Tab {
   return kind === "market" ? "market" : "bank"
 }
 
-function RateBadges({
-  rates,
-  rateRanges,
-  providers,
-}: {
-  rates: Record<string, number>
-  rateRanges?: MatrixRow["rateRanges"]
-  providers: MatrixProvider[]
-}) {
-  const tiers = getRowTiers(rates)
-  return (
-    <div className="flex shrink-0 items-center gap-1">
-      {providers.map((p) => {
-        const range = rateRanges?.[p.key]
-        const rate = rates[p.key]
-        const label =
-          range !== undefined
-            ? range.min === range.max
-              ? `${range.max}%`
-              : `${range.min}–${range.max}%`
-            : rate !== undefined
-              ? `${rate}%`
-              : undefined
-        return (
-          <div key={p.key} className="flex w-11 justify-center">
-            {label !== undefined ? (
-              <span
-                className={`rounded-full px-2 py-1 text-[12px] font-bold ${TIER_STYLES[tiers[p.key] ?? "mid"]}`}
-              >
-                {label}
-              </span>
-            ) : (
-              <span className="text-[13px] text-slate-300">—</span>
-            )}
-          </div>
-        )
-      })}
-    </div>
-  )
-}
 
-function MatrixRowContent({
-  row,
-  providers,
-  indented = false,
-  displayCategory,
-}: {
-  row: MatrixRow
-  providers: MatrixProvider[]
-  indented?: boolean
-  displayCategory?: string
-}) {
-  const categoryLabel = displayCategory ?? row.category
-  const showParent =
-    row.parent &&
-    !indented &&
-    !row.isMacro &&
-    !labelsEquivalent(categoryLabel, row.parent)
-  const showBankRaw =
-    row.bankRaw &&
-    !labelsEquivalent(row.bankRaw, categoryLabel) &&
-    !(row.parent && labelsEquivalent(row.bankRaw, row.parent))
-
-  return (
-    <>
-      <div className={`flex-1 pr-2 ${indented ? "pl-6" : ""}`}>
-        <p className="text-[13px] font-medium leading-snug text-slate-800">{categoryLabel}</p>
-        {showParent && row.parent ? (
-          <p className="text-[11px] text-slate-400">{formatCategoryLabel(row.parent)}</p>
-        ) : null}
-        {showBankRaw && <p className="text-[11px] text-slate-400">{row.bankRaw}</p>}
-      </div>
-      <RateBadges rates={row.rates} rateRanges={row.rateRanges} providers={providers} />
-    </>
-  )
-}
 
 export function ResultsScreen({
   onRestart,
@@ -170,6 +95,7 @@ export function ResultsScreen({
   onRetrySaves?: () => void
 }) {
   const [activeTab, setActiveTab] = useState<Tab>(() => getDefaultTab(matrix, kind))
+  const [sortKey, setSortKey] = useState<string | null>(null)
   const captureRef = useRef<HTMLDivElement>(null)
   const [savePngStatus, setSavePngStatus] = useState<SavePngStatus>(null)
   const [pngPreviewUrl, setPngPreviewUrl] = useState<string | null>(null)
@@ -188,6 +114,11 @@ export function ResultsScreen({
   const marketParts = activeTab === "market" ? activeMatrix?.marketParts : undefined
   const groups = activeMatrix?.groups ?? groupMatrixRows(rows, marketParts)
   const hasMatrixData = groups.length > 0
+
+  const sortGroup = sortKey ? groups.find((g) => g.parent === sortKey) : null
+  const sortedProviders = sortGroup
+    ? [...providers].sort((a, b) => (sortGroup.summaryRates[b.key] ?? -1) - (sortGroup.summaryRates[a.key] ?? -1))
+    : providers
 
   function toggleParent(parent: string) {
     setExpandedParents((prev) => {
@@ -394,7 +325,7 @@ export function ResultsScreen({
             <button
               key={tab.key}
               type="button"
-              onClick={() => setActiveTab(tab.key)}
+              onClick={() => { setActiveTab(tab.key); setSortKey(null) }}
               className="relative flex-1 rounded-xl px-4 py-2 text-[14px] font-semibold transition-colors"
             >
               {isActive && (
@@ -420,123 +351,195 @@ export function ResultsScreen({
           </p>
         </div>
       ) : (
-        <>
-          <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-            <div className="flex items-center border-b border-slate-200 bg-slate-50 px-3 py-3">
-              <div className="flex-1 text-[12px] font-semibold uppercase tracking-wide text-slate-400">
-                Категория
-              </div>
-              <div className="flex shrink-0 items-center gap-1">
-                {providers.map((p) => (
-                  <div key={p.key} className="flex w-11 justify-center">
-                    <ProviderLogo name={p.name} logo={p.logo} seed={p.key} />
-                  </div>
-                ))}
-              </div>
+        <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+          {/* Баннер активной сортировки */}
+          {sortKey ? (
+            <div className="flex items-center gap-2 border-b border-indigo-100 bg-indigo-50 px-3 py-2">
+              <ArrowDownNarrowWide className="h-4 w-4 shrink-0 text-indigo-500" />
+              <span className="flex-1 text-[12px] text-indigo-700">
+                Сортировка: <span className="font-semibold">{formatCategoryLabel(sortKey)}</span>
+              </span>
+              <button
+                type="button"
+                onClick={() => setSortKey(null)}
+                className="rounded-full p-0.5 text-indigo-400 hover:bg-indigo-100"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
             </div>
+          ) : (
+            <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50 px-3 py-1.5">
+              <span className="text-[11px] text-slate-400">тап по строке — сортировка</span>
+              <span className="text-[11px] text-slate-400">листайте вправо →</span>
+            </div>
+          )}
 
-            {groups.map((group, groupIdx) => {
-              const visibleRows =
-                activeTab === "market"
-                  ? getVisibleMarketGroupRows(group)
-                  : getVisibleBankGroupRows(group)
-              const hasSubcategories = groupHasSubcategories(group, activeTab)
-              const isExpanded = hasSubcategories && (expandedParents.has(group.parent) || isCapturing)
-              const isLastGroup = groupIdx === groups.length - 1
-              const providerCountInGroup = activeTab === "market" ? countProvidersInGroup(group) : 0
-              const resolveRowLabel = (row: MatrixRow) =>
-                activeTab === "market"
-                  ? resolveMarketRowCategory(row, providerCountInGroup)
-                  : row.category
-              const groupHeaderLabel = getMarketGroupDisplayLabel(group)
-              const displayLabel = hasSubcategories
-                ? formatCategoryLabel(groupHeaderLabel)
-                : formatCategoryLabel(
-                    group.rows[0] ? resolveRowLabel(group.rows[0]) : groupHeaderLabel,
-                  )
-
-              if (!hasSubcategories) {
-                const row = group.rows[0]
-                const rowLabel = row ? resolveRowLabel(row) : displayLabel
-                const showBankRaw =
-                  row?.bankRaw &&
-                  !labelsEquivalent(row.bankRaw, rowLabel) &&
-                  !(row.parent && labelsEquivalent(row.bankRaw, row.parent))
-
-                return (
-                  <div
-                    key={group.parent}
-                    className={`flex items-center px-3 py-3 ${
-                      !isLastGroup ? "border-b border-slate-100" : ""
-                    }`}
+          {/* Горизонтально-скролируемая таблица */}
+          <div className={isCapturing ? "overflow-visible" : "overflow-x-auto"}>
+            <table style={{ minWidth: isCapturing ? undefined : sortedProviders.length * 52 + 116 }}>
+              {/* Шапка с лого */}
+              <thead>
+                <tr className="border-b border-slate-200 bg-slate-50">
+                  <th
+                    className="sticky left-0 z-10 border-r border-slate-200 bg-slate-50 px-3 py-3 text-left"
+                    style={{ width: 116, minWidth: 116 }}
                   >
-                    <div className="flex-1 pr-2">
-                      <p className="text-[13px] font-semibold leading-snug text-slate-800">
-                        {rowLabel}
-                      </p>
-                      {showBankRaw ? (
-                        <p className="text-[11px] text-slate-400">{row.bankRaw}</p>
-                      ) : null}
-                    </div>
-                    <RateBadges rates={group.summaryRates} providers={providers} />
-                  </div>
-                )
-              }
+                    <span className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                      Категория
+                    </span>
+                  </th>
+                  {sortedProviders.map((p) => (
+                    <th key={p.key} className="px-1 py-3 text-center" style={{ width: 52, minWidth: 52 }}>
+                      <div className="flex justify-center">
+                        <ProviderLogo name={p.name} logo={p.logo} seed={p.key} />
+                      </div>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
 
-              return (
-                <div
-                  key={group.parent}
-                  className={!isLastGroup && !isExpanded ? "border-b border-slate-100" : ""}
-                >
-                  <button
-                    type="button"
-                    onClick={() => toggleParent(group.parent)}
-                    aria-expanded={isExpanded}
-                    className="flex w-full items-center px-3 py-3 text-left transition-colors hover:bg-slate-50"
-                  >
-                    <div className="flex flex-1 items-center gap-1.5 pr-2">
-                      {isExpanded ? (
-                        <ChevronDown className="h-4 w-4 shrink-0 text-slate-400" />
-                      ) : (
-                        <ChevronRight className="h-4 w-4 shrink-0 text-slate-400" />
-                      )}
-                      <span className="text-[13px] font-semibold leading-snug text-slate-800">
-                        {displayLabel}
-                      </span>
-                    </div>
-                    <RateBadges rates={group.summaryRates} providers={providers} />
-                  </button>
+              {/* Строки категорий */}
+              <tbody>
+                {groups.map((group, groupIdx) => {
+                  const visibleRows =
+                    activeTab === "market"
+                      ? getVisibleMarketGroupRows(group)
+                      : getVisibleBankGroupRows(group)
+                  const hasSubcategories = groupHasSubcategories(group, activeTab)
+                  const isExpanded = hasSubcategories && (expandedParents.has(group.parent) || isCapturing)
+                  const isLastGroup = groupIdx === groups.length - 1
+                  const providerCountInGroup = activeTab === "market" ? countProvidersInGroup(group) : 0
+                  const resolveRowLabel = (row: MatrixRow) =>
+                    activeTab === "market"
+                      ? resolveMarketRowCategory(row, providerCountInGroup)
+                      : row.category
+                  const groupHeaderLabel = getMarketGroupDisplayLabel(group)
+                  const displayLabel = hasSubcategories
+                    ? formatCategoryLabel(groupHeaderLabel)
+                    : formatCategoryLabel(
+                        group.rows[0] ? resolveRowLabel(group.rows[0]) : groupHeaderLabel,
+                      )
 
-                  <AnimatePresence initial={false}>
-                    {isExpanded && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="overflow-hidden"
+                  const isSortActive = sortKey === group.parent
+                  const tiers = getRowTiers(group.summaryRates)
+                  const isEven = groupIdx % 2 === 0
+
+                  return (
+                    <Fragment key={group.parent}>
+                      {/* Строка группы */}
+                      <tr
+                        className={
+                          isSortActive
+                            ? "bg-indigo-50"
+                            : isEven
+                              ? "bg-white"
+                              : "bg-slate-50/40"
+                        }
                       >
-                        {visibleRows.map((child) => (
-                          <div
-                            key={`${child.referenceNodeId ?? child.category}-${child.referenceDepth ?? 0}`}
-                            className="flex items-center border-t border-slate-100 bg-slate-50/50 px-3 py-2.5"
-                          >
-                            <MatrixRowContent
-                              row={child}
-                              providers={providers}
-                              indented
-                              displayCategory={resolveRowLabel(child)}
-                            />
+                        <td
+                          className={`sticky left-0 z-10 cursor-pointer border-r px-3 py-2.5 transition-colors active:bg-indigo-100 ${
+                            isSortActive
+                              ? "border-indigo-200 bg-indigo-50"
+                              : isEven
+                                ? "border-slate-100 bg-white hover:bg-slate-50"
+                                : "border-slate-100 bg-slate-50 hover:bg-slate-100"
+                          } ${!isLastGroup || isExpanded ? "border-b border-slate-100" : ""}`}
+                          style={{ width: 116, minWidth: 116 }}
+                          onClick={() => setSortKey((prev) => (prev === group.parent ? null : group.parent))}
+                        >
+                          <div className="flex items-center justify-between gap-1">
+                            <div className="flex min-w-0 items-center gap-1">
+                              {hasSubcategories && (
+                                <button
+                                  type="button"
+                                  onClick={(e) => { e.stopPropagation(); toggleParent(group.parent) }}
+                                  className="shrink-0"
+                                >
+                                  {isExpanded
+                                    ? <ChevronDown className="h-3.5 w-3.5 text-slate-400" />
+                                    : <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
+                                  }
+                                </button>
+                              )}
+                              <p className={`text-[12px] font-medium leading-snug ${isSortActive ? "text-indigo-700" : "text-slate-700"}`}>
+                                {displayLabel}
+                              </p>
+                            </div>
+                            {isSortActive
+                              ? <ArrowDownNarrowWide className="h-3.5 w-3.5 shrink-0 text-indigo-500" />
+                              : <ChevronsUpDown className="h-3 w-3 shrink-0 text-slate-300" />
+                            }
                           </div>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              )
-            })}
+                        </td>
+
+                        {sortedProviders.map((p) => {
+                          const rate = group.summaryRates[p.key]
+                          const tier = tiers[p.key]
+                          return (
+                            <td key={p.key} className="px-1 py-2.5 text-center" style={{ width: 52, minWidth: 52 }}>
+                              {rate !== undefined ? (
+                                <span className={`inline-block rounded-full px-1.5 py-0.5 text-[12px] ${CELL_STYLES[tier ?? "mid"]}`}>
+                                  {rate}%
+                                </span>
+                              ) : (
+                                <span className="text-[12px] text-slate-300">—</span>
+                              )}
+                            </td>
+                          )
+                        })}
+                      </tr>
+
+                      {/* Подкатегории */}
+                      {isExpanded && visibleRows.map((child, childIdx) => {
+                        const childLabel = resolveRowLabel(child)
+                        const childTiers = getRowTiers(child.rates)
+                        const isLastChild = childIdx === visibleRows.length - 1
+                        return (
+                          <tr
+                            key={`${child.referenceNodeId ?? child.category}-${child.referenceDepth ?? 0}`}
+                            className="bg-indigo-50/30"
+                          >
+                            <td
+                              className={`sticky left-0 z-10 border-r border-slate-100 bg-indigo-50/40 py-2 pl-7 pr-3 ${
+                                !isLastChild || !isLastGroup ? "border-b border-slate-100" : ""
+                              }`}
+                              style={{ width: 116, minWidth: 116 }}
+                            >
+                              <p className="text-[11px] leading-snug text-slate-500">{childLabel}</p>
+                            </td>
+                            {sortedProviders.map((p) => {
+                              const range = child.rateRanges?.[p.key]
+                              const rate = child.rates[p.key]
+                              const label = range
+                                ? range.min === range.max ? `${range.max}%` : `${range.min}–${range.max}%`
+                                : rate !== undefined ? `${rate}%` : undefined
+                              const childTier = childTiers[p.key]
+                              return (
+                                <td
+                                  key={p.key}
+                                  className={`px-1 py-2 text-center ${!isLastChild || !isLastGroup ? "border-b border-slate-100" : ""}`}
+                                  style={{ width: 52, minWidth: 52 }}
+                                >
+                                  {label !== undefined ? (
+                                    <span className={`inline-block rounded-full px-1.5 py-0.5 text-[11px] ${CELL_STYLES[childTier ?? "mid"]}`}>
+                                      {label}
+                                    </span>
+                                  ) : (
+                                    <span className="text-[11px] text-slate-300">—</span>
+                                  )}
+                                </td>
+                              )
+                            })}
+                          </tr>
+                        )
+                      })}
+                    </Fragment>
+                  )
+                })}
+              </tbody>
+            </table>
           </div>
-        </>
+        </div>
       )}
 
       <div className="mt-4 mb-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] text-slate-500">
