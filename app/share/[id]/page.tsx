@@ -39,18 +39,22 @@ async function fetchRecord(id: string): Promise<PbRecord | null> {
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ id: string }>
+  searchParams: Promise<{ kind?: string }>
 }): Promise<Metadata> {
   const { id } = await params
+  const { kind } = await searchParams
   const record = await fetchRecord(id)
   if (!record) return { title: "Кешбэки — CashbackBrain" }
   const period =
     record.period_month && record.period_year
       ? formatCashbackPeriod({ month: record.period_month, year: record.period_year })
       : record.title
+  const kindLabel = kind === "bank" ? " — Банки" : kind === "market" ? " — Маркетплейсы" : ""
   return {
-    title: `Кешбэки за ${period} — CashbackBrain`,
+    title: `Кешбэки за ${period}${kindLabel} — CashbackBrain`,
     description: "Сравнение кешбэка по картам и маркетплейсам",
   }
 }
@@ -198,10 +202,13 @@ function MatrixTable({ matrix, kind }: { matrix: CashbackMatrix; kind: Kind }) {
 
 export default async function SharePage({
   params,
+  searchParams,
 }: {
   params: Promise<{ id: string }>
+  searchParams: Promise<{ kind?: string }>
 }) {
   const { id } = await params
+  const { kind } = await searchParams
   const record = await fetchRecord(id)
   if (!record) notFound()
 
@@ -211,8 +218,11 @@ export default async function SharePage({
       ? formatCashbackPeriod({ month: period_month, year: period_year })
       : record.title
 
-  const hasBank = !!bank_matrix && bank_matrix.rows.length > 0
-  const hasMarket = !!market_matrix && market_matrix.rows.length > 0
+  const showBank = kind !== "market" && !!bank_matrix && bank_matrix.rows.length > 0
+  const showMarket = kind !== "bank" && !!market_matrix && market_matrix.rows.length > 0
+
+  const kindLabel =
+    kind === "bank" ? " — Банки" : kind === "market" ? " — Маркетплейсы" : ""
 
   return (
     <div className="min-h-screen bg-slate-50 px-4 py-8">
@@ -225,30 +235,34 @@ export default async function SharePage({
           <div>
             <p className="text-[12px] font-medium text-slate-400">CashbackBrain</p>
             <h1 className="text-[22px] font-bold leading-tight text-slate-900">
-              Кешбэки за {periodLabel}
+              Кешбэки за {periodLabel}{kindLabel}
             </h1>
           </div>
         </div>
 
-        {hasBank && (
+        {showBank && (
           <div className="rounded-2xl bg-white p-4 shadow-sm">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
-              Банки
-            </p>
+            {!kind && (
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                Банки
+              </p>
+            )}
             <MatrixTable matrix={bank_matrix!} kind="bank" />
           </div>
         )}
 
-        {hasMarket && (
+        {showMarket && (
           <div className="rounded-2xl bg-white p-4 shadow-sm">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
-              Маркетплейсы
-            </p>
+            {!kind && (
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                Маркетплейсы
+              </p>
+            )}
             <MatrixTable matrix={market_matrix!} kind="market" />
           </div>
         )}
 
-        {!hasBank && !hasMarket && (
+        {!showBank && !showMarket && (
           <div className="rounded-2xl bg-white p-8 text-center text-slate-400 shadow-sm">
             Нет данных
           </div>

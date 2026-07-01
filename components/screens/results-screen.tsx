@@ -230,19 +230,36 @@ export function ResultsScreen({
   }
 
   async function handleShare() {
-    const shareUrl = activeSaveId
-      ? `${window.location.origin}/share/${activeSaveId}`
-      : window.location.href
-    const text = `Мои кешбэки за ${cashbackPeriodLabel}`
+    const origin = window.location.origin
+    const hasBank = (matrix.bank?.providers.length ?? 0) > 0
+    const hasMarket = (matrix.market?.providers.length ?? 0) > 0
+    const bothExist = activeSaveId && hasBank && hasMarket
+
+    const bankUrl = activeSaveId ? `${origin}/share/${activeSaveId}?kind=bank` : null
+    const marketUrl = activeSaveId ? `${origin}/share/${activeSaveId}?kind=market` : null
+    const singleUrl = activeSaveId ? `${origin}/share/${activeSaveId}` : window.location.href
+
+    const shareText = bothExist
+      ? `Мои кешбэки за ${cashbackPeriodLabel}\n🏦 Банки: ${bankUrl}\n🛒 Маркетплейсы: ${marketUrl}`
+      : `Мои кешбэки за ${cashbackPeriodLabel}`
+
+    const clipboardText = bothExist
+      ? `Мои кешбэки за ${cashbackPeriodLabel}\n🏦 Банки: ${bankUrl}\n🛒 Маркетплейсы: ${marketUrl}`
+      : singleUrl
+
     if (typeof navigator.share === "function") {
       try {
-        await navigator.share({ title: "CashbackBrain", text, url: shareUrl })
+        if (bothExist) {
+          await navigator.share({ title: "CashbackBrain", text: shareText })
+        } else {
+          await navigator.share({ title: "CashbackBrain", text: shareText, url: singleUrl })
+        }
       } catch {
         // пользователь отменил — ничего не делаем
       }
     } else {
       try {
-        await navigator.clipboard.writeText(shareUrl)
+        await navigator.clipboard.writeText(clipboardText)
         setSaveToast("Ссылка скопирована")
       } catch {
         setSaveToast("Не удалось скопировать ссылку")
