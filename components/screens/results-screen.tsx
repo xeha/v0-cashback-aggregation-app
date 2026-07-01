@@ -96,7 +96,9 @@ export function ResultsScreen({
 }) {
   const [activeTab, setActiveTab] = useState<Tab>(() => getDefaultTab(matrix, kind))
   const [sortKey, setSortKey] = useState<string | null>(null)
+  const [canScrollTable, setCanScrollTable] = useState(false)
   const captureRef = useRef<HTMLDivElement>(null)
+  const tableScrollRef = useRef<HTMLDivElement>(null)
   const [savePngStatus, setSavePngStatus] = useState<SavePngStatus>(null)
   const [pngPreviewUrl, setPngPreviewUrl] = useState<string | null>(null)
   const [showWidget, setShowWidget] = useState(false)
@@ -119,6 +121,16 @@ export function ResultsScreen({
   const sortedProviders = sortGroup
     ? [...providers].sort((a, b) => (sortGroup.summaryRates[b.key] ?? -1) - (sortGroup.summaryRates[a.key] ?? -1))
     : providers
+
+  useEffect(() => {
+    const el = tableScrollRef.current
+    if (!el) return
+    const check = () => setCanScrollTable(el.scrollWidth > el.clientWidth)
+    check()
+    const ro = new ResizeObserver(check)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [sortedProviders])
 
   function toggleParent(parent: string) {
     setExpandedParents((prev) => {
@@ -370,13 +382,13 @@ export function ResultsScreen({
           ) : (
             <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50 px-3 py-1.5">
               <span className="text-[11px] text-slate-400">тап по строке — сортировка</span>
-              <span className="text-[11px] text-slate-400">листайте вправо →</span>
+              {canScrollTable && <span className="text-[11px] text-slate-400">листайте вправо →</span>}
             </div>
           )}
 
           {/* Горизонтально-скролируемая таблица */}
-          <div className={isCapturing ? "overflow-visible" : "overflow-x-auto"}>
-            <table style={{ minWidth: isCapturing ? undefined : sortedProviders.length * 52 + 116 }}>
+          <div ref={tableScrollRef} className={isCapturing ? "overflow-visible" : "overflow-x-auto"}>
+            <table className="w-full" style={{ minWidth: isCapturing ? undefined : sortedProviders.length * 52 + 116 }}>
               {/* Шапка с лого */}
               <thead>
                 <tr className="border-b border-slate-200 bg-slate-50">
