@@ -4,7 +4,7 @@ FROM base AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN --mount=type=cache,id=npm,target=/root/.npm \
-    npm ci
+    npm ci --registry https://registry.npmmirror.com
 
 FROM base AS builder
 WORKDIR /app
