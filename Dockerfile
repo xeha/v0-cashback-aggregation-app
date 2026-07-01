@@ -1,9 +1,10 @@
 FROM node:20-alpine AS base
+RUN corepack enable && corepack prepare pnpm@latest --activate
 
 FROM base AS deps
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
 
 FROM base AS builder
 WORKDIR /app
@@ -18,7 +19,7 @@ ENV NEXT_PUBLIC_POCKETBASE_URL=$NEXT_PUBLIC_POCKETBASE_URL
 ENV NEXT_PUBLIC_ASSETS_URL=$NEXT_PUBLIC_ASSETS_URL
 ENV NEXT_TELEMETRY_DISABLED=1
 
-RUN npm run build
+RUN pnpm run build
 
 FROM base AS runner
 WORKDIR /app
