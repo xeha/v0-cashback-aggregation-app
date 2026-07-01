@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { AppLogo } from "@/components/app-logo"
 import {
@@ -16,7 +16,13 @@ import {
   Bell,
   Star,
   Check,
+  RefreshCw,
+  Trash2,
 } from "lucide-react"
+import { labelsEquivalent } from "@/lib/category-label"
+import { formatSaveMetaLine } from "@/lib/saved-matrix-meta"
+import type { SavedMatrixSummary } from "@/lib/saved-matrices"
+import type { MatrixState } from "@/lib/types"
 
 type View = "menu" | "profile" | "cashback" | "feedback" | "about"
 
@@ -31,7 +37,45 @@ const CASHBACK_CATEGORIES = [
   "АЗС и топливо",
   "Развлечения",
   "Путешествия",
-]
+] as const
+
+function collectMatrixLabels(matrix: MatrixState): string[] {
+  const labels: string[] = []
+  for (const part of [matrix.bank, matrix.market]) {
+    if (!part) continue
+    for (const row of part.rows) {
+      labels.push(row.category)
+      if (row.canonicalCategory) labels.push(row.canonicalCategory)
+      if (row.parent) labels.push(row.parent)
+    }
+  }
+  return labels
+}
+
+function isCategoryInMatrix(cat: string, matrixLabels: string[]): boolean {
+  return matrixLabels.some((label) => labelsEquivalent(cat, label))
+}
+
+function sortCategoriesForProfile(
+  categories: readonly string[],
+  matrix?: MatrixState | null,
+): string[] {
+  if (!matrix?.bank && !matrix?.market) return [...categories]
+
+  const matrixLabels = collectMatrixLabels(matrix)
+  const inMatrix: string[] = []
+  const notInMatrix: string[] = []
+
+  for (const cat of categories) {
+    if (isCategoryInMatrix(cat, matrixLabels)) {
+      inMatrix.push(cat)
+    } else {
+      notInMatrix.push(cat)
+    }
+  }
+
+  return [...inMatrix, ...notInMatrix]
+}
 
 const AUTHENTICATED_MENU_ITEMS: { key: View; label: string; icon: typeof User }[] = [
   { key: "profile", label: "Профиль", icon: User },
@@ -51,16 +95,33 @@ export function UserMenu({
   isGuest = false,
   userEmail,
   variant = "light",
+  savedSummaries = [],
+  savesLoading = false,
+  savesError = null,
+  onOpenSaved,
+  onDeleteSaved,
+  onNewAssembly,
+  onRetrySaves,
+  matrix,
 }: {
   onLogout: () => void
   onLoginRequest?: () => void
   isGuest?: boolean
   userEmail?: string
   variant?: "light" | "overlay"
+  savedSummaries?: SavedMatrixSummary[]
+  savesLoading?: boolean
+  savesError?: string | null
+  onOpenSaved?: (id: string) => void
+  onDeleteSaved?: (id: string) => void
+  onNewAssembly?: () => void
+  onRetrySaves?: () => void
+  matrix?: MatrixState | null
 }) {
   const [open, setOpen] = useState(false)
   const [view, setView] = useState<View>("menu")
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false)
+  const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null)
 
   const [name, setName] = useState("Пользователь")
   const [email, setEmail] = useState(userEmail ?? "")
@@ -73,12 +134,13 @@ export function UserMenu({
     setName(localPart.charAt(0).toUpperCase() + localPart.slice(1))
   }, [userEmail])
 
-  // Cashback profile state
-  const [preferred, setPreferred] = useState<string[]>([
-    "Супермаркеты",
-    "Кафе и рестораны",
-    "Товары для детей",
-  ])
+  // Cashback profile state — all categories selected by default
+  const [preferred, setPreferred] = useState<string[]>(() => [...CASHBACK_CATEGORIES])
+
+  const sortedCategories = useMemo(
+    () => sortCategoriesForProfile(CASHBACK_CATEGORIES, matrix),
+    [matrix],
+  )
 
   // Feedback state
   const [rating, setRating] = useState(0)
@@ -109,6 +171,16 @@ export function UserMenu({
     setFeedbackSent(true)
   }
 
+  function openSaved(id: string) {
+    close()
+    onOpenSaved?.(id)
+  }
+
+  function handleNewAssembly() {
+    close()
+    onNewAssembly?.()
+  }
+
   const titles: Record<View, string> = {
     menu: "Настройки",
     profile: "Профиль",
@@ -127,7 +199,7 @@ export function UserMenu({
       <button
         type="button"
         onClick={openMenu}
-        aria-label="Открыть настройки"
+        aria-label="Открыть меню"
         className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors active:scale-95 ${triggerClasses}`}
       >
         <Settings className="h-5 w-5" />
@@ -308,38 +380,109 @@ export function UserMenu({
                     )}
 
                     {view === "cashback" && (
-                      <div className="flex flex-col gap-4 pt-2">
-                        <p className="text-[14px] leading-relaxed text-slate-500">
-                          Отметьте категории, в которых вы чаще покупаете — мы будем подсказывать
-                          лучшие ставки именно для них.
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {CASHBACK_CATEGORIES.map((cat) => {
-                            const active = preferred.includes(cat)
-                            return (
-                              <button
-                                key={cat}
-                                type="button"
-                                onClick={() => toggleCategory(cat)}
-                                className={`flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
-                                  active
-                                    ? "border-yellow-300 bg-yellow-200 text-slate-900"
-                                    : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
-                                }`}
-                              >
-                                {active && <Check className="h-3.5 w-3.5" />}
-                                {cat}
-                              </button>
-                            )
-                          })}
+                      <div className="flex flex-col gap-5 pt-2">
+                        <div>
+                          <h3 className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-slate-400">
+                            Сохранённые результаты
+                          </h3>
+                          {savesLoading ? (
+                            <div className="space-y-2">
+                              <div className="h-16 animate-pulse rounded-xl bg-slate-100" />
+                              <div className="h-16 animate-pulse rounded-xl bg-slate-100" />
+                            </div>
+                          ) : savesError ? (
+                            <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3">
+                              <p className="text-[13px] text-red-700">{savesError}</p>
+                              {onRetrySaves && (
+                                <button
+                                  type="button"
+                                  onClick={onRetrySaves}
+                                  className="mt-2 flex items-center gap-1.5 text-[13px] font-semibold text-red-700"
+                                >
+                                  <RefreshCw className="h-3.5 w-3.5" />
+                                  Повторить
+                                </button>
+                              )}
+                            </div>
+                          ) : savedSummaries.length === 0 ? (
+                            <p className="text-[14px] leading-relaxed text-slate-500">
+                              Пока нет сохранений. Соберите кешбэки и нажмите «Сохранить результат» на
+                              экране итогов.
+                            </p>
+                          ) : (
+                            <div className="flex flex-col gap-2">
+                              {savedSummaries.map((save) => (
+                                <div key={save.id} className="flex items-stretch gap-2">
+                                  <button
+                                    type="button"
+                                    onClick={() => openSaved(save.id)}
+                                    className="min-w-0 flex-1 rounded-xl border border-slate-200 px-4 py-3 text-left transition-colors hover:border-yellow-300 hover:bg-yellow-50 active:bg-yellow-100"
+                                  >
+                                    <div className="flex items-start justify-between gap-2">
+                                      <p className="truncate text-[14px] font-semibold text-slate-900">
+                                        {save.title}
+                                      </p>
+                                      {save.isFavorite && (
+                                        <Star className="h-4 w-4 shrink-0 fill-yellow-400 text-yellow-400" />
+                                      )}
+                                    </div>
+                                    <p className="mt-1 text-[12px] text-slate-500">
+                                      {formatSaveMetaLine(save)}
+                                    </p>
+                                  </button>
+                                  <button
+                                    type="button"
+                                    aria-label="Удалить"
+                                    onClick={() => setDeleteConfirmId(save.id)}
+                                    className="flex shrink-0 items-center justify-center rounded-xl border border-red-100 bg-red-50 px-3 text-red-400 transition-colors hover:bg-red-100 hover:text-red-600 active:bg-red-200"
+                                  >
+                                    <Trash2 className="h-4 w-4" />
+                                  </button>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
-                        <button
-                          type="button"
-                          onClick={() => setView("menu")}
-                          className="mt-1 w-full rounded-2xl bg-yellow-200 px-5 py-3.5 text-[15px] font-semibold text-slate-900 transition-colors hover:bg-yellow-300 active:bg-yellow-400"
-                        >
-                          Сохранить предпочтения
-                        </button>
+
+                        <div>
+                          <h3 className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-slate-400">
+                            Любимые категории
+                          </h3>
+                          <p className="mb-3 text-[14px] leading-relaxed text-slate-500">
+                            Отметьте категории, в которых вы чаще покупаете — мы будем подсказывать лучшие
+                            ставки именно для них.
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {sortedCategories.map((cat) => {
+                              const active = preferred.includes(cat)
+                              return (
+                                <button
+                                  key={cat}
+                                  type="button"
+                                  onClick={() => toggleCategory(cat)}
+                                  className={`flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
+                                    active
+                                      ? "border-yellow-300 bg-yellow-200 text-slate-900"
+                                      : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+                                  }`}
+                                >
+                                  {active && <Check className="h-3.5 w-3.5" />}
+                                  {cat}
+                                </button>
+                              )
+                            })}
+                          </div>
+                        </div>
+
+                        {onNewAssembly && (
+                          <button
+                            type="button"
+                            onClick={handleNewAssembly}
+                            className="w-full rounded-2xl border border-slate-200 bg-white px-5 py-3.5 text-[15px] font-semibold text-slate-800 transition-colors hover:bg-slate-50 active:bg-slate-100"
+                          >
+                            + Новая сборка
+                          </button>
+                        )}
                       </div>
                     )}
 
@@ -446,6 +589,63 @@ export function UserMenu({
                     )}
                   </motion.div>
                 </AnimatePresence>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Delete save confirmation */}
+      <AnimatePresence>
+        {deleteConfirmId && (
+          <motion.div
+            className="absolute inset-0 z-[60] flex items-center justify-center p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="absolute inset-0 bg-slate-900/50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setDeleteConfirmId(null)}
+            />
+            <motion.div
+              role="alertdialog"
+              aria-modal="true"
+              aria-labelledby="delete-save-title"
+              aria-describedby="delete-save-desc"
+              className="relative w-full max-w-sm rounded-3xl bg-white p-6 shadow-xl"
+              initial={{ opacity: 0, scale: 0.92, y: 12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 12 }}
+              transition={{ type: "spring", stiffness: 380, damping: 30 }}
+            >
+              <h2 id="delete-save-title" className="text-lg font-bold text-slate-900">
+                Удалить результат?
+              </h2>
+              <p id="delete-save-desc" className="mt-2 text-[14px] leading-relaxed text-slate-500">
+                Это действие нельзя отменить. Сохранённый результат будет удалён без возможности восстановления.
+              </p>
+              <div className="mt-6 flex flex-col gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    onDeleteSaved?.(deleteConfirmId)
+                    setDeleteConfirmId(null)
+                  }}
+                  className="w-full rounded-2xl bg-red-600 px-5 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-red-700 active:bg-red-800"
+                >
+                  Удалить
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setDeleteConfirmId(null)}
+                  className="w-full rounded-2xl bg-slate-100 px-5 py-3.5 text-[15px] font-semibold text-slate-700 transition-colors hover:bg-slate-200 active:bg-slate-300"
+                >
+                  Отмена
+                </button>
               </div>
             </motion.div>
           </motion.div>

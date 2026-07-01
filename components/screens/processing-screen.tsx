@@ -5,8 +5,11 @@ import { useEffect, useRef, useState } from "react"
 import { OcrFailureDialog } from "@/components/ocr-failure-dialog"
 import {
   ApiError,
+  BatchProcessError,
   isOcrRecognitionFailure,
+  processBatch,
   processSubmissionWithKeyTracking,
+  shouldUseBatchPipeline,
 } from "@/lib/api"
 import type {
   BankOfferItem,
@@ -40,6 +43,9 @@ interface ActiveStep {
 function getProcessingHint(total: number): string {
   if (total <= 1) return "Обычно до 30 секунд · при сбое — ошибка через 1 мин"
   const estimateMinutes = Math.max(1, Math.ceil((total * 30) / 60))
+  if (shouldUseBatchPipeline()) {
+    return `До ${estimateMinutes} мин · один запрос на сервер · при сбое — ошибка через ${estimateMinutes} мин`
+  }
   return `До ${estimateMinutes} мин · около 30 сек на скриншот · при сбое — ошибка через 1 мин`
 }
 
@@ -128,7 +134,57 @@ export function ProcessingScreen({
     })
     setOcrFailure(null)
 
-    async function runBatch(batch: BatchProgress) {
+    async function runBatchPipeline() {
+      if (submissions.length > 1) {
+        setActiveStep(null)
+      }
+
+      try {
+        const result = await processBatch(submissions, existingMatrix)
+        if (cancelled || runGenerationRef.current !== runGeneration) return
+        onDoneRef.current(result.matrix, result.summary)
+      } catch (err) {
+        if (cancelled || runGenerationRef.current !== runGeneration) return
+
+        if (err instanceof BatchProcessError) {
+          waitingForUserRef.current = true
+          const failedSubmission = submissions[err.failedIndex]
+
+          if (err.isOcrFailure && failedSubmission) {
+            onOcrFailureRef.current(
+              err.partialMatrix,
+              err.failedIndex,
+              err.partialSummary,
+              submissions.slice(0, err.failedIndex),
+            )
+            setOcrFailure({ submission: failedSubmission, message: err.message })
+            return
+          }
+
+          if (err.failedIndex > 0) {
+            onGeneralFailureRef.current(
+              err.partialMatrix,
+              err.failedIndex,
+              err.partialSummary,
+              submissions.slice(0, err.failedIndex),
+            )
+          }
+
+          setError(err.message)
+          onErrorRef.current(err.message)
+          return
+        }
+
+        const message =
+          err instanceof ApiError
+            ? err.message
+            : "Не удалось обработать скриншоты. Попробуйте ещё раз."
+        setError(message)
+        onErrorRef.current(message)
+      }
+    }
+
+    async function runLegacyBatch(batch: BatchProgress) {
       let state = {
         ...batch,
         bankKeys: cloneKeySet(batch.bankKeys),
@@ -242,7 +298,11 @@ export function ProcessingScreen({
       )
     }
 
-    runBatch(createInitialBatch(existingMatrix))
+    if (shouldUseBatchPipeline()) {
+      void runBatchPipeline()
+    } else {
+      void runLegacyBatch(createInitialBatch(existingMatrix))
+    }
 
     return () => {
       cancelled = true
@@ -261,10 +321,15 @@ export function ProcessingScreen({
   const isWaitingForUser = ocrFailure !== null
   const currentIndex = activeStep?.index ?? 1
   const label =
-    total > 1
-      ? `Обрабатываем ${currentIndex} из ${total}…`
-      : "Распознавание данных со скриншота…"
-  const providerLabel = activeStep?.providerName ? `«${activeStep.providerName}»` : null
+    shouldUseBatchPipeline() && total > 1
+      ? `Обрабатываем ${total} скриншотов…`
+      : total > 1
+        ? `Обрабатываем ${currentIndex} из ${total}…`
+        : "Распознавание данных со скриншота…"
+  const providerLabel =
+    activeStep?.providerName && !(shouldUseBatchPipeline() && total > 1)
+      ? `«${activeStep.providerName}»`
+      : null
   const hint = getProcessingHint(total)
 
   return (
@@ -296,7 +361,7 @@ export function ProcessingScreen({
             <p className="mt-1.5 text-[14px] font-medium text-slate-700">{providerLabel}</p>
           ) : null}
           <p className="mt-2 text-[14px] text-slate-500">{hint}</p>
-          {total > 1 && progress > 0 ? (
+          {!shouldUseBatchPipeline() && total > 1 && progress > 0 ? (
             <p className="mt-1 text-[13px] text-slate-400">
               Готово: {progress} из {total}
             </p>

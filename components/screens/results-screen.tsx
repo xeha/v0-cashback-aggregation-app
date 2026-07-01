@@ -1,11 +1,11 @@
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, ChevronRight, Download, Share, LayoutGrid, ImagePlus, Trash2, Bookmark } from "lucide-react"
+import { ChevronDown, ChevronRight, Download, Share, Smartphone, ImagePlus, Trash2, Bookmark } from "lucide-react"
 import { ProviderLogo } from "@/components/provider-logo"
 import { ProcessingWarningsBanner } from "@/components/processing-warnings-banner"
-import { getCurrentMonthYear, getRowTiers, type RateTier } from "@/lib/cashback-data"
+import { getRowTiers, type RateTier } from "@/lib/cashback-data"
 import {
   groupMatrixRows,
   groupHasSubcategories,
@@ -20,11 +20,12 @@ import {
   labelsEquivalent,
 } from "@/lib/category-label"
 import type { CashbackMatrix, Kind, MatrixProvider, MatrixRow, MatrixState, ProcessingSummary, SourceSubmission } from "@/lib/types"
-import { useAuth } from "@/lib/auth-context"
-import { saveMatrix } from "@/lib/saved-matrices"
+import { usePwaInstall } from "@/lib/use-pwa-install"
+import { getMobilePlatform } from "@/lib/pwa"
 import { GuestSaveBanner } from "./guest-save-banner"
-import { AddWidgetOverlay, SavePngOverlay, ShareSheet } from "./results-overlays"
+import { AddToHomeScreenOverlay, SavePngOverlay, type SavePngStatus } from "./results-overlays"
 import { UserMenu } from "./user-menu"
+import type { SavedMatrixSummary } from "@/lib/saved-matrices"
 
 const TIER_STYLES: Record<RateTier, string> = {
   high: "bg-green-100 text-green-700",
@@ -126,6 +127,8 @@ export function ResultsScreen({
   onLogout,
   onUploadMore,
   onLoginRequest,
+  onSaveMatrix,
+  cashbackPeriodLabel,
   kind = "bank",
   matrix,
   submissions = [],
@@ -134,11 +137,21 @@ export function ResultsScreen({
   isGuest = false,
   showGuestSaveBanner = false,
   onGuestSaveBannerDismiss,
+  activeSaveId = null,
+  savedSummaries = [],
+  savesLoading = false,
+  savesError = null,
+  onOpenSaved,
+  onDeleteSaved,
+  onNewAssembly,
+  onRetrySaves,
 }: {
   onRestart: () => void
   onLogout: () => void
   onUploadMore: () => void
   onLoginRequest?: () => void
+  onSaveMatrix?: () => Promise<{ ok: true; message: string } | { ok: false; message: string }>
+  cashbackPeriodLabel: string
   kind?: Kind
   matrix: MatrixState
   submissions?: SourceSubmission[]
@@ -147,23 +160,32 @@ export function ResultsScreen({
   isGuest?: boolean
   showGuestSaveBanner?: boolean
   onGuestSaveBannerDismiss?: () => void
+  activeSaveId?: string | null
+  savedSummaries?: SavedMatrixSummary[]
+  savesLoading?: boolean
+  savesError?: string | null
+  onOpenSaved?: (id: string) => void
+  onDeleteSaved?: (id: string) => void
+  onNewAssembly?: () => void
+  onRetrySaves?: () => void
 }) {
-  const { pb } = useAuth()
   const [activeTab, setActiveTab] = useState<Tab>(() => getDefaultTab(matrix, kind))
-  const [showSave, setShowSave] = useState(false)
-  const [showShare, setShowShare] = useState(false)
+  const captureRef = useRef<HTMLDivElement>(null)
+  const [savePngStatus, setSavePngStatus] = useState<SavePngStatus>(null)
+  const [pngPreviewUrl, setPngPreviewUrl] = useState<string | null>(null)
   const [showWidget, setShowWidget] = useState(false)
   const [showResetConfirm, setShowResetConfirm] = useState(false)
   const [expandedParents, setExpandedParents] = useState<Set<string>>(new Set())
   const [isSavingMatrix, setIsSavingMatrix] = useState(false)
   const [saveToast, setSaveToast] = useState<string | null>(null)
   const [saveError, setSaveError] = useState<string | null>(null)
+  const { isStandalone, canPromptInstall, promptInstall } = usePwaInstall()
 
   const activeMatrix = getActiveMatrix(matrix, activeTab)
   const providers = activeMatrix?.providers ?? []
   const rows = activeMatrix?.rows ?? []
   const marketParts = activeTab === "market" ? activeMatrix?.marketParts : undefined
-  const groups = groupMatrixRows(rows, marketParts)
+  const groups = activeMatrix?.groups ?? groupMatrixRows(rows, marketParts)
   const hasMatrixData = groups.length > 0
 
   function toggleParent(parent: string) {
@@ -175,30 +197,104 @@ export function ResultsScreen({
     })
   }
 
-  function handleSavePng() {
-    setShowSave(true)
+  async function handleSavePng() {
+    const node = captureRef.current
+    if (!node || savePngStatus === "saving") return
+    setSavePngStatus("saving")
+    setPngPreviewUrl(null)
+    try {
+      const { toPng } = await import("html-to-image")
+      const dataUrl = await toPng(node, {
+        backgroundColor: "#ffffff",
+        pixelRatio: 2,
+        filter: (el) => {
+          if (el instanceof HTMLElement && el.hasAttribute("data-no-capture")) return false
+          if (el instanceof HTMLImageElement) return false
+          return true
+        },
+      })
+      if (getMobilePlatform() === "ios") {
+        setPngPreviewUrl(dataUrl)
+        setSavePngStatus("done")
+      } else {
+        const link = document.createElement("a")
+        link.download = `кешбэки-${cashbackPeriodLabel.replace(/\s+/g, "-").toLowerCase()}.png`
+        link.href = dataUrl
+        link.click()
+        setSavePngStatus("done")
+        setTimeout(() => setSavePngStatus(null), 2000)
+      }
+    } catch {
+      setSavePngStatus("error")
+    }
   }
 
-  function handleShare() {
-    setShowShare(true)
+  async function handleShare() {
+    const origin = window.location.origin
+    const hasBank = (matrix.bank?.providers.length ?? 0) > 0
+    const hasMarket = (matrix.market?.providers.length ?? 0) > 0
+    const bothExist = activeSaveId && hasBank && hasMarket
+
+    const bankUrl = activeSaveId ? `${origin}/share/${activeSaveId}?kind=bank` : null
+    const marketUrl = activeSaveId ? `${origin}/share/${activeSaveId}?kind=market` : null
+    const singleUrl = activeSaveId ? `${origin}/share/${activeSaveId}` : window.location.href
+
+    const shareText = bothExist
+      ? `Мои кешбэки за ${cashbackPeriodLabel}\n🏦 Банки: ${bankUrl}\n🛒 Маркетплейсы: ${marketUrl}`
+      : `Мои кешбэки за ${cashbackPeriodLabel}`
+
+    const clipboardText = bothExist
+      ? `Мои кешбэки за ${cashbackPeriodLabel}\n🏦 Банки: ${bankUrl}\n🛒 Маркетплейсы: ${marketUrl}`
+      : singleUrl
+
+    if (typeof navigator.share === "function") {
+      try {
+        if (bothExist) {
+          await navigator.share({ title: "CashbackBrain", text: shareText })
+        } else {
+          await navigator.share({ title: "CashbackBrain", text: shareText, url: singleUrl })
+        }
+      } catch {
+        // пользователь отменил — ничего не делаем
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(clipboardText)
+        setSaveToast("Ссылка скопирована")
+      } catch {
+        setSaveToast("Не удалось скопировать ссылку")
+      }
+    }
   }
 
-  function handleAddWidget() {
+  async function handleAddToHomeScreen() {
+    if (isStandalone) {
+      setShowWidget(true)
+      return
+    }
+
+    if (canPromptInstall) {
+      const accepted = await promptInstall()
+      if (accepted) return
+    }
+
     setShowWidget(true)
   }
 
   async function handleSaveMatrix() {
+    if (!onSaveMatrix) return
+
     setSaveError(null)
     setIsSavingMatrix(true)
 
     try {
-      await saveMatrix(pb, {
-        matrix,
-        submissions,
-        summary: processingSummary,
-      })
-      setSaveToast("Результат сохранён")
-      window.setTimeout(() => setSaveToast(null), 3000)
+      const result = await onSaveMatrix()
+      if (result.ok) {
+        setSaveToast(result.message)
+        window.setTimeout(() => setSaveToast(null), 3000)
+      } else {
+        setSaveError(result.message)
+      }
     } catch (error) {
       setSaveError(error instanceof Error ? error.message : "Не удалось сохранить")
     } finally {
@@ -214,27 +310,40 @@ export function ResultsScreen({
       exit={{ opacity: 0, y: -16 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
       className="relative flex min-h-full flex-col px-5 py-8"
+      ref={captureRef}
     >
       <div className="mb-5 flex items-start justify-between gap-3">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Ваши кешбэки</h1>
           <p className="mt-1 text-[14px] capitalize text-slate-500">
-            {getCurrentMonthYear()}
+            {cashbackPeriodLabel}
           </p>
         </div>
-        <UserMenu
-          onLogout={onLogout}
-          onLoginRequest={onLoginRequest}
-          isGuest={isGuest}
-          userEmail={userEmail}
-        />
+        <div data-no-capture>
+          <UserMenu
+            onLogout={onLogout}
+            onLoginRequest={onLoginRequest}
+            isGuest={isGuest}
+            userEmail={userEmail}
+            savedSummaries={savedSummaries}
+            savesLoading={savesLoading}
+            savesError={savesError}
+            onOpenSaved={onOpenSaved}
+            onDeleteSaved={onDeleteSaved}
+            onNewAssembly={onNewAssembly}
+            onRetrySaves={onRetrySaves}
+            matrix={matrix}
+          />
+        </div>
       </div>
 
       {showGuestSaveBanner && onLoginRequest && onGuestSaveBannerDismiss && (
-        <GuestSaveBanner
-          onLoginRequest={onLoginRequest}
-          onDismiss={onGuestSaveBannerDismiss}
-        />
+        <div data-no-capture>
+          <GuestSaveBanner
+            onLoginRequest={onLoginRequest}
+            onDismiss={onGuestSaveBannerDismiss}
+          />
+        </div>
       )}
 
       <ProcessingWarningsBanner summary={processingSummary} />
@@ -411,7 +520,9 @@ export function ResultsScreen({
         </span>
       </div>
 
-      <div className="mt-auto overflow-hidden rounded-2xl border border-yellow-300 bg-yellow-200 shadow-md">
+      <div data-no-capture className="mt-auto overflow-hidden rounded-2xl border border-yellow-300 bg-yellow-200 shadow-md">
+        {!isGuest && onSaveMatrix && (
+          <>
         <button
           type="button"
           onClick={handleSaveMatrix}
@@ -420,10 +531,16 @@ export function ResultsScreen({
         >
           <Bookmark className="h-5 w-5 shrink-0 text-slate-700" />
           <span className="text-[15px] font-medium text-slate-900">
-            {isSavingMatrix ? "Сохранение…" : "Сохранить матрицу"}
+            {isSavingMatrix
+              ? "Сохранение…"
+              : activeSaveId
+                ? "Сохранить изменения"
+                : "Сохранить результат"}
           </span>
         </button>
         <div className="h-px bg-yellow-300" />
+          </>
+        )}
         <button
           onClick={handleSavePng}
           className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-yellow-300 active:bg-yellow-400"
@@ -441,11 +558,12 @@ export function ResultsScreen({
         </button>
         <div className="h-px bg-yellow-300" />
         <button
-          onClick={handleAddWidget}
+          type="button"
+          onClick={() => void handleAddToHomeScreen()}
           className="flex w-full items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-yellow-300 active:bg-yellow-400"
         >
-          <LayoutGrid className="h-5 w-5 shrink-0 text-slate-700" />
-          <span className="text-[15px] font-medium text-slate-900">Добавить виджет</span>
+          <Smartphone className="h-5 w-5 shrink-0 text-slate-700" />
+          <span className="text-[15px] font-medium text-slate-900">На экран «Домой»</span>
         </button>
         <div className="h-px bg-yellow-300" />
         <button
@@ -458,6 +576,7 @@ export function ResultsScreen({
       </div>
 
       <button
+        data-no-capture
         onClick={() => setShowResetConfirm(true)}
         className="mt-3 flex w-full items-center justify-center gap-2 rounded-2xl border border-red-200 px-5 py-3.5 text-[15px] font-medium text-red-600 transition-colors hover:bg-red-50 active:bg-red-100"
       >
@@ -471,9 +590,18 @@ export function ResultsScreen({
         </p>
       )}
 
-      <SavePngOverlay open={showSave} onClose={() => setShowSave(false)} />
-      <ShareSheet open={showShare} onClose={() => setShowShare(false)} />
-      <AddWidgetOverlay open={showWidget} onClose={() => setShowWidget(false)} tab={activeTab} />
+      <SavePngOverlay
+        status={savePngStatus}
+        previewUrl={pngPreviewUrl}
+        onClose={() => { setSavePngStatus(null); setPngPreviewUrl(null) }}
+      />
+      <AddToHomeScreenOverlay
+        open={showWidget}
+        onClose={() => setShowWidget(false)}
+        canPromptInstall={canPromptInstall}
+        onInstall={promptInstall}
+        isStandalone={isStandalone}
+      />
 
       <AnimatePresence>
         {saveToast && (

@@ -1,27 +1,25 @@
-import type { Kind } from "@/lib/types"
+import { getBackendUrl } from "@/lib/backend-url"
 import { imageSrcToBase64 } from "@/lib/image-utils"
-import { createProviderFromSubmission, mergeMappedItems } from "@/lib/matrix"
+import {
+  apiMatrixStateToClient,
+  apiProcessResponseToClient,
+  clientMatrixToApi,
+  enrichMatrixLogos,
+  type ApiBatchPipelineErrorDetail,
+  type ApiBatchPipelineResponse,
+  type ApiProcessSubmissionResponse,
+} from "@/lib/matrix-api"
 import type {
   BankOfferItem,
   CashbackMatrix,
-  CategoryMapResponse,
   LowConfidenceItem,
-  MappedItem,
-  OcrExtractResponse,
+  MatrixState,
+  ProcessingSummary,
   SourceSubmission,
 } from "@/lib/types"
 
-function getBackendUrl(): string {
-  if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
-    const configured = process.env.NEXT_PUBLIC_BACKEND_URL?.trim()
-    // Direct FastAPI when URL is set (avoids Next.js rewrite ~30s timeout on large OCR bodies).
-    if (configured) return configured
-    // Same-origin rewrite when testing from phone over Wi‑Fi without env.
-    return ""
-  }
-  return process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:8000"
-}
 const REQUEST_TIMEOUT_MS = 60_000
+const USE_BATCH = process.env.NEXT_PUBLIC_USE_BATCH !== "0"
 
 /** Below this confidence, show a warning on the results screen. */
 export const LOW_CONFIDENCE_UI_THRESHOLD = 0.55
@@ -50,65 +48,26 @@ export class OcrUnreliableError extends ApiError {
   }
 }
 
+export class BatchProcessError extends ApiError {
+  failedIndex: number
+  isOcrFailure: boolean
+  partialMatrix: MatrixState
+  partialSummary: ProcessingSummary
+
+  constructor(detail: ApiBatchPipelineErrorDetail, status: number) {
+    super(detail.message, status)
+    this.failedIndex = detail.failed_index
+    this.isOcrFailure = detail.is_ocr_failure
+    this.partialMatrix = enrichMatrixState(apiMatrixStateToClient(detail.matrix))
+    this.partialSummary = mapSummaryFromApi(detail.summary)
+  }
+}
+
 export function isOcrRecognitionFailure(error: unknown): error is ApiError {
   if (!(error instanceof ApiError)) return false
   if (error instanceof OcrEmptyError || error instanceof OcrUnreliableError) return true
+  if (error instanceof BatchProcessError && error.isOcrFailure) return true
   return error.status === 502
-}
-
-function isUnreliableMapping(items: MappedItem[]): boolean {
-  const comparable = items.filter((item) => !item.is_bank_offer)
-  if (comparable.length === 0) return false
-
-  // LLM/map fallback is degraded mapping, not a signal that OCR misread the screenshot.
-  const qualityItems = comparable.filter(
-    (item) => item.match_source !== "reference_fallback",
-  )
-  if (qualityItems.length === 0) return false
-
-  const confidences = qualityItems.map((item) => item.confidence)
-  const average =
-    confidences.reduce((sum, value) => sum + value, 0) / confidences.length
-  const allBelowThreshold = confidences.every(
-    (value) => value < LOW_CONFIDENCE_UI_THRESHOLD,
-  )
-  const mostlyFallback =
-    qualityItems.filter((item) => item.unified_category === "Прочее").length /
-      qualityItems.length >=
-    0.5
-
-  return allBelowThreshold || average < LOW_CONFIDENCE_UI_THRESHOLD || mostlyFallback
-}
-
-function collectLowConfidenceItems(
-  items: MappedItem[],
-  providerName: string,
-): LowConfidenceItem[] {
-  return items
-    .filter(
-      (item) =>
-        !item.is_bank_offer && item.confidence < LOW_CONFIDENCE_UI_THRESHOLD,
-    )
-    .map((item) => ({
-      providerName,
-      rawCategory: item.raw_category,
-      unifiedCategory: item.unified_category,
-      confidence: item.confidence,
-    }))
-}
-
-function collectBankOfferItems(
-  items: MappedItem[],
-  providerName: string,
-): BankOfferItem[] {
-  return items
-    .filter((item) => item.is_bank_offer)
-    .map((item) => ({
-      providerName,
-      rawCategory: item.raw_category,
-      unifiedCategory: item.unified_category,
-      rate: item.rate,
-    }))
 }
 
 export interface ProcessSubmissionResult {
@@ -117,19 +76,74 @@ export interface ProcessSubmissionResult {
   bankOfferItems: BankOfferItem[]
 }
 
+export interface ProcessBatchResult {
+  matrix: MatrixState
+  summary: ProcessingSummary
+}
+
 function isRequestTimeoutError(error: unknown): boolean {
   if (!(error instanceof Error)) return false
   return error.name === "TimeoutError" || error.name === "AbortError"
 }
 
-async function postJson<T>(path: string, body: unknown): Promise<T> {
+function mapPipelineError(error: ApiError): never {
+  if (error.status === 422) {
+    if (error.message.includes("не найдены")) throw new OcrEmptyError()
+    if (error.message.includes("неуверенно")) throw new OcrUnreliableError()
+  }
+  throw error
+}
+
+function isBatchErrorDetail(value: unknown): value is ApiBatchPipelineErrorDetail {
+  if (!value || typeof value !== "object") return false
+  const detail = value as ApiBatchPipelineErrorDetail
+  return (
+    typeof detail.message === "string" &&
+    typeof detail.failed_index === "number" &&
+    typeof detail.is_ocr_failure === "boolean" &&
+    Boolean(detail.matrix) &&
+    Boolean(detail.summary)
+  )
+}
+
+function mapSummaryFromApi(
+  summary: ApiBatchPipelineResponse["summary"],
+): ProcessingSummary {
+  return {
+    skipped: summary.skipped.map((item) => ({
+      providerName: item.provider_name ?? "",
+      message: item.message ?? "",
+    })),
+    lowConfidence: summary.low_confidence.map((item) => ({
+      providerName: item.provider_name,
+      rawCategory: item.raw_category,
+      unifiedCategory: item.unified_category,
+      confidence: item.confidence,
+    })),
+    bankOffers: summary.bank_offers.map((item) => ({
+      providerName: item.provider_name,
+      rawCategory: item.raw_category,
+      unifiedCategory: item.unified_category,
+      rate: item.rate,
+    })),
+  }
+}
+
+function enrichMatrixState(matrix: MatrixState): MatrixState {
+  return {
+    bank: matrix.bank ? enrichMatrixLogos(matrix.bank) : null,
+    market: matrix.market ? enrichMatrixLogos(matrix.market) : null,
+  }
+}
+
+async function postJson<T>(path: string, body: unknown, timeoutMs = REQUEST_TIMEOUT_MS): Promise<T> {
   let response: Response
   try {
     response = await fetch(`${getBackendUrl()}${path}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
-      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+      signal: AbortSignal.timeout(timeoutMs),
     })
   } catch (error) {
     if (isRequestTimeoutError(error)) {
@@ -142,95 +156,119 @@ async function postJson<T>(path: string, body: unknown): Promise<T> {
   }
 
   if (!response.ok) {
-    let detail = response.statusText
+    let detail: unknown = response.statusText
     try {
       const payload = await response.json()
-      if (typeof payload.detail === "string") {
-        detail = payload.detail
-      } else if (Array.isArray(payload.detail)) {
-        detail = payload.detail.map((item: { msg?: string }) => item.msg).filter(Boolean).join("; ")
-      }
+      detail = payload.detail ?? payload
     } catch {
       if (response.status === 500 && detail === "Internal Server Error") {
         detail =
           "Сервер не успел обработать запрос. Проверьте, что FastAPI запущен на порту 8000, и попробуйте снова."
       }
     }
-    throw new ApiError(String(detail), response.status)
+
+    if (isBatchErrorDetail(detail)) {
+      throw new BatchProcessError(detail, response.status)
+    }
+
+    const message =
+      typeof detail === "string"
+        ? detail
+        : Array.isArray(detail)
+          ? detail.map((item: { msg?: string }) => item.msg).filter(Boolean).join("; ")
+          : response.statusText
+
+    throw new ApiError(String(message), response.status)
   }
 
   return response.json() as Promise<T>
 }
 
-export async function extractOcr(
-  image_base64: string,
-  mime_type: string,
-  kind: Kind = "bank",
-): Promise<OcrExtractResponse> {
-  return postJson<OcrExtractResponse>("/api/ocr/extract", {
-    image_base64,
-    mime_type,
-    kind,
-  })
-}
-
-export async function mapCategories(
-  items: { raw_category: string; rate: number }[],
-  source_name?: string,
-  options?: { kind?: Kind; sourceSlug?: string },
-): Promise<CategoryMapResponse> {
-  return postJson<CategoryMapResponse>("/api/category/map", {
-    items,
-    source_name,
-    kind: options?.kind ?? "bank",
-    source_slug: options?.sourceSlug,
-  })
+function mapProcessResponse(response: ApiProcessSubmissionResponse): ProcessSubmissionResult {
+  const matrix = enrichMatrixLogos(apiProcessResponseToClient(response))
+  return {
+    matrix,
+    lowConfidenceItems: response.low_confidence.map((item) => ({
+      providerName: item.provider_name,
+      rawCategory: item.raw_category,
+      unifiedCategory: item.unified_category,
+      confidence: item.confidence,
+    })),
+    bankOfferItems: response.bank_offers.map((item) => ({
+      providerName: item.provider_name,
+      rawCategory: item.raw_category,
+      unifiedCategory: item.unified_category,
+      rate: item.rate,
+    })),
+  }
 }
 
 export async function processSubmission(
   submission: SourceSubmission,
-  existingKeys: Set<string>,
   currentMatrix: CashbackMatrix | null,
 ): Promise<ProcessSubmissionResult> {
   const { image_base64, mime_type } = await imageSrcToBase64(submission.screenshotSrc)
-  const ocr = await extractOcr(image_base64, mime_type, submission.kind)
 
-  if (ocr.items.length === 0) {
-    throw new OcrEmptyError()
-  }
-
-  const mappedItems = (
-    await mapCategories(ocr.items, submission.providerName, {
+  try {
+    const response = await postJson<ApiProcessSubmissionResponse>("/api/pipeline/process", {
+      image_base64,
+      mime_type,
       kind: submission.kind,
-      sourceSlug: submission.providerSlug,
+      provider_name: submission.providerName,
+      provider_slug: submission.providerSlug,
+      current_matrix: currentMatrix ? clientMatrixToApi(currentMatrix) : null,
     })
-  ).items as MappedItem[]
-
-  if (isUnreliableMapping(mappedItems)) {
-    throw new OcrUnreliableError()
-  }
-
-  const provider = createProviderFromSubmission(
-    submission,
-    existingKeys,
-    currentMatrix?.providers ?? [],
-  )
-
-  const matrix = mergeMappedItems(
-    currentMatrix,
-    provider,
-    mappedItems,
-    submission.kind,
-  )
-
-  return {
-    matrix,
-    lowConfidenceItems: collectLowConfidenceItems(mappedItems, submission.providerName),
-    bankOfferItems: collectBankOfferItems(mappedItems, submission.providerName),
+    return mapProcessResponse(response)
+  } catch (error) {
+    if (error instanceof ApiError) mapPipelineError(error)
+    throw error
   }
 }
 
-/** Runs OCR + merge and keeps `keys` in sync with the matrix (by provider key, not display name). */
+export async function processBatch(
+  submissions: SourceSubmission[],
+  existingMatrix: MatrixState,
+): Promise<ProcessBatchResult> {
+  const payloadSubmissions = await Promise.all(
+    submissions.map(async (submission) => {
+      const { image_base64, mime_type } = await imageSrcToBase64(submission.screenshotSrc)
+      return {
+        image_base64,
+        mime_type,
+        kind: submission.kind,
+        provider_name: submission.providerName,
+        provider_slug: submission.providerSlug,
+      }
+    }),
+  )
+
+  const timeoutMs = REQUEST_TIMEOUT_MS * Math.max(1, submissions.length)
+
+  try {
+    const response = await postJson<ApiBatchPipelineResponse>(
+      "/api/pipeline/batch",
+      {
+        submissions: payloadSubmissions,
+        existing_matrix: {
+          bank: existingMatrix.bank ? clientMatrixToApi(existingMatrix.bank) : null,
+          market: existingMatrix.market ? clientMatrixToApi(existingMatrix.market) : null,
+        },
+      },
+      timeoutMs,
+    )
+
+    return {
+      matrix: enrichMatrixState(apiMatrixStateToClient(response.matrix)),
+      summary: mapSummaryFromApi(response.summary),
+    }
+  } catch (error) {
+    if (error instanceof BatchProcessError) throw error
+    if (error instanceof ApiError) mapPipelineError(error)
+    throw error
+  }
+}
+
+/** @deprecated Used only when NEXT_PUBLIC_USE_BATCH=0 */
 export async function processSubmissionWithKeyTracking(
   submission: SourceSubmission,
   keys: Set<string>,
@@ -238,7 +276,7 @@ export async function processSubmissionWithKeyTracking(
 ): Promise<ProcessSubmissionResult> {
   currentMatrix?.providers.forEach((provider) => keys.add(provider.key))
 
-  const result = await processSubmission(submission, keys, currentMatrix)
+  const result = await processSubmission(submission, currentMatrix)
 
   const newProvider = result.matrix.providers.find(
     (provider) =>
@@ -249,26 +287,6 @@ export async function processSubmissionWithKeyTracking(
   return result
 }
 
-export async function processAllSubmissions(
-  submissions: SourceSubmission[],
-): Promise<{ bank: CashbackMatrix | null; market: CashbackMatrix | null }> {
-  let bankMatrix: CashbackMatrix | null = null
-  let marketMatrix: CashbackMatrix | null = null
-  const bankKeys = new Set<string>()
-  const marketKeys = new Set<string>()
-
-  for (const submission of submissions) {
-    const keys = submission.kind === "market" ? marketKeys : bankKeys
-    const current = submission.kind === "market" ? marketMatrix : bankMatrix
-
-    const result = await processSubmissionWithKeyTracking(submission, keys, current)
-
-    if (submission.kind === "market") {
-      marketMatrix = result.matrix
-    } else {
-      bankMatrix = result.matrix
-    }
-  }
-
-  return { bank: bankMatrix, market: marketMatrix }
+export function shouldUseBatchPipeline(): boolean {
+  return USE_BATCH
 }

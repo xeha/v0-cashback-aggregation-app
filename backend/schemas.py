@@ -2,9 +2,12 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
+# 20 MB base64 ≈ 15 MB raw image — upper bound before Pydantic, before Pillow decode
+_IMAGE_BASE64_MAX = 20_000_000
+
 
 class OcrExtractRequest(BaseModel):
-    image_base64: str = Field(..., min_length=1)
+    image_base64: str = Field(..., min_length=1, max_length=_IMAGE_BASE64_MAX)
     mime_type: Literal["image/jpeg", "image/png", "image/jpg"] = "image/jpeg"
     kind: Literal["bank", "market"] = "bank"
 
@@ -84,3 +87,136 @@ class HealthResponse(BaseModel):
     mapper_loaded: bool
     bank_mapper_loaded: bool = False
     market_mapper_loaded: bool = False
+
+
+class ValidateEmailRequest(BaseModel):
+    email: str = Field(..., min_length=1, max_length=254)
+
+
+class ValidateEmailResponse(BaseModel):
+    valid: bool
+    email: str
+    domain: str
+    mx: bool
+
+
+class AuthValidationErrorDetail(BaseModel):
+    code: str
+    message: str
+    details: list[dict[str, str]]
+
+
+class AuthValidationErrorResponse(BaseModel):
+    error: AuthValidationErrorDetail
+
+
+class MatrixProvider(BaseModel):
+    key: str
+    name: str
+    slug: str | None = None
+
+
+class MatrixRow(BaseModel):
+    category: str
+    canonical_category: str | None = None
+    parent: str | None = None
+    bank_raw: str | None = None
+    market_raw: str | None = None
+    is_macro: bool = False
+    reference_node_id: str | None = None
+    reference_department: str | None = None
+    reference_depth: int | None = None
+    row_kind: Literal["anchor", "item"] | None = None
+    rate_ranges: dict[str, dict[str, float]] | None = None
+    rates: dict[str, float] = Field(default_factory=dict)
+
+
+class ComparisonPart(BaseModel):
+    store: str
+    rate: float
+    label: str
+    node_id: str
+    path: list[ReferencePathNode]
+
+
+class MatrixGroup(BaseModel):
+    parent: str
+    display_parent: str | None = None
+    summary_rates: dict[str, float] = Field(default_factory=dict)
+    rows: list[MatrixRow] = Field(default_factory=list)
+    is_macro_only: bool | None = None
+
+
+class CashbackMatrix(BaseModel):
+    kind: Literal["bank", "market"]
+    providers: list[MatrixProvider]
+    rows: list[MatrixRow]
+    market_parts: list[ComparisonPart] | None = None
+    groups: list[MatrixGroup] | None = None
+
+
+class MatrixState(BaseModel):
+    bank: CashbackMatrix | None = None
+    market: CashbackMatrix | None = None
+
+
+class BatchSubmissionInput(BaseModel):
+    image_base64: str = Field(..., min_length=1, max_length=_IMAGE_BASE64_MAX)
+    mime_type: Literal["image/jpeg", "image/png", "image/jpg"] = "image/jpeg"
+    kind: Literal["bank", "market"] = "bank"
+    provider_name: str
+    provider_slug: str | None = None
+
+
+class BatchPipelineRequest(BaseModel):
+    submissions: list[BatchSubmissionInput] = Field(..., min_length=1)
+    existing_matrix: MatrixState | None = None
+
+
+class LowConfidenceItem(BaseModel):
+    provider_name: str
+    raw_category: str
+    unified_category: str
+    confidence: float
+
+
+class BankOfferItem(BaseModel):
+    provider_name: str
+    raw_category: str
+    unified_category: str
+    rate: float
+
+
+class ProcessingSummaryResponse(BaseModel):
+    skipped: list[dict[str, str]] = Field(default_factory=list)
+    low_confidence: list[LowConfidenceItem] = Field(default_factory=list)
+    bank_offers: list[BankOfferItem] = Field(default_factory=list)
+
+
+class BatchPipelineResponse(BaseModel):
+    matrix: MatrixState
+    summary: ProcessingSummaryResponse
+
+
+class BatchPipelineErrorDetail(BaseModel):
+    message: str
+    failed_index: int
+    is_ocr_failure: bool
+    matrix: MatrixState
+    summary: ProcessingSummaryResponse
+
+
+class ProcessSubmissionRequest(BaseModel):
+    image_base64: str = Field(..., min_length=1, max_length=_IMAGE_BASE64_MAX)
+    mime_type: Literal["image/jpeg", "image/png", "image/jpg"] = "image/jpeg"
+    kind: Literal["bank", "market"] = "bank"
+    provider_name: str
+    provider_slug: str | None = None
+    current_matrix: CashbackMatrix | None = None
+
+
+class ProcessSubmissionResponse(BaseModel):
+    matrix: CashbackMatrix
+    groups: list[MatrixGroup] = Field(default_factory=list)
+    low_confidence: list[LowConfidenceItem] = Field(default_factory=list)
+    bank_offers: list[BankOfferItem] = Field(default_factory=list)

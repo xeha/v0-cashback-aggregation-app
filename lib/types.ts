@@ -1,11 +1,22 @@
 export type Kind = "bank" | "market"
 
+export interface CashbackPeriod {
+  month: number
+  year: number
+}
+
+export interface ImagePickResult {
+  dataUrl: string
+  fileModifiedAt: number
+}
+
 export interface SourceSubmission {
   providerName: string
   screenshotSrc: string
   kind: Kind
   /** Set when user picks from catalog or name exactly matches catalog */
   providerSlug?: string
+  fileModifiedAt?: string
 }
 
 export interface OcrItem {
@@ -48,6 +59,7 @@ export interface MatrixProvider {
   key: string
   name: string
   logo: string
+  slug?: string
 }
 
 export interface MatrixRow {
@@ -88,6 +100,8 @@ export interface CashbackMatrix {
   rows: MatrixRow[]
   /** Сырые части market для LCA-группировки (только kind="market") */
   marketParts?: import("@/lib/market-comparison").ComparisonPart[]
+  /** Pre-computed from POST /api/pipeline/process; client falls back to groupMatrixRows */
+  groups?: MatrixGroup[]
 }
 
 export interface MatrixState {

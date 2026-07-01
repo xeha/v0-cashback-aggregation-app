@@ -13,8 +13,29 @@ import {
   submissionToBankSelectRow,
   type BankSelectInitialRow,
 } from "@/lib/bank-select-rows"
+import {
+  cashbackPeriodFromSaved,
+  formatCashbackPeriod,
+  getDefaultCashbackPeriod,
+} from "@/lib/cashback-period"
 import { useAuth } from "@/lib/auth-context"
-import type { Kind, MatrixState, ProcessingSummary, SourceSubmission } from "@/lib/types"
+import {
+  deleteSavedMatrix,
+  getSavedMatrix,
+  listSavedMatrices,
+  saveMatrix,
+  updateSavedMatrix,
+  type SavedMatrixRecord,
+  type SavedMatrixSummary,
+} from "@/lib/saved-matrices"
+import type {
+  CashbackPeriod,
+  ImagePickResult,
+  Kind,
+  MatrixState,
+  ProcessingSummary,
+  SourceSubmission,
+} from "@/lib/types"
 
 type Screen = "empty" | "gallery" | "bank-select" | "processing" | "results"
 
@@ -30,7 +51,9 @@ function resetState() {
   return {
     currentScreen: "empty" as Screen,
     kind: "bank" as Kind,
+    cashbackPeriod: getDefaultCashbackPeriod() as CashbackPeriod,
     initialShot: "",
+    fileModifiedBySrc: {} as Record<string, number>,
     galleryPrefillSrc: null as string | null,
     submissions: [] as SourceSubmission[],
     matrix: { bank: null, market: null } as MatrixState,
@@ -77,10 +100,12 @@ function getBankSelectInitialRows({
 }
 
 export function CashbackApp() {
-  const { user, isLoading, logout } = useAuth()
+  const { user, isLoading, logout, pb } = useAuth()
   const [currentScreen, setCurrentScreen] = useState<Screen>("empty")
   const [kind, setKind] = useState<Kind>("bank")
+  const [cashbackPeriod, setCashbackPeriod] = useState<CashbackPeriod>(getDefaultCashbackPeriod())
   const [initialShot, setInitialShot] = useState("")
+  const [fileModifiedBySrc, setFileModifiedBySrc] = useState<Record<string, number>>({})
   const [galleryPrefillSrc, setGalleryPrefillSrc] = useState<string | null>(null)
   const [submissions, setSubmissions] = useState<SourceSubmission[]>([])
   const [matrix, setMatrix] = useState<MatrixState>({ bank: null, market: null })
@@ -95,12 +120,112 @@ export function CashbackApp() {
   const [isAddingMore, setIsAddingMore] = useState(false)
   const [authOpen, setAuthOpen] = useState(false)
   const [guestBannerDismissed, setGuestBannerDismissed] = useState(false)
+  const [activeSaveId, setActiveSaveId] = useState<string | null>(null)
+  const [savedSummaries, setSavedSummaries] = useState<SavedMatrixSummary[]>([])
+  const [savesLoading, setSavesLoading] = useState(false)
+  const [savesError, setSavesError] = useState<string | null>(null)
+  const [openSaveError, setOpenSaveError] = useState<string | null>(null)
   const pickModeRef = useRef<PickMode | null>(null)
 
   const isGuest = !user
+  const continueSave = savedSummaries[0] ?? null
 
   function openAuth() {
     setAuthOpen(true)
+  }
+
+  async function refreshSavedSummaries() {
+    if (!user) {
+      setSavedSummaries([])
+      setSavesError(null)
+      return
+    }
+
+    setSavesLoading(true)
+    setSavesError(null)
+
+    try {
+      const summaries = await listSavedMatrices(pb)
+      setSavedSummaries(summaries)
+    } catch {
+      setSavedSummaries([])
+      setSavesError("Не удалось загрузить список")
+    } finally {
+      setSavesLoading(false)
+    }
+  }
+
+  function hydrateFromSave(record: SavedMatrixRecord) {
+    setActiveSaveId(record.id)
+    setMatrix({ bank: record.bank_matrix, market: record.market_matrix })
+    setSubmissions(record.submissions)
+    setProcessingSummary(record.summary)
+    setCashbackPeriod(cashbackPeriodFromSaved(record.periodMonth, record.periodYear))
+    setBankSelectDraft(record.submissions)
+    setProcessingError(null)
+    setSavedSubmissions([])
+    setIsReplacingScreenshot(false)
+    setIsAddingMore(false)
+    setCurrentScreen("results")
+  }
+
+  async function handleOpenSaved(id: string) {
+    setOpenSaveError(null)
+
+    try {
+      const record = await getSavedMatrix(pb, id)
+      hydrateFromSave(record)
+    } catch {
+      setOpenSaveError("Не удалось открыть сохранение")
+    }
+  }
+
+  async function handleDeleteSaved(id: string) {
+    try {
+      await deleteSavedMatrix(pb, id)
+      setSavedSummaries((prev) => prev.filter((s) => s.id !== id))
+      if (activeSaveId === id) setActiveSaveId(null)
+    } catch {
+      // silently ignore — user stays in current state
+    }
+  }
+
+  async function handleSaveMatrix(): Promise<{ ok: true; message: string } | { ok: false; message: string }> {
+    const hasBank = (matrix.bank?.providers.length ?? 0) > 0
+    const hasMarket = (matrix.market?.providers.length ?? 0) > 0
+    const kindLabel =
+      hasBank && hasMarket ? "Кешбэк" : hasBank ? "Банки" : "Маркетплейсы"
+    const { month, year } = cashbackPeriod
+    const title = `${kindLabel} ${month}.${year}`
+
+    const payload = {
+      matrix,
+      submissions,
+      summary: processingSummary,
+      period: cashbackPeriod,
+      title,
+    }
+
+    try {
+      if (activeSaveId) {
+        await updateSavedMatrix(pb, activeSaveId, payload)
+        await refreshSavedSummaries()
+        return { ok: true, message: "Изменения сохранены" }
+      }
+
+      const created = await saveMatrix(pb, payload)
+      const createdId = typeof created.id === "string" ? created.id : null
+      if (createdId) {
+        setActiveSaveId(createdId)
+      }
+      await refreshSavedSummaries()
+      return { ok: true, message: "Результат сохранён" }
+    } catch (error) {
+      return {
+        ok: false,
+        message: error instanceof Error ? error.message : "Не удалось сохранить",
+      }
+    }
   }
 
   useEffect(() => {
@@ -109,11 +234,23 @@ export function CashbackApp() {
     }
   }, [user, authOpen])
 
+  useEffect(() => {
+    void refreshSavedSummaries()
+  }, [user, pb])
+
+  useEffect(() => {
+    if (!openSaveError) return
+    const timer = window.setTimeout(() => setOpenSaveError(null), 3000)
+    return () => window.clearTimeout(timer)
+  }, [openSaveError])
+
   function handleRestart() {
     const next = resetState()
     setCurrentScreen(next.currentScreen)
     setKind(next.kind)
+    setCashbackPeriod(next.cashbackPeriod)
     setInitialShot(next.initialShot)
+    setFileModifiedBySrc(next.fileModifiedBySrc)
     setGalleryPrefillSrc(next.galleryPrefillSrc)
     setSubmissions(next.submissions)
     setMatrix(next.matrix)
@@ -124,7 +261,16 @@ export function CashbackApp() {
     setBankSelectSession(next.bankSelectSession)
     setIsReplacingScreenshot(next.isReplacingScreenshot)
     setIsAddingMore(next.isAddingMore)
+    setActiveSaveId(null)
     pickModeRef.current = null
+  }
+
+  function registerFilePick(result: ImagePickResult) {
+    setFileModifiedBySrc((prev) => ({
+      ...prev,
+      [result.dataUrl]: result.fileModifiedAt,
+    }))
+    return result.dataUrl
   }
 
   function goToBankSelectWithShot(src: string) {
@@ -137,7 +283,8 @@ export function CashbackApp() {
     setCurrentScreen("bank-select")
   }
 
-  function handleGlobalFilePicked(src: string) {
+  function handleGlobalFilePicked(result: ImagePickResult) {
+    const src = registerFilePick(result)
     const mode = pickModeRef.current
     pickModeRef.current = null
 
@@ -175,6 +322,16 @@ export function CashbackApp() {
   const lockedRowCount =
     isReplacingScreenshot || isAddingMore ? savedSubmissions.length : 0
 
+  const savedMenuProps = {
+    savedSummaries,
+    savesLoading,
+    savesError,
+    onOpenSaved: handleOpenSaved,
+    onDeleteSaved: handleDeleteSaved,
+    onNewAssembly: handleRestart,
+    onRetrySaves: refreshSavedSummaries,
+  }
+
   return (
     <main className="flex min-h-dvh items-center justify-center bg-gray-100 sm:py-8">
       <div className="relative flex h-dvh w-full flex-col overflow-hidden bg-white sm:h-[844px] sm:max-w-[400px] sm:rounded-[2.5rem] sm:shadow-2xl">
@@ -198,19 +355,26 @@ export function CashbackApp() {
                   <EmptyScreen
                     isGuest={isGuest}
                     onLoginRequest={openAuth}
-                    onFilePicked={(src) => {
+                    onFilePicked={(result) => {
+                      setActiveSaveId(null)
+                      const src = registerFilePick(result)
                       setInitialShot(src)
                       setGalleryPrefillSrc(src)
                       setCurrentScreen("gallery")
                     }}
                     onLogout={handleLogout}
                     userEmail={typeof user?.email === "string" ? user.email : undefined}
+                    continueSave={continueSave}
+                    onContinueSave={handleOpenSaved}
+                    savesLoading={savesLoading}
+                    {...savedMenuProps}
                   />
                 )}
                 {currentScreen === "gallery" && (
                   <GalleryScreen
                     kind={kind}
                     initialSrc={galleryPrefillSrc}
+                    onScreenshotPicked={registerFilePick}
                     onCancel={() => {
                       setGalleryPrefillSrc(null)
                       if (isReplacingScreenshot) {
@@ -239,6 +403,10 @@ export function CashbackApp() {
                     initialShot={initialShot}
                     initialRows={bankSelectInitialRows}
                     lockedRowCount={lockedRowCount}
+                    cashbackPeriod={cashbackPeriod}
+                    onCashbackPeriodChange={setCashbackPeriod}
+                    fileModifiedBySrc={fileModifiedBySrc}
+                    onScreenshotPicked={registerFilePick}
                     onBack={() => {
                       if (isReplacingScreenshot) {
                         setIsReplacingScreenshot(false)
@@ -259,15 +427,27 @@ export function CashbackApp() {
                       setProcessingError(null)
                       if (isReplacingScreenshot) {
                         const newSubmissions = nextSubmissions.slice(savedSubmissions.length)
+                        if (newSubmissions.length === 0) {
+                          setIsReplacingScreenshot(false)
+                          setCurrentScreen("processing")
+                          return
+                        }
                         setSubmissions((prev) => [...newSubmissions, ...prev])
                         setBankSelectDraft([...savedSubmissions, ...newSubmissions])
                         setIsReplacingScreenshot(false)
                       } else if (isAddingMore) {
                         const newSubmissions = nextSubmissions.slice(savedSubmissions.length)
+                        if (newSubmissions.length === 0) {
+                          setIsAddingMore(false)
+                          setSavedSubmissions([])
+                          setCurrentScreen("results")
+                          return
+                        }
                         setSubmissions(newSubmissions)
                         setBankSelectDraft(nextSubmissions)
                         setIsAddingMore(false)
                       } else {
+                        setActiveSaveId(null)
                         setProcessingSummary(EMPTY_PROCESSING_SUMMARY)
                         setBankSelectDraft(nextSubmissions)
                         setSubmissions(nextSubmissions)
@@ -326,6 +506,7 @@ export function CashbackApp() {
                 {currentScreen === "results" && (
                   <ResultsScreen
                     kind={kind}
+                    cashbackPeriodLabel={formatCashbackPeriod(cashbackPeriod)}
                     matrix={matrix}
                     submissions={submissions}
                     processingSummary={processingSummary}
@@ -336,10 +517,13 @@ export function CashbackApp() {
                     showGuestSaveBanner={isGuest && !guestBannerDismissed}
                     onGuestSaveBannerDismiss={() => setGuestBannerDismissed(true)}
                     userEmail={typeof user?.email === "string" ? user.email : undefined}
+                    activeSaveId={activeSaveId}
+                    onSaveMatrix={handleSaveMatrix}
                     onUploadMore={() => {
                       pickModeRef.current = "upload-more"
                       openGlobalPicker()
                     }}
+                    {...savedMenuProps}
                   />
                 )}
                   </AnimatePresence>
@@ -359,6 +543,19 @@ export function CashbackApp() {
                 className="absolute inset-0 z-50 overflow-y-auto bg-white"
               >
                 <AuthScreen onClose={() => setAuthOpen(false)} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <AnimatePresence>
+            {openSaveError && (
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 16 }}
+                className="pointer-events-none absolute inset-x-5 bottom-6 z-[60] rounded-2xl bg-red-600 px-4 py-3 text-center text-[14px] font-medium text-white shadow-lg"
+              >
+                {openSaveError}
               </motion.div>
             )}
           </AnimatePresence>

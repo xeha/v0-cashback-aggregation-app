@@ -1,7 +1,12 @@
 "use client"
 
+import { useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { ImageFilePicker } from "@/components/image-file-picker"
+import { ResetSessionConfirmDialog } from "@/components/reset-session-confirm-dialog"
+import type { SavedMatrixSummary } from "@/lib/saved-matrices"
+import type { ImagePickResult } from "@/lib/types"
+import { ContinueSaveCard, ContinueSaveCardSkeleton } from "./continue-save-card"
 import { UserMenu } from "./user-menu"
 
 export function EmptyScreen({
@@ -10,13 +15,45 @@ export function EmptyScreen({
   onLoginRequest,
   isGuest,
   userEmail,
+  continueSave,
+  onContinueSave,
+  savesLoading = false,
+  savedSummaries = [],
+  onOpenSaved,
+  onDeleteSaved,
+  onNewAssembly,
+  savesError,
+  onRetrySaves,
 }: {
-  onFilePicked: (src: string) => void
+  onFilePicked: (result: ImagePickResult) => void
   onLogout: () => void
   onLoginRequest: () => void
   isGuest: boolean
   userEmail?: string
+  continueSave?: SavedMatrixSummary | null
+  onContinueSave?: (id: string) => void
+  savesLoading?: boolean
+  savedSummaries?: SavedMatrixSummary[]
+  onOpenSaved?: (id: string) => void
+  onDeleteSaved?: (id: string) => void
+  onNewAssembly?: () => void
+  savesError?: string | null
+  onRetrySaves?: () => void
 }) {
+  const [showResetConfirm, setShowResetConfirm] = useState(false)
+  const pendingPickerRef = useRef<(() => void) | null>(null)
+
+  const hasExistingSaves = !isGuest && (!!continueSave || savedSummaries.length > 0)
+
+  function handlePickerClick(openPicker: () => void) {
+    if (hasExistingSaves) {
+      pendingPickerRef.current = openPicker
+      setShowResetConfirm(true)
+    } else {
+      openPicker()
+    }
+  }
+
   return (
     <ImageFilePicker onPick={onFilePicked}>
       {(openPicker, { isReading, error }) => (
@@ -34,8 +71,21 @@ export function EmptyScreen({
               onLoginRequest={onLoginRequest}
               isGuest={isGuest}
               userEmail={userEmail}
+              savedSummaries={savedSummaries}
+              savesLoading={savesLoading}
+              savesError={savesError}
+              onOpenSaved={onOpenSaved}
+              onDeleteSaved={onDeleteSaved}
+              onNewAssembly={onNewAssembly}
+              onRetrySaves={onRetrySaves}
             />
           </div>
+
+          {!isGuest && savesLoading && <ContinueSaveCardSkeleton />}
+
+          {!isGuest && !savesLoading && continueSave && onContinueSave && (
+            <ContinueSaveCard save={continueSave} onContinue={onContinueSave} />
+          )}
 
           <div className="flex flex-1 flex-col items-center justify-center text-center">
             <div className="-mx-6 mb-6 w-[calc(100%+3rem)]">
@@ -56,7 +106,7 @@ export function EmptyScreen({
             <div className="mt-10 flex w-full flex-col gap-3">
               <button
                 type="button"
-                onClick={openPicker}
+                onClick={() => handlePickerClick(openPicker)}
                 disabled={isReading}
                 className="flex w-full flex-col items-center justify-center gap-1 rounded-2xl bg-yellow-200 px-5 py-4 text-slate-900 shadow-sm transition-colors hover:bg-yellow-300 active:bg-yellow-400 disabled:opacity-60"
               >
@@ -85,6 +135,19 @@ export function EmptyScreen({
               )}
             </div>
           </div>
+
+          <ResetSessionConfirmDialog
+            open={showResetConfirm}
+            onConfirm={() => {
+              setShowResetConfirm(false)
+              pendingPickerRef.current?.()
+              pendingPickerRef.current = null
+            }}
+            onCancel={() => {
+              setShowResetConfirm(false)
+              pendingPickerRef.current = null
+            }}
+          />
         </motion.div>
       )}
     </ImageFilePicker>

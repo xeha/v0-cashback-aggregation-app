@@ -1,5 +1,5 @@
 import { Analytics } from '@vercel/analytics/next'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { AppProviders } from '@/components/app-providers'
 import './globals.css'
@@ -14,23 +14,30 @@ export const metadata: Metadata = {
   title: 'Кешбэк-агрегатор',
   description: 'Агрегатор кешбэка по картам — распознавание категорий со скриншотов',
   generator: 'v0.app',
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    title: 'Кешбэки',
+    statusBarStyle: 'default',
+  },
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
+        url: '/images/pwa/icon-192.png',
+        sizes: '192x192',
+        type: 'image/png',
       },
       {
         url: '/icon.svg',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/images/pwa/icon-180.png',
   },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#fef08a',
 }
 
 export default function RootLayout({

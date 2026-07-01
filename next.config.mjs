@@ -56,6 +56,14 @@ const nextConfig = {
         source: "/api/category/:path*",
         destination: `${devProxyBackendUrl}/api/category/:path*`,
       },
+      {
+        source: "/api/auth/:path*",
+        destination: `${devProxyBackendUrl}/api/auth/:path*`,
+      },
+      {
+        source: "/api/pipeline/:path*",
+        destination: `${devProxyBackendUrl}/api/pipeline/:path*`,
+      },
     ]
   },
 }

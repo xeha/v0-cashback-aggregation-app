@@ -2,6 +2,7 @@
 
 import { useRef, useState, type ChangeEvent, type ReactNode } from "react"
 import { ImageReadError, readImageFile } from "@/lib/image-utils"
+import type { ImagePickResult } from "@/lib/types"
 
 export interface ImageFilePickerState {
   isReading: boolean
@@ -13,7 +14,7 @@ export function ImageFilePicker({
   onDismiss,
   children,
 }: {
-  onPick: (dataUrl: string) => void
+  onPick: (result: ImagePickResult) => void
   onDismiss?: () => void
   children: (openPicker: () => void, state: ImageFilePickerState) => ReactNode
 }) {
@@ -34,8 +35,9 @@ export function ImageFilePicker({
     setIsReading(true)
 
     try {
+      const fileModifiedAt = file.lastModified
       const dataUrl = await readImageFile(file)
-      onPick(dataUrl)
+      onPick({ dataUrl, fileModifiedAt })
     } catch (err) {
       setError(err instanceof ImageReadError ? err.message : "Не удалось загрузить изображение.")
     } finally {

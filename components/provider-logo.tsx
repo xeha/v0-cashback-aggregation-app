@@ -81,16 +81,14 @@ export function ProviderLogo({
 
   return (
     <span className={`relative inline-flex shrink-0 ${className}`}>
-      {!loaded && (
-        <span
-          title={name}
-          aria-hidden
-          style={colors}
-          className="absolute inset-0 inline-flex items-center justify-center rounded-lg text-[12px] font-bold"
-        >
-          {getProviderInitial(name)}
-        </span>
-      )}
+      <span
+        title={name}
+        aria-hidden
+        style={colors}
+        className={`absolute inset-0 inline-flex items-center justify-center rounded-lg text-[12px] font-bold transition-opacity ${loaded ? "opacity-0" : "opacity-100"}`}
+      >
+        {getProviderInitial(name)}
+      </span>
       <img
         src={src}
         alt={name}

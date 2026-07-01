@@ -8,8 +8,14 @@
     "start": "next start",
     "lint": "eslint .",
     "test": "vitest run",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "test:e2e": "playwright test",
+    "test:e2e:staging": "PLAYWRIGHT_BASE_URL=https://cashbackbrain.ru playwright test",
+    "test:auth": "vitest run lib/auth-errors.test.ts lib/auth-validation.test.ts lib/auth-context.test.ts lib/use-email-blur-validation.test.ts && npm run test:integration",
+    "security:audit": "npm audit --audit-level=high",
     "upload:logos": "node scripts/upload-assets.mjs",
-    "upload:catalogs": "node scripts/upload-catalogs.mjs"
+    "upload:catalogs": "node scripts/upload-catalogs.mjs",
+    "generate:pwa-icons": "node scripts/generate-pwa-icons.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
@@ -18,6 +24,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.40.0",
     "heic2any": "^0.0.4",
+    "html-to-image": "^1.11.13",
     "lucide-react": "^1.16.0",
     "next": "16.2.6",
     "pocketbase": "^0.27.0",
@@ -29,11 +36,17 @@
   },
   "devDependencies": {
     "@aws-sdk/client-s3": "^3.1075.0",
+    "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "^4.2.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
     "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitest/coverage-v8": "^4.1.9",
+    "jsdom": "^29.1.1",
     "postcss": "^8.5",
+    "sharp": "^0.35.2",
     "tailwindcss": "^4.2.0",
     "typescript": "5.7.3",
     "vitest": "^4.1.9"

@@ -1,8 +1,5 @@
-import {
-  getProviderLogoBySlug,
-  providerNamesMatch,
-  resolveProviderLogo,
-} from "@/lib/provider-logos"
+/** UI-only matrix helpers. Domain merge lives in backend/services/matrix_merge_service.py */
+
 import {
   formatCategoryLabel,
   labelsEquivalent,
@@ -16,68 +13,7 @@ import {
   summaryRatesForParts,
   type ComparisonPart,
 } from "@/lib/market-comparison"
-import type {
-  CashbackMatrix,
-  Kind,
-  MappedItem,
-  MatrixGroup,
-  MatrixProvider,
-  MatrixRow,
-  SourceSubmission,
-} from "@/lib/types"
-
-function slugify(name: string): string {
-  return name
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-zа-яё0-9]+/gi, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 40) || "provider"
-}
-
-export function buildProviderKey(name: string, existingKeys: Set<string>): string {
-  const base = slugify(name)
-  let key = base
-  let counter = 2
-  while (existingKeys.has(key)) {
-    key = `${base}-${counter}`
-    counter += 1
-  }
-  return key
-}
-
-function resolveBankRowKey(
-  isMacro: boolean,
-  parent: string | undefined,
-  canonicalLabel: string,
-): string {
-  if (isMacro && parent) {
-    return `macro::${normalizeCategoryLabel(parent)}`
-  }
-  return `leaf::${normalizeCategoryLabel(canonicalLabel)}`
-}
-
-function rowKeyFromExisting(row: MatrixRow): string {
-  if (row.isMacro && row.parent) {
-    return `macro::${normalizeCategoryLabel(row.parent)}`
-  }
-  const canonical = row.canonicalCategory ?? row.category
-  return `leaf::${normalizeCategoryLabel(canonical)}`
-}
-
-function resolveBankDisplayLabel(item: MappedItem, canonical: string, isMacro: boolean): string {
-  const parent = item.unified_parent
-  if (isMacro && parent) {
-    if (item.unified_category && !labelsEquivalent(item.unified_category, canonical)) {
-      return item.unified_category
-    }
-    return parent
-  }
-  if (item.unified_category && !labelsEquivalent(item.unified_category, canonical)) {
-    return item.unified_category
-  }
-  return canonical
-}
+import type { Kind, MatrixGroup, MatrixRow } from "@/lib/types"
 
 function consolidateGroupRows(rows: MatrixRow[]): MatrixRow[] {
   const macroByParent = new Map<string, MatrixRow>()
@@ -111,138 +47,6 @@ function consolidateGroupRows(rows: MatrixRow[]): MatrixRow[] {
   }
 
   return [...macroByParent.values(), ...leaves]
-}
-
-export function mergeMappedItems(
-  matrix: CashbackMatrix | null,
-  provider: MatrixProvider,
-  items: MappedItem[],
-  kind: Kind,
-): CashbackMatrix {
-  const rowMap = new Map<string, MatrixRow>()
-  const collectedMarketParts: ComparisonPart[] =
-    matrix && matrix.kind === kind ? [...(matrix.marketParts ?? [])] : []
-
-  if (matrix && matrix.kind === kind) {
-    for (const row of matrix.rows) {
-      const key = rowKeyFromExisting(row)
-      rowMap.set(key, {
-        ...row,
-        rates: { ...row.rates },
-      })
-    }
-  }
-
-  for (const item of items) {
-    if (item.is_bank_offer) continue
-
-    if (kind === "market") {
-      const path = (item.reference_path ?? []).map((n) => ({ id: n.id, name: n.name }))
-      if (path.length === 0) continue
-      collectedMarketParts.push({
-        store: provider.key,
-        rate: item.rate,
-        label: formatCategoryLabel(item.split_text ?? item.display_label ?? item.unified_category),
-        nodeId: item.reference_node_id ?? path[path.length - 1].id,
-        path,
-      })
-      continue
-    }
-
-    const isMacro = item.is_macro_category ?? false
-    const parent = item.unified_parent
-    const canonical = item.unified_subcategory ?? item.unified_category
-    const displayLabel = resolveBankDisplayLabel(item, canonical, isMacro)
-    const displayCategory = formatCategoryLabel(displayLabel)
-    const raw = item.raw_category.trim()
-    const bankRaw =
-      raw &&
-      !labelsEquivalent(raw, displayCategory) &&
-      !labelsEquivalent(raw, canonical)
-        ? raw
-        : undefined
-    const rowKey = resolveBankRowKey(
-      isMacro,
-      parent,
-      isMacro && parent ? parent : canonical,
-    )
-
-    const existing = rowMap.get(rowKey) ?? {
-      category: displayCategory,
-      canonicalCategory:
-        !isMacro && !labelsEquivalent(displayCategory, canonical)
-          ? canonical
-          : undefined,
-      parent,
-      bankRaw,
-      isMacro,
-      rates: {},
-    }
-    const hadProviders = Object.keys(existing.rates).length > 0
-    existing.rates[provider.key] = item.rate
-    if (!existing.parent && parent) existing.parent = parent
-    if (!existing.isMacro && isMacro) existing.isMacro = isMacro
-
-    if (!isMacro && hadProviders && existing.canonicalCategory) {
-      existing.category = formatCategoryLabel(existing.canonicalCategory)
-      existing.bankRaw = undefined
-    } else if (!hadProviders) {
-      existing.category = displayCategory
-      if (!isMacro && !labelsEquivalent(displayCategory, canonical)) {
-        existing.canonicalCategory = canonical
-      }
-      if (bankRaw) existing.bankRaw = bankRaw
-    } else if (hadProviders && isMacro) {
-      existing.bankRaw = undefined
-    }
-
-    rowMap.set(rowKey, existing)
-
-    if (isMacro && parent && bankRaw) {
-      const retailerKey = `leaf::${normalizeCategoryLabel(bankRaw)}`
-      const retailerRow = rowMap.get(retailerKey) ?? {
-        category: formatCategoryLabel(bankRaw),
-        parent,
-        isMacro: false,
-        rates: {},
-      }
-      retailerRow.rates[provider.key] = item.rate
-      if (!retailerRow.parent) retailerRow.parent = parent
-      rowMap.set(retailerKey, retailerRow)
-    }
-  }
-
-  const providers =
-    matrix && matrix.kind === kind
-      ? [...matrix.providers.filter((p) => p.key !== provider.key), provider]
-      : [provider]
-
-  return {
-    kind,
-    providers,
-    rows: Array.from(rowMap.values()).sort((a, b) =>
-      a.category.localeCompare(b.category, "ru"),
-    ),
-    marketParts: kind === "market" ? collectedMarketParts : undefined,
-  }
-}
-
-export function mergeSubmissionsIntoMatrix(
-  bankItems: { provider: MatrixProvider; items: MappedItem[] }[],
-  marketItems: { provider: MatrixProvider; items: MappedItem[] }[],
-): { bank: CashbackMatrix | null; market: CashbackMatrix | null } {
-  let bankMatrix: CashbackMatrix | null = null
-  let marketMatrix: CashbackMatrix | null = null
-
-  for (const entry of bankItems) {
-    bankMatrix = mergeMappedItems(bankMatrix, entry.provider, entry.items, "bank")
-  }
-
-  for (const entry of marketItems) {
-    marketMatrix = mergeMappedItems(marketMatrix, entry.provider, entry.items, "market")
-  }
-
-  return { bank: bankMatrix, market: marketMatrix }
 }
 
 export function countProvidersInGroup(group: MatrixGroup): number {
@@ -518,34 +322,4 @@ export function groupMatrixRows(
     group.isMacroOnly = isMacroOnlyGroup(group)
     return group
   })
-}
-
-export function findMatchingProvider(
-  submission: SourceSubmission,
-  providers: MatrixProvider[],
-): MatrixProvider | undefined {
-  return providers.find((provider) =>
-    providerNamesMatch(submission.providerName, provider.name, submission.kind),
-  )
-}
-
-export function createProviderFromSubmission(
-  submission: SourceSubmission,
-  existingKeys: Set<string>,
-  existingProviders: MatrixProvider[] = [],
-): MatrixProvider {
-  const existing = findMatchingProvider(submission, existingProviders)
-  if (existing) return existing
-
-  const name = submission.providerName.trim()
-  const key = buildProviderKey(name, existingKeys)
-  const logo = submission.providerSlug
-    ? getProviderLogoBySlug(submission.providerSlug, submission.kind)
-    : resolveProviderLogo(name, submission.kind)
-
-  return {
-    key,
-    name,
-    logo,
-  }
 }
