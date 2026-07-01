@@ -3,7 +3,8 @@ FROM node:20-alpine AS base
 FROM base AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN --mount=type=cache,id=npm,target=/root/.npm \
+    npm ci --registry https://registry.npmmirror.com
 
 FROM base AS builder
 WORKDIR /app
@@ -18,7 +19,7 @@ ENV NEXT_PUBLIC_POCKETBASE_URL=$NEXT_PUBLIC_POCKETBASE_URL
 ENV NEXT_PUBLIC_ASSETS_URL=$NEXT_PUBLIC_ASSETS_URL
 ENV NEXT_TELEMETRY_DISABLED=1
 
-RUN npm run build
+RUN node node_modules/next/dist/bin/next build
 
 FROM base AS runner
 WORKDIR /app
