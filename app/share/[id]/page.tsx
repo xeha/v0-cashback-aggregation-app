@@ -218,8 +218,10 @@ export default async function SharePage({
       ? formatCashbackPeriod({ month: period_month, year: period_year })
       : record.title
 
-  const showBank = kind !== "market" && !!bank_matrix && bank_matrix.rows.length > 0
-  const showMarket = kind !== "bank" && !!market_matrix && market_matrix.rows.length > 0
+  const showBank = kind !== "market" && !!bank_matrix &&
+    (bank_matrix.groups ?? groupMatrixRows(bank_matrix.rows, bank_matrix.marketParts)).length > 0
+  const showMarket = kind !== "bank" && !!market_matrix &&
+    (market_matrix.groups ?? groupMatrixRows(market_matrix.rows, market_matrix.marketParts)).length > 0
 
   const kindLabel =
     kind === "bank" ? " — Банки" : kind === "market" ? " — Маркетплейсы" : ""

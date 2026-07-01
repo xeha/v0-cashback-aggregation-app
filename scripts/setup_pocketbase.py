@@ -132,7 +132,7 @@ def _saved_matrices_spec(users_collection_id: str) -> dict:
             {"name": "is_favorite", "type": "bool", "required": False},
         ],
         "listRule": "user = @request.auth.id",
-        "viewRule": "user = @request.auth.id",
+        "viewRule": "",
         "createRule": '@request.auth.id != "" && @request.body.user = @request.auth.id',
         "updateRule": "user = @request.auth.id",
         "deleteRule": "user = @request.auth.id",
