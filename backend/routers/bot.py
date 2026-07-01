@@ -5,7 +5,7 @@ from fastapi import APIRouter, Request
 router = APIRouter(prefix="/bot", tags=["bot"])
 
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
-MINI_APP_URL = os.getenv("TELEGRAM_MINI_APP_URL", "https://t.me/CashbackBrain_bot/cashscan")
+MINI_APP_URL = os.getenv("TELEGRAM_MINI_APP_URL", "https://t.me/CashbackBrain_bot/cashbackbrain")
 _TG_API = f"https://api.telegram.org/bot{BOT_TOKEN}"
 
 WELCOME_TEXT = (

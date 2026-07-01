@@ -117,6 +117,7 @@ Logos and catalogs are served from Timeweb CDN (`NEXT_PUBLIC_ASSETS_URL`).
 
 [backend/routers/bot.py](backend/routers/bot.py) — `/start` → welcome message with Mini App button.
 Env: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_MINI_APP_URL`.
+Mini App URL: `https://t.me/CashbackBrain_bot/cashbackbrain`
 Register webhook: `curl "https://api.telegram.org/bot<TOKEN>/setWebhook?url=https://api.cashbackbrain.ru/bot/webhook"`
 
 ### Device upload
