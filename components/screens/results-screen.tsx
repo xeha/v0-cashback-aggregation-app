@@ -233,7 +233,8 @@ export function ResultsScreen({
           setSavePngStatus("done")
         } else {
           const link = document.createElement("a")
-          link.download = `кешбэки-${cashbackPeriodLabel.replace(/\s+/g, "-").toLowerCase()}.png`
+          const tabSlug = activeTab === "bank" ? "банки" : "супермаркеты"
+          link.download = `кешбэки-${tabSlug}-${cashbackPeriodLabel.replace(/\s+/g, "-").toLowerCase()}.png`
           link.href = dataUrl
           link.click()
           setSavePngStatus("done")
