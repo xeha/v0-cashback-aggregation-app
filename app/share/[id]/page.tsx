@@ -229,9 +229,7 @@ export default async function SharePage({
       <div className="mx-auto max-w-2xl space-y-4">
         {/* Header */}
         <div className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-yellow-300 text-xl font-black text-slate-800">
-            %
-          </span>
+          <img src="/images/logo-icon.svg" alt="CashbackBrain" className="h-11 w-11 rounded-2xl" />
           <div>
             <p className="text-[12px] font-medium text-slate-400">CashbackBrain</p>
             <h1 className="text-[22px] font-bold leading-tight text-slate-900">

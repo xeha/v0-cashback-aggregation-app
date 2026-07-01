@@ -1,4 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-  <rect width="48" height="48" rx="12" fill="#FEF08A"/>
-  <text x="24" y="31" text-anchor="middle" font-size="20" font-weight="700" fill="#334155" font-family="system-ui,sans-serif">%</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <rect width="80" height="80" rx="20" fill="#FEF08A"/>
+  <defs>
+    <mask id="brain-mask">
+      <rect width="80" height="80" fill="white"/>
+      <!-- center divider -->
+      <rect x="38.5" y="13" width="3" height="42" fill="black"/>
+      <!-- % symbol -->
+      <text x="40" y="53" text-anchor="middle" dominant-baseline="middle"
+            font-size="21" font-weight="900" font-family="Arial,Helvetica,sans-serif" fill="black">%</text>
+    </mask>
+  </defs>
+  <!-- Brain: left hemisphere + right hemisphere + bottom body -->
+  <circle cx="30" cy="27" r="14" fill="#1e293b" mask="url(#brain-mask)"/>
+  <circle cx="50" cy="27" r="14" fill="#1e293b" mask="url(#brain-mask)"/>
+  <path d="M16 27 Q16 61 40 61 Q64 61 64 27 Z" fill="#1e293b" mask="url(#brain-mask)"/>
 </svg>
