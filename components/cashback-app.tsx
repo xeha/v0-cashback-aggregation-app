@@ -191,11 +191,19 @@ export function CashbackApp() {
   }
 
   async function handleSaveMatrix(): Promise<{ ok: true; message: string } | { ok: false; message: string }> {
+    const hasBank = (matrix.bank?.providers.length ?? 0) > 0
+    const hasMarket = (matrix.market?.providers.length ?? 0) > 0
+    const kindLabel =
+      hasBank && hasMarket ? "Кешбэк" : hasBank ? "Банки" : "Маркетплейсы"
+    const { month, year } = cashbackPeriod
+    const title = `${kindLabel} ${month}.${year}`
+
     const payload = {
       matrix,
       submissions,
       summary: processingSummary,
       period: cashbackPeriod,
+      title,
     }
 
     try {
