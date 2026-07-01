@@ -1,10 +1,10 @@
 FROM node:20-alpine AS base
-RUN npm install -g pnpm
 
 FROM base AS deps
 WORKDIR /app
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
+COPY package.json package-lock.json ./
+RUN --mount=type=cache,id=npm,target=/root/.npm \
+    npm ci
 
 FROM base AS builder
 WORKDIR /app
@@ -19,7 +19,7 @@ ENV NEXT_PUBLIC_POCKETBASE_URL=$NEXT_PUBLIC_POCKETBASE_URL
 ENV NEXT_PUBLIC_ASSETS_URL=$NEXT_PUBLIC_ASSETS_URL
 ENV NEXT_TELEMETRY_DISABLED=1
 
-RUN pnpm run build
+RUN node node_modules/next/dist/bin/next build
 
 FROM base AS runner
 WORKDIR /app
