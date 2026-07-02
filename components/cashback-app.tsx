@@ -229,6 +229,11 @@ export function CashbackApp() {
     }
   }
 
+  async function handleSaveProfile(name: string) {
+    if (!user) return
+    await pb.collection("users").update(user.id, { name })
+  }
+
   useEffect(() => {
     if (user && authOpen) {
       setAuthOpen(false)
@@ -380,9 +385,10 @@ export function CashbackApp() {
                     }}
                     onLogout={handleLogout}
                     userEmail={typeof user?.email === "string" ? user.email : undefined}
+                    userName={typeof user?.name === "string" && user.name ? user.name : undefined}
+                    onSaveProfile={!isGuest ? handleSaveProfile : undefined}
                     continueSave={continueSave}
                     onContinueSave={handleOpenSaved}
-                    savesLoading={savesLoading}
                     {...savedMenuProps}
                   />
                 )}
@@ -533,6 +539,8 @@ export function CashbackApp() {
                     showGuestSaveBanner={isGuest && !guestBannerDismissed}
                     onGuestSaveBannerDismiss={() => setGuestBannerDismissed(true)}
                     userEmail={typeof user?.email === "string" ? user.email : undefined}
+                    userName={typeof user?.name === "string" && user.name ? user.name : undefined}
+                    onSaveProfile={!isGuest ? handleSaveProfile : undefined}
                     activeSaveId={activeSaveId}
                     onSaveMatrix={handleSaveMatrix}
                     onUploadMore={() => {

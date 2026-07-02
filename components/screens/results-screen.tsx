@@ -59,6 +59,8 @@ export function ResultsScreen({
   submissions = [],
   processingSummary = { skipped: [], lowConfidence: [], bankOffers: [] },
   userEmail,
+  userName,
+  onSaveProfile,
   isGuest = false,
   showGuestSaveBanner = false,
   onGuestSaveBannerDismiss,
@@ -82,6 +84,8 @@ export function ResultsScreen({
   submissions?: SourceSubmission[]
   processingSummary?: ProcessingSummary
   userEmail?: string
+  userName?: string
+  onSaveProfile?: (name: string) => Promise<void>
   isGuest?: boolean
   showGuestSaveBanner?: boolean
   onGuestSaveBannerDismiss?: () => void
@@ -302,6 +306,8 @@ export function ResultsScreen({
             onLoginRequest={onLoginRequest}
             isGuest={isGuest}
             userEmail={userEmail}
+            userName={userName}
+            onSaveProfile={onSaveProfile}
             savedSummaries={savedSummaries}
             savesLoading={savesLoading}
             savesError={savesError}
