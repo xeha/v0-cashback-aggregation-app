@@ -426,7 +426,7 @@ export function ResultsScreen({
                   const providerCountInGroup = countProvidersInGroup(group)
                   const hasSubcategories =
                     groupHasSubcategories(group, activeTab) &&
-                    !(activeTab === "bank" && providerCountInGroup <= 1)
+                    !(activeTab === "bank" && providerCountInGroup <= 1 && visibleRows.length <= 1)
                   const isExpanded = hasSubcategories && (expandedParents.has(group.parent) || isCapturing)
                   const isLastGroup = groupIdx === groups.length - 1
                   const resolveRowLabel = (row: MatrixRow) =>
