@@ -41,7 +41,7 @@ async def webhook(request: Request):
 
 
 async def _send_welcome(chat_id: int, token: str) -> None:
-    mini_app_url = os.getenv("TELEGRAM_MINI_APP_URL", "https://t.me/CashbackBrain_bot/cashbackbrain")
+    mini_app_url = os.getenv("TELEGRAM_MINI_APP_URL", "https://cashbackbrain.ru")
     async with httpx.AsyncClient(timeout=10) as client:
         resp = await client.post(
             f"https://api.telegram.org/bot{token}/sendMessage",
