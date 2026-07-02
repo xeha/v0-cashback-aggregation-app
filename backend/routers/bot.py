@@ -48,12 +48,6 @@ async def _send_welcome(chat_id: int, token: str) -> None:
             json={
                 "chat_id": chat_id,
                 "text": WELCOME_TEXT,
-                "reply_markup": {
-                    "inline_keyboard": [[{
-                        "text": "💳 Открыть приложение",
-                        "web_app": {"url": mini_app_url},
-                    }]]
-                },
             },
         )
         if not resp.is_success:
