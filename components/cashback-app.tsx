@@ -328,7 +328,6 @@ export function CashbackApp() {
     savesError,
     onOpenSaved: handleOpenSaved,
     onDeleteSaved: handleDeleteSaved,
-    onNewAssembly: handleRestart,
     onRetrySaves: refreshSavedSummaries,
   }
 
@@ -524,6 +523,7 @@ export function CashbackApp() {
                       openGlobalPicker()
                     }}
                     {...savedMenuProps}
+                    onNewAssembly={handleRestart}
                   />
                 )}
                   </AnimatePresence>
