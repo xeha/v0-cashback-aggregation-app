@@ -423,10 +423,12 @@ export function ResultsScreen({
                     activeTab === "market"
                       ? getVisibleMarketGroupRows(group)
                       : getVisibleBankGroupRows(group)
-                  const hasSubcategories = groupHasSubcategories(group, activeTab)
+                  const providerCountInGroup = countProvidersInGroup(group)
+                  const hasSubcategories =
+                    groupHasSubcategories(group, activeTab) &&
+                    !(activeTab === "bank" && providerCountInGroup <= 1)
                   const isExpanded = hasSubcategories && (expandedParents.has(group.parent) || isCapturing)
                   const isLastGroup = groupIdx === groups.length - 1
-                  const providerCountInGroup = activeTab === "market" ? countProvidersInGroup(group) : 0
                   const resolveRowLabel = (row: MatrixRow) =>
                     activeTab === "market"
                       ? resolveMarketRowCategory(row, providerCountInGroup)
@@ -435,7 +437,7 @@ export function ResultsScreen({
                   const displayLabel = hasSubcategories
                     ? formatCategoryLabel(groupHeaderLabel)
                     : formatCategoryLabel(
-                        group.rows[0] ? resolveRowLabel(group.rows[0]) : groupHeaderLabel,
+                        visibleRows[0] ? resolveRowLabel(visibleRows[0]) : groupHeaderLabel,
                       )
 
                   const isSortActive = sortKey === group.parent
