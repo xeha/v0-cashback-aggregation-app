@@ -39,7 +39,7 @@ import type {
 
 type Screen = "empty" | "gallery" | "bank-select" | "processing" | "results"
 
-type PickMode = "upload-more" | "replace"
+type PickMode = "upload-more" | "replace" | "new-scan"
 
 const EMPTY_PROCESSING_SUMMARY: ProcessingSummary = {
   skipped: [],
@@ -126,6 +126,7 @@ export function CashbackApp() {
   const [savesError, setSavesError] = useState<string | null>(null)
   const [openSaveError, setOpenSaveError] = useState<string | null>(null)
   const pickModeRef = useRef<PickMode | null>(null)
+  const openGlobalPickerRef = useRef<(() => void) | null>(null)
 
   const isGuest = !user
   const continueSave = savedSummaries[0] ?? null
@@ -228,6 +229,11 @@ export function CashbackApp() {
     }
   }
 
+  async function handleSaveProfile(name: string) {
+    if (!user) return
+    await pb.collection("users").update(user.id, { name })
+  }
+
   useEffect(() => {
     if (user && authOpen) {
       setAuthOpen(false)
@@ -303,7 +309,21 @@ export function CashbackApp() {
       setInitialShot(src)
       setBankSelectSession((value) => value + 1)
       setCurrentScreen("bank-select")
+      return
     }
+
+    if (mode === "new-scan") {
+      setActiveSaveId(null)
+      setInitialShot(src)
+      setGalleryPrefillSrc(src)
+      setCurrentScreen("gallery")
+    }
+  }
+
+  function handleRestartAndPick() {
+    handleRestart()
+    pickModeRef.current = "new-scan"
+    openGlobalPickerRef.current?.()
   }
 
   const bankSelectInitialRows = getBankSelectInitialRows({
@@ -328,7 +348,6 @@ export function CashbackApp() {
     savesError,
     onOpenSaved: handleOpenSaved,
     onDeleteSaved: handleDeleteSaved,
-    onNewAssembly: handleRestart,
     onRetrySaves: refreshSavedSummaries,
   }
 
@@ -347,7 +366,9 @@ export function CashbackApp() {
               pickModeRef.current = null
             }}
           >
-            {(openGlobalPicker) => (
+            {(openGlobalPicker) => {
+              openGlobalPickerRef.current = openGlobalPicker
+              return (
               <div className="relative flex h-full flex-col overflow-hidden">
                 <div className="relative flex-1 overflow-y-auto">
                   <AnimatePresence mode="wait">
@@ -364,9 +385,10 @@ export function CashbackApp() {
                     }}
                     onLogout={handleLogout}
                     userEmail={typeof user?.email === "string" ? user.email : undefined}
+                    userName={typeof user?.name === "string" && user.name ? user.name : undefined}
+                    onSaveProfile={!isGuest ? handleSaveProfile : undefined}
                     continueSave={continueSave}
                     onContinueSave={handleOpenSaved}
-                    savesLoading={savesLoading}
                     {...savedMenuProps}
                   />
                 )}
@@ -517,6 +539,8 @@ export function CashbackApp() {
                     showGuestSaveBanner={isGuest && !guestBannerDismissed}
                     onGuestSaveBannerDismiss={() => setGuestBannerDismissed(true)}
                     userEmail={typeof user?.email === "string" ? user.email : undefined}
+                    userName={typeof user?.name === "string" && user.name ? user.name : undefined}
+                    onSaveProfile={!isGuest ? handleSaveProfile : undefined}
                     activeSaveId={activeSaveId}
                     onSaveMatrix={handleSaveMatrix}
                     onUploadMore={() => {
@@ -524,12 +548,13 @@ export function CashbackApp() {
                       openGlobalPicker()
                     }}
                     {...savedMenuProps}
+                    onNewAssembly={handleRestartAndPick}
                   />
                 )}
                   </AnimatePresence>
                 </div>
               </div>
-            )}
+            )}}
           </ImageFilePicker>
 
           <AnimatePresence>

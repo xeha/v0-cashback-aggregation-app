@@ -95,6 +95,8 @@ export function UserMenu({
   onLoginRequest,
   isGuest = false,
   userEmail,
+  userName,
+  onSaveProfile,
   variant = "light",
   savedSummaries = [],
   savesLoading = false,
@@ -109,6 +111,8 @@ export function UserMenu({
   onLoginRequest?: () => void
   isGuest?: boolean
   userEmail?: string
+  userName?: string
+  onSaveProfile?: (name: string) => Promise<void>
   variant?: "light" | "overlay"
   savedSummaries?: SavedMatrixSummary[]
   savesLoading?: boolean
@@ -135,13 +139,17 @@ export function UserMenu({
   const [name, setName] = useState("Пользователь")
   const [email, setEmail] = useState(userEmail ?? "")
   const [notifications, setNotifications] = useState(true)
+  const [profileSaving, setProfileSaving] = useState(false)
 
   useEffect(() => {
-    if (!userEmail) return
-    setEmail(userEmail)
-    const localPart = userEmail.split("@")[0] ?? "Пользователь"
-    setName(localPart.charAt(0).toUpperCase() + localPart.slice(1))
-  }, [userEmail])
+    if (userName) {
+      setName(userName)
+    } else if (userEmail) {
+      const localPart = userEmail.split("@")[0] ?? "Пользователь"
+      setName(localPart.charAt(0).toUpperCase() + localPart.slice(1))
+    }
+    if (userEmail) setEmail(userEmail)
+  }, [userName, userEmail])
 
   // Cashback profile state — all categories selected by default
   const [preferred, setPreferred] = useState<string[]>(() => [...CASHBACK_CATEGORIES])
@@ -381,10 +389,21 @@ export function UserMenu({
 
                         <button
                           type="button"
-                          onClick={() => setView("menu")}
-                          className="mt-1 w-full rounded-2xl bg-yellow-200 px-5 py-3.5 text-[15px] font-semibold text-slate-900 transition-colors hover:bg-yellow-300 active:bg-yellow-400"
+                          disabled={profileSaving}
+                          onClick={async () => {
+                            if (onSaveProfile) {
+                              setProfileSaving(true)
+                              try {
+                                await onSaveProfile(name)
+                              } finally {
+                                setProfileSaving(false)
+                              }
+                            }
+                            setView("menu")
+                          }}
+                          className="mt-1 w-full rounded-2xl bg-yellow-200 px-5 py-3.5 text-[15px] font-semibold text-slate-900 transition-colors hover:bg-yellow-300 active:bg-yellow-400 disabled:opacity-60"
                         >
-                          Сохранить
+                          {profileSaving ? "Сохранение…" : "Сохранить"}
                         </button>
                       </div>
                     )}

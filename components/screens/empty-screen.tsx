@@ -15,6 +15,8 @@ export function EmptyScreen({
   onLoginRequest,
   isGuest,
   userEmail,
+  userName,
+  onSaveProfile,
   continueSave,
   onContinueSave,
   savesLoading = false,
@@ -30,6 +32,8 @@ export function EmptyScreen({
   onLoginRequest: () => void
   isGuest: boolean
   userEmail?: string
+  userName?: string
+  onSaveProfile?: (name: string) => Promise<void>
   continueSave?: SavedMatrixSummary | null
   onContinueSave?: (id: string) => void
   savesLoading?: boolean
@@ -71,6 +75,8 @@ export function EmptyScreen({
               onLoginRequest={onLoginRequest}
               isGuest={isGuest}
               userEmail={userEmail}
+              userName={userName}
+              onSaveProfile={onSaveProfile}
               savedSummaries={savedSummaries}
               savesLoading={savesLoading}
               savesError={savesError}
